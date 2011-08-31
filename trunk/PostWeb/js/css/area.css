@@ -1,0 +1,11 @@
+﻿.area-ctn{width:300px;border:solid 1px #7A7A7A;padding:6px;display:none; position:absolute; background-color:White;}
+.area-ctn li{padding:0 8px 0 8px;width:44px;height:22px;line-height:22px;float:left;cursor:pointer;}
+.hover{position:relative;background-color:#F77400;}
+.hover ul li{color:#444;}
+.area-all,.area-Municipalities{border-bottom:dotted 1px #ddd;}
+.area-Municipalities{width:300px;height:22px;}
+.area-province{width:300px;height:132px;}
+.liprovince ul{display:none;position:absolute;left:47px;top:12px;width:240px;border:solid 1px #7A7A7A;padding:6px; background-color:White;}
+.liprovince ul li{width:64px;}
+.area-all{overflow:auto;zoom:1;}
+.area-all li{width:54px;}

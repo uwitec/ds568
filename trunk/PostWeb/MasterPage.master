@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <script type="text/javascript" src="/js/jquery142min.js"></script>
+    <script type="text/javascript" src="/js/public.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+            //搜索类型切换
+            $(".div_8_1 a").click(function(){
+                $(".div_8_1 ul li").removeClass("current")
+                var ind=$(".div_8_1 ul li").index($(this).parent())+1;
+                $('.div_8_1').attr('class','div_8_1 div_8_p'+ind);
+                $(this).parent().addClass("current");
+            });
+            
+            //设置搜索类型切换时让点击的选项失去焦点，防止出现一个虚线框，提高用户体验
+	        $('#div_8 a').bind('focus',function(){
+		       $("#keyWordBox").focus()
+		    });
+		    
+		    //点击地区列表时选中值
+		    $(".areaDiv ul li").click(function(){
+		        $(".area").val($(this).text());
+		    });
+        });
+    </script>
+    <asp:ContentPlaceHolder id="head" runat="server"> 
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+     <!--==========顶部Start===============-->
+     <div class="top"><div class="container">
+          <div  id="div_3"><span class="margin_1em"></span>您好, smalldug123 <a href="#">[请登录]</a> <a href="#">[免费注册] </a></div>
+          <div id="div_4"><div class="divCar"><img src="../images/car.gif" class="car" /><a href="#" >我的购物车</a></div> <span class="topSplitLine">|</span> <a href="#">设为首页</a> <span class="topSplitLine" >|</span> <a href="#">加入收藏</a></div>
+          </div>
+     </div>
+     <!--==========顶部End===============-->
+    <div class="container">
+        <!--==========搜索栏开始===============-->
+        <div id="HeadSearch_1">
+        <div id="div_5" ><a href="../home/index.aspx"><img src="../images/logo.gif" class="logo" /></a></div>
+        <div id="div_6">
+        <div id="div_8" class="div_8_1">
+	        <ul>
+    	        <li class="current" ><a href="javascript:;">产品库</a></li>
+                <li><a href="javascript:;">公司库</a></li>
+                <li><a href="javascript:;">求<span class="margin_1em"></span>购</a></li>
+            </ul></div>
+        </div>
+        <div id="div_7"></div>
+        </div>
+        <div id="HeadSearch_2">
+	        <div id="div_9" class="div_9" ></div>
+            <div id="div_10" class="div_10"><input  id="keyWordBox"  class="keyWordBox" name="keyWordBox" type="text"  />
+            <div class="areaDiv" id="areaDiv"><input name="area" id="area" class="area" type="text" readonly="readonly" value="所有地区" />
+                <ul>
+    		        <li>广东省</li>
+                    <li>上海市</li>
+                    <li>福建省</li>
+                </ul>
+            </div><input  class="btn_1" name="" type="button" />
+            </div>
+            <div id="div_11" class="div_11"></div>
+        </div>
+        <!--==========搜索栏结束===============-->
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+         <!--===============分隔线开始=================-->
+        <div class="spLine"></div>
+        <!--===============分隔线结束=================-->
+        <!--===============底部开始=================-->
+        <div class="footer">
+          <p><a href="http://page.china.alibaba.com/safetycenter/tort.html">知识产权侵权投诉</a> | <a href="http://info.china.alibaba.com/biznews/pages/alihome/js_zzq.html">著作权与商标声明</a> | <a href="http://info.china.alibaba.com/biznews/pages/alihome/js_fl.html">法律声明</a> | <a href="http://info.china.alibaba.com/biznews/pages/alihome/js_fw.html">服务条款</a> | <a href="http://info.china.alibaba.com/biznews/pages/alihome/js_ys.html">隐私声明</a> | <a href="http://page.china.alibaba.com/shtml/about/ali_china8.shtml">联系我们</a> | <a href="http://page.china.alibaba.com/sitemap/sitemap.html">网站地图</a></p>
+          <p>阿里巴巴网络有限公司及/或其子公司与授权者版权所有 1999-2010<a href="http://realname.alibaba.com.cn/">网络实名</a>：阿里巴巴 </p>
+          <p><a title="网络工商" href="http://www.idinfo.cn/SignHandle?userID=3301080000022169">网络工商</a> <a title="增值电信业务经营许可证" href="http://www.miibeian.gov.cn">增值电信业务经营许可证浙B2－20070066</a> </p>
+          <p><a href="http://page.china.alibaba.com/shtml/coop/yiyao.shtml">互联网药品信息服务资格证书(浙)-经营性-2007-0002</a></p>
+          <p> 信息网络传播视听节目许可证1109366号</p>
+        </div>
+        <!--===============底部结束=================-->
+    </div>
+</body>
+</html>

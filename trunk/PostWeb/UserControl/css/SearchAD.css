@@ -1,0 +1,12 @@
+﻿.cLeft,.cMiddle,.cRight{background:url(../images/bg.gif) repeat-x;}
+.adHead div{height:26px;float:left;line-height:26px;}
+.cLeft{background-position:0 -61px;width:4px;}
+.cMiddle{background-position:0 -35px;width:162px;color:White; text-align:center}
+.cRight{background-position:0 -87px;width:4px;}
+.adContainer{border:solid 1px #FFB562;border-top:none; background-color:#F6F6F6;padding:4px;}
+.adImgCon img{ width:158px;border:solid 1px #ddd;}
+.adPrice{color:#FF3300;font-size:16px; text-align:center;}
+.adPrice span{font-size:12px;font-weight:normal;}
+.adContainer ul li{border-bottom:dashed 1px #ccc;margin-bottom:6px;}
+.adDes a:link,.adDes a:visited{color:#00349A;}
+.adDes a:hover{color:#ff7300; text-decoration:underline;}

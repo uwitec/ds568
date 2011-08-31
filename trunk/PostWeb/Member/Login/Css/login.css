@@ -1,0 +1,40 @@
+﻿@import url("/Css/Globle.css");
+.overflowAuto{overflow:auto;zoom:1;}
+.main{width:952px;margin:0 auto;margin-top:8px;}
+.contact{width:400px; text-align:right;}
+.qqonline{display:block;line-height:18px;width:66px;border:solid 1px #ddd; position:relative;padding:0 3px;}
+.qqonline img{position:absolute; right:52px;top:0px;}
+.kfphone{color:#ff7300;}
+.help{margin-top:4px;}
+.headLine{border-top:solid 1px #dd4e00;margin-top:12px; background-color:#ebebeb;height:6px; overflow:hidden;}
+.gray a:link,.gray:visited{color:Gray;}
+.gray a:hover{color:#ff7300;}
+.logo{ background:url(../images/bg.gif) repeat-x;}
+.logo{width:300px;font-size:26px; background-position:176px 4px; background-repeat:no-repeat;color:#666}
+.logo img{float:left;margin-right:22px;}
+.bottom{margin:0 auto;border-top:solid 3px #ff7300;height:100px; text-align:center;padding-top:10px;margin-top:10px;}
+.bottom ul{width:72%;margin:0 auto;}
+.bottom ul li{float:left;margin-right:1em;}
+.midcon{margin:24px 0;}
+.lgf{width:429px;}
+.lghead,.lgbottom{ background:url(../images/login_bg_c.gif) no-repeat;height:15px;}
+.lgbottom{ background-position:left bottom}
+.lgmiddle{background:url(../images/login_r_bg.gif) repeat-y;padding:10px 25px;}
+.lgtitle{font-size:16px;color:Black;font-weight:bold;border-bottom:dashed 1px #dcdcdc;height:25px; overflow:hidden;}
+.lgtitle a{color:Gray;font-size:12px; position:relative;left:-3px; top:9px;}
+.lgcon li{margin-top:18px;}
+.pwd{padding-left:3em;}
+.slg{padding-left:6em;}
+.txtbox{width:184px;border:solid 1px #B6B6B6;height:24px;line-height:24px;}
+.subBtn{margin-left:6em;_margin-left:36px;display:block; cursor:pointer;width:84px;}
+.subBtn:link,.subBtn:visited{color:White;font-weight:bold;}
+.subBtn div{float:left;}
+.btnm,.btnl,.btnr,.lgremark li{background:url(../images/icon.gif) no-repeat;}
+.btnm,.btnl,.btnr{height:29px; background-repeat:repeat-x;}
+.btnm{background-position:0 -37px;width:80px;text-align:center;line-height:29px; text-indent:0;}
+.btnl{width:2px;}
+.btnr{width:2px;background-position:-2px 0;}
+.reg{position:relative; top:6px;left:20px;}
+.spline{height:1px; overflow:hidden;border-bottom:dashed 1px #dcdcdc;margin:20px 0 10px 0;}
+.lgremark li{ text-indent:5em;line-height:26px; background-position:-28px -76px;}
+li.rmkt{ text-indent:0;font-size:14px;font-weight:bold; background:none;}

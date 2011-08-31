@@ -1,0 +1,24 @@
+﻿/* CSS Document */
+body {
+	margin:0 auto;
+	font-size:12px;
+	font-family:Tahoma;
+	line-height: 1.5;
+	behavior:url('/css/csshover.htc');
+	color:#333;
+}
+ul,dl,dd,h1,h2,h3,h4,h5,h6,form,p { padding:0; margin:0;}
+ul { list-style:none;}
+img { border:0px;}
+a{text-decoration:none;}
+a:link,a:visited { color:#333; }
+a:hover{color:#ff7300;}
+.clearfloat {clear:both;height:0;font-size: 1px;line-height: 0px;}
+.justify{text-align:justify;text-justify:kashida;}
+.star{font-family:宋体;color:Red;}
+.overflowAuto{overflow:auto;zoom:1;}
+.floatL{float:left}
+.floatR{float:right}
+.red{color:Red;}
+.gray{color:Gray;}
+.bold{font-weight:bold;}
