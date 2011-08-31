@@ -1,0 +1,174 @@
+﻿
+/* CSS Document */
+@import url("../../css/Globle.css");
+a{ color:#333; }
+.txtBox{height:21px;*height:20px;_height:22px;line-height:20px;border:solid 1px #c9c9c9}
+.TopBar {
+	background: url(../images/topbg.gif);
+	height: 39px;
+}
+
+.TopBar a { color:#666; }
+
+.TopBar a:hover { color:#ff7300; }
+
+.TopBarContent {
+	width:950px;
+	margin:0 auto;
+	color:#666;
+}
+
+.TopBarContent ul li {
+	float:left;
+	height:38px;
+	line-height:38px;
+}
+
+.TopBarLogo, .TopBarSpritLine,.TopBarOrders div.Order,.UserCenter,.KeyWord,.BtnSearch,.BtnSearch2  { background: url(../images/allbgs.gif) no-repeat; }
+
+.TopBarLogo {
+	width: 110px;
+	background-position:0 -190px;
+}
+
+.TopBarWelCome { width:140px; }
+
+.TopBarLogin { width:115px; }
+
+.TopBarSpritLine {
+	width: 2px;
+	background-position:0 -49px;
+}
+
+.TopBarOrders {
+	width:78px;
+ }
+
+.TopBarOrders div.Order {
+	display:block;
+	width:72px;
+	height:28px;
+	line-height:28px;
+	margin:4px auto 5px auto;
+	background-position: 5px -24px;
+	text-align:center;
+	border:solid 1px #f6f6f6;
+	position:relative;
+ 
+}
+.TopBarOrders div.Order:hover{
+	border-color:#b1b1b1;
+	color:#ff7300;
+}
+.TopBarOrders div.Order ul{
+	color:#333;
+	border:solid 1px #b1b1b1;
+    display:none;
+	position:absolute;
+	top:28px;
+	left:-1px;
+	background-color:White;
+	z-index:1;
+	cursor:default;
+}
+.TopBarOrders div.Order ul li{
+	width:225px;
+}
+
+.TopBarOrders div.Order div.OverLine{
+	width:72px;
+	height:1px;
+	line-height:1px;
+	position:absolute;
+	top:28px;
+	left:0;
+	display:none;
+	background-color:#f6f6f6;
+	overflow:hidden;
+	z-index:2;
+}
+
+.TopBarOrders div.Order:hover div.OverLine{
+	display:block;
+}
+.TopBarOrders div.Order:hover ul{
+	 display:block;
+}
+.TopBarOrders div.Order ul li.OrderBottom{
+	height:82px;
+	background-color:#eef3f9;
+}
+
+.TopBarOrders div.Order ul li.OrderBottom div{
+    line-height:20px;
+}
+.OrderButton{
+	display:block;
+	width:76px;
+	line-height:22px;
+	background-color:White;
+	border:solid 1px #b1b1b1;
+	margin:10px auto 10px auto;
+}
+.OrderButtonContainer{
+	height:42px;
+}
+.Amount{color:#ff7300;}
+.Yuan{color:#b1b1b1;}
+
+.Order ul li.OrderProduct div{float:left;}
+.Order ul li.OrderProduct{
+	height:66px;
+	margin:4px auto 4px auto;
+}
+
+.ProductImg{width:64px;}
+.ProductImg img{
+    margin:4px;
+}
+.ProductMemo{
+	height:64px;
+	width:150px;
+}
+.ProductMemo div{
+	 width:150px;
+	 float:left;
+	 line-height:16px;
+}
+.ProductName{height:32px; text-align:left;}
+.ProductAccount{height:16px;text-align:left;}
+.ProductDel{height:16px; text-align:right;color:#0066cc;}
+
+.UserCenter{
+	display:block;
+	background-position: -12px 8px;
+	width: 82px;	
+	text-align:center;
+}
+.LiSearch{
+	line-height:39px;
+	height:39px;
+	display:block;
+}
+.KeyWord,.BtnSearch,.BtnSearch2{
+	border:none;
+	height:26px;
+	margin-top:6px;
+	float:left;
+}
+.KeyWord{
+	line-height: 26px;
+	background-position: 0 -87px;
+	text-indent: 4px;	
+	width:210px;
+}
+.BtnSearch{
+	background-position:-212px -87px;
+	width:57px;
+	
+}
+.BtnSearch2{
+	background-position:0 -124px;
+	width:66px;
+	margin-left:5px;
+}

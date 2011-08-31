@@ -1,0 +1,53 @@
+﻿@import url("../../../Css/Globle.css");
+.overflowAuto{overflow:auto;zoom:1;}
+.main{width:952px;margin:0 auto;margin-top:8px;}
+.contact{width:400px; text-align:right;}
+.qqonline{display:block;line-height:18px;width:66px;border:solid 1px #ddd; position:relative;padding:0 3px;}
+.qqonline img{position:absolute; right:52px;top:0px;}
+.kfphone{color:#ff7300;}
+.help{margin-top:4px;}
+.headLine{border-top:solid 1px #dd4e00;margin-top:12px; background-color:#ebebeb;height:6px; overflow:hidden;}
+.gray a:link,.gray:visited{color:Gray;}
+.gray a:hover{color:#ff7300;}
+.logo{ background:url(../images/bg.gif) repeat-x;}
+.logo{width:300px;font-size:26px; background-position:176px 4px; background-repeat:no-repeat;color:#666}
+.logo img{float:left;margin-right:22px;}
+.baseInfo{border-bottom:solid 1px #CFCFCF;margin-top:30px;}
+.title{position:relative;left:20px;font-size:14px; text-align:center;border:solid 1px #CFCFCF;border-bottom:none;width:110px;line-height:24px;}
+.hLine{height:1px;width:110px;overflow:hidden;border-bottom:solid 1px White; position:absolute;left:0;top:23px;}
+.block{width:1px;height:1px;background-color:White;position:absolute;}
+.bl1{left:-1px;top:-1px;}
+.bl2{right:-1px;top:-1px;}
+.bl3{left:-1px;top:24px;}
+.bl4{right:-1px;top:24px;}
+.conLeft{width:672px;font-size:14px;}
+.conLeft ul li{margin-top:12px; text-indent:30px;}
+.txtbox{width:230px;border:solid 1px #B6B6B6;height:24px;line-height:24px;}
+.conRight{margin-left:692px;_margin-left:689px; background-color:#F9F9F9;height:680px;margin-top:12px;}
+.marginL12{margin-left:14px;}
+.marginL28{margin-left:28px;}
+.marginL42{margin-left:42px;}
+.star{padding:0 6px;}
+.trueName{width:90px;}
+.phone-qh{width:50px;}
+.phone-hm{width:118px;}
+.phone-fj{width:60px;}
+.chkBox{width:130px;}
+.bottom{margin:0 auto;border-top:solid 3px #ff7300;height:100px; text-align:center;padding-top:10px;margin-top:10px;}
+.bottom ul{width:72%;margin:0 auto;}
+.bottom ul li{float:left;margin-right:1em;}
+.mobile{width:130px;}
+.chgCC{ text-decoration:underline;}
+.ServiceTerms:link,.ServiceTerms:visited{color:#0461AF;}
+.ServiceTerms:hover{color:#ff7300;}
+.subBtn{margin-left:112px;display:block; cursor:pointer;width:154px;}
+.subBtn:link,.subBtn:visited{color:White;font-weight:bold;}
+.subBtn div{float:left;}
+.btnm,.btnl,.btnr,.servicePoint li{background:url(../images/icon.gif) no-repeat;}
+.btnm,.btnl,.btnr{height:29px; background-repeat:repeat-x;}
+.btnm{background-position:0 -37px;width:150px; text-align:center;line-height:29px; text-indent:0;}
+.btnl{width:2px;}
+.btnr{width:2px;background-position:-2px 0;}
+.servicePoint{padding:14px; color:#666;}
+.servicePoint li{line-height:30px; background-position:-72px -74px; text-indent:14px;}
+li.tagHead{ border-bottom:dotted 1px #CECECE;margin-bottom:5px;padding-bottom:4px; background-image:none; text-indent:0;}

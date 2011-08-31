@@ -1,0 +1,231 @@
+﻿/*------顶部共同部分，包括搜索栏--------*/
+.top {
+	border: 1px solid #e2e2e2;
+	height: 25px;
+	line-height: 25px;
+	padding: 0;
+	color: #666666;
+	background: #f5f5f5;
+}
+.container {
+	width: 950px;
+	margin: 0px auto;
+	overflow:auto;
+	zoom:1;
+}
+.topSplitLine {
+	font-size: 10px;
+	color: #d4d5d5;
+}
+#HeadSearch_1 {
+	height: 63px;
+	width: 100%;
+	position: relative;
+}
+#div_5 {
+	float:left;
+	width: 280px;
+	height: 100%;
+	background-image: url(../images/TopSearchBarLine.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	position: relative;
+}
+#div_6 {
+	float:left;
+	width: 276px;
+	height: 100%;
+}
+#div_7 {
+	float:left;
+	height: 100%;
+	width:394px;
+	background-image: url(../images/TopSearchBarLine.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+}
+#div_3 {
+	float:left;
+}
+#div_4 {
+	float:right;
+	margin-right:1em;
+}
+#div_4 a {
+	color:#666666;
+}
+#div_4 a:hover {
+	color:#ff7300;
+}
+.div_8_1 {
+	height: 28px;
+	width: 276px;
+	top: 35px;
+	position: absolute;
+	background-image: url(../images/homeTopSearch.gif);
+	background-position: -280px -52px;
+}
+.div_8_p1{
+	background-position: -280px -52px;
+}
+.div_8_p2{
+	background-position: -276px 0;
+}
+.div_8_p3{
+	background-position: 0 0;
+}
+.div_8_1 li {
+	float:left; 	
+}
+.div_8_1 li a{
+	float:left;
+	display:block;
+	line-height:28px;
+	height:28px;
+	width:92px;
+	font-weight:bold;
+	text-align:center;
+}
+
+.div_9 {
+	float: left;
+	height: 38px;
+	width: 7px;
+	background-image: url(../images/homeTopSearch.gif);
+	background-repeat: no-repeat;
+	background-position: left -80px;
+}
+.div_10 {
+	height: 38px;
+	width: 923px;
+	background-image: url(../images/TopSearchBarBg.gif);
+	background-repeat: repeat-x;
+	float:left;
+}
+
+.areaDiv{float:left; position:relative;}
+ 
+.areaDiv ul {
+	position:absolute;
+	top:31px;
+	left:1px;
+	border:solid 1px #fec598;
+	width:177px;
+	background-color:white;
+	display:none;
+	color:#333;
+}
+
+.areaDiv ul li{cursor:pointer;padding-left:5px;width:172px;line-height:24px;} 
+.areaDiv ul li:hover{
+	background: url(../Home/images/bg-100907.gif) repeat-x left -641px;
+}
+ 
+div.areaDiv:hover ul{display:block;}
+ 
+
+.div_11 {
+	float: left;
+	height: 38px;
+	width: 20px;
+	background-image: url(../images/homeTopSearch.gif);
+	background-repeat: no-repeat;
+	background-position: right -80px;
+}
+#HeadSearch_2 {
+	height: 38px;
+	width: 100%;
+}
+.margin_1em {
+	margin-left:12px;
+}
+.margin_2em {
+	margin-left:24px;
+}
+.keyWordBox {
+	height:26px;
+	width: 517px;
+	line-height:26px;
+	border-style: none;
+	margin-top:4px;
+	background-repeat: no-repeat;
+	background-position: -7px -85px;
+	background-image: url(../images/homeTopSearch.gif);
+	float:left;
+	border-width: 0px;
+	padding-left:5px;
+}
+#contentRight {
+	float: right;
+	width: 750px;
+	 
+	 
+}
+.mod-banner-tab {
+	float: left;
+	width: 552px;
+	
+}
+.area {
+	background-image: url(../images/homeTopSearch.gif);
+	background-repeat: no-repeat;
+	background-position: -532px -85px;
+	line-height: 28px;
+	height: 28px;
+	width: 181px;
+	cursor: pointer;
+	float:left;
+	margin-top:4px;
+	border-width: 0px;
+	border-style: none;
+	text-indent:3px;
+}
+
+.btn_1 {
+	background-image: url(../images/homeTopSearch.gif);
+	background-repeat: no-repeat;
+	background-position: -719px -85px;
+	height: 28px;
+	width: 121px;
+	float:left;
+	margin-top:4px;
+	margin-left:6px;
+	border-width: 0px;
+	border-style: none;
+}
+.logo {
+	left:1em;
+	bottom:10px;
+	position:absolute;
+}
+.car {
+	position:absolute;
+	top:3px;
+	left:0;
+}
+.divCar {
+	float:left;
+	position:relative;
+	width:63px;
+	padding-left:18px;
+}
+.current a:link,.current a:hover,.current a:visited{
+		color:#fff;
+}
+/*------顶部共同部分，包括搜索栏--------*/
+
+/*------底部共同部分--------*/
+.spLine{
+	height:2px;
+	width:950px;
+	float:left;
+	background-color:#ff7300;
+	margin-top:8px;
+	overflow:hidden;
+}
+.footer{overflow:auto;zoom:1;width:948px;float:left;margin-top:8px; text-align:center;}
+/*------底部共同部分--------*/
+
+.mainContent{
+	margin-top:7px;
+}

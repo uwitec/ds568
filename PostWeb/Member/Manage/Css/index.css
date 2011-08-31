@@ -1,0 +1,36 @@
+﻿@import url("/Css/Globle.css");
+.overflowAuto{overflow:auto;zoom:1;}
+.holdspace{height:6px;border-bottom:solid 1px #CECECE;margin-bottom:1px; overflow:hidden;}
+.tbcon{width:952px;margin:0 auto;}
+.head,.logo{ background-image:url(../images/bg.gif)}
+.head{ background-repeat: repeat-x; background-position: 0 -35px;padding:0px 10px;}
+.contact{width:400px; text-align:right;}
+.qqonline{display:block;line-height:18px;width:66px;border:solid 1px #ddd; position:relative;padding:0 3px;}
+.qqonline img{position:absolute; right:52px;top:0px;}
+.kfphone{color:#ff7300;}
+.help{margin-top:4px;}
+.headLine{border-top:solid 1px #dd4e00;margin-top:12px; background-color:#ebebeb;height:6px; overflow:hidden;}
+.gray a:link,.gray:visited{color:Gray;}
+.gray a:hover{color:#ff7300;}
+.logo{  background-repeat: repeat-x;}
+.logo{width:300px;font-size:26px; background-position:176px 4px; background-repeat:no-repeat;color:#666}
+.logo img{float:left;margin-right:22px;}
+.toolbar{height:71px; background-color:#377695;}
+.tbcon{margin-top:0;}
+.tbcon li{float:left;margin-right:10px;}
+.tbcon li a{width:64px;height:60px;display:block; text-align:center; cursor:pointer;}
+.tbcon li a:hover{ background:url(../images/icon/iconh.gif);}
+.icon-suply,.icon-purchasemanage,.icon-imagemanager,.icon-industryInformation,
+.icon-privateseller,.icon-salemanagement,.icon-winporter{width:36px;height:41px;margin:0 auto; background-repeat:no-repeat; background-position:0 5px;}
+.icon-suply{background-image:url(../images/icon/offer.gif);}
+.icon-purchasemanage{background-image:url(../images/icon/purchasemanage.gif);}
+.icon-imagemanager{background-image:url(../images/icon/imagemanager.gif);}
+.icon-industryInformation{background-image:url(../images/icon/industryInformation.gif);}
+.icon-privateseller{background-image:url(../images/icon/privateseller.gif);}
+.icon-salemanagement{background-image:url(../images/icon/salemanagement.gif);}
+.icon-winporter{background-image:url(../images/icon/winporter.gif);}
+.wname{ text-align:center;color:white;}
+.tbpd{height:6px; overflow:hidden;}
+html{overflow:auto;zoom:1;}
+
+ 
