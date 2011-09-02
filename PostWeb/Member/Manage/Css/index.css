@@ -21,7 +21,7 @@
 .tbcon li a{width:64px;height:60px;display:block; text-align:center; cursor:pointer;}
 .tbcon li a:hover{ background:url(../images/icon/iconh.gif);}
 .icon-suply,.icon-purchasemanage,.icon-imagemanager,.icon-industryInformation,
-.icon-privateseller,.icon-salemanagement,.icon-winporter{width:36px;height:41px;margin:0 auto; background-repeat:no-repeat; background-position:0 5px;}
+.icon-privateseller,.icon-salemanagement,.icon-winporter,.icon-accountmanagement{width:36px;height:41px;margin:0 auto; background-repeat:no-repeat; background-position:0 5px;}
 .icon-suply{background-image:url(../images/icon/offer.gif);}
 .icon-purchasemanage{background-image:url(../images/icon/purchasemanage.gif);}
 .icon-imagemanager{background-image:url(../images/icon/imagemanager.gif);}
@@ -29,6 +29,7 @@
 .icon-privateseller{background-image:url(../images/icon/privateseller.gif);}
 .icon-salemanagement{background-image:url(../images/icon/salemanagement.gif);}
 .icon-winporter{background-image:url(../images/icon/winporter.gif);}
+.icon-accountmanagement{background-image:url(../images/icon/accountmanagement.gif);}
 .wname{ text-align:center;color:white;}
 .tbpd{height:6px; overflow:hidden;}
 html{overflow:auto;zoom:1;}
