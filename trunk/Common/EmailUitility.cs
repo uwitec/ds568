@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net.Mail;
 using System.Configuration;
-namespace Com.Todex.OA.Common
+namespace Common
 {
     public class EmailUitility
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace Com.Todex.OA.DBUtility
+namespace DBUtility
 {
     using System;
     using System.Collections.Generic;

@@ -6,7 +6,7 @@ using System.Text;
 using dotnetCHARTING;
 using System.Drawing;
 using System.Data;
-namespace Com.Todex.OA.Common
+namespace Common
 {
     public class ChartHelper
     {

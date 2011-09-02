@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 using System.Runtime.CompilerServices;
-namespace Com.Todex.OA.Common
+namespace Common
 {
 	/// <summary>
 	/// 显示消息提示对话框。

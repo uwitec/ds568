@@ -7,13 +7,14 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 using System.Linq.Expressions;
-namespace Com.Todex.OA.DBUtility
+namespace DBUtility
 {
     public class DbHelperSQL
     {
 
-        public static DbConnection GetConnection() {
-            SqlConnection con=new SqlConnection(ConfigurationManager.ConnectionStrings["TodexOAConnectionString"].ToString());
+        public static DbConnection GetConnection()
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TodexOAConnectionString"].ToString());
             con.Open();
             return con;
         }
@@ -25,7 +26,7 @@ namespace Com.Todex.OA.DBUtility
             return con;
         }
 
-        
+
         /// <summary>
         /// 调用分页存储过程
         /// </summary>
@@ -40,9 +41,10 @@ namespace Com.Todex.OA.DBUtility
         /// <returns></returns>
         public static DataSet Query(string tblName, string strGetFields, string fldName, int PageSize, int PageIndex, int? doCount, int? OrderType, string strWhere)
         {
-            using (DbConnection con = GetConnection()) {
-                SqlDataAdapter sda=new SqlDataAdapter();
-                DataSet ds=new DataSet();
+            using (DbConnection con = GetConnection())
+            {
+                SqlDataAdapter sda = new SqlDataAdapter();
+                DataSet ds = new DataSet();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con as SqlConnection;
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -63,4 +65,5 @@ namespace Com.Todex.OA.DBUtility
             }
         }
     }
+
 }
