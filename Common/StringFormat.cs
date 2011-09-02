@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Text.RegularExpressions;
-namespace Com.Todex.OA.Common
+namespace Common
 {
     public class StringFormat
     {

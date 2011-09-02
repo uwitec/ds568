@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
-namespace Com.Todex.OA.Common
+namespace Common
 {
     /// <summary>
     /// 处理客户端信息

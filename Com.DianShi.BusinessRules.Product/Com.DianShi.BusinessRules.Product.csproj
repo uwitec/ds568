@@ -47,6 +47,20 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Com.DianShi.Model.Product\Com.DianShi.Model.Product.csproj">
+      <Project>{8C1C5769-49C7-4C69-A7BF-ACF245E304FA}</Project>
+      <Name>Com.DianShi.Model.Product</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{CB56EF5F-7015-4634-BB7F-742A4820C1FF}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{9059D062-9A62-453A-8AC9-470270117AFE}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

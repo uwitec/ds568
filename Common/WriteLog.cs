@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Web;
 using System.Configuration;
 
-namespace Com.Todex.OA.Common
+namespace Common
 {
     public class WriteLog
     {
