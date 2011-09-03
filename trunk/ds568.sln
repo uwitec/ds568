@@ -1,9 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PostWeb", "PostWeb\", "{43953D0B-97AC-4902-94B2-981C53481ECA}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PostWeb", "PostWeb", "{43953D0B-97AC-4902-94B2-981C53481ECA}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
+		ProjectReferences = "{7F2E01EC-8210-414D-A1FC-64A68E328B25}|Com.DianShi.BusinessRules.Member.dll;{3645DD40-55AC-4B84-ACAF-C2243D30D27F}|Com.DianShi.BusinessRules.Product.dll;{A09622AB-70BD-45E0-B702-BC0D5D301372}|Com.DianShi.Model.Member.dll;{CB56EF5F-7015-4634-BB7F-742A4820C1FF}|Common.dll;{9059D062-9A62-453A-8AC9-470270117AFE}|DBUtility.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/PostWeb"
 		Debug.AspNetCompiler.PhysicalPath = "PostWeb\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PostWeb\"
