@@ -35,7 +35,7 @@
                 <div class="block bl4"></div>
             </div>
         </div>
-        <form action="reg.aspx" method="post" >
+        <form action="reg.aspx" method="post">
         <div class="regContainer overflowAuto">
             <div class="conLeft floatL">
                 <ul>
@@ -88,15 +88,11 @@
             <div class="conRight">
                 <ul class="servicePoint">
                     <li class="tagHead bold">为什么要注册点石IT网会员？</li>
-                   
                     <li>获得优质货源信息</li>
                     <li>浏览最新市场行情</li>
                     <li>建立个性化企业网站</li>
                     <li>拓展全球商业人脉</li>
-                   
                 </ul>
-                
-               
             </div>
         </div>
         </form>
