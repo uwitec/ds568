@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="DianShi" Class="DS_CompanyInfoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=DianShi;Persist Security Info=False;User ID=ShuInDianShi" SettingsObjectName="Com.DianShi.Model.Member.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DS_CompanyInfo" Member="DS_CompanyInfo">
+    <Type Name="DS_CompanyInfo">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Column Name="MenberID" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="MainIndustry" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Province" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="MemberType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="OfferService" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="BuyService" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="BusinessType" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="BusinessModel" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="MainProducts" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Profile" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="MainMarket" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="AnnualTurnover" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="MajorCustomers" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="BrandName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Employees" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="AnnualExport" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ServiceIndustry" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Agents" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AgentsLevel" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="StorageArea" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="RegisteredCapital" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="RegistrationArea" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="YearEstablished" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="LegalRepresentative" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Bank" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Account" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="BusinessAddress" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

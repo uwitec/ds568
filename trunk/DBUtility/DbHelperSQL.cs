@@ -14,7 +14,7 @@ namespace DBUtility
 
         public static DbConnection GetConnection()
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TodexOAConnectionString"].ToString());
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DianShiConnectionString"].ToString());
             con.Open();
             return con;
         }

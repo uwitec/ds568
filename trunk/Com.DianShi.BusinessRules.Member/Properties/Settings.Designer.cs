@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DBUtility.Properties {
+namespace Com.DianShi.BusinessRules.Member.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
