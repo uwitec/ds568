@@ -31,5 +31,7 @@ public partial class Member_Join_reg : System.Web.UI.Page
         com.MainIndustry = Request.Form["mainIndustry"];
         com.Province=Request.Form["area"];
         com.City = "";
+        com.MemberType = Request.Form["memberType"];
+
     }
 }
