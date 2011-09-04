@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
+using System.Data.Common;
+using System.Linq.Dynamic;
 using Com.DianShi.Model.Member;
 namespace Com.DianShi.BusinessRules.Member
 {
-    public class DS_Members:DBUtility.BllBase
+    public class DS_Members_Br:DBUtility.BllBase
     {
         public void Add(DS_Members Members)
         {
@@ -80,6 +83,27 @@ namespace Com.DianShi.BusinessRules.Member
 
         public Com.DianShi.Model.Member.DS_Members CreateModel() {
             return new Com.DianShi.Model.Member.DS_Members();
+        }
+
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="Member"></param>
+        /// <param name="Company"></param>
+        public void Register(DS_Members Member,DS_CompanyInfo Company) {
+            using (DbConnection con=DBUtility.DbHelperSQL.GetConnection())
+            {
+                var tran = con.BeginTransaction();
+                var mbct = new DS_MembersDataContext(con);
+                mbct.Transaction = tran;
+                mbct.DS_Members.InsertOnSubmit(Member);
+                mbct.SubmitChanges();
+                var comct = new DS_CompanyInfoDataContext(con);
+                comct.Transaction = tran;
+                comct.DS_CompanyInfo.InsertOnSubmit(Company);
+                comct.SubmitChanges();
+                tran.Commit();
+            }
         }
     }
 }

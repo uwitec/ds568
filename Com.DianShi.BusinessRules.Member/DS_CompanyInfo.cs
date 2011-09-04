@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Linq.Dynamic;
 using Com.DianShi.Model.Member;
 namespace Com.DianShi.BusinessRules.Member
 {
-    public class DS_CompanyInfo:DBUtility.BllBase
+    public class DS_CompanyInfo_Br:DBUtility.BllBase
     {
         public void Add(DS_CompanyInfo CompanyInfo)
         {
