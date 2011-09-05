@@ -139,7 +139,7 @@ namespace Com.DianShi.Model.Member
 			OnCreated();
 		}
 		
-		[Column(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true, IsDbGenerated=true, IsVersion=true)]
+		[Column(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, IsVersion=true)]
 		public int ID
 		{
 			get
@@ -239,7 +239,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Department", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Department", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string Department
 		{
 			get
@@ -259,7 +259,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Position", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Position", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string Position
 		{
 			get
@@ -319,7 +319,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Fax", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Fax", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string Fax
 		{
 			get
@@ -339,7 +339,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Mobile", DbType="NVarChar(11) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Mobile", DbType="NVarChar(11)", UpdateCheck=UpdateCheck.Never)]
 		public string Mobile
 		{
 			get
@@ -359,7 +359,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_HomePage", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_HomePage", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
 		public string HomePage
 		{
 			get

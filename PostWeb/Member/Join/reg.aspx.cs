@@ -32,12 +32,16 @@ public partial class Member_Join_reg : System.Web.UI.Page
             com.CompanyName = Request.Form["companyName"];
             mb.TrueName = Request.Form["trueName"];
             mb.Gender = Request.Form["sex"];
-            mb.Phone = Request.Form["phone"];
+            mb.Phone = Request.Form["phone-qh"] + "-" + Request.Form["phone-hm"] + "-" + Request.Form["phone-fj"];
             mb.Mobile = Request.Form["mobile"];
             com.MainIndustry = Request.Form["mainIndustry"];
             com.Province = Request.Form["area"];
             com.City = "";
+            com.County = "";
             com.MemberType = byte.Parse(Request.Form["memberType"]);
+            com.OfferService = "";
+            com.BuyService = "";
+            com.MainIndustry = "";
             blMember.Register(mb, com);
         }
         catch(Exception ex) {
