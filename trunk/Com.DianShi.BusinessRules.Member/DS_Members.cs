@@ -100,6 +100,7 @@ namespace Com.DianShi.BusinessRules.Member
                 mbct.SubmitChanges();
                 var comct = new DS_CompanyInfoDataContext(con);
                 comct.Transaction = tran;
+                Company.MenberID = Member.ID;
                 comct.DS_CompanyInfo.InsertOnSubmit(Company);
                 comct.SubmitChanges();
                 tran.Commit();

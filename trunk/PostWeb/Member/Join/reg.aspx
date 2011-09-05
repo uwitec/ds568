@@ -42,8 +42,8 @@
                 <ul>
                     <li><span class="marginL12"></span>电子邮箱<span class="star">*</span><input class="txtbox" name="email" type="text" /></li>
                     <li>会员登录名<span class="star">*</span><input class="txtbox" name="account" type="text" /></li>
-                    <li><span class="marginL42"></span>密码<span class="star">*</span><input class="txtbox" name="password" type="text" /></li>
-                    <li><span class="marginL12"></span>确认密码<span class="star">*</span><input class="txtbox" name="password2" type="text" /></li>
+                    <li><span class="marginL42"></span>密码<span class="star">*</span><input class="txtbox" name="password" type="password" /></li>
+                    <li><span class="marginL12"></span>确认密码<span class="star">*</span><input class="txtbox" name="password2" type="password" /></li>
                 </ul>
                 <div class="baseInfo">
                     <div class="title bold">公司信息

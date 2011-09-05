@@ -86,13 +86,13 @@ namespace Com.DianShi.Model.Member
 		
 		private string _CompanyName;
 		
-		private byte _BusinessType;
+		private System.Nullable<byte> _BusinessType;
 		
-		private byte _BusinessModel;
+		private System.Nullable<byte> _BusinessModel;
 		
-		private byte _RegisteredCapital;
+		private System.Nullable<byte> _RegisteredCapital;
 		
-		private System.DateTime _YearEstablished;
+		private System.Nullable<System.DateTime> _YearEstablished;
 		
 		private string _RegistrationArea;
 		
@@ -124,29 +124,29 @@ namespace Com.DianShi.Model.Member
 		
 		private string _StorageArea;
 		
-		private int _Employees;
+		private System.Nullable<int> _Employees;
 		
-		private int _StudyEmployees;
+		private System.Nullable<int> _StudyEmployees;
 		
 		private string _BrandName;
 		
-		private int _Monthly;
+		private System.Nullable<int> _Monthly;
 		
-		private byte _AnnualTurnover;
+		private System.Nullable<byte> _AnnualTurnover;
 		
-		private byte _AnnualExport;
+		private System.Nullable<byte> _AnnualExport;
 		
-		private byte _AnnualImports;
+		private System.Nullable<byte> _AnnualImports;
 		
 		private string _MSCer;
 		
-		private byte _QualityControl;
+		private System.Nullable<byte> _QualityControl;
 		
 		private string _MainMarket;
 		
 		private string _MajorCustomers;
 		
-		private bool _OEM;
+		private System.Nullable<bool> _OEM;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -158,13 +158,13 @@ namespace Com.DianShi.Model.Member
     partial void OnMenberIDChanged();
     partial void OnCompanyNameChanging(string value);
     partial void OnCompanyNameChanged();
-    partial void OnBusinessTypeChanging(byte value);
+    partial void OnBusinessTypeChanging(System.Nullable<byte> value);
     partial void OnBusinessTypeChanged();
-    partial void OnBusinessModelChanging(byte value);
+    partial void OnBusinessModelChanging(System.Nullable<byte> value);
     partial void OnBusinessModelChanged();
-    partial void OnRegisteredCapitalChanging(byte value);
+    partial void OnRegisteredCapitalChanging(System.Nullable<byte> value);
     partial void OnRegisteredCapitalChanged();
-    partial void OnYearEstablishedChanging(System.DateTime value);
+    partial void OnYearEstablishedChanging(System.Nullable<System.DateTime> value);
     partial void OnYearEstablishedChanged();
     partial void OnRegistrationAreaChanging(string value);
     partial void OnRegistrationAreaChanged();
@@ -196,29 +196,29 @@ namespace Com.DianShi.Model.Member
     partial void OnAccountChanged();
     partial void OnStorageAreaChanging(string value);
     partial void OnStorageAreaChanged();
-    partial void OnEmployeesChanging(int value);
+    partial void OnEmployeesChanging(System.Nullable<int> value);
     partial void OnEmployeesChanged();
-    partial void OnStudyEmployeesChanging(int value);
+    partial void OnStudyEmployeesChanging(System.Nullable<int> value);
     partial void OnStudyEmployeesChanged();
     partial void OnBrandNameChanging(string value);
     partial void OnBrandNameChanged();
-    partial void OnMonthlyChanging(int value);
+    partial void OnMonthlyChanging(System.Nullable<int> value);
     partial void OnMonthlyChanged();
-    partial void OnAnnualTurnoverChanging(byte value);
+    partial void OnAnnualTurnoverChanging(System.Nullable<byte> value);
     partial void OnAnnualTurnoverChanged();
-    partial void OnAnnualExportChanging(byte value);
+    partial void OnAnnualExportChanging(System.Nullable<byte> value);
     partial void OnAnnualExportChanged();
-    partial void OnAnnualImportsChanging(byte value);
+    partial void OnAnnualImportsChanging(System.Nullable<byte> value);
     partial void OnAnnualImportsChanged();
     partial void OnMSCerChanging(string value);
     partial void OnMSCerChanged();
-    partial void OnQualityControlChanging(byte value);
+    partial void OnQualityControlChanging(System.Nullable<byte> value);
     partial void OnQualityControlChanged();
     partial void OnMainMarketChanging(string value);
     partial void OnMainMarketChanged();
     partial void OnMajorCustomersChanging(string value);
     partial void OnMajorCustomersChanged();
-    partial void OnOEMChanging(bool value);
+    partial void OnOEMChanging(System.Nullable<bool> value);
     partial void OnOEMChanged();
     #endregion
 		
@@ -287,8 +287,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_BusinessType", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public byte BusinessType
+		[Column(Storage="_BusinessType", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<byte> BusinessType
 		{
 			get
 			{
@@ -307,8 +307,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_BusinessModel", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public byte BusinessModel
+		[Column(Storage="_BusinessModel", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<byte> BusinessModel
 		{
 			get
 			{
@@ -327,8 +327,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_RegisteredCapital", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public byte RegisteredCapital
+		[Column(Storage="_RegisteredCapital", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<byte> RegisteredCapital
 		{
 			get
 			{
@@ -347,8 +347,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_YearEstablished", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public System.DateTime YearEstablished
+		[Column(Storage="_YearEstablished", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> YearEstablished
 		{
 			get
 			{
@@ -367,7 +367,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_RegistrationArea", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_RegistrationArea", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
 		public string RegistrationArea
 		{
 			get
@@ -447,7 +447,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_BusinessAddress", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_BusinessAddress", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
 		public string BusinessAddress
 		{
 			get
@@ -467,7 +467,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_ZipCode", DbType="NVarChar(6) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_ZipCode", DbType="NVarChar(6)", UpdateCheck=UpdateCheck.Never)]
 		public string ZipCode
 		{
 			get
@@ -567,7 +567,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Profile", DbType="NVarChar(1800) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Profile", DbType="NVarChar(1800)", UpdateCheck=UpdateCheck.Never)]
 		public string Profile
 		{
 			get
@@ -587,7 +587,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_LegalRepresentative", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_LegalRepresentative", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string LegalRepresentative
 		{
 			get
@@ -607,7 +607,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Bank", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Bank", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string Bank
 		{
 			get
@@ -627,7 +627,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Account", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Account", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string Account
 		{
 			get
@@ -647,7 +647,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_StorageArea", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_StorageArea", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string StorageArea
 		{
 			get
@@ -667,8 +667,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Employees", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int Employees
+		[Column(Storage="_Employees", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> Employees
 		{
 			get
 			{
@@ -687,8 +687,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_StudyEmployees", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int StudyEmployees
+		[Column(Storage="_StudyEmployees", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> StudyEmployees
 		{
 			get
 			{
@@ -707,7 +707,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_BrandName", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_BrandName", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string BrandName
 		{
 			get
@@ -727,8 +727,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Monthly", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int Monthly
+		[Column(Storage="_Monthly", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> Monthly
 		{
 			get
 			{
@@ -747,8 +747,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_AnnualTurnover", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public byte AnnualTurnover
+		[Column(Storage="_AnnualTurnover", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<byte> AnnualTurnover
 		{
 			get
 			{
@@ -767,8 +767,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_AnnualExport", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public byte AnnualExport
+		[Column(Storage="_AnnualExport", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<byte> AnnualExport
 		{
 			get
 			{
@@ -787,8 +787,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_AnnualImports", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public byte AnnualImports
+		[Column(Storage="_AnnualImports", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<byte> AnnualImports
 		{
 			get
 			{
@@ -807,7 +807,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MSCer", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_MSCer", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
 		public string MSCer
 		{
 			get
@@ -827,8 +827,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_QualityControl", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public byte QualityControl
+		[Column(Storage="_QualityControl", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<byte> QualityControl
 		{
 			get
 			{
@@ -847,7 +847,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MainMarket", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_MainMarket", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
 		public string MainMarket
 		{
 			get
@@ -867,7 +867,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MajorCustomers", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_MajorCustomers", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
 		public string MajorCustomers
 		{
 			get
@@ -887,8 +887,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_OEM", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public bool OEM
+		[Column(Storage="_OEM", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<bool> OEM
 		{
 			get
 			{
