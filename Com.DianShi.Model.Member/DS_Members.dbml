@@ -1,21 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="DianShi" Class="DS_MembersDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=DianShi;User ID=ShuInDianShi" SettingsObjectName="Com.DianShi.Model.Member.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=DianShi;Persist Security Info=False;User ID=ShuInDianShi" SettingsObjectName="Com.DianShi.Model.Member.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DS_Members" Member="DS_Members">
     <Type Name="DS_Members">
       <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
-      <Column Name="UserID" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="TrueName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Department" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Position" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Gender" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Phone" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Fax" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="ZipCode" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="HomePage" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TrueName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Department" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="HomePage" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

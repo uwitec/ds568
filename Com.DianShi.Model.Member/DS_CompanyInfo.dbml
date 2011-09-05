@@ -4,35 +4,39 @@
   <Table Name="dbo.DS_CompanyInfo" Member="DS_CompanyInfo">
     <Type Name="DS_CompanyInfo">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
-      <Column Name="MenberID" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="CompanyName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="MainIndustry" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Province" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="City" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="MemberType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="OfferService" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="BuyService" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="BusinessType" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="BusinessModel" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="MainProducts" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Profile" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="MainMarket" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="AnnualTurnover" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="MajorCustomers" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="BrandName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Employees" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="AnnualExport" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="ServiceIndustry" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Agents" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="AgentsLevel" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="StorageArea" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="RegisteredCapital" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="RegistrationArea" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="YearEstablished" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="LegalRepresentative" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Bank" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Account" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="BusinessAddress" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="MenberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessModel" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="RegisteredCapital" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="YearEstablished" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="RegistrationArea" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Province" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="County" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessAddress" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ZipCode" Type="System.String" DbType="NVarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="MemberType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="OfferService" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="BuyService" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MainIndustry" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Profile" Type="System.String" DbType="NVarChar(1800) NOT NULL" CanBeNull="false" />
+      <Column Name="LegalRepresentative" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Bank" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="StorageArea" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Employees" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StudyEmployees" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BrandName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Monthly" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AnnualTurnover" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="AnnualExport" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="AnnualImports" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="MSCer" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="QualityControl" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="MainMarket" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MajorCustomers" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="OEM" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
