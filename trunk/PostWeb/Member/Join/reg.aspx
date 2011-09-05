@@ -66,9 +66,9 @@
                     <li><span class="marginL12"></span>主营行业<span class="star">*</span><input class="txtbox" name="mainIndustry" type="text" /></li>
                     <li><span class="marginL12"></span>公司地区<span class="star">*</span><input class="txtbox" name="area" type="text" /></li>
                     <li><span class="marginL12"></span>会员身份<span class="star">*</span>
-                        <input class="mType" name="memberType" id="mt1" value="卖家"  type="radio" /><label for="mt1">卖家</label>
-                        <input class="mType"  name="memberType" id="mt2" value="买家" type="radio" /><label for="mt2">买家</label>
-                        <input class="mType" name="memberType" id="mt3" value="两者都是" checked type="radio" /><label for="mt3">两者都是</label>
+                        <input class="mType" name="memberType" id="mt1" value="0"  type="radio" /><label for="mt1">卖家</label>
+                        <input class="mType"  name="memberType" id="mt2" value="1" type="radio" /><label for="mt2">买家</label>
+                        <input class="mType" name="memberType" id="mt3" value="2" checked type="radio" /><label for="mt3">两者都是</label>
                     </li>
                 </ul>
                 <div class="baseInfo">

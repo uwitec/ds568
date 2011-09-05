@@ -102,8 +102,6 @@ namespace Com.DianShi.Model.Member
 		
 		private string _Mobile;
 		
-		private string _ZipCode;
-		
 		private string _HomePage;
 		
     #region Extensibility Method Definitions
@@ -132,8 +130,6 @@ namespace Com.DianShi.Model.Member
     partial void OnFaxChanged();
     partial void OnMobileChanging(string value);
     partial void OnMobileChanged();
-    partial void OnZipCodeChanging(string value);
-    partial void OnZipCodeChanged();
     partial void OnHomePageChanging(string value);
     partial void OnHomePageChanged();
     #endregion
@@ -163,7 +159,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_UserID", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_UserID", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string UserID
 		{
 			get
@@ -183,7 +179,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Password", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Password", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Password
 		{
 			get
@@ -203,7 +199,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Email", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Email", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Email
 		{
 			get
@@ -223,7 +219,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_TrueName", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_TrueName", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string TrueName
 		{
 			get
@@ -243,7 +239,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Department", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Department", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Department
 		{
 			get
@@ -263,7 +259,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Position", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Position", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Position
 		{
 			get
@@ -283,7 +279,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Gender", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Gender", DbType="NVarChar(2) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Gender
 		{
 			get
@@ -303,7 +299,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Phone", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Phone", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Phone
 		{
 			get
@@ -323,7 +319,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Fax", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Fax", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Fax
 		{
 			get
@@ -343,7 +339,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Mobile", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Mobile", DbType="NVarChar(11) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Mobile
 		{
 			get
@@ -363,27 +359,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_ZipCode", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string ZipCode
-		{
-			get
-			{
-				return this._ZipCode;
-			}
-			set
-			{
-				if ((this._ZipCode != value))
-				{
-					this.OnZipCodeChanging(value);
-					this.SendPropertyChanging();
-					this._ZipCode = value;
-					this.SendPropertyChanged("ZipCode");
-					this.OnZipCodeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_HomePage", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_HomePage", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string HomePage
 		{
 			get

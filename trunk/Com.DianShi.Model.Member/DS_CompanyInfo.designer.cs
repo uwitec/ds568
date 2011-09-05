@@ -82,55 +82,39 @@ namespace Com.DianShi.Model.Member
 		
 		private int _ID;
 		
-		private string _MenberID;
+		private int _MenberID;
 		
 		private string _CompanyName;
 		
-		private string _MainIndustry;
+		private byte _BusinessType;
+		
+		private byte _BusinessModel;
+		
+		private byte _RegisteredCapital;
+		
+		private System.DateTime _YearEstablished;
+		
+		private string _RegistrationArea;
 		
 		private string _Province;
 		
 		private string _City;
 		
-		private System.Nullable<byte> _MemberType;
+		private string _County;
+		
+		private string _BusinessAddress;
+		
+		private string _ZipCode;
+		
+		private byte _MemberType;
 		
 		private string _OfferService;
 		
 		private string _BuyService;
 		
-		private string _BusinessType;
-		
-		private string _BusinessModel;
-		
-		private string _MainProducts;
+		private string _MainIndustry;
 		
 		private string _Profile;
-		
-		private string _MainMarket;
-		
-		private string _AnnualTurnover;
-		
-		private string _MajorCustomers;
-		
-		private string _BrandName;
-		
-		private string _Employees;
-		
-		private string _AnnualExport;
-		
-		private string _ServiceIndustry;
-		
-		private bool _Agents;
-		
-		private string _AgentsLevel;
-		
-		private string _StorageArea;
-		
-		private string _RegisteredCapital;
-		
-		private string _RegistrationArea;
-		
-		private string _YearEstablished;
 		
 		private string _LegalRepresentative;
 		
@@ -138,7 +122,31 @@ namespace Com.DianShi.Model.Member
 		
 		private string _Account;
 		
-		private string _BusinessAddress;
+		private string _StorageArea;
+		
+		private int _Employees;
+		
+		private int _StudyEmployees;
+		
+		private string _BrandName;
+		
+		private int _Monthly;
+		
+		private byte _AnnualTurnover;
+		
+		private byte _AnnualExport;
+		
+		private byte _AnnualImports;
+		
+		private string _MSCer;
+		
+		private byte _QualityControl;
+		
+		private string _MainMarket;
+		
+		private string _MajorCustomers;
+		
+		private bool _OEM;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -146,64 +154,72 @@ namespace Com.DianShi.Model.Member
     partial void OnCreated();
     partial void OnIDChanging(int value);
     partial void OnIDChanged();
-    partial void OnMenberIDChanging(string value);
+    partial void OnMenberIDChanging(int value);
     partial void OnMenberIDChanged();
     partial void OnCompanyNameChanging(string value);
     partial void OnCompanyNameChanged();
-    partial void OnMainIndustryChanging(string value);
-    partial void OnMainIndustryChanged();
+    partial void OnBusinessTypeChanging(byte value);
+    partial void OnBusinessTypeChanged();
+    partial void OnBusinessModelChanging(byte value);
+    partial void OnBusinessModelChanged();
+    partial void OnRegisteredCapitalChanging(byte value);
+    partial void OnRegisteredCapitalChanged();
+    partial void OnYearEstablishedChanging(System.DateTime value);
+    partial void OnYearEstablishedChanged();
+    partial void OnRegistrationAreaChanging(string value);
+    partial void OnRegistrationAreaChanged();
     partial void OnProvinceChanging(string value);
     partial void OnProvinceChanged();
     partial void OnCityChanging(string value);
     partial void OnCityChanged();
-    partial void OnMemberTypeChanging(System.Nullable<byte> value);
+    partial void OnCountyChanging(string value);
+    partial void OnCountyChanged();
+    partial void OnBusinessAddressChanging(string value);
+    partial void OnBusinessAddressChanged();
+    partial void OnZipCodeChanging(string value);
+    partial void OnZipCodeChanged();
+    partial void OnMemberTypeChanging(byte value);
     partial void OnMemberTypeChanged();
     partial void OnOfferServiceChanging(string value);
     partial void OnOfferServiceChanged();
     partial void OnBuyServiceChanging(string value);
     partial void OnBuyServiceChanged();
-    partial void OnBusinessTypeChanging(string value);
-    partial void OnBusinessTypeChanged();
-    partial void OnBusinessModelChanging(string value);
-    partial void OnBusinessModelChanged();
-    partial void OnMainProductsChanging(string value);
-    partial void OnMainProductsChanged();
+    partial void OnMainIndustryChanging(string value);
+    partial void OnMainIndustryChanged();
     partial void OnProfileChanging(string value);
     partial void OnProfileChanged();
-    partial void OnMainMarketChanging(string value);
-    partial void OnMainMarketChanged();
-    partial void OnAnnualTurnoverChanging(string value);
-    partial void OnAnnualTurnoverChanged();
-    partial void OnMajorCustomersChanging(string value);
-    partial void OnMajorCustomersChanged();
-    partial void OnBrandNameChanging(string value);
-    partial void OnBrandNameChanged();
-    partial void OnEmployeesChanging(string value);
-    partial void OnEmployeesChanged();
-    partial void OnAnnualExportChanging(string value);
-    partial void OnAnnualExportChanged();
-    partial void OnServiceIndustryChanging(string value);
-    partial void OnServiceIndustryChanged();
-    partial void OnAgentsChanging(bool value);
-    partial void OnAgentsChanged();
-    partial void OnAgentsLevelChanging(string value);
-    partial void OnAgentsLevelChanged();
-    partial void OnStorageAreaChanging(string value);
-    partial void OnStorageAreaChanged();
-    partial void OnRegisteredCapitalChanging(string value);
-    partial void OnRegisteredCapitalChanged();
-    partial void OnRegistrationAreaChanging(string value);
-    partial void OnRegistrationAreaChanged();
-    partial void OnYearEstablishedChanging(string value);
-    partial void OnYearEstablishedChanged();
     partial void OnLegalRepresentativeChanging(string value);
     partial void OnLegalRepresentativeChanged();
     partial void OnBankChanging(string value);
     partial void OnBankChanged();
     partial void OnAccountChanging(string value);
     partial void OnAccountChanged();
-    partial void OnBusinessAddressChanging(string value);
-    partial void OnBusinessAddressChanged();
+    partial void OnStorageAreaChanging(string value);
+    partial void OnStorageAreaChanged();
+    partial void OnEmployeesChanging(int value);
+    partial void OnEmployeesChanged();
+    partial void OnStudyEmployeesChanging(int value);
+    partial void OnStudyEmployeesChanged();
+    partial void OnBrandNameChanging(string value);
+    partial void OnBrandNameChanged();
+    partial void OnMonthlyChanging(int value);
+    partial void OnMonthlyChanged();
+    partial void OnAnnualTurnoverChanging(byte value);
+    partial void OnAnnualTurnoverChanged();
+    partial void OnAnnualExportChanging(byte value);
+    partial void OnAnnualExportChanged();
+    partial void OnAnnualImportsChanging(byte value);
+    partial void OnAnnualImportsChanged();
+    partial void OnMSCerChanging(string value);
+    partial void OnMSCerChanged();
+    partial void OnQualityControlChanging(byte value);
+    partial void OnQualityControlChanged();
+    partial void OnMainMarketChanging(string value);
+    partial void OnMainMarketChanged();
+    partial void OnMajorCustomersChanging(string value);
+    partial void OnMajorCustomersChanged();
+    partial void OnOEMChanging(bool value);
+    partial void OnOEMChanged();
     #endregion
 		
 		public DS_CompanyInfo()
@@ -231,8 +247,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MenberID", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string MenberID
+		[Column(Storage="_MenberID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int MenberID
 		{
 			get
 			{
@@ -251,7 +267,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_CompanyName", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_CompanyName", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string CompanyName
 		{
 			get
@@ -271,128 +287,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MainIndustry", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string MainIndustry
-		{
-			get
-			{
-				return this._MainIndustry;
-			}
-			set
-			{
-				if ((this._MainIndustry != value))
-				{
-					this.OnMainIndustryChanging(value);
-					this.SendPropertyChanging();
-					this._MainIndustry = value;
-					this.SendPropertyChanged("MainIndustry");
-					this.OnMainIndustryChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Province", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string Province
-		{
-			get
-			{
-				return this._Province;
-			}
-			set
-			{
-				if ((this._Province != value))
-				{
-					this.OnProvinceChanging(value);
-					this.SendPropertyChanging();
-					this._Province = value;
-					this.SendPropertyChanged("Province");
-					this.OnProvinceChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_City", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this.OnCityChanging(value);
-					this.SendPropertyChanging();
-					this._City = value;
-					this.SendPropertyChanged("City");
-					this.OnCityChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MemberType", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<byte> MemberType
-		{
-			get
-			{
-				return this._MemberType;
-			}
-			set
-			{
-				if ((this._MemberType != value))
-				{
-					this.OnMemberTypeChanging(value);
-					this.SendPropertyChanging();
-					this._MemberType = value;
-					this.SendPropertyChanged("MemberType");
-					this.OnMemberTypeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_OfferService", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string OfferService
-		{
-			get
-			{
-				return this._OfferService;
-			}
-			set
-			{
-				if ((this._OfferService != value))
-				{
-					this.OnOfferServiceChanging(value);
-					this.SendPropertyChanging();
-					this._OfferService = value;
-					this.SendPropertyChanged("OfferService");
-					this.OnOfferServiceChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_BuyService", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string BuyService
-		{
-			get
-			{
-				return this._BuyService;
-			}
-			set
-			{
-				if ((this._BuyService != value))
-				{
-					this.OnBuyServiceChanging(value);
-					this.SendPropertyChanging();
-					this._BuyService = value;
-					this.SendPropertyChanged("BuyService");
-					this.OnBuyServiceChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_BusinessType", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string BusinessType
+		[Column(Storage="_BusinessType", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte BusinessType
 		{
 			get
 			{
@@ -411,8 +307,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_BusinessModel", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string BusinessModel
+		[Column(Storage="_BusinessModel", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte BusinessModel
 		{
 			get
 			{
@@ -431,248 +327,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MainProducts", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string MainProducts
-		{
-			get
-			{
-				return this._MainProducts;
-			}
-			set
-			{
-				if ((this._MainProducts != value))
-				{
-					this.OnMainProductsChanging(value);
-					this.SendPropertyChanging();
-					this._MainProducts = value;
-					this.SendPropertyChanged("MainProducts");
-					this.OnMainProductsChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Profile", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string Profile
-		{
-			get
-			{
-				return this._Profile;
-			}
-			set
-			{
-				if ((this._Profile != value))
-				{
-					this.OnProfileChanging(value);
-					this.SendPropertyChanging();
-					this._Profile = value;
-					this.SendPropertyChanged("Profile");
-					this.OnProfileChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MainMarket", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string MainMarket
-		{
-			get
-			{
-				return this._MainMarket;
-			}
-			set
-			{
-				if ((this._MainMarket != value))
-				{
-					this.OnMainMarketChanging(value);
-					this.SendPropertyChanging();
-					this._MainMarket = value;
-					this.SendPropertyChanged("MainMarket");
-					this.OnMainMarketChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_AnnualTurnover", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string AnnualTurnover
-		{
-			get
-			{
-				return this._AnnualTurnover;
-			}
-			set
-			{
-				if ((this._AnnualTurnover != value))
-				{
-					this.OnAnnualTurnoverChanging(value);
-					this.SendPropertyChanging();
-					this._AnnualTurnover = value;
-					this.SendPropertyChanged("AnnualTurnover");
-					this.OnAnnualTurnoverChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MajorCustomers", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string MajorCustomers
-		{
-			get
-			{
-				return this._MajorCustomers;
-			}
-			set
-			{
-				if ((this._MajorCustomers != value))
-				{
-					this.OnMajorCustomersChanging(value);
-					this.SendPropertyChanging();
-					this._MajorCustomers = value;
-					this.SendPropertyChanged("MajorCustomers");
-					this.OnMajorCustomersChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_BrandName", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string BrandName
-		{
-			get
-			{
-				return this._BrandName;
-			}
-			set
-			{
-				if ((this._BrandName != value))
-				{
-					this.OnBrandNameChanging(value);
-					this.SendPropertyChanging();
-					this._BrandName = value;
-					this.SendPropertyChanged("BrandName");
-					this.OnBrandNameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Employees", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string Employees
-		{
-			get
-			{
-				return this._Employees;
-			}
-			set
-			{
-				if ((this._Employees != value))
-				{
-					this.OnEmployeesChanging(value);
-					this.SendPropertyChanging();
-					this._Employees = value;
-					this.SendPropertyChanged("Employees");
-					this.OnEmployeesChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_AnnualExport", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string AnnualExport
-		{
-			get
-			{
-				return this._AnnualExport;
-			}
-			set
-			{
-				if ((this._AnnualExport != value))
-				{
-					this.OnAnnualExportChanging(value);
-					this.SendPropertyChanging();
-					this._AnnualExport = value;
-					this.SendPropertyChanged("AnnualExport");
-					this.OnAnnualExportChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_ServiceIndustry", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string ServiceIndustry
-		{
-			get
-			{
-				return this._ServiceIndustry;
-			}
-			set
-			{
-				if ((this._ServiceIndustry != value))
-				{
-					this.OnServiceIndustryChanging(value);
-					this.SendPropertyChanging();
-					this._ServiceIndustry = value;
-					this.SendPropertyChanged("ServiceIndustry");
-					this.OnServiceIndustryChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Agents", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public bool Agents
-		{
-			get
-			{
-				return this._Agents;
-			}
-			set
-			{
-				if ((this._Agents != value))
-				{
-					this.OnAgentsChanging(value);
-					this.SendPropertyChanging();
-					this._Agents = value;
-					this.SendPropertyChanged("Agents");
-					this.OnAgentsChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_AgentsLevel", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string AgentsLevel
-		{
-			get
-			{
-				return this._AgentsLevel;
-			}
-			set
-			{
-				if ((this._AgentsLevel != value))
-				{
-					this.OnAgentsLevelChanging(value);
-					this.SendPropertyChanging();
-					this._AgentsLevel = value;
-					this.SendPropertyChanged("AgentsLevel");
-					this.OnAgentsLevelChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_StorageArea", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string StorageArea
-		{
-			get
-			{
-				return this._StorageArea;
-			}
-			set
-			{
-				if ((this._StorageArea != value))
-				{
-					this.OnStorageAreaChanging(value);
-					this.SendPropertyChanging();
-					this._StorageArea = value;
-					this.SendPropertyChanged("StorageArea");
-					this.OnStorageAreaChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_RegisteredCapital", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string RegisteredCapital
+		[Column(Storage="_RegisteredCapital", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte RegisteredCapital
 		{
 			get
 			{
@@ -691,7 +347,27 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_RegistrationArea", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_YearEstablished", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public System.DateTime YearEstablished
+		{
+			get
+			{
+				return this._YearEstablished;
+			}
+			set
+			{
+				if ((this._YearEstablished != value))
+				{
+					this.OnYearEstablishedChanging(value);
+					this.SendPropertyChanging();
+					this._YearEstablished = value;
+					this.SendPropertyChanged("YearEstablished");
+					this.OnYearEstablishedChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_RegistrationArea", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string RegistrationArea
 		{
 			get
@@ -711,27 +387,207 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_YearEstablished", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string YearEstablished
+		[Column(Storage="_Province", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Province
 		{
 			get
 			{
-				return this._YearEstablished;
+				return this._Province;
 			}
 			set
 			{
-				if ((this._YearEstablished != value))
+				if ((this._Province != value))
 				{
-					this.OnYearEstablishedChanging(value);
+					this.OnProvinceChanging(value);
 					this.SendPropertyChanging();
-					this._YearEstablished = value;
-					this.SendPropertyChanged("YearEstablished");
-					this.OnYearEstablishedChanged();
+					this._Province = value;
+					this.SendPropertyChanged("Province");
+					this.OnProvinceChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_LegalRepresentative", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_City", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this.OnCityChanging(value);
+					this.SendPropertyChanging();
+					this._City = value;
+					this.SendPropertyChanged("City");
+					this.OnCityChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_County", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string County
+		{
+			get
+			{
+				return this._County;
+			}
+			set
+			{
+				if ((this._County != value))
+				{
+					this.OnCountyChanging(value);
+					this.SendPropertyChanging();
+					this._County = value;
+					this.SendPropertyChanged("County");
+					this.OnCountyChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BusinessAddress", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string BusinessAddress
+		{
+			get
+			{
+				return this._BusinessAddress;
+			}
+			set
+			{
+				if ((this._BusinessAddress != value))
+				{
+					this.OnBusinessAddressChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessAddress = value;
+					this.SendPropertyChanged("BusinessAddress");
+					this.OnBusinessAddressChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ZipCode", DbType="NVarChar(6) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string ZipCode
+		{
+			get
+			{
+				return this._ZipCode;
+			}
+			set
+			{
+				if ((this._ZipCode != value))
+				{
+					this.OnZipCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ZipCode = value;
+					this.SendPropertyChanged("ZipCode");
+					this.OnZipCodeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MemberType", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte MemberType
+		{
+			get
+			{
+				return this._MemberType;
+			}
+			set
+			{
+				if ((this._MemberType != value))
+				{
+					this.OnMemberTypeChanging(value);
+					this.SendPropertyChanging();
+					this._MemberType = value;
+					this.SendPropertyChanged("MemberType");
+					this.OnMemberTypeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_OfferService", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string OfferService
+		{
+			get
+			{
+				return this._OfferService;
+			}
+			set
+			{
+				if ((this._OfferService != value))
+				{
+					this.OnOfferServiceChanging(value);
+					this.SendPropertyChanging();
+					this._OfferService = value;
+					this.SendPropertyChanged("OfferService");
+					this.OnOfferServiceChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BuyService", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string BuyService
+		{
+			get
+			{
+				return this._BuyService;
+			}
+			set
+			{
+				if ((this._BuyService != value))
+				{
+					this.OnBuyServiceChanging(value);
+					this.SendPropertyChanging();
+					this._BuyService = value;
+					this.SendPropertyChanged("BuyService");
+					this.OnBuyServiceChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MainIndustry", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string MainIndustry
+		{
+			get
+			{
+				return this._MainIndustry;
+			}
+			set
+			{
+				if ((this._MainIndustry != value))
+				{
+					this.OnMainIndustryChanging(value);
+					this.SendPropertyChanging();
+					this._MainIndustry = value;
+					this.SendPropertyChanged("MainIndustry");
+					this.OnMainIndustryChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Profile", DbType="NVarChar(1800) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Profile
+		{
+			get
+			{
+				return this._Profile;
+			}
+			set
+			{
+				if ((this._Profile != value))
+				{
+					this.OnProfileChanging(value);
+					this.SendPropertyChanging();
+					this._Profile = value;
+					this.SendPropertyChanged("Profile");
+					this.OnProfileChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_LegalRepresentative", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string LegalRepresentative
 		{
 			get
@@ -751,7 +607,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Bank", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Bank", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Bank
 		{
 			get
@@ -771,7 +627,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Account", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Account", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Account
 		{
 			get
@@ -791,22 +647,262 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_BusinessAddress", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string BusinessAddress
+		[Column(Storage="_StorageArea", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string StorageArea
 		{
 			get
 			{
-				return this._BusinessAddress;
+				return this._StorageArea;
 			}
 			set
 			{
-				if ((this._BusinessAddress != value))
+				if ((this._StorageArea != value))
 				{
-					this.OnBusinessAddressChanging(value);
+					this.OnStorageAreaChanging(value);
 					this.SendPropertyChanging();
-					this._BusinessAddress = value;
-					this.SendPropertyChanged("BusinessAddress");
-					this.OnBusinessAddressChanged();
+					this._StorageArea = value;
+					this.SendPropertyChanged("StorageArea");
+					this.OnStorageAreaChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Employees", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int Employees
+		{
+			get
+			{
+				return this._Employees;
+			}
+			set
+			{
+				if ((this._Employees != value))
+				{
+					this.OnEmployeesChanging(value);
+					this.SendPropertyChanging();
+					this._Employees = value;
+					this.SendPropertyChanged("Employees");
+					this.OnEmployeesChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_StudyEmployees", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int StudyEmployees
+		{
+			get
+			{
+				return this._StudyEmployees;
+			}
+			set
+			{
+				if ((this._StudyEmployees != value))
+				{
+					this.OnStudyEmployeesChanging(value);
+					this.SendPropertyChanging();
+					this._StudyEmployees = value;
+					this.SendPropertyChanged("StudyEmployees");
+					this.OnStudyEmployeesChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BrandName", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string BrandName
+		{
+			get
+			{
+				return this._BrandName;
+			}
+			set
+			{
+				if ((this._BrandName != value))
+				{
+					this.OnBrandNameChanging(value);
+					this.SendPropertyChanging();
+					this._BrandName = value;
+					this.SendPropertyChanged("BrandName");
+					this.OnBrandNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Monthly", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int Monthly
+		{
+			get
+			{
+				return this._Monthly;
+			}
+			set
+			{
+				if ((this._Monthly != value))
+				{
+					this.OnMonthlyChanging(value);
+					this.SendPropertyChanging();
+					this._Monthly = value;
+					this.SendPropertyChanged("Monthly");
+					this.OnMonthlyChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_AnnualTurnover", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte AnnualTurnover
+		{
+			get
+			{
+				return this._AnnualTurnover;
+			}
+			set
+			{
+				if ((this._AnnualTurnover != value))
+				{
+					this.OnAnnualTurnoverChanging(value);
+					this.SendPropertyChanging();
+					this._AnnualTurnover = value;
+					this.SendPropertyChanged("AnnualTurnover");
+					this.OnAnnualTurnoverChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_AnnualExport", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte AnnualExport
+		{
+			get
+			{
+				return this._AnnualExport;
+			}
+			set
+			{
+				if ((this._AnnualExport != value))
+				{
+					this.OnAnnualExportChanging(value);
+					this.SendPropertyChanging();
+					this._AnnualExport = value;
+					this.SendPropertyChanged("AnnualExport");
+					this.OnAnnualExportChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_AnnualImports", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte AnnualImports
+		{
+			get
+			{
+				return this._AnnualImports;
+			}
+			set
+			{
+				if ((this._AnnualImports != value))
+				{
+					this.OnAnnualImportsChanging(value);
+					this.SendPropertyChanging();
+					this._AnnualImports = value;
+					this.SendPropertyChanged("AnnualImports");
+					this.OnAnnualImportsChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MSCer", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string MSCer
+		{
+			get
+			{
+				return this._MSCer;
+			}
+			set
+			{
+				if ((this._MSCer != value))
+				{
+					this.OnMSCerChanging(value);
+					this.SendPropertyChanging();
+					this._MSCer = value;
+					this.SendPropertyChanged("MSCer");
+					this.OnMSCerChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_QualityControl", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte QualityControl
+		{
+			get
+			{
+				return this._QualityControl;
+			}
+			set
+			{
+				if ((this._QualityControl != value))
+				{
+					this.OnQualityControlChanging(value);
+					this.SendPropertyChanging();
+					this._QualityControl = value;
+					this.SendPropertyChanged("QualityControl");
+					this.OnQualityControlChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MainMarket", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string MainMarket
+		{
+			get
+			{
+				return this._MainMarket;
+			}
+			set
+			{
+				if ((this._MainMarket != value))
+				{
+					this.OnMainMarketChanging(value);
+					this.SendPropertyChanging();
+					this._MainMarket = value;
+					this.SendPropertyChanged("MainMarket");
+					this.OnMainMarketChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MajorCustomers", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string MajorCustomers
+		{
+			get
+			{
+				return this._MajorCustomers;
+			}
+			set
+			{
+				if ((this._MajorCustomers != value))
+				{
+					this.OnMajorCustomersChanging(value);
+					this.SendPropertyChanging();
+					this._MajorCustomers = value;
+					this.SendPropertyChanged("MajorCustomers");
+					this.OnMajorCustomersChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_OEM", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public bool OEM
+		{
+			get
+			{
+				return this._OEM;
+			}
+			set
+			{
+				if ((this._OEM != value))
+				{
+					this.OnOEMChanging(value);
+					this.SendPropertyChanging();
+					this._OEM = value;
+					this.SendPropertyChanged("OEM");
+					this.OnOEMChanged();
 				}
 			}
 		}
