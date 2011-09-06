@@ -5,11 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>用户注册</title>
+    <Custom:Header ID="Header1" runat="server" />
     <link href="css/reg.css" rel="stylesheet" type="text/css" />
-    <link href="/js/css/area.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="/js/jquery142min.js"></script>
-    <script type="text/javascript" src="/js/public.js"></script>
+    <link href="/js/css/validate.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/js/messages_cn.js"></script>
     <script type="text/javascript" src="js/reg.js"></script>
+   
 </head>
 <body>
 
@@ -40,10 +42,10 @@
         <div class="regContainer overflowAuto">
             <div class="conLeft floatL">
                 <ul>
-                    <li><span class="marginL12"></span>电子邮箱<span class="star">*</span><input class="txtbox" name="email" type="text" /></li>
-                    <li>会员登录名<span class="star">*</span><input class="txtbox" name="account" type="text" /></li>
-                    <li><span class="marginL42"></span>密码<span class="star">*</span><input class="txtbox" name="password" type="password" /></li>
-                    <li><span class="marginL12"></span>确认密码<span class="star">*</span><input class="txtbox" name="password2" type="password" /></li>
+                    <li><span class="marginL12"></span>电子邮箱<span class="star">*</span><input class="txtbox" name="email" id="email" type="text" /></li>
+                    <li>会员登录名<span class="star">*</span><input class="txtbox" name="account" id="account" type="text" /></li>
+                    <li><span class="marginL42"></span>密码<span class="star">*</span><input class="txtbox" name="password" id="password" type="password" /></li>
+                    <li><span class="marginL12"></span>确认密码<span class="star">*</span><input class="txtbox" name="password2" id="password2" type="password" /></li>
                 </ul>
                 <div class="baseInfo">
                     <div class="title bold">公司信息
@@ -55,16 +57,16 @@
                     </div>
                 </div>
                 <ul>
-                    <li><span class="marginL12"></span>公司名称<span class="star">*</span><input class="txtbox" name="companyName" type="text" /></li>
-                    <li><span class="marginL12"></span>真实姓名<span class="star">*</span><input class="txtbox trueName" name="trueName" type="text" />
+                    <li><span class="marginL12"></span>公司名称<span class="star">*</span><input class="txtbox" name="companyName" id="companyName" type="text" /></li>
+                    <li><span class="marginL12"></span>真实姓名<span class="star">*</span><input class="txtbox trueName" name="trueName" id="trueName" type="text" />
                         <input class="mType" name="sex" id="sex1" value="先生"  type="radio" checked /><label for="sex1">先生</label>
                         <input class="mType"  name="sex" id="sex2" value="女士" type="radio" /><label for="sex2">女士</label>
                         
                     </li>
-                    <li><span class="marginL12"></span>固定电话<span class="star">*</span><input class="txtbox phone-qh" name="phone-qh" type="text" />-<input class="txtbox phone-hm" name="phone-hm" type="text" />-<input class="txtbox phone-fj" name="phone-fj" type="text" /></li>
-                    <li><span class="marginL42"></span>手机<span class="star">&nbsp;</span><input class="txtbox mobile" name="mobile" type="text" /></li>
-                    <li><span class="marginL12"></span>主营行业<span class="star">*</span><input class="txtbox" name="mainIndustry" type="text" /></li>
-                    <li><span class="marginL12"></span>公司地区<span class="star">*</span><input class="txtbox" name="area" type="text" /></li>
+                    <li><span class="marginL12"></span>固定电话<span class="star">*</span><input class="txtbox phone-qh" name="phoneqh" id="phoneqh" type="text" />-<input class="txtbox phone-hm" name="phonehm" id="phonehm" type="text" />-<input class="txtbox phone-fj" name="phonefj" id="phonefj" type="text" /></li>
+                    <li><span class="marginL42"></span>手机<span class="star">&nbsp;</span><input class="txtbox mobile" name="mobile" id="mobile" type="text" /></li>
+                    <li><span class="marginL12"></span>主营行业<span class="star">*</span><input class="txtbox" name="mainIndustry" id="mainIndustry" type="text" /></li>
+                    <li><span class="marginL12"></span>公司地区<span class="star">*</span><input class="txtbox" readonly name="area" id="area" type="text" /></li>
                     <li><span class="marginL12"></span>会员身份<span class="star">*</span>
                         <input class="mType" name="memberType" id="mt1" value="0"  type="radio" /><label for="mt1">卖家</label>
                         <input class="mType"  name="memberType" id="mt2" value="1" type="radio" /><label for="mt2">买家</label>

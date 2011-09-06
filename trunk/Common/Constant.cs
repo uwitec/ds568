@@ -37,6 +37,14 @@ namespace Common
             转帐
         }
 
+        /// <summary>
+        /// 获取配置文件AppSeting的值
+        /// </summary>
+        /// <param name="conName">键名称</param>
+        /// <returns></returns>
+        public static  string WebConfig(string conName) { 
+            return System.Configuration.ConfigurationManager.AppSettings[conName];
+        }
      
     }
 }
