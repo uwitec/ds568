@@ -42,7 +42,7 @@ public partial class Member_Join_reg : System.Web.UI.Page
             com.OfferService = "";
             com.BuyService = "";
             com.MainIndustry = "";
-            blMember.Register(mb, com);
+            //blMember.Register(mb, com);
         }
         catch(Exception ex) {
             Response.Write(ex.Message);
