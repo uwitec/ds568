@@ -19,6 +19,7 @@
         success:function(label){
             label.addClass("valid").text("填写正确");//成功时执行的函数
         },
+        groups:{phone:"phoneqh phonehm phonefj"},
         rules:{
             email:{required:true,email:true},
             account:{required:true,rangelength:[5,15],numAndChar:true},
@@ -28,13 +29,13 @@
             trueName:{required:true,minlength:2,maxlength:4},
             phoneqh:{required:true,digits:true,rangelength:[3,4]},
             phonehm:{required:true,digits:true,rangelength:[7,8]},
-            phonefj:{required:true,digits:true,rangelength:[3,4]}
+            phonefj:{digits:true,rangelength:[3,4]}
         },
         messages:{
             password2:{equalTo:"两次密码输入不一致"},
-            phoneqh:{rangelength:$.validator.format("请输入一个长度为{0}-{1}的数字"),digits:"格式错误"},
-            phonehm:{rangelength:$.validator.format("请输入一个长度为{0}-{1}的数字"),digits:"格式错误"},
-            phonefj:{rangelength:$.validator.format("请输入一个长度为{0}-{1}的数字"),digits:"格式错误"}
+            phoneqh:{rangelength:"格式错误",digits:"格式错误"},
+            phonehm:{rangelength:"格式错误",digits:"格式错误"},
+            phonefj:{rangelength:"格式错误",digits:"格式错误"}
         }
     });
 });
