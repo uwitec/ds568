@@ -17,6 +17,16 @@ public partial class Member_Join_reg : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         LinkButton1.Click+=new EventHandler(LinkButton1_Click);
+
+        if(IsPostBack) return;
+        
+        //ajax验证帐号是否存在
+        if (!string.IsNullOrEmpty(Request.QueryString["account"]))
+        {
+            var blMember = new DS_Members_Br();
+            Response.Write((!blMember.Exits(Request.QueryString["account"])).ToString().ToLower());
+            Response.End();
+        }
     }
 
     private void LinkButton1_Click(object sender, EventArgs e) {

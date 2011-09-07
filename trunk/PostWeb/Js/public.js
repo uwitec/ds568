@@ -21,13 +21,10 @@ function changeImg(obj,width,height) {
 }
 
 //选择地区插件
-var Area={
-    AreaBody:null,
-    TimeOut:null,
-    PositionType:{left:0,right:1},
-    CurrentPt:0,
-    Create:function(obj){
-        
+var Area=function(options){
+    var AreaBody=null;
+    var TimeOut=null;
+    var Create=function(obj){
         var areaArray=[
                           ['广东','广州','深圳','珠海','潮州','中山','东莞','佛山','惠州','汕头','汕尾','韶关','湛江','肇庆','河源','江门','揭阳','茂名','梅州','清远','阳江','云浮'],
                           ['浙江','杭州','宁波','温州','绍兴','台州','嘉兴','金华','丽水','湖州','衢州','舟山'],
@@ -85,12 +82,12 @@ var Area={
         
         $("body").append(htmlStr);
        
-        Area.AreaBody=$(".area-ctn");
-        Area.AreaBody.hover(function(){
-               clearTimeout(Area.TimeOut);
+        AreaBody=$(".area-ctn");
+        AreaBody.hover(function(){
+               clearTimeout(TimeOut);
            },
            function(){
-               Area.Hide();
+               Hide();
            }
         );
         
@@ -108,27 +105,45 @@ var Area={
         
         //触发显示地区控件
         if(obj){
-            obj.hover(function(){
-                    var os=obj.offset();
-                    if(Area.CurrentPt==Area.PositionType.left)
-                        Area.Position(os.left,os.top+obj.height()+3);
-                    else
-                        Area.Position(os.left-(Area.AreaBody.width()-obj.width()),os.top+obj.height()+3);
-                    Area.Show();
-                },
-                function(){
-                    Area.TimeOut=setTimeout(Area.Hide,200); 
-                }
-            );
+            switch(options.eventClass){
+                case "click":
+                    obj.click(function(){
+                        var os=obj.offset();
+                        if(options.align=="right")
+                            Position(os.left-(AreaBody.width()-obj.width()),os.top+obj.height()+3);
+                        else
+                            Position(os.left,os.top+obj.height()+3);
+                        Show();
+                    }).mouseout(function(){
+                        TimeOut=setTimeout(Hide,200); 
+                    });
+                break;
+                default :
+                    obj.hover(
+                        function(){ 
+                            var os=obj.offset();
+                            if(options.align=="right")
+                                Position(os.left-(AreaBody.width()-obj.width()),os.top+obj.height()+3);
+                            else
+                                Position(os.left,os.top+obj.height()+3);
+                            Show();
+                        },
+                        function(){
+                            TimeOut=setTimeout(Hide,200); 
+                        }
+                    );
+                break;
+            }  
         }
-    },
-    Show:function(){
-        Area.AreaBody.show();
-    },
-    Hide:function(){
-        Area.AreaBody.hide();
-    },
-    Position:function(x,y){
-        Area.AreaBody.css({"left":x,"top":y});
-    } 
+    }
+    var Show=function(){
+        AreaBody.show();
+    }
+    var Hide=function(){
+        AreaBody.hide();
+    }
+    var Position=function(x,y){
+        AreaBody.css({"left":x,"top":y});
+    }
+    Create(options.trigger);
 }

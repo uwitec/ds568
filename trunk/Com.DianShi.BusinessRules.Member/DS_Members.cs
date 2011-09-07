@@ -106,5 +106,13 @@ namespace Com.DianShi.BusinessRules.Member
                 tran.Commit();
             }
         }
+
+        public bool Exits(string uid) {
+            using (DS_MembersDataContext ct = new DS_MembersDataContext())
+            {
+                var md=ct.DS_Members.Where(a=>a.UserID.Equals(uid));
+                return md.Count() > 0;
+            }
+        }
     }
 }
