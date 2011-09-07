@@ -1,3 +1,3 @@
 ﻿input.error{border-color:#ED8F8F; background-color:#FFF2F2;}
-label.error{color:Red;padding-left:18px;line-height:16px;margin-left:5px;font-size:14px; background:url("../images/1000216.gif") no-repeat;}
+label.error{color:Red; position:absolute;line-height:16px;left:370px;top:3px; text-indent:16px; font-size:14px; background:url("../images/1000216.gif") no-repeat;}
 label.valid{background:url("../images/1000716.gif") no-repeat;color:#528D00;}

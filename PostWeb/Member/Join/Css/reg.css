@@ -19,7 +19,7 @@
 .bl3{left:-1px;top:24px;}
 .bl4{right:-1px;top:24px;}
 .conLeft{width:672px;font-size:14px;}
-.conLeft ul li{margin-top:12px; text-indent:30px;}
+.conLeft ul li{margin-top:12px; text-indent:30px; position:relative;}
 .txtbox{width:230px;border:solid 1px #B6B6B6;height:24px;line-height:24px;}
 .conRight{margin-left:692px;_margin-left:689px; background-color:#F9F9F9;height:680px;margin-top:12px;}
 .marginL12{margin-left:14px;}

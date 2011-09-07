@@ -72,6 +72,7 @@
                         <input class="mType"  name="memberType" id="mt2" value="1" type="radio" /><label for="mt2">买家</label>
                         <input class="mType" name="memberType" id="mt3" value="2" checked type="radio" /><label for="mt3">两者都是</label>
                     </li>
+                    
                 </ul>
                 <div class="baseInfo">
                     <div class="title bold">服务条款
@@ -83,7 +84,7 @@
                     </div>
                 </div>
                 <ul>
-                    <li><span class="marginL28"></span>验证码<span class="star">*</span><input class="txtbox chkBox" name="email" type="text" /><img src="http://my.b2b.hc360.com/my/ValidImage.jsp?Seed=0.16553570900864034" /> <a class="chgCC" href="#">看不清，换一张</a></li>
+                    <li><span class="marginL28"></span>验证码<span class="star">*</span><input class="txtbox chkBox" name="chkCode" id="chkCode" type="text" /><img src="http://my.b2b.hc360.com/my/ValidImage.jsp?Seed=0.16553570900864034" /> <a class="chgCC" href="#">看不清，换一张</a></li>
                     <li><span class="marginL28"></span><span class="marginL42"></span><span class="star"></span><input type="checkbox" id="cb1" checked /><label for="cb1">我已看过并同意</label><a class="ServiceTerms" href="#">《点石服务条款》</a></li>
                     <li>
                         <asp:LinkButton ID="LinkButton1" CssClass="subBtn" runat="server"> 
