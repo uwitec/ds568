@@ -59,20 +59,20 @@ var Area=function(options){
                       ];
                       
         var htmlStr="<div class=\"area-ctn\">"+
-                    "<ul class=\"area-all\"><li>所有地区</li></ul>"+
+                    "<ul class=\"area-all\"><li v='所有地区'>所有地区</li></ul>"+
                     "<ul class=\"area-Municipalities\">"+
-                        "<li>北京</li>"+
-                        "<li>上海</li>"+
-                        "<li>天津</li>"+
-                        "<li>重庆</li>"+
+                        "<li v='北京'>北京</li>"+
+                        "<li v='上海'>上海</li>"+
+                        "<li v='天津'>天津</li>"+
+                        "<li v='重庆'>重庆</li>"+
                     "</ul>"+
                     "<ul class=\"area-province\">";
                     for(i=0;i<areaArray.length;i++){
-                        htmlStr+="<li class=\"liprovince\">"+areaArray[i][0];
+                        htmlStr+="<li class=\"liprovince\" v='"+areaArray[i][0]+"'>"+areaArray[i][0];
                         if(areaArray[i].length>1){
                             htmlStr+="<ul>";
                             for(j=1;j<areaArray[i].length;j++){
-                                htmlStr+="<li>"+areaArray[i][j]+"</li>";
+                                htmlStr+="<li v='"+areaArray[i][j]+"'>"+areaArray[i][j]+"</li>";
                             }
                             htmlStr+="</ul>";
                         }
@@ -91,6 +91,10 @@ var Area=function(options){
            }
         );
         
+        //点击地区，返回地区名称
+        $(".area-ctn li").click(function(){
+            
+        });
         $(".area-ctn li").hover(function(){
                 $(this).addClass("hover").css("color","White");
                 var sub=$(this).find("ul")
