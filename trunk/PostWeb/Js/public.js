@@ -20,8 +20,15 @@ function changeImg(obj,width,height) {
     }
 }
 
-//选择地区插件
+//----------地区插件开始-------------------
 var Area=function(options){
+    var setting={
+        showAllArea:true,//是否显示所有地区选项
+        eventClass:"hover",//触发控件显示的事件类型
+        enableProvince:true,//省份是否可用
+        callBack:null//回调函数
+    }
+    var opts = $.extend(setting, options);     
     var AreaBody=null;
     var TimeOut=null;
     var Create=function(obj){
@@ -59,7 +66,7 @@ var Area=function(options){
                       ];
                       
         var htmlStr="<div class=\"area-ctn\">"+
-                    "<ul class=\"area-all\"><li v='所有地区'>所有地区</li></ul>"+
+                    "<ul class=\"area-all\"><li v=''>所有地区</li></ul>"+
                     "<ul class=\"area-Municipalities\">"+
                         "<li v='北京'>北京</li>"+
                         "<li v='上海'>上海</li>"+
@@ -92,8 +99,30 @@ var Area=function(options){
         );
         
         //点击地区，返回地区名称
-        $(".area-ctn li").click(function(){
-            
+        var selArea=["",""]
+        var isCityClick=false;//表示点击的是否是市
+        $(".area-ctn>ul>li").click(function(){//点击省
+            selArea[0]=$(this).attr("v")
+            var pc="";
+            if(isCityClick)
+                pc=selArea[0]+"- "+selArea[1];
+            else{
+                if(setting.enableProvince||$(this).parent().hasClass("area-Municipalities"))
+                    pc=selArea[0];
+                else
+                    alert("请选择地级市作为地区。")
+            }
+            if(setting.callBack){//判断是否存在回调函数
+                setting.callBack(pc);
+            }else{//如果没有回调函数则将结果返回到输入框内
+                obj.val(pc);
+            }
+            isCityClick=false;
+            Hide();
+        });
+        $(".area-ctn>ul>li>ul>li").click(function(){//点击市,同时会触发点击省事件,因为市li包含在省li中
+            selArea[1]=$(this).attr("v")
+            isCityClick=true;
         });
         $(".area-ctn li").hover(function(){
                 $(this).addClass("hover").css("color","White");
@@ -106,10 +135,13 @@ var Area=function(options){
                 if(sub){sub.hide()}
             }
         );
+        if(!setting.showAllArea){
+            $(".area-all").hide();
+        }
         
         //触发显示地区控件
         if(obj){
-            switch(options.eventClass){
+            switch(setting.eventClass){
                 case "click":
                     obj.click(function(){
                         var os=obj.offset();
@@ -144,10 +176,13 @@ var Area=function(options){
         AreaBody.show();
     }
     var Hide=function(){
+        AreaBody.find("ul li ul").hide();
         AreaBody.hide();
+        
     }
     var Position=function(x,y){
         AreaBody.css({"left":x,"top":y});
     }
     Create(options.trigger);
 }
+//----------地区插件结束-------------------

@@ -110,7 +110,7 @@ namespace Com.DianShi.BusinessRules.Member
         public bool Exits(string uid) {
             using (DS_MembersDataContext ct = new DS_MembersDataContext())
             {
-                var md=ct.DS_Members.Where(a=>a.UserID.Equals(uid));
+                var md=ct.DS_Members.Where(a=>a.UserID.ToLower().Equals(uid.Trim().ToLower()));
                 return md.Count() > 0;
             }
         }

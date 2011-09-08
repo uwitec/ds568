@@ -1,8 +1,10 @@
 ﻿$(document).ready(function(){
     //绑定地区控件
     Area({
-        trigger:$("input[name=area]"),
-        eventClass:"click"
+        trigger:$("input[name=area]"),//设置触发对象，必选
+        eventClass:"click",//设置显示触发事件为点击
+        enableProvince:false,//禁用省份选择
+        showAllArea:false
     });
    
     //-----------验证开始------------
@@ -18,9 +20,10 @@
         },
         "请输入以13、15或18开头的手机号码,共11位"
     );
+   
     
-    
-    $("#form1").validate({
+    var fvalid=$("#form1").validate({
+        //onkeyup:false,//为true时，当ajax远程验证时此选项会增加服务器负荷
         focusInvalid: true,
         errorPlacement:function(error, element) { //设置错误提示位置,此函数为默认，可不设置
             error.appendTo(element.parent());  //表示添加到元素后面，
@@ -33,7 +36,7 @@
             email:{required:true,email:true},
             account:{required:true,rangelength:[5,15],numAndChar:true,remote:"reg.aspx"},
             password:{required:true,rangelength:[6,20],numAndChar:true},
-            password2:{required:true,equalTo:"#password"},
+            password2:{required:true,rangelength:[6,20],numAndChar:true,equalTo:"#password"},
             companyName:{required:true,minlength:4,maxlength:100},
             trueName:{required:true,minlength:2,maxlength:4},
             phoneqh:{required:true,digits:true,rangelength:[3,4]},
@@ -56,8 +59,7 @@
     
     //提交按扭事件
     $(".subBtn").click(function(){
-        $("#form1").submit();
-        return false;
+         return fvalid.form();
     });
     
 });
