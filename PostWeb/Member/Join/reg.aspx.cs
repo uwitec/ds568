@@ -27,6 +27,7 @@ public partial class Member_Join_reg : System.Web.UI.Page
             Response.Write((!blMember.Exits(Request.QueryString["account"])).ToString().ToLower());
             Response.End();
         }
+        
     }
 
     private void LinkButton1_Click(object sender, EventArgs e) {
