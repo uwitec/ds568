@@ -33,6 +33,20 @@ public partial class Member_Join_reg : System.Web.UI.Page
     private void LinkButton1_Click(object sender, EventArgs e) {
         try
         {
+            if (!Common.Validate.RegUid(Request.Form["account"])) {
+                Common.MessageBox.Show(this, "用户帐号格式不正确", Common.MessageBox.InfoType.info, "history.back");
+                return;
+            }
+            if (!Common.Validate.RegPwd(Request.Form["password"]))
+            {
+                Common.MessageBox.Show(this, "密码格式不正确", Common.MessageBox.InfoType.info, "history.back");
+                return;
+            }
+            if (Session["CheckCode"] == null || Session["CheckCode"].ToString().ToLower() != Request.Form["chkCode"].ToLower())
+            {
+                Common.MessageBox.Show(this, "验证码有误，请重新输入", Common.MessageBox.InfoType.info, "history.back");
+                return;
+            }
             var blMember = new DS_Members_Br();
             var mb = blMember.CreateModel();
             var blCompany = new DS_CompanyInfo_Br();
@@ -54,9 +68,10 @@ public partial class Member_Join_reg : System.Web.UI.Page
             com.BuyService = "";
             com.MainIndustry = "";
             //blMember.Register(mb, com);
+            Common.MessageBox.Show(this, "恭喜，用户注册成功", Common.MessageBox.InfoType.info, "function(){location='../Login/login.aspx'}");
         }
         catch(Exception ex) {
-            Response.Write(ex.Message);
+            Common.MessageBox.Show(this,"抱歉，提交发生意外，可尝试重新提交或联系我们客服人员解决",Common.MessageBox.InfoType.error,"history.back");
         }
     }
 }

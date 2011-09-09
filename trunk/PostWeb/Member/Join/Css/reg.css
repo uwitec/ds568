@@ -30,7 +30,7 @@
 .phone-qh{width:50px;}
 .phone-hm{width:118px;}
 .phone-fj{width:60px;}
-.chkBox{width:130px;}
+.chkBox{width:110px;}
 .bottom{margin:0 auto;border-top:solid 3px #ff7300;height:100px; text-align:center;padding-top:10px;margin-top:10px;}
 .bottom ul{width:72%;margin:0 auto;}
 .bottom ul li{float:left;margin-right:1em;}
@@ -49,3 +49,4 @@
 .servicePoint{padding:14px; color:#666;}
 .servicePoint li{line-height:30px; background-position:-72px -74px; text-indent:14px;}
 li.tagHead{ border-bottom:dotted 1px #CECECE;margin-bottom:5px;padding-bottom:4px; background-image:none; text-indent:0;}
+.ccImg{ position:relative;top:6px;+top:2px;}

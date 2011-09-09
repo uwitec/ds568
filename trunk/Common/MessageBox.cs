@@ -84,7 +84,7 @@ namespace Common
         /// <param name="script">提示类型</param>
         public static void Show(System.Web.UI.Page page, string msg,InfoType it)
         {
-            page.ClientScript.RegisterStartupScript(page.GetType(), UnionID().ToString(), "<script language='javascript' defer>$.messager.alert('系统提示','" + msg.Replace("'", "\"").Replace("\n", "").Replace("\r", "") + "。','" + it.ToString() + "');</script>");
+            page.ClientScript.RegisterStartupScript(page.GetType(), UnionID().ToString(), "<script language='javascript' defer>using('messager',function(){$.messager.alert('系统提示','" + msg.Replace("'", "\"").Replace("\n", "").Replace("\r", "") + "。','" + it.ToString() + "')});</script>");
 
         }
 
@@ -97,7 +97,7 @@ namespace Common
         /// <param name="Fun">回调函数</param>
         public static void Show(System.Web.UI.Page page, string msg, InfoType it,string Fun)
         {
-            page.ClientScript.RegisterStartupScript(page.GetType(), UnionID().ToString(), "<script language='javascript' defer>$.messager.alert('系统提示','" + msg.Replace("'", "\"").Replace("\n", "").Replace("\r", "") + "。','" + it.ToString() + "'," + Fun + ");</script>");
+            page.ClientScript.RegisterStartupScript(page.GetType(), UnionID().ToString(), "<script language='javascript' defer>using('messager',function(){$.messager.alert('系统提示','" + msg.Replace("'", "\"").Replace("\n", "").Replace("\r", "") + "。','" + it.ToString() + "'," + Fun + ")});</script>");
 
         }
 
