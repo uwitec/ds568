@@ -1,5 +1,4 @@
-﻿@import url("/Css/Globle.css");
-.overflowAuto{overflow:auto;zoom:1;}
+﻿.overflowAuto{overflow:auto;zoom:1;}
 .main{width:952px;margin:0 auto;margin-top:8px;}
 .contact{width:400px; text-align:right;}
 .qqonline{display:block;line-height:18px;width:66px;border:solid 1px #ddd; position:relative;padding:0 3px;}
