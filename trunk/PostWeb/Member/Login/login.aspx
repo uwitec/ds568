@@ -5,8 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>用户登录</title>
+    <Custom:Header runat="server" ID="Header1" />
+    <script type="text/javascript" src="/Js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="Js/Login.js"></script>
     <link href="Css/login.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="/js/jquery142min.js"></script>
 </head>
 <body>
     <div class="main">
@@ -27,15 +29,19 @@
                 <div class="lghead"></div>
                 <div class="lgmiddle">
                     <div class="lgtitle"><span class="floatL">会员登录</span><a class="floatR" href="#">帮助</a></div>
+                    <form runat="server" id="form1">
                     <ul class="lgcon">
-                        <li class="uid">会员登录名：<input type="text" name="uid" class="txtbox" /> <a href="#">找回登录名</a></li>
-                        <li class="pwd">密码：<input type="text" name="pwd" class="txtbox" /> <a href="#">找回密码</a></li>
-                        <li class="slg"><input type="checkbox" name="slg" />保存密码，一周内免登录</li>
+                        <li class="uid">会员登录名：<input type="text" name="uid" id="uid" class="txtbox" /> <a href="#">找回登录名</a></li>
+                        <li class="pwd">密码：<input type="password" name="pwd" id="pwd" class="txtbox" /> <a href="#">找回密码</a></li>
+                        <li class="slg"><input type="checkbox" name="slg" id="slg" /><label for="slg">保存密码一周，(公共场所慎用)</label></li>
                         <li class="lgbtn overflowAuto">
-                            <a href="javascript:;" class="subBtn floatL"><div class="btnl"></div><div class="btnm">登录</div><div class="btnr"></div></a>
-                            <a href="#" class="reg floatL">免费注册</a>
+                            <asp:LinkButton ID="LinkButton1" CssClass="subBtn floatL" runat="server">
+                                <div class="btnl"></div><div class="btnm">登录</div><div class="btnr"></div>
+                            </asp:LinkButton>
+                            <a href="/Member/Join/reg.aspx" class="reg floatL">免费注册</a>
                         </li>
                     </ul>
+                    </form>
                     <div class="spline"></div>
                     <ul class="lgremark">
                         <li class="rmkt">登录后您可以：</li>
