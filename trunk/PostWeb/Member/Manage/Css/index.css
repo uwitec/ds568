@@ -19,7 +19,7 @@
 .tbcon{margin-top:0;}
 .tbcon li{float:left;margin-right:10px;}
 .tbcon li a{width:64px;height:60px;display:block; text-align:center; cursor:pointer;}
-.tbcon li a:hover{ background:url(../images/icon/iconh.gif);}
+.tbcon li a:hover,.menuHover{ background:url(../images/icon/iconh.gif);}
 .icon-suply,.icon-purchasemanage,.icon-imagemanager,.icon-industryInformation,
 .icon-privateseller,.icon-salemanagement,.icon-winporter,.icon-accountmanagement{width:36px;height:41px;margin:0 auto; background-repeat:no-repeat; background-position:0 5px;}
 .icon-suply{background-image:url(../images/icon/offer.gif);}

@@ -57,7 +57,7 @@
                     <div class="wname">公司资料</div>
                 </a>
             </li>
-             <li>
+            <li>
                 <a href="#" target="conFrame">
                     <div class="icon-salemanagement"></div>
                     <div class="wname">交易管理</div>
@@ -78,6 +78,6 @@
         </ul>
         
     </div>
-     <iframe  class="frame" name="conFrame"  frameborder=0 scrolling="auto" width="100%"></iframe>
+    <iframe  class="frame" name="conFrame"  frameborder=0 scrolling="auto" width="100%"></iframe>
 </body>
 </html>

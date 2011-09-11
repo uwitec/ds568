@@ -11,11 +11,11 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-public partial class Member_Manage_Offer_Post :  BasePage
+public partial class Member_Manage_Account_Contact :BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       var mst= this.Master as Member_Manage_MasterPage;
-       mst.SetMenuTitle("供应管理", "发布供应信息");
+        var mst = this.Master as Member_Manage_MasterPage;
+        mst.SetMenuTitle("帐号管理", "修改联系信息");
     }
 }
