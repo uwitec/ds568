@@ -56,8 +56,8 @@ namespace DBUtility
         {
             string result = string.Empty;
             //加密时使用的是Convert.ToBase64String(),解密时必须使用Convert.FromBase64String()
-            try
-            {
+            //try
+            //{
                 byte[] encryptData = Convert.FromBase64String(encryptStr);
                 byte[] byKey = System.Text.Encoding.UTF8.GetBytes(encryptKey);
                 byte[] IV = { 0x77, 0x70, 0x50, 0xD9, 0xE1, 0x7F, 0x23, 0x13, 0x7A, 0xB3, 0xC7, 0xA7, 0x48, 0x2A, 0x4B, 0x39 };
@@ -67,11 +67,11 @@ namespace DBUtility
                 decStream.Write(encryptData, 0, encryptData.Length);
                 decStream.FlushFinalBlock();
                 result = System.Text.Encoding.Default.GetString(msTarget.ToArray());
-            }
-            catch (Exception)
-            {
-                return null;
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    return null;
+            //}
             return result;
         }
         #endregion

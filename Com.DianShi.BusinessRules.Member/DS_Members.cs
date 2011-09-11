@@ -119,8 +119,8 @@ namespace Com.DianShi.BusinessRules.Member
         public bool Login(ref DS_Members Member) {
             using (DS_MembersDataContext ct = new DS_MembersDataContext())
             {
-                string uid = Member.UserID.Trim(), pwd = DBUtility.DESEncrypt.SymmectricDecrypts(Member.Password.Trim(), Common.Constant.WebConfig("EcptKey")); ;
-                Member = ct.DS_Members.SingleOrDefault(a => a.UserID.ToLower().Equals(uid.Trim().ToLower()) && a.Password.ToLower().Equals(pwd.Trim().ToLower()));
+                string uid = Member.UserID.Trim(), pwd = DBUtility.DESEncrypt.SymmetricEncrypts(Member.Password.Trim(), Common.Constant.WebConfig("EcptKey"));
+                Member = ct.DS_Members.SingleOrDefault(a => a.UserID==uid&& a.Password==pwd);
                 return !object.Equals(Member,null);
             }
         }

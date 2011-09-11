@@ -29,16 +29,16 @@
                 <div class="lghead"></div>
                 <div class="lgmiddle">
                     <div class="lgtitle"><span class="floatL">会员登录</span><a class="floatR" href="#">帮助</a></div>
-                    <form runat="server" id="form1">
+                    <form runat="server" id="form1" defaultbutton="LinkButton1">
                     <ul class="lgcon">
-                        <li class="uid">会员登录名：<input type="text" name="uid" id="uid" class="txtbox" /> <a href="#">找回登录名</a></li>
-                        <li class="pwd">密码：<input type="password" name="pwd" id="pwd" class="txtbox" /> <a href="#">找回密码</a></li>
-                        <li class="slg"><input type="checkbox" name="slg" id="slg" /><label for="slg">保存密码一周，(公共场所慎用)</label></li>
+                        <li class="uid">会员登录名：<input type="text" tabindex="0" name="uid" id="uid" class="txtbox" /> <a  href="#">找回登录名</a></li>
+                        <li class="pwd">密码：<input type="password"   name="pwd" id="pwd" class="txtbox" /> <a  href="#">找回密码</a></li>
+                        <li class="slg"><input type="checkbox"  name="slg" id="slg" /><label for="slg">保存密码一周，(公共场所慎用)</label></li>
                         <li class="lgbtn overflowAuto">
-                            <asp:LinkButton ID="LinkButton1" CssClass="subBtn floatL" runat="server">
+                            <asp:LinkButton ID="LinkButton1"  CssClass="subBtn floatL" runat="server">
                                 <div class="btnl"></div><div class="btnm">登录</div><div class="btnr"></div>
                             </asp:LinkButton>
-                            <a href="/Member/Join/reg.aspx" class="reg floatL">免费注册</a>
+                            <a href="/Member/Join/reg.aspx"  class="reg floatL">免费注册</a>
                         </li>
                     </ul>
                     </form>

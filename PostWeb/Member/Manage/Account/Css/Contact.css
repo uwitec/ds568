@@ -1,13 +1,1 @@
-﻿@import url("/Css/Globle.css");
-.main{width:952px;margin:0 auto;}
-.conLeft{width:150px;}
-.conRight{margin-left:160px;_margin-left:157px;}
-
-
-.leftMenu{width:140px;}
-.leftMenu li{margin-bottom:2px;}
-.leftMenu li a{color:#0066CC;display:block;height:28px;line-height:28px; text-indent:28px;}
-.leftMenu li a:hover,.selNod{background:url(../../images/icon.gif) no-repeat;}
-.leftMenu li a:hover{background-position:0 -42px;}
-.leftMenu li a.selNod:hover{background-position:0 0;}
-.leftMenu li a.selNod{font-weight:bold;}
+﻿

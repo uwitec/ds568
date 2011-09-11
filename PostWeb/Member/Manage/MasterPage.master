@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Member_Manage_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <Custom:Header ID="Header1" runat="server" />
+    <link href="/Member/Manage/Css/Master.css" rel="stylesheet" type="text/css" />
+    <link href="/Member/Manage/UserControl/Css/LeftMenu.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<form id="form1" runat="server">
+    <div class="main overflowAuto">
+        <div class="conLeft floatL">
+            <Custom:MemberLeftMenu runat="server" ID="LeftMenu1" />
+        </div>
+        <div class="conRight">
+           <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

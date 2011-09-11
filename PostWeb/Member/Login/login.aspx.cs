@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Member;
+using Com.DianShi.Model.Member;
 public partial class Member_Login_login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -19,8 +20,8 @@ public partial class Member_Login_login : System.Web.UI.Page
     }
 
     private void LinkButton1_Click(object sender, EventArgs e) {
-        //try
-        //{
+        try
+        {
             string uid=Request.Form["uid"] as string;
             string pwd=Request.Form["pwd"] as string;
             if (string.IsNullOrEmpty(uid)||string.IsNullOrEmpty(pwd)) { 
@@ -33,16 +34,17 @@ public partial class Member_Login_login : System.Web.UI.Page
             md.Password = pwd;
             if (bl.Login(ref md))
             {
-                Session["UserData"] = new UserData { Member=md };
+                Session["UserData"] = new UserData { Member = md };
                 Response.Redirect(Resources.Constant.ManagePage);
             }
-            else {
-                Common.MessageBox.Show(this,"用户名或密码错误",Common.MessageBox.InfoType.warning,"history.back");
+            else
+            {
+                Common.MessageBox.Show(this, "用户名或密码错误", Common.MessageBox.InfoType.warning, "history.back");
             }
-            
-        //}
-        //catch (Exception ex) {
-        //    Common.MessageBox.Show(this, "抱歉，登录发生意外，可联系客服人员寻找帮助", Common.MessageBox.InfoType.error, "history.back");
-        //}
+        }
+        catch (Exception ex)
+        {
+            Common.MessageBox.Show(this, "抱歉，登录发生意外，可联系客服人员寻找帮助", Common.MessageBox.InfoType.error, "history.back");
+        }
     }
 }
