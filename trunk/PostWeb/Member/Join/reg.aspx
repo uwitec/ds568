@@ -29,12 +29,10 @@
         </div>
         <div class="headLine"></div>
         <div class="baseInfo">
-            <div class="title bold">基本信息
-                <div class="hLine">&nbsp;</div>
-                <div class="block bl1"></div>
-                <div class="block bl2"></div>
-                <div class="block bl3"></div>
-                <div class="block bl4"></div>
+            <div class="partion">
+                <div class="mLeft"></div>
+                <div class="mMiddle">基本资料<div></div></div>
+                <div class="mRight"></div>
             </div>
         </div>
         <form  runat="server" id="form1">
@@ -48,12 +46,10 @@
                     <li><span class="marginL12"></span>确认密码<span class="star">*</span><input class="txtbox" name="password2" id="password2" type="password" /></li>
                 </ul>
                 <div class="baseInfo">
-                    <div class="title bold">公司信息
-                        <div class="hLine">&nbsp;</div>
-                        <div class="block bl1"></div>
-                        <div class="block bl2"></div>
-                        <div class="block bl3"></div>
-                        <div class="block bl4"></div>
+                    <div class="partion">
+                        <div class="mLeft"></div>
+                        <div class="mMiddle">公司信息<div></div></div>
+                        <div class="mRight"></div>
                     </div>
                 </div>
                 <ul>
@@ -73,12 +69,10 @@
                     </li>
                 </ul>
                 <div class="baseInfo">
-                    <div class="title bold">服务条款
-                        <div class="hLine">&nbsp;</div>
-                        <div class="block bl1"></div>
-                        <div class="block bl2"></div>
-                        <div class="block bl3"></div>
-                        <div class="block bl4"></div>
+                    <div class="partion">
+                        <div class="mLeft"></div>
+                        <div class="mMiddle">服务条款<div></div></div>
+                        <div class="mRight"></div>
                     </div>
                 </div>
                 <ul>

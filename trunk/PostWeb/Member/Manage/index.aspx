@@ -39,19 +39,19 @@
                     <div class="wname">采购管理</div>
                 </a>
             </li>
-              <li>
+            <li>
                 <a href="#" target="conFrame">
                     <div class="icon-imagemanager"></div>
                     <div class="wname">相册管理</div>
                 </a>
             </li>
-             <li>
+            <li>
                 <a href="#" target="conFrame">
                     <div class="icon-industryInformation"></div>
                     <div class="wname">公司动态</div>
                 </a>
             </li>
-             <li>
+            <li>
                 <a href="#" target="conFrame">
                     <div class="icon-privateseller"></div>
                     <div class="wname">公司资料</div>
@@ -69,7 +69,7 @@
                     <div class="wname">装修商铺</div>
                 </a>
             </li>
-             <li>
+            <li>
                 <a href="Account/Contact.aspx" target="conFrame">
                     <div class="icon-accountmanagement"></div>
                     <div class="wname">帐号管理</div>
