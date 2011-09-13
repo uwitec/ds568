@@ -4,8 +4,13 @@
 <link href="Css/Contact.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<ul>
-    <li></li>
+<ul class="hmenu">
+    <li>
+        <div class="mLeft"></div>
+        <div class="mMiddle">联系信息<div></div></div>
+        <div class="mRight"></div>
+    </li>
+    <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
 </ul>
 </asp:Content>
 
