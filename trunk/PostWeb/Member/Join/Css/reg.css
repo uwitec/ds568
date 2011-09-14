@@ -47,6 +47,5 @@ li.tagHead{ border-bottom:dotted 1px #CECECE;margin-bottom:5px;padding-bottom:4p
 .mLeft,.mRight{width:3px;}
 .mLeft{background-position:-1px -37px;}
 .mRight{ background-position:-1px -68px;}
-.mMiddle{width:91px;background-position:0 -99px; text-align:center;font-size:14px;line-height:30px;font-weight:bold; position:relative;}
-.mMiddle div{height:1px; overflow:hidden; background-color:White; position:absolute; width:95px;left:-2px;bottom:-1px;}
-.partion{height:30px;position:relative;left:20px;}
+.mMiddle{background-position:0 -99px;padding:0 12px; text-align:center;font-size:14px;line-height:29px;font-weight:bold; position:relative;}
+.partion{height:30px;position:relative;left:20px; top:1px;}

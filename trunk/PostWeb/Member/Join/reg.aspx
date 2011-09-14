@@ -31,7 +31,7 @@
         <div class="baseInfo">
             <div class="partion">
                 <div class="mLeft"></div>
-                <div class="mMiddle">基本资料<div></div></div>
+                <div class="mMiddle">基本资料</div>
                 <div class="mRight"></div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                 <div class="baseInfo">
                     <div class="partion">
                         <div class="mLeft"></div>
-                        <div class="mMiddle">公司信息<div></div></div>
+                        <div class="mMiddle">公司信息</div>
                         <div class="mRight"></div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="baseInfo">
                     <div class="partion">
                         <div class="mLeft"></div>
-                        <div class="mMiddle">服务条款<div></div></div>
+                        <div class="mMiddle">服务条款</div>
                         <div class="mRight"></div>
                     </div>
                 </div>
