@@ -23,7 +23,7 @@
     <li><span>手机：&nbsp;</span><input class="txtbox mobile" name="mobile" value="<%=ViewState["Mobile"] %>" id="mobile" type="text" /></li>
     <li><span>传真：&nbsp;</span><input class="txtbox fax-qh" name="faxqh" maxlength=4 value="<%=ViewState["Faxqh"] %>"  id="faxqh" type="text" />-<input class="txtbox fax-hm" value="<%=ViewState["Faxhm"] %>" name="faxhm" maxlength=9   id="faxhm" type="text" />-<input class="txtbox fax-fj" value="<%=ViewState["Faxfj"] %>" name="faxfj" maxlength=4 id="faxfj"  type="text" /></li>
     <li><span>公司网址：&nbsp;</span><input type="text" id="webSite" value="<%=ViewState["HomePage"] %>" class="txtbox" name="webSite" maxlength="200" /></li>
-    <li><span></span><asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="保存" /></li>
+    <li><span>&nbsp;</span><asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="保存" /></li>
 </ul>
 </asp:Content>
 
