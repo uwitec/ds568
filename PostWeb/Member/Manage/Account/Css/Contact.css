@@ -6,7 +6,7 @@
 .mRight{ background-position:0 -31px;}
 .mMiddle{background-position:0 -62px;padding:0 12px; text-align:center;line-height:29px;font-weight:bold; position:relative;}
 li.request{float:right; overflow:hidden;width:90px;}
-.gray,.red{ position:absolute;bottom:-1px;*bottom:-2px;_bottom:0;}
+.gray,.red{ position:absolute;bottom:0px;*bottom:-2px;_bottom:0;}
 .gray{padding:0 5px 0 12px;}
 .red{color:Red;bottom:-4px;*bottom:-3px;}
 
