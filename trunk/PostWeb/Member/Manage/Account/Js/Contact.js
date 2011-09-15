@@ -33,7 +33,8 @@
         rules:{
             email:{required:true,email:true},
             trueName:{required:true,minlength:2,maxlength:4},
-            department:{required:true,minlength:2},
+            sex:{required:true},
+            position:{required:true,minlength:2},
             phoneqh:{required:true,digits:true,rangelength:[3,4]},
             phonehm:{required:true,digits:true,rangelength:[7,8]},
             phonefj:{digits:true,rangelength:[3,4]},

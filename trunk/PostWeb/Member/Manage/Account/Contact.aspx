@@ -14,15 +14,15 @@
     <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
 </ul>
 <ul class="ctList">
-    <li><span>电子邮箱：<label class="star">*</label></span><input type="text" class="txtbox" id="email" name="email" maxlength="100" /></li>
-    <li><span>联系人：<label class="star">*</label></span><input type="text" class="txtbox" id="trueName" name="trueName" maxlength="20" /></li>
-    <li><span>性别：<label class="star">*</label></span><input class="mType" name="sex" id="sex1" value="先生"  type="radio" checked /><label for="sex1">先生</label>
-                        <input class="mType"  name="sex" id="sex2" value="女士" type="radio" /><label for="sex2">女士</label></li>
-    <li><span>部门职位：<label class="star">*</label></span><input type="text" class="txtbox" id="department" name="department" maxlength="20" /></li>
-    <li><span>电话：<label class="star">*</label></span><input class="txtbox phone-qh"  maxlength=4 name="phoneqh" id="phoneqh" type="text" />-<input class="txtbox phone-hm" maxlength=9   name="phonehm" id="phonehm" type="text" />-<input class="txtbox phone-fj" maxlength=4  name="phonefj" id="phonefj" type="text" /></li>
-    <li><span>手机：&nbsp;</span><input class="txtbox mobile" name="mobile" id="mobile" type="text" /></li>
-    <li><span>传真：&nbsp;</span><input class="txtbox fax-qh" name="faxqh" maxlength=4   id="faxqh" type="text" />-<input class="txtbox fax-hm" name="faxhm" maxlength=9   id="faxhm" type="text" />-<input class="txtbox fax-fj" name="faxfj" maxlength=4 id="faxfj"  type="text" /></li>
-    <li><span>公司网址：&nbsp;</span><input type="text" id="webSite" class="txtbox" name="webSite" maxlength="200" /></li>
+    <li><span>电子邮箱：<label class="star">*</label></span><input type="text" class="txtbox" value="<%=ViewState["Email"] %>" id="email" name="email" maxlength="100" /></li>
+    <li><span>联系人：<label class="star">*</label></span><input type="text" class="txtbox" value="<%=ViewState["TrueName"] %>" id="trueName" name="trueName" maxlength="20" /></li>
+    <li><span>性别：<label class="star">*</label></span><input class="mType" name="sex" id="sex1" <%=ViewState["Gender"].ToString().Equals("先生")?"checked":"" %> value="先生"  type="radio" /><label for="sex1">先生</label>
+                        <input class="mType"  name="sex" id="sex2" <%=ViewState["Gender"].ToString().Equals("女士")?"checked":"" %> value="女士" type="radio" /><label for="sex2">女士</label></li>
+    <li><span>部门职位：<label class="star">*</label></span><input type="text" class="txtbox" value="<%=ViewState["Position"] %>" id="position" name="position" maxlength="20" /></li>
+    <li><span>电话：<label class="star">*</label></span><input class="txtbox phone-qh" value="<%=ViewState["Phoneqh"] %>" maxlength=4 name="phoneqh" id="phoneqh" type="text" />-<input class="txtbox phone-hm" value="<%=ViewState["Phonehm"] %>" maxlength=9   name="phonehm" id="phonehm" type="text" />-<input class="txtbox phone-fj" value="<%=ViewState["Phonefj"] %>" maxlength=4  name="phonefj" id="phonefj" type="text" /></li>
+    <li><span>手机：&nbsp;</span><input class="txtbox mobile" name="mobile" value="<%=ViewState["Mobile"] %>" id="mobile" type="text" /></li>
+    <li><span>传真：&nbsp;</span><input class="txtbox fax-qh" name="faxqh" maxlength=4 value="<%=ViewState["Faxqh"] %>"  id="faxqh" type="text" />-<input class="txtbox fax-hm" value="<%=ViewState["Faxhm"] %>" name="faxhm" maxlength=9   id="faxhm" type="text" />-<input class="txtbox fax-fj" value="<%=ViewState["Faxfj"] %>" name="faxfj" maxlength=4 id="faxfj"  type="text" /></li>
+    <li><span>公司网址：&nbsp;</span><input type="text" id="webSite" value="<%=ViewState["HomePage"] %>" class="txtbox" name="webSite" maxlength="200" /></li>
     <li><span></span><asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="保存" /></li>
 </ul>
 </asp:Content>
