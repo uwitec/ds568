@@ -1,19 +1,7 @@
-﻿.hmenu{margin-top:20px; border-bottom:solid 1px #C3C3C3;height:30px;}
-.hmenu li{float:left;margin-left:10px;_margin-left:7px;height:30px;position:relative; top:1px;}
-.mLeft,.mMiddle,.mRight{ background:url(../images/bg.png);}
-.mLeft,.mMiddle,.mRight{float:left;height:30px;}
-.mLeft,.mRight{width:3px;}
-.mRight{ background-position:0 -31px;}
-.mMiddle{background-position:0 -62px;padding:0 12px; text-align:center;line-height:29px;font-weight:bold; position:relative;}
-li.request{float:right; overflow:hidden;width:90px;}
-.gray,.red{ position:absolute;bottom:0px;*bottom:-2px;_bottom:0;}
-.gray{padding:0 5px 0 12px;}
-.red{color:Red;bottom:-4px;*bottom:-3px;}
-
-.ctList li{margin-top:18px;position:relative;}
+﻿.ctList li{margin-top:18px;position:relative;}
 .ctList li span{width:100px; text-align:right;float:left;display:block;line-height:32px;margin-right:12px;}
 .txtbox{width:234px;height:24px;line-height:24px;border:solid 1px #B5B5B5;}
 .phone-qh,.fax-qh{width:55px;}
 .phone-hm,.fax-hm{width:110px;}
 .phone-fj,.fax-fj{width:55px;}
-label.error{left:360px;font-size:12px;}
+label.error{left:360px;_left:260px;font-size:12px;}

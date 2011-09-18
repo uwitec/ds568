@@ -339,5 +339,20 @@ namespace Common
         {
             return Url.ToLower().Replace(left.ToLower() + Url.Substring(Url.LastIndexOf("/") + 1).ToLower(), rpstr.ToLower());
         }
+
+        /// <summary>
+        /// 获取6个验证取机数
+        /// </summary>
+        /// <returns></returns>
+        public static string ValidateCode(int len)
+        {
+            StringBuilder sb = new StringBuilder();
+            Random rd = new Random();
+            for (int i = 1; i <= len; i++)
+            {
+                sb.Append(rd.Next(9).ToString());
+            }
+            return sb.ToString();
+        }
     }
 }

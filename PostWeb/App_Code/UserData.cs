@@ -16,7 +16,9 @@ public class UserData
         //
         //TODO: 在此处添加构造函数逻辑
         //
-        
+       
     }
-    public DS_Members Member { get; set; }
+    public DS_Members Member{ get; set; }
+
+    public string ValiCode { get; set; }
 }
