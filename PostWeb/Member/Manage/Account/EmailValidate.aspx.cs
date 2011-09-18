@@ -30,35 +30,42 @@ public partial class Member_Manage_Account_EmailValidate : BasePage
         {
             md= bl.GetSingle(ud.Member.ID);
             ViewState["Email"] = md.Email;
-
-            if (md.EmailValidate) {//如果已验证则显示成功的界面
-                cemail.Value = md.Email;
-                Common.MessageBox.ResponseScript(this, "window.vlsucc();");
-            }
         }
         catch (Exception ex) {
             Common.WriteLog.SetErrLog(Request.Url.ToString(), "Page_Load",ex.Message);
             Common.MessageBox.Show(this,"获取数据出错",Common.MessageBox.InfoType.error,"history.back");
         }
 
-        
-        if (!string.IsNullOrEmpty(Request.QueryString["action"])) { 
-            string act=Request.QueryString["action"];
-            switch (act) {
+
+        if (!string.IsNullOrEmpty(Request.QueryString["action"]))
+        {
+            string act = Request.QueryString["action"];
+            switch (act)
+            {
                 case "vlemail"://获取邮箱验证码
                     ud.ValiCode = Common.StringFormat.ValidateCode(6);
-                    var emun=new Common.EmailUitility();
-                    emun.Title = "点石网邮箱验证！"; 
-                    emun.Content = "您的邮箱验证码是："+ud.ValiCode;
+                    var emun = new Common.EmailUitility();
+                    emun.Title = "点石网邮箱验证！";
+                    emun.Content = "您的邮箱验证码是：" + ud.ValiCode;
                     emun.AddEmailAddress(Request.QueryString["email"]);
-                    emun.FromAddress = "\"点石网会员中心\" "+emun.FromAddress;
+                    emun.FromAddress = "\"点石网会员中心\" " + emun.FromAddress;
                     emun.SendEmail();
                     break;
-                case "cancle":
+                case "modify"://修改邮箱
+                    
+                    break;
+                case "cancle"://取消验证
                     md.EmailValidate = false;
                     bl.Update(md);
                     Common.MessageBox.ResponseScript(this, "window.cancelValidate()");
                     break;
+            }
+        }//没有动作
+        else {
+            if (md.EmailValidate)//如果已验证则显示已验证界面
+            {
+                cemail.Value = md.Email;
+                Common.MessageBox.ResponseScript(this, "window.vlsucc();");
             }
         }
     }
