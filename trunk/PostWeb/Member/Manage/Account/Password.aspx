@@ -1,8 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Member/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="Password.aspx.cs" Inherits="Member_Manage_Account_Password" Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <link href="Css/Contact.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="js/Contact.js"></script>
+    <link href="Css/password.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/password.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ul class="hmenu">
