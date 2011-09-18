@@ -14,11 +14,11 @@ namespace Common
         /// </summary>
         public EmailUitility()
         {
-            toAddress = new HashSet<string>();
-            Account = ConfigurationManager.AppSettings["Account"];
-            Password=ConfigurationManager.AppSettings["Password"];
-            Smtp=ConfigurationManager.AppSettings["Smtp"];
-            FromAddress = ConfigurationManager.AppSettings["FromAddress"];
+
+            Account =  Common.Constant.WebConfig("EAccount");
+            Password= Common.Constant.WebConfig("EPassword");
+            Smtp= Common.Constant.WebConfig("ESmtp");
+            FromAddress = Common.Constant.WebConfig("EFromAddress");
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Common
         /// <param name="EFromAddress">用于发送邮件的邮箱地址</param>
         public EmailUitility(string EAccount,string EPassword,string ESmtp,string EFromAddress)
         {
-            toAddress = new HashSet<string>();
+           
             Account = EAccount;
             Password = EPassword;
             Smtp = ESmtp;
@@ -44,42 +44,41 @@ namespace Common
 
         public string FromAddress { get; set; }
 
-        private HashSet<string> toAddress;
-
-        private HashSet<string> ToAddress
-        {
-            get { return toAddress; }
-            set { toAddress = value; }
-        }
+        private HashSet<string> _ToAddress=new HashSet<string>();
 
         public string Title { get; set; }
 
         public string Content { get; set; }
 
-        public void Add(string EmailAddress)
+        public void AddEmailAddress(string EmailAddress)
         {
-            toAddress.Add(EmailAddress);
+            foreach (string s in EmailAddress.Split(';'))
+            {
+                _ToAddress.Add(s);
+            }
         }
 
 
         private string getAddressCollection()
         {
             string addressCollection = "";
-            foreach (object address in toAddress)
+            foreach (object address in _ToAddress)
             {
                 addressCollection += (string)address + ",";
             }
-            if (addressCollection != "")
-                addressCollection = addressCollection.Substring(0, addressCollection.Length - 1);
-            return addressCollection;
+            return addressCollection.TrimEnd(',');
         }
+
+        private int _Port = 587;
+        public int Port { get { return _Port; } set { _Port = value; } }
+        private bool _Ssl = true;
+        public bool Ssl { get { return _Ssl; } set { _Ssl = value; } }
 
         public void SendEmail()
         {
             MailMessage mm = new MailMessage();
 
             mm.Body = Content;
-
             mm.BodyEncoding = System.Text.Encoding.UTF8;
             mm.From = new MailAddress(FromAddress);
             mm.IsBodyHtml = true;
@@ -92,11 +91,12 @@ namespace Common
             SmtpClient client = new SmtpClient();
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.Host = Smtp;
+            client.Port = _Port;
+            client.EnableSsl = _Ssl;
             client.UseDefaultCredentials = true;
             client.Credentials = new System.Net.NetworkCredential(Account, Password);
             client.Send(mm);
-
-
         }
     }
+
 }

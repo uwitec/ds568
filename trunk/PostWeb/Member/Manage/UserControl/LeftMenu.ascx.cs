@@ -37,10 +37,10 @@ public partial class Member_Manage_UserControl_LeftMenu : System.Web.UI.UserCont
             { 
                 case "帐号管理":
                     ViewState["icon"] = "accountmanagement";
-                    return "<li><a href=\"#\">修改联系信息</a></li>"+
+                    return "<li><a href=\"Contact.aspx\">修改联系信息</a></li>"+
                             "<li><a href=\"#\">手机验证</a></li>"+
-                            "<li><a href=\"#\">邮箱验证</a></li>"+
-                            "<li><a href=\"#\">修改密码</a></li>"+
+                            "<li><a href=\"EmailValidate.aspx\">邮箱验证</a></li>" +
+                            "<li><a href=\"Password.aspx\">修改密码</a></li>"+
                             "<li><a href=\"#\">密保问题管理</a></li>";
                     break;
                 case "供应管理":

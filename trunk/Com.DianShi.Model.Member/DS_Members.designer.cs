@@ -104,6 +104,10 @@ namespace Com.DianShi.Model.Member
 		
 		private string _HomePage;
 		
+		private bool _EmailValidate;
+		
+		private bool _MobileValidate;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -132,6 +136,10 @@ namespace Com.DianShi.Model.Member
     partial void OnMobileChanged();
     partial void OnHomePageChanging(string value);
     partial void OnHomePageChanged();
+    partial void OnEmailValidateChanging(bool value);
+    partial void OnEmailValidateChanged();
+    partial void OnMobileValidateChanging(bool value);
+    partial void OnMobileValidateChanged();
     #endregion
 		
 		public DS_Members()
@@ -375,6 +383,46 @@ namespace Com.DianShi.Model.Member
 					this._HomePage = value;
 					this.SendPropertyChanged("HomePage");
 					this.OnHomePageChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_EmailValidate", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public bool EmailValidate
+		{
+			get
+			{
+				return this._EmailValidate;
+			}
+			set
+			{
+				if ((this._EmailValidate != value))
+				{
+					this.OnEmailValidateChanging(value);
+					this.SendPropertyChanging();
+					this._EmailValidate = value;
+					this.SendPropertyChanged("EmailValidate");
+					this.OnEmailValidateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MobileValidate", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public bool MobileValidate
+		{
+			get
+			{
+				return this._MobileValidate;
+			}
+			set
+			{
+				if ((this._MobileValidate != value))
+				{
+					this.OnMobileValidateChanging(value);
+					this.SendPropertyChanging();
+					this._MobileValidate = value;
+					this.SendPropertyChanged("MobileValidate");
+					this.OnMobileValidateChanged();
 				}
 			}
 		}
