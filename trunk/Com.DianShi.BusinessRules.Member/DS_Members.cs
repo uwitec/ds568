@@ -124,5 +124,35 @@ namespace Com.DianShi.BusinessRules.Member
                 return !object.Equals(Member,null);
             }
         }
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="ID">用户ID</param>
+        /// <param name="oldPwd">旧密码</param>
+        /// <param name="newPwd">新密码</param>
+        /// <param name="msg">验证过程返回的消息</param>
+        /// <returns>bool</returns>
+        public bool ChangePwd(int ID,string oldPwd,string newPwd,ref string msg) {
+            using (DS_MembersDataContext ct = new DS_MembersDataContext())
+            {
+                newPwd = newPwd.Trim();
+                var md = GetSingle(ID);
+                if (md.Password ==DBUtility.DESEncrypt.SymmetricEncrypts(oldPwd.Trim(), Common.Constant.WebConfig("EcptKey")))
+                {
+                    if (Common.Validate.RegPwd(newPwd))
+                    {
+                        md.Password = DBUtility.DESEncrypt.SymmetricEncrypts(newPwd, Common.Constant.WebConfig("EcptKey"));
+                        Update(md);
+                        return true;
+                    }
+                    else
+                        msg = "密码格式不正确，请输入6-20数字或字母组合";
+                }
+                else
+                    msg = "旧密码输入不正确";
+                return false;
+            }
+        }
     }
 }

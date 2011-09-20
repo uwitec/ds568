@@ -30,17 +30,14 @@ public partial class Member_Manage_Account_Password : BasePage
         {
             var ud = Session["UserData"] as UserData;
             var bl = new DS_Members_Br();
-            var md = bl.GetSingle(ud.Member.ID);
-            md.Email=Request.Form["email"];
-            md.TrueName=Request.Form["trueName"];
-            md.Gender=Request.Form["sex"];
-            md.Position=Request.Form["position"];
-            md.Phone = Request.Form["phoneqh"] + "-" + Request.Form["phonehm"] + "-" + Request.Form["phonefj"];
-            md.Mobile=Request.Form["mobile"];
-            md.Fax = Request.Form["faxqh"] + "-" + Request.Form["faxhm"] + "-" + Request.Form["faxfj"];
-            md.HomePage = Request.Form["webSite"];
-            bl.Update(md);
-            Common.MessageBox.Show(this, "保存成功", Common.MessageBox.InfoType.info, "function(){location='Contact.aspx'}");
+            string msg = "";
+            if (bl.ChangePwd(ud.Member.ID, Request.Form["pwd"], Request.Form["npwd"], ref msg))
+            {
+                ud.Member= bl.GetSingle(ud.Member.ID);
+                Common.MessageBox.Show(this, "保存成功", Common.MessageBox.InfoType.info);
+            }
+            else
+                Common.MessageBox.Show(this, msg, Common.MessageBox.InfoType.info);
         }
         catch (Exception ex) {
             Common.WriteLog.SetErrLog(Request.Url.ToString(), "Button1_Click", ex.Message);
