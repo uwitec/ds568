@@ -11,13 +11,13 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Member;
-public partial class Member_Manage_Account_Password : BasePage
+public partial class Member_Manage_Account_PwdProtect : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         //设置左边菜单
         var mst = this.Master as Member_Manage_MasterPage;
-        mst.SetMenuTitle("帐号管理", "修改密码");
+        mst.SetMenuTitle("帐号管理", "密保问题管理");
 
         //保存事件
         Button1.Click+=new EventHandler(Button1_Click);
