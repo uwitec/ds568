@@ -10,7 +10,7 @@ namespace Com.DianShi.BusinessRules.Member
     {
         public void Add(DS_CompanyInfo CompanyInfo)
         {
-            using (DS_CompanyInfoDataContext ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext())
             {
                 ct.DS_CompanyInfo.InsertOnSubmit(CompanyInfo);
                 ct.SubmitChanges();
@@ -19,7 +19,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Update(DS_CompanyInfo CompanyInfo)
         {
-            using (DS_CompanyInfoDataContext ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext())
             {
                 ct.DS_CompanyInfo.Attach(CompanyInfo, true);
                 ct.SubmitChanges();
@@ -28,7 +28,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Delete(int ID)
         {
-            using (DS_CompanyInfoDataContext ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext())
             {
                 DS_CompanyInfo st = ct.DS_CompanyInfo.Single(a => a.ID == ID);
                 ct.DS_CompanyInfo.DeleteOnSubmit(st);
@@ -38,7 +38,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public DS_CompanyInfo GetSingle(int ID)
         {
-            using (DS_CompanyInfoDataContext ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext())
             {
                 return ct.DS_CompanyInfo.Single(a => a.ID == ID);
             }
@@ -46,7 +46,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (DS_CompanyInfoDataContext ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext())
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
@@ -54,7 +54,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_CompanyInfo> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (DS_CompanyInfoDataContext ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext())
             {
                 IQueryable<DS_CompanyInfo> CompanyInfoList = ct.DS_CompanyInfo;
                 if (!string.IsNullOrEmpty(condition))
@@ -68,7 +68,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_CompanyInfo> Query(string condition, string orderby, params object[] param)
         {
-            using (DS_CompanyInfoDataContext ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext())
             {
                 IQueryable<DS_CompanyInfo> CompanyInfoList = ct.DS_CompanyInfo;
                 if (!string.IsNullOrEmpty(condition))

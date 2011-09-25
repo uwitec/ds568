@@ -42,12 +42,13 @@ public partial class Member_Manage_Account_MobileValidate : BasePage
             string act = Request.QueryString["action"];
             switch (act)
             {
-                case "vlmobile"://获取邮箱验证码
+                case "vlmobile"://获取手机验证码
+
                     ud.ValiCode = Common.StringFormat.ValidateCode(6);
                     var ws = new WebService.SMS.Service1();
-                    ws.SendMessages(Common.Constant.WebConfig("SMSAccount"), Common.Constant.WebConfig("SMSPassword"), Request.QueryString["mobile"], "您的手机验证码是：" + ud.ValiCode, "");
+                    ws.SendMessages(Common.Constant.WebConfig("SMSAccount"), Common.Constant.WebConfig("SMSPassword"), Request.QueryString["mobile"], "您的手机验证码是：" + ud.ValiCode+"(点石网)", "");
                     break;
-                case "modify"://修改邮箱
+                case "modify"://修改手机
                     
                     break;
                 case "cancle"://取消验证

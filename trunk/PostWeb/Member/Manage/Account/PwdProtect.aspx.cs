@@ -31,7 +31,6 @@ public partial class Member_Manage_Account_PwdProtect : BasePage
         {
             md = bl.GetSingleByMemberID(ud.Member.ID);
             ViewState["question"] = md.Question1;
-            ViewState["answer"] = md.Answer1;
         }
 
         //处理动作
@@ -41,7 +40,12 @@ public partial class Member_Manage_Account_PwdProtect : BasePage
             switch (act)
             {
                 case "modify":
-                    
+                    string answer=Request.QueryString["a"];
+                    if (md.Answer1 == answer)
+                        Response.Write("true");
+                    else
+                        Response.Write("false");
+                    Response.End();
                     break;
             }
         }
@@ -91,7 +95,7 @@ public partial class Member_Manage_Account_PwdProtect : BasePage
             md.Answer1 = answer;
             bl.InsertOrUpdate(md);
 
-            Common.MessageBox.Show(this, "保存成功", Common.MessageBox.InfoType.info, "history.back");
+            Common.MessageBox.Show(this, "保存成功", Common.MessageBox.InfoType.info, "function(){location='PwdProtect.aspx'}");
             
         }
         catch (Exception ex) {
