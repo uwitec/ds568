@@ -14,9 +14,9 @@
     <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
 </ul>
 <ul class="ctList">
-    <li><span>旧密码：<label class="star">*</label></span><input type="text" class="txtbox"  id="pwd" name="pwd" maxlength="20" /></li>
-    <li><span>新密码：<label class="star">*</label></span><input type="text" class="txtbox"  id="npwd" name="npwd" maxlength="20" /></li>
-    <li><span>确认密码：<label class="star">*</label></span><input type="text" class="txtbox"  id="npwd2" name="npwd2" maxlength="20" /></li>
+    <li><span>旧密码：<label class="star">*</label></span><input type="password" class="txtbox"   id="pwd" name="pwd" maxlength="20" /></li>
+    <li><span>新密码：<label class="star">*</label></span><input type="password" class="txtbox"  id="npwd" name="npwd" maxlength="20" /></li>
+    <li><span>确认密码：<label class="star">*</label></span><input type="password" class="txtbox"  id="npwd2" name="npwd2" maxlength="20" /></li>
     
     <li><span>&nbsp;</span><asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="保存" /></li>
 </ul>

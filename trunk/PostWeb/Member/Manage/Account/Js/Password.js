@@ -23,7 +23,7 @@
             npwd2:{required:true,rangelength:[6,20],pwd:true,equalTo:"#npwd"}
         },
         messages:{
-            npwd2:{equalTo:"两次新密码输入不一致"}
+            npwd2:{equalTo:"两次密码输入不一致"}
         }
     });
     //-----------验证结束------------
@@ -33,6 +33,11 @@
         var b=fvalid.form();
         return b;
          
+    });
+    
+    //禁止对确认密码框进行粘贴
+    $("#npwd2").bind("paste",function(){
+        return false;
     });
     
 });
