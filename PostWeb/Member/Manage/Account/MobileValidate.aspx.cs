@@ -43,10 +43,18 @@ public partial class Member_Manage_Account_MobileValidate : BasePage
             switch (act)
             {
                 case "vlmobile"://获取手机验证码
+                    var vcbl = new DS_ValiCodeSend_Br();
+                    if (vcbl.SendEnable(ud.Member.ID))
+                    {
+                        ud.ValiCode = Common.StringFormat.ValidateCode(6);
+                        var ws = new WebService.SMS.Service1();
+                        //ws.SendMessages(Common.Constant.WebConfig("SMSAccount"), Common.Constant.WebConfig("SMSPassword"), Request.QueryString["mobile"], "您的手机验证码是：" + ud.ValiCode + "(点石网)", "");
+                    }
+                    else {
+                        Response.Write("false");
+                        Response.End();
+                    }
 
-                    ud.ValiCode = Common.StringFormat.ValidateCode(6);
-                    var ws = new WebService.SMS.Service1();
-                    ws.SendMessages(Common.Constant.WebConfig("SMSAccount"), Common.Constant.WebConfig("SMSPassword"), Request.QueryString["mobile"], "您的手机验证码是：" + ud.ValiCode+"(点石网)", "");
                     break;
                 case "modify"://修改手机
                     

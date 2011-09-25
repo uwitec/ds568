@@ -82,5 +82,46 @@ namespace Com.DianShi.BusinessRules.Member
         public Com.DianShi.Model.Member.DS_ValiCodeSend CreateModel() {
             return new Com.DianShi.Model.Member.DS_ValiCodeSend();
         }
+
+        /// <summary>
+        /// 判断当天发送手机验证码是否超过了三次
+        /// </summary>
+        /// <param name="MemberID">会员ID</param>
+        /// <returns></returns>
+        public bool SendEnable(int MemberID) {
+            using (var ct = new DS_ValiCodeSendDataContext())
+            {
+                var md=ct.DS_ValiCodeSend.SingleOrDefault(a=>a.MemberID.Equals(MemberID));
+                if (!object.Equals(md, null))
+                {
+                    bool b=md.LastTime.ToShortDateString().Equals(DateTime.Now.ToShortDateString());
+                    md.LastTime = DateTime.Now;
+                    if (b)
+                    {
+                        if (md.Frequency > 2)
+                            return false;
+                        else
+                        {
+                            md.Frequency++;
+                            Update(md);
+                            return true;
+                        }
+                    }
+                    else {
+                        md.Frequency = 1;
+                        Update(md);
+                        return true;
+                    }
+                }
+                else {
+                    md = CreateModel();
+                    md.MemberID = MemberID;
+                    md.LastTime = DateTime.Now;
+                    md.Frequency = 1;
+                    Add(md);
+                    return true;
+                }
+            }
+        }
     }
 }
