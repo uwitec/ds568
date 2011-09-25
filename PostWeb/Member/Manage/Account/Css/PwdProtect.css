@@ -1,0 +1,20 @@
+﻿.ctList{}
+.ctList li{margin-top:18px;position:relative;}
+.ctList li span,.popwindow ul li span{width:120px; text-align:right;float:left;display:block;line-height:32px;margin-right:12px;}
+.txtbox{width:234px;height:24px;line-height:24px;border:solid 1px #B5B5B5;}
+label.error{left:380px;_left:270px;font-size:12px;}
+
+.safeQuestion{font-size:16px;width:234px;}
+.ctnOq{display:none;}
+
+.validSuccess,.cancelValidate{width:400px;margin:0 auto;margin-top:50px;display:none;}
+.sccon{line-height:22px;}
+.sccon b{font-size:14px;}
+.sicon{ background:url(../images/icon.gif) no-repeat;}
+.sicon{width:54px;height:46px;}
+.popwindow{display:none;}
+.popwindow ul{width:350px;height:250px;}
+.popwindow ul li{ overflow:auto;zoom:1;margin-top:12px;}
+.popwindow ul li input.txtbox{width:180px;}
+.popquestion{border:none;}
+.info{line-height:30px;text-indent:24px;border:solid 1px #ffc899; background-color:#fff8ee; margin-top:10px;width:282px;margin-left:33px;}
