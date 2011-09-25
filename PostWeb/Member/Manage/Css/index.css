@@ -3,8 +3,8 @@
 .holdspace{height:6px;border-bottom:solid 1px #CECECE;margin-bottom:1px; overflow:hidden;}
 .tbcon{width:952px;margin:0 auto;}
 .head,.logo{ background-image:url(../images/bg.gif)}
-.head{ background-repeat: repeat-x; background-position: 0 -35px;padding:0px 10px;}
-.contact{width:400px; text-align:right;}
+.head{ background-repeat: repeat-x; background-position: 0 -35px;padding:8px 10px 0 10px;}
+.contact{width:400px; text-align:right; padding-right:10px;}
 .qqonline{display:block;line-height:18px;width:66px;border:solid 1px #ddd; position:relative;padding:0 3px;}
 .qqonline img{position:absolute; right:52px;top:0px;}
 .kfphone{color:#ff7300;}

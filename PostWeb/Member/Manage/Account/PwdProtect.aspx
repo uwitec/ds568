@@ -41,9 +41,9 @@
 <div id="popwindow" class="popwindow" >
     <div class="info">修改密保问题前需先完成安全验证</div>
     <ul>
-        <li><span>密码保护问题：</span><input type="text" class="txtbox popquestion" value="<%=ViewState["question"] %>"  maxlength="50" /></li>
+        <li><span>密码保护问题：</span><input type="text" class="txtbox popquestion" readonly value="<%=ViewState["question"] %>"  maxlength="50" /></li>
         <li><span>密码保护答案：</span><input type="text" class="txtbox"  id="answer3" name="answer3" maxlength="50" /></li>
-        <li><span>&nbsp;</span><asp:Button ID="Button2" CssClass="subBtn" runat="server" Text="保存" /></li>
+        <li><span>&nbsp;</span><input type="button" value="确定" id="popsub" class="subBtn" /></li>
     </ul>
 </div>
 </asp:Content>

@@ -1,6 +1,12 @@
 ﻿$(document).ready(function(){
     
     //-----------验证开始------------
+    $.validator.addMethod("mobile",function(value, element){//增加验证函数(验证手机号码)
+             var tel = /^(13|15|18)[0-9]{9}$/;
+             return this.optional(element) || (tel.test(value));    
+        },
+        "请输入正确的手机号码"
+    );
     var fvalid=$(".mstForm").validate({
         focusInvalid: true,
         errorPlacement:function(error, element) { //设置错误提示位置,此函数为默认，可不设置
@@ -11,7 +17,7 @@
         },
        
         rules:{
-            mobile:{required:true,equalTo:".cmobile"},
+            mobile:{required:true,mobile:true,equalTo:".cmobile"},
             valiCode:{required:true,minlength:6,maxlength:6}
         },
         messages:{

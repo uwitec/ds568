@@ -1,5 +1,8 @@
 // JavaScript Document
 
+//给字符串加上去空格方法
+String.prototype.trim=function(){return $.trim(this)}
+
 //按比例缩放
 function changeImg(obj,width,height) {
     var image=new Image();

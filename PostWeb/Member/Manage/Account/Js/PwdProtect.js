@@ -49,6 +49,7 @@
         return false;
     });
     
+    //修改密保弹窗
     $("#chgquestion").click(function(){
         using("window",function(){
             $("#popwindow").css("display","block")
@@ -75,12 +76,46 @@
             
         });
     });
+    
+    //提交密保弹窗内容事件
+    $("#popsub").click(function(){
+        if($("#answer3").val().trim()==""){
+            $(".info").text("答案不能为空").css("color","red");
+        }else{
+            $.ajax({
+            url: 'PwdProtect.aspx?action=modify&q='+$(".popquestion").val()+"&a="+encodeURI($("#answer3").val()),
+            type: 'GET',
+            timeout: 30000,
+            cache:false,
+            error: function(){
+                $(".info").text("验证发生错误").css("color","red");
+            },
+            success: function(xml){
+                if(xml=="true")
+                {
+                    $(".ctList,.validSuccess").toggle();
+                    using("window",function(){
+                        $("#popwindow").window("close");
+                    });
+                }
+                else
+                    $(".info").text("答案有误，请重新输入").css("color","red");
+            }
+        });
+        }
+    });
+    
+    //弹窗回车事件
+    $("#answer3").bind("keydown",function(e){
+        var key = e.which;
+        if(key==13)
+            $("#popsub").click();
+    });
  
 });
 
 window.vlsucc=function(){
-    $(".ctList").hide();
-    $(".validSuccess").show();
+    $(".ctList,.validSuccess").toggle();
 }
 
  
