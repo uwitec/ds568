@@ -66,9 +66,12 @@
                 using("messager",function(){$.messager.alert("系统提示","发送验证码错误，可尝试重新发送。","error")});
             },
             success: function(xml){
-                using("messager",function(){$.messager.alert("系统提示","验证码已发送，请查看手机信息。","info")});
+                if(xml=="false")
+                    using("messager",function(){$.messager.alert("系统提示","每天最多只能发送三次验证码。","warning")});
+                else
+                    using("messager",function(){$.messager.alert("系统提示","验证码已发送，请查看手机信息。","info")});
             },
-            complete:function(){
+            complete:function(){ 
                $(".sendCC").text("重新发送");
                isSending=false;
             }
