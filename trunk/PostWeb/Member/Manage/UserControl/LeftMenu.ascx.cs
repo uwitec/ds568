@@ -43,6 +43,12 @@ public partial class Member_Manage_UserControl_LeftMenu : System.Web.UI.UserCont
                             "<li><a href=\"Password.aspx\">修改密码</a></li>"+
                             "<li><a href=\"PwdProtect.aspx\">密保问题管理</a></li>";
                     break;
+                case "公司资料":
+                    ViewState["icon"] = "companyinfo";
+                    return "<li><a href=\"BaseInfo.aspx\">基本资料</a></li>" +
+                            "<li><a href=\"DetailInfo.aspx\">详细资料</a></li>" +
+                            "<li><a href=\"Certificate.aspx\">公司证书</a></li>";
+                    break;
                 case "供应管理":
                     ViewState["icon"] = "offer";
                     return "<li><a  href=\"/Member/Manage/Offer/Post.aspx\">发布供应信息</a></li>" +
