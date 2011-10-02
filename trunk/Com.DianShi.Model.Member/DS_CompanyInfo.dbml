@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="DianShi" Class="DS_CompanyInfoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=DianShi;Persist Security Info=False;User ID=ShuInDianShi" SettingsObjectName="Com.DianShi.Model.Member.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\MYSQLEXPRESS;Initial Catalog=DianShi;Persist Security Info=False;User ID=ShuInDianShi" SettingsObjectName="Com.DianShi.Model.Member.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DS_CompanyInfo" Member="DS_CompanyInfo">
     <Type Name="DS_CompanyInfo">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
       <Column Name="MenberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CompanyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="BusinessType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="BusinessModel" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="RegisteredCapital" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="YearEstablished" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BusinessModel" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CapitalType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="RegisteredCapital" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="YearEstablished" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="RegistrationArea" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Province" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="City" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
