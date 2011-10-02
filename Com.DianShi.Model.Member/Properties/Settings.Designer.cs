@@ -33,15 +33,5 @@ namespace Com.DianShi.Model.Member.Properties {
                 return ((string)(this["DianShiConnectionString"]));
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\MYSQLEXPRESS;Initial Catalog=DianShi;Integrated Security=True")]
-        public string DianShiConnectionString1 {
-            get {
-                return ((string)(this["DianShiConnectionString1"]));
-            }
-        }
     }
 }
