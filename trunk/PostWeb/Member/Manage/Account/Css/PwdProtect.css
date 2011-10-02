@@ -2,7 +2,7 @@
 .ctList li{margin-top:18px;position:relative;}
 .ctList li span,.popwindow ul li span{width:120px; text-align:right;float:left;display:block;line-height:32px;margin-right:12px;}
 .txtbox{width:234px;height:24px;line-height:24px;border:solid 1px #B5B5B5;}
-label.error{left:380px;_left:270px;font-size:12px;}
+label.error{left:380px;_left:270px;position:absolute;}
 
 .safeQuestion{font-size:16px;width:234px;}
 .ctnOq{display:none;}
