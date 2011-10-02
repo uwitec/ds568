@@ -35,7 +35,7 @@
             error.appendTo(element.parent());  //表示添加到元素后面，
         },
         success:function(label){
-            label.addClass("valid").text("填写正确");//成功时执行的函数
+            //label.addClass("valid").text("填写正确");//成功时执行的函数
         },
         groups:{phone:"phoneqh phonehm phonefj"},
         rules:{
