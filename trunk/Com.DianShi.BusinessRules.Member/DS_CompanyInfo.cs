@@ -44,6 +44,14 @@ namespace Com.DianShi.BusinessRules.Member
             }
         }
 
+        public DS_CompanyInfo GetSingleByMemberID(int MemberID)
+        {
+            using (var ct = new DS_CompanyInfoDataContext())
+            {
+                return ct.DS_CompanyInfo.Single(a => a.MenberID == MemberID);
+            }
+        }
+
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
             using (var ct = new DS_CompanyInfoDataContext())
