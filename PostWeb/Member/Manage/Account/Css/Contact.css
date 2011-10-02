@@ -5,4 +5,4 @@
 .phone-qh,.fax-qh{width:55px;}
 .phone-hm,.fax-hm{width:110px;}
 .phone-fj,.fax-fj{width:55px;}
-label.error{left:360px;_left:260px;font-size:12px;}
+label.error{left:360px;_left:260px; position:absolute;}
