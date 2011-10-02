@@ -67,9 +67,8 @@ var Area=function(options){
                           ['香港','香港岛','九龙','新界'],
                           ['澳门','澳门半岛','澳门离岛']
                       ];
-                      
-        var htmlStr="<div class=\"area-ctn\">"+
-                    "<ul class=\"area-all\"><li v=''>所有地区</li></ul>"+
+        AreaBody=$("<div class=\"area-ctn\"></div>").appendTo("body");
+        var htmlStr="<ul class=\"area-all\"><li v=''>所有地区</li></ul>"+
                     "<ul class=\"area-Municipalities\">"+
                         "<li v='北京'>北京</li>"+
                         "<li v='上海'>上海</li>"+
@@ -88,11 +87,8 @@ var Area=function(options){
                         }
                         htmlStr+="</li>";
                     }
-                    htmlStr+="</ul>"+"</div>";
-        
-        $("body").append(htmlStr);
-       
-        AreaBody=$(".area-ctn");
+                    htmlStr+="</ul>";
+        AreaBody.append(htmlStr);
         AreaBody.hover(function(){
                clearTimeout(TimeOut);
            },
@@ -104,7 +100,7 @@ var Area=function(options){
         //点击地区，返回地区名称
         var selArea=["",""]
         var isCityClick=false;//表示点击的是否是市
-        $(".area-ctn>ul>li").click(function(){//点击省
+        AreaBody.find("ul>li").click(function(){//点击省
             selArea[0]=$(this).attr("v")
             var pc="";
             if(isCityClick)
@@ -112,8 +108,8 @@ var Area=function(options){
             else{
                 if(setting.enableProvince||$(this).parent().hasClass("area-Municipalities"))
                     pc=selArea[0];
-                else
-                    alert("请选择地级市作为地区。")
+                else return;
+                    //alert("请选择地级市作为地区。")
             }
             if(setting.callBack){//判断是否存在回调函数
                 setting.callBack(pc);
@@ -123,11 +119,11 @@ var Area=function(options){
             isCityClick=false;
             Hide();
         });
-        $(".area-ctn>ul>li>ul>li").click(function(){//点击市,同时会触发点击省事件,因为市li包含在省li中
+        AreaBody.find("ul>li>ul>li").click(function(){//点击市,同时会触发点击省事件,因为市li包含在省li中
             selArea[1]=$(this).attr("v")
             isCityClick=true;
         });
-        $(".area-ctn li").hover(function(){
+        AreaBody.find("li").hover(function(){
                 $(this).addClass("hover").css("color","White");
                 var sub=$(this).find("ul")
                 if(sub){sub.show()}
@@ -139,7 +135,7 @@ var Area=function(options){
             }
         );
         if(!setting.showAllArea){
-            $(".area-all").hide();
+            AreaBody.find(".area-all").hide();
         }
         
         //触发显示地区控件
