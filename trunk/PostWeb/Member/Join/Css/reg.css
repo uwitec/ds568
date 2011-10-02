@@ -49,3 +49,4 @@ li.tagHead{ border-bottom:dotted 1px #CECECE;margin-bottom:5px;padding-bottom:4p
 .mRight{ background-position:-1px -68px;}
 .mMiddle{background-position:0 -99px;padding:0 12px; text-align:center;font-size:14px;line-height:29px;font-weight:bold; position:relative;}
 .partion{height:30px;position:relative;left:20px; top:1px;}
+label.error{position:absolute;}
