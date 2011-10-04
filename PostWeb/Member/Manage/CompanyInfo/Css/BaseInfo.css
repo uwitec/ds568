@@ -6,13 +6,15 @@ label.error{display:block;}
 label.valid{display:inline}
 .BusinessType{width:234px;}
 .RegCapital,.ZipCode{width:60px;}
-.regArea,.busArea{background:url(/Member/Manage/images/icon.gif) no-repeat right -130px;width:180px;}
-.busArea{width:130px;}
+.companyAddress{background:url(/Member/Manage/images/icon.gif) no-repeat right -130px;width:180px;}
+.busArea,.regArea{width:300px;}
 .oserver,.buypro{width:90px;}
 li.oser,li.bser{margin-top:4px;display:none;}
 .profile{width:600px;height:155px;}
 li.buyser,li.osererror{margin-top:0px;}
 .YearEst{width:80px;}
+.Remind{padding:5px;line-height:20px;border:solid 1px #ffc590; background-color:#fff7eb;margin-top:15px;}
+li.liprofile{height:236px;}
 
 
 

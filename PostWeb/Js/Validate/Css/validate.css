@@ -1,3 +1,3 @@
-﻿input.error{border-color:#ED8F8F; background-color:#FFF2F2;}
+﻿input.error,textarea.error{border-color:#ED8F8F; background-color:#FFF2F2;}
 label.error{background:url(../images/error.gif) no-repeat 0px 2px;color:Red; line-height:16px;line-height:18px\9;_line-height:16px;left:380px;_left:360px;top:7px;text-indent:14px; font-size:12px; }
 label.valid{background:url("../images/1000716.gif") no-repeat;color:#528D00;}

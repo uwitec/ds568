@@ -23,21 +23,88 @@ public partial class Member_Manage_CompanyInfo_BaseInfo : BasePage
         Button1.Click+=new EventHandler(Button1_Click);
 
         if (IsPostBack) return;
+        ViewState["yearest"] = "<option value=''>-请选择-</option>";
+        for (int i = 1970; i <= 2012; i++)
+        {
+            ViewState["yearest"] = ViewState["yearest"].ToString() + "<option value='" + i + "'>" + i + "</option>";
+        }
+        var ud = Session["UserData"] as UserData;
+        var bl = new DS_CompanyInfo_Br();
+        var md = bl.GetSingleByMemberID(ud.Member.ID);
+        bool b = false;
+        ViewState["companyName"] = md.CompanyName;
+        ViewState["BusType"] = md.BusinessType;
+        ViewState["BusModel"] = md.BusinessModel;
+        ViewState["RegCapital"] = md.RegisteredCapital;
+        ViewState["CapitalType"] = md.CapitalType;
+        ViewState["YearEst"] = md.YearEstablished;
+        ViewState["regArea"] = md.RegistrationArea;
+        ViewState["busArea"] = md.BusinessAddress;
+        ViewState["companyAddress"] = md.Province;
+        ViewState["ZipCode"] = md.ZipCode;
+        if (!string.IsNullOrEmpty(md.OfferService)) {
+            int i=0;
+            foreach (string  s in md.OfferService.Split(','))
+            {
+                if (i > 4&&!string.IsNullOrEmpty(s)) {
+                    ViewState["os"] = true;
+                }
+                ViewState["oserver" + i++] = s;
+            }
+        }
+        if (!string.IsNullOrEmpty(md.BuyService))
+        {
+            int i = 0;
+            foreach (string s in md.BuyService.Split(','))
+            {
+                if (i > 4 && !string.IsNullOrEmpty(s))
+                {
+                    ViewState["ob"] = true;
+                }
+                ViewState["buypro" + i++] = s;
+            }
+        }
+        ViewState["buypro"] = md.BuyService;
+        ViewState["MainIndu"] = md.MainIndustry;
+        ViewState["profile"] = md.Profile;
     }
 
     private void Button1_Click(object sender, EventArgs e) {
         try
         {
             var ud = Session["UserData"] as UserData;
-            var bl = new DS_Members_Br();
-            string msg = "";
-            if (bl.ChangePwd(ud.Member.ID, Request.Form["pwd"], Request.Form["npwd"], ref msg))
-            {
-                ud.Member= bl.GetSingle(ud.Member.ID);
-                Common.MessageBox.Show(this, "保存成功", Common.MessageBox.InfoType.info);
-            }
-            else
-                Common.MessageBox.Show(this, msg, Common.MessageBox.InfoType.warning);
+            var bl = new DS_CompanyInfo_Br();
+            var md = bl.GetSingleByMemberID(ud.Member.ID);
+            string companyName=Request.Form["companyName"];
+            string BusType = Request.Form["BusType"];
+            string BusModel = Request.Form["BusModel"];
+            string RegCapital = Request.Form["RegCapital"];
+            string CapitalType = Request.Form["CapitalType"];
+            string YearEst = Request.Form["YearEst"];
+            string companyAddress = Request.Form["companyAddress"];
+            string regArea = Request.Form["regArea"];
+            string busArea = Request.Form["busArea"];
+            string ZipCode = Request.Form["ZipCode"];
+            string oserver = Request.Form["oserver"];
+            string buypro = Request.Form["buypro"];
+            string MainIndu = Request.Form["MainIndu"];
+            string profile = Request.Form["profile"];
+            md.CompanyName = companyName;
+            md.BusinessType = byte.Parse(BusType);
+            md.BusinessModel = BusModel;
+            md.RegisteredCapital = double.Parse(RegCapital);
+            md.CapitalType = CapitalType;
+            md.YearEstablished =short.Parse(YearEst);
+            md.Province = companyAddress;
+            md.RegistrationArea = regArea;
+            md.BusinessAddress = busArea;
+            md.ZipCode = ZipCode;
+            md.OfferService = oserver;
+            md.BuyService = buypro;
+            md.MainIndustry = MainIndu;
+            md.Profile = profile;
+            bl.Update(md);
+            Common.MessageBox.Show(this, "保存成功", Common.MessageBox.InfoType.info, "function(){location='baseinfo.aspx'}");
         }
         catch (Exception ex) {
             Common.WriteLog.SetErrLog(Request.Url.ToString(), "Button1_Click", ex.Message);

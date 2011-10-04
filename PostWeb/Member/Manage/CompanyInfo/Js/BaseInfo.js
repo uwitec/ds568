@@ -18,7 +18,7 @@
             regArea:{required:true},
             busAreaDet:{required:true},
             busArea:{required:true},
-            cName:{required:true,minlength:4,maxlength:100},
+            companyName:{required:true,minlength:4,maxlength:100},
             BusType:{required:true},
             BusModel:{required:true},
             RegCapital:{required:true,number:true},
@@ -41,27 +41,14 @@
          
     });
     
-    //添加注册年份
-    var ya=$("#year-area").val().split('-');
-    $(".YearEst").append("<option value=''>-请选择-</option>");
-    for(var i=Number(ya[0]);i<=Number(ya[1]);i++){
-        $(".YearEst").append("<option value='"+i+"'>"+i+"</option>");
-    }
+    //选择公司所在地
+    Area({
+        trigger:$(".companyAddress"),//设置触发对象，必选
+        eventClass:"click",//设置显示触发事件为点击
+        enableProvince:false,//禁用省份选择
+        showAllArea:false
+    });
     
-    //选择公司注册地
-    Area({
-        trigger:$(".regArea"),//设置触发对象，必选
-        eventClass:"click",//设置显示触发事件为点击
-        enableProvince:false,//禁用省份选择
-        showAllArea:false
-    });
-    //选择经营地址
-    Area({
-        trigger:$(".busArea"),//设置触发对象，必选
-        eventClass:"click",//设置显示触发事件为点击
-        enableProvince:false,//禁用省份选择
-        showAllArea:false
-    });
     
     //主营产品更多产品
     $(".morep").click(function(){
@@ -71,10 +58,18 @@
         $(".moreb,.bser").toggle();
     });
     
-    //限制公司简介字数
-    $(".profile").bind("keyup",function(){
-        this.value = this.value.slice(0,1800);
-    });
+    
+    
+    //--------------还原公司信息开始---------------------
+    $(".BusinessType option[value="+$("#HD_BusType").val()+"]").attr("selected",true);
+    $("input[name=BusModel][value="+$("#HD_BusModel").val()+"]").attr("checked",true);
+    $(".CapitalType option[value="+$("#HD_CapitalType").val()+"]").attr("selected",true);
+    $(".YearEst option[value="+$("#HD_YearEst").val()+"]").attr("selected",true);
+    if($("#HD_oserver").val())
+        $(".morep").click();
+    if($("#HD_buypro").val())
+        $(".moreb").click();
+    //--------------还原公司信息结束---------------------
 });
 
  
