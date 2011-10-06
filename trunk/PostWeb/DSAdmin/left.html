@@ -2,26 +2,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>无标题文档</title>
-<script type="text/javascript" src="../js/jquery142min.js"></script>
+<script type="text/javascript" src="/js/jquery142min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $(".menuctn>li").click(function(){
             var sc=$(this).find(".subctn");
             if(!sc.is(":visible")){
-                $(".subctn").slideUp(200);
+                $(".subctn:visible").slideUp(200);
                 sc.slideDown(200);
             }
         });
         $(".menuctn li:first").click();
     });
 </script>
-<link href="../css/Globle.css" rel="stylesheet" type="text/css" />
+<link href="/css/Globle.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 <!--
 
 .menuctn li{height:26px;line-height:26px; text-align:center; border-bottom:solid 1px #ccc; background:url(tab/images/tab_14.gif);font-size:12px;cursor:pointer;}
 .subctn{ background-color:white;display:none;}
-
+.subctn a{display:block;}
 -->
 </style></head>
 
@@ -48,7 +48,7 @@
                 </li>
                 <li><b>产品管理</b>
                      <div class="subctn">
-                        <div>产品分类</div>
+                        <a href="Product/Category/list.aspx" target="contentFrame">产品分类</a>
                         <div>产品列表</div>
                         <div>会员列表</div>
                         <div>会员列表</div>
