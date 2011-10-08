@@ -4,7 +4,7 @@
 .tbhead{background:url(/dsadmin/tab/images/tab_14.gif);height:18px;}
 a{text-decoration: none;}
 a:link,a:visited{color: #06482a;}
-a:hover {	text-decoration: underline;}
+a:hover {text-decoration: underline;}
 a:active,a:hover {	color: #FF0000;}
 .headCtn{background:url(/dsadmin/tab/images/tab_05.gif);height:30px;}
 .actionBtn li{float:right;margin-right:10px;}
