@@ -1,2 +1,8 @@
-﻿.toolbarctn{background:url(/DSAdmin/UserControl/Images/bg.gif); overflow:auto;zoom:1;}
-.toolbarctn li{height:37px;float:left;line-height:37px;}
+﻿.toolbarctn{height:37px;background:url(/DSAdmin/UserControl/Images/bg.gif); overflow:hidden;}
+.toolbarctn ul{ overflow:auto;zoom:1;float:left;}
+.toolbarctn ul li,.paperctn{float:left; font-family:宋体; position:relative;top:4px; line-height:29px;}
+.toolbarctn  a{cursor:pointer;overflow:auto;zoom:1;}
+.btnright{ background-position:right -95px;height:29px;float:left; overflow:auto;zoom:1; text-indent:6px; padding-right:6px;}
+.btnright div{width:3px;float:left;background-position:-68px -95px; overflow:hidden;}
+.toolbarctn ul li a:hover .btnright,.toolbarctn ul li a:hover .btnright div{ background-image:url(/DSAdmin/images/icon.gif); background-repeat:no-repeat;}
+

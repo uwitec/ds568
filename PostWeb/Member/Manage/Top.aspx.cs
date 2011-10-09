@@ -11,10 +11,19 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-public partial class Member_Manage_Top : System.Web.UI.Page
+public partial class Member_Manage_Top : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (IsPostBack) return;
+        if (!string.IsNullOrEmpty(Request.QueryString["action"])) { 
+            string act=Request.QueryString["action"];
+            switch (act) { 
+                case "out":
+                    Session.Abandon();
+                    Response.Redirect("top.aspx");
+                    break;
+            }
+        }
     }
 }
