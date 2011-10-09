@@ -16,7 +16,7 @@
             <div class="contact floatR gray">
                 <a href="#">返回首页</a> | <a href="#">帮助中心</a>
                 <div class="help overflowAuto">
-                    您好：<%=(Session["UserData"] as UserData).Member.UserID %> <a href="javascript:;">【退出】</a>
+                    您好：<%=(Session["UserData"] as UserData).Member.UserID %> <a href="?action=out">【退出】</a>
                 </div>
             </div>
         </div>

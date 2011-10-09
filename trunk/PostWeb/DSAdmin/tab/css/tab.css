@@ -1,10 +1,19 @@
-.tabList{ background-color:#CECECE;}
+.tabList{ background-color:#CECECE;width:100%}
 .tabList tr td{ background-color:White;padding:2px 3px;}
-.tbhead td{ text-align:center;}
+.tbhead td{ text-align:center; font-weight:bold;}
 .tbhead{background:url(/dsadmin/tab/images/tab_14.gif);height:18px;}
-a{text-decoration: none;}
-a:link,a:visited{color: #06482a;}
-a:hover {text-decoration: underline;}
-a:active,a:hover {	color: #FF0000;}
 .headCtn{background:url(/dsadmin/tab/images/tab_05.gif);height:30px;}
 .actionBtn li{float:right;margin-right:10px;}
+.txtbox{width:234px;height:20px;line-height:20px;border:solid 1px #B5B5B5;}
+.btn{background:url(/dsadmin/images/subbtn.gif);height:28px;line-height:28px;width:80px; border:none;}
+.tab,.divsub{width:766px;margin:0 auto;margin-top:20px;}
+.tab{background-color:#7fa153;}
+.tab td{ background-color:White;padding:2px 3px;}
+td.tdtitle{ text-align:right; background-color:#c1e396;width:150px;}
+.divsub{margin-top:10px;}
+.divsub span{margin-left:160px;}
+.pageinfo{line-height:26px;text-align:right;padding-right:6px;}
+.order{width:15px;margin:0 auto; overflow:auto;zoom:1;}
+.order a{background:url(/dsadmin/images/icon.gif) no-repeat;}
+.order a{display:block;height:10px; overflow:hidden;}
+a.pxdown{ background-position:0 -11px;margin-top:1px;}

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="list.aspx.cs" Inherits="DSAdmin_Product_Category_list" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="list2.aspx.cs" Inherits="DSAdmin_Product_Category_list2" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,7 +25,9 @@
             <td>
                分类名称
             </td>
-           
+           <td>
+               父类名称
+            </td>
             <td>
                 排序
             </td>
@@ -43,6 +45,9 @@
                 </td>
                 <td>
                    <%#Eval("CategoryName")%>
+                </td>
+               <td>
+                   <%#Eval("ParentID")%>
                 </td>
                 <td>
                     <div class="order">

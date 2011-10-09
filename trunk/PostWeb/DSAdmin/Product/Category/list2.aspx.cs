@@ -12,11 +12,11 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Product;
 
-public partial class DSAdmin_Product_Category_list : System.Web.UI.Page
+public partial class DSAdmin_Product_Category_list2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        ToolBar1.AddBtn("二级类别", new EventHandler(SubCategory));
+        ToolBar1.AddBtn("三级类别", new EventHandler(Add));
         ToolBar1.AddBtn("刷新", new EventHandler(Reflesh));
         ToolBar1.AddBtn("删除", new EventHandler(Delete));
         ToolBar1.AddBtn("修改", new EventHandler(Edit));
@@ -24,7 +24,7 @@ public partial class DSAdmin_Product_Category_list : System.Web.UI.Page
         ToolBar1.AspNetPager.PageChanged += new EventHandler(AspNetPager_PageChanged);
         
         if (IsPostBack) return;
-        BindDate("parentid=0");
+        BindDate("parentid="+Request.QueryString["id"]);
 
     }
     private void AspNetPager_PageChanged(object ob, object ob1)
@@ -41,10 +41,10 @@ public partial class DSAdmin_Product_Category_list : System.Web.UI.Page
         ToolBar1.AspNetPager.RecordCount = pageCount;
         Repeater1.DataSource =list;
         Repeater1.DataBind();
-    } 
+    }
 
     private void Add(object sender,EventArgs e) {
-        Response.Redirect("add.aspx");
+        Response.Redirect("add2.aspx?pid=" + Request.QueryString["id"]);
     }
     private void Edit(object sender, EventArgs e)
     {
@@ -60,25 +60,9 @@ public partial class DSAdmin_Product_Category_list : System.Web.UI.Page
             Common.MessageBox.Show(this, "不能同时选中多条记录进行修改", Common.MessageBox.InfoType.warning,"history.back");
     }
 
-    private void SubCategory(object sender, EventArgs e)
-    {
-        string ids = Request.Form["checkboxid"];
-        if (string.IsNullOrEmpty(ids))
-        {
-            Common.MessageBox.Show(this, "请选中要查看二级分类的记录", Common.MessageBox.InfoType.warning, "history.back");
-            return;
-        }
-        if (!ids.Contains(","))
-        {
-            Response.Redirect("list2.aspx?id=" + ids);
-        }
-        else
-            Common.MessageBox.Show(this, "不能同时选中多条记录进行操作", Common.MessageBox.InfoType.warning, "history.back");
-    }
-
     private void Reflesh(object sender, EventArgs e)
     {
-        Response.Redirect("list.aspx");
+        Response.Redirect("list2.aspx?id="+Request.QueryString["id"]);
     }
 
     private void Delete(object sender, EventArgs e)

@@ -15,6 +15,18 @@ public partial class DSAdmin_UserControl_ToolBar : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        paper.RecordCount = 100;
+        
     }
+
+    public void AddBtn(string btnName,EventHandler eh) {
+        var btn=new LinkButton();
+        btn.Text = "<div class='btnright'><div>&nbsp;</div>"+btnName + "</div>";
+        btn.Click+=new EventHandler(eh);
+        var li=new HtmlGenericControl("li");
+        li.Controls.Add(btn);
+        TbCtn.Controls.AddAt(0,li);
+    }
+
+    public Wuqi.Webdiyer.AspNetPager AspNetPager { get { return paper; } }
+   
 }
