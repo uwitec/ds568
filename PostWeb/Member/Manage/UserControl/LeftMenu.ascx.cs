@@ -22,11 +22,11 @@ public partial class Member_Manage_UserControl_LeftMenu : System.Web.UI.UserCont
     /// <summary>
     /// 当前模块名称
     /// </summary>
-    public string ModleName { get; set; }
+    public string ModleName { get { return ViewState["ModleName"] == null ? "" : ViewState["ModleName"].ToString(); } set { ViewState["ModleName"] = value; } }
     /// <summary>
     /// 当前菜单名称
     /// </summary>
-    public string MenuName { get; set; }
+    public string MenuName { get { return ViewState["MenuName"] == null ? "" : ViewState["MenuName"].ToString(); } set { ViewState["MenuName"] = value; } }
     
     /// <summary>
     /// 菜单列表

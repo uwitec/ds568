@@ -18,10 +18,12 @@ public partial class DSAdmin_UserControl_ToolBar : System.Web.UI.UserControl
         
     }
 
-    public void AddBtn(string btnName,EventHandler eh) {
+    public void AddBtn(string btnName,EventHandler eh,params object[] param) {
         var btn=new LinkButton();
         btn.Text = "<div class='btnright'><div>&nbsp;</div>"+btnName + "</div>";
         btn.Click+=new EventHandler(eh);
+        if (param.Length > 0)
+            btn.Attributes[param[0].ToString()] = param[1].ToString();
         var li=new HtmlGenericControl("li");
         li.Controls.Add(btn);
         TbCtn.Controls.AddAt(0,li);

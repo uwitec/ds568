@@ -47,9 +47,16 @@ namespace Com.DianShi.BusinessRules.Product
                 for (int i = 0; i < idarray.Length; i++)
                 {
                     intarray[i] = int.Parse(idarray[i]);
+                    var list1 = ct.DS_SysProductCategory.Where(a=>a.ParentID==intarray[i]);
+                    foreach (var item in list1)
+                    {
+                        ct.DS_SysProductCategory.DeleteAllOnSubmit(ct.DS_SysProductCategory.Where(a=>a.ParentID==item.ID));
+                    }
+                    ct.DS_SysProductCategory.DeleteAllOnSubmit(list1);
                 }
                 var list = ct.DS_SysProductCategory.Where(a=>intarray.Contains(a.ID));
                 ct.DS_SysProductCategory.DeleteAllOnSubmit(list);
+
                 ct.SubmitChanges();
             }
         }
@@ -66,7 +73,7 @@ namespace Com.DianShi.BusinessRules.Product
         {
             using (var ct = new DS_SysProductCategoryDataContext())
             {
-                return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
+                return ct.ExecuteQuery<T>(sql, parameterValues).ToList();ct.DS_SysProductCategory.Where(c=>System.Data.Linq.SqlClient.SqlMethods.Like())
             }
         }
 
@@ -137,6 +144,23 @@ namespace Com.DianShi.BusinessRules.Product
                 }
                 ct.SubmitChanges();
             }
+        }
+
+        /// <summary>
+        /// 获取当前类别及其父类别的路径
+        /// </summary>
+        /// <param name="CatID">当前类别ID</param>
+        /// <param name="IsFirst">路径是否包含当前类别名称</param>
+        /// <returns></returns>
+        public  string GetCategoryName(int CatID,bool IsFirst) {
+            var md=GetSingle(CatID);
+            string CatName=IsFirst?"":md.CategoryName+">";
+            if (!md.ParentID.Equals(0))
+            {
+                return  GetCategoryName(md.ParentID,false)+CatName;
+            }
+            else
+                return CatName;
         }
          
     }
