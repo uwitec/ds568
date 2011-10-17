@@ -17,6 +17,9 @@ public partial class DSAdmin_Product_Category_Add : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Button1.Click+=new EventHandler(Button1_Click);
+        if (IsPostBack) return;
+        ProCat1.ShowLevel = 2;
+        ProCat1.Dropdown_2.AutoPostBack = false;
     }
 
     private void Button1_Click(object sender, EventArgs e) {
@@ -29,7 +32,7 @@ public partial class DSAdmin_Product_Category_Add : System.Web.UI.Page
             var bl = new DS_SysProductCategory_Br();
             var md = bl.CreateModel();
             md.CategoryName = cname.Trim();
-            md.ParentID =0;
+            md.ParentID =ProCat1.CategoryID_2.Equals(0)?ProCat1.CategoryID_1:ProCat1.CategoryID_2;
             md.Px = 0;
             bl.Add(md);
             Common.MessageBox.Show(this, "保存成功", Common.MessageBox.InfoType.info,"function(){location='list.aspx'}");

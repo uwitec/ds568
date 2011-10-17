@@ -16,16 +16,19 @@ public partial class DSAdmin_Product_Category_list : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        ToolBar1.AddBtn("二级类别", new EventHandler(SubCategory));
+        //ToolBar1.AddBtn("二级类别", new EventHandler(SubCategory));
         ToolBar1.AddBtn("刷新", new EventHandler(Reflesh));
-        ToolBar1.AddBtn("删除", new EventHandler(Delete));
+        ToolBar1.AddBtn("删除", new EventHandler(Delete),"onclick","return confirm('确认删除所选记录吗？');");
         ToolBar1.AddBtn("修改", new EventHandler(Edit));
         ToolBar1.AddBtn("添加", new EventHandler(Add));
         ToolBar1.AspNetPager.PageChanged += new EventHandler(AspNetPager_PageChanged);
-        
+        ProCat1.BindEvent(new EventHandler(DropDownList1_SelectedIndexChanged),1);
+        ProCat1.BindEvent(new EventHandler(DropDownList2_SelectedIndexChanged), 2);
+        Button1.Click+=new EventHandler(Button1_Click);
         if (IsPostBack) return;
         BindDate("parentid=0");
-
+        ProCat1.ShowLevel = 2;
+         
     }
     private void AspNetPager_PageChanged(object ob, object ob1)
     {
@@ -107,4 +110,52 @@ public partial class DSAdmin_Product_Category_list : System.Web.UI.Page
         bl.Sort(int.Parse(lb.Attributes["pid"]), bool.Parse(lb.Attributes["cn"]));
         AspNetPager_PageChanged(null, null);
     }
+
+    private void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ToolBar1.AspNetPager.PageChanged -= new EventHandler(AspNetPager_PageChanged);
+        ToolBar1.AspNetPager.CurrentPageIndex = 1;
+        var bl = new DS_SysProductCategory_Br();
+        BindDate("parentid=" +ProCat1.CategoryID_1);
+       
+    }
+
+    private void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ToolBar1.AspNetPager.PageChanged -= new EventHandler(AspNetPager_PageChanged);
+        ToolBar1.AspNetPager.CurrentPageIndex = 1;
+        var bl = new DS_SysProductCategory_Br();
+        if (ProCat1.CategoryID_2.Equals(0))
+        {
+            BindDate("parentid=" + ProCat1.CategoryID_1);
+        }
+        else
+        {
+            BindDate("parentid=" + ProCat1.CategoryID_2);
+        }
+ 
+    }
+
+    private void Button1_Click(object sender, EventArgs e) {
+        try {
+            var bl = new DS_SysProductCategory_Br();
+            string kw=Request.Form["keyword"].Trim();
+            string sql = "";
+            object[] param=new object[1];
+            if (!string.IsNullOrEmpty(kw)) {
+                sql = " categoryName.Contains(@0)";
+                param[0] = kw;
+            }
+            if (!ProCat1.CurrentCategoryID.Equals(0))
+            {
+                sql += " and parentID="+ProCat1.CurrentCategoryID;
+            }
+            
+            BindDate(sql,param);
+        }catch(Exception ex){
+            Common.WriteLog.SetErrLog(Request.Url.ToString(), "Button1_Click", ex.Message);
+            Common.MessageBox.Show(this,"搜索发生意外。"+ex.Message);
+        }
+    }
+
 }

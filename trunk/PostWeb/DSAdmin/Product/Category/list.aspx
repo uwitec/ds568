@@ -9,6 +9,9 @@
     <link href="/DSAdmin/tab/css/tab.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .tabList tr td{ text-align:center;}
+        .scctn{ position:absolute;right:6px;top:6px;}
+        .scctn *{float:left;}
+        .txtbox{width:120px;line-height:18px;height:18px;}
     </style>
 </head>
 <body>
@@ -25,7 +28,9 @@
             <td>
                分类名称
             </td>
-           
+            <td>
+               所属父类
+            </td>
             <td>
                 排序
             </td>
@@ -44,6 +49,9 @@
                 <td>
                    <%#Eval("CategoryName")%>
                 </td>
+                  <td>
+                   <%#new Com.DianShi.BusinessRules.Product.DS_SysProductCategory_Br().GetCategoryName((int)Eval("ID"),true).TrimEnd('>')%>
+                </td>
                 <td>
                     <div class="order">
                         <asp:LinkButton ID="LinkButton1" OnClick="LinkButtonPx_Click" pid='<%#Eval("ID")%>' ToolTip="置上" cn="True" CssClass="pxup" runat="server">&nbsp;</asp:LinkButton>
@@ -57,6 +65,10 @@
     </table>
     <div class="pageinfo">
         [共<%=ToolBar1.AspNetPager.RecordCount %>条记录] [共<%=ToolBar1.AspNetPager.PageCount %>页,每页<%=ToolBar1.AspNetPager.PageSize %>条记录] [当前<%=ToolBar1.AspNetPager.CurrentPageIndex %>/<%=ToolBar1.AspNetPager.PageCount %>页]
+    </div>
+    <div class="scctn">
+        <Custom:ProCategory runat="server" ID="ProCat1" />
+        <input name="keyword"  class="txtbox" /><asp:Button ID="Button1"  runat="server" Text="搜索" />
     </div>
     </form>
 </body>
