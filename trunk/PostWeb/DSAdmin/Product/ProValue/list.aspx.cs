@@ -12,36 +12,42 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Product;
 
-public partial class DSAdmin_Product_Category_list : System.Web.UI.Page
+public partial class DSAdmin_Product_ProValue_list : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+        if (string.IsNullOrEmpty(Request.QueryString["ProID"])) {
+            Common.MessageBox.Show(this, "缺少参数", Common.MessageBox.InfoType.warning, "history.back");
+            return;
+        }
+        int sid = 0;
+        if (!int.TryParse(Request.QueryString["ProID"], out sid))
+        {
+            Common.MessageBox.Show(this, "参数无效", Common.MessageBox.InfoType.warning, "history.back");
+            return;
+        }
+        ToolBar1.AddBtn("返回", new EventHandler(Back));
         ToolBar1.AddBtn("刷新", new EventHandler(Reflesh));
         ToolBar1.AddBtn("删除", new EventHandler(Delete),"onclick","return confirm('确认删除所选记录吗？');");
-        ToolBar1.AddBtn("属性", new EventHandler(Property));
         ToolBar1.AddBtn("修改", new EventHandler(Edit));
         ToolBar1.AddBtn("添加", new EventHandler(Add));
         ToolBar1.AspNetPager.PageChanged += new EventHandler(AspNetPager_PageChanged);
-        ProCat1.BindEvent(new EventHandler(DropDownList1_SelectedIndexChanged),1);
-        ProCat1.BindEvent(new EventHandler(DropDownList2_SelectedIndexChanged), 2);
+       
         Button1.Click+=new EventHandler(Button1_Click);
         if (IsPostBack) return;
-        BindDate("parentid=0");
-        ProCat1.ShowLevel = 2;
-         
+        BindDate("PropertyID=" + Request.QueryString["ProID"]);
+      
     }
     private void AspNetPager_PageChanged(object ob, object ob1)
     {
-        BindDate(ViewState["sql"].ToString(),(object[])ViewState["param"]);
+        BindDate(ViewState["sql"].ToString());
     }
 
     private void BindDate(string sql, params object[] param)
     {
         ViewState["sql"] = sql;
-        ViewState["param"] = param;
         int pageCount = 0;
-        var bl = new DS_SysProductCategory_Br();
+        var bl = new DS_PropertyValue_Br();
         var list = bl.Query(sql,"px", (ToolBar1.AspNetPager.CurrentPageIndex - 1) * ToolBar1.AspNetPager.PageSize, ToolBar1.AspNetPager.PageSize, ref pageCount, param);
         ToolBar1.AspNetPager.RecordCount = pageCount;
         Repeater1.DataSource =list;
@@ -49,7 +55,7 @@ public partial class DSAdmin_Product_Category_list : System.Web.UI.Page
     } 
 
     private void Add(object sender,EventArgs e) {
-        Response.Redirect("add.aspx");
+        Response.Redirect("add.aspx?ProID=" + Request.QueryString["ProID"]);
     }
     private void Edit(object sender, EventArgs e)
     {
@@ -68,9 +74,12 @@ public partial class DSAdmin_Product_Category_list : System.Web.UI.Page
   
     private void Reflesh(object sender, EventArgs e)
     {
-        Response.Redirect("list.aspx");
+        Response.Redirect("list.aspx?ProID=" + Request.QueryString["ProID"]);
     }
-
+    private void Back(object sender, EventArgs e)
+    {
+        Response.Redirect("../Property/list.aspx?SysCatID=" +new DS_Property_Br().GetSingle(int.Parse(Request.QueryString["ProID"])).SysCatID);
+    }
     private void Delete(object sender, EventArgs e)
     {
         try
@@ -80,7 +89,7 @@ public partial class DSAdmin_Product_Category_list : System.Web.UI.Page
                 Common.MessageBox.Show(this, "请选中要删除的记录", Common.MessageBox.InfoType.warning);
                 return;
             }
-            var bl = new DS_SysProductCategory_Br();
+            var bl = new DS_PropertyValue_Br();
             bl.Delete(ids);
             Common.MessageBox.Show(this, "删除成功", Common.MessageBox.InfoType.info);
             AspNetPager_PageChanged(null, null);
@@ -90,58 +99,20 @@ public partial class DSAdmin_Product_Category_list : System.Web.UI.Page
         }
     }
 
-    private void Property(object sender, EventArgs e)
-    {
-        string id = Request.Form["checkboxid"];
-        if (string.IsNullOrEmpty(id))
-        {
-            Common.MessageBox.Show(this, "请选中要进行操作的记录", Common.MessageBox.InfoType.warning, "history.back");
-            return;
-        }
-        if (!id.Contains(","))
-        {
-            Response.Redirect("../Property/list.aspx?SysCatID=" + id);
-        }
-        else
-            Common.MessageBox.Show(this, "不能同时选中多条记录进行操作", Common.MessageBox.InfoType.warning, "history.back");
-    }
+   
 
     protected void LinkButtonPx_Click(object sender, EventArgs e)
     {
         var lb = (LinkButton)sender;
-        var bl = new DS_SysProductCategory_Br();
+        var bl = new DS_PropertyValue_Br();
         bl.Sort(int.Parse(lb.Attributes["pid"]), bool.Parse(lb.Attributes["cn"]));
         AspNetPager_PageChanged(null, null);
     }
 
-    private void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        ToolBar1.AspNetPager.PageChanged -= new EventHandler(AspNetPager_PageChanged);
-        ToolBar1.AspNetPager.CurrentPageIndex = 1;
-        var bl = new DS_SysProductCategory_Br();
-        BindDate("parentid=" +ProCat1.CategoryID_1);
-       
-    }
-
-    private void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        ToolBar1.AspNetPager.PageChanged -= new EventHandler(AspNetPager_PageChanged);
-        ToolBar1.AspNetPager.CurrentPageIndex = 1;
-        var bl = new DS_SysProductCategory_Br();
-        if (ProCat1.CategoryID_2.Equals(0))
-        {
-            BindDate("parentid=" + ProCat1.CategoryID_1);
-        }
-        else
-        {
-            BindDate("parentid=" + ProCat1.CategoryID_2);
-        }
- 
-    }
-
+  
     private void Button1_Click(object sender, EventArgs e) {
         try {
-            var bl = new DS_SysProductCategory_Br();
+            var bl = new DS_PropertyValue_Br();
             string kw=Request.Form["keyword"].Trim();
             string sql = "";
             object[] param=new object[1];
@@ -149,11 +120,7 @@ public partial class DSAdmin_Product_Category_list : System.Web.UI.Page
                 sql = " categoryName.Contains(@0)";
                 param[0] = kw;
             }
-            if (!ProCat1.CurrentCategoryID.Equals(0))
-            {
-                sql += " and parentID="+ProCat1.CurrentCategoryID;
-            }
-            
+           
             BindDate(sql,param);
         }catch(Exception ex){
             Common.WriteLog.SetErrLog(Request.Url.ToString(), "Button1_Click", ex.Message);

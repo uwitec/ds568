@@ -30,6 +30,8 @@ public partial class Member_Manage_CompanyInfo_BaseInfo : BasePage
         }
         var ud = Session["UserData"] as UserData;
         var bl = new DS_CompanyInfo_Br();
+        //Response.Write(ud.Member.ID);
+        //Response.End();
         var md = bl.GetSingleByMemberID(ud.Member.ID);
         bool b = false;
         ViewState["companyName"] = md.CompanyName;

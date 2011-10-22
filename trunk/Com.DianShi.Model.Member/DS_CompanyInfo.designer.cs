@@ -94,7 +94,7 @@ namespace Com.DianShi.Model.Member
 		
 		private System.Nullable<double> _RegisteredCapital;
 		
-		private System.Nullable<short> _YearEstablished;
+		private short _YearEstablished;
 		
 		private string _RegistrationArea;
 		
@@ -126,13 +126,15 @@ namespace Com.DianShi.Model.Member
 		
 		private string _StorageArea;
 		
-		private System.Nullable<int> _Employees;
+		private System.Nullable<byte> _Employees;
 		
-		private System.Nullable<int> _StudyEmployees;
+		private System.Nullable<byte> _StudyEmployees;
 		
 		private string _BrandName;
 		
 		private System.Nullable<int> _Monthly;
+		
+		private string _MonthlyUnit;
 		
 		private System.Nullable<byte> _AnnualTurnover;
 		
@@ -142,7 +144,7 @@ namespace Com.DianShi.Model.Member
 		
 		private string _MSCer;
 		
-		private System.Nullable<byte> _QualityControl;
+		private string _QualityControl;
 		
 		private string _MainMarket;
 		
@@ -168,7 +170,7 @@ namespace Com.DianShi.Model.Member
     partial void OnCapitalTypeChanged();
     partial void OnRegisteredCapitalChanging(System.Nullable<double> value);
     partial void OnRegisteredCapitalChanged();
-    partial void OnYearEstablishedChanging(System.Nullable<short> value);
+    partial void OnYearEstablishedChanging(short value);
     partial void OnYearEstablishedChanged();
     partial void OnRegistrationAreaChanging(string value);
     partial void OnRegistrationAreaChanged();
@@ -200,14 +202,16 @@ namespace Com.DianShi.Model.Member
     partial void OnAccountChanged();
     partial void OnStorageAreaChanging(string value);
     partial void OnStorageAreaChanged();
-    partial void OnEmployeesChanging(System.Nullable<int> value);
+    partial void OnEmployeesChanging(System.Nullable<byte> value);
     partial void OnEmployeesChanged();
-    partial void OnStudyEmployeesChanging(System.Nullable<int> value);
+    partial void OnStudyEmployeesChanging(System.Nullable<byte> value);
     partial void OnStudyEmployeesChanged();
     partial void OnBrandNameChanging(string value);
     partial void OnBrandNameChanged();
     partial void OnMonthlyChanging(System.Nullable<int> value);
     partial void OnMonthlyChanged();
+    partial void OnMonthlyUnitChanging(string value);
+    partial void OnMonthlyUnitChanged();
     partial void OnAnnualTurnoverChanging(System.Nullable<byte> value);
     partial void OnAnnualTurnoverChanged();
     partial void OnAnnualExportChanging(System.Nullable<byte> value);
@@ -216,7 +220,7 @@ namespace Com.DianShi.Model.Member
     partial void OnAnnualImportsChanged();
     partial void OnMSCerChanging(string value);
     partial void OnMSCerChanged();
-    partial void OnQualityControlChanging(System.Nullable<byte> value);
+    partial void OnQualityControlChanging(string value);
     partial void OnQualityControlChanged();
     partial void OnMainMarketChanging(string value);
     partial void OnMainMarketChanged();
@@ -371,8 +375,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_YearEstablished", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> YearEstablished
+		[Column(Storage="_YearEstablished", DbType="SmallInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public short YearEstablished
 		{
 			get
 			{
@@ -691,8 +695,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Employees", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> Employees
+		[Column(Storage="_Employees", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<byte> Employees
 		{
 			get
 			{
@@ -711,8 +715,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_StudyEmployees", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> StudyEmployees
+		[Column(Storage="_StudyEmployees", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<byte> StudyEmployees
 		{
 			get
 			{
@@ -767,6 +771,26 @@ namespace Com.DianShi.Model.Member
 					this._Monthly = value;
 					this.SendPropertyChanged("Monthly");
 					this.OnMonthlyChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MonthlyUnit", DbType="NVarChar(10)", UpdateCheck=UpdateCheck.Never)]
+		public string MonthlyUnit
+		{
+			get
+			{
+				return this._MonthlyUnit;
+			}
+			set
+			{
+				if ((this._MonthlyUnit != value))
+				{
+					this.OnMonthlyUnitChanging(value);
+					this.SendPropertyChanging();
+					this._MonthlyUnit = value;
+					this.SendPropertyChanged("MonthlyUnit");
+					this.OnMonthlyUnitChanged();
 				}
 			}
 		}
@@ -831,7 +855,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MSCer", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_MSCer", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string MSCer
 		{
 			get
@@ -851,8 +875,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_QualityControl", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<byte> QualityControl
+		[Column(Storage="_QualityControl", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string QualityControl
 		{
 			get
 			{

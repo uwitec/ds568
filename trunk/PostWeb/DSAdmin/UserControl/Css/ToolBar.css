@@ -1,5 +1,5 @@
 ﻿.toolbarctn{height:37px;background:url(/DSAdmin/UserControl/Images/bg.gif); overflow:hidden;}
-.toolbarctn ul{ overflow:auto;zoom:1;float:left;}
+.toolbarctn ul{ overflow:auto;zoom:1;float:left;height:37px;}
 .toolbarctn ul li,.paperctn{float:left; font-family:宋体; position:relative;top:4px; line-height:29px;}
 .toolbarctn  a{cursor:pointer;overflow:auto;zoom:1;}
 .btnright{ background-position:right -95px;height:29px;float:left; overflow:auto;zoom:1; text-indent:6px; padding-right:6px;}
