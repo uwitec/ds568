@@ -73,7 +73,7 @@ namespace Com.DianShi.BusinessRules.Product
         {
             using (var ct = new DS_SysProductCategoryDataContext())
             {
-                return ct.ExecuteQuery<T>(sql, parameterValues).ToList();ct.DS_SysProductCategory.Where(c=>System.Data.Linq.SqlClient.SqlMethods.Like())
+                return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
         }
 

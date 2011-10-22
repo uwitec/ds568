@@ -48,6 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_Property.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Property.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DS_PropertyValue.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_PropertyValue.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DS_SysProductCategory.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,12 +82,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="DS_Property.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DS_Property.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DS_SysProductCategory.dbml.layout">
       <DependentUpon>DS_SysProductCategory.dbml</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DS_Property.dbml.layout">
+      <DependentUpon>DS_Property.dbml</DependentUpon>
+    </None>
+    <None Include="DS_PropertyValue.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DS_PropertyValue.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DS_PropertyValue.dbml.layout">
+      <DependentUpon>DS_PropertyValue.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

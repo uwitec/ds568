@@ -1,7 +1,7 @@
 .tabList{ background-color:#CECECE;width:100%}
 .tabList tr td{ background-color:White;padding:2px 3px;}
 .tbhead td{ text-align:center; font-weight:bold;}
-.tbhead{background:url(/dsadmin/tab/images/tab_14.gif);height:18px;}
+tr.tbhead td{background:url(/dsadmin/tab/images/tab_14.gif);height:18px;}
 .headCtn{background:url(/dsadmin/tab/images/tab_05.gif);height:30px;}
 .actionBtn li{float:right;margin-right:10px;}
 .txtbox{width:234px;height:20px;line-height:20px;border:solid 1px #B5B5B5;}

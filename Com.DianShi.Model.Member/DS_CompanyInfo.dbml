@@ -10,7 +10,7 @@
       <Column Name="BusinessModel" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="CapitalType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="RegisteredCapital" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="YearEstablished" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="YearEstablished" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="RegistrationArea" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Province" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="City" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
@@ -26,15 +26,16 @@
       <Column Name="Bank" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="Account" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="StorageArea" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Employees" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="StudyEmployees" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Employees" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="StudyEmployees" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="BrandName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="Monthly" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MonthlyUnit" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="AnnualTurnover" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="AnnualExport" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="AnnualImports" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="MSCer" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="QualityControl" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="MSCer" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="QualityControl" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="MainMarket" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="MajorCustomers" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="OEM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />

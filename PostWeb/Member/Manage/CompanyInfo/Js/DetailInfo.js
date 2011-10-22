@@ -41,11 +41,35 @@
          
     });
     
-    
-    
+    //处理管理体系认证点击
+    $("input[name=MSCer]").click(function(){
+        if($(this).attr("type")=="radio"){
+            $("input[name=MSCer][type=text]").val('');
+        }else{
+            $("input[name=MSCer][type=radio]").attr("checked","");
+        }
+    });
+    http://img04.hc360.cn/04/product/314/472/b/04-31447234.jpg
     
     //--------------还原公司信息开始---------------------
-     
+    $("select[name=Employees] option[value="+$("#HD_Employees").val()+"]").attr("selected",true);
+    $("select[name=StudyEmployees] option[value="+$("#HD_StudyEmployees").val()+"]").attr("selected",true);
+    $("select[name=unit] option[value="+$("#HD_unit").val()+"]").attr("selected",true);
+    $("select[name=AnnualTurnover] option[value="+$("#HD_AnnualTurnover").val()+"]").attr("selected",true);
+    $("select[name=AnnualImports] option[value="+$("#HD_AnnualImports").val()+"]").attr("selected",true);
+    $("select[name=AnnualExport] option[value="+$("#HD_AnnualExport").val()+"]").attr("selected",true);
+    $("input[name=MSCer][value="+$("#HD_MSCer").val()+"]").attr("checked","checked");
+    if(!$("input[name=MSCer][value="+$("#HD_MSCer").val()+"]").attr("checked"))
+        $("input[name=MSCer][type=text]").val($("#HD_MSCer").val())
+    $("input[name=qc][value="+$("#HD_qc").val()+"]").attr("checked","checked");
+    var mainmarket=$("#HD_mainmarket").val().split(',');
+    for(var i=0;i< mainmarket.length;i++){
+        $("input[name=mainmarket][value="+mainmarket[i]+"]").attr("checked","checked");
+    }
+    if($("#HD_oem").val()=="True")
+        $("#OemOdmYes").attr("checked","checked");
+    if($("#HD_oem").val()=="False")
+        $("#OemOdmNo").attr("checked","checked");
     //--------------还原公司信息结束---------------------
 });
 

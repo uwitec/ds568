@@ -36,7 +36,7 @@ public partial class DSAdmin_Product_Category_Edit : System.Web.UI.Page
                 Common.MessageBox.Show(this,"分类名称不能为空",Common.MessageBox.InfoType.warning,"history.back");
                 return;
             }
-            if (md.ParentID.Equals(ProCat1.CurrentCategoryID))
+            if (md.ID.Equals(ProCat1.CurrentCategoryID))
             {
                 Common.MessageBox.Show(this, "不能选择自己作为父类", Common.MessageBox.InfoType.warning, "history.back");
                 return;
