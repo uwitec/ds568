@@ -55,6 +55,11 @@ public partial class DSAdmin_Product_ProValue_Edit : System.Web.UI.Page
             Common.MessageBox.Show(this, "保存成功", Common.MessageBox.InfoType.info, "function(){location='list.aspx?ProID="+md.PropertyID+"'}");
         }catch(Exception ex){
             Common.WriteLog.SetErrLog(Request.Url.ToString(), "Button1_Click", ex.Message);
+            if (ex.Message.Contains("IX_DS_PropertyValue"))
+            {
+                Common.MessageBox.Show(this, "已存在相同的值", Common.MessageBox.InfoType.error);
+                return;
+            }
             Common.MessageBox.Show(this, "保存发生意外，请联系管理人员解决。"+ex.Message, Common.MessageBox.InfoType.error);
         }
     }

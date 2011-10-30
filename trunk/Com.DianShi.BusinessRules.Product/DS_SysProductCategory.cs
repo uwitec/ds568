@@ -54,7 +54,7 @@ namespace Com.DianShi.BusinessRules.Product
                     }
                     ct.DS_SysProductCategory.DeleteAllOnSubmit(list1);
                 }
-                var list = ct.DS_SysProductCategory.Where(a=>intarray.Contains(a.ID));
+                var list = ct.DS_SysProductCategory.Where(a=>idarray.Contains(a.ID.ToString()));
                 ct.DS_SysProductCategory.DeleteAllOnSubmit(list);
 
                 ct.SubmitChanges();

@@ -43,14 +43,8 @@ namespace Com.DianShi.BusinessRules.Product
             using (var ct = new DS_PropertyDataContext())
             {
                 string[] idarray = Ids.Split(',');
-                int[] intarray=new int[idarray.Length];
-                for (int i = 0; i < idarray.Length; i++)
-                {
-                    intarray[i] = int.Parse(idarray[i]);
-                }
-                var list = ct.DS_Property.Where(a=>intarray.Contains(a.ID));
+                var list = ct.DS_Property.Where(a=>idarray.Contains(a.ID.ToString()));
                 ct.DS_Property.DeleteAllOnSubmit(list);
-
                 ct.SubmitChanges();
             }
         }
