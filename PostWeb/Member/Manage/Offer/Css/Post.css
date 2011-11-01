@@ -1,5 +1,5 @@
 ﻿.stepctn{height:21px;margin-top:8px;}
-.stepTitle,.stepctn li,.hassub,.stepTitle{background:url(../images/flow_steps_blue.gif) no-repeat;}
+.stepTitle,.stepctn li,.hassub,.stepTitle,.imgctn{background:url(../images/icon.gif) no-repeat;}
 .stepctn li{height:21px;float:left;  line-height:21px;}
 li.sleft{width:3px; background-position:0 -22px;}
 li.smiddle,li.sfirst{width:200px; text-align:center;background-color:#e4e4e4;}
@@ -22,3 +22,5 @@ li.sright{width:3px; background-position:-12px -22px;}
 .prtn{width:90px; text-align:right;}
 .proTitle{width:280px;}
 .red2{ position:relative;top:2px;}
+.imguplodctn{width:112px;}
+.imgctn{height:111px;border:solid 1px #babcbd;}

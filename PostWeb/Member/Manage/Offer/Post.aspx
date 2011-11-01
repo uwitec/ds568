@@ -89,4 +89,13 @@
     <div class="iRight floatL gray">建议您上传产品实拍大图，帮助买家直观了解您的产品细节
     </div>
 </div>
+<div class="item">
+    <div class="iLeft floatL">&nbsp;</div>
+    <div class="iRight floatL">
+        <div class="imguplodctn">
+            <div class="imgctn"></div>
+            <div></div>
+        </div>
+    </div>
+</div>
 </asp:Content>
