@@ -1,6 +1,21 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Member/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="Post.aspx.cs" Inherits="Member_Manage_Offer_Post" Title="发布产品" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <link href="Css/Post.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/KindEditor/kindeditor-min.js"></script>
+<script type="text/javascript" src="/KindEditor/lang/zh_CN.js"></script>
+<script type="text/javascript">
+	KindEditor.ready(function(K) {
+		 K.create('textarea[name="content"]', {
+			resizeType : 1,
+			allowPreviewEmoticons : false,
+			allowImageUpload : false,
+			items : [
+				'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				 'strikethrough','table','|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'image', 'link','source']
+		});
+	});
+</script>
 <script type="text/javascript" src="Js/Post.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -81,7 +96,7 @@
 </div>
 <div class="item">
     <div class="iLeft floatL"><span class="red">*</span>信息标题：</div>
-    <div class="iRight floatL gray"><input type="text" name="proTitle" class="txtbox proTitle" /> 最长30个汉字（60个字符），建议在标题中包含产品名称和相应关键词
+    <div class="iRight floatL gray"><input type="text" maxlength="60" name="proTitle" class="txtbox proTitle" /> 最长30个汉字（60个字符），建议在标题中包含产品名称和相应关键词
     </div>
 </div>
 <div class="item">
@@ -94,8 +109,28 @@
     <div class="iRight floatL">
         <div class="imguplodctn">
             <div class="imgctn"></div>
-            <div></div>
+            <div class="upbtn"><input type="button" value="上传图片" /></div>
+        </div>
+        <div class="imguplodctn">
+            <div class="imgctn imgctn2"></div>
+            <div class="upbtn"><input type="button" value="上传图片" /></div>
+        </div>
+        <div class="imguplodctn">
+            <div class="imgctn imgctn3"></div>
+            <div class="upbtn"><input type="button" value="上传图片" /></div>
         </div>
     </div>
 </div>
+<div class="item">
+    <div class="iLeft floatL">详细说明：</div>
+    <div class="iRight floatL gray">请从产品性能、用途、包装、售后服务等方面来描述，建议您在详细说明中插入产品细节图
+    </div>
+</div>
+<div class="item">
+    <div class="iLeft floatL">&nbsp;</div>
+    <div class="iRight floatL">
+    <textarea id="Textarea1" name="content" style="width:660px;height:200px;visibility:hidden;"></textarea>
+    </div>
+</div>
+<div class="stepTitle">交易信息</div>
 </asp:Content>
