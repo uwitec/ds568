@@ -1,5 +1,5 @@
 ﻿.stepctn{height:21px;margin-top:8px;}
-.stepTitle,.stepctn li,.hassub,.imgctn{background:url(../images/icon.gif) no-repeat;}
+.stepTitle,.stepctn li,.hassub,.imgctn,.tdlast a,.subBtn{background:url(../images/icon.gif) no-repeat;}
 .stepctn li{height:21px;float:left;  line-height:21px; background-position:-485px 0;}
 li.sleft{width:3px; background-position:-485px -22px;}
 li.smiddle,li.sfirst{width:200px; text-align:center;background-color:#e4e4e4;}
@@ -28,3 +28,20 @@ li.sright{width:3px; background-position:-497px -22px;}
 .imgctn3{background-position:-237px -90px;}
 .upbtn{ text-align:center;margin-top:6px;}
 .upbtn input{height:22px;padding:0;line-height:18px;}
+.prounit{width:80px;}
+.priceRang{border:solid 1px #e3e3e3;}
+.priceRang input{width:60px;}
+.priceRang thead{ background:#f9f9f9; text-align:left;}
+.priceRang th,.priceRang td{border-bottom:solid 1px #e3e3e3;}
+.priceRang td{padding:3px auto;}
+.tdfirst,.tdlast{padding-left:12px;}
+td.tdlast{border:none;height:30px;}
+.td3{width:100px;}
+.tdaction{width:60px; text-align:center;}
+.th1{padding-left:42px;}
+.divrang{margin-top:0;}
+.tdlast a{display:block;width:107px;height:24px; background-position:-393px -224px; text-indent:22px;}
+.hidden{display:none;}
+.endline{border-top:solid 1px #e4e4e4;height:1px; overflow:hidden;}
+.subBtn{ background-position:-77px -219px; width:170px;}
+.divsub{margin-bottom:30px;}
