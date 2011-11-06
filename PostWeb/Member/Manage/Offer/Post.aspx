@@ -79,7 +79,7 @@
     <div class="iRight floatL gray">完整的产品属性有助于买家找到您的信息
     </div>
 </div>
-<div class="item">
+<div class="item divrang">
     <div class="iLeft floatL">&nbsp;</div>
     <div class="iRight floatL property">
         <div class="prtctn overflowAuto">
@@ -104,7 +104,7 @@
     <div class="iRight floatL gray">建议您上传产品实拍大图，帮助买家直观了解您的产品细节
     </div>
 </div>
-<div class="item">
+<div class="item divrang">
     <div class="iLeft floatL">&nbsp;</div>
     <div class="iRight floatL">
         <div class="imguplodctn">
@@ -126,11 +126,95 @@
     <div class="iRight floatL gray">请从产品性能、用途、包装、售后服务等方面来描述，建议您在详细说明中插入产品细节图
     </div>
 </div>
-<div class="item">
+<div class="item divrang">
     <div class="iLeft floatL">&nbsp;</div>
     <div class="iRight floatL">
     <textarea id="Textarea1" name="content" style="width:660px;height:200px;visibility:hidden;"></textarea>
+    <div>1、插入图片时请勿盗用他人图片、以免引起纠纷。</div>
+    2、您可添加点石网内部链接， 加入其它网站链接、系统将自动过滤
     </div>
 </div>
 <div class="stepTitle">交易信息</div>
+<div class="item">
+    <div class="iLeft floatL">计量单位：</div>
+    <div class="iRight floatL">
+        <select name="unit" class="prounit">
+            <option>套</option>
+        </select>
+    </div>
+</div>
+<div class="item">
+    <div class="iLeft floatL">价格区间：</div>
+    <div class="iRight floatL gray">
+       请如实填写产品价格，方便买家订购
+    </div>
+</div>
+<div class="item divrang">
+    <div class="iLeft floatL">&nbsp;</div>
+    <div class="iRight floatL gray">
+       <table cellpadding=0 cellspacing=0 class="priceRang">
+            <thead>
+                <tr>
+                    <th  class="th1" colspan="3">
+                        购买数量</th>
+                    <th  colspan="4">
+                        产品单价</th>
+                </tr>
+            </thead>
+            <tr>
+                <td class="tdfirst">购买 <input  name="wb1" class="txtbox" size="20"  type="text" value="1" /></td>
+                <td> </td>
+                <td class="td3"> 本及以上：</td>
+                <td><input  name="wprice1"  size="20" class="txtbox" type="text" value="10.00" />&nbsp;</td>
+                <td><span class="price_money">元</span>/</td>
+                <td>本</td>
+                <td class="tdaction">&nbsp;</td>
+            </tr>
+             <tr class="hidden">
+                <td class="tdfirst">购买 <input  name="wb1" size="20" class="txtbox" type="text" value="1" /></td>
+                <td> </td>
+                <td class="td3"> 本及以上：</td>
+                <td><input  name="wprice1"  size="20" type="text" class="txtbox" value="10.00" />&nbsp;</td>
+                <td><span class="price_money">元</span>/</td>
+                <td>本</td>
+                <td class="tdaction"><a href="#">删除</a></td>
+            </tr>
+            <tr class="hidden">
+                <td class="tdfirst">购买 <input  name="wb1" size="20" class="txtbox" type="text" value="1" /></td>
+                <td> </td>
+                <td class="td3"> 本及以上：</td>
+                <td><input  name="wprice1"  size="20" type="text" class="txtbox" value="10.00" />&nbsp;</td>
+                <td><span class="price_money">元</span>/</td>
+                <td>本</td>
+                <td class="tdaction"><a href="#">删除</a></td>
+            </tr>
+            <tr>
+                <td class="tdlast" colspan="7"><a href="#">增加价格区间</a></td>
+            </tr>
+       </table>
+    </div>
+</div>
+<div class="item">
+    <div class="iLeft floatL">最小起订量：</div>
+    <div class="iRight floatL">
+       <input name="minNumber" type="text" class="txtbox" />
+    </div>
+</div>
+<div class="item">
+    <div class="iLeft floatL"><span class="red">*</span>信息有效期：</div>
+    <div class="iRight floatL">
+       <input type="radio" name="Period" id="Period1" /><label for="Period1">10天</label>
+       <input type="radio" name="Period" id="Period2" /><label for="Period2">20天</label>
+       <input type="radio" name="Period" id="Period3" /><label for="Period3">1个月</label>
+       <input type="radio" name="Period" id="Period4" /><label for="Period4">3个月</label>
+       <input type="radio" name="Period" id="Period5" /><label for="Period5">6个月</label>
+    </div>
+</div>
+<div class="endline">&nbsp;</div>
+<div class="item divsub">
+    <div class="iLeft floatL">&nbsp;</div>
+    <div class="iRight floatL">
+       <asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="同意协议条款，我要发布" />
+    </div>
+</div>
 </asp:Content>
