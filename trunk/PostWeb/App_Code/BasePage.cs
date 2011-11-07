@@ -19,8 +19,8 @@ public class BasePage : System.Web.UI.Page
     protected override void InitializeCulture()
     {
         //测试登陆
-        var mb = new Com.DianShi.Model.Member.DS_Members();
-        Session["UserData"] = new UserData { Member=mb };
+        //var mb = new Com.DianShi.Model.Member.DS_Members();
+        //Session["UserData"] = new UserData { Member=mb };
 
         _userData = Session["UserData"] as UserData;
         if (_userData == null)
