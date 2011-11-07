@@ -39,11 +39,11 @@
   margin: 0;
 }
 #wBox .wBox_title {
-  height:35px;
+  height:28px;
   color:#000000;
   width:100%;
-  /*background:url(titleBG1.png) repeat-x;*/
-  background-color:#d8e8fd;
+  background:url(titleBG1.png) repeat-x;
+
 }
 #wBox .wBox_title .wBox_itemTitle{
     padding-left:5px;

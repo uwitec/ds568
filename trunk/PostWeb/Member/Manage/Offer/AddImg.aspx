@@ -6,9 +6,7 @@
 <head runat="server">
     <title>上传产品图片</title>
     <Custom:Header runat="server" ID="Header1" />
-    <style type="text/css">
-        body{padding:10px;width:700px;height:300px;}
-    </style>
+    <link href="Css/AddImg.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
