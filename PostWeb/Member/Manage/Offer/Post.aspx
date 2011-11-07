@@ -217,7 +217,4 @@
        <asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="同意协议条款，我要发布" />
     </div>
 </div>
-<div class="upimg" >
-213123
-</div>
 </asp:Content>

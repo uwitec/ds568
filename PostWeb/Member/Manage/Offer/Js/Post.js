@@ -60,10 +60,13 @@
    });
    
    $(".upbtn input").click(function(){
-       var wBox=$(".upimg").wBox({
-                title: "添加产品图片"
+       var wBox=$(this).wBox({
+                title: "添加产品图片",
+                requestType: "iframe",
+                target:"addimg.aspx",
+                show:true
             });
-      wBox.showBox();
+      
    });
    
 });
