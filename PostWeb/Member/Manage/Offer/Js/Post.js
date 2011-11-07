@@ -40,4 +40,30 @@
    });
    
    
+   //价格区间
+   $(".tdlast a").click(function(){
+      $(".hidden:hidden:first").show();
+      if($(".hidden:visible").length==2){
+         $(this).parent().parent().hide();
+         $(".hidden:first").find("a").hide();
+      }
+      return false;
+   });
+   
+   $(".hidden a").click(function(){
+       $(this).parent().parent().hide();
+       if($(".hidden:visible").length==1){
+           $(".hidden:first").find("a").show();
+           $(".priceRang tr:last").show();
+       }
+       return false;
+   });
+   
+   $(".upbtn input").click(function(){
+       var wBox=$(".upimg").wBox({
+                title: "添加产品图片"
+            });
+      wBox.showBox();
+   });
+   
 });

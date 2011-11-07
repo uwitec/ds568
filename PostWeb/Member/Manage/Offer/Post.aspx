@@ -177,7 +177,7 @@
                 <td><input  name="wprice1"  size="20" type="text" class="txtbox" value="10.00" />&nbsp;</td>
                 <td><span class="price_money">元</span>/</td>
                 <td>本</td>
-                <td class="tdaction"><a href="#">删除</a></td>
+                <td class="tdaction">&nbsp;<a href="#">删除</a></td>
             </tr>
             <tr class="hidden">
                 <td class="tdfirst">购买 <input  name="wb1" size="20" class="txtbox" type="text" value="1" /></td>
@@ -186,7 +186,7 @@
                 <td><input  name="wprice1"  size="20" type="text" class="txtbox" value="10.00" />&nbsp;</td>
                 <td><span class="price_money">元</span>/</td>
                 <td>本</td>
-                <td class="tdaction"><a href="#">删除</a></td>
+                <td class="tdaction">&nbsp;<a href="#">删除</a></td>
             </tr>
             <tr>
                 <td class="tdlast" colspan="7"><a href="#">增加价格区间</a></td>
@@ -216,5 +216,8 @@
     <div class="iRight floatL">
        <asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="同意协议条款，我要发布" />
     </div>
+</div>
+<div class="upimg" >
+213123
 </div>
 </asp:Content>
