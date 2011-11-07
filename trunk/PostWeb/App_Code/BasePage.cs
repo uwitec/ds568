@@ -19,10 +19,8 @@ public class BasePage : System.Web.UI.Page
     protected override void InitializeCulture()
     {
         //测试登陆
-        //OA_User_Bll ubl = new OA_User_Bll();
-        //OA_User u=new OA_User{ UserID="admin",UserPassword="abc123"};
-        //ubl.Login(ref u);
-        //Session["UserData"] = new UserData{ OaUser=u};
+        var mb = new Com.DianShi.Model.Member.DS_Members();
+        Session["UserData"] = new UserData { Member=mb };
 
         _userData = Session["UserData"] as UserData;
         if (_userData == null)
