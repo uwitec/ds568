@@ -10,7 +10,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-  <ul class=><li>选择您要添加图片的来源</li></ul>
+  <ul class="headmn"><li class="tag">&nbsp;</li><li class="selmemo">选择您要添加图片的来源</li>
+    <li class="menu1"><div>图片管家</div></li>
+    <li class="menu2"><div>我的电脑</div></li>
+  </ul>
+  <div class="ctn">
+    
+  </div>
     </form>
 </body>
 </html>
