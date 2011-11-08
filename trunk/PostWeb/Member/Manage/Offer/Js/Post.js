@@ -66,6 +66,7 @@
                 target:"addimg.aspx",
                 show:true
             });
+       //$("body select").css("visibility","hidden");
       
    });
    
