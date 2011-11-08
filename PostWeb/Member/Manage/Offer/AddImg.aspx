@@ -16,7 +16,13 @@
     <li class="menu2"><div>我的电脑</div></li>
   </ul>
   <div class="ctn">
-        
+        <div class="ctnshow1">
+            <div class="selctn gray"><select name="selAlbum"><option>我的相册</option></select> 请从您的图片管家中点击选择图片</div>
+            <ul class="imgList">
+                <li><img onload="changeImg(this,61,61)" src="http://img.china.alibaba.com/img/ibank/2011/951/799/376997159_1213661768.summ.jpg" /></li>
+            </ul>
+        </div>
+        <div class="ctnshow2"></div>
   </div>
     </form>
 </body>
