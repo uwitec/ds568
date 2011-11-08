@@ -7,6 +7,7 @@
     <title>上传产品图片</title>
     <Custom:Header runat="server" ID="Header1" />
     <link href="Css/AddImg.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/addimg.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
