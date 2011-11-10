@@ -20,3 +20,4 @@
  .item{ overflow:auto;zoom:1;margin-top:10px;}
  .item div{float:left;}
  .itemL{width:180px; text-align:right;}
+ .itemR *{float:left;}

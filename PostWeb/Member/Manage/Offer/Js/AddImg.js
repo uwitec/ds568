@@ -21,7 +21,7 @@
     });
     
     //文件上传
-    $("#uploadify,#uploadify1,#uploadify2").uploadify({
+    $("#uploadify0,#uploadify1,#uploadify2").uploadify({
         'uploader': '/js/uploadify/uploadify.swf',
         'script': '/js/uploadify/Upload.aspx',
         'cancelImg': '/js/uploadify/cancel.png',
@@ -35,12 +35,18 @@
         'onComplete':function(event, ID, fileObj, response, data){
         },
         'onSelectOnce' : function(event,data) {
-          var fileSize=(data.allBytesTotal/1024).toFixed(2)
-          if(fileSize>4*1024){
-            alert("上传文件不能大于4MB！")
-            $('#uploadify').uploadifyClearQueue()
-          }
-        }
+//             var fileSize=(data.allBytesTotal/1024).toFixed(2)
+//             if(fileSize>4*1024){
+//                alert("上传文件不能大于4MB！")
+//                $('#uploadify').uploadifyClearQueue()
+//             }
+             
+       },
+       'onSelect':function(e, queueId, fileObj)
+       {
+           $("#tb"+event.target.id.replace("uploadify","")).val(fileObj.name);
+           alert("123")
+       }
    });
        
 });
