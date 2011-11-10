@@ -63,7 +63,7 @@
        var wBox=$(this).wBox({
                 title: "添加产品图片",
                 requestType: "iframe",
-                target:"addimg.aspx",
+                target:"addimg.aspx?ind="+$(".upbtn input").index(this),
                 show:true
             });
        //$("body select").css("visibility","hidden");
