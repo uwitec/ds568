@@ -46,15 +46,15 @@
                 <div class="itemL">选择相册：</div><div ><select name="selAlbum2"><option>我的相册</option></select></div> 
             </div>
             <div class="item">
-                <div class="itemL">添加图片：</div><div ><input type="file" name="uploadify" id="uploadify" /></div>
-            </div>
-             <div class="item">
-                <div class="itemL">&nbsp;</div><div ><input type="file" name="uploadify" id="uploadify1" /></div>
+                <div class="itemL">添加图片：</div><div ><input type="text" id="tb1" /><input type="file" name="uploadify" id="uploadify" /></div>
             </div>
             <div class="item">
-                <div class="itemL">&nbsp;</div><div><input type="file" name="uploadify" id="uploadify2" /> </div>
+                <div class="itemL">&nbsp;</div><div ><input type="text" id="Text1" /><input type="file" name="uploadify" id="uploadify1" /></div>
             </div>
-            
+            <div class="item">
+                <div class="itemL">&nbsp;</div><div><input type="text" id="Text2" /><input type="file" name="uploadify" id="uploadify2" /></div>
+            </div>
+            <div class="fileQueue" style="display:none;"></div>
         </div>
   </div>
     </form>
