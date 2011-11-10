@@ -18,7 +18,6 @@
     $(".imgList li img").click(function(){
         var ind=$("#hdind").val();
         parent.$("#img0"+ind).show().attr("src",this.src);
-        
     });
     
     //文件上传
@@ -27,7 +26,7 @@
         'script': '/js/uploadify/Upload.aspx',
         'cancelImg': '/js/uploadify/cancel.png',
         'folder': 'UploadFile',
-        
+        'queueID': 'fileQueue',
         'auto': false,
         'multi': true,
         //'buttonText':'浏览文件',
@@ -41,7 +40,6 @@
             alert("上传文件不能大于4MB！")
             $('#uploadify').uploadifyClearQueue()
           }
-          $(this).hide();
         }
    });
        
