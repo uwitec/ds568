@@ -43,16 +43,16 @@
         <div class="ctnshow2">
             <div class="selctn gray">如果您不希望上传的图片在相册中公开展示，建议将图片上传到不公开相册中</div>
             <div class="item">
-                <div class="itemL">选择相册：</div><div ><select name="selAlbum2"><option>我的相册</option></select></div> 
+                <div class="itemL">选择相册：</div><div ><select name="selAlbum2"><option>我的相册</option></select>&nbsp;<a href="#">添加相册</a></div> 
             </div>
             <div class="item">
-                <div class="itemL">添加图片：</div><div ><input type="text" id="tb1" /><input type="file" name="uploadify" id="uploadify" /></div>
+                <div class="itemL">添加图片：</div><div class="itemR"><input readonly type="text" id="tb0" /><div><input type="file" name="uploadify" id="uploadify0" /></div></div>
             </div>
             <div class="item">
-                <div class="itemL">&nbsp;</div><div ><input type="text" id="Text1" /><input type="file" name="uploadify" id="uploadify1" /></div>
+                <div class="itemL">&nbsp;</div><div class="itemR"><input readonly type="text" id="tb1" /><div><input type="file" name="uploadify" id="uploadify1" /></div></div>
             </div>
             <div class="item">
-                <div class="itemL">&nbsp;</div><div><input type="text" id="Text2" /><input type="file" name="uploadify" id="uploadify2" /></div>
+                <div class="itemL">&nbsp;</div><div class="itemR"><input readonly type="text" id="tb2" /><div><input type="file" name="uploadify" id="uploadify2" /></div></div>
             </div>
             <div class="fileQueue" style="display:none;"></div>
         </div>
