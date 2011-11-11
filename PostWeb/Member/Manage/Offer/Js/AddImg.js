@@ -37,53 +37,49 @@
         'fileDesc'    : '*.rar;*.doc;*.xls;*.ppt;*.txt',
         'onComplete':function(event, ID, fileObj, response, data){
         },
-        'onSelectOnce' : function(event,data) {
-//             
-               //$('#uploadify').uploadifyCancel(id);
-               
-             
-       },
-       'onSelect':function(event, queueId, fileObj)
-       {
-           fc++;
-           var ind=event.target.id.replace("uploadify","");
-//           var fileSize=(fileObj.size/1024).toFixed(2)
-//           if(fileSize>4*1024){
-//               alert("上传文件不能大于4MB！")
-//               $('#uploadify'+ind).uploadifyCancel(queueId);
-//               return;
-//           }
-           $("#tb"+ind).val(fileObj.name);
-           $("#clear"+ind).attr("qid",queueId)
-           $(".divsub input").addClass("chgbg").attr("disabled","");;
-          
-       },
-       'onCancel':function(event,queueId,fileObj,data){
-           if(fc>0)
-              fc--;
-           if(fc==0)
-               $(" .divsub input").removeClass("chgbg").attr("disabled","disabled");
-       },
-       'onError':function(event,queueId,fileObj,errorObj){
-           var ind=event.target.id.replace("uploadify","");
-           $('#uploadify'+ind).uploadifyCancel(queueId);
-           
-           if(errorObj.type=="File Size"){
-               alert("不能上传超过4MB的文件。")
-               $("#tb"+ind).val("");
-           }
-       }
+        'onSelect':function(event, queueId, fileObj)
+        {
+            fc++;
+            var ind=event.target.id.replace("uploadify","");
+            $("#tb"+ind).val(fileObj.name);
+            $("#clear"+ind).attr("qid",queueId)
+            $(".divsub input").addClass("chgbg").removeAttr("disabled");
+        },
+        'onCancel':function(event,queueId,fileObj,data){
+            if(fc>0)
+               fc--;
+            if(fc==0)
+                $(" .divsub input").removeClass("chgbg").attr("disabled","disabled");
+        },
+        'onError':function(event,queueId,fileObj,errorObj){
+            var ind=event.target.id.replace("uploadify","");
+            $('#uploadify'+ind).uploadifyCancel(queueId);
+            if(errorObj.type=="File Size"){
+                alert("不能上传超过4MB的文件。")
+                $("#tb"+ind).val("");
+            }
+        }
    });
    
    
    //清除
    $("#clear0,#clear1,#clear2").click(function(){
         var qid=$(this).attr("qid");
-        alert(qid)
         var ind=this.id.replace("clear","");
-        $('#uploadify'+ind).uploadifyCancel(qid);
-        $("#tb"+ind).val("");
+        if($("#tb"+ind).val()!=""){
+            $('#uploadify'+ind).uploadifyCancel(qid);
+            $("#tb"+ind).val("");
+        }
         return false;
+   });
+   
+   //开始上传
+   $(".divsub input").click(function(){
+       if(!$(this).attr("disabled")){
+           $('#uploadify0').uploadifyUpload();
+           $('#uploadify1').uploadifyUpload();
+           $('#uploadify2').uploadifyUpload();
+       }
    });
    
 });
