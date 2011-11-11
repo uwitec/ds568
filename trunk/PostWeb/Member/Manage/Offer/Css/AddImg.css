@@ -9,7 +9,8 @@
  .menu2 div{height:27px;width:77px;background-position:-1px -150px; top:5px;line-height:27px;color:#555;}
  .ctn{ background:url(../images/bg.gif) repeat-x 0 -90px;height:200px; }
  .selctn{ margin-top:16px;}
- .ctnshow2 .selctn{background:url(../images/icon.gif) no-repeat -473px -259px; text-indent:16px;}
+ .divsub input, .ctnshow2 .selctn{background:url(../images/icon.gif) no-repeat;}
+ .ctnshow2 .selctn{ background-position:-473px -259px; text-indent:16px;}
  .ctnshow1, .ctnshow2{width:630px; margin:0 auto;}
  .ctnshow2{display:none;}
  .imgList{margin-top:8px; overflow:auto;zoom:1;}
@@ -21,3 +22,11 @@
  .item div{float:left;}
  .itemL{width:180px; text-align:right;}
  .itemR *{float:left;}
+ .itemR div{padding-left:6px;}
+ #tb0,#tb1,#tb2{width:200px;}
+ .divsub{ text-align:center;}
+ .divsub input{width:93px;height:31px;border:none;}
+ .divsub input.chgbg{ background-position:0 -31px;}
+ a:link,a:visited{color:#0066CC}
+ a:hover{color:#ff7300;}
+ .fileQueue{display:none;}

@@ -20,33 +20,70 @@
         parent.$("#img0"+ind).show().attr("src",this.src);
     });
     
+    var fc=0;
     //文件上传
     $("#uploadify0,#uploadify1,#uploadify2").uploadify({
         'uploader': '/js/uploadify/uploadify.swf',
         'script': '/js/uploadify/Upload.aspx',
         'cancelImg': '/js/uploadify/cancel.png',
         'folder': 'UploadFile',
-        'queueID': 'fileQueue',
+        'queueID':'fileQueue',
         'auto': false,
-        'multi': true,
-        //'buttonText':'浏览文件',
+        'multi':false,
+        'width':'74',
+        'sizeLimit':4096*1024,
+        'buttonImg':'/js/uploadify/open.png',
         'fileExt':'*.rar;*.DOC;*.XLS;*.PPT;*.TXT',
         'fileDesc'    : '*.rar;*.doc;*.xls;*.ppt;*.txt',
         'onComplete':function(event, ID, fileObj, response, data){
         },
         'onSelectOnce' : function(event,data) {
-//             var fileSize=(data.allBytesTotal/1024).toFixed(2)
-//             if(fileSize>4*1024){
-//                alert("上传文件不能大于4MB！")
-//                $('#uploadify').uploadifyClearQueue()
-//             }
+//             
+               //$('#uploadify').uploadifyCancel(id);
+               
              
        },
-       'onSelect':function(e, queueId, fileObj)
+       'onSelect':function(event, queueId, fileObj)
        {
-           $("#tb"+event.target.id.replace("uploadify","")).val(fileObj.name);
-           alert("123")
+           fc++;
+           var ind=event.target.id.replace("uploadify","");
+//           var fileSize=(fileObj.size/1024).toFixed(2)
+//           if(fileSize>4*1024){
+//               alert("上传文件不能大于4MB！")
+//               $('#uploadify'+ind).uploadifyCancel(queueId);
+//               return;
+//           }
+           $("#tb"+ind).val(fileObj.name);
+           $("#clear"+ind).attr("qid",queueId)
+           $(".divsub input").addClass("chgbg").attr("disabled","");;
+          
+       },
+       'onCancel':function(event,queueId,fileObj,data){
+           if(fc>0)
+              fc--;
+           if(fc==0)
+               $(" .divsub input").removeClass("chgbg").attr("disabled","disabled");
+       },
+       'onError':function(event,queueId,fileObj,errorObj){
+           var ind=event.target.id.replace("uploadify","");
+           $('#uploadify'+ind).uploadifyCancel(queueId);
+           
+           if(errorObj.type=="File Size"){
+               alert("不能上传超过4MB的文件。")
+               $("#tb"+ind).val("");
+           }
        }
    });
-       
+   
+   
+   //清除
+   $("#clear0,#clear1,#clear2").click(function(){
+        var qid=$(this).attr("qid");
+        alert(qid)
+        var ind=this.id.replace("clear","");
+        $('#uploadify'+ind).uploadifyCancel(qid);
+        $("#tb"+ind).val("");
+        return false;
+   });
+   
 });
