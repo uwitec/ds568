@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Data.Common;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Album;
-namespace Com.DianShi.BusinessRules.AlbumImg
+namespace Com.DianShi.BusinessRules.Album
 {
     public class DS_AlbumImg_Br : DBUtility.BllBase
     {
