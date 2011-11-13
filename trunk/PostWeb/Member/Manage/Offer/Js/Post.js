@@ -60,14 +60,21 @@
    });
    
    $(".upbtn input").click(function(){
-       var wBox=$(this).wBox({
+       wBox=$(this).wBox({
                 title: "添加产品图片",
                 requestType: "iframe",
                 target:"addimg.aspx?ind="+$(".upbtn input").index(this),
                 show:true
             });
-       //$("body select").css("visibility","hidden");
-      
+       
+   });
+   
+   $(".upbtn a").click(function(){
+       var ind=$(".upbtn a").index(this);
+       $("#img0"+ind).attr("src","");
+       $(".upbtn input").eq(ind).val("上传图片")
+       $(this).hide();
+       return false;
    });
    
 });
