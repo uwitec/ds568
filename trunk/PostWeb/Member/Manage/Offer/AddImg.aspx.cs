@@ -16,6 +16,7 @@ public partial class Member_Manage_Offer_AddImg : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         AspNetPager4.PageChanged += new EventHandler(AspNetPager_PageChanged);
+        selAlbum.SelectedIndexChanged+=new EventHandler(selAlbum_ServerChange);
         if (IsPostBack) return;
         var ud = Session["UserData"] as UserData;
         var bl = new DS_Album_Br();
@@ -23,7 +24,7 @@ public partial class Member_Manage_Offer_AddImg : BasePage
         selAlbum2.DataSource = selAlbum.DataSource = list;
         selAlbum2.DataBind();
         selAlbum.DataBind();
-        BindDate("albumid=@0",int.Parse(selAlbum.Value));
+        BindDate("albumid=@0",int.Parse(selAlbum.SelectedValue));
     }
 
     private void AspNetPager_PageChanged(object ob, object ob1)
@@ -41,5 +42,10 @@ public partial class Member_Manage_Offer_AddImg : BasePage
         AspNetPager4.RecordCount = pageCount;
         Repeater1.DataSource = list;
         Repeater1.DataBind();
-    } 
+    }
+
+    private void selAlbum_ServerChange(object sender, EventArgs e) {
+        BindDate("albumid=@0", int.Parse(selAlbum.SelectedValue));
+        AspNetPager4.CurrentPageIndex = 1;
+    }
 }

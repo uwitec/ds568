@@ -10,7 +10,6 @@
     <link href="Css/AddImg.css" rel="stylesheet" type="text/css" />
     <link rel="Stylesheet" href="/js/uploadify/uploadify.css" />
     <script type="text/javascript" src="/js/uploadify/swfobject.js"></script>
-
     <script type="text/javascript" src="/js/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
     <script type="text/javascript" src="js/addimg.js"></script>
 </head>
@@ -25,12 +24,12 @@
   </ul>
   <div class="ctn" >
         <div class="ctnshow1">
-            <div class="selctn gray"><select name="selAlbum" id="selAlbum" runat="server" datatextfield="AlbumName" datavaluefield="id">
-                </select> 请从您的图片管家中点击选择图片</div>
+            <div class="selctn gray"><asp:DropDownList ID="selAlbum" AutoPostBack="true" DataTextField="AlbumName" DataValueField="ID" runat="server">
+                </asp:DropDownList> 请从您的图片管家中点击选择图片</div>
             <ul class="imgList">
                 <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>
-                        <li><img onload="changeImg(this,61,61)" onerror="$(this).hide()" class="wBox_close" src="/Resource/<%#Eval("imgUrl") %>/<%#Eval("imgName") %>" /></li>
+                        <li ><img onload="changeImg(this,61,61)" onerror="$(this).parent().hide()" class="wBox_close" src="/Resource/<%#Eval("imgUrl") %>/<%#Eval("imgName") %>" /></li>
                     </ItemTemplate>
                 </asp:Repeater>
             </ul>
@@ -44,8 +43,22 @@
         <div class="ctnshow2">
             <div class="selctn gray">如果您不希望上传的图片在相册中公开展示，建议将图片上传到不公开相册中</div>
             <div class="item">
-                <div class="itemL">选择相册：</div><div >
-                    <select name="selAlbum2" id="selAlbum2" runat="server" datatextfield="AlbumName" datavaluefield="id"></select>&nbsp;<a href="#">创建新相册</a></div> 
+                <div class="itemL">选择相册：</div>
+                <div >
+                    <select name="selAlbum2" id="selAlbum2" runat="server" datatextfield="AlbumName" datavaluefield="id"></select>&nbsp;<a href="#" class="crtAlb">创建新相册</a>
+                    <div id="cactn" style="display:none">
+                        <div class="marginT20"></div>
+                        <div class="abItem"><div class="abItemL">相册名称： </div><div class="abItemR"><input class="alname" name="albumName" /></div></div>
+                        <div class="abItem"><div class="abItemL">访问权限： </div><div class="abItemR"><input id="album-type-public" checked="checked" disabled name="album-type1" 
+                                    type="radio" value="V1" /><label for="album-type-public">公开</label>
+                                <input id="album-type-secret" checked="checked" disabled name="album-type2" 
+                                    type="radio" value="V1" /><label for="album-type-secret">密码访问</label>
+                                <input id="album-type-private" checked="checked" disabled name="album-type" 
+                                    type="radio" value="V1" /><label for="album-type-private">不公开</label>
+                                </div>
+                       </div>
+                    </div>
+               </div> 
             </div>
             <div class="item">
                 <div class="itemL">添加图片：</div>
@@ -55,16 +68,6 @@
                 <div class="itemL">&nbsp;</div>
                 <div class="itemR"><div class="fileQueue" id="fileQueue" ></div></div>
             </div>
-         <%--   <div class="item">
-                <div class="itemL">&nbsp;</div>
-                <div class="itemR"><input readonly type="text" id="tb1" /><div><input type="file" name="uploadify" id="uploadify1" /></div><a href="#" id="clear1">&nbsp;清除</a></div>
-            </div>
-            <div class="item">
-                <div class="itemL">&nbsp;</div>
-                <div class="itemR"><input readonly type="text" id="tb2" /><div><input type="file" name="uploadify" id="uploadify2" /></div><a href="#" id="clear2">&nbsp;清除</a></div>
-            </div>--%>
-             
-             
             <div class="divsub"><input disabled type="button" /></div>
         </div>
   </div>

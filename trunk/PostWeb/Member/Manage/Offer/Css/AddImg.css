@@ -14,7 +14,7 @@
  .ctnshow1, .ctnshow2{width:630px; margin:0 auto;}
  .ctnshow2{display:none; position:relative;}
  .imgList{margin-top:8px; overflow:auto;zoom:1;}
- .imgList li{cursor:pointer; margin-right:10px;margin-bottom:10px;float:left;width:61;height:61px;border:solid 1px #ccc; display:table-cell; text-align:center;+display:block;+font-size:51px;+line-height:51px;padding:1px;}
+ .imgList li{cursor:pointer; margin-right:10px;margin-bottom:10px;float:left;width:61px;height:61px;border:solid 1px #ccc; display:table-cell; text-align:center;+display:block;+font-size:51px;+line-height:51px;padding:1px;}
  .imgList li img{ vertical-align:middle;}
  .split{width:10px; overflow:hidden;}
  .ppctn{margin-top:10px;}
@@ -30,3 +30,10 @@
  a:link,a:visited{color:#0066CC}
  a:hover{color:#ff7300;}
  .fileQueue{height:60px; position:relative;left:-7px;}
+#cactn{width:350px;height:120px; overflow:hidden;}
+#wBox .wBox_title{ background:url(../images/bg.gif) repeat-x;height:28px;color:#2b6fb6;}
+.abItem{ overflow:auto;zoom:1;margin-top:4px;}
+.abItem div{float:left;}
+.abItemL{width:75px; text-align:right;line-height:24px;}
+.alname{width:230px;}
+.marginT20{height:8px;}
