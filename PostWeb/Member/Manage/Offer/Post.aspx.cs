@@ -23,9 +23,9 @@ public partial class Member_Manage_Offer_Post :  BasePage
         {
             var mst = this.Master as Member_Manage_MasterPage;
             mst.SetMenuTitle("供应管理", "发布供应信息");
-            //var list = bl.Query<temClass>("select id,categoryName,(select count(id) from DS_SysProductCategory where parentid=c.id) as sc from DS_SysProductCategory c where parentid=0 order by px");
-            //Repeater1.DataSource = list;
-            //Repeater1.DataBind();
+            var list = bl.Query<temClass>("select id,categoryName,(select count(id) from DS_SysProductCategory where parentid=c.id) as sc from DS_SysProductCategory c where parentid=0 order by px");
+            Repeater1.DataSource = list;
+            Repeater1.DataBind();
         }
         else {//如果存在动作
             string act = Request["action"];

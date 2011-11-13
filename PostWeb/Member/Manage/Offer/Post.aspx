@@ -108,16 +108,16 @@
     <div class="iLeft floatL">&nbsp;</div>
     <div class="iRight floatL">
         <div class="imguplodctn">
-            <div class="imgctn"><img src="http://img.china.alibaba.com/img/ibank/2011/951/799/376997159_1213661768.summ.jpg" id="img00" onload="changeImg(this,110,110)" onerror="$(this).hide()" /></div>
-            <div class="upbtn"><input type="button" value="上传图片" /></div>
+            <div class="imgctn"><img src="" id="img00" onload="changeImg(this,110,110)" onerror="$(this).hide()" /></div>
+            <div class="upbtn"><input type="button" value="上传图片" /><a href="#">删除</a></div>
         </div>
         <div class="imguplodctn">
             <div class="imgctn imgctn2"><img src="" id="img01" onload="changeImg(this,110,110)" onerror="$(this).hide()" /></div>
-            <div class="upbtn"><input type="button" value="上传图片" /></div>
+            <div class="upbtn"><input type="button" value="上传图片" /><a href="#">删除</a></div>
         </div>
         <div class="imguplodctn">
             <div class="imgctn imgctn3"><img src="" id="img02" onload="changeImg(this,110,110)" onerror="$(this).hide()" /></div>
-            <div class="upbtn"><input type="button" value="上传图片" /></div>
+            <div class="upbtn"><input type="button" value="上传图片" /><a href="#">删除</a></div>
         </div>
     </div>
 </div>
