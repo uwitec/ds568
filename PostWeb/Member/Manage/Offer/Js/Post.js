@@ -64,7 +64,8 @@
                 title: "添加产品图片",
                 requestType: "iframe",
                 target:"addimg.aspx?ind="+$(".upbtn input").index(this),
-                show:true
+                show:true,
+                drag:false
             });
        
    });

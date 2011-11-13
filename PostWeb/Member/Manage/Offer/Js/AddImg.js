@@ -92,4 +92,14 @@
        }
    });
    
+    $(".crtAlb").click(function(){
+       $(this).wBox({
+                title: "添加相册",
+                target:"#cactn",
+                opacity:0.1,
+                show:true
+            });
+       return false;
+   });
+   
 });
