@@ -93,12 +93,44 @@
    });
    
     $(".crtAlb").click(function(){
-       $(this).wBox({
+       wbox=$(this).wBox({
                 title: "添加相册",
                 target:"#cactn",
                 opacity:0.1,
                 show:true
             });
+       return false;
+   });
+   
+   $(".addAlbum").click(function(){
+       var album=$(".alname").eq(1).val().trim();
+       if(album!=""){
+           $.ajax({
+               url:"?album="+encodeURI(album),
+               cache:false,
+               complete:function(req, Status){
+                   if(req.responseText.indexOf("id")>-1){
+                       var id=req.responseText.split('=')[1];
+                       $("#selAlbum2").append("<option value='"+id+"'>"+album+"</option>")
+                       $("#selAlbum2 option[value="+id+"]").attr("selected","true")
+                       wbox.close();
+                   }else
+                       alert(req.responseText)
+                   $(".cal").attr(" visibility","hidden");
+                   $(this).removeAttr("disabled")
+               },
+               ajaxSend:function(){
+                   $(".cal").attr(" visibility","visible");
+                   $(this).attr("disabled","disabled")
+               },
+               error:function(){
+                   alert("创建相册出错。");
+                   $(".cal").attr(" visibility","hidden");
+                   $(this).removeAttr("disabled")
+               }
+           });
+       }
+      
        return false;
    });
    

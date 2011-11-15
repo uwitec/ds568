@@ -48,15 +48,17 @@
                     <select name="selAlbum2" id="selAlbum2" runat="server" datatextfield="AlbumName" datavaluefield="id"></select>&nbsp;<a href="#" class="crtAlb">创建新相册</a>
                     <div id="cactn" style="display:none">
                         <div class="marginT20"></div>
-                        <div class="abItem"><div class="abItemL">相册名称： </div><div class="abItemR"><input class="alname" name="albumName" /></div></div>
-                        <div class="abItem"><div class="abItemL">访问权限： </div><div class="abItemR"><input id="album-type-public" checked="checked" disabled name="album-type1" 
+                        <div class="abItem"><div class="abItemL">相册名称： </div><div class="abItemR"><input type="text" class="alname"  name="albumName" /></div></div>
+                        <div class="abItem"><div class="abItemL">访问权限： </div><div class="abItemR"><input id="album-type-public"  disabled name="album-type1" 
                                     type="radio" value="V1" /><label for="album-type-public">公开</label>
-                                <input id="album-type-secret" checked="checked" disabled name="album-type2" 
+                                <input id="album-type-secret"  disabled name="album-type2" 
                                     type="radio" value="V1" /><label for="album-type-secret">密码访问</label>
                                 <input id="album-type-private" checked="checked" disabled name="album-type" 
                                     type="radio" value="V1" /><label for="album-type-private">不公开</label>
                                 </div>
                        </div>
+                       <div class="abItem cal">正在提交数据，请稍后</div>
+                       <div class="abItem common"><a href="#" class="addAlbum">创建</a><a href="javascript:;" class="cancelAlbum wBox_close">取消</a></div>
                     </div>
                </div> 
             </div>
