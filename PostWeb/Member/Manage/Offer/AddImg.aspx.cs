@@ -20,11 +20,43 @@ public partial class Member_Manage_Offer_AddImg : BasePage
         if (IsPostBack) return;
         var ud = Session["UserData"] as UserData;
         var bl = new DS_Album_Br();
+
+        if (!string.IsNullOrEmpty(Request.QueryString["album"]))
+        {
+            try
+            {
+                var md = bl.CreateModel();
+                md.AlbumName = Request.QueryString["album"];
+                md.CreateDate = DateTime.Now;
+                md.MemberID = ud.Member.ID;
+                md.Px = 0;
+                bl.Add(md);
+                bl.Sort(md.ID, true);
+                Response.Write("id="+md.ID);
+                Response.End();
+            }
+            catch (System.Threading.ThreadAbortException ex) { 
+                
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("IX_DS_Album"))
+                {
+                    Response.Write("已存在相同名称的相册。");
+                }
+                else
+                    Response.Write("创建相册出错。");
+                Response.End();
+            }
+        }
+
         var list = bl.Query("memberID=@0","px",ud.Member.ID);
         selAlbum2.DataSource = selAlbum.DataSource = list;
         selAlbum2.DataBind();
         selAlbum.DataBind();
         BindDate("albumid=@0",int.Parse(selAlbum.SelectedValue));
+
+        
     }
 
     private void AspNetPager_PageChanged(object ob, object ob1)

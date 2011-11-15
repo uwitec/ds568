@@ -37,3 +37,9 @@
 .abItemL{width:75px; text-align:right;line-height:24px;}
 .alname{width:230px;}
 .marginT20{height:8px;}
+.addAlbum,.cancelAlbum{background:url(../images/orte.gif) no-repeat;}
+a.addAlbum,a.cancelAlbum{width:93px;height:31px; text-align:center;line-height:31px;display:block; float:left;color:White;font-weight:bold;}
+.addAlbum:hover,.cancelAlbum:hover{ background-position:0 -50px;}
+.common{width:220px; margin:auto;}
+.addAlbum{margin-right:8px;}
+.cal{ background:url(../images/createAlbumLoading.gif) no-repeat 60px 0;height:20px; text-indent:78px; visibility:hidden; overflow:hidden;margin-top:0;}
