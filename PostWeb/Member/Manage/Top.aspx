@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Untitled Page</title>
+    <title></title>
      <link href="Css/index.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/js/jquery142min.js"></script>
     <script type="text/javascript" src="js/Top.js"></script>
