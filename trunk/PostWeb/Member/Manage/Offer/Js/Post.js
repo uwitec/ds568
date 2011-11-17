@@ -78,4 +78,33 @@
        return false;
    });
    
+   KindEditor.lang({
+		diyimg: '插入图片' 
+	});
+	KindEditor.plugin('diyimg', function(K) {
+		var self = this, name = 'diyimg';
+		self.clickToolbar(name, function() {
+			//self.insertHtml('<strong>测试内容</strong>');
+			$(document).wBox({
+                title: "添加产品图片",
+                requestType: "iframe",
+                target:"addimg.aspx",
+                show:true,
+                drag:false
+            });
+		});
+	});
+	
+	KindEditor.ready(function(K) {
+		 K.create('textarea[name="content"]', {
+			resizeType : 1,
+			allowPreviewEmoticons : false,
+			allowImageUpload : false,
+			items :[
+				'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				 'strikethrough','table','|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'diyimg', 'link','source']
+		});
+	});
+   
 });
