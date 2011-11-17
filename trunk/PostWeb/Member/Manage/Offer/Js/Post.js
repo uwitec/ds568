@@ -86,9 +86,9 @@
 		self.clickToolbar(name, function() {
 			//self.insertHtml('<strong>测试内容</strong>');
 			$(document).wBox({
-                title: "添加产品图片",
+                title: "插入图片",
                 requestType: "iframe",
-                target:"addimg.aspx",
+                target:"adddetailimg.aspx",
                 show:true,
                 drag:false
             });
