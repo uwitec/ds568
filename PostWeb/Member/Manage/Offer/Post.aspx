@@ -3,19 +3,6 @@
 <link href="Css/Post.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/KindEditor/kindeditor-min.js"></script>
 <script type="text/javascript" src="/KindEditor/lang/zh_CN.js"></script>
-<script type="text/javascript">
-	KindEditor.ready(function(K) {
-		 K.create('textarea[name="content"]', {
-			resizeType : 1,
-			allowPreviewEmoticons : false,
-			allowImageUpload : false,
-			items : [
-				'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-				 'strikethrough','table','|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-				'insertunorderedlist', '|', 'image', 'link','source']
-		});
-	});
-</script>
 <script type="text/javascript" src="Js/Post.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
