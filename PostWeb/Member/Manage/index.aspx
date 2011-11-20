@@ -6,7 +6,7 @@
 <head runat="server">
     <title>点石-商务中心</title>
 </head>
-<frameset rows="125,*" frameborder="no" border="0" framespacing="0">
+<frameset rows="95,*" frameborder="no" border="0" framespacing="0">
   <frame src="top.aspx" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" />
   <frame src="" name="conFrame" id="mainFrame" />
 </frameset>

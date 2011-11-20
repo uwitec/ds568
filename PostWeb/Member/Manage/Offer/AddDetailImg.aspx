@@ -8,7 +8,7 @@
     <Custom:Header runat="server" ID="Header1" />
     <link href="<%=Common.Constant.WebConfig("Resource") %>/Css/Pager.css" rel="stylesheet" type="text/css" />
     <link href="Css/AddImg.css" rel="stylesheet" type="text/css" />
-     <link href="Css/AddDetailImg.css" rel="stylesheet" type="text/css" />
+    <link href="Css/AddDetailImg.css" rel="stylesheet" type="text/css" />
     <link rel="Stylesheet" href="/js/uploadify/uploadify.css" />
     <script type="text/javascript" src="/js/uploadify/swfobject.js"></script>
     <script type="text/javascript" src="/js/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
@@ -16,6 +16,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <asp:HiddenField ID="insimgsrc" runat="server" />
   <ul class="headmn"><li class="tag">&nbsp;</li><li class="selmemo">选择您要插入图片的来源</li>
     <li class="split">&nbsp;</li>
     <li class="menu1"><div ind="1">图片管家</div></li>
@@ -31,14 +32,14 @@
             <ul class="imgList">
                 <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>
-                        <li ><img onload="changeImg(this,61,61)" onerror="$(this).parent().hide()" class="wBox_close" src="/Resource/<%#Eval("imgUrl") %>/<%#Eval("imgName") %>" /></li>
+                        <li ><img onload="changeImg(this,61,61)"    src="/Resource/<%#Eval("imgUrl") %>/<%#Eval("imgName") %>" /></li>
                     </ItemTemplate>
                 </asp:Repeater>
             </ul>
             <!--=========分页开始========-->
             <div class="overflowAuto ppctn">
-            <webdiyer:AspNetPager CssClass="pages"  AlwaysShowFirstLastPageNumber="true"  ShowDisabledButtons="false"  ShowFirstLast="false" CurrentPageButtonClass="cpb"  ID="AspNetPager4" NumericButtonCount="7" runat="server" 
-                FirstPageText="首页" LastPageText="尾页" TextBeforePageIndexBox="共100页 第"  TextAfterPageIndexBox="页 "  SubmitButtonText="确定" SubmitButtonClass="sBtn" ShowCustomInfoSection="Never" NextPageText="下一页"   PrevPageText="上一页">
+            <webdiyer:AspNetPager CssClass="pages"    AlwaysShowFirstLastPageNumber="true" HorizontalAlign="Center"  ShowDisabledButtons="false"  ShowFirstLast="false" CurrentPageButtonClass="cpb"  ID="AspNetPager4" NumericButtonCount="7" runat="server" 
+                FirstPageText="首页" LastPageText="尾页" TextBeforePageIndexBox="共100页 第" PageSize="16"  TextAfterPageIndexBox="页 "  SubmitButtonText="确定" SubmitButtonClass="sBtn" ShowCustomInfoSection="Never" NextPageText="下一页"   PrevPageText="上一页">
             </webdiyer:AspNetPager></div>
         <!--=========分页结束========-->
         </div>
@@ -76,7 +77,18 @@
         </div>
   </div>
   <div class="selimgctn">
-    <div class="selHead">要插入的图片(0/8)</div>
+    <div class="selHead">要插入的图片(<span class="insnum">0</span>/8)</div>
+    <ul class="selImgList">
+        <li><a href="#" class="cls">&nbsp;</a></li>
+        <li><a href="#" class="cls">&nbsp;</a></li>
+        <li><a href="#" class="cls">&nbsp;</a></li>
+        <li><a href="#" class="cls">&nbsp;</a></li>
+        <li><a href="#" class="cls">&nbsp;</a></li>
+        <li><a href="#" class="cls">&nbsp;</a></li>
+        <li><a href="#" class="cls">&nbsp;</a></li>
+        <li><a href="#" class="cls">&nbsp;</a></li>
+    </ul>
+    <div class="ctninsert"><a href="#">插入图片</a></div>
   </div>
     </form>
 </body>

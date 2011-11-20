@@ -14,8 +14,7 @@
         <div class="overflowAuto">
             <div class="logo floatL bold"><img style="display:none" src="http://i01.c.aliimg.com/images/cn/home/070827/logo2.gif" />商务中心</div>
             <div class="contact floatR gray">
-                <a href="#">返回首页</a> | <a href="#">帮助中心</a>
-                    您好：<%=(Session["UserData"] as UserData).Member.UserID %> <a href="?action=out">【退出】</a>
+                您好：<%=(Session["UserData"] as UserData).Member.UserID %> <a href="?action=out">【退出】</a> <a href="#">返回首页</a> | <a href="#">帮助中心</a>
             </div>
         </div>
     </div>

@@ -116,7 +116,7 @@
 <div class="item divrang">
     <div class="iLeft floatL">&nbsp;</div>
     <div class="iRight floatL">
-    <textarea id="Textarea1" name="content" style="width:660px;height:200px;visibility:hidden;"></textarea>
+    <textarea id="Textarea1" name="content" style="width:660px;height:400px;visibility:hidden;"></textarea>
     <div>1、插入图片时请勿盗用他人图片、以免引起纠纷。</div>
     2、您可添加点石网内部链接， 加入其它网站链接、系统将自动过滤
     </div>

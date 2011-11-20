@@ -1,3 +1,13 @@
-﻿body{height:400px;}
+﻿a.cls{ background:url(../images/icon.gif) no-repeat;}
+body{height:420px}
 .selimgctn{}
 .selHead{height:33px; background-position:0 -350px; background-repeat:repeat-x; text-indent:12px;line-height:33px;}
+.selImgList{width:630px; overflow:auto;zoom:1;margin:0 auto;margin-top:6px;}
+.selImgList li{ position:relative; float:left;width:61px;height:61px;border:solid 1px #ccc;padding:1px; margin-right:13px; overflow:hidden; text-align:center;display:table-cell; text-align:center;+display:block;+font-size:51px;+line-height:51px;}
+.selImgList li img{ vertical-align:middle;}
+a.cls{display:none;width:15px;height:15px;background-position:0 -82px;position:absolute; overflow:hidden;right:0;bottom:0;}
+a.cls:hover{background-position:0 -100px;}
+.ctninsert{ text-align:center;margin-top:8px;}
+.ctninsert a{ background:url(../images/orte.gif) no-repeat;}
+.ctninsert a{width:93px;height:31px;display:block;line-height:31px;font-weight:bold;color:White;}
+.ctninsert a:hover{ background-position:0 -50px;}

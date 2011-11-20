@@ -61,12 +61,12 @@
    
    $(".upbtn input").click(function(){
        wBox=$(this).wBox({
-                title: "添加产品图片",
-                requestType: "iframe",
-                target:"addimg.aspx?ind="+$(".upbtn input").index(this),
-                show:true,
-                drag:false
-            });
+            title: "添加产品图片",
+            requestType: "iframe",
+            target:"addimg.aspx?ind="+$(".upbtn input").index(this),
+            show:true,
+            drag:false
+        });
        
    });
    
@@ -80,12 +80,13 @@
    
    KindEditor.lang({
 		diyimg: '插入图片' 
-	});
-	KindEditor.plugin('diyimg', function(K) {
-		var self = this, name = 'diyimg';
-		self.clickToolbar(name, function() {
+   });
+   KindEditor.plugin('diyimg', function(K) {
+	    var self = this, name = 'diyimg';
+	    window.diyimg=self;
+	    self.clickToolbar(name, function() {
 			//self.insertHtml('<strong>测试内容</strong>');
-			$(document).wBox({
+			wBox=$(document).wBox({
                 title: "插入图片",
                 requestType: "iframe",
                 target:"adddetailimg.aspx",
