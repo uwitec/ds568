@@ -1,6 +1,6 @@
 ﻿@import url("/Css/Globle.css");
 .overflowAuto{overflow:auto;zoom:1;}
-.holdspace{height:6px;border-bottom:solid 1px #CECECE;margin-bottom:1px; overflow:hidden;}
+.holdspace{height:1px;border-bottom:solid 1px #CECECE;margin-bottom:1px; overflow:hidden;}
 .tbcon{width:952px;margin:0 auto;}
 .head,.logo{ background-image:url(../images/bg.gif)}
 .head{ background-repeat: repeat-x; background-position: 0 -35px;line-height:22px;}

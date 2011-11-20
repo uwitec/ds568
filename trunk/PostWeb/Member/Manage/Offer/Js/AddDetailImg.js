@@ -16,12 +16,30 @@
         }
     );
     
+    function addimg(src){//添加待插入图片
+        var imgl=$(".selImgList li img").length;
+        if(imgl<8){
+            //var obj=$().appendTo($(".selImgList li").eq(imgl));
+            $(".selImgList li").eq(imgl).append("<img onload='changeImg(this,61,61)' src='"+src+"'/>").find("a").css("display","block");
+            $(".insnum").text(++imgl)
+            $("#insimgsrc").val($("#insimgsrc").val()+src+",");
+        }
+    }
+    
+    function reserv(){
+        $(".selImgList li img").remove();
+        $(".cls").css("display","none");
+        var srcs=$("#insimgsrc").val().split(',')
+        for(var i=0;i<srcs.length;i++){
+            if(srcs[i]!=""){
+                $(".selImgList li").eq(i).append("<img onload='changeImg(this,61,61)' src='"+srcs[i]+"'/>").find("a").css("display","block");
+            }
+        }
+    }
+    
     //点击相册图片
     $(".imgList li img").click(function(){
-        var ind=$("#hdind").val();
-        parent.$("#img0"+ind).show().attr("src",this.src);
-        parent.$(".upbtn input").eq(ind).val("重新上传")
-        parent.$(".upbtn a").eq(ind).show();
+        addimg(this.src);
     });
     
     var fc=0;
@@ -44,12 +62,7 @@
             fc=0;
             $("#tb0").val("");
             $(".divsub input").removeClass("chgbg").attr("disabled","disabled");
-            var ind=$("#hdind").val();
-            parent.$("#img0"+ind).show().attr("src",response);
-            var ind=$("#hdind").val();
-            parent.$(".upbtn input").eq(ind).val("重新上传")
-            parent.$(".upbtn a").eq(ind).show();
-            parent.wBox.close();
+            addimg(response);
         },
         'onSelect':function(event, queueId, fileObj)
         {
@@ -133,5 +146,27 @@
       
        return false;
    });
+ 
+   //插入图片到编辑器
+   $(".ctninsert a").click(function(){
+       parent.wBox.close();
+       var imgl=$(".selImgList li img");
+       if(imgl.length>0){
+           imgl.each(function(){
+               parent.diyimg.insertHtml("<img src='"+this.src+"'/>");
+           });
+       }
+       return false;
+   });
    
+   //删除待插入图片
+   $(".cls").click(function(){
+       var img=$(this).parent().find("img");
+       $("#insimgsrc").val($("#insimgsrc").val().replace(img.attr("src")+",",""));
+       reserv();
+       return false;
+   });
+   
+   //回调后还原待插入图片
+   reserv()
 });

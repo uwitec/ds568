@@ -29,13 +29,13 @@
             <ul class="imgList">
                 <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>
-                        <li ><img onload="changeImg(this,61,61)" onerror="$(this).parent().hide()" class="wBox_close" src="/Resource/<%#Eval("imgUrl") %>/<%#Eval("imgName") %>" /></li>
+                        <li ><img onload="changeImg(this,61,61)"  class="wBox_close" src="/Resource/<%#Eval("imgUrl") %>/<%#Eval("imgName") %>" /></li>
                     </ItemTemplate>
                 </asp:Repeater>
             </ul>
             <!--=========分页开始========-->
             <div class="overflowAuto ppctn">
-            <webdiyer:AspNetPager CssClass="pages"  AlwaysShowFirstLastPageNumber="true"  ShowDisabledButtons="false"  ShowFirstLast="false" CurrentPageButtonClass="cpb"  ID="AspNetPager4" NumericButtonCount="7" runat="server" 
+            <webdiyer:AspNetPager CssClass="pages"  AlwaysShowFirstLastPageNumber="true" HorizontalAlign="Center"  ShowDisabledButtons="false" PageSize="16"  ShowFirstLast="false" CurrentPageButtonClass="cpb"  ID="AspNetPager4" NumericButtonCount="7" runat="server" 
                 FirstPageText="首页" LastPageText="尾页" TextBeforePageIndexBox="共100页 第"  TextAfterPageIndexBox="页 "  SubmitButtonText="确定" SubmitButtonClass="sBtn" ShowCustomInfoSection="Never" NextPageText="下一页"   PrevPageText="上一页">
             </webdiyer:AspNetPager></div>
         <!--=========分页结束========-->
