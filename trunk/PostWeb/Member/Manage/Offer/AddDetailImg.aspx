@@ -75,6 +75,9 @@
             </div>
             <div class="divsub"><input disabled type="button" /></div>
         </div>
+        <div class="ctnshow3">
+         
+        </div>
   </div>
   <div class="selimgctn">
     <div class="selHead">要插入的图片(<span class="insnum">0</span>/8)</div>

@@ -134,9 +134,71 @@ namespace Com.DianShi.BusinessRules.Product
             }
         }
 
+        /// <summary>
+        /// 获取属性控件字符串
+        /// </summary>
+        /// <param name="CatID">产品分类ID</param>
+        /// <returns></returns>
+        public string GetControlList(int CatID) {
+            var prtvbl = new DS_PropertyValue_Br();
+            var prtlist = Query("SysCatID=@0", "px",CatID);
+            var sb =new System.Text.StringBuilder();
+            int i=0;
+            foreach (var item in prtlist.Where(a => a.Request == true).OrderBy(a => a.Px))
+            {
+                GetControl(sb,item,prtvbl);
+            }
+            foreach (var item in prtlist.Where(a => a.Request == false).OrderBy(a => a.Px))
+            {
+                GetControl(sb, item, prtvbl);
+            }
+            return sb.ToString();
+        }
+
+        private void GetControl(System.Text.StringBuilder sb, DS_Property item,DS_PropertyValue_Br prtvbl)
+        {
+            string temstr = "";
+            string itemstr = "<div class=\"prtctn overflowAuto\"><div class=\"prtn floatL\">{0}：</div><div class=\"floatL\">{1}</div></div>";
+            switch (item.ControlType) { 
+                case (byte)ControlType.文本框:
+                    sb.Append(string.Format(itemstr, (item.Request ? "<span class='red'>*</span>" : "") + item.ProName, "<input class=\"txtbox\" type=\"text\" />" + item.Unit));
+                    break;
+                case (byte)ControlType.下拉框:
+                    var prtvlist = prtvbl.Query("PropertyID=@0", "px", item.ID);
+                    temstr = "<select>";
+                    foreach (var vitem in prtvlist)
+                    {
+                        temstr+="<option value=\"" + vitem.PropertyValue + "\">" + vitem.PropertyValue + "</option>";
+                    }
+                    temstr += "</select>" + item.Unit;
+                    sb.Append(string.Format(itemstr, (item.Request ? "<span class='red'>*</span>" : "") + item.ProName, temstr));
+                    break;
+                case (byte)ControlType.多选框:
+                    
+                    var prtvlist2 = prtvbl.Query("PropertyID=@0", "px", item.ID);
+                    foreach (var vitem in prtvlist2)
+                    {
+                        temstr+="<input type=\"checkbox\" value=\"" + vitem.PropertyValue + "\" name=\"cb_"+item.ID+"\" id=\"cb_" + vitem.ID + "\" /><label for=\"cb_" + vitem.ID + "\">" + vitem.PropertyValue + "</label> ";
+                    }
+                    sb.Append(string.Format(itemstr, (item.Request ? "<span class='red'>*</span>" : "") + item.ProName, temstr+item.Unit));
+                    break;
+                case (byte)ControlType.单选框:
+                    var prtvlist3 = prtvbl.Query("PropertyID=@0", "px", item.ID);
+                    foreach (var vitem in prtvlist3)
+                    {
+                        temstr+="<input type=\"radio\" value=\"" + vitem.PropertyValue + "\" name=\"cb_" + item.ID + "\" id=\"cb_" + vitem.ID + "\" /><label for=\"cb_" + vitem.ID + "\">" + vitem.PropertyValue + "</label> ";
+                    }
+                    sb.Append(string.Format(itemstr, (item.Request ? "<span class='red'>*</span>" : "") + item.ProName, temstr + item.Unit)); 
+                    break;
+            }
+        }
+
+
         public enum ControlType : byte { 
             文本框,
-            下拉框
+            下拉框,
+            多选框,
+            单选框
         }
     }
 }
