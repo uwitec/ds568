@@ -49,3 +49,5 @@ td.tdlast{border:none;height:30px;}
 #wBox .wBox_title{ background:url(../images/bg.gif) repeat-x;height:35px;color:#2b6fb6;}
 .upbtn a{display:none;}
 .ke-icon-diyimg{background-image: url(/KindEditor/themes/default/default.gif);background-position: 0px -496px;width: 16px;height: 16px;}
+.catctn{display:none;}
+#wrall{padding:8px;}

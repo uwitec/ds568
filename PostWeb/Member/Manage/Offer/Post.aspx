@@ -27,7 +27,7 @@
     <div class="iLeft floatL"><span class="red">*</span>系统分类：</div>
     <div class="iRight floatL">
         <select id="sysCat" name="sysCat">
-            <option>==您经常使用的类目==</option>
+            <option>您经常使用的类目：</option>
         </select> 或 <a href="javascript:;" id="acatdiy">自选类目</a>
     </div>
 </div>
@@ -56,8 +56,14 @@
     <div class="iLeft floatL"><span class="red">*</span>自定义分类：</div>
     <div class="iRight floatL">
          <select name="shopCat">
-            <option>==选择自定义分类==</option>
-        </select>&nbsp;&nbsp;<a href="javascript:;">添加分类</a>
+            <option value="">==选择自定义分类==</option>
+            <asp:Repeater ID="Repeater2" runat="server">
+                <ItemTemplate>
+                   <option value="<%#Eval("id") %>"><%#Eval("CategoryName") %></option>
+                </ItemTemplate>
+            </asp:Repeater>
+        </select>&nbsp;&nbsp;<a href="javascript:;" id="addCat">添加分类</a>
+        <div class="catctn"><div id="wrall">分类名称：<input class="catname" /><input type="button" class="saveCat" value="保存" /></div></div>
     </div>
 </div>
 <div class="stepTitle">填写详细信息</div>

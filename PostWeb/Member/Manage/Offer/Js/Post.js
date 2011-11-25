@@ -108,4 +108,65 @@
 		});
 	});
    
+   //添加自定义分类
+   $("#addCat").click(function(){
+       var wbox=$(this).wBox({
+          title: "添加分类",
+          target:"#wrall",
+          show:true,
+          drag:false,
+          callBack:function(){
+            $(".saveCat").eq(1).click(function(){
+                var catname=$(".catname").eq(1).val().trim();
+                if(catname!=""){
+                    $.ajax({
+                       url:"?action=addcat&catname="+encodeURI(catname),
+                       cache:false,
+                       complete:function(req, Status){
+                            if(req.responseText.indexOf("id")>-1){
+                                var id=req.responseText.split('=')[1];
+                                $("select[name=shopCat]").append("<option value='"+id+"'>"+catname+"</option>")
+                                $("select[name=shopCat] option[value="+id+"]").attr("selected","true")
+                                wbox.close();
+                            }else
+                                alert(req.responseText);
+                       },
+                       error:function(){
+                           alert("添加分类出错。");
+                       }
+                   });
+               }
+            });
+          }
+      });
+   });
+   
+   //-----------验证开始------------
+    var fvalid=$(".mstForm").validate({
+        focusInvalid: true,
+        errorPlacement:function(error, element) { //设置错误提示位置,此函数为默认，可不设置
+            error.appendTo(element.parent());  //表示添加到元素后面，
+        },
+        success:function(label){
+            //label.addClass("valid").text("填写正确");//成功时执行的函数
+        },
+       
+        rules:{
+            shopCat:{required:true},
+            proTitle:{required:true}
+            
+        },
+        messages:{
+            email:{equalTo:function(){
+                         if($(".cemail").val()=="") 
+                            return "尚未获取验证码，请点击发送验证码";
+                         else
+                            return "您的电子邮箱发生了更改，请重新获取验证码"
+                     }
+                 },
+           valiCode:{minlength:"请输入6位验证码",maxlength:"请输入6位验证码"}
+        }
+    });
+    //-----------验证结束------------
+   
 });

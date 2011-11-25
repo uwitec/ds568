@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_DiyProCategory.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_DiyProCategory.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DS_Property.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,8 +111,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DS_DiyProCategory.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DS_DiyProCategory.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DS_PropertyValue.dbml.layout">
       <DependentUpon>DS_PropertyValue.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DS_DiyProCategory.dbml.layout">
+      <DependentUpon>DS_DiyProCategory.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
