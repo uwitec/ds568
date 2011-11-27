@@ -27,7 +27,8 @@
     <div class="iLeft floatL"><span class="red">*</span>系统分类：</div>
     <div class="iRight floatL">
         <select id="sysCat" name="sysCat">
-            <option>您经常使用的类目：</option>
+            <option value="">您经常使用的类目：</option>
+            <option value="155">手机通讯 > 电话卡</option>
         </select> 或 <a href="javascript:;" id="acatdiy">自选类目</a>
     </div>
 </div>
@@ -49,13 +50,13 @@
     <div class="iRight floatL">
        <div class="Remind">
       您当前选择的类目：<span></span>
-      </div>
+      </div><input type="hidden"  name="catid" id="catid" class="required" />
     </div>
 </div>
 <div class="item">
-    <div class="iLeft floatL"><span class="red">*</span>自定义分类：</div>
+    <div class="iLeft floatL"><span class="red">*</span>商铺分类：</div>
     <div class="iRight floatL">
-         <select name="shopCat">
+         <select name="shopCat" id="shopCat">
             <option value="">==选择自定义分类==</option>
             <asp:Repeater ID="Repeater2" runat="server">
                 <ItemTemplate>
@@ -75,21 +76,12 @@
 <div class="item divrang">
     <div class="iLeft floatL">&nbsp;</div>
     <div class="iRight floatL property">
-        <div class="prtctn overflowAuto">
-            <div class="prtn floatL">品牌：</div>
-            <div class="floatL">
-                <input id="Text1" class="txtbox" type="text" /></div>
-        </div>
-        <div class="prtctn overflowAuto">
-            <div class="prtn floatL">型号：</div>
-            <div class="floatL">
-                <input id="Text2" class="txtbox" type="text" /></div>
-        </div>
+     
     </div>
 </div>
 <div class="item">
     <div class="iLeft floatL"><span class="red">*</span>信息标题：</div>
-    <div class="iRight floatL gray"><input type="text" maxlength="60" name="proTitle" class="txtbox proTitle" /> 最长30个汉字（60个字符），建议在标题中包含产品名称和相应关键词
+    <div class="iRight floatL gray"><input type="text" maxlength="60"   name="proTitle" id="proTitle" class="txtbox proTitle required" /> 最长30个汉字（60个字符），建议在标题中包含产品名称和相应关键词
     </div>
 </div>
 <div class="item">
@@ -122,22 +114,93 @@
 <div class="item divrang">
     <div class="iLeft floatL">&nbsp;</div>
     <div class="iRight floatL">
-    <textarea id="Textarea1" name="content" style="width:660px;height:400px;visibility:hidden;"></textarea>
+    <textarea id="content" name="content"></textarea>
     <div>1、插入图片时请勿盗用他人图片、以免引起纠纷。</div>
     2、您可添加点石网内部链接， 加入其它网站链接、系统将自动过滤
     </div>
 </div>
 <div class="stepTitle">交易信息</div>
 <div class="item">
-    <div class="iLeft floatL">计量单位：</div>
+    <div class="iLeft floatL"><span class="red">*</span>计量单位：</div>
     <div class="iRight floatL">
-        <select name="unit" class="prounit">
-            <option>套</option>
+        <select name="unit" id="unit" class="prounit required">
+			<option id="161" value="副" >副</option>
+			<option id="241" value="锭" >锭</option>
+			<option id="121" value="立方" >立方</option>
+			<option id="141" value="分钟" >分钟</option>
+			<option id="1" value="刀" >刀</option>
+			<option id="2" value="公升" >公升</option>
+			<option id="3" value="码" >码</option>
+			<option id="4" value="升" >升</option>
+			<option id="5" value="桶" >桶</option>
+			<option id="6" value="面" >面</option>
+			<option id="7" value="把" >把</option>
+			<option id="8" value="包" >包</option>
+			<option id="9" value="本" >本</option>
+			<option id="10" value="部" >部</option>
+			<option id="11" value="打" >打</option>
+			<option id="12" value="袋" >袋</option>
+			<option id="13" value="吊" >吊</option>
+			<option id="14" value="顶" >顶</option>
+			<option id="15" value="对" >对</option>
+			<option id="16" value="吨" >吨</option>
+			<option id="17" value="幅" >幅</option>
+			<option id="18" value="个" >个</option>
+			<option id="19" value="根" >根</option>
+			<option id="20" value="公斤" >公斤</option>
+			<option id="21" value="罐" >罐</option>
+			<option id="22" value="毫米" >毫米</option>
+			<option id="23" value="毫升" >毫升</option>
+			<option id="24" value="盒" >盒</option>
+			<option id="25" value="架" >架</option>
+			<option id="26" value="件" >件</option>
+			<option id="27" value="节" >节</option>
+			<option id="28" value="具" >具</option>
+			<option id="29" value="卷" >卷</option>
+			<option id="30" value="卡" >卡</option>
+			<option id="31" value="颗" >颗</option>
+			<option id="32" value="棵" >棵</option>
+			<option id="33" value="克" >克</option>
+			<option id="34" value="块" >块</option>
+			<option id="35" value="款" >款</option>
+			<option id="36" value="厘米" >厘米</option>
+			<option id="37" value="粒" >粒</option>
+			<option id="38" value="辆" >辆</option>
+			<option id="39" value="枚" >枚</option>
+			<option id="40" value="米" >米</option>
+			<option id="41" value="盆" >盆</option>
+			<option id="42" value="片" >片</option>
+			<option id="43" value="平方厘米" >平方厘米</option>
+			<option id="44" value="平方米" >平方米</option>
+			<option id="45" value="平方英尺" >平方英尺</option>
+			<option id="46" value="瓶" >瓶</option>
+			<option id="47" value="千克" >千克</option>
+			<option id="48" value="束" >束</option>
+			<option id="49" value="双" >双</option>
+			<option id="50" value="台" >台</option>
+			<option id="51" value="套" >套</option>
+			<option id="52" value="条" >条</option>
+			<option id="53" value="头" >头</option>
+			<option id="54" value="箱" >箱</option>
+			<option id="55" value="英寸" >英寸</option>
+			<option id="56" value="盏" >盏</option>
+			<option id="57" value="张" >张</option>
+			<option id="58" value="支" >支</option>
+			<option id="59" value="只" >只</option>
+			<option id="60" value="株" >株</option>
+			<option id="61" value="组" >组</option>
+			<option id="62" value="尊" >尊</option>
+			<option id="63" value="座" >座</option>
+			<option id="64" value="票" >票</option>
+			<option id="65" value="单" >单</option>
+			<option id="181" value="磅" >磅</option>
+			<option id="81" value="路" >路</option>
+			<option id="221" value="平方尺" >平方尺</option>
         </select>
     </div>
 </div>
 <div class="item">
-    <div class="iLeft floatL">价格区间：</div>
+    <div class="iLeft floatL"><span class="red">*</span>价格区间：</div>
     <div class="iRight floatL gray">
        请如实填写产品价格，方便买家订购
     </div>
@@ -155,31 +218,31 @@
                 </tr>
             </thead>
             <tr>
-                <td class="tdfirst">购买 <input  name="wb1" class="txtbox" size="20"  type="text" value="1" /></td>
+                <td class="tdfirst">购买 <input  name="wb1" id="wb1" class="txtbox et required"  size="20"  type="text"  /></td>
                 <td> </td>
-                <td class="td3"> 本及以上：</td>
-                <td><input  name="wprice1"  size="20" class="txtbox" type="text" value="10.00" />&nbsp;</td>
+                <td class="td3"> <span class="untxt"></span>及以上：</td>
+                <td><input  name="wprice1" id="wprice1" size="20" class="txtbox et required" type="text"  />&nbsp;</td>
                 <td><span class="price_money">元</span>/</td>
-                <td>本</td>
+                <td><span class="untxt"></span></td>
                 <td class="tdaction">&nbsp;</td>
             </tr>
-             <tr class="hidden">
-                <td class="tdfirst">购买 <input  name="wb1" size="20" class="txtbox" type="text" value="1" /></td>
+            <tr class="hidden">
+                <td class="tdfirst">购买 <input  name="wb2" id="wb2" size="20" class="txtbox et" type="text"   /></td>
                 <td> </td>
-                <td class="td3"> 本及以上：</td>
-                <td><input  name="wprice1"  size="20" type="text" class="txtbox" value="10.00" />&nbsp;</td>
+                <td class="td3"> <span class="untxt"></span>及以上：</td>
+                <td><input  name="wprice2" id="wprice2"  size="20" type="text" class="txtbox et"   />&nbsp;</td>
                 <td><span class="price_money">元</span>/</td>
-                <td>本</td>
-                <td class="tdaction">&nbsp;<a href="#">删除</a></td>
+                <td><span class="untxt"></span></td>
+                <td class="tdaction">&nbsp;<a href="#" et="err2">删除</a></td>
             </tr>
             <tr class="hidden">
-                <td class="tdfirst">购买 <input  name="wb1" size="20" class="txtbox" type="text" value="1" /></td>
+                <td class="tdfirst">购买 <input  name="wb3" id="wb3" size="20" class="txtbox et" type="text"  /></td>
                 <td> </td>
-                <td class="td3"> 本及以上：</td>
-                <td><input  name="wprice1"  size="20" type="text" class="txtbox" value="10.00" />&nbsp;</td>
+                <td class="td3"> <span class="untxt"></span>及以上：</td>
+                <td><input  name="wprice3" id="wprice3"  size="20" type="text" class="txtbox et"  />&nbsp;</td>
                 <td><span class="price_money">元</span>/</td>
-                <td>本</td>
-                <td class="tdaction">&nbsp;<a href="#">删除</a></td>
+                <td><span class="untxt"></span></td>
+                <td class="tdaction">&nbsp;<a href="#" et="err3">删除</a></td>
             </tr>
             <tr>
                 <td class="tdlast" colspan="7"><a href="#">增加价格区间</a></td>
@@ -188,15 +251,15 @@
     </div>
 </div>
 <div class="item">
-    <div class="iLeft floatL">最小起订量：</div>
+    <div class="iLeft floatL">供货总量：</div>
     <div class="iRight floatL">
-       <input name="minNumber" type="text" class="txtbox" />
+       <input name="maxNumber" type="text" class="txtbox" /> <span class="untxt"></span>
     </div>
 </div>
 <div class="item">
     <div class="iLeft floatL"><span class="red">*</span>信息有效期：</div>
     <div class="iRight floatL">
-       <input type="radio" name="Period" id="Period1" /><label for="Period1">10天</label>
+       <input type="radio" name="Period" id="Period1" class="required" /><label for="Period1">10天</label>
        <input type="radio" name="Period" id="Period2" /><label for="Period2">20天</label>
        <input type="radio" name="Period" id="Period3" /><label for="Period3">1个月</label>
        <input type="radio" name="Period" id="Period4" /><label for="Period4">3个月</label>
@@ -204,10 +267,16 @@
     </div>
 </div>
 <div class="endline">&nbsp;</div>
+<div class="item">
+    <div class="iLeft floatL">&nbsp;</div>
+    <div class="iRight floatL">
+       提示：若无法提交请检查上面各必填项是否填写完整。
+    </div>
+</div>
 <div class="item divsub">
     <div class="iLeft floatL">&nbsp;</div>
     <div class="iRight floatL">
-       <asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="同意协议条款，我要发布" />
+      <input type="button" class="subBtn"  value="同意协议条款，我要发布" />
     </div>
 </div>
 </asp:Content>
