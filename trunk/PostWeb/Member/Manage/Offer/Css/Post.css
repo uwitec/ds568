@@ -51,3 +51,7 @@ td.tdlast{border:none;height:30px;}
 .ke-icon-diyimg{background-image: url(/KindEditor/themes/default/default.gif);background-position: 0px -496px;width: 16px;height: 16px;}
 .catctn{display:none;}
 #wrall{padding:8px;}
+label.error{display:block;}
+label.valid{display:inline}
+#err1,#err2,#err3{ padding-left:12px;}
+#content{width:660px;height:400px;visibility:hidden;}

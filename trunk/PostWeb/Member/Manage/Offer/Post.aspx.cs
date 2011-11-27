@@ -64,6 +64,11 @@ public partial class Member_Manage_Offer_Post :  BasePage
                         Response.Write("id=" + md.ID);
                         Response.End();
                         break;
+                    case "add":
+                        
+                        Response.Write("发布成功。");
+                        Response.End();
+                        break;
                 }
             }
         }catch(System.Threading.ThreadAbortException ex){
