@@ -161,11 +161,11 @@ namespace Com.DianShi.BusinessRules.Product
             string itemstr = "<div class=\"prtctn overflowAuto\"><div class=\"prtn floatL\">{0}：</div><div class=\"floatL\">{1}</div></div>";
             switch (item.ControlType) { 
                 case (byte)ControlType.文本框:
-                    sb.Append(string.Format(itemstr, (item.Request ? "<span class='red'>*</span>" : "") + item.ProName, "<input name=\"txt_"+item.ID+"\" class=\"txtbox" + (item.Request ? " required" : "") + "\" type=\"text\" />" + item.Unit));
+                    sb.Append(string.Format(itemstr, (item.Request ? "<span class='red'>*</span>" : "") + item.ProName, "<input name=\"txt_"+item.ID+"\" class=\"txtbox" + (item.Request ? " required" : "") + " Property"+item.MapID+"\" type=\"text\" />" + item.Unit));
                     break;
                 case (byte)ControlType.下拉框:
                     var prtvlist = prtvbl.Query("PropertyID=@0", "px", item.ID);
-                    temstr = "<select name=\"sl_"+item.ID+"\" " + (item.Request ? "class='required'" : "") + ">";
+                    temstr = "<select name=\"sl_" + item.ID + "\" " + "class='Property" + item.MapID + (item.Request ? " required" : "") + "'" + ">";
                     foreach (var vitem in prtvlist)
                     {
                         temstr+="<option value=\"" + vitem.PropertyValue + "\">" + vitem.PropertyValue + "</option>";
@@ -178,7 +178,7 @@ namespace Com.DianShi.BusinessRules.Product
                     var prtvlist2 = prtvbl.Query("PropertyID=@0", "px", item.ID);
                     foreach (var vitem in prtvlist2)
                     {
-                        temstr += "<input type=\"checkbox\" " + (item.Request ? "class='required'" : "") + " value=\"" + vitem.PropertyValue + "\" name=\"cb_" + item.ID + "\" id=\"cb_" + vitem.ID + "\" /><label for=\"cb_" + vitem.ID + "\">" + vitem.PropertyValue + "</label> ";
+                        temstr += "<input type=\"checkbox\" " + "class=\"Property" + item.MapID +(item.Request ? " required" : "") + "\" value=\"" + vitem.PropertyValue + "\" name=\"cb_" + item.ID + "\" id=\"cb_" + vitem.ID + "\" /><label for=\"cb_" + vitem.ID + "\">" + vitem.PropertyValue + "</label> ";
                     }
                     sb.Append(string.Format(itemstr, (item.Request ? "<span class='red'>*</span>" : "") + item.ProName, temstr+item.Unit));
                     break;
@@ -186,7 +186,7 @@ namespace Com.DianShi.BusinessRules.Product
                     var prtvlist3 = prtvbl.Query("PropertyID=@0", "px", item.ID);
                     foreach (var vitem in prtvlist3)
                     {
-                        temstr += "<input type=\"radio\" " + (item.Request ? "class='required'" : "") + " value=\"" + vitem.PropertyValue + "\" name=\"rd_" + item.ID + "\" id=\"rd_" + vitem.ID + "\" /><label for=\"rd_" + vitem.ID + "\">" + vitem.PropertyValue + "</label> ";
+                        temstr += "<input type=\"radio\" " + "class=\"Property" + item.MapID + (item.Request ? " required" : "") + "\" value=\"" + vitem.PropertyValue + "\" name=\"rd_" + item.ID + "\" id=\"rd_" + vitem.ID + "\" /><label for=\"rd_" + vitem.ID + "\">" + vitem.PropertyValue + "</label> ";
                     }
                     sb.Append(string.Format(itemstr, (item.Request ? "<span class='red'>*</span>" : "") + item.ProName, temstr + item.Unit)); 
                     break;
