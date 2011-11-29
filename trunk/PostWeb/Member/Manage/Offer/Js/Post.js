@@ -259,6 +259,32 @@
         // disable 代表关闭输入法
    });
     
+   //获取某一属性值
+   var getPrtVal=function(ind){
+        var prt=$(".Property"+ind)
+        if(prt.length==1){
+            return prt.val();
+        }else if(prt.length>1){
+            if(prt.eq(0).attr("type")=="checkbox"){
+                var str="";
+                for(var i=0;i<prt.length;i++){
+                    if(prt.eq(i).attr("checked")){
+                        str+=prt.eq(i).attr("value")+",";
+                    }
+                }
+                if(str.replace(",","")=="")
+                    return null;
+                else
+                    return str.substring(0,str.length-1);
+            }else{
+                if(prt.filter("[checked]").length>0)
+                    return prt.filter("[checked]").val();
+                else
+                    return null;
+            }
+        }else
+            return null;
+   }
    //获取表单数据
    var getFormVal=function(){
        var subDate={};
@@ -270,12 +296,36 @@
        subDate.img01=$("#img00").attr("src");
        subDate.img02=$("#img02").attr("src");
        subDate.unit=$("#unit").val();
-       
+       subDate.Property1=getPrtVal(1);
+       subDate.Property2=getPrtVal(2);
+       subDate.Property3=getPrtVal(3);
+       subDate.Property4=getPrtVal(4);
+       subDate.Property5=getPrtVal(5);
+       subDate.Property6=getPrtVal(6);
+       subDate.Property7=getPrtVal(7);
+       subDate.Property8=getPrtVal(8);
+       subDate.Property9=getPrtVal(9);
+       subDate.Property10=getPrtVal(10);
+       subDate.Property11=getPrtVal(11);
+       subDate.Property12=getPrtVal(12);
+       subDate.Property13=getPrtVal(13);
+       subDate.Property14=getPrtVal(14);
+       subDate.Property15=getPrtVal(15);
+       subDate.Property16=getPrtVal(16);
+       subDate.Property17=getPrtVal(17);
+       subDate.Property18=getPrtVal(18);
+       subDate.Property19=getPrtVal(19);
+       subDate.Property20=getPrtVal(20);
+       subDate.Property21=getPrtVal(21);
+       subDate.Property22=getPrtVal(22);
+       subDate.Property23=getPrtVal(23);
+       subDate.Property24=getPrtVal(24);
        return subDate;
    }
    //提交
    $(".subBtn").click(function(){
        var b=fvalid.form();
+      
        //if(b){
           $.ajax({
               type:"POST",

@@ -64,9 +64,9 @@ public partial class Member_Manage_Offer_Post :  BasePage
                         Response.Write("id=" + md.ID);
                         Response.End();
                         break;
-                    case "add":
+                    case "add"://发布产品
                         
-                        Response.Write("发布成功。");
+                        Response.Write(Request.Form["Property2"]);
                         Response.End();
                         break;
                 }
