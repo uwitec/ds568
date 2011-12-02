@@ -65,8 +65,27 @@ public partial class Member_Manage_Offer_Post :  BasePage
                         Response.End();
                         break;
                     case "add"://发布产品
-                        
-                        Response.Write(Request.Form["Property2"]);
+                        var probl = new DS_Products_Br();
+                        var product = probl.CreateModel();
+                        product.MemberID = ud.Member.ID;
+                        product.SysCatID = int.Parse(Request.Form["sysCatID"]);
+                        product.ShopCatID = int.Parse(Request.Form["shopCat"]);
+                        product.Title = Request.Form["proTitle"];
+                        product.Img1 = Request.Form["img00"];
+                        product.Img2 = Request.Form["img01"];
+                        product.Img3 = Request.Form["img02"];
+                        product.Unit=Request.Form["unit"];
+                        Type t = product.GetType();
+                        for (int i = 1; i <=24; i++)
+                        {
+                            t.GetProperty("Property" + i).SetValue(product, Request.Form["property" + i], null);
+                        }
+                        product.Detail=Server.UrlDecode(Request.Form["detail"]);
+                        product.PriceRang=Request.Form["priceRang"];
+                        product.CreateDate = DateTime.Now;
+                        product.ExpiredDate = DateTime.Now.AddDays(int.Parse(Request.Form["expiredDate"]));
+                        probl.Add(product);
+                        Response.Write("发布成功。");
                         Response.End();
                         break;
                 }
@@ -81,7 +100,7 @@ public partial class Member_Manage_Offer_Post :  BasePage
                 Response.Write("已存在相同名称的分类。");
             }
             else
-                Response.Write("创建分类出错。");
+                Response.Write("创建分类出错。"+ex.Message);
             Response.End();
         }
 
