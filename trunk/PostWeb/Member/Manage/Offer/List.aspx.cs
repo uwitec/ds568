@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Product;
-public partial class Member_Manage_Offer_List : System.Web.UI.Page
+public partial class Member_Manage_Offer_List : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -27,5 +27,11 @@ public partial class Member_Manage_Offer_List : System.Web.UI.Page
         {
             Response.Redirect("list.aspx?show_type="+(byte)vs.GetValue(0));
         }
+    }
+
+    public int GetProCount(byte state) {
+        var bl = new DS_Products_Br();
+        var ud = Session["UserData"] as UserData;
+        return bl.Query("MemberID=@0 and state=@1","",ud.Member.ID,state).Count();
     }
 }

@@ -84,6 +84,7 @@ public partial class Member_Manage_Offer_Post :  BasePage
                         product.PriceRang=Request.Form["priceRang"];
                         product.CreateDate = DateTime.Now;
                         product.ExpiredDate = DateTime.Now.AddDays(int.Parse(Request.Form["expiredDate"]));
+                        product.State = (byte)DS_Products_Br.State.待审中;
                         probl.Add(product);
                         Response.Write("发布成功。");
                         Response.End();
