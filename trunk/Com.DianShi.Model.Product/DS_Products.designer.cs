@@ -156,6 +156,8 @@ namespace Com.DianShi.Model.Product
 		
 		private int _MemberID;
 		
+		private byte _State;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -236,6 +238,8 @@ namespace Com.DianShi.Model.Product
     partial void OnPriceRangChanged();
     partial void OnMemberIDChanging(int value);
     partial void OnMemberIDChanged();
+    partial void OnStateChanging(byte value);
+    partial void OnStateChanged();
     #endregion
 		
 		public DS_Products()
@@ -323,7 +327,7 @@ namespace Com.DianShi.Model.Product
 			}
 		}
 		
-		[Column(Storage="_Img1", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Img1", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string Img1
 		{
 			get
@@ -343,7 +347,7 @@ namespace Com.DianShi.Model.Product
 			}
 		}
 		
-		[Column(Storage="_Img2", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Img2", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string Img2
 		{
 			get
@@ -363,7 +367,7 @@ namespace Com.DianShi.Model.Product
 			}
 		}
 		
-		[Column(Storage="_Img3", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Img3", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string Img3
 		{
 			get
@@ -999,6 +1003,26 @@ namespace Com.DianShi.Model.Product
 					this._MemberID = value;
 					this.SendPropertyChanged("MemberID");
 					this.OnMemberIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_State", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte State
+		{
+			get
+			{
+				return this._State;
+			}
+			set
+			{
+				if ((this._State != value))
+				{
+					this.OnStateChanging(value);
+					this.SendPropertyChanging();
+					this._State = value;
+					this.SendPropertyChanged("State");
+					this.OnStateChanged();
 				}
 			}
 		}
