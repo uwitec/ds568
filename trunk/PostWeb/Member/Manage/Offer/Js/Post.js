@@ -111,8 +111,6 @@
    
    //价格区间
    $(".tdlast a").click(function(){
-      //var hf=$(".hidden:hidden:first");
-      //if(hr.pre().pre().find("input"))
       $(".hidden:hidden:first").show();
       if($(".hidden:visible").length==2){
          $(this).parent().parent().hide();
@@ -150,6 +148,7 @@
        return false;
    });
    
+   //自定义插件
    KindEditor.lang({
 		diyimg: '插入图片' 
    });
@@ -168,7 +167,7 @@
 	});
 	
 	KindEditor.ready(function(K) {
-		 K.create('textarea[name="content"]', {
+		 KE=K.create('textarea[name="content"]', {
 			resizeType : 1,
 			allowPreviewEmoticons : false,
 			allowImageUpload : false,
@@ -296,37 +295,27 @@
        subDate.img01=$("#img00").attr("src");
        subDate.img02=$("#img02").attr("src");
        subDate.unit=$("#unit").val();
-       subDate.Property1=getPrtVal(1);
-       subDate.Property2=getPrtVal(2);
-       subDate.Property3=getPrtVal(3);
-       subDate.Property4=getPrtVal(4);
-       subDate.Property5=getPrtVal(5);
-       subDate.Property6=getPrtVal(6);
-       subDate.Property7=getPrtVal(7);
-       subDate.Property8=getPrtVal(8);
-       subDate.Property9=getPrtVal(9);
-       subDate.Property10=getPrtVal(10);
-       subDate.Property11=getPrtVal(11);
-       subDate.Property12=getPrtVal(12);
-       subDate.Property13=getPrtVal(13);
-       subDate.Property14=getPrtVal(14);
-       subDate.Property15=getPrtVal(15);
-       subDate.Property16=getPrtVal(16);
-       subDate.Property17=getPrtVal(17);
-       subDate.Property18=getPrtVal(18);
-       subDate.Property19=getPrtVal(19);
-       subDate.Property20=getPrtVal(20);
-       subDate.Property21=getPrtVal(21);
-       subDate.Property22=getPrtVal(22);
-       subDate.Property23=getPrtVal(23);
-       subDate.Property24=getPrtVal(24);
+       for(var i=1;i<=24;i++){
+           var rv=getPrtVal(i);
+           if(rv!=null)
+               $(subDate).attr("property"+i,rv);
+       }
+       subDate.detail=encodeURI(KE.html());
+       subDate.priceRang=$("#wb1").val()+","+$("#wprice1").val();
+       if($(".hidden:first").is(":visible")){
+           subDate.priceRang+="|"+$("#wb2").val()+","+$("#wprice2").val();
+       }
+       if($(".hidden:last").is(":visible")){
+           subDate.priceRang+="|"+$("#wb3").val()+","+$("#wprice3").val();
+       }
+       subDate.expiredDate=$("input[name=Period]:checked").val();
        return subDate;
    }
    //提交
    $(".subBtn").click(function(){
        var b=fvalid.form();
       
-       //if(b){
+       if(b){
           $.ajax({
               type:"POST",
               url:"post.aspx",
@@ -334,12 +323,12 @@
               success:function(data){
                   alert(data)
               },
-              error:function(){
-                  alert("提交出错。")
+              error:function(req, textStatus, errorThrown){
+                  alert("提交出错。"+req.responseText)
               },
               data:getFormVal()
           });
-       //}
+       }
    });
    
    
