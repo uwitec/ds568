@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_Products.cs" />
     <Compile Include="DS_DiyProCategory.cs" />
     <Compile Include="DS_PropertyValue.cs" />
     <Compile Include="DS_Property.cs" />
