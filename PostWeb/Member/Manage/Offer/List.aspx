@@ -10,7 +10,7 @@
         <ItemTemplate>
              <li state="<%#(byte)Container.DataItem %>">
                  <div class="mLeft lunsl"></div>
-                 <div class="mMiddle munsl"><a href="?show_type=<%#(byte)Container.DataItem %>"><%#Container.DataItem %><span>(1)</span></a></div>
+                 <div class="mMiddle munsl"><a href="?show_type=<%#(byte)Container.DataItem %>"><%#Container.DataItem %><span>(<%#GetProCount((byte)Container.DataItem)%>)</span></a></div>
                  <div class="mRight runsl"></div>
             </li>
         </ItemTemplate>
