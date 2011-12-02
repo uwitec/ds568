@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="DianShi" Class="DS_ProductsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\MYSQLEXPRESS;Initial Catalog=DianShi;Persist Security Info=False;User ID=ShuInDianShi" SettingsObjectName="Com.DianShi.Model.Product.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DS_Products" Member="DS_Products">
+    <Type Name="DS_Products">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Column Name="SysCatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ShopCatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Img1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Img2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Img3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Detail" Type="System.String" DbType="Text" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaxNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Property1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property3" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property4" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property5" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property6" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property7" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property8" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property9" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property10" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property11" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property12" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property13" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property14" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property15" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property16" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property17" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property18" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property19" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property20" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property21" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property22" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property23" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Property24" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ExpiredDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PriceRang" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
