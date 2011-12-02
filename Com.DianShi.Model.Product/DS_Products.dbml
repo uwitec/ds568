@@ -7,9 +7,9 @@
       <Column Name="SysCatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ShopCatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Title" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
-      <Column Name="Img1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Img2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Img3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Img1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Img2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Img3" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="Detail" Type="System.String" DbType="Text" CanBeNull="true" />
       <Column Name="Unit" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="MaxNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -41,6 +41,7 @@
       <Column Name="ExpiredDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="PriceRang" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="State" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
