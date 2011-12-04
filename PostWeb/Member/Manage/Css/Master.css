@@ -4,7 +4,7 @@
 .subBtn{ background:url(../images/icon.gif) no-repeat;}
 .subBtn{width:69px;height:31px; background-position:0 -89px;border:none;color:White;font-weight:bold;}
 
-.hmenu{margin-top:20px; border-bottom:solid 1px #C3C3C3;height:30px;}
+.hmenu{margin-top:10px; border-bottom:solid 1px #C3C3C3;height:30px;}
 .hmenu li{float:left;margin-left:10px;_margin-left:7px;height:30px;position:relative; top:1px;}
 .mLeft,.mMiddle,.mRight{ background:url(../images/bg.gif);}
 .mLeft,.mMiddle,.mRight{float:left;height:30px;}
