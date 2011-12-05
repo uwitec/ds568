@@ -101,17 +101,7 @@ namespace Common
 
         }
 
-        /// <summary>
-        /// 确认框，针对easyUi
-        /// </summary>
-        /// <param name="page">当前页面指针，一般为this</param>
-        /// <param name="script">输出脚本</param>
-        /// <param name="Fun">回调函数</param>
-        public static void Confirm(System.Web.UI.Page page, string msg,string Fun)
-        {
-            page.ClientScript.RegisterStartupScript(page.GetType(), UnionID().ToString(), "<script language='javascript' defer>using('messager',function(){$.messager.confirm('系统提示','" + msg.Replace("'", "\"").Replace("\n", "").Replace("\r", "") + "。'," + Fun + ")});</script>");
-
-        }
+       
       
         public enum InfoType {
             error,

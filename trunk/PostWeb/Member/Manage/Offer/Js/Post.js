@@ -319,18 +319,24 @@
           $.ajax({
               type:"POST",
               url:"post.aspx",
-              cache:false,
               success:function(data){
-                  alert(data)
+                  if(data=="True"){
+                      using('messager',function(){$.messager.alert('系统提示', '发布成功。','info',function(){
+                          location="list.aspx"
+                      })});
+                  }else
+                      using('messager',function(){$.messager.alert('系统提示', data,'warning')});  
               },
               error:function(req, textStatus, errorThrown){
-                  alert("提交出错。"+req.responseText)
+                  using('messager',function(){$.messager.alert('系统提示', "提交出错。"+req.responseText,'error')});
+                  
               },
               data:getFormVal()
           });
        }
    });
    
-   
+   //若是修改产品，则加载修改脚本
+   $.getScript("Js/Edit.js");
    
 });
