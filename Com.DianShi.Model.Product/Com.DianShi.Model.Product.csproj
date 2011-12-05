@@ -79,6 +79,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="View_Products.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>View_Products.dbml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="DS_SysProductCategory.dbml">
@@ -138,6 +143,16 @@
   <ItemGroup>
     <None Include="DS_Products.dbml.layout">
       <DependentUpon>DS_Products.dbml</DependentUpon>
+    </None>
+    <None Include="View_Products.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>View_Products.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="View_Products.dbml.layout">
+      <DependentUpon>View_Products.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,6 +10,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using System.Web.Script.Serialization;
 using Com.DianShi.BusinessRules.Product;
 public partial class Member_Manage_Offer_Post :  BasePage
 {
@@ -18,9 +19,12 @@ public partial class Member_Manage_Offer_Post :  BasePage
         if (IsPostBack) return;
         try
         {
+            
+
             var bl = new DS_SysProductCategory_Br();
             var prtbl = new DS_Property_Br();
             var diybl = new DS_DiyProCategory_Br();
+            var probl = new DS_Products_Br();
             var ud = Session["UserData"] as UserData;
             if (string.IsNullOrEmpty(Request["action"]))
             {
@@ -34,6 +38,14 @@ public partial class Member_Manage_Offer_Post :  BasePage
                 //自定义分类
                 Repeater2.DataSource = diybl.Query("MemberID=@0","px",ud.Member.ID);
                 Repeater2.DataBind();
+
+                //判断是否是修改
+                if (!string.IsNullOrEmpty(Request.QueryString["ID"])) {
+                    var json = new JavaScriptSerializer();
+                    var md = probl.GetSingle(int.Parse(Request.QueryString["ID"]));
+                    string js=json.Serialize(md);
+                    Response.Write(js);
+                }
             }
             else
             {//如果存在动作
@@ -65,7 +77,7 @@ public partial class Member_Manage_Offer_Post :  BasePage
                         Response.End();
                         break;
                     case "add"://发布产品
-                        var probl = new DS_Products_Br();
+                        
                         var product = probl.CreateModel();
                         product.MemberID = ud.Member.ID;
                         product.SysCatID = int.Parse(Request.Form["sysCatID"]);
@@ -86,7 +98,7 @@ public partial class Member_Manage_Offer_Post :  BasePage
                         product.ExpiredDate = DateTime.Now.AddDays(int.Parse(Request.Form["expiredDate"]));
                         product.State = (byte)DS_Products_Br.State.待审中;
                         probl.Add(product);
-                        Response.Write("发布成功。");
+                        Response.Write(true);
                         Response.End();
                         break;
                 }

@@ -92,6 +92,19 @@ namespace Com.DianShi.BusinessRules.Product
             }
         }
 
+        public List<View_Products> QueryView(string condition, string orderby, params object[] param)
+        {
+            using (var ct = new View_ProductsDataContext())
+            {
+                IQueryable<View_Products> ProductsList = ct.View_Products;
+                if (!string.IsNullOrEmpty(condition))
+                    ProductsList = ProductsList.Where(condition, param);
+                if (!string.IsNullOrEmpty(orderby))
+                    ProductsList = ProductsList.OrderBy(orderby);
+                return ProductsList.ToList();
+            }
+        }
+
         public Com.DianShi.Model.Product.DS_Products CreateModel() {
             return new Com.DianShi.Model.Product.DS_Products();
         }
