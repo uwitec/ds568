@@ -39,13 +39,9 @@ public partial class Member_Manage_Offer_Post :  BasePage
                 Repeater2.DataSource = diybl.Query("MemberID=@0","px",ud.Member.ID);
                 Repeater2.DataBind();
 
-                //判断是否是修改
-                if (!string.IsNullOrEmpty(Request.QueryString["ID"])) {
-                    var json = new JavaScriptSerializer();
-                    var md = probl.GetSingle(int.Parse(Request.QueryString["ID"]));
-                    string js=json.Serialize(md);
-                    Response.Write(js);
-                }
+                //常用系统分类
+                Repeater3.DataSource = probl.Query<int>("select syscatid from ds_products where memberid={0} group by syscatid",ud.Member.ID);
+                Repeater3.DataBind();
             }
             else
             {//如果存在动作
@@ -77,7 +73,6 @@ public partial class Member_Manage_Offer_Post :  BasePage
                         Response.End();
                         break;
                     case "add"://发布产品
-                        
                         var product = probl.CreateModel();
                         product.MemberID = ud.Member.ID;
                         product.SysCatID = int.Parse(Request.Form["sysCatID"]);
@@ -101,6 +96,14 @@ public partial class Member_Manage_Offer_Post :  BasePage
                         Response.Write(true);
                         Response.End();
                         break;
+                    case "json"://返回对象的json数据
+                        var json = new JavaScriptSerializer();
+                        var promd = probl.GetSingle(int.Parse(Request["ID"]));
+                        string js = json.Serialize(promd);
+                        Response.ContentType = "application/json";
+                        Response.Write(js);
+                        Response.End();
+                        break;
                 }
             }
         }catch(System.Threading.ThreadAbortException ex){
@@ -113,7 +116,7 @@ public partial class Member_Manage_Offer_Post :  BasePage
                 Response.Write("已存在相同名称的分类。");
             }
             else
-                Response.Write("创建分类出错。"+ex.Message);
+                Response.Write("出错了。"+ex.Message);
             Response.End();
         }
 

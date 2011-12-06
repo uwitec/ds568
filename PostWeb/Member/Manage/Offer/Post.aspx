@@ -6,6 +6,7 @@
 <script type="text/javascript" src="Js/Post.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<input type="hidden" id="proid" value="<%=Request["id"] %>" />
 <ul class="hmenu">
     <li>
         <div class="mLeft"></div>
@@ -28,7 +29,11 @@
     <div class="iRight floatL">
         <select id="sysCat" name="sysCat">
             <option value="">您经常使用的类目：</option>
-            <option value="155">手机通讯 > 电话卡</option>
+            <asp:Repeater ID="Repeater3" runat="server">
+                <ItemTemplate>
+                    <option value="<%#Container.DataItem  %>"><%#new Com.DianShi.BusinessRules.Product.DS_SysProductCategory_Br().GetCategoryName((int)Container.DataItem,false).TrimEnd('>') %></option>
+                </ItemTemplate>
+            </asp:Repeater>
         </select> 或 <a href="javascript:;" id="acatdiy">自选类目</a>
     </div>
 </div>
