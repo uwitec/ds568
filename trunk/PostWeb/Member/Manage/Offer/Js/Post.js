@@ -337,6 +337,10 @@
    });
    
    //若是修改产品，则加载修改脚本
-   $.getScript("Js/Edit.js");
+   var proid=$("#proid").val();
+   if(proid!=""){
+       $.getScript("Js/Edit.js");
+   }
+   
    
 });
