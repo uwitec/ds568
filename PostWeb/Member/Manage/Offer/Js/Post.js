@@ -292,7 +292,7 @@
        subDate.shopCat=$("#shopCat").val();
        subDate.proTitle=$("#proTitle").val();
        subDate.img00=$("#img00").attr("src");
-       subDate.img01=$("#img00").attr("src");
+       subDate.img01=$("#img01").attr("src");
        subDate.img02=$("#img02").attr("src");
        subDate.unit=$("#unit").val();
        for(var i=1;i<=24;i++){

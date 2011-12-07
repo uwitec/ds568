@@ -258,7 +258,7 @@
 <div class="item">
     <div class="iLeft floatL">供货总量：</div>
     <div class="iRight floatL">
-       <input name="maxNumber" type="text" class="txtbox" /> <span class="untxt"></span>
+       <input name="maxNumber" id="maxNumber" type="text" class="txtbox" /> <span class="untxt"></span>
     </div>
 </div>
 <div class="item">
