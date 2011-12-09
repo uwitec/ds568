@@ -17,7 +17,28 @@ $.getJSON("post.aspx?action=json&id="+proid+"&rd="+Math.random(),function(md){
    //单位
    $("#unit option[value="+md.Unit+"]").attr("selected","selected");
    $("#unit").change();
-   
    //供应总量
-   $("#maxNumber").val(md.MaxNumber.replace("null",""));
+   if(md.MaxNumber)
+       $("#maxNumber").val(md.MaxNumber);
+   //价格区间
+   var prs=md.PriceRang.split('|');
+   $.each(prs,function(ind,val){
+      var vs=val.split(',')
+      $("#wb"+(ind+1)).val(vs[0]);
+      if(vs.length>0)
+          $("#wprice"+(ind+1)).val(vs[1]);
+      if(ind>0){
+        $(".tdlast a").click();
+      }
+   });
+   
+
+   //有效期
+   var d1 = eval("new "+md.ExpiredDate.replace("/","").replace("/",""));  
+   var d2 = eval("new "+md.CreateDate.replace("/","").replace("/",""));
+   var day=(d1.getTime()-d2.getTime())/(24*3600*1000);//计算日期差
+   $("input[name=Period][value="+day+"]").attr("checked",true);
+
+   //属性
+   
 });

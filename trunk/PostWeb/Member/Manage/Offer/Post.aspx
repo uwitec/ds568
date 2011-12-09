@@ -267,7 +267,7 @@
        <input type="radio" name="Period" value="10" id="Period1" class="required" /><label for="Period1">10天</label>
        <input type="radio" name="Period" value="20" id="Period2" /><label for="Period2">20天</label>
        <input type="radio" name="Period" value="30" id="Period3" /><label for="Period3">1个月</label>
-       <input type="radio" name="Period" value="90" id="Period4" /><label for="Period4">3个月</label>
+       <input type="radio" name="Period"  value="90" id="Period4" /><label for="Period4">3个月</label>
        <input type="radio" name="Period" value="180" id="Period5" /><label for="Period5">6个月</label>
     </div>
 </div>

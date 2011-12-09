@@ -308,6 +308,7 @@
        if($(".hidden:last").is(":visible")){
            subDate.priceRang+="|"+$("#wb3").val()+","+$("#wprice3").val();
        }
+       subDate.maxNumber=$("#maxNumber").val();
        subDate.expiredDate=$("input[name=Period]:checked").val();
        return subDate;
    }
