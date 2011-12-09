@@ -89,6 +89,9 @@ public partial class Member_Manage_Offer_Post :  BasePage
                         }
                         product.Detail=Server.UrlDecode(Request.Form["detail"]);
                         product.PriceRang=Request.Form["priceRang"];
+                        if(!string.IsNullOrEmpty(Request.Form["maxNumber"])){
+                            product.MaxNumber =int.Parse(Request.Form["maxNumber"]);
+                        }
                         product.CreateDate = DateTime.Now;
                         product.ExpiredDate = DateTime.Now.AddDays(int.Parse(Request.Form["expiredDate"]));
                         product.State = (byte)DS_Products_Br.State.待审中;
