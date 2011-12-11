@@ -1,5 +1,7 @@
 ﻿var proid=$("#proid").val();
-$.getJSON("post.aspx?action=json&id="+proid+"&rd="+Math.random(),function(md){
+var product_md=null;//产品Model
+$.getJSON("post.aspx?action=json&id="+proid+"&rd="+new Date().toLocaleString(),function(md){
+    product_md=md;//保存model,用于加载属性后再还原
    //还原系统分类
    $("#sysCat option[value="+md.SysCatID+"]").attr("selected","selected");
    $("#sysCat").change();
@@ -34,11 +36,30 @@ $.getJSON("post.aspx?action=json&id="+proid+"&rd="+Math.random(),function(md){
    
 
    //有效期
-   var d1 = eval("new "+md.ExpiredDate.replace("/","").replace("/",""));  
-   var d2 = eval("new "+md.CreateDate.replace("/","").replace("/",""));
+   var d1 = eval("new "+md.ExpiredDate.split('/')[1]);  
+   var d2 = eval("new "+md.CreateDate.split('/')[1]);
    var day=(d1.getTime()-d2.getTime())/(24*3600*1000);//计算日期差
    $("input[name=Period][value="+day+"]").attr("checked",true);
-
-   //属性
    
 });
+
+//设置属性值
+var setPrtVal=function(ind){
+   var prt=$(".Property"+ind)
+   var val=$(product_md).attr("Property"+ind);
+   if(val){
+       if(prt.length==1){
+           prt.val(val);
+       }else if(prt.length>1){
+           if(prt.eq(0).attr("type")=="checkbox"){
+              var vs=val.split(',');
+              for(var i=0;i<vs.length;i++){
+                  prt.filter("[value="+vs[i]+"]").attr("checked",true);
+              }
+           }else{
+               prt.filter("[value="+val+"]").attr("checked",true);
+           }
+       }
+   }
+}
+

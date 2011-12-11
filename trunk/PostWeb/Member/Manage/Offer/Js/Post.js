@@ -1,5 +1,4 @@
 ﻿$(document).ready(function(){
-
    //-----------验证开始------------
   
     var fvalid=$(".mstForm").validate({
@@ -58,7 +57,13 @@
    //加载属性
    function loadPrt(catid){
        $(".property").load("post.aspx",{action:"property",cid:catid,rd:Math.random()},function(){
-
+            if($("#proid").val()!=""){//如果存在产品ID,表示修改，此时执行还原属性代
+               //设置属性
+               for(var i=1;i<=24;i++){
+                  setPrtVal(i)
+               }
+            }
+            
        });
    }
    
@@ -287,7 +292,12 @@
    //获取表单数据
    var getFormVal=function(){
        var subDate={};
-       subDate.action="add";
+       if($("#proid").val()!=""){//如果存在产品model,表示修改
+           subDate.action="edit";
+           subDate.id=$("#proid").val();
+       }
+       else
+           subDate.action="add";
        subDate.sysCatID=$("#catid").val();
        subDate.shopCat=$("#shopCat").val();
        subDate.proTitle=$("#proTitle").val();

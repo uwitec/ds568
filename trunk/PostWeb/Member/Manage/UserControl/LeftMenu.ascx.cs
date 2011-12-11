@@ -51,8 +51,8 @@ public partial class Member_Manage_UserControl_LeftMenu : System.Web.UI.UserCont
                     break;
                 case "供应管理":
                     ViewState["icon"] = "offer";
-                    return "<li><a  href=\"/Member/Manage/Offer/Post.aspx\">发布供应信息</a></li>" +
-                            "<li><a href=\"/Member/Manage/Offer/List.aspx\">管理供应信息</a></li>" +
+                    return "<li><a  href=\"Post.aspx\">发布供应信息</a></li>" +
+                            "<li><a href=\"List.aspx\">管理供应信息</a></li>" +
                             "<li><a href=\"#\">混批设置</a></li>" +
                             "<li><a href=\"#\">运费设置</a></li>" +
                             "<li><a href=\"#\">信息自定义分类</a></li>";
