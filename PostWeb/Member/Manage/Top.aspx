@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li>
-                <a href="CompanyInfo/BaseInfo.aspx" target="conFrame">
+                <a href="ComInfo/BaseInfo.aspx" target="conFrame">
                     <div class="icon-privateseller"></div>
                     <div class="wname">公司资料</div>
                 </a>

@@ -99,6 +99,33 @@ public partial class Member_Manage_Offer_Post :  BasePage
                         Response.Write(true);
                         Response.End();
                         break;
+                    case "edit"://修改产品
+                        product = probl.GetSingle(int.Parse(Request.Form["id"]));
+                        product.SysCatID = int.Parse(Request.Form["sysCatID"]);
+                        product.ShopCatID = int.Parse(Request.Form["shopCat"]);
+                        product.Title = Request.Form["proTitle"];
+                        product.Img1 = Request.Form["img00"];
+                        product.Img2 = Request.Form["img01"];
+                        product.Img3 = Request.Form["img02"];
+                        product.Unit = Request.Form["unit"];
+                        t = product.GetType();
+                        for (int i = 1; i <= 24; i++)
+                        {
+                            t.GetProperty("Property" + i).SetValue(product, Request.Form["property" + i], null);
+                        }
+                        product.Detail = Server.UrlDecode(Request.Form["detail"]);
+                        product.PriceRang = Request.Form["priceRang"];
+                        if (!string.IsNullOrEmpty(Request.Form["maxNumber"]))
+                        {
+                            product.MaxNumber = int.Parse(Request.Form["maxNumber"]);
+                        }
+                        product.CreateDate = DateTime.Now;
+                        product.ExpiredDate = DateTime.Now.AddDays(int.Parse(Request.Form["expiredDate"]));
+                        product.State = (byte)DS_Products_Br.State.待审中;
+                        probl.Update(product);
+                        Response.Write(true);
+                        Response.End();
+                        break;
                     case "json"://返回对象的json数据
                         var json = new JavaScriptSerializer();
                         var promd = probl.GetSingle(int.Parse(Request["ID"]));
