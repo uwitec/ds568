@@ -41,7 +41,7 @@ public partial class Member_Manage_DiyCat_UserDefCat : BasePage
                         else {
                             throw new Exception("添加分类出错。");
                         }
-                    }
+                    } 
                     break;
                 case "del":
                     try

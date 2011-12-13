@@ -19,10 +19,10 @@
         <tr><th >分类名称</th><th>分类图片</th><th>排序</th><th>分类产品</th><th>操作</th></tr>
         <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
-                <tr><td ><input class="txtbox catname" value="<%#Eval("CategoryName") %>" /></td><td>--</td><td>--</td><td><a href="#">供应产品列表</a></td><td><a href="#" class="lkedit">修改</a> / <a href="#" class="lkdel" catid="<%#Eval("id") %>">删除</a></td></tr>      
+                <tr><td ><input class="txtbox ctname" value="<%#Eval("CategoryName") %>" /></td><td>--</td><td>--</td><td><a href="#">供应产品列表</a></td><td><a href="#" class="lkedit">修改</a> / <a href="#" class="lkdel" catid="<%#Eval("id") %>">删除</a></td></tr>      
             </ItemTemplate>
             <AlternatingItemTemplate>
-                <tr class="altr"><td ><input class="txtbox catname" value="<%#Eval("CategoryName") %>" /></td><td>--</td><td>--</td><td><a href="#">供应产品列表</a></td><td><a href="#" class="lkedit">修改</a> / <a href="#" class="lkdel" catid="<%#Eval("id") %>">删除</a></td></tr> 
+                <tr class="altr"><td ><input class="txtbox ctname" value="<%#Eval("CategoryName") %>" /></td><td>--</td><td>--</td><td><a href="#">供应产品列表</a></td><td><a href="#" class="lkedit">修改</a> / <a href="#" class="lkdel" catid="<%#Eval("id") %>">删除</a></td></tr> 
             </AlternatingItemTemplate>
         </asp:Repeater>
     </table>

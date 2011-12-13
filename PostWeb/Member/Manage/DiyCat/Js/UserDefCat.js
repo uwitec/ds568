@@ -8,14 +8,13 @@
         });
     });
     
-    var ajaxAction=function(subData,succ){
+    var ajaxAction=function(subData,succ,before){
         $.ajax({
             url:"userdefcat.aspx",
             type:"POST",
             data:subData,
             beforeSend:function(){
-                $("#divadd ul li").css("visibility","hidden");
-                $("#divadd ul").addClass("loading");
+                before(true);
             },
             success:function(data,state){
                 $(".tblist tr:nth-child(n+2)").remove();
@@ -28,19 +27,40 @@
                 alert(estr.substring(estr.indexOf("<title>")+"<title>".length));
             },
             complete:function(){
-                $("#divadd ul li").css("visibility","visible");
-                $("#divadd ul").removeClass("loading");
+                before(false);
                
             }
         });
     }
     
+    //添加前后动作
+    var addBefore=function(b){
+        if(b){//显示加载
+            $("#divadd ul li").css("visibility","hidden");
+            $("#divadd ul").addClass("loading");
+        }else{//隐藏加载
+            $("#divadd ul li").css("visibility","visible");
+            $("#divadd ul").removeClass("loading");
+        }
+    }
+    
     $(".btnsub").click(function(){
         var cn=$.trim($(".catname").eq(1).val());
         if(cn!=""){
-            ajaxAction({"action":"add","catname":cn},function(){wb.close();binddel();});
+            ajaxAction({"action":"add","catname":cn},function(){wb.close();binddel();},addBefore);
         }
     });
+    
+    //删除前后动作
+    var delBefore=function(b){
+        if(b){//显示加载
+            $(".tblist tr:nth-child(n+2)").css("visibility","hidden");
+            $(".tblist").addClass("loading");
+        }else{//隐藏加载
+            $(".tblist tr:nth-child(n+2)").css("visibility","visible");
+            $(".tblist").removeClass("loading");
+        }
+    }
     
      //绑定修改删除
     var binddel=function(){
@@ -48,7 +68,7 @@
             var cid=$(this).attr("catid")
             ajaxAction({"action":"del","cid":cid},function(){
                 binddel();
-            });
+            },delBefore);
             return false;
         });
         
