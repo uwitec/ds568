@@ -8,5 +8,8 @@
 .altr{ background-color:#f7fbfe;}
 
 .addctn{display:none;}
-#divadd{width:300px;height:100px;}
+#divadd{width:300px;height:100px; text-align:center;}
+#divadd ul li{margin-top:15px;}
 #wBox .wBox_title{ background:url(../images/bg.gif) repeat-x;height:28px;color:#2b6fb6;}
+.loading{ background:url(/images/loading.gif) no-repeat center center;}
+.catname{border-color:White;}
