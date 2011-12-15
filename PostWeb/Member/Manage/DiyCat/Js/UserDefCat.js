@@ -73,14 +73,25 @@
         });
         
         $(".lkedit").click(function(){
-            var cn=$(this).parent().parent().find("td:first input");
-            if($(this).text()=="修改"){
-                cn.removeClass("catname").focus();
-                $(this).text("保存");
-            }else{
-                cn.addClass("catname");
-                $(this).text("修改");
-            }
+            var cn=$("#ctname_"+$(this).parent().attr("ind"));
+//            if($(this).text()=="修改"){
+//                cn.removeClass("catname").focus();
+//                $(this).text("保存");
+//            }else{
+//                cn.addClass("catname");
+//                $(this).text("修改");
+//            }
+            
+            cn.removeClass("ctname");
+            $(this).parent().parent().find("div").toggle();
+            return false;
+        });
+        
+        $(".lkcancel").click(function(){
+            var cn=$("#ctname_"+$(this).parent().attr("ind"));
+            cn.addClass("ctname");
+            $(this).parent().parent().find("div").toggle();
+            return false;
         });
     };
     binddel();
