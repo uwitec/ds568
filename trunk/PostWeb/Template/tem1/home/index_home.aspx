@@ -5,10 +5,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script type="text/javascript">
-	var itv
-	var TzCon
-	var isRoll=true
+	
 	$(document).ready(function(){
+	    //滚动精品推荐
+	    function RollImg(){
+	        var sl= TzCon.scrollLeft();
+	        if(sl>=1408){
+	            TzCon.scrollLeft(0);
+	        }
+	        TzCon.animate({scrollLeft:TzCon.scrollLeft()+176},600,function(){
+	            setTimeout(RollImg,3500);
+	        });
+	    }
+	    var itv
+	    var TzCon
+	    var isRoll=true
 		TzCon=$(".TzContent1")
 		//复制精品推荐图片用于滚动
 		$(".TzContent1 ul").append($(".TzContent1 ul").html())
@@ -18,16 +29,7 @@
 		
 	});
 	
-	//滚动精品推荐
-	function RollImg(){
-	    var sl= TzCon.scrollLeft();
-	    if(sl>=1408){
-	        TzCon.scrollLeft(0);
-	    }
-	    TzCon.animate({scrollLeft:TzCon.scrollLeft()+176},600,function(){
-	        setTimeout(RollImg,3500);
-	    });
-	}
+	
 	 
 	
     </script>

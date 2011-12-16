@@ -28,7 +28,6 @@
             },
             complete:function(){
                 before(false);
-               
             }
         });
     }
@@ -47,7 +46,7 @@
     $(".btnsub").click(function(){
         var cn=$.trim($(".catname").eq(1).val());
         if(cn!=""){
-            ajaxAction({"action":"add","catname":cn},function(){wb.close();binddel();},addBefore);
+            ajaxAction({"action":"add","catname":cn},function(){wb.close();bindAct();},addBefore);
         }
     });
     
@@ -63,38 +62,48 @@
     }
     
      //绑定修改删除
-    var binddel=function(){
+    var bindAct=function(){
         $(".lkdel").click(function(){
-            var cid=$(this).attr("catid")
-            ajaxAction({"action":"del","cid":cid},function(){
-                binddel();
-            },delBefore);
+            if(confirm("确认删除此分类吗？")){
+                var cid=$(this).attr("catid")
+                ajaxAction({"action":"del","cid":cid},function(){
+                    bindAct();
+                },delBefore);
+            }
             return false;
         });
         
+        //修改
         $(".lkedit").click(function(){
             var cn=$("#ctname_"+$(this).parent().attr("ind"));
-//            if($(this).text()=="修改"){
-//                cn.removeClass("catname").focus();
-//                $(this).text("保存");
-//            }else{
-//                cn.addClass("catname");
-//                $(this).text("修改");
-//            }
-            
             cn.removeClass("ctname");
             $(this).parent().parent().find("div").toggle();
             return false;
         });
         
+        //取消
         $(".lkcancel").click(function(){
             var cn=$("#ctname_"+$(this).parent().attr("ind"));
             cn.addClass("ctname");
+            cn.val(cn.attr("defaultValue"));
             $(this).parent().parent().find("div").toggle();
             return false;
         });
+        
+       
+        //更新
+        $(".lkupdate").click(function(){
+            var cn=$.trim($("#ctname_"+$(this).parent().attr("ind")).val());
+            if(cn!=""){
+                ajaxAction({action:"update",cid:$(this).attr("cid"),catname:cn},function(){
+                    bindAct();
+                },delBefore);
+            }else
+                alert("输入分类名称？");
+            return false;
+        });
     };
-    binddel();
+    bindAct();
     
   
     

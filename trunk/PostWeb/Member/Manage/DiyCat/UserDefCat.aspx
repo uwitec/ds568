@@ -21,14 +21,14 @@
             <ItemTemplate>
                 <tr><td><input class="txtbox ctname" id="ctname_<%#Container.ItemIndex %>" value="<%#Eval("CategoryName") %>" /></td><td>--</td><td>--</td><td><a href="#">供应产品列表</a></td><td>
                     <div class="cmctn_1" ind="<%#Container.ItemIndex %>"><a href="#"  class="lkedit">修改</a> / <a href="#"  class="lkdel" catid="<%#Eval("id") %>">删除</a></div>
-                    <div class="cmctn_2" ind="<%#Container.ItemIndex %>"><a href="#"  class="lkupdate">更新</a> / <a href="#"  class="lkcancel" >取消</a></div>
+                    <div class="cmctn_2" ind="<%#Container.ItemIndex %>"><a href="#" cid="<%#Eval("id") %>"  class="lkupdate">更新</a> / <a href="#"  class="lkcancel" >取消</a></div>
                 </td></tr>      
             </ItemTemplate>
             <AlternatingItemTemplate>
                 <tr class="altr">
                     <td ><input class="txtbox ctname" id="ctname_<%#Container.ItemIndex %>" value="<%#Eval("CategoryName") %>" /></td><td>--</td><td>--</td><td><a href="#">供应产品列表</a></td><td>
                         <div class="cmctn_1" ind="<%#Container.ItemIndex %>"><a href="#" class="lkedit">修改</a> / <a href="#"  class="lkdel" catid="<%#Eval("id") %>">删除</a></div>
-                        <div class="cmctn_2" ind="<%#Container.ItemIndex %>"><a href="#"  class="lkupdate">更新</a> / <a href="#"  class="lkcancel" >取消</a></div>
+                        <div class="cmctn_2" ind="<%#Container.ItemIndex %>"><a href="#" cid="<%#Eval("id") %>" class="lkupdate">更新</a> / <a href="#"  class="lkcancel" >取消</a></div>
                     </td>
                 </tr> 
             </AlternatingItemTemplate>

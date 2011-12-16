@@ -1,6 +1,6 @@
 ﻿
 /* CSS Document */
-@import url("../../css/Globle.css");
+@import url("/css/Globle.css");
 a{ color:#333; }
 .txtBox{height:21px;*height:20px;_height:22px;line-height:20px;border:solid 1px #c9c9c9}
 .TopBar {

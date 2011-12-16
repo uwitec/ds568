@@ -7,7 +7,7 @@
     <title>Untitled Page</title>
     <link href="css/Globle.css" rel="stylesheet" type="text/css" />
     <link href="js/css/area.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="js/jquery142min.js"></script>
+    <script type="text/javascript" src="js/lib.js"></script>
     <script type="text/javascript" src="js/public.js"></script>
 </head>
 <body style="padding:20px;"> 
