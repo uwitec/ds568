@@ -6,7 +6,7 @@
 <head runat="server">
     <title>在线留言</title>
     <link href="css/index.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../../../js/jquery142min.js"></script>
+    <script type="text/javascript" src="/js/lib.js"></script>
 </head>
 <body>
    

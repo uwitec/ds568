@@ -43,6 +43,26 @@ public partial class Member_Manage_DiyCat_UserDefCat : BasePage
                         }
                     } 
                     break;
+                case "update":
+                    try
+                    {
+                        var md = bl.GetSingle(int.Parse(Request.Form["cid"]));
+                        md.CategoryName = Request.Form["catname"];
+                        bl.Update(md);
+                    }
+                    catch (System.Threading.ThreadAbortException ae) { }
+                    catch (Exception ex)
+                    {
+                        if (ex.Message.Contains("IX_DS_DiyProCategory"))
+                        {
+                            throw new Exception("已存在相同分类。");
+                        }
+                        else
+                        {
+                            throw new Exception("修改分类出错。");
+                        }
+                    }
+                    break;
                 case "del":
                     try
                     {

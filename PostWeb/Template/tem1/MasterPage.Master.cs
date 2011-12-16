@@ -10,12 +10,15 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
- 
-    public partial class MasterPage : System.Web.UI.MasterPage
+using Com.DianShi.BusinessRules.Product;
+public partial class MasterPage : System.Web.UI.MasterPage
+{
+    protected void Page_Load(object sender, EventArgs e)
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
+        if (IsPostBack) return;
+        var bl = new DS_DiyProCategory_Br();
+        Repeater1.DataSource = bl.Query("memberid=@0","px",int.Parse(Request.QueryString["member_id"]));
+        Repeater1.DataBind();
     }
+}
 

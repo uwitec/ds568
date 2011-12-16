@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Untitled Page</title>
-    <script type="text/javascript" src="/js/jquery142min.js"></script>
+    <script type="text/javascript" src="/js/lib.js"></script>
     <script type="text/javascript" src="/js/public.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
