@@ -16,12 +16,15 @@
         }
     );
     
+    //选择或上传图片后
+    var selImg=function(imgUrl){
+        if(parent.setImgUrl)
+            parent.setImgUrl(imgUrl);
+    }
+    
     //点击相册图片
     $(".imgList li img").click(function(){
-        var ind=$("#hdind").val();
-        parent.$("#img0"+ind).show().attr("src",this.src);
-        parent.$(".upbtn input").eq(ind).val("重新上传")
-        parent.$(".upbtn a").eq(ind).show();
+        selImg(this.src);
     });
     
     var fc=0;
@@ -44,12 +47,7 @@
             fc=0;
             $("#tb0").val("");
             $(".divsub input").removeClass("chgbg").attr("disabled","disabled");
-            var ind=$("#hdind").val();
-            parent.$("#img0"+ind).show().attr("src",response);
-            var ind=$("#hdind").val();
-            parent.$(".upbtn input").eq(ind).val("重新上传")
-            parent.$(".upbtn a").eq(ind).show();
-            parent.wBox.close();
+            selImg(response);
         },
         'onSelect':function(event, queueId, fileObj)
         {

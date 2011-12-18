@@ -124,6 +124,7 @@
       return false;
    });
    
+   //删除一行价格区间
    $(".hidden a").click(function(){
        $(this).parent().parent().hide();
        $("#"+$(this).attr("et")).empty();
@@ -134,17 +135,20 @@
        return false;
    });
    
+   //上传产品图片
+   var imgInd=0;//当前上传图片索引
    $(".upbtn input").click(function(){
+       imgInd=$(".upbtn input").index(this);
        wBox=$(this).wBox({
             title: "添加产品图片",
             requestType: "iframe",
-            target:"addimg.aspx?ind="+$(".upbtn input").index(this),
+            target:"addimg.aspx",
             show:true,
             drag:false
         });
        
    });
-   
+   //删除产品图片
    $(".upbtn a").click(function(){
        var ind=$(".upbtn a").index(this);
        $("#img0"+ind).attr("src","");
@@ -152,6 +156,14 @@
        $(this).hide();
        return false;
    });
+   
+   //上传产品对话框完成产品选择或上传后回调的函数
+   setImgUrl=function(imgUrl){
+       $("#img0"+imgInd).show().attr("src",imgUrl);
+       $(".upbtn input").eq(imgInd).val("重新上传")
+       $(".upbtn a").eq(imgInd).show();
+       wBox.close();
+   }
    
    //自定义插件
    KindEditor.lang({

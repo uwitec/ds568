@@ -29,7 +29,7 @@
             <ul class="imgList">
                 <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>
-                        <li ><img onload="changeImg(this,61,61)"  class="wBox_close" src="/Resource/<%#Eval("imgUrl") %>/<%#Eval("imgName") %>" /></li>
+                        <li ><img onload="changeImg(this,61,61)"   src="/Resource/<%#Eval("imgUrl") %>/<%#Eval("imgName") %>" /></li>
                     </ItemTemplate>
                 </asp:Repeater>
             </ul>
