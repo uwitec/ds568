@@ -38,6 +38,23 @@
         <li><span>厂房面积：</span><div class="floatL">
             <input class="txtbox LegRep" value="<%=ViewState["StorageArea"] %>" name="StorageArea" maxlength="100" />（平方米）</div>
         </li>
+        <li><span>企业图片：</span><div class="floatL gray">建议上传企业厂房、员工、办公场所或公司负责人的图片</div></li>
+        <li><span>&nbsp;</span>
+            <div class="floatL">
+                <div class="imguplodctn">
+                    <div class="imgctn"><img src="" id="img00" onload="changeImg(this,110,110)" onerror="$(this).hide()" /></div>
+                    <div class="upbtn"><input type="button" value="上传图片" /><a href="#">删除</a></div>
+                </div>
+                <div class="imguplodctn">
+                    <div class="imgctn imgctn2"><img src="" id="img01" onload="changeImg(this,110,110)" onerror="$(this).hide()" /></div>
+                    <div class="upbtn"><input type="button" value="上传图片" /><a href="#">删除</a></div>
+                </div>
+                <div class="imguplodctn">
+                    <div class="imgctn imgctn3"><img src="" id="img02" onload="changeImg(this,110,110)" onerror="$(this).hide()" /></div>
+                    <div class="upbtn"><input type="button" value="上传图片" /><a href="#">删除</a></div>
+                </div>
+            </div>
+        </li>
         <li><span>员工人数：</span><div class="floatL">
             <input type="hidden" id="HD_Employees" value="<%=ViewState["Employees"] %>" />
             <select name="Employees">

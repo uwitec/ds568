@@ -137,7 +137,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public string GetDirByID(int MemberID, int AlbumID) {
             int md = MemberID / 5001+1;
-            return "U" + md.ToString().PadLeft(3, '0')+"/Album/A"+AlbumID;
+            return "S" + md.ToString().PadLeft(3, '0')+"/U"+MemberID+"/Album/A"+AlbumID;
 
         }
 

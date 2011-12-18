@@ -7,6 +7,16 @@ label.valid{display:inline}
 .Remind{padding:5px;line-height:20px;border:solid 1px #ffc590; background-color:#fff7eb;margin-top:15px;}
 .LegRep{width:120px;}
 .Monthly{width:60px;}
+.imguplodctn{margin-right:30px;_margin-right:27px;float:left;}
+.imgctn{background:url(../../offer/images/icon.gif) no-repeat;}
+.imgctn{height:110px;width:110px;border:solid 1px #babcbd; background-position:-79px -90px;display:table-cell; text-align:center;+display:block;+font-size:91px;+line-height:91px;padding:1px;}
+.imgctn img{ vertical-align:middle;}
+.imgctn2{background-position:-376px -90px;}
+.imgctn3{background-position:-237px -90px;}
+.upbtn{ text-align:center;margin-top:6px;}
+.upbtn input{height:22px;padding:0;line-height:18px;width:64px;}
+.upbtn a{display:none;}
+#wBox .wBox_title{ background:url(../../offer/images/bg.gif) repeat-x;height:35px;color:#2b6fb6;}
 
 
 

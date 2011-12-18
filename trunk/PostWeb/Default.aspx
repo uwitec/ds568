@@ -8,7 +8,7 @@
     <link href="css/Globle.css" rel="stylesheet" type="text/css" />
     <link href="js/css/area.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="js/lib.js"></script>
-    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
 </head>
 <body style="padding:20px;"> 
   <input class="Area" type="text" />

@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Untitled Page</title>
     <script type="text/javascript" src="/js/lib.js"></script>
-    <script type="text/javascript" src="/js/public.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             
