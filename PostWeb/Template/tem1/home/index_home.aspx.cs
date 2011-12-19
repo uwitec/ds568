@@ -26,7 +26,7 @@ public partial class index_home : System.Web.UI.Page
                 {
                     case "cominfo":
                         var member = mbbl.GetSingleByMemberID(int.Parse(Request.QueryString["memberid"]));
-                        Response.Write(member.Profile);
+                        Response.Write(member.Profile+"^"+member.ComImg.Split('|')[0]);//返回公司简介及第一张企业图片
                         Response.End();
                         break;
                 }
