@@ -152,6 +152,8 @@ namespace Com.DianShi.Model.Member
 		
 		private System.Nullable<bool> _OEM;
 		
+		private string _ComImg;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -228,6 +230,8 @@ namespace Com.DianShi.Model.Member
     partial void OnMajorCustomersChanged();
     partial void OnOEMChanging(System.Nullable<bool> value);
     partial void OnOEMChanged();
+    partial void OnComImgChanging(string value);
+    partial void OnComImgChanged();
     #endregion
 		
 		public DS_CompanyInfo()
@@ -951,6 +955,26 @@ namespace Com.DianShi.Model.Member
 					this._OEM = value;
 					this.SendPropertyChanged("OEM");
 					this.OnOEMChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ComImg", DbType="NVarChar(250) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string ComImg
+		{
+			get
+			{
+				return this._ComImg;
+			}
+			set
+			{
+				if ((this._ComImg != value))
+				{
+					this.OnComImgChanging(value);
+					this.SendPropertyChanging();
+					this._ComImg = value;
+					this.SendPropertyChanged("ComImg");
+					this.OnComImgChanged();
 				}
 			}
 		}
