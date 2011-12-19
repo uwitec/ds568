@@ -27,7 +27,9 @@
             $("#about").css("visibility","visible");
         },
         function(data){//成功
-            $("#about").html(data);
+            $("#about").html(data.split('^')[0]);
+            $(".AboutImg").show().attr("src",data.split('^')[1])
+          
         }
     );
     
