@@ -39,7 +39,7 @@
             <input class="txtbox LegRep" value="<%=ViewState["StorageArea"] %>" name="StorageArea" maxlength="100" />（平方米）</div>
         </li>
         <li><span>企业图片：</span><div class="floatL gray">建议上传企业厂房、员工、办公场所或公司负责人的图片</div></li>
-        <li><span>&nbsp;</span>
+        <li><span>&nbsp;</span><input type="hidden"  id="comimg" value="<%=ViewState["ComImg"] %>"/>
             <div class="floatL">
                 <div class="imguplodctn">
                     <div class="imgctn"><img src="" id="img00" onload="changeImg(this,110,110)" onerror="$(this).hide()" /></div>
