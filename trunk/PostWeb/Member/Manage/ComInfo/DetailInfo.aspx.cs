@@ -41,6 +41,7 @@ public partial class Member_Manage_CompanyInfo_DetailInfo : BasePage
         ViewState["mainmarket"] = md.MainMarket;
         ViewState["MajorCustomers"] = md.MajorCustomers;
         ViewState["oem"] = md.OEM;
+        ViewState["ComImg"] = md.ComImg;
     }
 
     private void Button1_Click(object sender, EventArgs e) {
@@ -65,6 +66,7 @@ public partial class Member_Manage_CompanyInfo_DetailInfo : BasePage
             string mainmarket = Request.Form["mainmarket"];
             string MajCust = Request.Form["MajCust"];
             bool oem = string.IsNullOrEmpty(Request.Form["oem"]) ? false : bool.Parse(Request.Form["oem"]);
+            string ComImg = Request.Form["comimg"];
             md.LegalRepresentative = LegRep;
             md.Bank = Bank;
             md.Account = Account;
@@ -82,6 +84,7 @@ public partial class Member_Manage_CompanyInfo_DetailInfo : BasePage
             md.MainMarket = mainmarket;
             md.MajorCustomers = MajCust;
             md.OEM = oem;
+            md.ComImg = ComImg;
 
             bl.Update(md);
             Common.MessageBox.Show(this, "保存成功", Common.MessageBox.InfoType.info, "function(){location='detailinfo.aspx'}");

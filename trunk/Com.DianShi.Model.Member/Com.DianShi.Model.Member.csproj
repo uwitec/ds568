@@ -74,6 +74,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="View_Members.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>View_Members.dbml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="DS_Members.dbml">
@@ -123,6 +128,16 @@
   <ItemGroup>
     <None Include="DS_ValiCodeSend.dbml.layout">
       <DependentUpon>DS_ValiCodeSend.dbml</DependentUpon>
+    </None>
+    <None Include="View_Members.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>View_Members.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="View_Members.dbml.layout">
+      <DependentUpon>View_Members.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

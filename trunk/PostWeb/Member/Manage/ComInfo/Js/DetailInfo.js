@@ -63,12 +63,18 @@
          });
        
     });
+    
+    //获取企业图片
+    var getimg=function(){
+        $("#comimg").val($("#img00").attr("src")+"|"+$("#img01").attr("src")+"|"+$("#img02").attr("src"));
+    }
     //删除产品图片
     $(".upbtn a").click(function(){
         var ind=$(".upbtn a").index(this);
         $("#img0"+ind).attr("src","");
         $(".upbtn input").eq(ind).val("上传图片")
         $(this).hide();
+        getimg();
         return false;
     });
    
@@ -78,8 +84,29 @@
         $(".upbtn input").eq(imgInd).val("重新上传")
         $(".upbtn a").eq(imgInd).show();
         wBox.close();
+        getimg();
+    }
+    //企业图片不显示时
+    imgErr1=function(obj){
+        $(obj).hide();
+        var ctn=$(".upbtn").eq(0);
+        ctn.find("input").val("上传图片");
+        ctn.find("a").hide();
+    }
+    imgErr2=function(obj){
+        $(obj).hide();
+        var ctn=$(".upbtn").eq(1);
+        ctn.find("input").val("上传图片");
+        ctn.find("a").hide();
     }
     
+    imgErr3=function(obj){
+        $(obj).hide();
+        var ctn=$(".upbtn").eq(2);
+        ctn.find("input").val("上传图片");
+        ctn.find("a").hide();
+    }
+  
     //--------------还原公司信息开始---------------------
     $("select[name=Employees] option[value="+$("#HD_Employees").val()+"]").attr("selected",true);
     $("select[name=StudyEmployees] option[value="+$("#HD_StudyEmployees").val()+"]").attr("selected",true);
@@ -99,6 +126,12 @@
         $("#OemOdmYes").attr("checked","checked");
     if($("#HD_oem").val()=="False")
         $("#OemOdmNo").attr("checked","checked");
+    var comimg=$("#comimg").val().split('|');
+    $("#img00").show().attr("src",comimg[0])
+    if(comimg.length>1)
+        $("#img01").show().attr("src",comimg[1])
+    if(comimg.length>2)
+        $("#img02").show().attr("src",comimg[2])
     //--------------还原公司信息结束---------------------
 });
 
