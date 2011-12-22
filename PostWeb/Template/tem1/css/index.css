@@ -234,7 +234,8 @@
  .Split12_1{float:left;width:100%;}
  .div001{float:right;width:21px;height:21px;background-position:-237px -89px;cursor:pointer;}
  .div002{background-position:-207px -89px;}
- .ul001,.ul002{overflow:auto;zoom:1}
+ .ul001,.ul002{overflow:auto;zoom:1;}
+ .ul001{margin-top:6px;}
  .ul001 li{float:left;line-height:22px;height:22px;width:185px; text-indent:12px;}
  .ul001 li a{color:#555;}
  .ul001 li a:hover{color:#ff7300;}
@@ -243,7 +244,7 @@
  .ul002 li span{padding-right:24px;color:#222;}
  #SearchBtn2{float:left;margin-left:12px;}
  .ul003{border-top:solid 1px #ebebeb;}
- .ul003 li{height:30px;line-height:30px;}
+ .ul003 li{height:10px;line-height:10px;}
  .pTitle{line-height:38px;height:38px;text-align:center;border-bottom:solid 1px #ddd;font-size:14px;font-weight:bold;}
  
  .divProHead{ overflow:auto;zoom:1;}

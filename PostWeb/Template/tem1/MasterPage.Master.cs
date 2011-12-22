@@ -11,14 +11,28 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Product;
+using Com.DianShi.BusinessRules.Member;
+[PartialCaching(300,"member_id",null,null)]
 public partial class MasterPage : System.Web.UI.MasterPage
 {
+   
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack) return;
         var bl = new DS_DiyProCategory_Br();
         Repeater1.DataSource = bl.Query("memberid=@0","px",int.Parse(Request.QueryString["member_id"]));
         Repeater1.DataBind();
+
+        //联系信息
+        var vmbbl = new View_Members_Br();
+        var list = vmbbl.Query("id=@0", "", int.Parse(Request.QueryString["member_id"]));
+        Repeater2.DataSource = list;
+        Repeater2.DataBind();
+        
+ 
     }
+
+   
+
 }
 
