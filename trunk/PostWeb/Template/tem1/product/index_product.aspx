@@ -2,16 +2,16 @@
     CodeFile="index_product.aspx.cs" Inherits="index_product"
     Title="Untitled Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" rev="stylesheet" href="/css/Pager.css" type="text/css"  />
     <script type="text/javascript">
 	$(document).ready(function(){
 		$(".div001").click(function(){
 			if($(this).hasClass("div002")){
 				$(this).removeClass("div002");
-				$(".ul001").show(300);
 			}else{
 				$(this).addClass("div002");
-				$(".ul001").hide(300);
 			}
+			$(".ul001").slideToggle(200);
 		});	
 	});
     </script>
@@ -28,18 +28,11 @@
             </div>
             <div class="AlbumBody">
                 <ul class="ul001">
-                    <li><a href="#">铝及铝合金材(1)</a></li>
-                    <li><a href="#">草坪灯(6) </a></li>
-                    <li><a href="#">LED灯具(135) </a></li>
-                    <li><a href="#">格栅灯(10) </a></li>
-                    <li><a href="#">投射灯(8) </a></li>
-                    <li><a href="#">其他室外照明灯具(4) </a></li>
-                    <li><a href="#">灯杯(1) </a></li>
-                    <li><a href="#">射灯、杯灯(11) </a></li>
-                    <li><a href="#">筒灯(1) </a></li>
-                    <li><a href="#">其他灯具配附件(9) </a></li>
-                    <li><a href="#">其他金属加工材(1) </a></li>
-                    <li><a href="#">其他常规照明(7) </a></li>
+                    <asp:Repeater ID="Repeater1" runat="server">
+                        <ItemTemplate>
+                            <li><a href="?cat_id=<%#Eval("id") %>"><%#Eval("categoryname") %>(<%#Eval("pcount") %>)</a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
                 <ul class="ul002">
                     <li><span>搜索本旺铺产品：</span>产品名<input name="" class="proNameInput" type="text" /></li>
@@ -53,295 +46,33 @@
                 </ul>
                 <div class="NewContent">
                     <ul>
-                        <li>
-                            <div class="NewImg">
-                                <a href="product_show.aspx"><img alt="" src="http://i05.c.aliimg.com/img/ibank/2010/079/972/209279970_1778649337.search.jpg" /></a>
-                            </div>
-                            <div class="ProductTitle">
-                                自行车音箱自行车音响
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i04.c.aliimg.com/img/ibank/2010/558/147/199741855_1508253996.search.jpg" />
-                            </div>
-                            <div class="ProductTitle">
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i02.c.aliimg.com/img/ibank/2010/017/740/199047710_1508253996.search.jpg" />
-                            </div>
-                            <div class="ProductTitle">
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i02.c.aliimg.com/img/ibank/2010/552/746/199647255_1508253996.search.jpg" />
-                            </div>
-                            <div class="ProductTitle">
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i03.c.aliimg.com/img/ibank/2010/584/514/185415485_1508253996.search.jpg" />
-                            </div>
-                            <div>
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i05.c.aliimg.com/img/ibank/2010/862/032/209230268_1778649337.search.jpg" />
-                            </div>
-                            <div>
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i05.c.aliimg.com/img/ibank/2010/311/545/209545113_1778649337.search.jpg" />
-                            </div>
-                            <div>
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i03.c.aliimg.com/img/ibank/2010/091/125/209521190_1778649337.search.jpg" />
-                            </div>
-                            <div>
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i05.c.aliimg.com/img/ibank/2010/079/972/209279970_1778649337.search.jpg" />
-                            </div>
-                            <div class="ProductTitle">
-                                自行车音箱自行车音响
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i04.c.aliimg.com/img/ibank/2010/558/147/199741855_1508253996.search.jpg" />
-                            </div>
-                            <div class="ProductTitle">
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i02.c.aliimg.com/img/ibank/2010/017/740/199047710_1508253996.search.jpg" />
-                            </div>
-                            <div class="ProductTitle">
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i02.c.aliimg.com/img/ibank/2010/552/746/199647255_1508253996.search.jpg" />
-                            </div>
-                            <div class="ProductTitle">
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i03.c.aliimg.com/img/ibank/2010/584/514/185415485_1508253996.search.jpg" />
-                            </div>
-                            <div>
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i05.c.aliimg.com/img/ibank/2010/862/032/209230268_1778649337.search.jpg" />
-                            </div>
-                            <div>
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i05.c.aliimg.com/img/ibank/2010/311/545/209545113_1778649337.search.jpg" />
-                            </div>
-                            <div>
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="NewImg">
-                                <img border="0" alt="" src="http://i03.c.aliimg.com/img/ibank/2010/091/125/209521190_1778649337.search.jpg" />
-                            </div>
-                            <div>
-                                自行车音箱自行车音响携带方便，插..
-                            </div>
-                            <div class="def-price">
-                                ￥<span class="price" unit="元/个">72.00</span>
-                            </div>
-                            <div class="mgbt8">
-                                <span class="mixText">20个起</span>
-                                <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
-                                    class="mix-imgmid">
-                                <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
-                                    align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
-                            </div>
-                        </li>
+                        <asp:Repeater ID="Repeater2" runat="server">
+                            <ItemTemplate>
+                                <li>
+                                    <div class="NewImg">
+                                        <a href="product_show.aspx"><img  onload="changeImg(this,150,150)" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
+                                    </div>
+                                    <div class="ProductTitle">
+                                        <%#Eval("title") %>
+                                    </div>
+                                    <div class="def-price">
+                                        ￥<span class="price" ><%#double.Parse(Eval("priceRang").ToString().Split('|')[0].Split(',')[1]).ToString("N2") %></span>
+                                    </div>
+                                    <div class="mgbt8">
+                                        <span class="mixText"><%#Eval("priceRang").ToString().Split('|')[0].Split(',')[0] %><%#Eval("unit") %>起</span>
+                                        <img align="absmiddle" src="http://i05.c.aliimg.com/images/app/winport/layout/list/mix.gif"
+                                            class="mix-imgmid">
+                                        <img class="imgmid" src="http://i02.c.aliimg.com/images/cn/market/b2bauction/logo_alipay.gif"
+                                            align="absmiddle" title="本商品交易支持支付宝，买家收货确认后，卖家才能拿到钱，保障你的交易安全。" />
+                                    </div>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </ul>
+                     <webdiyer:AspNetPager CssClass="pages"  AlwaysShowFirstLastPageNumber="true"  HorizontalAlign="Right" ShowDisabledButtons="false" ShowFirstLast="false" CurrentPageButtonClass="cpb"  ID="AspNetPager4" NumericButtonCount="7" runat="server"
+        FirstPageText="首页" LastPageText="尾页" TextBeforePageIndexBox="共10页 到"  TextAfterPageIndexBox="页 " PageSize="16"  SubmitButtonText="确定" SubmitButtonClass="sBtn" ShowCustomInfoSection="Never" NextPageText="下一页"  ShowPageIndexBox="Always" PrevPageText="上一页">
+    </webdiyer:AspNetPager>
+                    &nbsp;
                 </div>
             </div>
         </div>

@@ -118,29 +118,34 @@
                 <div class="AHLeft">
                    联系我们</div>
                 <div class="AHRight">
-                    <a href="#">更多&gt;&gt;</a></div>
+                    <a href="../profile/index_profile.aspx">更多&gt;&gt;</a></div>
             </div>
             <div class="AboutBody">
-                <ul>
-                    <li><a href="http://profile.china.alibaba.com/user/xuhechai.html">覃旭</a> 先生 （生产销售 经理）
-                        <a title="我不在网上，给我留个消息吧" onmousedown="aliclick(this, '?info_id=26806687');traceXunpanLog(this,'xuhechai','','');return traceParrotStatLog(this, 'alitalk', 'xuhechai', 'athena');"
-                            href="#" alitalk="{id:'xuhechai',siteID:'cnalichn',type:1}">给我留言</a></li>
-                </ul>
-                <ul>
-                    <li>电 话： 86 0760 22837808</li>
-                </ul>
-                <ul>
-                    <li>移动电话： 13531897321</li>
-                </ul>
-                <ul>
-                    <li>传 真： 86 0760 22837808</li>
-                </ul>
-                <ul>
-                    <li>地 址： 中国 广东 中山市 中山市小榄永宁岗头村工业区 </li>
-                </ul>
-                <ul>
-                    <li>公司主页： <a href="http://xuhechai.cn.alibaba.com" target="_blank">http://xuhechai.cn.alibaba.com</a></li>
-                </ul>
+                <asp:Repeater ID="Repeater3" runat="server">
+                    <ItemTemplate>
+                         <ul>
+                            <li><a href="http://profile.china.alibaba.com/user/xuhechai.html"><%#Eval("TrueName") %></a> <%#Eval("Gender")%> （<%#Eval("Position")%>）
+                                <a title="我不在网上，给我留个消息吧" onmousedown="aliclick(this, '?info_id=26806687');traceXunpanLog(this,'xuhechai','','');return traceParrotStatLog(this, 'alitalk', 'xuhechai', 'athena');"
+                                    href="#" alitalk="{id:'xuhechai',siteID:'cnalichn',type:1}">给我留言</a></li>
+                         </ul>
+                         <ul>
+                             <li>电 话： <%#Eval("Phone").ToString().TrimEnd('-')%></li>
+                         </ul>
+                         <ul>
+                             <li>移动电话： <%#Eval("Mobile") %></li>
+                         </ul>
+                         <ul>
+                             <li>传 真： <%#Eval("Fax").ToString().TrimEnd('-')%></li>
+                         </ul>
+                         <ul>
+                             <li>经营地址： <%#Eval("BusinessAddress")%> </li>
+                         </ul>
+                         <ul>
+                             <li>公司主页： <a href="<%#Eval("HomePage") %>" target="_blank"><%#Eval("HomePage") %></a></li>
+                         </ul>
+                    </ItemTemplate>
+                </asp:Repeater>
+               
             </div>
         </div>
         <!--========联系我们结束=============-->

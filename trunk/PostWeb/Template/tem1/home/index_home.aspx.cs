@@ -16,11 +16,12 @@ public partial class index_home : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        var mbbl = new DS_CompanyInfo_Br();
+        
         try
         {
             if (!string.IsNullOrEmpty(Request["action"]))
             {
+                var mbbl = new DS_CompanyInfo_Br();
                 string act = Request["action"];
                 switch (act)
                 {
@@ -48,6 +49,13 @@ public partial class index_home : System.Web.UI.Page
         //精品推荐
         Repeater2.DataSource = list.Take(4);
         Repeater2.DataBind();
+
+        //联系我们
+        var vmbbl = new View_Members_Br();
+        Repeater3.DataSource = vmbbl.Query("id=@0","",int.Parse(Request.QueryString["member_id"]));
+        Repeater3.DataBind();
+      
+        
     }
 }
 

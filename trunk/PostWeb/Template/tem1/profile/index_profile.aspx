@@ -15,19 +15,15 @@
                     公司介绍</div>
             </div>
             <div class="profileBody">
-
+                
                 <script language="javascript" type="text/javascript">
                 <!--
                 var bannerAD=new Array();
-                var bannerADlink=new Array();
-                var bannerDE=new Array();
                 var adNum=0;
                                 
-                bannerADlink[0]="http://i04.c.aliimg.com/img/company/26/32/38/05/26323805_1.jpg";
 		        bannerAD[0]="http://i05.c.aliimg.com/img/company/goldenphoto/42/38/14/423814.summ.jpg";
                 bannerAD[1]="http://i05.c.aliimg.com/img/company/goldenphoto/42/38/15/423815.summ.jpg";
                 bannerAD[2]="http://i04.c.aliimg.com/img/company/26/32/38/05/26323805_1.summ.jpg";
-                bannerDE[0]="动感者"
                                 
                 var preloadedimages=new Array();
                 for (i = 0; i < bannerAD.length; i++){
@@ -60,29 +56,14 @@
                 theTimer=setTimeout("nextAd()", 6000);
                 }
                 
-                function jump2url(){
-                
-                jumpUrl=bannerADlink[adNum];
-                jumpTarget='_blank';
-                if (jumpUrl != ''){
-                  if (jumpTarget != '')window.open(jumpUrl,jumpTarget);
-                  else parent.window.location.href=jumpUrl;
-                }
-                }
-                function displayStatusMsg() {
-                status=bannerADlink[adNum];
-                document.returnValue = true;
-                }
+               
                 //-->
                 </script>
 
                 <img style="filter: revealTrans(duration=2,transition=20)" width="300" height="228"
                     src="http://i04.c.aliimg.com/img/company/26/32/38/05/26323805_1.summ.jpg" border="0"
                     name="bannerADrotator" alt="公司图片" onload="javascript:changeImg(this,322,341)" /><script>nextAd()</script>
-
-                &nbsp; 深圳市动感者科技有限公司，致力于多媒体音响产品的研发工作，生产规模雄厚并迅速扩大，成为—家集生产、开发与销售为一体的音响产品专业生产商，推出自有品牌“动感者”。公司本着精益求精的设计理念，全力打造多种视听产品，设立了市场信息中心，产品外观设计中心，产品研究开发实验室、国内自有品牌事业行销部、品牌推广市场部、国际贸易部及制造中心，并引进现代化的生产工艺设备和高素质管理人员。<br>
-                <br>
-                由于公司采用了当今业界最为成熟的生产流程，融入了制造领域内最为先进的科技成分，使得“动感者”产品以其卓越的品质，在市场上让消费者体验了完美生动的视听感受。这些高品质的产品，价格相对适中，坚持产品的高性价比路线，自面市以来，深受海内外各界人士的青睐与赞誉，凭着产品较高的质量在消费者中留下了良好的口碑，在世界范围内，迅速打开消费者的心扉。公司一直坚持一切以用户为中心，满足用户需求，提供高品质产品和服务，同时本着一种“提高社会生活
+                &nbsp;<%=ViewState["ct"]%>
             </div>
         </div>
         <div class="About NoTopBorder">
