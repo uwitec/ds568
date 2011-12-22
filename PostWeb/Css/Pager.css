@@ -1,5 +1,5 @@
 ﻿.pages { color: #999; overflow:auto;zoom:1;}
-.pages a, .pages .cpb {  text-decoration:none; padding:2px 8px;float:left;border:solid 1px  #ddd;background: #ffff;margin:0 2px; font-size:12px; color:#0063DC;}
+.pages a, .pages .cpb {  text-decoration:none; padding:2px 8px;line-height:28px;border:solid 1px  #ddd;background: #ffff;margin:0 2px; font-size:12px; color:#0063DC;}
 .pages a:hover { color:#FF5500; text-decoration:underline;}
 .pages .cpb { font-weight: bold;color:#FF5500; background: #FFEEE5; border:1px solid #FF5500;}
 .sBtn{line-height:19px;height:23px;padding:0;width:38px;}

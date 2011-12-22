@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View_Members.cs" />
     <Compile Include="DS_ValiCodeSend.cs" />
     <Compile Include="DS_SafeQuestion.cs" />
     <Compile Include="DS_Members.cs" />
