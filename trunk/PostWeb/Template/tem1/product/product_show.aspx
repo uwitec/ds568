@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true"
     CodeFile="product_show.aspx.cs" Inherits="Template_tem1_product_product_show"
     Title="Untitled Page" %>
-
+<%@ Register src="~/Template/tem1/product/Property.ascx" tagname="Property" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
         .ContentMiddle
@@ -9,118 +9,16 @@
             overflow: hidden;
         }
     </style>
-
-    <script type="text/javascript">
-    $(document).ready(function(){
-        //切换产品缩略图                 
-       var fra=$(".thrumFrame")
-       $(".pPicBottom  li").not(".lisplit").mouseover(function(){
-          fra.css("left",$(this).offset().left)
-          fra.css("top",$(this).offset().top-4)
-          fra.css("display","block")
-       });
-       $(".pPicBottom  li:first").mouseover()
-      
-       //更改订购产品数量
-       $(".up").click(function(){
-           $("#txtOrderNum").val(Number($("#txtOrderNum").val())+1)
-       });
-       $(".down").click(function(){
-           if(Number($("#txtOrderNum").val())>1){
-             $("#txtOrderNum").val(Number($("#txtOrderNum").val())-1)
-           }
-       });
-      
-       //留言框事件
-       $("#inpMsg").focus(function(){
-           var obj=$(this);
-           obj.css("color","black")
-           if(obj.val()==obj.attr("defaultValue")){
-               obj.val("")
-           }
-       }).blur(function(){
-           var obj=$(this);
-           obj.css("color","#bfbfbf")
-           if(obj.val()==""){
-               obj.val(obj.attr("defaultValue"))
-           }
-       });
-      
-       //产品详细卡切换
-       $(".dLeft a").click(function(){
-           $(".divProDetail ul li div").removeClass("dLeftChk").removeClass("dRightChk")
-           $(this).parent().addClass("dLeftChk").next().addClass("dRightChk")
-           $(this).blur();
-           $(".pContent1,.pContent2,.pContent3,.pContent4").hide();
-           $(".pContent"+($(".divProDetail ul li").index($(this).parent().parent())+1)).show();
-          
-       });
-      
-       //产品描术图片自缩放
-       $(".description-detail img").each(function(){
-           changeImg(this,742,742)
-       });
-       
-       //计算更多商家产品信息列表的长度，因为要滚动
-       var divlen=$(".suggestContainer div").length;
-       var lin=0
-       if(divlen%5>0)
-          lin =5-divlen%5;//必须够5的整数，不够则增加
-       $(".suggestContainer").css("width",$(".suggestContainer div").length*140+lin*140);
-       for(var i=0;i<lin;i++){
-           $(".suggestContainer").append("<div></div>");
-       }
-       
-       //上一组，下一组事件
-       $("#J_sugNext span").click(function(){
-           if($(this).hasClass("active")){
-               var sl=$(".suggest").scrollLeft();
-               $(".suggest").animate({scrollLeft:sl+5*140},600,function(){
-                   if($(".suggest").scrollLeft()==$(".suggestContainer").width()-700){
-                       $("#J_sugNext span").removeClass("active")
-                       $("#J_sugNext span").addClass("disabled")
-                   }else{
-                       $("#J_sugPre span").removeClass("disabled")
-                       $("#J_sugPre span").addClass("active")
-                   }
-               });
-           }
-           $(this).parent().blur(); 
-       });
-        $("#J_sugPre span").click(function(){
-           if($(this).hasClass("active")){
-                var sl=$(".suggest").scrollLeft();
-                $(".suggest").animate({scrollLeft:sl-5*140},600,function(){
-                   if($(".suggest").scrollLeft()==0){
-                       $("#J_sugPre span").removeClass("active")
-                       $("#J_sugPre span").addClass("disabled")
-                   }else{
-                       $("#J_sugNext span").removeClass("disabled")
-                       $("#J_sugNext span").addClass("active")
-                   }
-                }); 
-           }
-           $(this).parent().blur(); 
-       });
-        $("#J_sugPre").click(function(){
-          $(this).blur()
-       });
-       $("#J_sugNext").click(function(){
-          $(this).blur()
-       });
-       
-       
-    });
-    </script>
-
+    <script type="text/javascript" src="js/pro_show.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<input type="hidden" id="priceRang" value="<%=ViewState["priceRang"] %>" />
     <div class="MiddleRight">
         <!--========产品内容开始=============-->
         <div class="pTitle">
-            原装正品音乐天使 JH-MA UK2 插卡音箱 TF/U盘迷你小音箱
+            <%=ViewState["title"] %>
         </div>
         <div class="Split12px">
         </div>
@@ -130,40 +28,39 @@
                     <tr>
                         <td align="center">
                             <div>
-                                <img src="http://a2.att.hudong.com/08/44/01300000369368127558441488234.jpg" />
-                            </div>
+                                <img id="bigimg" onerror="javascript:$(this).hide()" src="<%=ViewState["img1"] %>" /></div>
                         </td>
                     </tr>
                 </table>
                 <ul class="pPicBottom">
                     <li>
                         <div>
-                            <img src="http://i04.c.aliimg.com/img/ibank/2010/585/731/199137585_1508253996.summ.jpg" />
+                            <img onerror="javascript:$(this).hide()" src="<%=ViewState["img1"] %>" />
                         </div>
                     </li>
                     <li class="lisplit"></li>
                     <li>
                         <div>
-                            <img src="http://i02.c.aliimg.com/img/ibank/2010/486/731/199137684_1508253996.summ.jpg" />
+                            <img onerror="javascript:$(this).parent().parent().hide()" src="<%=ViewState["img2"] %>" />
                         </div>
                     </li>
                     <li class="lisplit"></li>
                     <li>
                         <div>
-                            <img src="http://i00.c.aliimg.com/img/ibank/2010/228/921/186129822_1508253996.summ.jpg" />
+                            <img onerror="javascript:$(this).parent().parent().hide()" src="<%=ViewState["img3"] %>" />
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="pInfo">
                 <ul class="ul004">
-                    <li class="pInfoH">数量(个)</li><li class="pInfoH">单价(元/个)</li>
-                    <li class="pInfoL">5-29</li><li class="pInfoL"><span class="Amount fontSize14 bold">
-                        57.00</span> 元/个</li>
+                    <li class="pInfoH">数量(个)</li><li class="pInfoH">单价(元/<%=ViewState["unit"] %>)</li>
+                    <li class="pInfoL" >5-29</li><li class="pInfoL"><span class="Amount fontSize14 bold">
+                        57.00</span> 元/<%=ViewState["unit"] %></li>
                     <li class="pInfoL">≥30</li><li class="pInfoL"><span class="Amount fontSize14 bold">57.00</span>
-                        元/个</li>
+                        元/<%=ViewState["unit"] %></li>
                     <li class="pInfoL">≥30</li><li class="pInfoL"><span class="Amount fontSize14 bold">57.00</span>
-                        元/个</li>
+                        元/<%=ViewState["unit"] %></li>
                 </ul>
                 <div class="Split12px">
                     &nbsp;</div>
@@ -235,123 +132,10 @@
             </ul>
             <div class="proProperty">
                 <div class="pContent1">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td class="fieldHead">
-                                    箱体材料
-                                </td>
-                                <td>
-                                    金属
-                                </td>
-                                <td class="fieldHead">
-                                    声道
-                                </td>
-                                <td>
-                                    双声道
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fieldHead">
-                                    调节形式
-                                </td>
-                                <td>
-                                    按键
-                                </td>
-                                <td class="fieldHead">
-                                    信噪比
-                                </td>
-                                <td>
-                                    &ge;80db
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fieldHead">
-                                    造型
-                                </td>
-                                <td>
-                                    长方体
-                                </td>
-                                <td class="fieldHead">
-                                    颜色
-                                </td>
-                                <td>
-                                    黑,红,银,蓝,绿
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fieldHead">
-                                    品牌
-                                </td>
-                                <td>
-                                    音乐天使
-                                </td>
-                                <td class="fieldHead">
-                                    包装
-                                </td>
-                                <td>
-                                    纸盒
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fieldHead">
-                                    型号
-                                </td>
-                                <td>
-                                    UK
-                                </td>
-                                <td class="fieldHead">
-                                    功率
-                                </td>
-                                <td>
-                                    3W*2
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fieldHead">
-                                    规格
-                                </td>
-                                <td>
-                                    60/件
-                                </td>
-                                <td class="fieldHead">
-                                    新奇特
-                                </td>
-                                <td>
-                                    充电音响
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fieldHead">
-                                    使用场合
-                                </td>
-                                <td>
-                                    广告促销、会议庆典、办公福利、商务公关、答谢客户、开业典礼、节日庆祝、婚庆、生日、乔迁、毕业升学、外事、其他
-                                </td>
-                                <td class="fieldHead">
-                                    送礼对象
-                                </td>
-                                <td>
-                                    送父母/长辈、送孩子/宝宝、送女友/老婆、送男友/老公、送朋友、送同事、送客户、送领导、送同学、送恩师、送老外、送哥哥/弟弟、送姐姐/妹妹、其他
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fieldHead">
-                                    是否提供加工定制
-                                </td>
-                                <td>
-                                    否
-                                </td>
-                                <td class="fieldHead">
-                                </td>
-                                <td>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <uc1:Property ID="Property1" runat="server" />
+                    
                     <div class="description-detail">
-                        <img alt="" src="http://i00.c.aliimg.com/img/ibank/2010/930/840/199048039_1508253996.jpg" />
-                        <img alt="" src="http://i02.c.aliimg.com/img/ibank/2010/017/740/199047710_1508253996.jpg" />
+                        <%=ViewState["Detail"]%>
                     </div>
                 </div>
                 <div class="pContent2 oflAuto">

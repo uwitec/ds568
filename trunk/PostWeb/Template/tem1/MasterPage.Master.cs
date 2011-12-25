@@ -28,7 +28,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
         var list = vmbbl.Query("id=@0", "", int.Parse(Request.QueryString["member_id"]));
         Repeater2.DataSource = list;
         Repeater2.DataBind();
-        
+        var md=list.Single();
+        ViewState["comName"] = md.CompanyName;
+        ViewState["address"]=md.BusinessAddress;
  
     }
 

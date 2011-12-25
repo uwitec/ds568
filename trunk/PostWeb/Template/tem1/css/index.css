@@ -290,7 +290,7 @@
  .pInfo ul.ul004 li{width:207px;float:left;height:30px;line-height:30px;text-align:center;}
  .pInfo div.Split12px{float:left;width:414px;}
  .pInfoH{ background:url(../images/cefbfe.gif) repeat-x 0 -28px; }
- .pInfoL{border-bottom:dotted 1px #dcdcdc;}
+ .pInfoL{border-bottom:dotted 1px #dcdcdc; display:none;}
  
  .fontSize14{font-size:14px;}
  .bold{font-weight:bold;}

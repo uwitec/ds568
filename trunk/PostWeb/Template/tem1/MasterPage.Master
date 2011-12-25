@@ -84,7 +84,7 @@
             <!--==============头部开始，放公司名称或个人名称===============-->
             <div class="Head">
                 <h1>
-                    &nbsp;&nbsp;苏东坡</h1>
+                    &nbsp;&nbsp;<%=ViewState["comName"]%></h1>
             </div>
             <!--==============头部结束，放公司名称或个人名称===============-->
             <!--========菜单开始==============-->
@@ -220,7 +220,7 @@
         <!--==============底部开始===============-->
         <div class="Bottom">
             <p>
-                覃旭 地址： 中国 广东 中山市 中山市小榄永宁岗头村工业区
+                <%=ViewState["comName"]%> 地址： <%=ViewState["address"]%>
             </p>
             <p>
                 技术支持：<a onmousedown="return aliclick(this,'?tracelog=wp_home_channel')" href="http://page.china.alibaba.com/html/danai/channel_index.html"
