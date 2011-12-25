@@ -142,7 +142,7 @@
        wBox=$(this).wBox({
             title: "添加产品图片",
             requestType: "iframe",
-            target:"../addimg.aspx",
+            target:"addimg.aspx",
             show:true,
             drag:false
         });
