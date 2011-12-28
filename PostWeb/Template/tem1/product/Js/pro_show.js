@@ -45,58 +45,46 @@
           
        });
       
-       //产品描术图片自缩放
-       $(".description-detail img").each(function(){
-           changeImg(this,742,742)
-       });
+       
        
        //计算更多商家产品信息列表的长度，因为要滚动
        var divlen=$(".suggestContainer div").length;
-       var lin=0
-       if(divlen%5>0)
-          lin =5-divlen%5;//必须够5的整数，不够则增加
-       $(".suggestContainer").css("width",$(".suggestContainer div").length*140+lin*140);
-       for(var i=0;i<lin;i++){
-           $(".suggestContainer").append("<div></div>");
-       }
+       $(".suggestContainer").css("width",(divlen+(5-(divlen%5>0?divlen%5:5)))*140);//使Container长度恰好为700的倍数
        
+       if($(".suggestContainer").width()>700)//如果需要滚动，激活下一组按扭
+          $("#J_sugNext span").addClass("active")
+          
        //上一组，下一组事件
        $("#J_sugNext span").click(function(){
            if($(this).hasClass("active")){
                var sl=$(".suggest").scrollLeft();
                $(".suggest").animate({scrollLeft:sl+5*140},600,function(){
-                   if($(".suggest").scrollLeft()==$(".suggestContainer").width()-700){
-                       $("#J_sugNext span").removeClass("active")
-                       $("#J_sugNext span").addClass("disabled")
-                   }else{
-                       $("#J_sugPre span").removeClass("disabled")
-                       $("#J_sugPre span").addClass("active")
+                   if($(".suggest").scrollLeft()>=$(".suggestContainer").width()-700){
+                       $("#J_sugNext span").removeClass("active").addClass("disabled");
                    }
+                   $("#J_sugPre span").removeClass("disabled").addClass("active");
                });
            }
            $(this).parent().blur(); 
        });
-        $("#J_sugPre span").click(function(){
+       $("#J_sugPre span").click(function(){
            if($(this).hasClass("active")){
                 var sl=$(".suggest").scrollLeft();
                 $(".suggest").animate({scrollLeft:sl-5*140},600,function(){
                    if($(".suggest").scrollLeft()==0){
-                       $("#J_sugPre span").removeClass("active")
-                       $("#J_sugPre span").addClass("disabled")
-                   }else{
-                       $("#J_sugNext span").removeClass("disabled")
-                       $("#J_sugNext span").addClass("active")
+                       $("#J_sugPre span").removeClass("active").addClass("disabled")
                    }
+                   $("#J_sugNext span").removeClass("disabled").addClass("active")
                 }); 
            }
            $(this).parent().blur(); 
        });
-        $("#J_sugPre").click(function(){
-          $(this).blur()
-       });
-       $("#J_sugNext").click(function(){
-          $(this).blur()
-       });
+//       $("#J_sugPre").click(function(){
+//          $(this).blur()
+//       });
+//       $("#J_sugNext").click(function(){
+//          $(this).blur()
+//       });
        
        //处理显示数据
        var pr=$("#priceRang").val();//价格区间

@@ -136,6 +136,12 @@
                     
                     <div class="description-detail">
                         <%=ViewState["Detail"]%>
+                        <script type="text/javascript">
+                            //产品描术图片自缩放
+                           $(".description-detail img").each(function(){
+                               changeImg(this,742,742)
+                           });
+                        </script>
                     </div>
                 </div>
                 <div class="pContent2 oflAuto">
@@ -185,219 +191,38 @@
                         <div class="moreTitle">
                             供应商的其他相关信息</div>
                         <div class="moreProduct">
-                            <a href="#">查看该供应商更多供应产品</a></div>
+                            <a href="index_product.aspx?member_id=<%=Request.QueryString["member_id"] %>">查看该供应商更多供应产品</a></div>
                     </div>
                     <div class="moreContent">
                         <a id="J_sugPre" href="javascript:;"><span class="disabled">上一组</span></a>
                         <div class="suggest" >
                             <div class="suggestContainer">
-                                <div>
-                                     <ul>
-                                      <li>
-                                        <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                        <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                            src="http://img.china.alibaba.com/img/ibank/2011/201/867/246768102_1508253996.summ.jpg" /></a>
-                                         <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱</a></h4>
-                                          <p class="fontSize14">¥ <em class="Amount  bold">60.00</em><br /></p>
-                                    </li>
-                                    </ul>
-                                </div>
-                                <div>
-                                     <ul>
-                                      <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2011/473/867/246768374_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >最新铝合金插卡音箱 便携音箱 TT6 音箱 最小巧音箱（显示歌词）</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">70.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                 <div>
-                                     <ul>
-                                       <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2010/017/740/199047710_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >原装正品音乐天使，3UK，插卡音箱，铝合金音响 便携音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">69.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                 <div>
-                                     <ul>
-                                   <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2010/584/514/185415485_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >铝合金插卡音箱 TT2 铝合金音响 插卡迷你音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">29.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                 <div>
-                                     <ul>
-                                      <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2011/201/867/246768102_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">55.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                 <div>
-                                     <ul>
-                                      <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2010/845/740/199047548_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">55.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                  <div>
-                                     <ul>
-                                      <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2010/804/341/199143408_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">55.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                   <div>
-                                     <ul>
-                                      <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2011/792/767/246767297_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">55.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                  <div>
-                                     <ul>
-                                      <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2010/684/740/199047486_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">55.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                  <div>
-                                     <ul>
-                                      <li>
-                                        <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                        <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                            src="http://img.china.alibaba.com/img/ibank/2011/201/867/246768102_1508253996.summ.jpg" /></a>
-                                         <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱</a></h4>
-                                          <p class="fontSize14">¥ <em class="Amount  bold">60.00</em><br /></p>
-                                    </li>
-                                    </ul>
-                                </div>
-                                <div>
-                                     <ul>
-                                      <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2011/473/867/246768374_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >最新铝合金插卡音箱 便携音箱 TT6 音箱 最小巧音箱（显示歌词）</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">70.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                 <div>
-                                     <ul>
-                                       <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2010/017/740/199047710_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >原装正品音乐天使，3UK，插卡音箱，铝合金音响 便携音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">69.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                 <div>
-                                     <ul>
-                                   <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2010/584/514/185415485_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >铝合金插卡音箱 TT2 铝合金音响 插卡迷你音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">29.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                 <div>
-                                     <ul>
-                                      <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2011/201/867/246768102_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">55.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                 <div>
-                                     <ul>
-                                      <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2010/845/740/199047548_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">55.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                  <div>
-                                     <ul>
-                                      <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2010/804/341/199143408_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">55.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                   <div>
-                                     <ul>
-                                      <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2011/792/767/246767297_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">55.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
-                                  <div>
-                                     <ul>
-                                      <li>
-                                    <a class="linkImg" href="http://detail.china.alibaba.com/buyer/offerdetail/898157321.html" >
-                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                        src="http://img.china.alibaba.com/img/ibank/2010/684/740/199047486_1508253996.summ.jpg" /></a>
-                                     <h4><a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱" >UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱</a></h4>
-                                      <p class="fontSize14">¥ <em class="Amount  bold">55.00</em><br /></p>
-                                </li>
-                                    </ul>
-                                </div>
+                                <asp:Repeater ID="Repeater1" runat="server">
+                                    <ItemTemplate>
+                                        <div>
+                                            <ul>
+                                                <li ><a class="linkImg" href="product_show.aspx?member_id=<%#Request.QueryString["member_id"] %>&pro_id=<%#Eval("id") %>">
+                                                    <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
+                                                        onload="changeImg(this,100,100)" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
+                                                    <h4>
+                                                        <a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱"><%#Eval("title") %></a></h4>
+                                                    <p class="fontSize14">
+                                                        ¥ <em class="Amount  bold"><%#double.Parse(Eval("priceRang").ToString().Split('|')[0].Split(',')[1]).ToString("N2") %></em><br />
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                
                             </div>
-                    
                         </div>
-                        <a id="J_sugNext" href="javascript:;"><span class="active">下一组</span></a>
+                        <a id="J_sugNext" href="javascript:;"><span class="disabled">下一组</span></a>
                     </div>
                 </div>
                 <div class="moreCategory">
                     <div class="propertyPf">您可以通过以下类目找到类似信息</div>
-                    <div class="categoryLink" ><a href="#">家用电器</a> &gt; <a href="#">音响产品</a> &gt; <a href="#">音箱</a></div>
+                    <div class="categoryLink" ><%=ViewState["category"] %></div>
                 </div>
                
             </div>
