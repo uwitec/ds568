@@ -28,5 +28,12 @@ public partial class Template_tem1_product_product_show : System.Web.UI.Page
         Property1.Product=md;
         ViewState["Detail"] = md.Detail;
 
+        var list = bl.Query("ShopCatID=@0","",md.ShopCatID);
+        Repeater1.DataSource = list;
+        Repeater1.DataBind();
+
+        var catbl = new DS_SysProductCategory_Br();
+        ViewState["category"] = catbl.GetCategoryName(md.SysCatID,false).TrimEnd('>').Replace(">"," > ");
+
     }
 }
