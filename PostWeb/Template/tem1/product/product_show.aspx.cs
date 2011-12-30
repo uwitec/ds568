@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Product;
+using Com.DianShi.BusinessRules.Member;
 [PartialCaching(1800, "pro_id", null, null)]
 public partial class Template_tem1_product_product_show : System.Web.UI.Page
 {
@@ -34,6 +35,12 @@ public partial class Template_tem1_product_product_show : System.Web.UI.Page
 
         var catbl = new DS_SysProductCategory_Br();
         ViewState["category"] = catbl.GetCategoryName(md.SysCatID,false).TrimEnd('>').Replace(">"," > ");
+
+        //联系信息
+        var vmbbl = new View_Members_Br();
+        var mblist = vmbbl.Query("id=@0", "", int.Parse(Request.QueryString["member_id"]));
+        Repeater2.DataSource = mblist;
+        Repeater2.DataBind();
 
     }
 }
