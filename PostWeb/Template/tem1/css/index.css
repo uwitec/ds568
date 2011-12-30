@@ -389,7 +389,8 @@
  .moreCategory .propertyPf{border-top:none 0;border-bottom:dotted 1px #dcdcdc; text-indent:0;}
  .categoryLink{line-height:30px;font-family:"宋体";}
  .profileBody{padding:6px;}
- .profileBody img{float:left;margin-right:6px;margin-bottom:6px;}
+ .comimgCtn{float:left;width:300px;height:228px; position:relative;margin-right:6px;margin-bottom:6px;}
+ .comimgCtn img{ position:absolute;top:0;left:0;}
  .contactBody{padding:18px;padding-top:9px;}
   .companyName
   {
@@ -437,3 +438,7 @@
   .publishComent-cont ul{width:600px;margin:auto;}
   .publishComent-cont ul li{float:left;}
   .publishComent-btn{margin-top:20px;margin-bottom:10px;}
+  
+  .ctname{color:#0048a2;font-size:26px;font-weight:bold;}
+  .ctctn{border-bottom:dashed 1px #ccc;width:350px;}
+  .ctlist{line-height:22px;}
