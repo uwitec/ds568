@@ -54,7 +54,7 @@
             </div>
             <div class="pInfo">
                 <ul class="ul004">
-                    <li class="pInfoH">数量(个)</li><li class="pInfoH">单价(元/<%=ViewState["unit"] %>)</li>
+                    <li class="pInfoH">数量(<%=ViewState["unit"] %>)</li><li class="pInfoH">单价(元/<%=ViewState["unit"] %>)</li>
                     <li class="pInfoL" >5-29</li><li class="pInfoL"><span class="Amount fontSize14 bold">
                         57.00</span> 元/<%=ViewState["unit"] %></li>
                     <li class="pInfoL">≥30</li><li class="pInfoL"><span class="Amount fontSize14 bold">57.00</span>
@@ -154,7 +154,7 @@
                                     混批</p>
                                 <div class="float-l">
                                 </div>
-                                <em class="float-l">支持混批，[5000]元以上起批 或者 [100]个以上起批 </em>
+                                <em class="float-l">支持混批，[150]元以上起批 或者 [2]kg以上起批 </em>
                             </div>
                             <div class="de-info">
                                 <p>
@@ -176,14 +176,29 @@
                     <div class="pInfoH propertyPf">
                         运费说明</div>
                     <div class="proContent">
-                        供应商尚未提供运费说明详情，请联系供应商以获取相关信息
+                       87元起减免8元运费,如果量大可再商议。
                     </div>
                 </div>
                 <div class="pContent4">
                     <div class="pInfoH propertyPf">
                         联系方式</div>
-                          <div class="proContent">
-                        供应商尚未提供联系方式详情，请联系供应商以获取相关信息
+                    <div class="proContent">
+                        <asp:Repeater ID="Repeater2" runat="server">
+                            <ItemTemplate>
+                                <div class="ctctn">
+                                    <span class="ctname"><%#Eval("TrueName") %></span> <%#Eval("Gender")%> | <%#Eval("Position")%> <a class="ctqq" target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=416351551">
+                                        <img border="0" src="http://wpa.qq.com/pa?p=1:416351551:1" title="给我发消息" alt="给我发消息"></a>
+                                </div>
+                                <ul class="ctlist">
+                                    <li>手机：<%#Eval("Mobile") %></li>
+                                    <li>电话：<%#Eval("Phone").ToString().TrimEnd('-')%></li>
+                                    <li>传真：<%#Eval("Fax").ToString().TrimEnd('-')%></li>
+                                    <li>地址：<%#Eval("BusinessAddress")%></li>
+                                    <li>邮编：<%#Eval("ZipCode")%></li>
+                                    <li>网址：<a href="<%#Eval("HomePage") %>" target="_blank"><%#Eval("HomePage") %></a></li>
+                                </ul>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                 </div>
                 <div class="moreHead">
