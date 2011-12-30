@@ -16,8 +16,9 @@ public partial class Template_tem1_profile_index_profile : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack) return;
-        var bl = new DS_CompanyInfo_Br();
-        var md = bl.GetSingleByMemberID(int.Parse(Request.QueryString["member_id"]));
+        var bl = new View_Members_Br();
+        var md = bl.GetSingle(int.Parse(Request.QueryString["member_id"]));
         ViewState["ct"] = md.Profile;
+        ViewState["imgurl"] = md.ComImg;
     }
 }

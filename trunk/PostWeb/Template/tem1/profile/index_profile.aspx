@@ -3,10 +3,12 @@
     Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script type="text/javascript" src="js/profile.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<input type="hidden" value="<%=ViewState["imgurl"] %>" id="hdimgurl" />
     <div class="MiddleRight">
         <!--========内容开始=============-->
         <div class="About">
@@ -15,54 +17,8 @@
                     公司介绍</div>
             </div>
             <div class="profileBody">
-                
-                <script language="javascript" type="text/javascript">
-                <!--
-                var bannerAD=new Array();
-                var adNum=0;
-                                
-		        bannerAD[0]="http://i05.c.aliimg.com/img/company/goldenphoto/42/38/14/423814.summ.jpg";
-                bannerAD[1]="http://i05.c.aliimg.com/img/company/goldenphoto/42/38/15/423815.summ.jpg";
-                bannerAD[2]="http://i04.c.aliimg.com/img/company/26/32/38/05/26323805_1.summ.jpg";
-                                
-                var preloadedimages=new Array();
-                for (i = 0; i < bannerAD.length; i++){
-                  preloadedimages[i]=new Image();
-                  preloadedimages[i].src=bannerAD[i];
-                }
-                
-                function setTransition(){
-                if (document.all){
-                  document.images.bannerADrotator.filters.revealTrans.Transition=Math.floor(Math.random()*23);
-                  document.images.bannerADrotator.filters.revealTrans.apply();
-                }
-                }
-                
-                function playTransition(){
-                if (document.all)
-                  document.images.bannerADrotator.filters.revealTrans.play()
-                }
-                
-                function nextAd(){
-                if(adNum<bannerAD.length)adNum++ ;
-                  else adNum=0;
-                setTransition();
-                if(adNum-1>=0)
-                document.images.bannerADrotator.src=bannerAD[adNum-1];
-                else
-                document.images.bannerADrotator.src=bannerAD[adNum];
-                //document.getElementById("des").innerHTML=bannerDE[adNum];
-                playTransition();
-                theTimer=setTimeout("nextAd()", 6000);
-                }
-                
+                <div class="comimgCtn"></div>
                
-                //-->
-                </script>
-
-                <img style="filter: revealTrans(duration=2,transition=20)" width="300" height="228"
-                    src="http://i04.c.aliimg.com/img/company/26/32/38/05/26323805_1.summ.jpg" border="0"
-                    name="bannerADrotator" alt="公司图片" onload="javascript:changeImg(this,322,341)" /><script>nextAd()</script>
                 &nbsp;<%=ViewState["ct"]%>
             </div>
         </div>
