@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Product;
 using Com.DianShi.BusinessRules.Member;
-[PartialCaching(300,"member_id",null,null)]
+[PartialCaching(1800,"member_id",null,null)]
 public partial class MasterPage : System.Web.UI.MasterPage
 {
    
