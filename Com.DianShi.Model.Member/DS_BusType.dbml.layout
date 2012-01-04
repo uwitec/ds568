@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DS_BusType">
+  <DataContextMoniker Name="/DS_BusTypeDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ee2f9313-fa2c-4f0c-816b-00ab53f41fe0" absoluteBounds="2.5, 1, 2, 1.2797265625">
+      <DataClassMoniker Name="/DS_BusTypeDataContext/DS_BusType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fea6dff-3fc4-4b25-ab26-bdf3e29b340f" absoluteBounds="2.515, 1.46, 1.9700000000000002, 0.7197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

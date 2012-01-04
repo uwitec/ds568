@@ -57,6 +57,12 @@ public partial class Member_Manage_UserControl_LeftMenu : System.Web.UI.UserCont
                             "<li><a href=\"#\">运费设置</a></li>" +
                             "<li><a href=\"../DiyCat/UserDefCat.aspx\">产品自定义分类</a></li>";
                     break;
+                case "图片管家":
+                    ViewState["icon"] = "imagemanager";
+                    return "<li><a  href=\"album_add.aspx\">上传图片</a></li>" +
+                            "<li><a href=\"album_list.aspx\">相册管理</a></li>" +
+                            "<li><a href=\"#\">设置水印</a></li>";
+                    break;
             }
             return "";
         }

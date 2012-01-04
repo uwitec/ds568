@@ -42,6 +42,19 @@ public partial class Member_Manage_CompanyInfo_DetailInfo : BasePage
         ViewState["MajorCustomers"] = md.MajorCustomers;
         ViewState["oem"] = md.OEM;
         ViewState["ComImg"] = md.ComImg;
+
+        //员工人数
+        var embl = new DS_Employees_Br();
+        Repeater1.DataSource = Repeater2.DataSource = embl.Query("", "px");
+        Repeater1.DataBind();
+        Repeater2.DataBind();
+
+        //营业额
+        var tubl = new DS_Turnover_Br();
+        Repeater3.DataSource = Repeater4.DataSource = Repeater5.DataSource = tubl.Query("", "px");
+        Repeater3.DataBind();
+        Repeater4.DataBind();
+        Repeater5.DataBind();
     }
 
     private void Button1_Click(object sender, EventArgs e) {

@@ -28,18 +28,19 @@
                     详细信息</div>
             </div>
             <div class="profileBody">
-                <table width="98%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
+                <asp:Repeater ID="Repeater1" runat="server">
+                    <ItemTemplate>
+                        <table width="98%" border="0" align="center"  cellpadding="0" cellspacing="1" bgcolor="#FFFFFF" style="line-height:30px;">
                     <tr>
                         <td width="17%" bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
                             padding-bottom: 3px;">
                             <div align="right">
-                                <strong><a href="http://dongganzhe168.cn.alibaba.com/athena/offerlist/dongganzhe168-sale-false.html"
-                                    class=" draft_no_link">主营产品或服务</a>：</strong>
+                                <strong>主营产品或服务：</strong>
                             </div>
                         </td>
                         <td width="33%" bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" style="word-break: break-all" align="left">
-                            插卡音箱;电话线;电话转接头;电话配件;
+                            <%#Eval("OfferService").ToString().TrimEnd(',')%>
                         </td>
                         <td width="17%" bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
                             padding-bottom: 3px;">
@@ -49,7 +50,7 @@
                         </td>
                         <td width="33%" valign="top" bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px;
                             padding-left: 5px; padding-right: 5px; padding-bottom: 3px;" align="left">
-                            综合性公司 电脑音箱 音箱 木制工艺品 金属工艺品 其他数码产品
+                            <%#Eval("MainIndustry")%>
                         </td>
                     </tr>
                     <tr>
@@ -60,7 +61,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            个体经营
+                            <%#GetBt(Eval("BusinessType"))%>
                         </td>
                         <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
                             padding-bottom: 3px;">
@@ -70,7 +71,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            生产加工
+                            <%#Eval("BusinessModel")%>
                         </td>
                     </tr>
                     <tr>
@@ -81,7 +82,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            无需验资
+                            <%#Eval("CapitalType")%> <%#double.Parse(Eval("RegisteredCapital").ToString()).ToString("N2")%> 万
                         </td>
                         <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
                             padding-bottom: 3px;">
@@ -90,7 +91,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            广东省深圳市
+                            <%#Eval("RegistrationArea")%>
                         </td>
                     </tr>
                     <tr>
@@ -101,7 +102,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            51 - 100 人
+                            <%#GetStaffNum(Eval("Employees"))%>
                         </td>
                         <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
                             padding-bottom: 3px;">
@@ -110,7 +111,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            2006 年
+                            <%#Eval("YearEstablished")%> 年
                         </td>
                     </tr>
                     <tr>
@@ -122,7 +123,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            方伟泽
+                            <%#Eval("LegalRepresentative")%>
                         </td>
                         <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
                             padding-bottom: 3px;">
@@ -132,7 +133,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            人民币 1001 万元/年 - 2000 万元/年
+                            <%#GetTu(Eval("AnnualTurnover"))%>
                         </td>
                     </tr>
                     <tr>
@@ -143,7 +144,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            深圳华强北经济大厦D22
+                            <%#Eval("BusinessAddress")%>
                         </td>
                         <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
                             padding-bottom: 3px;">
@@ -153,18 +154,18 @@
                         <td class="S lh15" style="padding-top: 3px; padding-left: 5px; padding-right: 5px;
                             padding-bottom: 3px;" align="left">
                             <p>
-                                动感者</p>
+                                <%#Eval("BrandName")%></p>
                         </td>
                     </tr>
                     <tr>
                         <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
                             padding-bottom: 3px;">
                             <div align="right">
-                                <strong>是否提供加工/定制服务？</strong></div>
+                                <strong>是否提供OEM代加工？</strong></div>
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            是(OEM加工;来样加工;ODM加工;来料代工加工;来料加工)
+                             <%#Eval("OEM") == null ? "--" : ((bool)Eval("OEM"))?"是":"否"%>
                         </td>
                         <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
                             padding-bottom: 3px;">
@@ -174,29 +175,10 @@
                         <td class="S lh15" style="padding-top: 3px; padding-left: 5px; padding-right: 5px;
                             padding-bottom: 3px;" align="left">
                             <p>
-                                内部</p>
+                                <%#Eval("QualityControl")%></p>
                         </td>
                     </tr>
-                    <tr>
-                        <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
-                            padding-bottom: 3px;">
-                            <div align="right">
-                                <strong>工艺：</strong></div>
-                        </td>
-                        <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
-                            padding-right: 5px; padding-bottom: 3px;" align="left">
-                            印刷加工
-                        </td>
-                        <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
-                            padding-bottom: 3px;">
-                            <div align="right">
-                                <strong>服务领域：</strong></div>
-                        </td>
-                        <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
-                            padding-right: 5px; padding-bottom: 3px;" align="left">
-                            电器;礼品工艺品;通信;数码家电;运动、休闲
-                        </td>
-                    </tr>
+                    
                     <tr>
                         <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
                             padding-bottom: 3px;">
@@ -205,7 +187,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            人民币 31 万元 - 50 万元
+                             <%#GetTu(Eval("AnnualImports"))%>
                         </td>
                         <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
                             padding-bottom: 3px;">
@@ -214,7 +196,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            人民币 1001 万元 - 2000 万元
+                             <%#GetTu(Eval("AnnualExport"))%>
                         </td>
                     </tr>
                     <tr>
@@ -225,7 +207,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            11 - 20 人
+                            <%#GetStaffNum(Eval("StudyEmployees"))%>
                         </td>
                         <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-right: 3px;
                             padding-bottom: 3px;">
@@ -234,7 +216,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            1200 平方米
+                            <%#Eval("StorageArea") == null ? "" : Eval("StorageArea").ToString() + " 平方米"%> 
                         </td>
                     </tr>
                     <tr>
@@ -245,7 +227,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            500000 台
+                            <%#Eval("Monthly") == null ? "" : Eval("Monthly").ToString() +" "+ Eval("MonthlyUnit")%> 
                         </td>
                         <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-left: 15px;
                             padding-right: 8px; padding-bottom: 3px;">
@@ -264,10 +246,7 @@
                         </td>
                         <td bgcolor="#FFFFFF" class="S lh15" style="padding-top: 3px; padding-left: 5px;
                             padding-right: 5px; padding-bottom: 3px;" align="left">
-                            <a class="draft_no_link topicLink" href="http://www.dgz888.com" target="_blank">http://www.dgz888.com</a>
-                            <br />
-                            <a class="draft_no_link topicLink" href="http://dongganzhe168.cn.alibaba.com" target="_blank">
-                                http://dongganzhe168.cn.alibaba.com</a>
+                           <a href="<%#Eval("HomePage") %>" target="_blank"><%#Eval("HomePage")%></a>
                         </td>
                         <td bgcolor="#F0f0f0" class="S lh15" style="padding-top: 3px; padding-left: 15px;
                             padding-right: 8px; padding-bottom: 3px;">
@@ -279,6 +258,8 @@
                         </td>
                     </tr>
                 </table>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
         </div>
         <!--========内容结束=============-->

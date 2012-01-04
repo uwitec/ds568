@@ -82,9 +82,13 @@ namespace Com.DianShi.Model.Album
 		
 		private int _ID;
 		
+		private int _MemberID;
+		
 		private string _AlbumName;
 		
-		private int _MemberID;
+		private byte _Permissions;
+		
+		private string _Password;
 		
 		private System.DateTime _CreateDate;
 		
@@ -96,10 +100,14 @@ namespace Com.DianShi.Model.Album
     partial void OnCreated();
     partial void OnIDChanging(int value);
     partial void OnIDChanged();
-    partial void OnAlbumNameChanging(string value);
-    partial void OnAlbumNameChanged();
     partial void OnMemberIDChanging(int value);
     partial void OnMemberIDChanged();
+    partial void OnAlbumNameChanging(string value);
+    partial void OnAlbumNameChanged();
+    partial void OnPermissionsChanging(byte value);
+    partial void OnPermissionsChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
     partial void OnCreateDateChanging(System.DateTime value);
     partial void OnCreateDateChanged();
     partial void OnPxChanging(int value);
@@ -131,6 +139,26 @@ namespace Com.DianShi.Model.Album
 			}
 		}
 		
+		[Column(Storage="_MemberID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int MemberID
+		{
+			get
+			{
+				return this._MemberID;
+			}
+			set
+			{
+				if ((this._MemberID != value))
+				{
+					this.OnMemberIDChanging(value);
+					this.SendPropertyChanging();
+					this._MemberID = value;
+					this.SendPropertyChanged("MemberID");
+					this.OnMemberIDChanged();
+				}
+			}
+		}
+		
 		[Column(Storage="_AlbumName", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string AlbumName
 		{
@@ -151,22 +179,42 @@ namespace Com.DianShi.Model.Album
 			}
 		}
 		
-		[Column(Storage="_MemberID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int MemberID
+		[Column(Storage="_Permissions", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte Permissions
 		{
 			get
 			{
-				return this._MemberID;
+				return this._Permissions;
 			}
 			set
 			{
-				if ((this._MemberID != value))
+				if ((this._Permissions != value))
 				{
-					this.OnMemberIDChanging(value);
+					this.OnPermissionsChanging(value);
 					this.SendPropertyChanging();
-					this._MemberID = value;
-					this.SendPropertyChanged("MemberID");
-					this.OnMemberIDChanged();
+					this._Permissions = value;
+					this.SendPropertyChanged("Permissions");
+					this.OnPermissionsChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Password", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
 				}
 			}
 		}

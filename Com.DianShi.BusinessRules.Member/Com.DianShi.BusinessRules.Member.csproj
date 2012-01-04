@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_Turnover.cs" />
+    <Compile Include="DS_Employees.cs" />
+    <Compile Include="DS_BusType.cs" />
     <Compile Include="View_Members.cs" />
     <Compile Include="DS_ValiCodeSend.cs" />
     <Compile Include="DS_SafeQuestion.cs" />

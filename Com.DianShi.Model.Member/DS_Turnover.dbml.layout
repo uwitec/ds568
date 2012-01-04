@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DS_Turnover">
+  <DataContextMoniker Name="/DS_TurnoverDataContext" />
+  <nestedChildShapes>
+    <classShape Id="380df804-3375-4204-b547-00d9c580bfd0" absoluteBounds="2.25, 1.5, 2, 1.2797265625">
+      <DataClassMoniker Name="/DS_TurnoverDataContext/DS_Turnover" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ef17eaf-3fdc-455f-a7d4-77720d95da83" absoluteBounds="2.265, 1.96, 1.9700000000000002, 0.7197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
