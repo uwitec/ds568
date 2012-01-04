@@ -141,5 +141,10 @@ namespace Com.DianShi.BusinessRules.Album
 
         }
 
+        public enum Permissions : byte { 
+            公开,
+            密码访问,
+            不公开
+        }
     }
 }

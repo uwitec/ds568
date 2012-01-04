@@ -59,21 +59,11 @@
             <input type="hidden" id="HD_Employees" value="<%=ViewState["Employees"] %>" />
             <select name="Employees">
                 <option value="0">-- 请选择 --</option>
-                <option value="1">少于5 人</option>
-                <option value="2">5 - 10 人</option>
-                <option value="3">11 - 20 人</option>
-                <option value="4">21 - 30 人</option>
-                <option value="5">31 - 40 人</option>
-                <option value="6">41 - 50 人</option>
-                <option value="7">51 - 60 人</option>
-                <option value="8">61 - 70 人</option>
-                <option value="9">71 - 80 人</option>
-                <option value="10">81 - 90 人</option>
-                <option value="11">91 - 100 人</option>
-                <option value="12">101 - 300 人</option>
-                <option value="21">301 - 500 人</option>
-                <option value="22">501 - 1000 人</option>
-                <option value="23">1000 人以上</option>
+                <asp:Repeater ID="Repeater1" runat="server">
+                    <ItemTemplate>
+                        <option value="<%#Eval("ID") %>"><%#Eval("Employees")%></option>
+                    </ItemTemplate>
+                </asp:Repeater>
             </select>
         </div>
         </li>
@@ -81,21 +71,11 @@
             <input type="hidden" id="HD_StudyEmployees" value="<%=ViewState["StudyEmployees"] %>" />
             <select name="StudyEmployees">
                 <option value="0">--请选择--</option>
-                <option value="1">少于5 人</option>
-                <option value="2">5 - 10 人</option>
-                <option value="3">11 - 20 人</option>
-                <option value="4">21 - 30 人</option>
-                <option value="5">31 - 40 人</option>
-                <option value="6">41 - 50 人</option>
-                <option value="7">51 - 60 人</option>
-                <option value="8">61 - 70 人</option>
-                <option value="9">71 - 80 人</option>
-                <option value="10">81 - 90 人</option>
-                <option value="11">91 - 100 人</option>
-                <option value="12">101 - 300 人</option>
-                <option value="21">301 - 500 人</option>
-                <option value="22">501 - 1000 人</option>
-                <option value="23">1000 人以上</option>
+                <asp:Repeater ID="Repeater2" runat="server">
+                    <ItemTemplate>
+                        <option value="<%#Eval("ID") %>"><%#Eval("Employees")%></option>
+                    </ItemTemplate>
+                </asp:Repeater>
             </select>
         </div>
         </li>
@@ -182,40 +162,22 @@
             <input type="hidden" id="HD_AnnualTurnover" value="<%=ViewState["AnnualTurnover"] %>" />
             <select name="AnnualTurnover">
                 <option value="0">--请选择--</option>
-                <option value="1">人民币 10 万元以下</option>
-                <option value="2">人民币 10 万元 - 30 万元</option>
-                <option value="3">人民币 30 万元 - 50 万元</option>
-                <option value="4">人民币 50 万元 - 100 万元</option>
-                <option value="5">人民币 100 万元 - 200 万元</option>
-                <option value="6">人民币 200 万元 - 300 万元</option>
-                <option value="7">人民币 300 万元 - 500 万元</option>
-                <option value="8">人民币 500 万元 - 700 万元</option>
-                <option value="9">人民币 700 万元 - 1000 万元</option>
-                <option value="10">人民币 1000 万元 - 2000 万元</option>
-                <option value="11">人民币 2000 万元 - 3000 万元</option>
-                <option value="12">人民币 3000 万元 - 5000 万元</option>
-                <option value="13">人民币 5000 万元 - 1 亿元</option>
-                <option value="14">人民币 1 亿元以上</option>
+                <asp:Repeater ID="Repeater3" runat="server">
+                    <ItemTemplate>
+                        <option value="<%#Eval("ID") %>"><%#Eval("Amount")%></option>
+                    </ItemTemplate>
+                </asp:Repeater>
             </select></div>
         </li>
         <li><span>年进口额：</span><div class="floatL">
             <input type="hidden" id="HD_AnnualImports" value="<%=ViewState["AnnualImports"] %>" />
             <select name="AnnualImports">
                 <option value="0">--请选择--</option>
-                <option value="1">人民币 10 万元以下</option>
-                <option value="2">人民币 10 万元 - 30 万元</option>
-                <option value="3">人民币 30 万元 - 50 万元</option>
-                <option value="4">人民币 50 万元 - 100 万元</option>
-                <option value="5">人民币 100 万元 - 200 万元</option>
-                <option value="6">人民币 200 万元 - 300 万元</option>
-                <option value="7">人民币 300 万元 - 500 万元</option>
-                <option value="8">人民币 500 万元 - 700 万元</option>
-                <option value="9">人民币 700 万元 - 1000 万元</option>
-                <option value="10">人民币 1000 万元 - 2000 万元</option>
-                <option value="11">人民币 2000 万元 - 3000 万元</option>
-                <option value="12">人民币 3000 万元 - 5000 万元</option>
-                <option value="13">人民币 5000 万元 - 1 亿元</option>
-                <option value="14">人民币 1 亿元以上</option>
+                 <asp:Repeater ID="Repeater4" runat="server">
+                    <ItemTemplate>
+                        <option value="<%#Eval("ID") %>"><%#Eval("Amount")%></option>
+                    </ItemTemplate>
+                </asp:Repeater>
             </select>
         </div>
         </li>
@@ -223,20 +185,11 @@
             <input type="hidden" id="HD_AnnualExport" value="<%=ViewState["AnnualExport"] %>" />
             <select name="AnnualExport">
                 <option value="0">--请选择--</option>
-                <option value="1">人民币 10 万元以下</option>
-                <option value="2">人民币 10 万元 - 30 万元</option>
-                <option value="3">人民币 30 万元 - 50 万元</option>
-                <option value="4">人民币 50 万元 - 100 万元</option>
-                <option value="5">人民币 100 万元 - 200 万元</option>
-                <option value="6">人民币 200 万元 - 300 万元</option>
-                <option value="7">人民币 300 万元 - 500 万元</option>
-                <option value="8">人民币 500 万元 - 700 万元</option>
-                <option value="9">人民币 700 万元 - 1000 万元</option>
-                <option value="10">人民币 1000 万元 - 2000 万元</option>
-                <option value="11">人民币 2000 万元 - 3000 万元</option>
-                <option value="12">人民币 3000 万元 - 5000 万元</option>
-                <option value="13">人民币 5000 万元 - 1 亿元</option>
-                <option value="14">人民币 1 亿元以上</option>
+                 <asp:Repeater ID="Repeater5" runat="server">
+                    <ItemTemplate>
+                        <option value="<%#Eval("ID") %>"><%#Eval("Amount")%></option>
+                    </ItemTemplate>
+                </asp:Repeater>
             </select>
         </div>
         </li>

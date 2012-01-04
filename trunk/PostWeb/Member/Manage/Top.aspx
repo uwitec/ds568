@@ -35,9 +35,9 @@
                 </a>
             </li>
             <li>
-                <a href="#" target="conFrame">
+                <a href="Album/Album_List.aspx" target="conFrame">
                     <div class="icon-imagemanager"></div>
-                    <div class="wname">相册管理</div>
+                    <div class="wname">图片管家</div>
                 </a>
             </li>
             <li>

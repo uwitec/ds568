@@ -48,10 +48,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_BusType.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_BusType.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DS_CompanyInfo.designer.cs">
       <DependentUpon>DS_CompanyInfo.dbml</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DS_Employees.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Employees.dbml</DependentUpon>
     </Compile>
     <Compile Include="DS_Members.designer.cs">
       <AutoGen>True</AutoGen>
@@ -62,6 +72,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_SafeQuestion.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DS_Turnover.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Turnover.dbml</DependentUpon>
     </Compile>
     <Compile Include="DS_ValiCodeSend.designer.cs">
       <AutoGen>True</AutoGen>
@@ -136,8 +151,38 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DS_BusType.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DS_BusType.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="View_Members.dbml.layout">
       <DependentUpon>View_Members.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DS_BusType.dbml.layout">
+      <DependentUpon>DS_BusType.dbml</DependentUpon>
+    </None>
+    <None Include="DS_Employees.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DS_Employees.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DS_Employees.dbml.layout">
+      <DependentUpon>DS_Employees.dbml</DependentUpon>
+    </None>
+    <None Include="DS_Turnover.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DS_Turnover.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DS_Turnover.dbml.layout">
+      <DependentUpon>DS_Turnover.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

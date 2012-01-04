@@ -23,73 +23,40 @@
         <input type="hidden" id="HD_BusType" value="<%=ViewState["BusType"] %>" />
         <select  name="BusType" class="BusinessType">
              <option value="" > --请选择-- </option>
-   			 <optgroup label="----------------------">
-   			     <option value="24"  >个体经营</option>
-			 </optgroup>	
-			 <optgroup label="-----------------------">
-                <option value="3"  >私营独资企业</option>
-                <option value="8"  >私营合伙企业</option>
-                <option value="9"  >私营有限责任公司</option>
-                <option value="10"  >私营股份有限公司</option>
-                <option value="4"  >国有企业</option>
-                <option value="11"  >集体企业</option>
-                <option value="12"  >股份合作企业</option>
-                <option value="13"  >联营企业</option>
-                <option value="29"  >有限责任公司</option>
-                <option value="14"  >有限责任公司(国有独资或控股)</option>
-                <option value="30"  >有限责任公司(自然人投资或控股)</option>
-                <option value="27"  >一人有限责任公司</option>
-                <option value="15"  >其他有限责任公司</option>
-                <option value="16"  >股份有限公司</option>
-                <option value="17"  >其他内资企业</option>
-			 </optgroup>	
-			 <optgroup label="----------------------">
-                <option value="25"  >三来一补</option>
-                <option value="26"  >法人分支机构</option>
-                <option value="31"  >农民专业合作经济组织</option>
-			</optgroup>	
-			<optgroup label="----------------------">
-                <option value="18"  >合资经营企业(港或澳、台资)</option>
-                <option value="19"  >合作经营企业(港或澳、台资)</option>
-                <option value="20"  >港、澳、台商独资经营企业</option>
-                <option value="21"  >港、澳、台商投资股份有限公司</option>
-                <option value="2"  >中外合资经营企业</option>
-                <option value="22"  >中外合作经营企业</option>
-                <option value="1"  >外资企业</option>
-                <option value="23"  >外商投资股份有限公司</option>
-			</optgroup>	
-			<optgroup label="----------------------">
-   				<option value="7"  >其他</option>
-			</optgroup>
+            <asp:Repeater ID="Repeater1" runat="server">
+                <ItemTemplate>
+                    <option value="<%#Eval("ID") %>" > <%#Eval("BusType")%> </option>
+                </ItemTemplate>
+            </asp:Repeater>
         </select></div>
     </li>
     <li><span>经营模式：<label class="star">*</label></span><div class="floatL">
         <input type="hidden" id="HD_BusModel" value="<%=ViewState["BusModel"] %>" />
-        <input  type="radio" value="manufacturer" name="BusModel" id="manufacturer"  /><label for="manufacturer" title="从事自主生产、代/加工制造业务的厂商" >生产厂家</label>
-		<input  id="wholesale" type="radio" value="wholesale" name="BusModel"  /><label for="wholesale" title="从事产品经销、批发、分销的商家">经销批发</label>
-		<input id="anufacturer" type="radio" value="service" name="BusModel" /><label for="anufacturer" title="从事商业服务的商家。包括：培训、设计、物流、展会等。">商业服务</label>
-		<input id="investment" type="radio" value="investment"  name="BusModel" /><label for="investment" title="以自己的店号、品牌、产品及其他象征营业的东西招募合作伙伴的商家。包括：代理、加盟、特许经营、连锁合作、专卖等。 ">招商代理</label>
-		<input  id="other" type="radio" value="bmother" name="BusModel" /><label for="bmother">其他</label></div>
+        <input  type="radio" value="生产厂家" name="BusModel" id="manufacturer"  /><label for="manufacturer" title="从事自主生产、代/加工制造业务的厂商" >生产厂家</label>
+		<input  id="wholesale" type="radio" value="经销批发" name="BusModel"  /><label for="wholesale" title="从事产品经销、批发、分销的商家">经销批发</label>
+		<input id="anufacturer" type="radio" value="商业服务" name="BusModel" /><label for="anufacturer" title="从事商业服务的商家。包括：培训、设计、物流、展会等。">商业服务</label>
+		<input id="investment" type="radio" value="招商代理"  name="BusModel" /><label for="investment" title="以自己的店号、品牌、产品及其他象征营业的东西招募合作伙伴的商家。包括：代理、加盟、特许经营、连锁合作、专卖等。 ">招商代理</label>
+		<input  id="other" type="radio" value="其他" name="BusModel" /><label for="bmother">其他</label></div>
     </li>
     <li><span>注册资本：<label class="star">*</label></span><div class="floatL">
         <input type="hidden" id="HD_CapitalType" value="<%=ViewState["CapitalType"] %>" />
         <input  class="txtbox RegCapital" value="<%=ViewState["RegCapital"] %>" name="RegCapital" maxlength="20" /> 万
         <select name="CapitalType" class="CapitalType">	 
-            <option value="RMB" >人民币</option>
-			<option value="HKD" >港币</option>
-			<option value="EUR" >欧元</option>
-			<option value="USD" >美元</option>
-			<option value="JPY" >日元</option>
-			<option value="SGD" >新加坡元</option>
-			<option value="GBP" >英镑</option>
-			<option value="FRF" >法国法郎</option>
-			<option value="DEM" >德国马克</option>
-			<option value="NLG" >荷兰盾</option>
-			<option value="ITL" >意大利里拉</option>
-			<option value="CAD" >加拿大元</option>
-			<option value="AUD" >澳大利亚元</option>
-			<option value="ESP" >西班牙比塞塔</option>
-			<option value="THB" >泰国铢</option>
+            <option value="人民币" >人民币</option>
+			<option value="港币" >港币</option>
+			<option value="欧元" >欧元</option>
+			<option value="美元" >美元</option>
+			<option value="日元" >日元</option>
+			<option value="新加坡元" >新加坡元</option>
+			<option value="英镑" >英镑</option>
+			<option value="法国法郎" >法国法郎</option>
+			<option value="德国马克" >德国马克</option>
+			<option value="荷兰盾" >荷兰盾</option>
+			<option value="意大利里拉" >意大利里拉</option>
+			<option value="加拿大元" >加拿大元</option>
+			<option value="澳大利亚元" >澳大利亚元</option>
+			<option value="西班牙比塞塔" >西班牙比塞塔</option>
+			<option value="泰国铢" >泰国铢</option>
     </select>
 		 <label class="gray">请根据营业执照如实填写</label></div>
     </li>

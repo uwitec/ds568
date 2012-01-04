@@ -23,6 +23,10 @@ public partial class Member_Manage_CompanyInfo_BaseInfo : BasePage
         Button1.Click+=new EventHandler(Button1_Click);
 
         if (IsPostBack) return;
+        var btbl = new DS_BusType_Br();
+        Repeater1.DataSource = btbl.Query("","px");//企业类型
+        Repeater1.DataBind();
+
         ViewState["yearest"] = "<option value=''>-请选择-</option>";
         for (int i = 1970; i <= 2012; i++)
         {
