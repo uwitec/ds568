@@ -1,0 +1,25 @@
+﻿.alkbtn,.btnL,.btnR{ background:url(../images/btn902.png);}
+a.alkbtn{height:28px;display:block; background-position:0 -203px; overflow:auto;zoom:1; cursor:pointer;color:#dc7200;}
+.alkbtn div{float:left;height:28px;}
+.btnL,.btnR{width:15px;}
+.btnL{ background-position:-3px -155px;}
+.btnR{ background-position:-51px -255px;}
+.btnM{ text-align:center;padding:0 6px;}
+.abtips,.alkbtn{float:left;line-height:28px;font-size:14px;font-weight:bold;margin-right:10px;}
+.abtips{ background:url(../images/2002912.gif) no-repeat 3px 7px; text-indent:20px;}
+.abhdctn{margin-top:16px;border-bottom:dotted 1px #b6c6dd;padding-bottom:3px;}
+.odctn{float:left;}
+#pgbox{width:50px;}
+.pgctn{float:right;}
+#pre,#next{ font-family:宋体;}
+.txtbox{width:234px;height:18px;line-height:18px;border:solid 1px #B5B5B5;}
+.listctn{margin:0 auto;margin-top:10px;width:730px;}
+.listctn li{float:left;width:144px;height:204px;}
+.listctn li div{width:137px;margin:0 auto; text-align:center;}
+.albbg{height:153px; background:url(../images/album.png);display:table-cell; vertical-align:middle; +display:block;+font-family:Arial;+font-size:98px;_font-size:135px;}
+.albbg img{ vertical-align:middle;}
+.ab_out{border:solid 1px #fff;}
+.ab_hover{border-color:#e0e8f8; background-color:#fafbfd;}
+.albtitle{color:#355eba;font-weight:bold;}
+.albtime span{background:url(../images/private.gif) no-repeat 5px 0; _background-position:5px 2px; line-height:20px; padding-left:20px;color:#cc0000;}
+.albtitle span{font-weight:normal;color:#999;font-size:10px;}
