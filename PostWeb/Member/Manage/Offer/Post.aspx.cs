@@ -19,13 +19,11 @@ public partial class Member_Manage_Offer_Post :  BasePage
         if (IsPostBack) return;
         try
         {
-            
-
             var bl = new DS_SysProductCategory_Br();
             var prtbl = new DS_Property_Br();
             var diybl = new DS_DiyProCategory_Br();
             var probl = new DS_Products_Br();
-            var ud = Session["UserData"] as UserData;
+            var ud = _userData;
             if (string.IsNullOrEmpty(Request["action"]))
             {
                 var mst = this.Master as Member_Manage_MasterPage;

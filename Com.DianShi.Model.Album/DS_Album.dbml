@@ -8,6 +8,9 @@
       <Column Name="AlbumName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Permissions" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="FrontCover" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PictureNum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Px" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>

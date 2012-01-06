@@ -90,6 +90,12 @@ namespace Com.DianShi.Model.Album
 		
 		private string _Password;
 		
+		private string _FrontCover;
+		
+		private int _PictureNum;
+		
+		private System.DateTime _UpdateDate;
+		
 		private System.DateTime _CreateDate;
 		
 		private int _Px;
@@ -108,6 +114,12 @@ namespace Com.DianShi.Model.Album
     partial void OnPermissionsChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
+    partial void OnFrontCoverChanging(string value);
+    partial void OnFrontCoverChanged();
+    partial void OnPictureNumChanging(int value);
+    partial void OnPictureNumChanged();
+    partial void OnUpdateDateChanging(System.DateTime value);
+    partial void OnUpdateDateChanged();
     partial void OnCreateDateChanging(System.DateTime value);
     partial void OnCreateDateChanged();
     partial void OnPxChanging(int value);
@@ -215,6 +227,66 @@ namespace Com.DianShi.Model.Album
 					this._Password = value;
 					this.SendPropertyChanged("Password");
 					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_FrontCover", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string FrontCover
+		{
+			get
+			{
+				return this._FrontCover;
+			}
+			set
+			{
+				if ((this._FrontCover != value))
+				{
+					this.OnFrontCoverChanging(value);
+					this.SendPropertyChanging();
+					this._FrontCover = value;
+					this.SendPropertyChanged("FrontCover");
+					this.OnFrontCoverChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_PictureNum", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int PictureNum
+		{
+			get
+			{
+				return this._PictureNum;
+			}
+			set
+			{
+				if ((this._PictureNum != value))
+				{
+					this.OnPictureNumChanging(value);
+					this.SendPropertyChanging();
+					this._PictureNum = value;
+					this.SendPropertyChanged("PictureNum");
+					this.OnPictureNumChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_UpdateDate", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public System.DateTime UpdateDate
+		{
+			get
+			{
+				return this._UpdateDate;
+			}
+			set
+			{
+				if ((this._UpdateDate != value))
+				{
+					this.OnUpdateDateChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateDate = value;
+					this.SendPropertyChanged("UpdateDate");
+					this.OnUpdateDateChanged();
 				}
 			}
 		}
