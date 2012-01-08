@@ -22,7 +22,7 @@
             <option>最近上传的在后</option>   
         </select></div>
     <div class="pgctn">
-        <a href="javascript:;" id="pre">&lt;&lt;上一页</a> <span id="ctpind">1</span>/<span id="pgcount">3</span> <a href="javascript:;" id="next">下一页&gt;&gt;</a> <input id="pgbox" class="txtbox" /><input type="button" value="Go" />
+        <a href="javascript:;" id="pre">&lt;&lt;上一页</a> <span id="ctpind">1</span>/<span id="pgcount"><%=ViewState["pageCount"]%></span> <a href="javascript:;" id="next">下一页&gt;&gt;</a> <input id="pgbox" class="txtbox" /><input type="button" value="Go" />
     </div>
 </div>
 <ul class="listctn overflowAuto">
@@ -30,10 +30,13 @@
         <ItemTemplate>
             <li class="ab_out">
                 <div class="albbg">
-                    <img onload="changImg(this,102,128)"   onerror="this.src='images/no-cover.gif'" src="<%#Eval("PictureNum").ToString().Equals("0") ? "images/no_photo.gif" : (Eval("FrontCover") == null ? "images/no-cover.gif" : Eval("FrontCover"))%>" />
+                    <img onload="changeImg(this,102,128)"   onerror="this.src='images/no-cover.gif'" src="<%#Eval("PictureNum").ToString().Equals("0") ? "images/no_photo.gif" : (Eval("FrontCover") == null ? "images/no-cover.gif" : Eval("FrontCover"))%>" />
+                    <span>
+                        <a class="edit_alb" href="javascript:;">编辑</a><a class="del_alb" href="javascript:;">删除</a>
+                    </span>
                 </div>
                 <div class="albtitle"><%#Eval("AlbumName")%>&nbsp;<span>(<%#Eval("PictureNum")%>)</span></div>
-                <div class="albtime"><%#((DateTime)Eval("CreateDate")).ToShortDateString()%><span><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Album.DS_Album_Br.Permissions), Eval("Permissions"))%></span></div>
+                <div class="albtime gray"><%#((DateTime)Eval("CreateDate")).ToShortDateString()%><span><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Album.DS_Album_Br.Permissions), Eval("Permissions"))%></span></div>
             </li>
         </ItemTemplate>
     </asp:Repeater>

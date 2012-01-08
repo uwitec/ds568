@@ -15,13 +15,27 @@ public partial class Member_Manage_Album_Album_List : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        var bl = new DS_Album_Br();
+        int rc = 0;
+        string act=Request["action"];
+        if (!string.IsNullOrEmpty(act)) {
+            switch (act) { 
+                case "chgPage":
+                    Repeater1.DataSource = bl.Query("memberid=@0", "createdate desc", (int.Parse(Request["pgind"])-1)*2, 2, ref rc, _userData.Member.ID);
+                    Repeater1.DataBind();
+                    break;
+            }
+            return;
+        }
+
+        if (IsPostBack) return;
+
         //设置左边菜单
         var mst = this.Master as Member_Manage_MasterPage;
         mst.SetMenuTitle("图片管家", "相册管理");
 
-        if (IsPostBack) return;
-        var bl = new DS_Album_Br();
-        Repeater1.DataSource = bl.Query("memberid=@0","createdate desc",_userData.Member.ID);
+        Repeater1.DataSource = bl.Query("memberid=@0","createdate desc",0,2,ref rc, _userData.Member.ID);
         Repeater1.DataBind();
+        ViewState["pageCount"] = (rc%2).Equals(0)?rc/2:rc/2+1;
     }
 }

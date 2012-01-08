@@ -22,3 +22,4 @@ a:hover{color:#ff7300;}
 .red{color:Red;}
 .gray{color:Gray;}
 .bold{font-weight:bold;}
+.loading{ background:url(/images/loading.gif) no-repeat center center;}
