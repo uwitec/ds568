@@ -28,6 +28,9 @@ public partial class Member_Manage_Offer_AddImg : BasePage
                 var md = bl.CreateModel();
                 md.AlbumName = Request.QueryString["album"];
                 md.CreateDate = DateTime.Now;
+                md.UpdateDate = DateTime.Now;
+                md.PictureNum = 0;
+                md.Permissions =(byte)DS_Album_Br.Permissions.不公开;
                 md.MemberID = ud.Member.ID;
                 md.Px = 0;
                 bl.Add(md);
