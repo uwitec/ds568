@@ -14,7 +14,7 @@
     <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
 </ul>
 <div class="abhdctn overflowAuto">
-    <div class="abtips">共有 6 本相册，您可以</div><a href="javascript:;" class="alkbtn"><div class="btnL"></div><div class="btnM">新建相册</div><div class="btnR"></div></a>
+    <div class="abtips">共有 6 本相册，您可以</div><a href="javascript:;" id="addAlbum" class="alkbtn"><div class="btnL"></div><div class="btnM">新建相册</div><div class="btnR"></div></a>
     <div class="odctn">当前排序：<select id="order">
             <option>新相册在前</option>
             <option> 新相册在后</option>
@@ -32,7 +32,7 @@
                 <div class="albbg">
                     <img onload="changeImg(this,102,128)"   onerror="this.src='images/no-cover.gif'" src="<%#Eval("PictureNum").ToString().Equals("0") ? "images/no_photo.gif" : (Eval("FrontCover") == null ? "images/no-cover.gif" : Eval("FrontCover"))%>" />
                     <span>
-                        <a class="edit_alb" href="javascript:;">编辑</a><a class="del_alb" href="javascript:;">删除</a>
+                        <a class="edit_alb" href="javascript:;">编辑</a><a class="del_alb" an="<%#Eval("AlbumName")%>" aid="<%#Eval("id") %>" href="javascript:;">删除</a>
                     </span>
                 </div>
                 <div class="albtitle"><%#Eval("AlbumName")%>&nbsp;<span>(<%#Eval("PictureNum")%>)</span></div>
@@ -41,5 +41,30 @@
         </ItemTemplate>
     </asp:Repeater>
 </ul>
+<div class="wbctn">
+    <div class="wbwrap">
+    <div class="item">
+        <div class="itemL">相册名称：</div><div class="itemR"><input class="txtbox albumName" /></div>
+    </div>
+    <div class="item">
+        <div class="itemL">访问权限：</div><div class="itemR">
+            <asp:Repeater ID="Repeater2" runat="server">
+                <ItemTemplate>
+                    <input type="radio"  value="<%#(byte)Container.DataItem %>" id="pm<%#Container.ItemIndex %>" name="pm"/><label for="pm<%#Container.ItemIndex %>"><%#Container.DataItem %></label>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
+    </div>
+    <div class="item psw">
+        <div class="itemL">访问密码：</div><div class="itemR"><input class="txtbox pmpsd" /></div>
+    </div>
+    <div class="item">
+       <div class="btnctn">
+          <a href="javascript:;" class="alkbtn btnsub"><div class="btnL"></div><div class="btnM">确定</div><div class="btnR"></div></a>
+          <a href="javascript:;" class="alkbtn wBox_close"><div class="btnL"></div><div class="btnM">取消</div><div class="btnR"></div></a>
+       </div>
+    </div>
+    </div>
+</div>
 </asp:Content>
 
