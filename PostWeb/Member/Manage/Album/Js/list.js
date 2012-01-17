@@ -11,14 +11,59 @@
                 $(this).removeClass("ab_hover").find(".albbg span").css("display","none");
                 $(this).find(".albtitle").removeClass("hvcl");
             }
-        );
+        ).click(function(){
+            location="image_list.aspx?id="+$(this).attr("aid")
+        });
         
         //绑定修改相册
         $(".edit_alb").click(function(){
+            var alb=$(this)
             wb=$(this).wBox({
                 title: "修改相册属性",
                 target:".wbwrap",
-                show:true
+                show:true,
+                callBack:function(){
+                    var albn=$(".albumName").eq(1);
+                    var pswd=$(".pmpsd").eq(1);
+                    //添加时清空各项的值
+                    albn.val(alb.attr("an"));
+                    pswd.val(alb.attr("pwd"));
+                    $("input[name=pm][value="+alb.attr("pm")+"]").eq(1).attr("checked","checked");
+                    if(alb.attr("pm")=="1")
+                        $(".psw").show();
+                    else
+                        $(".psw").hide();
+                    $(".btnsub").eq(1).click(function(){
+                        if(albn.val().trim()==""){
+                            alert("请输入相册名称。");
+                            return;
+                        }
+                        if($("input[name=pm]:checked").val()=="1"&&$(".pmpsd").eq(1).val().trim()==""){
+                            alert("请输入访问密码。");
+                            return;
+                        }
+                        $.ajax({
+                            type:"POST",
+                            data:{action:"editAlbum",albumName:albn.val(),pm:$("input[name=pm]:checked").val(),pwd:pswd.val(),id:alb.attr("aid")},
+                            success:function(data,state){
+                                if(Number(data)){
+                                    wb.close();
+                                    pageIndex++;
+                                    $("#pre").click();
+                                    
+                                }else
+                                    alert(data)
+                            },
+                            beforeSend:function(){
+                                
+                            },
+                            error:function(req,state,err){
+                                alert(req.responseText);
+                               
+                            }
+                        });
+                    });
+                }
             });
             return false;
         });
@@ -31,8 +76,12 @@
                     data:{action:"del",aid:$(this).attr("aid")},
                     success:function(data,state){
                         if(Number(data)){
-                            $("#pgcount").text(data)
-                            pageIndex++;
+                            $("#pgcount").text(data);
+                            $("#rc").text(Number($("#rc").text())-1);
+                            if(pageIndex>Number(data))
+                                pageIndex=Number(data)+1;
+                            else
+                                pageIndex++;
                             $("#pre").click();
                         }else
                             alert(data);
@@ -111,10 +160,15 @@
                 albn.val('');
                 pswd.val('');
                 $("input[name=pm]").eq(3).attr("checked","checked");
+                $(".psw").hide();
                 
                 $(".btnsub").eq(1).click(function(){
                     if(albn.val().trim()==""){
                         alert("请输入相册名称。");
+                        return;
+                    }
+                    if($("input[name=pm]:checked").val()=="1"&&$(".pmpsd").eq(1).val().trim()==""){
+                        alert("请输入访问密码。");
                         return;
                     }
                     $.ajax({
@@ -123,6 +177,7 @@
                         success:function(data,state){
                             if(Number(data)){
                                 $("#pgcount").text(data)
+                                $("#rc").text(Number($("#rc").text())+1);
                                 wb.close();
                                 pageIndex=2;
                                 $("#pre").click();
@@ -144,5 +199,25 @@
         return false;
     });
     
+    //根据是否选择了访问密码，显示或隐藏密码输入框
+    $("input[name=pm]").click(function(){
+        if($(this).val()=="1"){
+            $(".psw").show()
+        }else
+            $(".psw").hide();
+    });
+    
+    
+    //跳转到第几页
+    $("#jump").click(function(){
+        var ind=Number($("#pgbox").val());
+        if(ind||ind==0){
+            if(ind>0&&ind<=Number($("#pgcount").text())){
+                pageIndex=ind+1;
+                $("#pre").click();
+            }else
+                alert("页码超出范围。");
+        }
+    });
    
 });
