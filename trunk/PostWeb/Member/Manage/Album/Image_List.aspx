@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Member/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="Album_List.aspx.cs" Inherits="Member_Manage_Album_Album_List" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Member/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="Image_List.aspx.cs" Inherits="Member_Manage_Album_Image_List" Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <link href="css/list.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/list.js"></script>
+<script type="text/javascript" src="js/imglist.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ul class="hmenu">
@@ -14,21 +14,28 @@
     <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
 </ul>
 <div class="abhdctn overflowAuto">
-    <div class="abtips">共有 <span id="rc"><%=ViewState["rc"] %></span> 本相册，您可以</div><a href="javascript:;" id="addAlbum" class="alkbtn"><div class="btnL"></div><div class="btnM">新建相册</div><div class="btnR"></div></a>
-    <div class="odctn">当前排序：<select id="order">
-            <option>新相册在前</option>
-            <option> 新相册在后</option>
-            <option>最近上传的在前</option>
-            <option>最近上传的在后</option>   
-        </select></div>
-    <div class="pgctn">
-        <a href="javascript:;" id="pre">&lt;&lt;上一页</a> <span id="ctpind">1</span>/<span id="pgcount"><%=ViewState["pageCount"]%></span> <a href="javascript:;" id="next">下一页&gt;&gt;</a> <input id="pgbox" class="txtbox" /><input type="button" id="jump" value="Go" />
-    </div>
+    <div class="abtips"><a href="Album_List.aspx">所有相册</a> > <span class="albname"><%=ViewState["albname"] %></span></div>
 </div>
-<ul class="listctn overflowAuto">
+<div class="covertwrap">
+    <asp:Repeater ID="Repeater3" runat="server">
+        <ItemTemplate>
+            <div class="covertL">
+                <div>
+                    <img onload="changeImg(this,102,128)" onerror="this.src='images/no-cover.gif'" src="<%#Eval("PictureNum").ToString().Equals("0") ? "images/no_photo.gif" : (Eval("FrontCover") == null ? "images/no-cover.gif" : Eval("FrontCover"))%>" /></div>
+            </div>
+            <div class="covertR">
+                <div class="cvritem">相册<span class="albname"> <%#Eval("albumName") %> </span>共有 <%#Eval("PictureNum")%> 张相片<a href="javascript:;" class="edit_alb2">修改相册属性</a></div>
+                <div class="cvritem"><a href="javascript:;" id="addImg" class="alkbtn"><div class="btnL"></div><div class="btnM">添加新图片</div><div class="btnR"></div></a> <a class="back" href="Album_List.aspx">返回相册列表</a></div>
+                <div class="cvritem"><span class="permiss"><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Album.DS_Album_Br.Permissions), Eval("Permissions"))%></span></div>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+</div>
+<div class="hode"></div>
+<ul class="listctn overflowAuto" style="display:none;">
     <asp:Repeater ID="Repeater1" runat="server">
         <ItemTemplate>
-            <li class="ab_out" aid="<%#Eval("id") %>">
+            <li class="ab_out">
                 <div class="albbg">
                     <img onload="changeImg(this,102,128)"   onerror="this.src='images/no-cover.gif'" src="<%#Eval("PictureNum").ToString().Equals("0") ? "images/no_photo.gif" : (Eval("FrontCover") == null ? "images/no-cover.gif" : Eval("FrontCover"))%>" />
                     <span>
