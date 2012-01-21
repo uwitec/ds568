@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <link href="css/list.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/imglist.js"></script>
+<script type="text/javascript" src="js/image_list.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ul class="hmenu">
@@ -24,7 +24,7 @@
                     <img onload="changeImg(this,102,128)" onerror="this.src='images/no-cover.gif'" src="<%#Eval("PictureNum").ToString().Equals("0") ? "images/no_photo.gif" : (Eval("FrontCover") == null ? "images/no-cover.gif" : Eval("FrontCover"))%>" /></div>
             </div>
             <div class="covertR">
-                <div class="cvritem">相册<span class="albname"> <%#Eval("albumName") %> </span>共有 <%#Eval("PictureNum")%> 张相片<a href="javascript:;" class="edit_alb2">修改相册属性</a></div>
+                <div class="cvritem">相册<span class="albname"> <%#Eval("albumName") %> </span>共有 <%#Eval("PictureNum")%> 张相片<a an="<%#Eval("AlbumName")%>" pm="<%#Eval("Permissions") %>" pwd="<%#Eval("password") %>" aid="<%#Eval("id") %>"  href="javascript:;" class="edit_alb2">修改相册属性</a></div>
                 <div class="cvritem"><a href="javascript:;" id="addImg" class="alkbtn"><div class="btnL"></div><div class="btnM">添加新图片</div><div class="btnR"></div></a> <a class="back" href="Album_List.aspx">返回相册列表</a></div>
                 <div class="cvritem"><span class="permiss"><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Album.DS_Album_Br.Permissions), Eval("Permissions"))%></span></div>
             </div>

@@ -25,7 +25,7 @@
                 callBack:function(){
                     var albn=$(".albumName").eq(1);
                     var pswd=$(".pmpsd").eq(1);
-                    //添加时清空各项的值
+                    //修改时还原各项的值
                     albn.val(alb.attr("an"));
                     pswd.val(alb.attr("pwd"));
                     $("input[name=pm][value="+alb.attr("pm")+"]").eq(1).attr("checked","checked");

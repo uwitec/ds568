@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <link href="css/list.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/list.js"></script>
+<script type="text/javascript" src="js/album_list.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ul class="hmenu">
