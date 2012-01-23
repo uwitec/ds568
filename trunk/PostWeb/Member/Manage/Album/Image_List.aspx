@@ -31,7 +31,36 @@
         </ItemTemplate>
     </asp:Repeater>
 </div>
-<div class="hode"></div>
+<div class="list_ctn">
+    <div class="hode">&nbsp;</div>
+    <div class="img_wrap">
+        <div class="toobar">
+            <input type="checkbox" id="chk_all" /><label for="chk_all">全部选择</label>
+            <a class="img_del" href="javascript:;">删除</a> <a class="img_move" href="javascript:;">
+                移动</a> 当前排序：<select id="order_by">
+                    <option>新相片在前</option>
+                    <option>新相片在后</option>
+                </select>&nbsp;&nbsp;
+            <a href="javascript:;" id="pre">&lt;&lt;上一页</a> <span id="ctpind">1</span>/<span
+                id="pgcount"><%=ViewState["pageCount"]%></span> <a href="javascript:;" id="next">下一页&gt;&gt;</a>
+            <input id="pgbox" class="txtbox" /><input type="button" id="jump" value="Go" />
+        </div>
+        <ul class="img_list">
+            <asp:Repeater ID="Repeater4" runat="server">
+                <ItemTemplate>
+                    <li>
+                        <div class="img_ctn">
+                            <img onload="changeImg(this,64,64)" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
+                                src="/Resource/<%#Eval("ImgUrl") %>/<%#Eval("ImgName") %>" /></div>
+                        <div>
+                        </div>
+                    </li>
+                </ItemTemplate>
+            </asp:Repeater>
+        </ul>
+    </div>
+</div>
+
 <ul class="listctn overflowAuto" style="display:none;">
     <asp:Repeater ID="Repeater1" runat="server">
         <ItemTemplate>
