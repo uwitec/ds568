@@ -48,28 +48,7 @@ public partial class Member_Manage_Album_Image_List : BasePage
                         Response.End();
                     }
                     break;
-                case "editAlbum":
-                    try
-                    {
-                        var album=bl.GetSingle(int.Parse(Request.Form["id"]));
-                        album.AlbumName = Request["albumName"].Trim();
-                        album.Permissions = byte.Parse(Request.Form["pm"]);
-                        album.Password = Request.Form["pwd"].Trim();
-                        bl.Update(album);
-                        Response.Write(1);
-                        Response.End();
-                    }
-                    catch (System.Threading.ThreadAbortException ex){}
-                    catch (Exception ex)
-                    {
-                        if (ex.Message.Contains("IX_DS_Album")) {
-                            Response.Write("已存在相同名称的相册。");
-                        }
-                        else
-                            Response.Write("修改相册出错。" );
-                        Response.End();
-                    }
-                    break;
+               
             }
             return;
         }
@@ -80,11 +59,6 @@ public partial class Member_Manage_Album_Image_List : BasePage
         var mst = this.Master as Member_Manage_MasterPage;
         mst.SetMenuTitle("图片管家", "相册管理");
 
-        Repeater1.DataSource = bl.Query("memberid=@0","createdate desc",0,20,ref rc, _userData.Member.ID);
-        Repeater1.DataBind();
-        ViewState["pageCount"] = (rc%20).Equals(0)?rc/20:rc/20+1;
-        ViewState["rc"] = rc;
-
         //绑定访问权限
         Repeater2.DataSource = Enum.GetValues(typeof(Com.DianShi.BusinessRules.Album.DS_Album_Br.Permissions));
         Repeater2.DataBind();
@@ -94,5 +68,11 @@ public partial class Member_Manage_Album_Image_List : BasePage
         Repeater3.DataSource =alb;
         Repeater3.DataBind();
         ViewState["albname"] = alb.Single().AlbumName;
+
+        //绑定图片列表
+        var imgbl=new DS_AlbumImg_Br();
+
+        Repeater4.DataSource = imgbl.Query("AlbumID=@0","",int.Parse(Request.QueryString["id"]));
+        Repeater4.DataBind();
     }
 }
