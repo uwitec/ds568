@@ -36,7 +36,7 @@ public partial class Member_Manage_Album_Image_List : BasePage
                     //try
                     //{
                         bl.Delete(Request.Form["id"].TrimEnd(','));
-                        rc = bl.Query("AlbumID=@0", "", int.Parse(Request.QueryString["albumid"])).Count();
+                        rc = bl.Query("AlbumID=@0", "", int.Parse(Request.Form["albumid"])).Count();
                         Response.Write((rc % pagesize).Equals(0) ? rc / pagesize : rc / pagesize + 1);
                         Response.End();
                     //}
@@ -51,7 +51,7 @@ public partial class Member_Manage_Album_Image_List : BasePage
                     //        Response.Write("当前相册包含有图片，必须将图片删除或转移到其他相册后才能删除。");
                     //    }
                     //    else
-                    //        Response.Write("删除图片出错。"+ex.Message);
+                    //        Response.Write("删除图片出错。" + ex.Message);
                     //    Response.End();
                     //}
                     break;

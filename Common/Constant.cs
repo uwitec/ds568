@@ -46,7 +46,7 @@ namespace Common
             return System.Configuration.ConfigurationManager.AppSettings[conName];
         }
 
-        public static System.Web.HttpContext HttpContext { get { return System.Web.HttpContext; } }
+     
      
     }
 }

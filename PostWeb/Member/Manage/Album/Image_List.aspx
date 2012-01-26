@@ -61,9 +61,9 @@
                                 <img onload="changeImg(this,64,64)" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
                                     src="/Resource/<%#Eval("ImgUrl") %>/<%#Eval("ImgName") %>" /></div>
                             <div class="imgname">
-                                <input type="checkbox" imgid="<%#Eval("id") %>" id="imgchk<%#Container.ItemIndex %>" /><label for="imgchk<%#Container.ItemIndex %>"><%#Eval("imgName") %>中</label>
+                                <input type="checkbox" imgid="<%#Eval("id") %>" id="imgchk<%#Container.ItemIndex %>" /><label for="imgchk<%#Container.ItemIndex %>"><%#Eval("imgName") %></label>
                             </div>
-                            <a href="javascript:;"  class="setcovert">设为封面</a>
+                            <a href="javascript:;" imgid="<%#Eval("id") %>" class="setcovert">设为封面</a>
                         </div>
                     </li>
                 </ItemTemplate>
