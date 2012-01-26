@@ -86,7 +86,6 @@
    //开始上传
    $(".divsub input").click(function(){
        if(!$(this).attr("disabled")){
-           alert("223")
            $('#uploadify0').uploadifySettings('script','/js/uploadify/Upload.aspx?albumID='+$("select[name=selAlbum2]").val());　
            $('#uploadify0').uploadifyUpload();
        }
