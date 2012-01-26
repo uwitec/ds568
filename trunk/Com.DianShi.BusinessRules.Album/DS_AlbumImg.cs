@@ -13,11 +13,22 @@ namespace Com.DianShi.BusinessRules.Album
     {
         public void Add(DS_AlbumImg AlbumImg)
         {
-            using (var ct = new DS_AlbumImgDataContext())
-            {
+            using (var con = DBUtility.DbHelperSQL.GetConnection()) {
+                var tran = con.BeginTransaction();
+                var ct = new DS_AlbumImgDataContext(con);
+                ct.Transaction=tran;
                 ct.DS_AlbumImg.InsertOnSubmit(AlbumImg);
                 ct.SubmitChanges();
+
+                var ct2 = new DS_AlbumDataContext(con);
+                ct2.Transaction = tran;
+                var album=ct2.DS_Album.Single(a=>a.ID==AlbumImg.AlbumID);
+                album.PictureNum = ct.DS_AlbumImg.Where(a => a.AlbumID == AlbumImg.AlbumID).Count();
+                ct2.SubmitChanges();
+
+                tran.Commit();
             }
+           
         }
 
         public void Update(DS_AlbumImg AlbumImg)
@@ -41,21 +52,35 @@ namespace Com.DianShi.BusinessRules.Album
 
         public void Delete(string Ids)
         {
-            using (var ct = new DS_AlbumImgDataContext())
+            using (var con = DBUtility.DbHelperSQL.GetConnection())
             {
+                var tran = con.BeginTransaction();
+                var ct = new DS_AlbumImgDataContext(con);
+                ct.Transaction = tran;
                 string[] idarray = Ids.Split(',');
                 var list = ct.DS_AlbumImg.Where(a => idarray.Contains(a.ID.ToString()));
                 var list2 = list.ToList();
                 ct.DS_AlbumImg.DeleteAllOnSubmit(list);
                 ct.SubmitChanges();
+
+                var ct2 = new DS_AlbumDataContext(con);
+                ct2.Transaction = tran;
+                var album = ct2.DS_Album.Single(a => a.ID == list2.First().AlbumID);
+                album.PictureNum = ct.DS_AlbumImg.Where(a => a.AlbumID == list2.First().AlbumID).Count();
+                ct2.SubmitChanges();
+
                 foreach (var item in list2)
                 {
-                   string p=System.Web.HttpContext.Current.Server.MapPath(Common.Constant.WebConfig("AlbumRootPath") + item.ImgUrl + "/" + item.ImgName);
-                   if (File.Exists(p)) {
-                       File.Delete(p);
-                   }
+                    string p = System.Web.HttpContext.Current.Server.MapPath(Common.Constant.WebConfig("AlbumRootPath") + item.ImgUrl + "/" + item.ImgName);
+                    if (File.Exists(p))
+                    {
+                        File.Delete(p);
+                    }
                 }
+
+                tran.Commit();
             }
+          
         }
 
         public DS_AlbumImg GetSingle(int ID)
