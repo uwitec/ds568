@@ -1,10 +1,11 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Member/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="Image_List.aspx.cs" Inherits="Member_Manage_Album_Image_List" Title="Untitled Page" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server"> 
 <link href="css/list.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/image_list.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<input type="hidden" id="alb_id" value="<%=Request.QueryString["id"] %>" />
 <ul class="hmenu">
     <li>
         <div class="mLeft"></div>
@@ -20,8 +21,14 @@
     <asp:Repeater ID="Repeater3" runat="server">
         <ItemTemplate>
             <div class="covertL">
-                <div>
-                    <img onload="changeImg(this,102,128)" onerror="this.src='images/no-cover.gif'" src="<%#Eval("PictureNum").ToString().Equals("0") ? "images/no_photo.gif" : (Eval("FrontCover") == null ? "images/no-cover.gif" : Eval("FrontCover"))%>" /></div>
+                <table cellpadding=0 cellspacing=0 class="imgwrap">
+                    <tr>
+                        <td valign="middle">
+                            <img id="imgcovert"  onload="changeImg(this,102,128)" onerror="this.src='images/no-cover.gif'" src="<%#Eval("PictureNum").ToString().Equals("0") ? "images/no_photo.gif" : (Eval("FrontCover") == null ? "images/no-cover.gif" : Eval("FrontCover"))%>" />
+                        </td>
+                    </tr>
+                </table>
+              
             </div>
             <div class="covertR">
                 <div class="cvritem">相册<span class="albname"> <%#Eval("albumName") %> </span>共有 <%#Eval("PictureNum")%> 张相片<a an="<%#Eval("AlbumName")%>" pm="<%#Eval("Permissions") %>" pwd="<%#Eval("password") %>" aid="<%#Eval("id") %>"  href="javascript:;" class="edit_alb2">修改相册属性</a></div>
@@ -49,34 +56,23 @@
             <asp:Repeater ID="Repeater4" runat="server">
                 <ItemTemplate>
                     <li>
-                        <div class="img_ctn">
-                            <img onload="changeImg(this,64,64)" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                src="/Resource/<%#Eval("ImgUrl") %>/<%#Eval("ImgName") %>" /></div>
-                        <div>
+                        <div class="ctnimg">
+                            <div class="img_ctn">
+                                <img onload="changeImg(this,64,64)" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
+                                    src="/Resource/<%#Eval("ImgUrl") %>/<%#Eval("ImgName") %>" /></div>
+                            <div class="imgname">
+                                <input type="checkbox" imgid="<%#Eval("id") %>" id="imgchk<%#Container.ItemIndex %>" /><label for="imgchk<%#Container.ItemIndex %>"><%#Eval("imgName") %>中</label>
+                            </div>
+                            <a href="javascript:;"  class="setcovert">设为封面</a>
                         </div>
                     </li>
                 </ItemTemplate>
             </asp:Repeater>
         </ul>
     </div>
+    <div class="hode hdbt">&nbsp;</div>
 </div>
 
-<ul class="listctn overflowAuto" style="display:none;">
-    <asp:Repeater ID="Repeater1" runat="server">
-        <ItemTemplate>
-            <li class="ab_out">
-                <div class="albbg">
-                    <img onload="changeImg(this,102,128)"   onerror="this.src='images/no-cover.gif'" src="<%#Eval("PictureNum").ToString().Equals("0") ? "images/no_photo.gif" : (Eval("FrontCover") == null ? "images/no-cover.gif" : Eval("FrontCover"))%>" />
-                    <span>
-                        <a class="edit_alb" an="<%#Eval("AlbumName")%>" pm="<%#Eval("Permissions") %>" pwd="<%#Eval("password") %>" aid="<%#Eval("id") %>" href="javascript:;">编辑</a><a class="del_alb" an="<%#Eval("AlbumName")%>" aid="<%#Eval("id") %>" href="javascript:;">删除</a>
-                    </span>
-                </div>
-                <div class="albtitle"><%#Eval("AlbumName")%>&nbsp;<span>(<%#Eval("PictureNum")%>)</span></div>
-                <div class="albtime gray"><%#((DateTime)Eval("CreateDate")).ToShortDateString()%><span><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Album.DS_Album_Br.Permissions), Eval("Permissions"))%></span></div>
-            </li>
-        </ItemTemplate>
-    </asp:Repeater>
-</ul>
 <div class="wbctn">
     <div class="wbwrap">
     <div class="item">

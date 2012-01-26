@@ -38,6 +38,7 @@
     <Reference Include="System.Data.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -56,6 +57,10 @@
     <ProjectReference Include="..\Com.DianShi.Model.Album\Com.DianShi.Model.Album.csproj">
       <Project>{22B64191-D3E9-472C-A12D-A2E5A0A88682}</Project>
       <Name>Com.DianShi.Model.Album</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{CB56EF5F-7015-4634-BB7F-742A4820C1FF}</Project>
+      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\DBUtility\DBUtility.csproj">
       <Project>{9059D062-9A62-453A-8AC9-470270117AFE}</Project>

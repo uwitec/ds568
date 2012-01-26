@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Data.Common;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Album;
+using System.IO;
 namespace Com.DianShi.BusinessRules.Album
 {
     public class DS_AlbumImg_Br : DBUtility.BllBase
@@ -44,8 +45,16 @@ namespace Com.DianShi.BusinessRules.Album
             {
                 string[] idarray = Ids.Split(',');
                 var list = ct.DS_AlbumImg.Where(a => idarray.Contains(a.ID.ToString()));
+                var list2 = list.ToList();
                 ct.DS_AlbumImg.DeleteAllOnSubmit(list);
                 ct.SubmitChanges();
+                foreach (var item in list2)
+                {
+                   string p=System.Web.HttpContext.Current.Server.MapPath(Common.Constant.WebConfig("AlbumRootPath") + item.ImgUrl + "/" + item.ImgName);
+                   if (File.Exists(p)) {
+                       File.Delete(p);
+                   }
+                }
             }
         }
 
