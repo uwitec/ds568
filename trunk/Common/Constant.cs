@@ -42,9 +42,11 @@ namespace Common
         /// </summary>
         /// <param name="conName">键名称</param>
         /// <returns></returns>
-        public static  string WebConfig(string conName) { 
+        public static  string WebConfig(string conName) {
             return System.Configuration.ConfigurationManager.AppSettings[conName];
         }
+
+        public static System.Web.HttpContext HttpContext { get { return System.Web.HttpContext; } }
      
     }
 }

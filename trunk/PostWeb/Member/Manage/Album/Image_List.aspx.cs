@@ -15,22 +15,29 @@ public partial class Member_Manage_Album_Image_List : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        var bl = new DS_Album_Br();
+        var bl = new DS_AlbumImg_Br();
+        var albbl = new DS_Album_Br();
         int rc = 0;
-        int pagesize = 20;
+        int pagesize = 2;
         string act=Request["action"];
         if (!string.IsNullOrEmpty(act)) {
             switch (act) { 
                 case "chgPage":
-                    Repeater1.DataSource = bl.Query("memberid=@0", "createdate desc", (int.Parse(Request["pgind"])-1)*20, 20, ref rc, _userData.Member.ID);
-                    Repeater1.DataBind();
+                    Repeater4.DataSource = bl.Query("AlbumID=@0", "", (int.Parse(Request["pgind"]) - 1) * pagesize, pagesize, ref rc, int.Parse(Request.QueryString["id"]));
+                    Repeater4.DataBind();
+                    break;
+                case "setcovert":
+                    var album = albbl.GetSingle(int.Parse(Request.Form["albumid"]));
+                    album.FrontCover=Request.Form["src"];
+                    albbl.Update(album);
+                    Response.End();
                     break;
                 case "del":
                     try
                     {
-                        bl.Delete(int.Parse(Request.Form["aid"]));
-                        rc = bl.Query("memberid=@0", "", _userData.Member.ID).Count();
-                        Response.Write((rc % 20).Equals(0) ? rc / 20 : rc / 20 + 1);
+                        bl.Delete(Request.Form["ids"].TrimEnd(','));
+                        rc = bl.Query("AlbumID=@0", "", int.Parse(Request.QueryString["albumid"])).Count();
+                        Response.Write((rc % pagesize).Equals(0) ? rc / pagesize : rc / pagesize + 1);
                         Response.End();
                     }
                     catch (System.Threading.ThreadAbortException ex)
@@ -44,7 +51,7 @@ public partial class Member_Manage_Album_Image_List : BasePage
                             Response.Write("当前相册包含有图片，必须将图片删除或转移到其他相册后才能删除。");
                         }
                         else
-                            Response.Write("删除相册出错。");
+                            Response.Write("删除图片出错。");
                         Response.End();
                     }
                     break;
@@ -64,15 +71,15 @@ public partial class Member_Manage_Album_Image_List : BasePage
         Repeater2.DataBind();
 
         //绑定当前相册属性
-        var alb= bl.Query("id=@0", "",int.Parse(Request.QueryString["id"]));
+        var alb= albbl.Query("id=@0", "",int.Parse(Request.QueryString["id"]));
         Repeater3.DataSource =alb;
         Repeater3.DataBind();
         ViewState["albname"] = alb.Single().AlbumName;
 
         //绑定图片列表
-        var imgbl=new DS_AlbumImg_Br();
-
-        Repeater4.DataSource = imgbl.Query("AlbumID=@0","",int.Parse(Request.QueryString["id"]));
+        Repeater4.DataSource = bl.Query("AlbumID=@0", "", 0, pagesize, ref rc, int.Parse(Request.QueryString["id"]));
         Repeater4.DataBind();
+        ViewState["pageCount"] = (rc % pagesize).Equals(0) ? rc / pagesize : rc / pagesize + 1;
+        ViewState["rc"] = rc;
     }
 }
