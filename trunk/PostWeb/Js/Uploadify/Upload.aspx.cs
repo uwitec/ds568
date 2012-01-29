@@ -29,7 +29,7 @@ public partial class Upload : BasePage
                 md.AlbumID = albumID;
                 md.ImgUrl = album;
                 md.ImgName = "";
-                md.ImgTitle =file.FileName;
+                md.ImgTitle = file.FileName.Substring(0,file.FileName.LastIndexOf('.'));
                 md.ImgDescript = "";
                 md.Px = 0;
                 pbl.Add(md);
