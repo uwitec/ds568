@@ -29,7 +29,8 @@ public partial class Upload : BasePage
                 md.AlbumID = albumID;
                 md.ImgUrl = album;
                 md.ImgName = "";
-                md.ImgDescript =file.FileName;
+                md.ImgTitle =file.FileName;
+                md.ImgDescript = "";
                 md.Px = 0;
                 pbl.Add(md);
                 md.ImgName = "A"+albumID+"_"+DateTime.Now.ToString("yyyyMMddhhmmss") + "_" + md.ID + file.FileName.Substring(file.FileName.LastIndexOf('.'));
