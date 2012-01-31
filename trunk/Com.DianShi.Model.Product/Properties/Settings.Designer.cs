@@ -26,8 +26,8 @@ namespace Com.DianShi.Model.Product.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=DianShi;User ID=ShuInDianShi;Password=Sh" +
-            "u6898411;Persist Security Info=False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\MYSQLEXPRESS;Initial Catalog=DianShi;User ID=ShuInDianShi;Password=" +
+            "Shu6898411;Persist Security Info=False")]
         public string DianShiConnectionString {
             get {
                 return ((string)(this["DianShiConnectionString"]));

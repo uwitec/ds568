@@ -57,7 +57,7 @@
                 <ItemTemplate>
                     <li>
                         <div class="ctnimg">
-                            <div class="img_ctn">
+                            <div class="img_ctn" imgid="<%#Eval("id") %>" >
                                 <img onload="changeImg(this,64,64)" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
                                     src="/Resource/<%#Eval("ImgUrl") %>/<%#Eval("ImgName") %>" /></div>
                             <div class="imgname">

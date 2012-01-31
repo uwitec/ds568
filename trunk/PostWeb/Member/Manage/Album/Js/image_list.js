@@ -27,6 +27,7 @@
                         return;
                     }
                     $.ajax({
+                        url:"Album_List.aspx",
                         type:"POST",
                         data:{action:"editAlbum",albumName:albn.val(),pm:$("input[name=pm]:checked").val(),pwd:pswd.val(),id:alb.attr("aid")},
                         success:function(data,state){
@@ -163,8 +164,11 @@
                     
                 }
             });
-            
-            
+        });
+        
+        //点击图片进入图片详细
+        $(".img_ctn").click(function(){
+            location="Image_Detail.aspx?img_id="+$(this).attr("imgid");
         });
     }
     imghover();
@@ -207,6 +211,11 @@
             }
             
         });
+    });
+    
+    //移动
+    $(".img_move").click(function(){
+        alert("移动功能尚未完善，请稍后使用。")
     });
     
 });
