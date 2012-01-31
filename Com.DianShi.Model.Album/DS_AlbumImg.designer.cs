@@ -88,6 +88,8 @@ namespace Com.DianShi.Model.Album
 		
 		private string _ImgName;
 		
+		private string _ImgTitle;
+		
 		private string _ImgDescript;
 		
 		private int _Px;
@@ -104,6 +106,8 @@ namespace Com.DianShi.Model.Album
     partial void OnImgUrlChanged();
     partial void OnImgNameChanging(string value);
     partial void OnImgNameChanged();
+    partial void OnImgTitleChanging(string value);
+    partial void OnImgTitleChanged();
     partial void OnImgDescriptChanging(string value);
     partial void OnImgDescriptChanged();
     partial void OnPxChanging(int value);
@@ -175,7 +179,7 @@ namespace Com.DianShi.Model.Album
 			}
 		}
 		
-		[Column(Storage="_ImgName", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_ImgName", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string ImgName
 		{
 			get
@@ -191,6 +195,26 @@ namespace Com.DianShi.Model.Album
 					this._ImgName = value;
 					this.SendPropertyChanged("ImgName");
 					this.OnImgNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ImgTitle", DbType="NVarChar(30) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string ImgTitle
+		{
+			get
+			{
+				return this._ImgTitle;
+			}
+			set
+			{
+				if ((this._ImgTitle != value))
+				{
+					this.OnImgTitleChanging(value);
+					this.SendPropertyChanging();
+					this._ImgTitle = value;
+					this.SendPropertyChanged("ImgTitle");
+					this.OnImgTitleChanged();
 				}
 			}
 		}

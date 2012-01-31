@@ -6,7 +6,8 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
       <Column Name="AlbumID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ImgUrl" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ImgName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ImgName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ImgTitle" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="ImgDescript" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="Px" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
