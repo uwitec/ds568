@@ -80,7 +80,7 @@ a.alkbtn{height:28px;display:block; background-position:0 -203px; overflow:auto;
  .npctn{background:url(../images/album_3.gif) no-repeat;width:265px;height:184px;}
  .hdtitle{height:28px;line-height:28px;padding-left:10px;}
  .fwimg{background:url(../images/6000816.gif) no-repeat 6px 6px;width:22px;float:left;height:28px;padding-right:3px;}
- .subwrap{width:231px;margin:0 auto; overflow:hidden;}
+ .subwrap,.npctn .overflowAuto{width:231px;margin:0 auto; overflow:hidden;}
  .subwrap ul{ overflow:auto;zoom:1;margin-top:9px;}
  .subwrap ul li{width:77px;float:left;padding-top:4px;cursor:pointer;}
  .thctn,.tlctn{margin:0 auto; text-align:center;}
@@ -89,4 +89,9 @@ a.alkbtn{height:28px;display:block; background-position:0 -203px; overflow:auto;
  .tlctn{line-height:24px;height:24px; overflow:hidden;color:White;}
  .crtimg{background-color:#d20200;}
  .corect{background:url(../images/1000848.gif) no-repeat;width:48px;height:48px; position:absolute;bottom:-5px;left:22px;display:none;}
+ 
+ .npctn .overflowAuto{margin-top:12px;}
+ .preImg,.nextImg{line-height:18px;font-size:14px;}
+ .preImg{padding-left:16px;background:url(../images/2000212.gif) no-repeat;float:left;}
+ .nextImg{padding-right:16px;background:url(../images/2000112.gif) no-repeat right top;float:right;}
 
