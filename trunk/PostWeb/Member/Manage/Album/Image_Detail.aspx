@@ -49,6 +49,9 @@
                 </ul>
                 <div class="corect">&nbsp;</div>
             </div>
+            <div class="overflowAuto">
+                <a href="javascript:;" class="preImg">上一张</a><a href="javascript:;" class="nextImg">下一张</a>
+            </div>
         </div>
     </div>
 </div>
