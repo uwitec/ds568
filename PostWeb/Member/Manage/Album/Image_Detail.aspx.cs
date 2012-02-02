@@ -10,6 +10,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using System.Web.Script.Serialization;
 using Com.DianShi.BusinessRules.Album;
 public partial class Member_Manage_Album_Image_Detail : BasePage
 {
@@ -18,8 +19,19 @@ public partial class Member_Manage_Album_Image_Detail : BasePage
         var bl = new DS_AlbumImg_Br();
         var albbl = new DS_Album_Br();
         
-
         if (IsPostBack) return;
+        //处理ajax动作
+        string act=Request.Form["action"];
+        if (!string.IsNullOrEmpty(act)) {
+            var json = new JavaScriptSerializer();
+            switch (act) { 
+                case "loadimgdata":
+                    Response.Write(json.Serialize(bl.GetSingle(int.Parse(Request.Form["img_id"]))));
+                    break;
+            }
+            Response.End();
+            return;
+        }
 
         //设置左边菜单
         var mst = this.Master as Member_Manage_MasterPage;
@@ -32,6 +44,7 @@ public partial class Member_Manage_Album_Image_Detail : BasePage
         ViewState["imgtitle"] = md.ImgTitle;
         ViewState["imgurl"] ="/Resource/"+ md.ImgUrl + "/" + md.ImgName;
 
+        //绑定图片
         Repeater1.DataSource = bl.Query("albumid=@0","px",md.AlbumID);
         Repeater1.DataBind();
     }

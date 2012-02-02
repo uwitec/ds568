@@ -5,7 +5,7 @@
 <script type="text/javascript" src="js/Image_Detail.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<input type="hidden" id="alb_id" value="<%=Request.QueryString["id"] %>" />
+<input type="hidden" id="img_id" value="<%=Request.QueryString["img_id"] %>" />
 <ul class="hmenu">
     <li>
         <div class="mLeft"></div>
@@ -27,7 +27,7 @@
         <div class="actionctn"><a href="javascript:;">设为相册封面</a><a href="javascript:;">移动</a><a href="javascript:;">删除</a><a href="javascript:;">设为相册封面</a><a href="javascript:;">复制图片地址</a></div>
         <div class="infoctn">
             <div>图片标题：<span class="remark">（1-30个中文字或英文字母）</span></div>
-            <div><input class="imgtitle" /></div>
+            <div><input class="imgtitle" maxlength="30" /></div>
             <div class="desctn">图片描述：<span class="remark">（0-2000个中文字、英文字母、数字或符号）</span></div>
             <div><textarea  class="imgdes"></textarea></div>
         </div>
@@ -40,7 +40,7 @@
                 <ul>
                     <asp:Repeater ID="Repeater1" runat="server">
                         <ItemTemplate>
-                            <li>
+                            <li imgid=<%#Eval("id") %> >
                                 <div class="thctn"><img onload="changeImg(this,64,64)" src="/Resource/<%#Eval("ImgUrl") %>/<%#Eval("ImgName") %>" /></div>
                                 <div class="tlctn"><%#Eval("imgtitle") %></div>
                             </li>
