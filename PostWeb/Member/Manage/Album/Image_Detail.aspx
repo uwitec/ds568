@@ -25,17 +25,20 @@
             </span>
         </div>
         <div class="actionctn"><a href="javascript:;">设为相册封面</a><a href="javascript:;">移动</a><a href="javascript:;">删除</a><a href="javascript:;">设为相册封面</a><a href="javascript:;">复制图片地址</a></div>
+        <div class="saveInfo">
+            <div>编辑图片标题与描述成功！</div>
+        </div>
         <div class="infoctn">
             <div>图片标题：<span class="remark">（1-30个中文字或英文字母）</span></div>
             <div><input class="imgtitle" maxlength="30" /></div>
             <div class="desctn">图片描述：<span class="remark">（0-2000个中文字、英文字母、数字或符号）</span></div>
             <div><textarea  class="imgdes"></textarea></div>
         </div>
-        <div class="subctn"><a href="javascript:;" id="addImg" class="alkbtn"><div class="btnL"></div><div class="btnM">确定</div><div class="btnR"></div></a></div>
+        <div class="subctn"><a href="javascript:;" id="save" class="alkbtn dsab"><div class="btnL"></div><div class="btnM">确定</div><div class="btnR"></div></a></div>
     </div>
     <div class="dt_right">
         <div class="npctn">
-            <div class="hdtitle"><div class="fwimg"></div>132</div>
+            <div class="hdtitle"><div class="fwimg"></div><b><%=ViewState["albname"] %></b> 中的其他相片：</div>
             <div class="subwrap">
                 <ul>
                     <asp:Repeater ID="Repeater1" runat="server">

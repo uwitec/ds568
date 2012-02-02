@@ -28,6 +28,12 @@ public partial class Member_Manage_Album_Image_Detail : BasePage
                 case "loadimgdata":
                     Response.Write(json.Serialize(bl.GetSingle(int.Parse(Request.Form["img_id"]))));
                     break;
+                case "save":
+                    var img= bl.GetSingle(int.Parse(Request.Form["img_id"]));
+                    img.ImgTitle=Request.Form["title"].Trim();
+                    img.ImgDescript=Request.Form["des"].Trim();
+                    bl.Update(img);
+                    break;
             }
             Response.End();
             return;

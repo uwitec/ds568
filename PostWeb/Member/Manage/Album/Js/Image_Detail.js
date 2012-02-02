@@ -26,13 +26,14 @@
             dataType: "json",
             success: function(data, state) {
                 $(".sp1 img").attr("src", "/Resource/" + data.ImgUrl + "/" + data.ImgName);
+                $(".imgtitle").val(data.ImgTitle);
+                $(".imgdes").text(data.ImgDescript);
             },
             beforeSend: function() {
 
             },
             error: function(req, state, err) {
                 alert("加载图片数据出错。");
-                //$("body").append(req.responseText);
             }
         });
     });
@@ -64,11 +65,47 @@
         var ind = imgItem.index($(".crtimg"));
         scrollImg(false, ++ind);
     });
-
+ 
     //初始化当前选中的图片
     var crtimg = imgItem.filter("[imgid=" + $("#img_id").val() + "]");
     var ind = imgItem.index(crtimg);
     if (ind > 2)
         $(".subwrap").scrollLeft((ind - (imgItem.length > 4 ? 1 : 2)) * 77);
     crtimg.click();
+    
+    //保存
+    $("#save").click(function(){
+        if($(".alkbtn").hasClass("dsab")) return false;
+        $(".imgdes").keyup();
+        $.ajax({
+            type: "POST",
+            data: { action: "save", img_id: $(".crtimg").attr("imgid"),title:$(".imgtitle").val(),des:$(".imgdes").text() },
+            timeout: 15000,
+            success: function(data, state) {
+               $(".saveInfo").show();
+            },
+            error: function(req, state, err) {
+                $(".saveInfo").hide();
+                alert("保存出错。");
+            }
+        });
+    });
+    
+    //判断标题是否改变，若改变则使确定按扭可点击
+    $(".imgtitle").keyup(function(){
+        var dv=$(this).attr("defaultValue");
+        if(dv!=$(this).val()&&$.trim($(this).val())!=""){
+            $(".alkbtn").removeClass("dsab");
+        }
+    });
+    var des=$(".imgdes").text();
+    $(".imgdes").keyup(function(){
+        var nv=$(this).text();
+        if(des!=nv&&$.trim(nv)!=""){
+            $(".alkbtn").removeClass("dsab");
+        }
+        if(nv.length>2000){
+            $(this).text(nv.substring(0,2000));
+        }
+    });
 })
