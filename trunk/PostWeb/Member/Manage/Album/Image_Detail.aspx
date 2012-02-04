@@ -6,6 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <input type="hidden" id="img_id" value="<%=Request.QueryString["img_id"] %>" />
+<input type="hidden" id="FrontCover" value="<%=ViewState["FrontCover"] %>" />
 <ul class="hmenu">
     <li>
         <div class="mLeft"></div>
@@ -15,7 +16,7 @@
     <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
 </ul>
 <div class="abhdctn overflowAuto">
-    <div class="abtips"><a href="Album_List.aspx">所有相册</a> > <a href="Image_List.aspx?id=<%=ViewState["albid"] %>" class="albname"><%=ViewState["albname"] %></a> > <%=ViewState["imgtitle"] %></div>
+    <div class="abtips"><a href="Album_List.aspx">所有相册</a> > <a href="Image_List.aspx?id=<%=ViewState["albid"] %>" class="albname"><%=ViewState["albname"] %></a> > <span id="crtimgname"><%=ViewState["imgtitle"] %></span></div>
 </div>
 <div class="conWrap">
     <div class="dt_left">
@@ -24,7 +25,7 @@
                <img onload="changeImg(this,450,600)" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'" src="<%=ViewState["imgurl"] %>" />
             </span>
         </div>
-        <div class="actionctn"><a href="javascript:;">设为相册封面</a><a href="javascript:;">移动</a><a href="javascript:;">删除</a><a href="javascript:;">设为相册封面</a><a href="javascript:;">复制图片地址</a></div>
+        <div class="actionctn"><span class="hascv">已设为相册封面</span><a href="javascript:;">设为相册封面</a><a href="javascript:;">移动</a><a href="javascript:;">删除</a><a href="javascript:;">设为相册封面</a><a href="javascript:;">复制图片地址</a></div>
         <div class="saveInfo">
             <div>编辑图片标题与描述成功！</div>
         </div>
