@@ -7,7 +7,8 @@
         imgItem.removeClass("crtimg");
         $(this).addClass("crtimg")
         $(".corect").css({ "left": $(this).offset().left + 26, "top": $(this).offset().top + 33 }).show(); //设置勾的位置
-        $(".sp1 img").attr("src", $(this).find("img").attr("src"))
+       
+        //判断是否第一张或最后一张，以便隐藏或显示上一张或下一张
         var ind = imgItem.index(this);
         if (ind == 0)
             $(".preImg").hide();
@@ -33,9 +34,27 @@
 
             },
             error: function(req, state, err) {
+                //$("body").append(req.responseText)
                 alert("加载图片数据出错。");
             }
         });
+        
+        //选择其他图片后隐藏保存结果提示栏,并使确定扭按变为灰色
+        $(".saveInfo").hide();
+        $(".alkbtn").removeClass("dsab").addClass("dsab");
+        
+        //修改路径上的当前图片标题
+        $("#crtimgname").text($(this).find(".tlctn").text());
+        
+        //判断当前图片是否已设为封面
+        var src=$(this).find("img").attr("src").split('/');
+        if($("#FrontCover").val()==src[src.length-1]){
+            $(".actionctn a").eq(0).hide();
+            $(".hascv").show();
+        }else{
+            $(".actionctn a").eq(0).show();
+            $(".hascv").hide();
+        }
     });
 
     var scrollImg = function(isPre, ind) {
@@ -77,12 +96,16 @@
     $("#save").click(function(){
         if($(".alkbtn").hasClass("dsab")) return false;
         $(".imgdes").keyup();
+        var _title=$(".imgtitle").val();
         $.ajax({
             type: "POST",
-            data: { action: "save", img_id: $(".crtimg").attr("imgid"),title:$(".imgtitle").val(),des:$(".imgdes").text() },
+            data: { action: "save", img_id: $(".crtimg").attr("imgid"),title:_title,des:$(".imgdes").text() },
             timeout: 15000,
             success: function(data, state) {
                $(".saveInfo").show();
+               $(".alkbtn").addClass("dsab");
+               $(".crtimg .tlctn").text(_title);
+               $("#crtimgname").text(_title);
             },
             error: function(req, state, err) {
                 $(".saveInfo").hide();

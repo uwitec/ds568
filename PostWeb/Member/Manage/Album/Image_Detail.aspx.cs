@@ -49,6 +49,7 @@ public partial class Member_Manage_Album_Image_Detail : BasePage
         ViewState["albid"] = album.ID;
         ViewState["imgtitle"] = md.ImgTitle;
         ViewState["imgurl"] ="/Resource/"+ md.ImgUrl + "/" + md.ImgName;
+        ViewState["FrontCover"] = string.IsNullOrEmpty(album.FrontCover)?"":album.FrontCover.Substring(album.FrontCover.LastIndexOf("/")+1);
 
         //绑定图片
         Repeater1.DataSource = bl.Query("albumid=@0","px",md.AlbumID);

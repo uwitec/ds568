@@ -26,7 +26,7 @@ a.dsab{background-position:0 -55px;color:#b5b5b5}
 .albtitle{color:#355eba;font-weight:bold;}
 .hvcl{color:#fe5400;}
 .albtime span,.permiss{background:url(../images/private.gif) no-repeat;color:#cc0000;}
-.albtime span,.edit_alb2,.img_del,.img_move,.setcovert,.actionctn a{ background-position:5px 0; _background-position:5px 2px; line-height:20px; padding-left:12px;}
+.albtime span,.edit_alb2,.img_del,.img_move,.setcovert,.actionctn a,.hascv{ background-position:5px 0; _background-position:5px 2px; line-height:20px; padding-left:12px;}
 .albtime span,.permiss{padding-left:20px;}
 .albtitle span{font-weight:normal;color:#999;font-size:10px;}
 .albbg span{display:none; text-align:center;position:absolute;bottom:10px;left:16px;font-size:12px;width:106px;margin:0 auto; background-color:White;}
@@ -89,8 +89,9 @@ a.dsab{background-position:0 -55px;color:#b5b5b5}
  .thctn,.tlctn{margin:0 auto; text-align:center;}
  .thctn{background:url(../images/photo_bg.png);width:72px;height:72px;display:table-cell; vertical-align:middle; +display:block;+font-family:Arial;+font-size:63px;_font-size:135px;}
  .thctn img{ vertical-align:middle;}
- .tlctn{line-height:24px;height:24px; overflow:hidden;color:White;}
+ .tlctn{line-height:24px;height:24px; overflow:hidden;}
  .crtimg{background-color:#d20200;}
+ .crtimg .tlctn{color:White;}
  .corect{background:url(../images/1000848.gif) no-repeat;width:48px;height:48px; position:absolute;bottom:-5px;left:22px;display:none;}
  
  .npctn .overflowAuto{margin-top:12px;}
@@ -99,3 +100,4 @@ a.dsab{background-position:0 -55px;color:#b5b5b5}
  .nextImg{padding-right:16px;background:url(../images/2000112.gif) no-repeat right top;float:right;}
  .saveInfo{background:url(../images/1000848.gif) no-repeat 20px center;border:solid 1px #a0b6e8; background-color:#eff2f9;width:466px;margin:10px auto;display:none;}
  .saveInfo div{height:65px;border-top:solid 2px #d4dced;border-left:solid 2px #d4dced;font-size:14px; line-height:65px; text-indent:76px;}
+ .hascv{background:url(../images/1000812.gif) no-repeat;display:none;padding-right:10px;}
