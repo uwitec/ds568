@@ -19,7 +19,7 @@ public partial class Member_Manage_Album_Image_Upload : BasePage
 
         //设置左边菜单
         var mst = this.Master as Member_Manage_MasterPage;
-        mst.SetMenuTitle("图片管家", "相册管理");
+        mst.SetMenuTitle("图片管家", "上传图片");
 
         var bl = new DS_Album_Br();
         Repeater1.DataSource = bl.Query("memberid=@0","createdate desc", _userData.Member.ID);
