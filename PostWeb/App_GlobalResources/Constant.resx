@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="LoginPage" xml:space="preserve">
-    <value>/Member/Login/login.aspx</value>
+    <value>/Member/Login/Signin.aspx</value>
     <comment>登录页面路径</comment>
   </data>
   <data name="ManagePage" xml:space="preserve">

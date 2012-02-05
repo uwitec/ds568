@@ -1,6 +1,9 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Member/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="Image_Upload.aspx.cs" Inherits="Member_Manage_Album_Image_Upload" Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<link rel="Stylesheet" href="/js/uploadify/uploadify.css" />
+<script type="text/javascript" src="/js/uploadify/swfobject.js"></script>
+<script type="text/javascript" src="/js/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
 <link href="css/list.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/image_upload.js"></script>
 </asp:Content>
@@ -43,7 +46,9 @@
    </ul>
    <div class="detail_body">
       <div class="bd_left">
-        <div class="upimg_list"></div>
+        <ul class="upimg_list">
+        
+        </ul>
         <div class="upimg_list_info">
             <span>0</span> 张图片<span class="mgl"></span>
             <b>总大小 <span>0 B</span></b>
