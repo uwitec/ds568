@@ -118,7 +118,13 @@ a.dsab{background-position:0 -55px;color:#b5b5b5}
  .detail_body{overflow:auto;zoom:1;}
  .bd_left{float:left;width:520px;height:160px;border:solid 1px #ccc;}
  .bd_right{margin-left:530px;_margin-left:527px;padding-left:16px; background:url(../images/1000312.gif) no-repeat 0 3px;}
- .upimg_list{height:125px}
+ .upimg_list{height:125px;width:510px;margin:0 auto;}
+ .upimg_list li{ overflow:auto;zoom:1;border-bottom:solid 1px #ededed;line-height:20px;}
+ .upimg_list li div{float:left;}
+ .infoL{width:396px;text-indent:6px;}
+ .infoM{width:63px;}
+ .infoR{width:51px;}
+ .infoR a{line-height:20px;background:url(../images/6006012.gif) no-repeat 0 1px;padding-left:13px;}
  .upimg_list_info{line-height:34px;padding-left:10px;border-top:solid 1px #ccc;background-color:#ededed}
  .mgl{margin-left:350px;}
  .acton_wrap{margin:10px 0 30px 0;}
