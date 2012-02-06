@@ -38,20 +38,17 @@
 <ul class="upload_type_wrap">
     <li class="current_ut"><a  href="javascript:;">普通上传</a></li><li><a href="javascript:;">单张图片上传</a></li>
 </ul>
-<div class="ulbtn" >
-<a href="javascript:;"  class="alkbtn"><div class="btnL"></div><div class="btnM">请选择图片<span class="ultip"> 可多选</span></div><div class="btnR"></div></a></div>
+<div class="ulbtn" ><input type="file" id="uploadify" /></div>
 <div class="upload_detail_wrap">
    <ul class="detail_head">
        <li class="dh_1">待上传图片文件名列表</li><li class="dh_2">大小</li><li class="dh_3">操作</li>
    </ul>
    <div class="detail_body">
       <div class="bd_left">
-        <ul class="upimg_list">
-        
-        </ul>
+        <ul class="upimg_list"></ul>
         <div class="upimg_list_info">
-            <span>0</span> 张图片<span class="mgl"></span>
-            <b>总大小 <span>0 B</span></b>
+            <span id="fileCount">0</span> 张图片<span class="mgl"></span>
+            <b>总大小 <span id="totalSize">0 B</span></b>
         </div>
       </div>
       <div class="bd_right">
