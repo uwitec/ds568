@@ -8,6 +8,7 @@
 <script type="text/javascript" src="js/image_upload.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<input type="hidden" value="" />
 <ul class="hmenu">
     <li>
         <div class="mLeft"></div>
