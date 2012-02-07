@@ -8,8 +8,7 @@ public class Handler : IHttpHandler {
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/plain";
         HttpPostedFile file = context.Request.Files["Filedata"];
-        string uploadPath =
-            HttpContext.Current.Server.MapPath(@context.Request["folder"]) + "\\";
+        string uploadPath =HttpContext.Current.Server.MapPath(@context.Request["folder"]) + "\\";
 
         if (file != null)
         {

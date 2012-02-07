@@ -10,7 +10,7 @@
                 $(this).removeClass("ab_hover").find(".albtitle").removeClass("hvcl");
             }
         ).click(function() {
-            //location="image_list.aspx?id="+$(this).attr("aid")
+            $("#albumID").val($(this).attr("aid"));
         });
 
 
@@ -159,11 +159,24 @@
         }
     });
 
+    //清除列表
     $("#delAll").click(function() {
         $("#uploadify").uploadifyClearQueue();
         $(".upimg_list li").slideUp(200, function() {
             $(".upimg_list li").remove();
         });
+    });
+
+    //上传
+    $("#uploadImg").click(function() {
+        
+        var albumid = $("#albumID").val();
+        if (!$(this).hasClass("dsab")&&albumid!="") {
+            if (!$(this).attr("disabled")) {
+                $('#uploadify').uploadifySettings('script', '/js/uploadify/Upload.aspx?albumID=' +albumid );
+                $('#uploadify').uploadifyUpload();
+            }
+        }
     });
 
 });
