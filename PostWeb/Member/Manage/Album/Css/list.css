@@ -104,7 +104,7 @@ a.dsab{background-position:0 -55px;color:#b5b5b5}
  
  .step,.step2{ background:url(../images/icon_90210.gif) no-repeat 0 -205px;font-weight:normal;}
  .step2{ background-position:0 -295px;}
- .upload_type_wrap{border-bottom:solid 1px #ccc;overflow:auto;zoom:1;margin-top:10px;padding-left:30px;}
+ .upload_type_wrap{border-bottom:solid 1px #ccc;overflow:hidden;margin-top:10px;padding-left:30px;height:26px;}
  .upload_type_wrap li{float:left; text-align:center;padding:0 20px;line-height:22px;position:relative;top:1px;border:solid 1px #fff;border-bottom-color:#ccc;padding-top:2px;}
  li.current_ut{font-size:14px;border:solid 1px #ccc;border-bottom-color:#fff;}
  li.current_ut a{color:black;}
@@ -125,6 +125,7 @@ a.dsab{background-position:0 -55px;color:#b5b5b5}
  .infoM{width:63px;}
  .infoR{width:51px;}
  .infoR a{line-height:20px;background:url(../images/6006012.gif) no-repeat 0 1px;padding-left:13px;}
+ a.cpl{background-image:url(../images/1000812.gif);}
  .upimg_list_info{line-height:34px;padding-left:10px;border-top:solid 1px #ccc;background-color:#ededed}
  .mgl{margin-left:350px;}
  .acton_wrap{margin:10px 0 30px 0;}

@@ -116,13 +116,13 @@
         'multi': true,
         'width': 143,
         'height': 28,
-        'sizeLimit': 4096 * 1024,
+        'sizeLimit': 200 * 1024,//200KB
         'queueSizeLimit': 5,
         'buttonImg': '/Member/Manage/Album/Images/upBtn.gif',
         'fileExt': '*.jpg;*.gif;*.png;*.bmp',
         'fileDesc': '*.jpg;*.gif;*.png;*.bmp',
         'onComplete': function(event, ID, fileObj, response, data) {
-
+            $(".infoR a[qid="+ID+"]").addClass("cpl");
         },
         'onSelect': function(event, queueId, fileObj) {
             $(".upimg_list").append("<li><div class=\"infoL\">" + fileObj.name + "</div><div class=\"infoM\">" + covertSize(fileObj.size) + "</div><div class=\"infoR\"><a href='javascript:;' qid='" + queueId + "' title='删除'>&nbsp;</a></div></li>");
@@ -154,8 +154,8 @@
                 $("#delAll,#uploadImg").addClass("dsab");
         },
         'onError': function(event, queueId, fileObj, errorObj) {
-
-
+            alert(errorObj.info);
+        
         }
     });
 
@@ -172,11 +172,10 @@
         
         var albumid = $("#albumID").val();
         if (!$(this).hasClass("dsab")&&albumid!="") {
-            if (!$(this).attr("disabled")) {
-                $('#uploadify').uploadifySettings('script', '/js/uploadify/Upload.aspx?albumID=' +albumid );
-                $('#uploadify').uploadifyUpload();
-            }
-        }
+                $("#uploadify").uploadifySettings('script', '/js/uploadify/Upload.aspx?albumID=' +albumid );
+                $("#uploadify").uploadifyUpload();
+        }else
+            alert("请先挑选相册。");
     });
 
 });
