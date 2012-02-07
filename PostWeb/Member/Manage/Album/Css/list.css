@@ -119,7 +119,7 @@ a.dsab{background-position:0 -55px;color:#b5b5b5}
  .bd_left{float:left;width:520px;height:160px;border:solid 1px #ccc;}
  .bd_right{margin-left:530px;_margin-left:527px;padding-left:16px; background:url(../images/1000312.gif) no-repeat 0 3px;}
  .upimg_list{height:125px;width:510px;margin:0 auto;}
- .upimg_list li{ overflow:auto;zoom:1;border-bottom:solid 1px #ededed;line-height:20px;}
+ .upimg_list li{ overflow:auto;zoom:1;border-bottom:solid 1px #ededed;line-height:22px;}
  .upimg_list li div{float:left;}
  .infoL{width:396px;text-indent:6px;}
  .infoM{width:63px;}
