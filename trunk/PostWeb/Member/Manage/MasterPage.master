@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
     <Custom:Header ID="Header1" runat="server" />
     <link href="/Member/Manage/Css/Master.css" rel="stylesheet" type="text/css" />
     <link href="/Member/Manage/UserControl/Css/LeftMenu.css" rel="stylesheet" type="text/css" />
