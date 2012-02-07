@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="bd_right">
-        普通上传一次最多可上传<span class="red">50张</span>，单张最大 <span class="red">200 KB</span>，若图片大小超过 <span class="red">200 KB</span>，请压缩处理后再上传。<br />
+        普通上传一次最多可上传<span class="red"> 5张</span>，单张最大 <span class="red">200 KB</span>，若图片大小超过 <span class="red">200 KB</span>，请压缩处理后再上传。<br />
         只支持JPG、GIF、BMP、PNG格式图片，请勿上传违规图片。<br />
         单个相册最多存放<span class="red">200张</span>图片。
       </div>
@@ -60,8 +60,8 @@
 </div>
 <ul class="acton_wrap overflowAuto" >
     <li class="at_1"><input type="checkbox" id="imgsr" /><label for="imgsr" class="gray">添加图片水印</label><a href="#"> 设置图片水印</a></li>
-    <li><a href="javascript:;" class="alkbtn dsab"><div class="btnL"></div><div class="btnM">全部删除</div><div class="btnR"></div></a></li>
-    <li><a href="javascript:;" class="alkbtn dsab"><div class="btnL"></div><div class="btnM">上传图片</div><div class="btnR"></div></a></li>
+    <li><a href="javascript:;" id="delAll" class="alkbtn dsab"><div class="btnL"></div><div class="btnM">全部删除</div><div class="btnR"></div></a></li>
+    <li><a href="javascript:;" id="uploadImg" class="alkbtn dsab"><div class="btnL"></div><div class="btnM">上传图片</div><div class="btnR"></div></a></li>
     <li class="at_4 gray">别忘记上传图片的最后一步哦</li>
 </ul>
 <div class="wbctn">

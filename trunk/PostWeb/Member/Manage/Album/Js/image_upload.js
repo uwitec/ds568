@@ -140,17 +140,30 @@
             $("#totalSize").text(covertSize(data.allBytesTotal));
             //所有文件个数
             $("#fileCount").text(data.fileCount);
+            //设置全部删除和上传图片按扭状态
+            if (data.fileCount > 0)
+                $("#delAll,#uploadImg").removeClass("dsab");
         },
         'onCancel': function(event, queueId, fileObj, data) {
             //所有文件大小
             $("#totalSize").text(covertSize(data.allBytesTotal));
             //所有文件个数
             $("#fileCount").text(data.fileCount);
+            //设置全部删除和上传图片按扭状态
+            if (data.fileCount == 0)
+                $("#delAll,#uploadImg").addClass("dsab");
         },
         'onError': function(event, queueId, fileObj, errorObj) {
 
 
         }
+    });
+
+    $("#delAll").click(function() {
+        $("#uploadify").uploadifyClearQueue();
+        $(".upimg_list li").slideUp(200, function() {
+            $(".upimg_list li").remove();
+        });
     });
 
 });
