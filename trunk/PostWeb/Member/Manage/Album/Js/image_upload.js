@@ -4,13 +4,26 @@
     var albHover = function() {
         //鼠标经过
         $(".listctn li").hover(function() {
-            $(this).addClass("ab_hover").find(".albtitle").addClass("hvcl");
-        },
+                if(!$(this).hasClass("alsel"))
+                    $(this).addClass("ab_hover").find(".albtitle").addClass("hvcl");
+            },
             function() {
-                $(this).removeClass("ab_hover").find(".albtitle").removeClass("hvcl");
+                if(!$(this).hasClass("alsel"))
+                    $(this).removeClass("ab_hover").find(".albtitle").removeClass("hvcl");
             }
         ).click(function() {
             $("#albumID").val($(this).attr("aid"));
+            $(".listctn li").removeClass("alsel")
+            $(this).removeClass("ab_hover").addClass("alsel").find(".albtitle").removeClass("hvcl");
+            $("#abnctn").show();
+            $("#selabn").text($(this).attr("abn"));
+            $(".step2").addClass("step2enb"); 
+            var ind=$(".listctn li").index(this)+1;
+            var rowInd=ind%5==0?ind/5:Math.floor(ind/5)+1;
+            $(".listctn").addClass("afterSel").animate({"scrollTop":(rowInd-1)*210},600,function(){
+                $("#stepwrap").show();
+            });
+            
         });
 
 
@@ -125,6 +138,10 @@
             $(".infoR a[qid="+ID+"]").addClass("cpl");
         },
         'onSelect': function(event, queueId, fileObj) {
+            if(fileObj.size>200 * 1024){
+                alert(fileObj.name+" 大小超过了200 KB\n\r请压缩处理后再上传。");
+                return false;
+            }
             $(".upimg_list").append("<li><div class=\"infoL\">" + fileObj.name + "</div><div class=\"infoM\">" + covertSize(fileObj.size) + "</div><div class=\"infoR\"><a href='javascript:;' qid='" + queueId + "' title='删除'>&nbsp;</a></div></li>");
         },
         'onSelectOnce': function(event, data) {
@@ -154,7 +171,9 @@
                 $("#delAll,#uploadImg").addClass("dsab");
         },
         'onError': function(event, queueId, fileObj, errorObj) {
-            alert(errorObj.info);
+            if(errorObj.type=="File Size"){
+                $('#uploadify').uploadifyCancel(queueId);
+            }
         
         }
     });
@@ -171,11 +190,14 @@
     $("#uploadImg").click(function() {
         
         var albumid = $("#albumID").val();
-        if (!$(this).hasClass("dsab")&&albumid!="") {
+        
+        if(!$(this).hasClass("dsab")){
+            if(albumid!=""){
                 $("#uploadify").uploadifySettings('script', '/js/uploadify/Upload.aspx?albumID=' +albumid );
                 $("#uploadify").uploadifyUpload();
-        }else
-            alert("请先挑选相册。");
+            }else
+                alert("请先挑选相册。");
+        }
     });
 
 });
