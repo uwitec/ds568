@@ -18,7 +18,7 @@ public partial class Member_Manage_Album_Image_List : BasePage
         var bl = new DS_AlbumImg_Br();
         var albbl = new DS_Album_Br();
         int rc = 0;
-        int pagesize = 2;
+        int pagesize = 16;
         string act=Request["action"];
         if (!string.IsNullOrEmpty(act)) {
             switch (act) { 

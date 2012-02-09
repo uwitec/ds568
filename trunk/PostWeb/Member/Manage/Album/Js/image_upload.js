@@ -135,7 +135,10 @@
         'fileExt': '*.jpg;*.gif;*.png;*.bmp',
         'fileDesc': '*.jpg;*.gif;*.png;*.bmp',
         'onComplete': function(event, ID, fileObj, response, data) {
-            $(".infoR a[qid="+ID+"]").addClass("cpl");
+            $(".infoR a[qid="+ID+"]").removeClass("load").addClass("cpl");
+        },
+        'onProgress':function(event,queueId,fileObj,data){
+            $(".infoR a[qid="+queueId+"]").addClass("load");
         },
         'onSelect': function(event, queueId, fileObj) {
             if(fileObj.size>200 * 1024){
