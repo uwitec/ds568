@@ -104,6 +104,7 @@ a.dsab{background-position:0 -55px;color:#b5b5b5}
  
  .step,.step2{ background:url(../images/icon_90210.gif) no-repeat 0 -205px;font-weight:normal;}
  .step2{ background-position:0 -295px;}
+ .step3{ background:url(../images/3000316.gif) no-repeat 0 5px;}
  .step2enb{background-position:0 -265px;}
  .upload_type_wrap{border-bottom:solid 1px #ccc;overflow:hidden;margin-top:10px;padding-left:30px;height:26px;}
  .upload_type_wrap li{float:left; text-align:center;padding:0 20px;line-height:22px;position:relative;top:1px;border:solid 1px #fff;border-bottom-color:#ccc;padding-top:2px;}
@@ -139,4 +140,7 @@ a.dsab{background-position:0 -55px;color:#b5b5b5}
  .afterSel{overflow:auto;height:210px;}
  .afterSel .albbg{ position:static;}
  #stepwrap,#abnctn{display:none;}
-#selabn{color:#f24500;}
+ #selabn{color:#f24500;}
+.vsb{display:block;width:auto;}
+.vsb ul{margin:6px 0 6px 75px;}
+.info_1{font-size:14px;margin-bottom:6px;}

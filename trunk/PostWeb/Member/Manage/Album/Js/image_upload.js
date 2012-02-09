@@ -137,6 +137,9 @@
         'onComplete': function(event, ID, fileObj, response, data) {
             $(".infoR a[qid="+ID+"]").removeClass("load").addClass("cpl");
         },
+        'onAllComplete':function(even,data){
+            location="Edit_Image.aspx?fc="+data.filesUploaded;
+        },
         'onProgress':function(event,queueId,fileObj,data){
             $(".infoR a[qid="+queueId+"]").addClass("load");
         },
