@@ -27,7 +27,7 @@
         </div>
         <div class="actionctn"><span class="hascv">已设为相册封面</span><a href="javascript:;">设为相册封面</a><a href="javascript:;">移动</a><a href="javascript:;">删除</a><a href="javascript:;">设为相册封面</a><a href="javascript:;">复制图片地址</a></div>
         <div class="saveInfo">
-            <div>编辑图片标题与描述成功！</div>
+            <div class="shado">编辑图片标题与描述成功！</div>
         </div>
         <div class="infoctn">
             <div>图片标题：<span class="remark">（1-30个中文字或英文字母）</span></div>

@@ -189,12 +189,17 @@
             type:"POST",
             data:{action:"del",id:ids,albumid:$("#alb_id").val()},
             success:function(data,state){
-                if(Number(data)){
+                var pc=Number(data);
+                if(pc||pc==0){
                     $("#pgcount").text(data);
-                    if(pageIndex>Number(data))
-                        pageIndex=Number(data)+1;
-                    else
-                        pageIndex++;
+                    if(pc>0){
+                        if(pageIndex>pc){
+                            pageIndex=pc+1;
+                        }
+                        else
+                            pageIndex++;
+                    }else
+                        pageIndex=2;
                     $("#pre").click();
                 }else
                     alert(data);
