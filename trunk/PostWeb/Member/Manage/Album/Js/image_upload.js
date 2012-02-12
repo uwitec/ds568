@@ -138,7 +138,7 @@
             $(".infoR a[qid="+ID+"]").removeClass("load").addClass("cpl");
         },
         'onAllComplete':function(even,data){
-            location="Edit_Image.aspx?fc="+data.filesUploaded;
+            location="Edit_Image.aspx?albumid="+$("#albumID").val()+"&fc="+data.filesUploaded;
         },
         'onProgress':function(event,queueId,fileObj,data){
             $(".infoR a[qid="+queueId+"]").addClass("load");

@@ -33,27 +33,27 @@ public partial class Member_Manage_Album_Image_List : BasePage
                     Response.End();
                     break;
                 case "del":
-                    //try
-                    //{
+                    try
+                    {
                         bl.Delete(Request.Form["id"].TrimEnd(','));
                         rc = bl.Query("AlbumID=@0", "", int.Parse(Request.Form["albumid"])).Count();
                         Response.Write((rc % pagesize).Equals(0) ? rc / pagesize : rc / pagesize + 1);
                         Response.End();
-                    //}
-                    //catch (System.Threading.ThreadAbortException ex)
-                    //{
+                    }
+                    catch (System.Threading.ThreadAbortException ex)
+                    {
 
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    if (ex.Message.Contains("FK_DS_AlbumImg_DS_Album"))
-                    //    {
-                    //        Response.Write("当前相册包含有图片，必须将图片删除或转移到其他相册后才能删除。");
-                    //    }
-                    //    else
-                    //        Response.Write("删除图片出错。" + ex.Message);
-                    //    Response.End();
-                    //}
+                    }
+                    catch (Exception ex)
+                    {
+                        if (ex.Message.Contains("FK_DS_AlbumImg_DS_Album"))
+                        {
+                            Response.Write("当前相册包含有图片，必须将图片删除或转移到其他相册后才能删除。");
+                        }
+                        else
+                            Response.Write("删除图片出错。" + ex.Message);
+                        Response.End();
+                    }
                     break;
                
             }
