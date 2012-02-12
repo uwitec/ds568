@@ -40,6 +40,30 @@ namespace Com.DianShi.BusinessRules.Album
             }
         }
 
+        public void Update(DS_AlbumImg AlbumImg, bool FrontCover)
+        {
+            using (var con = DBUtility.DbHelperSQL.GetConnection())
+            {
+                var tran = con.BeginTransaction();
+
+                var ct = new DS_AlbumImgDataContext(con);
+                ct.Transaction = tran;
+                ct.DS_AlbumImg.Attach(AlbumImg, true);
+                ct.SubmitChanges();
+
+                var ct2 = new DS_AlbumDataContext(con);
+                ct2.Transaction = tran;
+                var album = ct2.DS_Album.Single(a=>a.ID==AlbumImg.AlbumID);
+                album.UpdateDate = DateTime.Now;
+                if (FrontCover) {
+                    album.FrontCover = "/Resource/" + AlbumImg.ImgUrl + "/" + AlbumImg.ImgName;
+                }
+                ct2.SubmitChanges();
+
+                tran.Commit();
+            }
+        }
+
         public void Delete(int ID)
         {
             using (var ct = new DS_AlbumImgDataContext())
