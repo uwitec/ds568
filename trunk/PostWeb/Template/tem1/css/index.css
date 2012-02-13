@@ -1,4 +1,4 @@
-@import url("../../css/Globle.css");
+@import url("/template/css/Globle.css");
 .Main { 
 	width: 100%;
 	overflow:auto;zoom:1;
@@ -219,8 +219,8 @@
  	height:150px;background-position:0 -87px;
 	display:table-cell;
     vertical-align:middle;
-    *display:block;
-    *font-size:104px;
+    +display:block;
+    +font-size:98px;
  }
  .AlbumList li div.AlbumName a:link{color:#898989;}
  .AlbumList li div.AlbumName a:hover{color:#ff7300;}
@@ -228,8 +228,7 @@
  {
  	vertical-align:middle;
     max-width:100px;
-	max-height:140px;
-	_autosize:expression(changeImg(this,100,140));                
+	max-height:140px;       
   }
  .Split12_1{float:left;width:100%;}
  .div001{float:right;width:21px;height:21px;background-position:-237px -89px;cursor:pointer;}
