@@ -17,7 +17,7 @@ public partial class index_album : System.Web.UI.Page
     {
         AspNetPager4.PageChanged+=new EventHandler(AspNetPager4_PageChanged);
         if (IsPostBack) return;
-        BindData("memberid=@0",int.Parse(Request.QueryString["member_id"]));
+        BindData("memberid=@0 and PictureNum>0", int.Parse(Request.QueryString["member_id"]));
         
     }
 
@@ -31,7 +31,7 @@ public partial class index_album : System.Web.UI.Page
         ViewState["param"] = param;
         var bl = new DS_Album_Br();
         int rc = 0;
-        Repeater1.DataSource = bl.Query(sql, "createdate desc", (AspNetPager4.CurrentPageIndex - 1) * AspNetPager4.PageSize, AspNetPager4.PageSize, ref rc, param);
+        Repeater1.DataSource = bl.Query(sql, "updatedate desc", (AspNetPager4.CurrentPageIndex - 1) * AspNetPager4.PageSize, AspNetPager4.PageSize, ref rc, param);
         Repeater1.DataBind();
 
         if (!IsPostBack)

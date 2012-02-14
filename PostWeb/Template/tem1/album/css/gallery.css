@@ -25,17 +25,19 @@
  .SelectOrder{background-position:0 -92px;
  	width:150px;height:27px;
 	margin:0 auto;position:relative;}
- .SelectOrder ul{
-	 width:148px;
+ .SelectOrder ul
+ {
+ 	 width:148px;
 	 overflow:auto;zoom:1;
 	 border:solid 1px #626262;
 	 position:absolute;
 	 left:0;
-	 top:26px;
+	 top:25px;
 	 background-color:white;
 	 text-indent:12px;
  	 display:none;
   }
+  .SelectOrder ul li{height:20px;line-height:20px; overflow:hidden;}
   .SelectOrder ul li.Selected{font-weight:bold;}
   #gallery {
     padding: 30px;
@@ -151,7 +153,7 @@
   .ad-pre{background-position:-2px -11px;left:0;top:11px;width:70px;}
   .ad-paly{width:44px;height:44px;background-position:-71px -1px;left:70px;top:1px;}
   .ad-next2{width:71px;background-position:-115px -11px;left:114px;top:11px;}
-  .ad-contentR2 a.PrevAlbum{left:-70px;top:9px; text-align::right; background-position:0 -38px;}
+  .ad-contentR2 a.PrevAlbum{left:-70px;top:9px; text-align:right; background-position:0 -38px;}
   .ad-contentR2 a.NextAlbum{left:185px;top:9px;background-position:63px -55px; text-align:left;}
     .ad-gallery .ad-info {
       float: left;

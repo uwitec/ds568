@@ -14,17 +14,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <input type="hidden" id="albumid" value="<%=Request.QueryString["album_id"] %>" />
     <div class="AlbumBodyBg">
 	<div class="head">
-    	<div class="HeadLeft">&nbsp;苏得冠</div>
+    	<div class="HeadLeft">&nbsp;<%=ViewState["comName"]%></div>
         <div class="HeadRight" >
         	<div class="HRR1">
             	
             </div>
             <div class="HRR2">
             	<ul>
-                	<li class="HRR2Li1"><a href="#">收藏本公司</a></li>
-                    <li class="HRR2Li2"><a href="#">设为首页</a></li>
+                	<li class="HRR2Li1"><a href="javascript:AddFavorite(location.href,'<%=ViewState["comName"]%>')">收藏本公司</a></li>
+                    <li class="HRR2Li2"><a onclick="this.homepage.style.behavior='url(#default#homepage)';this.homepage.sethomepage('http://www.netbei.com');" href="javascript:;">设为首页</a></li>
                     <li class="HRR2Li3"><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=416351551&Site=www.apsw8.com&Menu=yes">
                                             <img src="http://wpa.qq.com/pa?p=1:416351551:4" alt='online' style='font-family: Arial'>给我留言</a></li>
                 </ul>
@@ -39,8 +40,11 @@
                 <div class="ContentLeft">
                 	<div class="SelectOrder">
                      	<ul>
-                        	<li><a href="#">热销产品</a></li>
-                            <li class="Selected"><a href="#">我的相册</a></li>
+                             <asp:Repeater ID="Repeater2" runat="server">
+                                <ItemTemplate>
+                                    <li aid="<%#Eval("id") %>"><a href="album_show.aspx?album_id=<%#Eval("id") %>&member_id=<%#Request.QueryString["member_id"] %>"><%#Eval("albumname") %></a></li>
+                                </ItemTemplate>
+                             </asp:Repeater>
                         </ul>
                     </div>
                 </div>
@@ -61,7 +65,7 @@
                                         <a href="#" class="ad-next2"></a>
                                     </div>
                                 	<div  class="ad-contentR2">
-                                    <a href="#" class="PrevAlbum">上本相册</a>相册名称：<span>我的相册</span><a href="#" class="NextAlbum">下本相册</a>
+                                    <a href="#" class="PrevAlbum">上本相册</a>相册名称：<span style="width:64px;overflow:hidden;height:16px;"><%=ViewState["albumName"] %></span><a href="#" class="NextAlbum">下本相册</a>
                                     </div>
                                 </div>
                           </div>
