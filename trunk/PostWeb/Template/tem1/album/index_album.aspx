@@ -24,7 +24,7 @@
                             <ItemTemplate>
                                 <li>
                                     <div class="AlbumImg">
-                                        <a href="album_show.aspx?album_id=<%#Eval("id") %>" target="_blank">
+                                        <a href="album_show.aspx?album_id=<%#Eval("id") %>&member_id=<%#Request.QueryString["member_id"] %>" target="_blank">
                                             <img onload="changeImg(this,102,128)"   onerror="this.src='images/no-cover.gif'" src="<%#Eval("PictureNum").ToString().Equals("0") ? "images/no_photo.gif" : (Eval("FrontCover") == null ? "images/no-cover.gif" : Eval("FrontCover"))%>" /></a>
                                     </div>
                                     <div class="AlbumName">

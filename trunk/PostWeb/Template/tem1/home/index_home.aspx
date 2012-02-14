@@ -45,7 +45,7 @@
                             <ItemTemplate>
                                  <li>
                                     <div class="TzImg">
-                                        <a href="#">
+                                        <a href="../product/product_show.aspx?member_id=<%=Request.QueryString["member_id"] %>&pro_id=<%#Eval("id") %>">
                                             <img  onload="changeImg(this,150,150)" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
                                     </div>
                                     <div class="ProductTitle">
@@ -86,7 +86,7 @@
                             <ItemTemplate>
                                      <li>
                                         <div class="NewImg">
-                                            <a href="#">
+                                            <a href="../product/product_show.aspx?member_id=<%=Request.QueryString["member_id"] %>&pro_id=<%#Eval("id") %>">
                                                 <img  onload="changeImg(this,150,150)" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
                                         </div>
                                         <div class="ProductTitle">

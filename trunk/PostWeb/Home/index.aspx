@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="Home_index" Title="Untitled Page" %>
-
+<asp:Content ID="Content2" ContentPlaceHolderID="Title" Runat="Server">
+    <title>点石IT网ds568.net, 中国最专业的IT产品采购平台、批发市场和商人社区</title>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <link href="css/index.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">

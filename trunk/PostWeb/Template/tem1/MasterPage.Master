@@ -73,7 +73,7 @@
                     <li class="TopBarSpritLine"></li>
                     <li><a href="#" class="UserCenter">会员中心</a> </li>
                     <li class="LiSearch">
-                        <input name="" type="text" class="KeyWord" /><input name="" class="BtnSearch" type="button" /><input
+                        <input name="" type="text" class="KeyWord" /><input name="" class="BtnSearch" onclick="if(confirm('点石网主站尚在建设中，您可以先预览我们的主页。')){open('/home/index.aspx','_blank','scrollbars=yes');}" type="button" /><input
                             name="" class="BtnSearch2" type="button" /></li>
                 </ul>
             </div>
@@ -90,14 +90,14 @@
             <!--========菜单开始==============-->
             <div class="HeaderMenuBar">
                 <ul>
-                    <li class="Check"><a href="../home/index_home.aspx">首页</a></li>
-                    <li><a href="../product/index_product.aspx">供应产品</a></li>
-                    <li><a href="#">诚信档案</a></li>
-                    <li><a href="../profile/index_profile.aspx">公司介绍</a></li>
-                    <li><a href="../album/index_album.aspx">我的相册</a></li>
-                    <li><a href="../news/index_news.aspx">公司新闻</a></li>
-                    <li><a href="../../../Community/FeedBack/index.aspx" target="_blank">在线留言</a></li>
-                    <li><a href="../contact/index_contact.aspx">联系方式</a></li>
+                    <li class="Check"><a href="../home/index_home.aspx?member_id=<%=Request.QueryString["member_id"] %>">首页</a></li>
+                    <li><a href="../product/index_product.aspx?member_id=<%=Request.QueryString["member_id"] %>">供应产品</a></li>
+                    <li><a href="javascript:;alert('诚信档案尚未开放，请稍后访问。')">诚信档案</a></li>
+                    <li><a href="../profile/index_profile.aspx?member_id=<%=Request.QueryString["member_id"] %>">公司介绍</a></li>
+                    <li><a href="../album/index_album.aspx?member_id=<%=Request.QueryString["member_id"] %>">我的相册</a></li>
+                    <li><a href="../news/index_news.aspx?member_id=<%=Request.QueryString["member_id"] %>">公司新闻</a></li>
+                    <li><a href="../../../Community/FeedBack/index.aspx?member_id=<%=Request.QueryString["member_id"] %>" target="_blank">在线留言</a></li>
+                    <li><a href="../contact/index_contact.aspx?member_id=<%=Request.QueryString["member_id"] %>">联系方式</a></li>
                 </ul>
             </div>
             <!--========菜单结束==============-->
