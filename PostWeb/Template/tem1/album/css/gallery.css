@@ -2,7 +2,7 @@
   .ad-pre,.ad-next2,.ad-paly,.ad-contentR2 a,.SelectOrder,.HRR2Li1,.HRR2Li2{
 	background: url(../images/PreNext.gif) no-repeat;
   }
- .AlbumBodyBg{  background: url(../images/bodyBg.gif) no-repeat 0 60px;overflow:auto;zoom:1;}
+ .AlbumBodyBg{  background: url(../images/bodyBg.gif) no-repeat 0 60px;overflow:auto;zoom:1;width:1024px;margin:0 auto;}
  .head{height:60px;color:#555;float:left;width:100%}
  .HeadLeft{font-size:24px;float:left;width:60%;line-height:60px;}
  .HeadRight{float:right;width:230px;}
