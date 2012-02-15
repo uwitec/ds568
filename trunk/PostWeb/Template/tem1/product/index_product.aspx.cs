@@ -24,7 +24,34 @@ public partial class index_product : System.Web.UI.Page
         Repeater1.DataBind();
 
         //产品
-        BindDate("memberid=@0",int.Parse(Request.QueryString["member_id"]));
+        string cat_id=Request.QueryString["cat_id"],proname=Request.QueryString["pro_name"],low_price=Request.QueryString["low_price"],height_price=Request.QueryString["height_price"];
+        if (!string.IsNullOrEmpty(cat_id))
+        {
+            BindDate("ShopCatID=@0", int.Parse(cat_id));
+        }
+        else if (!string.IsNullOrEmpty(proname) || !string.IsNullOrEmpty(low_price) || !string.IsNullOrEmpty(height_price))
+        {
+            object[] param = { int.Parse(Request.QueryString["member_id"]), 0.0, 0.0, "" };
+            string sql = "memberid=@0";
+            if (!string.IsNullOrEmpty(low_price)) {
+                sql = " and lowprice>@1";
+                param[1] = double.Parse(low_price) - 0.01;
+            }
+            if (!string.IsNullOrEmpty(height_price))
+            {
+                sql = " and heightprice<@2";
+                param[2] = double.Parse(height_price) + 0.01;
+            }
+            if (!string.IsNullOrEmpty(proname)) {
+                sql = " and Title.Contains(@3)";
+                param[3] = proname;
+            }
+            sql = sql.Trim().TrimStart('a','n','d');
+            BindDate(sql,param);
+        }
+        else {
+            BindDate("memberid=@0", int.Parse(Request.QueryString["member_id"]));
+        }
     }
 
     private void AspNetPager4_PageChanged(object ob, object ob1)
