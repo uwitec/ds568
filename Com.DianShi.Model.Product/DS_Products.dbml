@@ -42,6 +42,8 @@
       <Column Name="PriceRang" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="State" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="LowPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="HeightPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

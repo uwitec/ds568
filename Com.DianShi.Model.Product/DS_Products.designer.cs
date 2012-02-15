@@ -158,6 +158,10 @@ namespace Com.DianShi.Model.Product
 		
 		private byte _State;
 		
+		private double _LowPrice;
+		
+		private double _HeightPrice;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -240,6 +244,10 @@ namespace Com.DianShi.Model.Product
     partial void OnMemberIDChanged();
     partial void OnStateChanging(byte value);
     partial void OnStateChanged();
+    partial void OnLowPriceChanging(double value);
+    partial void OnLowPriceChanged();
+    partial void OnHeightPriceChanging(double value);
+    partial void OnHeightPriceChanged();
     #endregion
 		
 		public DS_Products()
@@ -1023,6 +1031,46 @@ namespace Com.DianShi.Model.Product
 					this._State = value;
 					this.SendPropertyChanged("State");
 					this.OnStateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_LowPrice", DbType="Float NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public double LowPrice
+		{
+			get
+			{
+				return this._LowPrice;
+			}
+			set
+			{
+				if ((this._LowPrice != value))
+				{
+					this.OnLowPriceChanging(value);
+					this.SendPropertyChanging();
+					this._LowPrice = value;
+					this.SendPropertyChanged("LowPrice");
+					this.OnLowPriceChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_HeightPrice", DbType="Float NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public double HeightPrice
+		{
+			get
+			{
+				return this._HeightPrice;
+			}
+			set
+			{
+				if ((this._HeightPrice != value))
+				{
+					this.OnHeightPriceChanging(value);
+					this.SendPropertyChanging();
+					this._HeightPrice = value;
+					this.SendPropertyChanged("HeightPrice");
+					this.OnHeightPriceChanged();
 				}
 			}
 		}

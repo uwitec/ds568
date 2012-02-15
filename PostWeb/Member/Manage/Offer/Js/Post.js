@@ -324,11 +324,14 @@
        }
        subDate.detail=encodeURI(KE.html());
        subDate.priceRang=$("#wb1").val()+","+$("#wprice1").val();
+       subDate.lowPrice=subDate.heightPrice=$("#wprice1").val()
        if($(".hidden:first").is(":visible")){
            subDate.priceRang+="|"+$("#wb2").val()+","+$("#wprice2").val();
+           subDate.lowPrice=$("#wprice2").val();
        }
        if($(".hidden:last").is(":visible")){
            subDate.priceRang+="|"+$("#wb3").val()+","+$("#wprice3").val();
+           subDate.lowPrice=$("#wprice3").val();
        }
        subDate.maxNumber=$("#maxNumber").val();
        subDate.expiredDate=$("input[name=Period]:checked").val();

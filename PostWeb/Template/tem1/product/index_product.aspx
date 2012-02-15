@@ -1,22 +1,15 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/template/tem1/MasterPage.Master" AutoEventWireup="true"
     CodeFile="index_product.aspx.cs" Inherits="index_product"
     Title="Untitled Page" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="Title" runat="server">
+    <title>供应产品</title>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" rev="stylesheet" href="/css/Pager.css" type="text/css"  />
-    <script type="text/javascript">
-	$(document).ready(function(){
-		$(".div001").click(function(){
-			if($(this).hasClass("div002")){
-				$(this).removeClass("div002");
-			}else{
-				$(this).addClass("div002");
-			}
-			$(".ul001").slideToggle(200);
-		});	
-	});
-    </script>
+    <script type="text/javascript" src="js/product.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <input type="hidden" id="member_id" name="member_id" value="<%=Request.QueryString["member_id"] %>" />
     <div class="MiddleRight">
         <!--========产品内容开始=============-->
         <div class="About">
@@ -30,14 +23,14 @@
                 <ul class="ul001">
                     <asp:Repeater ID="Repeater1" runat="server">
                         <ItemTemplate>
-                            <li><a href="?cat_id=<%#Eval("id") %>"><%#Eval("categoryname") %>(<%#Eval("pcount") %>)</a></li>
+                            <li><a href="?cat_id=<%#Eval("id") %>&member_id=<%#Request.QueryString["member_id"] %>"><%#Eval("categoryname") %>(<%#Eval("pcount") %>)</a></li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
                 <ul class="ul002">
-                    <li><span>搜索本旺铺产品：</span>产品名<input name="" class="proNameInput" type="text" /></li>
-                    <li>&nbsp;&nbsp;价格<input name="" class="minPrice" type="text" />&nbsp;到&nbsp;<input
-                        name="" type="text" class="maxPrice" /></li>
+                    <li><span>搜索本旺铺产品：</span>产品名<input id="pro_name" name="pro_name" class="proNameInput" type="text" /></li>
+                    <li>&nbsp;&nbsp;价格<input name="low_price" id="low_price" class="minPrice" type="text" />&nbsp;到&nbsp;<input
+                        name="height_price" id="height_price" type="text" class="maxPrice" /></li>
                     <li>
                         <input name="SearchBtn2" id="SearchBtn2" type="button" class="SearchBtn" /></li>
                 </ul>
