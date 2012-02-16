@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/template/tem1/MasterPage.Master" AutoEventWireup="true"   CodeFile="index_home.aspx.cs" Inherits="index_home"
     Title="Untitled Page" %>
-
+<asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="server">
+   <title>商铺首页</title>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript" src="js/index.js"></script>
 </asp:Content>

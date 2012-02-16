@@ -12,9 +12,11 @@
     <link rel="stylesheet" rev="stylesheet" href="css/index.css" type="text/css"  />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script type="text/javascript" src="/Template/tem1/js/shopMaster.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
+    <input type="hidden" id="member_id" name="member_id" value="<%=Request.QueryString["member_id"] %>" />
     <div class="Main">
         <!--============顶部公共部分开始================-->
         <div class="TopBar">
@@ -22,7 +24,7 @@
                 <ul>
                     <li class="TopBarLogo"><a style="display:block;width:100px;height:100%" href="/home/index.html"></a></li>
                     <li class="TopBarWelCome">您好，欢迎来到阿里巴巴</li>
-                    <li class="TopBarLogin"><a href="#">[请登陆]</a> <a href="#">[免费注册]</a></li>
+                    <li class="TopBarLogin"><a href="/member/login/signin.aspx">[请登陆]</a> <a href="/member/Join/reg.aspx">[免费注册]</a></li>
                     <li class="TopBarSpritLine"></li>
                     <li class="TopBarOrders">
                         <div class="Order">
@@ -72,9 +74,9 @@
                         </div>
                     </li>
                     <li class="TopBarSpritLine"></li>
-                    <li><a href="#" class="UserCenter">会员中心</a> </li>
+                    <li><a href="/member/Manage/" class="UserCenter">会员中心</a> </li>
                     <li class="LiSearch">
-                        <input name="" type="text" class="KeyWord" /><input name="" class="BtnSearch" onclick="if(confirm('点石网主站尚在建设中，您可以先预览我们的主页。')){open('/home/index.aspx','_blank','scrollbars=yes');}" type="button" /><input
+                        <input name="top_pro_name" id="top_pro_name" type="text" class="KeyWord" /><input name="" class="BtnSearch" type="button" /><input
                             name="" class="BtnSearch2" type="button" /></li>
                 </ul>
             </div>
@@ -111,8 +113,12 @@
                 <div class="MiddleLeft">
                     <!--========会员信息开始=============-->
                     <ul class="UserInfo">
-                        <li class="UserInfoHead"></li>
-                        <li class="UserInfoMiddle"></li>
+                        <li class="UserInfoHead"><img class="a_xl" src="http://i00.c.aliimg.com/cms/upload/winport/cxticon/a_xl_qy.gif" /><img class="tpx" src="http://i00.c.aliimg.com/images/cn/market/myalibaba/levelup/title_tpnianxian8.gif" /></li>
+                        <li class="UserInfoMiddle">
+                            <div class="ifm_wrap">
+                                <div class="ui_comname"><a href="../profile/index_profile.aspx?member_id=<%=Request.QueryString["member_id"] %>"><%=ViewState["comName"]%></a></div>
+                            </div>
+                        </li>
                         <li class="UserInfoBottom"></li>
                     </ul>
                     <!--========会员信息结束=============-->
@@ -126,9 +132,9 @@
                         </div>
                         <div class="SearchBody">
                             <ul class="ulSearch">
-                                <li>产品名&nbsp;<input name="" class="proNameInput" type="text" /></li>
-                                <li>价<span class="marginLeft1em"></span>格&nbsp;<input name="" class="minPrice" type="text" /> 到 <input
-                                    name="" type="text" class="maxPrice" /></li>
+                                <li>产品名&nbsp;<input name="mst_pro_name" id="mst_pro_name" class="proNameInput" type="text" /></li>
+                                <li>价<span class="marginLeft1em"></span>格&nbsp;<input name="mst_low_price" id="mst_low_price" class="minPrice" type="text" /> 到 <input
+                                    name="mst_height_price" id="mst_height_price" type="text" class="maxPrice" /></li>
                                 <li class="liSearchBtn"><input name="" type="button" class="SearchBtn" /></li>
                             </ul>
                         </div>
@@ -150,8 +156,8 @@
                                             <li><a href="../product/index_product.aspx?cat_id=<%#Eval("id") %>&member_id=<%#Request.QueryString["member_id"] %>"><%#Eval("CategoryName") %> </a></li>
                                         </ItemTemplate>
                                     </asp:Repeater>
-                                    <li class="clb"><a href="#">更多</a></li>
                                 </ul>
+                                <div class="more" ><a href="../product/index_product.aspx?member_id=<%=Request.QueryString["member_id"] %>">更多</a></div>
                             </div>
                         </div>
                     </div>
@@ -196,8 +202,8 @@
                                             <li>电&nbsp;&nbsp;&nbsp;&nbsp;话：<%#Eval("Phone").ToString().TrimEnd('-')%></li>
                                             <li>移动电话：<%#Eval("Mobile") %></li>
                                             <li>传&nbsp;&nbsp;&nbsp;&nbsp;真：<%#Eval("Fax").ToString().TrimEnd('-')%></li>
-                                            <li class="clb"><a href="#">更多</a></li>
                                         </ul>
+                                        <div class="more" ><a href="../contact/index_contact.aspx?member_id=<%=Request.QueryString["member_id"] %>">更多</a></div>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </div>
