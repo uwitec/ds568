@@ -13,4 +13,8 @@
 	$("#SearchBtn2").click(function(){
 	    location="?"+$("#member_id,#pro_name,#low_price,#height_price").serialize();
 	});
+	
+	if($(".NewContent ul li").length==0){
+	    $(".nopro").show();
+	}
 });

@@ -68,10 +68,15 @@
  .UserInfoHead{
 	height:42px;
  }
+ .a_xl,.tpx{position:relative;top:8px;}
  .UserInfoMiddle{
 	height:200px;
 	background: url(../images/mod-c.gif) repeat-y;
  }
+ .ifm_wrap{width:180px;margin:6px auto;}
+ .ui_comname{font-size:14px;}
+ .ui_comname a:link,.ui_comname a:visited{color:#0066cc}
+ .ui_comname a:hover{ text-decoration:underline;color:#ff7300}
  .UserInfoBottom{
  	background-position:0 -42px;
 	height:4px;
@@ -135,7 +140,7 @@
 	 max-height:150px;
 	 _autosize:expression(changeImg(this,150,150));
   }
-
+.nopro{text-align:center;display:none;}
  .TzContent1 ul li div,.NewContent ul li div{ text-align:center;}
  .TzContent1 ul li span.price,.NewContent ul li span.price{
 	 font-size:14px;
@@ -163,7 +168,7 @@
 
  .ulSearch li{margin-bottom:5px;float:left;line-height:21px;}
  
- .SearchBtn,.LeftModleBody ul li,.ContactBody ul li.clb,.AlbumBody_Head_title,
+ .SearchBtn,.LeftModleBody ul li,.ContactBody ul li.clb,.AlbumBody_Head_title,.more,
  .LeftModleBody ul li:hover,.AlbumList li div.AlbumImg,.div001,.updownContainer a,.odli1 dl dd.d-btn-add a,
  .odli1 dl dd.d-btn-buy a,.ul005 li #btnSend,.dLeft,.dMiddle,.dRight,.de-hunpi,.de-leftcon,.moreContent a span,
  .credit
@@ -195,11 +200,13 @@
  .ContactBody ul li{height:20px;line-height:20px; text-indent:10px;width:198px;}
  .ContactBody ul li.QQ{height:30px;line-height:30px;}
  .LeftModleBody ul li:hover{background-position:0 -51px;}
- .LeftModleBody ul li.clb,.ContactBody ul li.clb{
+ .more{
 	 border:none 0;
 	 background-position:-106px -16px;
 	 text-indent:160px;
+	 
  }
+ .more{line-height:22px;}
  .AlbumBody{overflow:auto;zoom:1;}
  .AlbumBodyContainer{width:700px;overflow:auto;zoom:1;margin:0 auto;margin-top:8px;}
  .AlbumBody_Head{border-bottom:solid 1px #dbdbdb;margin:0 auto; overflow:auto;zoom:1;}

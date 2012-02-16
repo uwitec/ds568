@@ -20,7 +20,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         if (IsPostBack) return;
         var bl = new DS_DiyProCategory_Br();
-        Repeater1.DataSource = bl.Query("memberid=@0","px",int.Parse(Request.QueryString["member_id"]));
+        int rc = 0;
+        Repeater1.DataSource = bl.Query("memberid=@0","px",0,10,ref rc,int.Parse(Request.QueryString["member_id"]));
         Repeater1.DataBind();
 
         //联系信息

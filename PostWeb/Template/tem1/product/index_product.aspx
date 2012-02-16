@@ -9,13 +9,12 @@
     <script type="text/javascript" src="js/product.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <input type="hidden" id="member_id" name="member_id" value="<%=Request.QueryString["member_id"] %>" />
     <div class="MiddleRight">
         <!--========产品内容开始=============-->
         <div class="About">
             <div class="AboutHead">
                 <div class="AHLeft">
-                    所有产品</div>
+                    产品列表</div>
                 <div class="div001">
                 </div>
             </div>
@@ -28,9 +27,9 @@
                     </asp:Repeater>
                 </ul>
                 <ul class="ul002">
-                    <li><span>搜索本旺铺产品：</span>产品名<input id="pro_name" name="pro_name" class="proNameInput" type="text" /></li>
-                    <li>&nbsp;&nbsp;价格<input name="low_price" id="low_price" class="minPrice" type="text" />&nbsp;到&nbsp;<input
-                        name="height_price" id="height_price" type="text" class="maxPrice" /></li>
+                    <li><span>搜索本旺铺产品：</span>产品名<input id="pro_name" name="pro_name" value="<%=Request.QueryString["pro_name"] %>" class="proNameInput" type="text" /></li>
+                    <li>&nbsp;&nbsp;价格<input name="low_price" value="<%=Request.QueryString["low_price"] %>" id="low_price" class="minPrice" type="text" />&nbsp;到&nbsp;<input
+                        name="height_price" id="height_price" value="<%=Request.QueryString["height_price"] %>" type="text" class="maxPrice" /></li>
                     <li>
                         <input name="SearchBtn2" id="SearchBtn2" type="button" class="SearchBtn" /></li>
                 </ul>
@@ -62,6 +61,7 @@
                             </ItemTemplate>
                         </asp:Repeater>
                     </ul>
+                    <div class="nopro">抱歉，没有找到符合条件的供应信息。请重新搜索或者<a href="index_product.aspx?member_id=<%=Request.QueryString["member_id"] %>">查看全部供应信息！</a> </div>
                      <webdiyer:AspNetPager CssClass="pages"  AlwaysShowFirstLastPageNumber="true"  HorizontalAlign="Right" ShowDisabledButtons="false" ShowFirstLast="false" CurrentPageButtonClass="cpb"  ID="AspNetPager4" NumericButtonCount="7" runat="server"
         FirstPageText="首页" LastPageText="尾页" TextBeforePageIndexBox="共10页 到"  TextAfterPageIndexBox="页 " PageSize="16"  SubmitButtonText="确定" SubmitButtonClass="sBtn" ShowCustomInfoSection="Never" NextPageText="下一页"  ShowPageIndexBox="Always" PrevPageText="上一页">
     </webdiyer:AspNetPager>
