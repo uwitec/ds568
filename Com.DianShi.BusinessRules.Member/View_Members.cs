@@ -19,7 +19,7 @@ namespace Com.DianShi.BusinessRules.Member
                 return ct.View_Members.Single(a => a.ID == ID);
             }
         }
-        
+
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
@@ -60,6 +60,6 @@ namespace Com.DianShi.BusinessRules.Member
             return new Com.DianShi.Model.Member.View_Members();
         }
 
-         
+        
     }
 }

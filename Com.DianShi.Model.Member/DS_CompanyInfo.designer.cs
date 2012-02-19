@@ -106,6 +106,8 @@ namespace Com.DianShi.Model.Member
 		
 		private string _BusinessAddress;
 		
+		private string _MapNid;
+		
 		private string _ZipCode;
 		
 		private byte _MemberType;
@@ -184,6 +186,8 @@ namespace Com.DianShi.Model.Member
     partial void OnCountyChanged();
     partial void OnBusinessAddressChanging(string value);
     partial void OnBusinessAddressChanged();
+    partial void OnMapNidChanging(string value);
+    partial void OnMapNidChanged();
     partial void OnZipCodeChanging(string value);
     partial void OnZipCodeChanged();
     partial void OnMemberTypeChanging(byte value);
@@ -495,6 +499,26 @@ namespace Com.DianShi.Model.Member
 					this._BusinessAddress = value;
 					this.SendPropertyChanged("BusinessAddress");
 					this.OnBusinessAddressChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MapNid", DbType="NVarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string MapNid
+		{
+			get
+			{
+				return this._MapNid;
+			}
+			set
+			{
+				if ((this._MapNid != value))
+				{
+					this.OnMapNidChanging(value);
+					this.SendPropertyChanging();
+					this._MapNid = value;
+					this.SendPropertyChanged("MapNid");
+					this.OnMapNidChanged();
 				}
 			}
 		}

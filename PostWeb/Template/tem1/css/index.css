@@ -70,13 +70,21 @@
  }
  .a_xl,.tpx{position:relative;top:8px;}
  .UserInfoMiddle{
-	height:200px;
 	background: url(../images/mod-c.gif) repeat-y;
  }
- .ifm_wrap{width:180px;margin:6px auto;}
+ .ifm_wrap{width:176px;margin:6px auto;line-height:20px;}
  .ui_comname{font-size:14px;}
- .ui_comname a:link,.ui_comname a:visited{color:#0066cc}
- .ui_comname a:hover{ text-decoration:underline;color:#ff7300}
+ .mbname{ position:relative;padding-top:3px;}
+ .bbord{border-bottom:solid 1px #ddd;padding-bottom:5px;margin-bottom:5px;}
+ .mbname span{padding-top:0px;}
+ .qqonline{overflow:auto;zoom:1; position:absolute;left:76px;top:2px;*top:-1px; display:block;float:left;line-height:18px;border:solid 1px #ddd;padding:0 3px;}
+ .qqonline img{float:left;}
+ .cl6c{color:#0066cc}
+ .ui_comname a:link,.ui_comname a:visited,.qqonline:link,.qqonline:visited,.Bottom a:link,.Bottom a:visited{color:#0066cc}
+ .ui_comname a:hover,.qqonline:hover{ text-decoration:underline;color:#ff7300}
+ .addfv{text-align:center;}
+ .addfv a{padding:5px 6px; background:url(../../images/pagecollect.gif);}
+ .addfv a span{ visibility:hidden;}
  .UserInfoBottom{
  	background-position:0 -42px;
 	height:4px;
@@ -448,3 +456,6 @@
   .ctname{color:#0048a2;font-size:26px;font-weight:bold;}
   .ctctn{border-bottom:dashed 1px #ccc;width:350px;}
   .ctlist{line-height:22px;}
+  
+  .hide{display:none;}
+  #dtfr{padding:10px;width:350px;}

@@ -32,7 +32,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         var md=list.Single();
         ViewState["comName"] = md.CompanyName;
         ViewState["address"]=md.BusinessAddress;
- 
+        ViewState["TrueName"] = md.TrueName;
+        ViewState["Gender"] = md.Gender;
+        ViewState["bsmd"] = md.BusinessModel;
+        ViewState["area"] = md.Province;
     }
 
    

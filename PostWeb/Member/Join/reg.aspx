@@ -19,9 +19,9 @@
         <div class="overflowAuto">
             <div class="logo floatL bold"><img src="http://i01.c.aliimg.com/images/cn/home/070827/logo2.gif" />免费注册</div>
             <div class="contact floatR gray">
-                <a href="#">登陆</a> | <a href="#">返回点石首页</a> | <a href="#">帮助中心</a>
+                <a href="/Member/Login/signin.aspx">登陆</a> | <a href="/home/index.aspx">返回点石首页</a> | <a href="#">帮助中心</a>
                 <div class="help overflowAuto">
-                    <div class="floatR">&nbsp;或拔打<span class="kfphone bold">0755-43456567</span></div>
+                    <div class="floatR">&nbsp;或拔打<span class="kfphone bold">15118829914</span></div>
                     <a class="qqonline floatR gray" href="http://wpa.qq.com/msgrd?v=3&uin=416351551&site=qq&menu=yes"><img src="http://wpa.qq.com/pa?p=2:416351551:4" alt="给我留言" />在线客服</a>
                     <div class="floatR">如需帮助，请咨询&nbsp;</div>
                 </div>

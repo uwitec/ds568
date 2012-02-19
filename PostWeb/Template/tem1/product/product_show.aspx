@@ -2,6 +2,9 @@
     CodeFile="product_show.aspx.cs" Inherits="Template_tem1_product_product_show"
     Title="Untitled Page" %>
 <%@ Register src="~/Template/tem1/product/Property.ascx" tagname="Property" tagprefix="uc1" %>
+<asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="Server">
+<title><%=ViewState["title"] %></title>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
         .ContentMiddle

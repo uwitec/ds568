@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/template/tem1/MasterPage.Master" AutoEventWireup="true"
+﻿<%@ Page Language="C#" MasterPageFile="~/template/tem1/MasterPage.Master" ValidateRequest="false" AutoEventWireup="true"
     CodeFile="index_product.aspx.cs" Inherits="index_product"
     Title="Untitled Page" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="Title" runat="server">
