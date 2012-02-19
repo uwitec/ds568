@@ -32,11 +32,9 @@ public partial class Member_Manage_CompanyInfo_BaseInfo : BasePage
         {
             ViewState["yearest"] = ViewState["yearest"].ToString() + "<option value='" + i + "'>" + i + "</option>";
         }
-        var ud = Session["UserData"] as UserData;
-        var bl = new DS_CompanyInfo_Br();
-        //Response.Write(ud.Member.ID);
-        //Response.End();
-        var md = bl.GetSingleByMemberID(ud.Member.ID);
+        var ud = _userData;
+        var bl = new View_Members_Br();
+        var md = bl.GetSingle(ud.Member.ID);
         bool b = false;
         ViewState["companyName"] = md.CompanyName;
         ViewState["BusType"] = md.BusinessType;
@@ -48,6 +46,8 @@ public partial class Member_Manage_CompanyInfo_BaseInfo : BasePage
         ViewState["busArea"] = md.BusinessAddress;
         ViewState["companyAddress"] = md.Province;
         ViewState["ZipCode"] = md.ZipCode;
+        ViewState["phone"] = md.Phone.TrimEnd('-');
+        ViewState["mapNid"] = md.MapNid;
         if (!string.IsNullOrEmpty(md.OfferService)) {
             int i=0;
             foreach (string  s in md.OfferService.Split(','))

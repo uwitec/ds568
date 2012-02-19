@@ -1,0 +1,147 @@
+﻿<html>
+<head>
+	<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+  <title>标注地图</title>
+  <script type="text/javascript" src="/js/lib.js"></script>
+  <script type="text/javascript">
+    $(function(){
+       //设置公司信息
+       if(parent.setmapInfo){
+          var cominfo=parent.setmapInfo(true,null);
+          $("#cityName").val(cominfo.area);
+          $("#name").val(cominfo.comName);
+          $("#address").val(cominfo.busArea);
+          $("#phone").val(cominfo.phone);
+          $("#nid").val(cominfo.mapNid);
+          $("#mbid").val(cominfo.memberID);
+       };
+       
+       
+    });
+    var btnstate=function(b){
+        var obj=$(".btnwrap")
+        if(b){
+            obj.removeClass("loading").find("span").hide();
+            obj.find("input").removeClass("hidden")
+        }else
+        {
+            obj.addClass("loading").find("span").show();
+            obj.find("input").addClass("hidden")
+        }
+    }
+  </script>
+  <script language="javascript">
+/* ======================================================================================
+下面的函数用来显示供用户添加标点的地图，其参数配制（请参照说明文档中的参数配制说明）：
+CID、tid、width、height、zoom、control等参数需要您在部署代码时设置好；而cityName、nid等参数将从网
+页表单中读取值；如果您传递了NID参数的值，地图中将显示此NID所代表的标点。                          
+====================================================================================== */
+  function initMap() {
+    var url = "proxy.aspx?api=template1000&CID=ds568&tid=tid1000&cityName="+encodeURIComponent(document.getElementById("cityName").value)+
+		  "&nid="+document.getElementById("nid").value+"&width=600&height=400&zoom=10&control=2";
+    document.getElementById("map").src = url;  
+  }
+/* ======================================================================================
+点击“提交”按钮运行此函数保存地图标点信息，其参数配制（请参照说明文档中的参数配制说明）：
+CID、tid、等参数需要您在部署代码时设置好；而name、nid、address、phone、cityName等参数将从网
+页表单中读取值；如果您传递了NID参数的值，将修改此NID代表的标点，而不添加新的标点。                          
+====================================================================================== */
+  function updateMap() {
+  	if (!map.getLatLon()) {
+  		alert("请先标注位置");
+  		return;
+    }	
+    btnstate(false);
+    var url = "proxy.aspx?api=poiUpdate&CID=ds568&tid=tid1000&cityName="+encodeURIComponent(document.getElementById("cityName").value)+
+          "&nid="+document.getElementById("nid").value+
+          "&name="+encodeURIComponent(document.getElementById("name").value)+
+          "&address="+encodeURIComponent(document.getElementById("address").value)+
+          "&phone="+encodeURIComponent(document.getElementById("phone").value)+
+          "&latLon="+map.getLatLon();
+		document.getElementById("mapSubmit").src = url;
+  }
+/* ======================================================================================
+点击“提交”按钮后，程序会自动调用setNid方法把自动生成的nid传进来，用户可以自己在方法里添加代码把nid保存起来                          
+====================================================================================== */
+  //获取公司信息
+  function getcominfo(){
+      var cominfo={};
+      cominfo.area=$("#cityName").val();
+      cominfo.comName=$("#name").val();
+      cominfo.busArea=$("#address").val();
+      cominfo.phone=$("#phone").val();
+      cominfo.mapNid=$("#nid").val();
+      cominfo.memberID=$("#mbid").val();
+      cominfo.action="setmap";
+      return cominfo;
+  }
+  
+  function setNid(nid) {
+     document.getElementById("nid").value = nid;
+     $.ajax({
+        url:"action.aspx",
+        type:"POST",
+        data:getcominfo(),
+        success:function(data,state){
+            alert("标注成功。");
+            //返回信息给调用页面
+            if(parent.setmapInfo){
+                parent.setmapInfo(false,getcominfo());
+            }
+        },
+        error:function(req,state,err){
+            alert("抱歉，提交出错。");
+            $("body").append(req.responseText);
+        },
+        beforeSend:function(){
+            
+        },
+        complete:function(){
+            btnstate(true);
+        }
+     });
+  }
+	</script>
+	<style type="text/css">
+	    .btnwrap{line-height:32px;height:32px;}
+	    .hidden{display:none;}
+	    .loading{ background:url(/images/Loading.gif) no-repeat 9px center; text-indent:28px;font-size:12}
+	    .infowrap{padding:0;margin:0; list-style:none;width:190px}
+	    .infowrap li{margin-top:12px;}
+	</style>
+</head>
+<body onLoad="initMap()" style="margin:0;">
+<input type="hidden" id="mbid" />
+<table>
+<tr><td valign="top" style="padding-top:10px;">
+<!-- ====================================================================================
+请把下面的表单内容，置入您网页的发布信息表单中（例如发布房源信息），它们的值会通过前面的脚本，随地图标点
+保存在mapbar数据后台，并可以在显示地图时显示出来。
+===================================================================================== -->
+<form name="f">
+   <ul class="infowrap">
+    <li style="font-size:12px;"><span style="color:#0066cc">温馨提示</span>：若要修改以下企业信息<br /><span style="margin-left:24px;"></span>，请返回页面修改后再点击标<br /><span style="margin-left:24px;"></span>注地图。以下信息将显示在标<br /><span style="margin-left:24px;"></span>注点上。</li>
+    <li>城市<input id="cityName" type="text" name="cityName" readonly onChange="map.go2City(this.value)"/></li>
+    <li>名称<input id="name" readonly type="text" name="name" value=""/></li>
+    <li>地址<input id="address" readonly type="text" name="address"  /><input name="button" style="display:none" type="button" onClick="map.go2Search(document.getElementById('address').value);" value="在地图上匹配地址"/></li>
+    <li>电话<input id="phone" readonly type="text" name="phone"  /></li>
+    <li>
+       <div class="btnwrap">
+           <span style="display: none;">数据提交中。。</span>
+           <input type="button" name="submit" id="submap" value="提交" onclick="updateMap()" />
+           &nbsp;
+           <input type="button" name="submit2" value="重载地图" onclick="initMap()" /></div>
+    </li>
+   </ul>
+<input id="nid" type="text" style="display:none;"  name="nid" value=""/>   <!-- 此输入框用于接收返回的地图标点NID值 -->
+</form>
+</td><td width="600">
+<!-- ====================================================================================
+下面的两个IFRAME中，第一个用来显示地图供用户添加标点；第二个用来在“提交”后保存标点信息（不在网页中显示），
+===================================================================================== -->
+<iframe id="map" name="map" src="" width=600 height=400 frameborder=0 scrolling=no></iframe>
+<iframe id="mapSubmit" name="mapSubmit" src="" width=0 height=0 frameborder=0 scrolling=no></iframe>
+</td></tr>
+</table>
+</body>
+</html>

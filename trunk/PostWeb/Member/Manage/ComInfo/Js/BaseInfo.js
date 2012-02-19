@@ -58,7 +58,24 @@
         $(".moreb,.bser").toggle();
     });
     
+    //标注地图
+    $(".setmap").wBox({title:"标注经营地址",requestType:"iframe",width:"780",iframeWH:{width:800,height:400},target:"/js/map/template1000.html"});
     
+    //供设置地图时回调获取和返回公司信息
+    setmapInfo=function(isget,param){
+        if(isget){//取当前页面的公司信息返回给地图页面
+            var cominfo={}
+            cominfo.comName=$("input[name=companyName]").val();
+            cominfo.area=$("input[name=companyAddress]").val();
+            cominfo.busArea=$("input[name=busArea]").val();
+            cominfo.phone=$("input[name=phone]").val();
+            cominfo.mapNid=$("input[name=mapNid]").val();
+            cominfo.memberID=$("input[name=memberID]").val();
+            return cominfo;
+        }else{//从地图页面获取公司信息来设置当前页面
+            $("input[name=mapNid]").val(param.mapNid);
+        }
+    }
     
     //--------------还原公司信息开始---------------------
     $(".BusinessType option[value="+$("#HD_BusType").val()+"]").attr("selected",true);
@@ -70,6 +87,8 @@
     if($("#HD_buypro").val())
         $(".moreb").click();
     //--------------还原公司信息结束---------------------
+    
+    
 });
 
  

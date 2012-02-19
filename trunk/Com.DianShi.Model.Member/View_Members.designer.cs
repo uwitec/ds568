@@ -178,6 +178,8 @@ namespace Com.DianShi.Model.Member
 		
 		private string _ComImg;
 		
+		private string _MapNid;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -280,6 +282,8 @@ namespace Com.DianShi.Model.Member
     partial void OnOEMChanged();
     partial void OnComImgChanging(string value);
     partial void OnComImgChanged();
+    partial void OnMapNidChanging(string value);
+    partial void OnMapNidChanged();
     #endregion
 		
 		public View_Members()
@@ -287,7 +291,7 @@ namespace Com.DianShi.Model.Member
 			OnCreated();
 		}
 		
-		[Column(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[Column(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true, IsDbGenerated=true, IsVersion=true)]
 		public int ID
 		{
 			get
@@ -307,7 +311,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_UserID", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_UserID", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string UserID
 		{
 			get
@@ -327,7 +331,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Password", DbType="NVarChar(120) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_Password", DbType="NVarChar(120) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Password
 		{
 			get
@@ -347,7 +351,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Email", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_Email", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Email
 		{
 			get
@@ -367,7 +371,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_TrueName", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_TrueName", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string TrueName
 		{
 			get
@@ -387,7 +391,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Department", DbType="NVarChar(20)")]
+		[Column(Storage="_Department", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string Department
 		{
 			get
@@ -407,7 +411,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Position", DbType="NVarChar(20)")]
+		[Column(Storage="_Position", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string Position
 		{
 			get
@@ -427,7 +431,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Gender", DbType="NVarChar(2) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_Gender", DbType="NVarChar(2) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Gender
 		{
 			get
@@ -447,7 +451,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Phone", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_Phone", DbType="NVarChar(20) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Phone
 		{
 			get
@@ -467,7 +471,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Fax", DbType="NVarChar(20)")]
+		[Column(Storage="_Fax", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string Fax
 		{
 			get
@@ -487,7 +491,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Mobile", DbType="NVarChar(11)")]
+		[Column(Storage="_Mobile", DbType="NVarChar(11)", UpdateCheck=UpdateCheck.Never)]
 		public string Mobile
 		{
 			get
@@ -507,7 +511,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_HomePage", DbType="NVarChar(100)")]
+		[Column(Storage="_HomePage", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
 		public string HomePage
 		{
 			get
@@ -527,7 +531,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_EmailValidate", DbType="Bit NOT NULL")]
+		[Column(Storage="_EmailValidate", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public bool EmailValidate
 		{
 			get
@@ -547,7 +551,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MobileValidate", DbType="Bit NOT NULL")]
+		[Column(Storage="_MobileValidate", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public bool MobileValidate
 		{
 			get
@@ -567,7 +571,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_CompanyName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_CompanyName", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string CompanyName
 		{
 			get
@@ -587,7 +591,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_BusinessType", DbType="TinyInt")]
+		[Column(Storage="_BusinessType", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<byte> BusinessType
 		{
 			get
@@ -607,7 +611,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_BusinessModel", DbType="NVarChar(20)")]
+		[Column(Storage="_BusinessModel", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string BusinessModel
 		{
 			get
@@ -627,7 +631,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_CapitalType", DbType="NVarChar(10)")]
+		[Column(Storage="_CapitalType", DbType="NVarChar(10)", UpdateCheck=UpdateCheck.Never)]
 		public string CapitalType
 		{
 			get
@@ -647,7 +651,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_RegisteredCapital", DbType="Float")]
+		[Column(Storage="_RegisteredCapital", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> RegisteredCapital
 		{
 			get
@@ -667,7 +671,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_YearEstablished", DbType="SmallInt NOT NULL")]
+		[Column(Storage="_YearEstablished", DbType="SmallInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public short YearEstablished
 		{
 			get
@@ -687,7 +691,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_RegistrationArea", DbType="NVarChar(100)")]
+		[Column(Storage="_RegistrationArea", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
 		public string RegistrationArea
 		{
 			get
@@ -707,7 +711,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Province", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_Province", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Province
 		{
 			get
@@ -727,7 +731,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_City", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_City", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string City
 		{
 			get
@@ -747,7 +751,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_County", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_County", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string County
 		{
 			get
@@ -767,7 +771,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_BusinessAddress", DbType="NVarChar(100)")]
+		[Column(Storage="_BusinessAddress", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
 		public string BusinessAddress
 		{
 			get
@@ -787,7 +791,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_ZipCode", DbType="NVarChar(6)")]
+		[Column(Storage="_ZipCode", DbType="NVarChar(6)", UpdateCheck=UpdateCheck.Never)]
 		public string ZipCode
 		{
 			get
@@ -807,7 +811,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MemberType", DbType="TinyInt NOT NULL")]
+		[Column(Storage="_MemberType", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public byte MemberType
 		{
 			get
@@ -827,7 +831,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_OfferService", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_OfferService", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string OfferService
 		{
 			get
@@ -847,7 +851,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_BuyService", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_BuyService", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string BuyService
 		{
 			get
@@ -867,7 +871,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MainIndustry", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_MainIndustry", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string MainIndustry
 		{
 			get
@@ -887,7 +891,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Profile", DbType="NVarChar(1800)")]
+		[Column(Storage="_Profile", DbType="NVarChar(1800)", UpdateCheck=UpdateCheck.Never)]
 		public string Profile
 		{
 			get
@@ -907,7 +911,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_LegalRepresentative", DbType="NVarChar(20)")]
+		[Column(Storage="_LegalRepresentative", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string LegalRepresentative
 		{
 			get
@@ -927,7 +931,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Bank", DbType="NVarChar(20)")]
+		[Column(Storage="_Bank", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string Bank
 		{
 			get
@@ -947,7 +951,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Account", DbType="NVarChar(20)")]
+		[Column(Storage="_Account", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string Account
 		{
 			get
@@ -967,7 +971,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_StorageArea", DbType="NVarChar(20)")]
+		[Column(Storage="_StorageArea", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string StorageArea
 		{
 			get
@@ -987,7 +991,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Employees", DbType="TinyInt")]
+		[Column(Storage="_Employees", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<byte> Employees
 		{
 			get
@@ -1007,7 +1011,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_StudyEmployees", DbType="TinyInt")]
+		[Column(Storage="_StudyEmployees", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<byte> StudyEmployees
 		{
 			get
@@ -1027,7 +1031,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_BrandName", DbType="NVarChar(20)")]
+		[Column(Storage="_BrandName", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string BrandName
 		{
 			get
@@ -1047,7 +1051,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Monthly", DbType="Int")]
+		[Column(Storage="_Monthly", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> Monthly
 		{
 			get
@@ -1067,7 +1071,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MonthlyUnit", DbType="NVarChar(10)")]
+		[Column(Storage="_MonthlyUnit", DbType="NVarChar(10)", UpdateCheck=UpdateCheck.Never)]
 		public string MonthlyUnit
 		{
 			get
@@ -1087,7 +1091,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_AnnualTurnover", DbType="TinyInt")]
+		[Column(Storage="_AnnualTurnover", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<byte> AnnualTurnover
 		{
 			get
@@ -1107,7 +1111,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_AnnualExport", DbType="TinyInt")]
+		[Column(Storage="_AnnualExport", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<byte> AnnualExport
 		{
 			get
@@ -1127,7 +1131,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_AnnualImports", DbType="TinyInt")]
+		[Column(Storage="_AnnualImports", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<byte> AnnualImports
 		{
 			get
@@ -1147,7 +1151,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MSCer", DbType="NVarChar(20)")]
+		[Column(Storage="_MSCer", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string MSCer
 		{
 			get
@@ -1167,7 +1171,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_QualityControl", DbType="NVarChar(50)")]
+		[Column(Storage="_QualityControl", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string QualityControl
 		{
 			get
@@ -1187,7 +1191,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MainMarket", DbType="NVarChar(100)")]
+		[Column(Storage="_MainMarket", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
 		public string MainMarket
 		{
 			get
@@ -1207,7 +1211,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_MajorCustomers", DbType="NVarChar(100)")]
+		[Column(Storage="_MajorCustomers", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
 		public string MajorCustomers
 		{
 			get
@@ -1227,7 +1231,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_OEM", DbType="Bit")]
+		[Column(Storage="_OEM", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<bool> OEM
 		{
 			get
@@ -1247,7 +1251,7 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_ComImg", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_ComImg", DbType="NVarChar(250) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string ComImg
 		{
 			get
@@ -1263,6 +1267,26 @@ namespace Com.DianShi.Model.Member
 					this._ComImg = value;
 					this.SendPropertyChanged("ComImg");
 					this.OnComImgChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MapNid", DbType="NVarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string MapNid
+		{
+			get
+			{
+				return this._MapNid;
+			}
+			set
+			{
+				if ((this._MapNid != value))
+				{
+					this.OnMapNidChanging(value);
+					this.SendPropertyChanging();
+					this._MapNid = value;
+					this.SendPropertyChanged("MapNid");
+					this.OnMapNidChanged();
 				}
 			}
 		}

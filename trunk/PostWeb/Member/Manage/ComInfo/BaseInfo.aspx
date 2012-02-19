@@ -5,6 +5,9 @@
     <script type="text/javascript" src="js/BaseInfo.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<input type="hidden" value="<%=ViewState["phone"] %>" name="phone" />
+<input type="hidden" value="<%=ViewState["mapNid"] %>" name="mapNid" />
+<input type="hidden" value="<%=_userData.Member.ID %>" name="memberID" />
 <ul class="hmenu">
     <li>
         <div class="mLeft"></div>
@@ -73,7 +76,7 @@
         <div class="floatL">
         <input  class="txtbox regArea" name="regArea" value="<%=ViewState["regArea"] %>" maxlength="20" /></div></li>
      <li><span>经营地址：<label class="star">*</label></span>
-        <div class="floatL"><input  class="txtbox busArea" value="<%=ViewState["busArea"] %>" name="busArea" maxlength="100" /></div></li>
+        <div class="floatL"><input  class="txtbox busArea" value="<%=ViewState["busArea"] %>" name="busArea" maxlength="100" /><a href="javascript:;" class="setmap"> [标注地图]</a></div></li>
     <li><span>邮政编码：<label class="star">*</label></span><div class="floatL"><input  class="txtbox ZipCode" value="<%=ViewState["ZipCode"] %>"  name="ZipCode"  maxlength="6" /></div></li>
     <li><span>主营产品：<label class="star">*</label></span>
         <input type="hidden" id="HD_oserver" value="<%=ViewState["os"] %>" />

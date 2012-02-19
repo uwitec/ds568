@@ -8,7 +8,9 @@
     <meta name="description" content="方伟泽，深圳市福田区华强北路经济大厦D22，主要经营插卡音箱;电话线;电话转接头;电话配件;，86-0755- 82796991，如需购买插卡音箱;电话线;电话转接头;电话配件;，请联系我们方伟泽，一流的质量有竞争力的价格是您的不二选择!" />
     <meta name="keywords" content="方伟泽，插卡音箱;电话线;电话转接头;电话配件;" />
     <script src="/js/lib.js" type="text/javascript"></script>
-     <script src="/js/common.js" type="text/javascript"></script>
+    <script src="/js/common.js" type="text/javascript"></script>
+    <link href="/js/wbox/wbox/wbox.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/wbox/wbox-min.js"></script>
     <link rel="stylesheet" rev="stylesheet" href="css/index.css" type="text/css"  />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -76,8 +78,8 @@
                     <li class="TopBarSpritLine"></li>
                     <li><a href="/member/Manage/" class="UserCenter">会员中心</a> </li>
                     <li class="LiSearch">
-                        <input name="top_pro_name" id="top_pro_name" type="text" class="KeyWord" /><input name="" class="BtnSearch" type="button" /><input
-                            name="" class="BtnSearch2" type="button" /></li>
+                        <input name="top_pro_name" id="top_pro_name" type="text" class="KeyWord" /><input id="top_dssch_btn"  class="BtnSearch" type="button" /><input
+                             id="top_sch_btn" class="BtnSearch2" type="button" /></li>
                 </ul>
             </div>
         </div>
@@ -86,21 +88,20 @@
         <div class="Content">
             <!--==============头部开始，放公司名称或个人名称===============-->
             <div class="Head">
-                <h1>
-                    &nbsp;&nbsp;<%=ViewState["comName"]%></h1>
+                <h1><%=ViewState["comName"]%></h1>
             </div>
             <!--==============头部结束，放公司名称或个人名称===============-->
             <!--========菜单开始==============-->
             <div class="HeaderMenuBar">
                 <ul>
-                    <li class="Check"><a href="../home/index_home.aspx?member_id=<%=Request.QueryString["member_id"] %>">首页</a></li>
-                    <li><a href="../product/index_product.aspx?member_id=<%=Request.QueryString["member_id"] %>">供应产品</a></li>
-                    <li><a href="javascript:;alert('诚信档案尚未开放，请稍后访问。')">诚信档案</a></li>
-                    <li><a href="../profile/index_profile.aspx?member_id=<%=Request.QueryString["member_id"] %>">公司介绍</a></li>
-                    <li><a href="../album/index_album.aspx?member_id=<%=Request.QueryString["member_id"] %>">我的相册</a></li>
-                    <li><a href="../news/index_news.aspx?member_id=<%=Request.QueryString["member_id"] %>">公司新闻</a></li>
-                    <li><a href="../../../Community/FeedBack/index.aspx?member_id=<%=Request.QueryString["member_id"] %>" target="_blank">在线留言</a></li>
-                    <li><a href="../contact/index_contact.aspx?member_id=<%=Request.QueryString["member_id"] %>">联系方式</a></li>
+                    <li><a surl="home" href="../home/index_home.aspx?member_id=<%=Request.QueryString["member_id"] %>">首页</a></li>
+                    <li><a surl="product" href="../product/index_product.aspx?member_id=<%=Request.QueryString["member_id"] %>">供应产品</a></li>
+                    <li><a surl="nourl" href="javascript:;alert('诚信档案尚未开放，请稍后访问。')">诚信档案</a></li>
+                    <li><a surl="profile" href="../profile/index_profile.aspx?member_id=<%=Request.QueryString["member_id"] %>">公司介绍</a></li>
+                    <li><a surl="album" href="../album/index_album.aspx?member_id=<%=Request.QueryString["member_id"] %>">我的相册</a></li>
+                    <li><a surl="news" href="../news/index_news.aspx?member_id=<%=Request.QueryString["member_id"] %>">公司新闻</a></li>
+                    <li><a surl="nourl" href="../../../Community/FeedBack/index.aspx?member_id=<%=Request.QueryString["member_id"] %>" target="_blank">在线留言</a></li>
+                    <li><a surl="contact" href="../contact/index_contact.aspx?member_id=<%=Request.QueryString["member_id"] %>">联系方式</a></li>
                 </ul>
             </div>
             <!--========菜单结束==============-->
@@ -117,6 +118,13 @@
                         <li class="UserInfoMiddle">
                             <div class="ifm_wrap">
                                 <div class="ui_comname"><a href="../profile/index_profile.aspx?member_id=<%=Request.QueryString["member_id"] %>"><%=ViewState["comName"]%></a></div>
+                                <div class="mbname bbord"><span class="sptn cl6c"><%=ViewState["TrueName"]%></span> <span><%=ViewState["Gender"]%></span><a class="qqonline" href="http://wpa.qq.com/msgrd?v=3&uin=416351551&site=qq&menu=yes"><img src="http://wpa.qq.com/pa?p=2:416351551:4" alt="给我留言" />和我联系</a></div>
+                                <div>诚信指数：<span class="cl6c">100</span></div>
+                                <div>证书荣誉：<span class="cl6c">12项</span></div>
+                                <div class="bbord">工商注册信息：<img alt="已认证" src="http://img.china.alibaba.com/cms/upload/integrity/promotion/certificate1.gif" /></div>
+                                <div>经营模式：<%=ViewState["bsmd"]%></div>
+                                <div class="bbord">所在地区：<%=ViewState["area"]%></div>
+                                <div class="addfv"><a href="javascript:AddFavorite(this.location.herf, '<%=ViewState["comName"]%>');"><span>收藏本公司</span></a> 收藏数：3004</div>
                             </div>
                         </li>
                         <li class="UserInfoBottom"></li>
@@ -135,7 +143,7 @@
                                 <li>产品名&nbsp;<input name="mst_pro_name" id="mst_pro_name" class="proNameInput" type="text" /></li>
                                 <li>价<span class="marginLeft1em"></span>格&nbsp;<input name="mst_low_price" id="mst_low_price" class="minPrice" type="text" /> 到 <input
                                     name="mst_height_price" id="mst_height_price" type="text" class="maxPrice" /></li>
-                                <li class="liSearchBtn"><input name="" type="button" class="SearchBtn" /></li>
+                                <li class="liSearchBtn"><input id="mst_sch_btn" type="button" class="SearchBtn" /></li>
                             </ul>
                         </div>
                     </div>
@@ -153,7 +161,7 @@
                                 <ul>
                                     <asp:Repeater ID="Repeater1" runat="server">
                                         <ItemTemplate>
-                                            <li><a href="../product/index_product.aspx?cat_id=<%#Eval("id") %>&member_id=<%#Request.QueryString["member_id"] %>"><%#Eval("CategoryName") %> </a></li>
+                                            <li><a href="../product/index_product.aspx?cat_id=<%#Eval("id") %>&member_id=<%#Request.QueryString["member_id"] %>"><%#Eval("CategoryName")%> </a></li>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </ul>
@@ -196,11 +204,11 @@
                                 <asp:Repeater ID="Repeater2" runat="server">
                                     <ItemTemplate>
                                         <ul>
-                                            <li><%#Eval("TrueName") %> <%#Eval("Gender")%> （<%#Eval("Position")%>）</li>
+                                            <li><%#Eval("TrueName")%> <%#Eval("Gender")%> （<%#Eval("Position")%>）</li>
                                             <li class="QQ"><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=416351551">
                                                 <img border="0" src="http://wpa.qq.com/pa?p=1:416351551:1" title="给我发消息" alt="给我发消息"></a></li>
                                             <li>电&nbsp;&nbsp;&nbsp;&nbsp;话：<%#Eval("Phone").ToString().TrimEnd('-')%></li>
-                                            <li>移动电话：<%#Eval("Mobile") %></li>
+                                            <li>移动电话：<%#Eval("Mobile")%></li>
                                             <li>传&nbsp;&nbsp;&nbsp;&nbsp;真：<%#Eval("Fax").ToString().TrimEnd('-')%></li>
                                         </ul>
                                         <div class="more" ><a href="../contact/index_contact.aspx?member_id=<%=Request.QueryString["member_id"] %>">更多</a></div>
@@ -230,13 +238,10 @@
                 <%=ViewState["comName"]%> 地址： <%=ViewState["address"]%>
             </p>
             <p>
-                技术支持：<a onmousedown="return aliclick(this,'?tracelog=wp_home_channel')" href="http://page.china.alibaba.com/html/danai/channel_index.html"
-                    target="_blank">深圳点石网络科技有限公司</a></p>
-            <p>
-                <a onmousedown="return aliclick(this,'?tracelog=wp_foot_wpadmin')" href="http://china.alibaba.com/domain/alibaba_manage.htm"
-                    target="_blank">旺铺管理入口</a> | <a onmousedown="return aliclick(this,'?tracelog=website_end_inform')"
-                        href="http://xuhechai.cn.alibaba.com/esite/duty_free.htm?company=覃旭" target="_blank">
-                        免责声明</a></p>
+                技术支持：<a href="javascript:;">深圳点石网络科技有限公司</a></p>
+            <p >
+                <a href="/member/login/signin.aspx" target="_blank">旺铺管理入口</a> | <a id="duty_free" href="#dtwrap">免责声明</a></p>
+            <p style="display:none;" class="gray" id="dtfr"><b >免责声明：</b>以上所展示的信息由企业自行提供，内容的真实性、准确性和合法性由发布企业负责。点石网对此不承担任何保证责任。</p> 
         </div>
         <!--==============底部结束===============-->
     </div>

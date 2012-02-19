@@ -108,6 +108,8 @@ namespace Com.DianShi.BusinessRules.Member
             }
         }
 
+       
+
         public bool Exits(string uid) {
             using (DS_MembersDataContext ct = new DS_MembersDataContext())
             {

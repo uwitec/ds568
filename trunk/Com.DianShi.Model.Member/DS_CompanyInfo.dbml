@@ -16,6 +16,7 @@
       <Column Name="City" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="County" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="BusinessAddress" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MapNid" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="ZipCode" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
       <Column Name="MemberType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Column Name="OfferService" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />

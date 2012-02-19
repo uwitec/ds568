@@ -3,7 +3,7 @@
   <Connection Mode="AppSettings" ConnectionString="Data Source=.\MYSQLEXPRESS;Initial Catalog=DianShi;Persist Security Info=False;User ID=ShuInDianShi" SettingsObjectName="Com.DianShi.Model.Member.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.View_Members" Member="View_Members">
     <Type Name="View_Members">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
       <Column Name="UserID" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(120) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
@@ -52,6 +52,7 @@
       <Column Name="MajorCustomers" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="OEM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="ComImg" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="MapNid" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
