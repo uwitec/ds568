@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Member;
+using DBUtility;
 namespace Com.DianShi.BusinessRules.Member
 {
-    public class DS_CompanyInfo_Br:DBUtility.BllBase
+    public class DS_CompanyInfo_Br:BllBase
     {
         public void Add(DS_CompanyInfo CompanyInfo)
         {
-            using (var ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_CompanyInfo.InsertOnSubmit(CompanyInfo);
                 ct.SubmitChanges();
@@ -19,7 +20,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Update(DS_CompanyInfo CompanyInfo)
         {
-            using (var ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_CompanyInfo.Attach(CompanyInfo, true);
                 ct.SubmitChanges();
@@ -28,7 +29,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Delete(int ID)
         {
-            using (var ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext(DbHelperSQL.Connection))
             {
                 DS_CompanyInfo st = ct.DS_CompanyInfo.Single(a => a.ID == ID);
                 ct.DS_CompanyInfo.DeleteOnSubmit(st);
@@ -38,7 +39,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public DS_CompanyInfo GetSingle(int ID)
         {
-            using (var ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_CompanyInfo.Single(a => a.ID == ID);
             }
@@ -46,7 +47,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public DS_CompanyInfo GetSingleByMemberID(int MemberID)
         {
-            using (var ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_CompanyInfo.Single(a => a.MenberID == MemberID);
             }
@@ -54,7 +55,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (var ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext(DbHelperSQL.Connection))
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
@@ -62,7 +63,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_CompanyInfo> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (var ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_CompanyInfo> CompanyInfoList = ct.DS_CompanyInfo;
                 if (!string.IsNullOrEmpty(condition))
@@ -76,7 +77,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_CompanyInfo> Query(string condition, string orderby, params object[] param)
         {
-            using (var ct = new DS_CompanyInfoDataContext())
+            using (var ct = new DS_CompanyInfoDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_CompanyInfo> CompanyInfoList = ct.DS_CompanyInfo;
                 if (!string.IsNullOrEmpty(condition))

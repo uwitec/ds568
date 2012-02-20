@@ -5,14 +5,15 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data.Common;
 using System.Linq.Dynamic;
+using DBUtility;
 using Com.DianShi.Model.Member;
 namespace Com.DianShi.BusinessRules.Member
 {
-    public class DS_Members_Br:DBUtility.BllBase
+    public class DS_Members_Br:BllBase
     {
         public void Add(DS_Members Members)
         {
-            using (DS_MembersDataContext ct = new DS_MembersDataContext())
+            using (var ct = new DS_MembersDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_Members.InsertOnSubmit(Members);
                 ct.SubmitChanges();
@@ -21,7 +22,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Update(DS_Members Members)
         {
-            using (DS_MembersDataContext ct = new DS_MembersDataContext())
+            using (var ct = new DS_MembersDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_Members.Attach(Members, true);
                 ct.SubmitChanges();
@@ -30,7 +31,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Delete(int ID)
         {
-            using (DS_MembersDataContext ct = new DS_MembersDataContext())
+            using (var ct = new DS_MembersDataContext(DbHelperSQL.Connection))
             {
                 DS_Members st = ct.DS_Members.Single(a => a.ID == ID);
                 ct.DS_Members.DeleteOnSubmit(st);
@@ -40,7 +41,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public DS_Members GetSingle(int ID)
         {
-            using (DS_MembersDataContext ct = new DS_MembersDataContext())
+            using (var ct = new DS_MembersDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_Members.Single(a => a.ID == ID);
             }
@@ -48,7 +49,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (DS_MembersDataContext ct = new DS_MembersDataContext())
+            using (var ct = new DS_MembersDataContext(DbHelperSQL.Connection))
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
@@ -56,7 +57,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_Members> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (DS_MembersDataContext ct = new DS_MembersDataContext())
+            using (var ct = new DS_MembersDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_Members> MembersList = ct.DS_Members;
                 if (!string.IsNullOrEmpty(condition))
@@ -70,7 +71,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_Members> Query(string condition, string orderby, params object[] param)
         {
-            using (DS_MembersDataContext ct = new DS_MembersDataContext())
+            using (var ct = new DS_MembersDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_Members> MembersList = ct.DS_Members;
                 if (!string.IsNullOrEmpty(condition))
@@ -91,7 +92,7 @@ namespace Com.DianShi.BusinessRules.Member
         /// <param name="Member"></param>
         /// <param name="Company"></param>
         public void Register(DS_Members Member,DS_CompanyInfo Company) {
-            using (DbConnection con=DBUtility.DbHelperSQL.GetConnection())
+            using (DbConnection con=DbHelperSQL.Connection)
             {
                 var tran = con.BeginTransaction();
                 var mbct = new DS_MembersDataContext(con);
@@ -111,7 +112,7 @@ namespace Com.DianShi.BusinessRules.Member
        
 
         public bool Exits(string uid) {
-            using (DS_MembersDataContext ct = new DS_MembersDataContext())
+            using (var ct = new DS_MembersDataContext(DbHelperSQL.Connection))
             {
                 var md=ct.DS_Members.Where(a=>a.UserID.ToLower().Equals(uid.Trim().ToLower()));
                 return md.Count() > 0;
@@ -119,7 +120,7 @@ namespace Com.DianShi.BusinessRules.Member
         }
 
         public bool Login(ref DS_Members Member) {
-            using (DS_MembersDataContext ct = new DS_MembersDataContext())
+            using (var ct = new DS_MembersDataContext(DbHelperSQL.Connection))
             {
                 string uid = Member.UserID.Trim(), pwd = DBUtility.DESEncrypt.SymmetricEncrypts(Member.Password.Trim(), Common.Constant.WebConfig("EcptKey"));
                 Member = ct.DS_Members.SingleOrDefault(a => a.UserID==uid&& a.Password==pwd);
@@ -136,7 +137,7 @@ namespace Com.DianShi.BusinessRules.Member
         /// <param name="msg">验证过程返回的消息</param>
         /// <returns>bool</returns>
         public bool ChangePwd(int ID,string oldPwd,string newPwd,ref string msg) {
-            using (DS_MembersDataContext ct = new DS_MembersDataContext())
+            using (var ct = new DS_MembersDataContext(DbHelperSQL.Connection))
             {
                 newPwd = newPwd.Trim();
                 var md = GetSingle(ID);

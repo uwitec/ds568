@@ -6,13 +6,14 @@ using System.Data.SqlClient;
 using System.Data.Common;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Member;
+using DBUtility;
 namespace Com.DianShi.BusinessRules.Member
 {
-    public class DS_SafeQuestion_Br:DBUtility.BllBase
+    public class DS_SafeQuestion_Br:BllBase
     {
         public void Add(DS_SafeQuestion SafeQuestion)
         {
-            using (DS_SafeQuestionDataContext ct = new DS_SafeQuestionDataContext())
+            using (var ct = new DS_SafeQuestionDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_SafeQuestion.InsertOnSubmit(SafeQuestion);
                 ct.SubmitChanges();
@@ -21,7 +22,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Update(DS_SafeQuestion SafeQuestion)
         {
-            using (var ct = new DS_SafeQuestionDataContext())
+            using (var ct = new DS_SafeQuestionDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_SafeQuestion.Attach(SafeQuestion, true);
                 ct.SubmitChanges();
@@ -30,7 +31,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void InsertOrUpdate(DS_SafeQuestion SafeQuestion)
         {
-            using (var ct = new DS_SafeQuestionDataContext())
+            using (var ct = new DS_SafeQuestionDataContext(DbHelperSQL.Connection))
             {
                 var md = ct.DS_SafeQuestion.SingleOrDefault(a => a.MemberID.Equals(SafeQuestion.MemberID));
                 if (object.Equals(md, null))
@@ -45,7 +46,7 @@ namespace Com.DianShi.BusinessRules.Member
         }
 
         public bool Exists(int MemberID) {
-            using (var ct = new DS_SafeQuestionDataContext())
+            using (var ct = new DS_SafeQuestionDataContext(DbHelperSQL.Connection))
             {
                 var md = ct.DS_SafeQuestion.SingleOrDefault(a => a.MemberID.Equals(MemberID));
                 return !object.Equals(md, null);
@@ -54,7 +55,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Delete(int ID)
         {
-            using (var ct = new DS_SafeQuestionDataContext())
+            using (var ct = new DS_SafeQuestionDataContext(DbHelperSQL.Connection))
             {
                 DS_SafeQuestion st = ct.DS_SafeQuestion.Single(a => a.ID == ID);
                 ct.DS_SafeQuestion.DeleteOnSubmit(st);
@@ -64,14 +65,14 @@ namespace Com.DianShi.BusinessRules.Member
 
         public DS_SafeQuestion GetSingle(int ID)
         {
-            using (var ct = new DS_SafeQuestionDataContext())
+            using (var ct = new DS_SafeQuestionDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_SafeQuestion.Single(a => a.ID == ID);
             }
         }
         public DS_SafeQuestion GetSingleByMemberID(int MemberID)
         {
-            using (var ct = new DS_SafeQuestionDataContext())
+            using (var ct = new DS_SafeQuestionDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_SafeQuestion.Single(a => a.MemberID ==MemberID);
             }
@@ -79,7 +80,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (var ct = new DS_SafeQuestionDataContext())
+            using (var ct = new DS_SafeQuestionDataContext(DbHelperSQL.Connection))
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
@@ -87,7 +88,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_SafeQuestion> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (var ct = new DS_SafeQuestionDataContext())
+            using (var ct = new DS_SafeQuestionDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_SafeQuestion> SafeQuestionList = ct.DS_SafeQuestion;
                 if (!string.IsNullOrEmpty(condition))
@@ -101,7 +102,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_SafeQuestion> Query(string condition, string orderby, params object[] param)
         {
-            using (var ct = new DS_SafeQuestionDataContext())
+            using (var ct = new DS_SafeQuestionDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_SafeQuestion> SafeQuestionList = ct.DS_SafeQuestion;
                 if (!string.IsNullOrEmpty(condition))

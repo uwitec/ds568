@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Member;
+using DBUtility;
 namespace Com.DianShi.BusinessRules.Member
 {
-    public class DS_BusType_Br:DBUtility.BllBase
+    public class DS_BusType_Br:BllBase
     {
         public void Add(DS_BusType BusType)
         {
-            using (var ct = new DS_BusTypeDataContext())
+            using (var ct = new DS_BusTypeDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_BusType.InsertOnSubmit(BusType);
                 ct.SubmitChanges();
@@ -19,7 +20,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Update(DS_BusType BusType)
         {
-            using (var ct = new DS_BusTypeDataContext())
+            using (var ct = new DS_BusTypeDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_BusType.Attach(BusType, true);
                 ct.SubmitChanges();
@@ -28,7 +29,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Delete(int ID)
         {
-            using (var ct = new DS_BusTypeDataContext())
+            using (var ct = new DS_BusTypeDataContext(DbHelperSQL.Connection))
             {
                 DS_BusType st = ct.DS_BusType.Single(a => a.ID == ID);
                 ct.DS_BusType.DeleteOnSubmit(st);
@@ -38,7 +39,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public DS_BusType GetSingle(int ID)
         {
-            using (var ct = new DS_BusTypeDataContext())
+            using (var ct = new DS_BusTypeDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_BusType.Single(a => a.ID == ID);
             }
@@ -46,7 +47,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (var ct = new DS_BusTypeDataContext())
+            using (var ct = new DS_BusTypeDataContext(DbHelperSQL.Connection))
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
@@ -54,7 +55,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_BusType> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (var ct = new DS_BusTypeDataContext())
+            using (var ct = new DS_BusTypeDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_BusType> BusTypeList = ct.DS_BusType;
                 if (!string.IsNullOrEmpty(condition))
@@ -68,7 +69,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_BusType> Query(string condition, string orderby, params object[] param)
         {
-            using (var ct = new DS_BusTypeDataContext())
+            using (var ct = new DS_BusTypeDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_BusType> BusTypeList = ct.DS_BusType;
                 if (!string.IsNullOrEmpty(condition))

@@ -17,7 +17,7 @@ public partial class index_album : System.Web.UI.Page
     {
         AspNetPager4.PageChanged+=new EventHandler(AspNetPager4_PageChanged);
         if (IsPostBack) return;
-        BindData("memberid=@0 and PictureNum>0", int.Parse(Request.QueryString["member_id"]));
+        BindData("memberid=@0 and PictureNum>0 and Permissions!=@1", int.Parse(Request.QueryString["member_id"]), (byte)DS_Album_Br.Permissions.密码访问);
         
     }
 

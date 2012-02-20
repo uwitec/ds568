@@ -26,6 +26,7 @@ namespace DBUtility
             return con;
         }
 
+        public static DbConnection Connection { get { return GetConnection(); } }
 
         /// <summary>
         /// 调用分页存储过程

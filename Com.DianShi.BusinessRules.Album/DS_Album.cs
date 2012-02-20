@@ -6,13 +6,14 @@ using System.Data.SqlClient;
 using System.Data.Common;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Album;
+using DBUtility;
 namespace Com.DianShi.BusinessRules.Album
 {
-    public class DS_Album_Br : DBUtility.BllBase
+    public class DS_Album_Br :BllBase
     {
         public void Add(DS_Album Album)
         {
-            using (var ct = new DS_AlbumDataContext())
+            using (var ct = new DS_AlbumDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_Album.InsertOnSubmit(Album);
                 ct.SubmitChanges();
@@ -21,7 +22,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public void Update(DS_Album Album)
         {
-            using (var ct = new DS_AlbumDataContext())
+            using (var ct = new DS_AlbumDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_Album.Attach(Album, true);
                 ct.SubmitChanges();
@@ -30,7 +31,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public void Delete(int ID)
         {
-            using (var ct = new DS_AlbumDataContext())
+            using (var ct = new DS_AlbumDataContext(DbHelperSQL.Connection))
             {
                 var st = ct.DS_Album.Single(a => a.ID == ID);
                 ct.DS_Album.DeleteOnSubmit(st);
@@ -40,7 +41,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public void Delete(string Ids)
         {
-            using (var ct = new DS_AlbumDataContext())
+            using (var ct = new DS_AlbumDataContext(DbHelperSQL.Connection))
             {
                 string[] idarray = Ids.Split(',');
                 var list = ct.DS_Album.Where(a => idarray.Contains(a.ID.ToString()));
@@ -51,7 +52,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public DS_Album GetSingle(int ID)
         {
-            using (var ct = new DS_AlbumDataContext())
+            using (var ct = new DS_AlbumDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_Album.Single(a => a.ID == ID);
             }
@@ -59,7 +60,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (var ct = new DS_AlbumDataContext())
+            using (var ct = new DS_AlbumDataContext(DbHelperSQL.Connection))
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
@@ -67,7 +68,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public List<DS_Album> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (var ct = new DS_AlbumDataContext())
+            using (var ct = new DS_AlbumDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_Album> AlbumList = ct.DS_Album;
                 if (!string.IsNullOrEmpty(condition))
@@ -81,7 +82,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public List<DS_Album> Query(string condition, string orderby, params object[] param)
         {
-            using (var ct = new DS_AlbumDataContext())
+            using (var ct = new DS_AlbumDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_Album> AlbumList = ct.DS_Album;
                 if (!string.IsNullOrEmpty(condition))
@@ -104,7 +105,7 @@ namespace Com.DianShi.BusinessRules.Album
         /// <param name="IsUp"></param>
         public void Sort(int ID, bool IsUp)
         {
-            using (var ct = new DS_AlbumDataContext())
+            using (var ct = new DS_AlbumDataContext(DbHelperSQL.Connection))
             {
                 var md = ct.DS_Album.Single(a => a.ID == ID);
                 ct.ExecuteCommand("update DS_Album  set px=(select RowNumber from (select (ROW_NUMBER() OVER (ORDER BY px)) AS RowNumber,id from DS_Album where  memberid={0}) as p2 where id=DS_Album.id) where memberid={0}", md.MemberID);

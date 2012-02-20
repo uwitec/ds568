@@ -6,13 +6,14 @@ using System.Data.SqlClient;
 using System.Data.Common;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Product;
+using DBUtility;
 namespace Com.DianShi.BusinessRules.Product
 {
-    public class DS_DiyProCategory_Br : DBUtility.BllBase
+    public class DS_DiyProCategory_Br : BllBase
     {
         public void Add(DS_DiyProCategory DiyProCategory)
         {
-            using (var ct = new DS_DiyProCategoryDataContext())
+            using (var ct = new DS_DiyProCategoryDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_DiyProCategory.InsertOnSubmit(DiyProCategory);
                 ct.SubmitChanges();
@@ -21,7 +22,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public void Update(DS_DiyProCategory DiyProCategory)
         {
-            using (var ct = new DS_DiyProCategoryDataContext())
+            using (var ct = new DS_DiyProCategoryDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_DiyProCategory.Attach(DiyProCategory, true);
                 ct.SubmitChanges();
@@ -30,7 +31,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public void Delete(int ID)
         {
-            using (var ct = new DS_DiyProCategoryDataContext())
+            using (var ct = new DS_DiyProCategoryDataContext(DbHelperSQL.Connection))
             {
                 var st = ct.DS_DiyProCategory.Single(a => a.ID == ID);
                 ct.DS_DiyProCategory.DeleteOnSubmit(st);
@@ -40,7 +41,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public void Delete(string Ids)
         {
-            using (var ct = new DS_DiyProCategoryDataContext())
+            using (var ct = new DS_DiyProCategoryDataContext(DbHelperSQL.Connection))
             {
                 string[] idarray = Ids.Split(',');
                 var list = ct.DS_DiyProCategory.Where(a => idarray.Contains(a.ID.ToString()));
@@ -51,7 +52,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public DS_DiyProCategory GetSingle(int ID)
         {
-            using (var ct = new DS_DiyProCategoryDataContext())
+            using (var ct = new DS_DiyProCategoryDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_DiyProCategory.Single(a => a.ID == ID);
             }
@@ -59,7 +60,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (var ct = new DS_DiyProCategoryDataContext())
+            using (var ct = new DS_DiyProCategoryDataContext(DbHelperSQL.Connection))
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
@@ -67,7 +68,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public List<DS_DiyProCategory> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (var ct = new DS_DiyProCategoryDataContext())
+            using (var ct = new DS_DiyProCategoryDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_DiyProCategory> DiyProCategoryList = ct.DS_DiyProCategory;
                 if (!string.IsNullOrEmpty(condition))
@@ -81,7 +82,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public List<DS_DiyProCategory> Query(string condition, string orderby, params object[] param)
         {
-            using (var ct = new DS_DiyProCategoryDataContext())
+            using (var ct = new DS_DiyProCategoryDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_DiyProCategory> DiyProCategoryList = ct.DS_DiyProCategory;
                 if (!string.IsNullOrEmpty(condition))
@@ -103,7 +104,7 @@ namespace Com.DianShi.BusinessRules.Product
         /// <param name="IsUp"></param>
         public void Sort(int ID, bool IsUp)
         {
-            using (DS_DiyProCategoryDataContext ct = new DS_DiyProCategoryDataContext())
+            using (var ct = new DS_DiyProCategoryDataContext(DbHelperSQL.Connection))
             {
                 var md = ct.DS_DiyProCategory.Single(a => a.ID == ID);
                 ct.ExecuteCommand("update DS_DiyProCategory  set px=(select RowNumber from (select (ROW_NUMBER() OVER (ORDER BY px)) AS RowNumber,id from DS_DiyProCategory where  MemberID={0}) as p2 where id=DS_DiyProCategory.id) where MemberID={0}", md.MemberID);
