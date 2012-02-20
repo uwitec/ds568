@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="DianShi" Class="DS_EmailDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\MYSQLEXPRESS;Initial Catalog=DianShi;Integrated Security=True" SettingsObjectName="Com.DianShi.Model.Community.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DS_Email" Member="DS_Email">
+    <Type Name="DS_Email">
+      <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientEmail" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientCompany" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientPhone" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientMobile" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

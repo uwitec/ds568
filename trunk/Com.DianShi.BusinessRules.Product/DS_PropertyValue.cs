@@ -6,13 +6,14 @@ using System.Data.SqlClient;
 using System.Data.Common;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Product;
+using DBUtility;
 namespace Com.DianShi.BusinessRules.Product
 {
-    public class DS_PropertyValue_Br : DBUtility.BllBase
+    public class DS_PropertyValue_Br : BllBase
     {
         public void Add(DS_PropertyValue PropertyValue)
         {
-            using (var ct = new DS_PropertyValueDataContext())
+            using (var ct = new DS_PropertyValueDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_PropertyValue.InsertOnSubmit(PropertyValue);
                 ct.SubmitChanges();
@@ -21,7 +22,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public void Update(DS_PropertyValue PropertyValue)
         {
-            using (var ct = new DS_PropertyValueDataContext())
+            using (var ct = new DS_PropertyValueDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_PropertyValue.Attach(PropertyValue, true);
                 ct.SubmitChanges();
@@ -30,7 +31,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public void Delete(int ID)
         {
-            using (var ct = new DS_PropertyValueDataContext())
+            using (var ct = new DS_PropertyValueDataContext(DbHelperSQL.Connection))
             {
                 var st = ct.DS_PropertyValue.Single(a => a.ID == ID);
                 ct.DS_PropertyValue.DeleteOnSubmit(st);
@@ -40,7 +41,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public void Delete(string Ids)
         {
-            using (var ct = new DS_PropertyValueDataContext())
+            using (var ct = new DS_PropertyValueDataContext(DbHelperSQL.Connection))
             {
                 string[] idarray = Ids.Split(',');
                 var list = ct.DS_PropertyValue.Where(a=>idarray.Contains(a.ID.ToString()));
@@ -51,7 +52,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public DS_PropertyValue GetSingle(int ID)
         {
-            using (var ct = new DS_PropertyValueDataContext())
+            using (var ct = new DS_PropertyValueDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_PropertyValue.Single(a => a.ID == ID);
             }
@@ -59,7 +60,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (var ct = new DS_PropertyValueDataContext())
+            using (var ct = new DS_PropertyValueDataContext(DbHelperSQL.Connection))
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();//ct.DS_PropertyValue.Where(c=>System.Data.Linq.SqlClient.SqlMethods.Like(字段,"%A%"))
             }
@@ -67,7 +68,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public List<DS_PropertyValue> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (var ct = new DS_PropertyValueDataContext())
+            using (var ct = new DS_PropertyValueDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_PropertyValue> PropertyValueList = ct.DS_PropertyValue;
                 if (!string.IsNullOrEmpty(condition))
@@ -81,7 +82,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public List<DS_PropertyValue> Query(string condition, string orderby, params object[] param)
         {
-            using (var ct = new DS_PropertyValueDataContext())
+            using (var ct = new DS_PropertyValueDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_PropertyValue> PropertyValueList = ct.DS_PropertyValue;
                 if (!string.IsNullOrEmpty(condition))
@@ -103,7 +104,7 @@ namespace Com.DianShi.BusinessRules.Product
         /// <param name="IsUp"></param>
         public void Sort(int ID, bool IsUp)
         {
-            using (DS_PropertyValueDataContext ct = new DS_PropertyValueDataContext())
+            using (var ct = new DS_PropertyValueDataContext(DbHelperSQL.Connection))
             {
                 var md = ct.DS_PropertyValue.Single(a => a.ID == ID);
                 ct.ExecuteCommand("update DS_PropertyValue  set px=(select RowNumber from (select (ROW_NUMBER() OVER (ORDER BY px)) AS RowNumber,id from DS_PropertyValue where PropertyID={0}) as p2 where id=DS_PropertyValue.id) where PropertyID={0}", md.PropertyID);

@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Member;
+using DBUtility;
 namespace Com.DianShi.BusinessRules.Member
 {
-    public class DS_Employees_Br:DBUtility.BllBase
+    public class DS_Employees_Br:BllBase
     {
         public void Add(DS_Employees Employees)
         {
-            using (var ct = new DS_EmployeesDataContext())
+            using (var ct = new DS_EmployeesDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_Employees.InsertOnSubmit(Employees);
                 ct.SubmitChanges();
@@ -19,7 +20,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Update(DS_Employees Employees)
         {
-            using (var ct = new DS_EmployeesDataContext())
+            using (var ct = new DS_EmployeesDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_Employees.Attach(Employees, true);
                 ct.SubmitChanges();
@@ -28,7 +29,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Delete(int ID)
         {
-            using (var ct = new DS_EmployeesDataContext())
+            using (var ct = new DS_EmployeesDataContext(DbHelperSQL.Connection))
             {
                 DS_Employees st = ct.DS_Employees.Single(a => a.ID == ID);
                 ct.DS_Employees.DeleteOnSubmit(st);
@@ -38,7 +39,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public DS_Employees GetSingle(int ID)
         {
-            using (var ct = new DS_EmployeesDataContext())
+            using (var ct = new DS_EmployeesDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_Employees.Single(a => a.ID == ID);
             }
@@ -46,7 +47,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (var ct = new DS_EmployeesDataContext())
+            using (var ct = new DS_EmployeesDataContext(DbHelperSQL.Connection))
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
@@ -54,7 +55,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_Employees> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (var ct = new DS_EmployeesDataContext())
+            using (var ct = new DS_EmployeesDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_Employees> EmployeesList = ct.DS_Employees;
                 if (!string.IsNullOrEmpty(condition))
@@ -68,7 +69,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_Employees> Query(string condition, string orderby, params object[] param)
         {
-            using (var ct = new DS_EmployeesDataContext())
+            using (var ct = new DS_EmployeesDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_Employees> EmployeesList = ct.DS_Employees;
                 if (!string.IsNullOrEmpty(condition))

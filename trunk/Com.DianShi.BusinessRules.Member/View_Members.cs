@@ -6,15 +6,16 @@ using System.Data.SqlClient;
 using System.Data.Common;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Member;
+using DBUtility;
 namespace Com.DianShi.BusinessRules.Member
 {
-    public class View_Members_Br:DBUtility.BllBase
+    public class View_Members_Br:BllBase
     {
         
 
         public View_Members GetSingle(int ID)
         {
-            using (var ct = new View_MembersDataContext())
+            using (var ct = new View_MembersDataContext(DbHelperSQL.Connection))
             {
                 return ct.View_Members.Single(a => a.ID == ID);
             }
@@ -23,7 +24,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (var ct = new View_MembersDataContext())
+            using (var ct = new View_MembersDataContext(DbHelperSQL.Connection))
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
@@ -31,7 +32,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<View_Members> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (var ct = new View_MembersDataContext())
+            using (var ct = new View_MembersDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<View_Members> MembersList = ct.View_Members;
                 if (!string.IsNullOrEmpty(condition))
@@ -45,7 +46,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<View_Members> Query(string condition, string orderby, params object[] param)
         {
-            using (var ct = new View_MembersDataContext())
+            using (var ct = new View_MembersDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<View_Members> MembersList = ct.View_Members;
                 if (!string.IsNullOrEmpty(condition))

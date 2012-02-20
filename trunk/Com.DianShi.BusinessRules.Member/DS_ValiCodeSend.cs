@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Member;
+using DBUtility;
 namespace Com.DianShi.BusinessRules.Member
 {
-    public class DS_ValiCodeSend_Br:DBUtility.BllBase
+    public class DS_ValiCodeSend_Br:BllBase
     {
         public void Add(DS_ValiCodeSend ValiCodeSend)
         {
-            using (var ct = new DS_ValiCodeSendDataContext())
+            using (var ct = new DS_ValiCodeSendDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_ValiCodeSend.InsertOnSubmit(ValiCodeSend);
                 ct.SubmitChanges();
@@ -19,7 +20,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Update(DS_ValiCodeSend ValiCodeSend)
         {
-            using (var ct = new DS_ValiCodeSendDataContext())
+            using (var ct = new DS_ValiCodeSendDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_ValiCodeSend.Attach(ValiCodeSend, true);
                 ct.SubmitChanges();
@@ -28,7 +29,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public void Delete(int ID)
         {
-            using (var ct = new DS_ValiCodeSendDataContext())
+            using (var ct = new DS_ValiCodeSendDataContext(DbHelperSQL.Connection))
             {
                 DS_ValiCodeSend st = ct.DS_ValiCodeSend.Single(a => a.ID == ID);
                 ct.DS_ValiCodeSend.DeleteOnSubmit(st);
@@ -38,7 +39,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public DS_ValiCodeSend GetSingle(int ID)
         {
-            using (var ct = new DS_ValiCodeSendDataContext())
+            using (var ct = new DS_ValiCodeSendDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_ValiCodeSend.Single(a => a.ID == ID);
             }
@@ -46,7 +47,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (var ct = new DS_ValiCodeSendDataContext())
+            using (var ct = new DS_ValiCodeSendDataContext(DbHelperSQL.Connection))
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
@@ -54,7 +55,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_ValiCodeSend> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (var ct = new DS_ValiCodeSendDataContext())
+            using (var ct = new DS_ValiCodeSendDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_ValiCodeSend> ValiCodeSendList = ct.DS_ValiCodeSend;
                 if (!string.IsNullOrEmpty(condition))
@@ -68,7 +69,7 @@ namespace Com.DianShi.BusinessRules.Member
 
         public List<DS_ValiCodeSend> Query(string condition, string orderby, params object[] param)
         {
-            using (var ct = new DS_ValiCodeSendDataContext())
+            using (var ct = new DS_ValiCodeSendDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_ValiCodeSend> ValiCodeSendList = ct.DS_ValiCodeSend;
                 if (!string.IsNullOrEmpty(condition))
@@ -89,7 +90,7 @@ namespace Com.DianShi.BusinessRules.Member
         /// <param name="MemberID">会员ID</param>
         /// <returns></returns>
         public bool SendEnable(int MemberID) {
-            using (var ct = new DS_ValiCodeSendDataContext())
+            using (var ct = new DS_ValiCodeSendDataContext(DbHelperSQL.Connection))
             {
                 var md=ct.DS_ValiCodeSend.SingleOrDefault(a=>a.MemberID.Equals(MemberID));
                 if (!object.Equals(md, null))

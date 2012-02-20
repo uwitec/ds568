@@ -11,7 +11,6 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Member;
-[PartialCaching(1800, "member_id", null, null)]
 public partial class Template_tem1_profile_index_profile : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)

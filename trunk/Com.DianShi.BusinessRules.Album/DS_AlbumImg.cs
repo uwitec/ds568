@@ -6,14 +6,15 @@ using System.Data.SqlClient;
 using System.Data.Common;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Album;
+using DBUtility;
 using System.IO;
 namespace Com.DianShi.BusinessRules.Album
 {
-    public class DS_AlbumImg_Br : DBUtility.BllBase
+    public class DS_AlbumImg_Br : BllBase
     {
         public void Add(DS_AlbumImg AlbumImg)
         {
-            using (var con = DBUtility.DbHelperSQL.GetConnection()) {
+            using (var con = DbHelperSQL.Connection) {
                 var tran = con.BeginTransaction();
                 var ct = new DS_AlbumImgDataContext(con);
                 ct.Transaction=tran;
@@ -33,7 +34,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public void Update(DS_AlbumImg AlbumImg)
         {
-            using (var ct = new DS_AlbumImgDataContext())
+            using (var ct = new DS_AlbumImgDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_AlbumImg.Attach(AlbumImg, true);
                 ct.SubmitChanges();
@@ -42,7 +43,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public void Update(DS_AlbumImg AlbumImg, bool FrontCover)
         {
-            using (var con = DBUtility.DbHelperSQL.GetConnection())
+            using (var con = DbHelperSQL.Connection)
             {
                 var tran = con.BeginTransaction();
 
@@ -66,7 +67,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public void Delete(int ID)
         {
-            using (var ct = new DS_AlbumImgDataContext())
+            using (var ct = new DS_AlbumImgDataContext(DbHelperSQL.Connection))
             {
                 var st = ct.DS_AlbumImg.Single(a => a.ID == ID);
                 ct.DS_AlbumImg.DeleteOnSubmit(st);
@@ -76,7 +77,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public void Delete(string Ids)
         {
-            using (var con = DBUtility.DbHelperSQL.GetConnection())
+            using (var con = DbHelperSQL.Connection)
             {
                 var tran = con.BeginTransaction();
                 var ct = new DS_AlbumImgDataContext(con);
@@ -109,7 +110,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public DS_AlbumImg GetSingle(int ID)
         {
-            using (var ct = new DS_AlbumImgDataContext())
+            using (var ct = new DS_AlbumImgDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_AlbumImg.Single(a => a.ID == ID);
             }
@@ -117,7 +118,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (var ct = new DS_AlbumImgDataContext())
+            using (var ct = new DS_AlbumImgDataContext(DbHelperSQL.Connection))
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
@@ -125,7 +126,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public List<DS_AlbumImg> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (var ct = new DS_AlbumImgDataContext())
+            using (var ct = new DS_AlbumImgDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_AlbumImg> AlbumImgList = ct.DS_AlbumImg;
                 if (!string.IsNullOrEmpty(condition))
@@ -139,7 +140,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public List<DS_AlbumImg> Query(string condition, string orderby, params object[] param)
         {
-            using (var ct = new DS_AlbumImgDataContext())
+            using (var ct = new DS_AlbumImgDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_AlbumImg> AlbumImgList = ct.DS_AlbumImg;
                 if (!string.IsNullOrEmpty(condition))
@@ -162,7 +163,7 @@ namespace Com.DianShi.BusinessRules.Album
         /// <param name="IsUp"></param>
         public void Sort(int ID, bool IsUp)
         {
-            using (var ct = new DS_AlbumImgDataContext())
+            using (var ct = new DS_AlbumImgDataContext(DbHelperSQL.Connection))
             {
                 var md = ct.DS_AlbumImg.Single(a => a.ID == ID);
                 ct.ExecuteCommand("update DS_AlbumImg  set px=(select RowNumber from (select (ROW_NUMBER() OVER (ORDER BY px)) AS RowNumber,id from DS_AlbumImg where  AlbumID={0}) as p2 where id=DS_AlbumImg.AlbumID) where memberid={0}", md.AlbumID);

@@ -6,13 +6,14 @@ using System.Data.SqlClient;
 using System.Data.Common;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Product;
+using DBUtility;
 namespace Com.DianShi.BusinessRules.Product
 {
-    public class DS_SysProductCategory_Br : DBUtility.BllBase
+    public class DS_SysProductCategory_Br : BllBase
     {
         public void Add(DS_SysProductCategory SysProductCategory)
         {
-            using (var ct = new DS_SysProductCategoryDataContext())
+            using (var ct = new DS_SysProductCategoryDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_SysProductCategory.InsertOnSubmit(SysProductCategory);
                 ct.SubmitChanges();
@@ -21,7 +22,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public void Update(DS_SysProductCategory SysProductCategory)
         {
-            using (var ct = new DS_SysProductCategoryDataContext())
+            using (var ct = new DS_SysProductCategoryDataContext(DbHelperSQL.Connection))
             {
                 ct.DS_SysProductCategory.Attach(SysProductCategory, true);
                 ct.SubmitChanges();
@@ -30,7 +31,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public void Delete(int ID)
         {
-            using (var ct = new DS_SysProductCategoryDataContext())
+            using (var ct = new DS_SysProductCategoryDataContext(DbHelperSQL.Connection))
             {
                 var st = ct.DS_SysProductCategory.Single(a => a.ID == ID);
                 ct.DS_SysProductCategory.DeleteOnSubmit(st);
@@ -40,7 +41,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public void Delete(string Ids)
         {
-            using (var ct = new DS_SysProductCategoryDataContext())
+            using (var ct = new DS_SysProductCategoryDataContext(DbHelperSQL.Connection))
             {
                 string[] idarray = Ids.Split(',');
                 int[] intarray=new int[idarray.Length];
@@ -63,7 +64,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public DS_SysProductCategory GetSingle(int ID)
         {
-            using (var ct = new DS_SysProductCategoryDataContext())
+            using (var ct = new DS_SysProductCategoryDataContext(DbHelperSQL.Connection))
             {
                 return ct.DS_SysProductCategory.Single(a => a.ID == ID);
             }
@@ -71,7 +72,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
-            using (var ct = new DS_SysProductCategoryDataContext())
+            using (var ct = new DS_SysProductCategoryDataContext(DbHelperSQL.Connection))
             {
                 return ct.ExecuteQuery<T>(sql, parameterValues).ToList();
             }
@@ -79,7 +80,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public List<DS_SysProductCategory> Query(string condition, string orderby, int startIndex, int pageSize, ref int pageCount, params object[] param)
         {
-            using (var ct = new DS_SysProductCategoryDataContext())
+            using (var ct = new DS_SysProductCategoryDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_SysProductCategory> SysProductCategoryList = ct.DS_SysProductCategory;
                 if (!string.IsNullOrEmpty(condition))
@@ -93,7 +94,7 @@ namespace Com.DianShi.BusinessRules.Product
 
         public List<DS_SysProductCategory> Query(string condition, string orderby, params object[] param)
         {
-            using (var ct = new DS_SysProductCategoryDataContext())
+            using (var ct = new DS_SysProductCategoryDataContext(DbHelperSQL.Connection))
             {
                 IQueryable<DS_SysProductCategory> SysProductCategoryList = ct.DS_SysProductCategory;
                 if (!string.IsNullOrEmpty(condition))
@@ -115,7 +116,7 @@ namespace Com.DianShi.BusinessRules.Product
         /// <param name="IsUp"></param>
         public void Sort(int ID, bool IsUp)
         {
-            using (DS_SysProductCategoryDataContext ct = new DS_SysProductCategoryDataContext())
+            using (var ct = new DS_SysProductCategoryDataContext(DbHelperSQL.Connection))
             {
                 var md = ct.DS_SysProductCategory.Single(a => a.ID == ID);
                 ct.ExecuteCommand("update DS_SysProductCategory  set px=(select RowNumber from (select (ROW_NUMBER() OVER (ORDER BY px)) AS RowNumber,id from DS_SysProductCategory where  parentid={0}) as p2 where id=DS_SysProductCategory.id) where parentid={0}", md.ParentID);
