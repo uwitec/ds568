@@ -23,59 +23,59 @@ namespace Com.DianShi.Model.Community
 	
 	
 	[System.Data.Linq.Mapping.DatabaseAttribute(Name="DianShi")]
-	public partial class DS_EmailDataContext : System.Data.Linq.DataContext
+	public partial class DS_MessageDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertDS_Email(DS_Email instance);
-    partial void UpdateDS_Email(DS_Email instance);
-    partial void DeleteDS_Email(DS_Email instance);
+    partial void InsertDS_Message(DS_Message instance);
+    partial void UpdateDS_Message(DS_Message instance);
+    partial void DeleteDS_Message(DS_Message instance);
     #endregion
 		
-		public DS_EmailDataContext() : 
+		public DS_MessageDataContext() : 
 				base(global::Com.DianShi.Model.Community.Properties.Settings.Default.DianShiConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DS_EmailDataContext(string connection) : 
+		public DS_MessageDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DS_EmailDataContext(System.Data.IDbConnection connection) : 
+		public DS_MessageDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DS_EmailDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DS_MessageDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DS_EmailDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DS_MessageDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<DS_Email> DS_Email
+		public System.Data.Linq.Table<DS_Message> DS_Message
 		{
 			get
 			{
-				return this.GetTable<DS_Email>();
+				return this.GetTable<DS_Message>();
 			}
 		}
 	}
 	
-	[Table(Name="dbo.DS_Email")]
-	public partial class DS_Email : INotifyPropertyChanging, INotifyPropertyChanged
+	[Table(Name="dbo.DS_Message")]
+	public partial class DS_Message : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -95,6 +95,10 @@ namespace Com.DianShi.Model.Community
 		private string _ClientPhone;
 		
 		private string _ClientMobile;
+		
+		private bool _IsView;
+		
+		private byte _MsgType;
 		
 		private System.DateTime _CreateDate;
 		
@@ -118,16 +122,20 @@ namespace Com.DianShi.Model.Community
     partial void OnClientPhoneChanged();
     partial void OnClientMobileChanging(string value);
     partial void OnClientMobileChanged();
+    partial void OnIsViewChanging(bool value);
+    partial void OnIsViewChanged();
+    partial void OnMsgTypeChanging(byte value);
+    partial void OnMsgTypeChanged();
     partial void OnCreateDateChanging(System.DateTime value);
     partial void OnCreateDateChanged();
     #endregion
 		
-		public DS_Email()
+		public DS_Message()
 		{
 			OnCreated();
 		}
 		
-		[Column(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true, IsDbGenerated=true, IsVersion=true)]
+		[Column(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, IsVersion=true)]
 		public int ID
 		{
 			get
@@ -207,7 +215,7 @@ namespace Com.DianShi.Model.Community
 			}
 		}
 		
-		[Column(Storage="_ClientEmail", DbType="NChar(10) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_ClientEmail", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
 		public string ClientEmail
 		{
 			get
@@ -227,7 +235,7 @@ namespace Com.DianShi.Model.Community
 			}
 		}
 		
-		[Column(Storage="_ClientCompany", DbType="NChar(10) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_ClientCompany", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
 		public string ClientCompany
 		{
 			get
@@ -247,7 +255,7 @@ namespace Com.DianShi.Model.Community
 			}
 		}
 		
-		[Column(Storage="_ClientPhone", DbType="NChar(10) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_ClientPhone", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
 		public string ClientPhone
 		{
 			get
@@ -267,7 +275,7 @@ namespace Com.DianShi.Model.Community
 			}
 		}
 		
-		[Column(Storage="_ClientMobile", DbType="NChar(10) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_ClientMobile", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
 		public string ClientMobile
 		{
 			get
@@ -283,6 +291,46 @@ namespace Com.DianShi.Model.Community
 					this._ClientMobile = value;
 					this.SendPropertyChanged("ClientMobile");
 					this.OnClientMobileChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_IsView", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public bool IsView
+		{
+			get
+			{
+				return this._IsView;
+			}
+			set
+			{
+				if ((this._IsView != value))
+				{
+					this.OnIsViewChanging(value);
+					this.SendPropertyChanging();
+					this._IsView = value;
+					this.SendPropertyChanged("IsView");
+					this.OnIsViewChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MsgType", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte MsgType
+		{
+			get
+			{
+				return this._MsgType;
+			}
+			set
+			{
+				if ((this._MsgType != value))
+				{
+					this.OnMsgTypeChanging(value);
+					this.SendPropertyChanging();
+					this._MsgType = value;
+					this.SendPropertyChanged("MsgType");
+					this.OnMsgTypeChanged();
 				}
 			}
 		}
