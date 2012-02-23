@@ -33,8 +33,8 @@
         </div>
         <div class="content01">
             <ul>
-                <li>公司名称 <a href="#">广东省深圳市动感者科技有限公司 </a></li>
-                <li class="contactMan">联系人 <a href="#">方伟泽 先生</a> <a class="linkQQ" target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=416351551">
+                <li>公司名称 <a href="#"><%=ViewState["company"]%></a></li>
+                <li class="contactMan">联系人 <a href="#"><%=ViewState["trueName"] %> <%=ViewState["Gender"]%></a> <a class="linkQQ" target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=416351551">
                                         <img border="0" src="http://wpa.qq.com/pa?p=1:416351551:4" title="给我发消息" alt="给我发消息"></a></li>
             </ul>
         </div>
@@ -63,11 +63,11 @@
            <table>
             <tr>
                 <td class="filedTitle">电子邮箱 <span class="star">*</span></td><td>
-                    <input id="emailUid" class="input124"  name="emailUid" type="text" /><span class="mouse">@</span><input id="emailCom" class="input97"  name="emailCom" type="text" /></td>
+                    <input id="emailUid" class="input124" value="<%=ViewState["email_1"] %>" name="emailUid" type="text" /><span class="mouse">@</span><input id="emailCom" class="input97" value="<%=ViewState["email_2"] %>"  name="emailCom" type="text" /></td>
             </tr>
             <tr>
                 <td class="filedTitle" >公司名称 <span class="star">*</span></td><td>
-                    <input id="companyName" class="input234"  name="companyName" type="text" />
+                    <input id="companyName" class="input234" value="<%=ViewState["mycompany"] %>"  name="companyName" type="text" />
                     </td>
             </tr>
              <tr>
@@ -76,12 +76,12 @@
                     </td>
             </tr>
             <tr>
-                <td class="filedTitle" >固定电话 <span class="marL6"></span></td><td><input id="phoneCountry" value="86" class="input32"  name="phoneCountry" type="text" /><span class="marL6"></span><input id="phoneArea" class="input52"  name="phoneArea" type="text" /><span class="marL6"></span><input id="phoneNumber" class="input128"  name="phoneNumber" type="text" />
+                <td class="filedTitle" >固定电话 <span class="marL6"></span></td><td><input id="phoneCountry" value="86" class="input32"  name="phoneCountry" type="text" /><span class="marL6"></span><input id="phoneArea" value="<%=ViewState["phone_1"] %>" class="input52"  name="phoneArea" type="text" /><span class="marL6"></span><input id="phoneNumber" class="input128" value="<%=ViewState["phone_2"] %>"  name="phoneNumber" type="text" />
                     </td>
             </tr>
                <tr>
                 <td class="filedTitle">手机号码 <span class="marL6"></span></td><td>
-                    <input id="Text2" class="input234"  name="companyName" type="text" />
+                    <input id="Text2" class="input234" value="<%=ViewState["mobile"] %>"  name="companyName" type="text" />
                     </td>
             </tr>
              <tr>
@@ -90,7 +90,7 @@
             </tr>
               <tr>
                 <td class="filedTitle"></td><td>
-                  <a class="Server" href="javascript:;">点击阅读阿里巴巴服务条款</a>
+                  <a class="Server" href="javascript:;">点击阅读点石网服务条款</a>
                   </td>
             </tr>
               <tr>
