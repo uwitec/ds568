@@ -61,5 +61,8 @@ a.linkSubmit:visited,a.linkSubmit:link,a.linkSubmit:hover{color:White;font-size:
 .searchSubmit{background-position:-2px -341px;width:52px;height:24px;border:none; position:relative;+top:1px;}
 .searchTitle{line-height:24px;}
 
+label.error{display:block;}
+
+
 
  
