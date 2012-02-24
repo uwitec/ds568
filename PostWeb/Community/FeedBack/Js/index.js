@@ -43,10 +43,7 @@
             valcode: { required: true, minlength: 4, maxlength: 4 }
         },
         messages: {
-            phoneCountry: { required: "固话或手机至少填写一项" },
-            phoneArea: { required: "固话或手机至少填写一项" },
-            phoneNumber: { required: "固话或手机至少填写一项" },
-            mobile: { required: "固话或手机至少填写一项" }
+           
         }
     });
     //-----------验证结束------------
@@ -55,12 +52,18 @@
         var b = fvalid.form();
         if (b) {
             $.ajax({
-            url: "action.aspx?action=sendmsg&" + $("#form1").serialize(),
+                url: "action.aspx?action=sendmsg&" + $("#form1").serialize(),
+                cache:false,
                 success: function(data, state) {
-                    location = "Sendfq.aspx";
+                    if(data!=""){
+                        alert(data);
+                        $("#chgvali").click();
+                    }else
+                        location = "Sendfq.aspx";
                 },
                 error: function(req, state, err) {
                     $("body").append(req.responseText);
+                    alert("抱歉，提交留言出错。");
                 },
                 beforeSend: function() {
                     $(".loading2").show();
