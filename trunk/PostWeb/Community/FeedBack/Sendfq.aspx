@@ -16,7 +16,7 @@
     <div class="main overflowAuto">
         <div class="head01">
             <div class="head01Left"><img src="http://i01.c.aliimg.com/images/cn/home/070827/logo2.gif" /></div>
-            <div class="head01Right"><a href="#">登录</a> | <a href="#">帮肋中心</a></div>
+            <div class="head01Right"><a href="/member/login/signin.aspx">登录</a> | <a href="javascript:;alert('帮助中心完善中，请稍后访问。')">帮肋中心</a></div>
         </div>
         <div class="head02">
             <ul class="overflowAuto" >
