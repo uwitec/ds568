@@ -23,3 +23,5 @@ a:hover{color:#ff7300;}
 .gray{color:Gray;}
 .bold{font-weight:bold;}
 .loading{ background:url(/images/loading.gif) no-repeat center center;}
+.loading{ background:url(/images/loading2.gif) no-repeat center center;}
+.hidden{ visibility:hidden;}
