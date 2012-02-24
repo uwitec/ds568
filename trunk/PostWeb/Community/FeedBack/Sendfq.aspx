@@ -51,17 +51,16 @@
         </div>
     </div>
 <div class="bottom">
-    <ul class="overflowAuto">
-        <li>阿里巴巴版权所有 1999-2011
-            <a href="http://info.china.alibaba.com/biznews/pages/alihome/js_zzq.html">
+     <ul class="overflowAuto">
+        <li>点石网版权所有 2011-2012
+            <a href="#">
             著作权与商标声明</a></li>
-        <li><a href="http://info.china.alibaba.com/biznews/pages/alihome/js_fl.html">法律声明</a></li>
-        <li><a href="http://info.china.alibaba.com/biznews/pages/alihome/js_fw.html">服务条款</a></li>
-        <li><a href="http://info.china.alibaba.com/biznews/pages/alihome/js_ys.html">隐私声明</a></li>
-        <li><a href="http://page.china.alibaba.com/shtml/about/ali_china8.shtml" 
+        <li><a href="#">法律声明</a></li>
+        <li><a href="#">服务条款</a></li>
+        <li><a href="#">隐私声明</a></li>
+        <li><a href="#" 
                 target="_blank">联系我们</a></li>
-        <li><a href="http://page.china.alibaba.com/sitemap/sitemap.html">网站地图</a></li>
-        <li class="no_border"><a href="http://tiyan.china.alibaba.com/">产品体验中心</a></li>
+        <li><a href="#">网站地图</a></li>
     </ul>
         </div>
 </body>

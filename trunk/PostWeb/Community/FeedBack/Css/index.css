@@ -38,7 +38,7 @@ a:hover {color:#ff7300;text-decoration:underline;}
 .gray{color:Gray;}
 td.tips{height:12px;}
 .tips .gray{position:relative;top:8px;}
-.bottom{width:98%;margin:0 auto;border-top:solid 3px #ff7300;height:100px; text-align:center;padding-top:10px;}
+.bottom{width:952px;margin:0 auto;border-top:solid 3px #ff7300;height:100px; text-align:center;padding-top:10px;}
 .bottom ul{width:70%;margin:0 auto;}
 .bottom ul li{float:left;margin-right:1em;}
 .ulBtn li{float:left;height:29px;}
@@ -62,6 +62,7 @@ a.linkSubmit:visited,a.linkSubmit:link,a.linkSubmit:hover{color:White;font-size:
 .searchTitle{line-height:24px;}
 
 label.error{display:block;}
+.loading2{ background-position:10px center; text-indent:27px;display:none;}
 
 
 
