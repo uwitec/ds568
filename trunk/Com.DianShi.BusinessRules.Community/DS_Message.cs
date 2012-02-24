@@ -85,6 +85,9 @@ namespace Com.DianShi.BusinessRules.Community
             return new Com.DianShi.Model.Community.DS_Message();
         }
 
-       
+        public enum MsgType : byte { 
+            在线留言,
+            系统消息
+        }
     }
 }
