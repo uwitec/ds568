@@ -10,12 +10,14 @@
 
     $.validator.addMethod("requiredOne", function(value, element, param) {//增加验证函数
         var b = true;
-        $(param).each(function() {
-            if ($(this).val() == "") {
-                if (b)
-                    b = false;
-            }
-        });
+        if (value == "") {
+            $(param).each(function() {
+                if ($(this).val() == "") {
+                    if (b)
+                        b = false;
+                }
+            });
+        }
         return b;
     },
         "固话或手机至少填写一项"
@@ -43,37 +45,37 @@
             valcode: { required: true, minlength: 4, maxlength: 4 }
         },
         messages: {
-           
-        }
-    });
-    //-----------验证结束------------
 
-    $(".linkSubmit").click(function() {
-        var b = fvalid.form();
-        if (b) {
-            $.ajax({
-                url: "action.aspx?action=sendmsg&" + $("#form1").serialize(),
-                cache:false,
-                success: function(data, state) {
-                    if(data!=""){
-                        alert(data);
-                        $("#chgvali").click();
-                    }else
-                        location = "Sendfq.aspx";
-                },
-                error: function(req, state, err) {
-                    $("body").append(req.responseText);
-                    alert("抱歉，提交留言出错。");
-                },
-                beforeSend: function() {
-                    $(".loading2").show();
-                    $(".ulBtn").hide();
-                },
-                complete: function() {
-                    $(".loading2").hide();
-                    $(".ulBtn").show();
-                }
-            });
-        }
-    });
+    }
+});
+//-----------验证结束------------
+
+$(".linkSubmit").click(function() {
+    var b = fvalid.form();
+    if (b) {
+        $.ajax({
+            url: "action.aspx?action=sendmsg&" + $("#form1").serialize(),
+            cache: false,
+            success: function(data, state) {
+                if (data != "") {
+                    alert(data);
+                    $("#chgvali").click();
+                } else
+                    location = "Sendfq.aspx";
+            },
+            error: function(req, state, err) {
+                $("body").append(req.responseText);
+                alert("抱歉，提交留言出错。");
+            },
+            beforeSend: function() {
+                $(".loading2").show();
+                $(".ulBtn").hide();
+            },
+            complete: function() {
+                $(".loading2").hide();
+                $(".ulBtn").show();
+            }
+        });
+    }
+});
 });
