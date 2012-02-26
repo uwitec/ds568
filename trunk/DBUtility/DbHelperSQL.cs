@@ -12,9 +12,10 @@ namespace DBUtility
     public class DbHelperSQL
     {
 
+        public static string Connection =ConfigurationManager.ConnectionStrings["DianShiConnectionString"].ToString();
         public static DbConnection GetConnection()
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DianShiConnectionString"].ToString());
+            SqlConnection con = new SqlConnection(Connection);
             con.Open();
             return con;
         }
@@ -25,9 +26,9 @@ namespace DBUtility
             con.Open();
             return con;
         }
-
-        public static DbConnection Connection { get { return GetConnection(); } }
-
+       
+        
+      
         /// <summary>
         /// 调用分页存储过程
         /// </summary>

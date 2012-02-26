@@ -36,7 +36,8 @@ namespace Com.DianShi.Model.Member
     #endregion
 		
 		public DS_MembersDataContext() : 
-				base(global::Com.DianShi.Model.Member.Properties.Settings.Default.DianShiConnectionString, mappingSource)
+				base("Data Source=.\\MYSQLEXPRESS;Initial Catalog=DianShi;User ID=ShuInDianShi;Password=" +
+						"Shu6898411;Persist Security Info=False", mappingSource)
 		{
 			OnCreated();
 		}
