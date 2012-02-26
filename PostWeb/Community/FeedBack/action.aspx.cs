@@ -29,7 +29,7 @@ public partial class Community_FeedBack_action : System.Web.UI.Page
                     md.ClientPhone = Request.QueryString["phoneArea"] + "-" + Request.QueryString["phoneNumber"];
                     md.ClientMobile=Request.QueryString["mobile"];
                     md.IsView = false;
-                    md.MsgType = (byte)DS_Message_Br.MsgType.在线留言;
+                    md.MsgType = (byte)DS_Message_Br.MsgType.留言互动;
                     md.CreateDate = DateTime.Now;
                     bl.Add(md);
                     break;
