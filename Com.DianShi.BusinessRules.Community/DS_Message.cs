@@ -86,7 +86,7 @@ namespace Com.DianShi.BusinessRules.Community
         }
 
         public enum MsgType : byte { 
-            在线留言,
+            留言互动,
             系统消息
         }
     }
