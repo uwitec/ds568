@@ -4,6 +4,15 @@
 .msghd{height:40px; background:url(../images/newscenter_summ.gif) no-repeat 10px 8px; text-indent:40px;line-height:40px;font-size:14px;font-weight:bold;}
 .listctn{height:500px;border:solid 1px #ccc;border-top:none; overflow:auto;zoom:1;}
 .msglist{width:465px;float:left;}
-.msgdetail{margin-left:466px;}
+.msgdetail{margin-left:466px;_margin-left:463px;border:solid 1px #a7cbe4;height:90%; background-color:#f2f7fb;padding:10px;}
+.msgdetail h2{ text-align:center;font-size:18px;}
 .pagerwrap{ overflow:auto;zoom:1;}
 .pagination a, .pagination span{padding:0px 3px;}
+.tlwrap{width:445px;margin:0 auto;border-bottom:solid 1px #efefef;line-height:38px; text-indent:6px;}
+.tlwrap span{background:url(../images/pageicon.png) no-repeat 4px 1px;padding-left:24px;line-height:38px;font-weight:bold;}
+.tlwrap span.isView{ background-position:4px -43px;font-weight:normal;}
+.ulwrap li{cursor:pointer;}
+.ulwrap li:hover{ background-color:#f2f7fb;}
+.pagerwrap{padding-left:150px;}
+.tips{line-height:32px; text-indent:12px;}
+.crtitem{border:solid 1px #a7cbe4; border-right:none; background-color:#f2f7fb; position:relative;width:466px;}

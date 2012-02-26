@@ -35,12 +35,46 @@
             success: function(data) {                      
                $(".ulwrap li").remove();
                $(".ulwrap").append($(data).find(".ulwrap li"));
+               bitclick();
+               $(".ulwrap li:first").click();
             },
             error:function(req,state,err){
                 $("body").append(req.responseText);
+            },
+            beforeSend:function(){
+                $(".ulwrap").addClass("loading3").find("li").addClass("hidden")
+            },
+            complete:function(){
+                $(".ulwrap").removeClass("loading3").find("li").removeClass("hidden")
             }
         });            
     }  
     
     InitTable(0);    //Load事件，初始化表格数据，页面索引为0（第一页）
+    
+    var bitclick=function(){
+        $(".ulwrap li").click(function(){
+            var msgid=$(this);
+            $.ajax({
+                cache:false,
+                data:{action:"getdetail",id:msgid.attr("msgid")},
+                success:function(data,state){
+                    $(".msgdetail").html(data);
+                    msgid.find("span").addClass("isView");
+                },
+                error:function(req,state,err){
+                    //$(".msgdetail").html("获取数据出错。");
+                    //alert("123")
+                },
+                beforeSend:function(){
+                    $(".ulwrap li").removeClass("crtitem");
+                    msgid.addClass("crtitem");
+                    $(".msgdetail").addClass("loading3");
+                },
+                complete:function(){
+                    $(".msgdetail").removeClass("loading3");
+                }
+            });
+        });
+    } 
 });
