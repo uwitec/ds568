@@ -2,4 +2,8 @@
 .hmenu li{margin-left:0;margin-right:10px;}
 .mainctn{width:952px;margin:0 auto;}
 .msghd{height:40px; background:url(../images/newscenter_summ.gif) no-repeat 10px 8px; text-indent:40px;line-height:40px;font-size:14px;font-weight:bold;}
-.listctn{height:500px;border:solid 1px #ccc;border-top:none;}
+.listctn{height:500px;border:solid 1px #ccc;border-top:none; overflow:auto;zoom:1;}
+.msglist{width:465px;float:left;}
+.msgdetail{margin-left:466px;}
+.pagerwrap{ overflow:auto;zoom:1;}
+.pagination a, .pagination span{padding:0px 3px;}
