@@ -21,6 +21,14 @@ public partial class Member_Manage_Message_MessageCenter : BasePage
                 case "pager":
                     bindData(Request.Form["pageIndex"],Request.Form["pageSize"], Request.Form["tid"]);
                     break;
+                case "getdetail":
+                    var bl = new DS_Message_Br();
+                    var md = bl.GetSingle(int.Parse(Request.QueryString["id"]));
+                    md.IsView = true;
+                    bl.Update(md);
+                    Response.Write("<h2>"+md.Title+"</h2>"+"<br>"+md.Content);
+                    Response.End();
+                    break;
             }
             return;
         }
@@ -28,7 +36,7 @@ public partial class Member_Manage_Message_MessageCenter : BasePage
         if (IsPostBack) return;
         Repeater1.DataSource= Enum.GetValues(typeof(DS_Message_Br.MsgType));
         Repeater1.DataBind();
-        ViewState["ps"] =10;
+        ViewState["ps"] =11;
         bindData(null,ViewState["ps"].ToString(),Request.QueryString["tid"]);
 
     }

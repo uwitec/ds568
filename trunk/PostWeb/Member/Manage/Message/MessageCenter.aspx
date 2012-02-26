@@ -41,7 +41,7 @@
                 <ul class="ulwrap">
                     <asp:Repeater ID="Repeater2" runat="server">
                         <ItemTemplate>
-                             <li><%#Eval("title") %></li>
+                             <li msgid="<%#Eval("id") %>"><div class="tlwrap overflowAuto"><div class="floatL"><input type="checkbox" name="ch" /><span class="<%#(bool)Eval("IsView")?"isView":"" %>"><%#Eval("title") %></span></div><div class="floatR"><%#((DateTime)Eval("createdate")).ToString("MM-dd") %></div></div></li>
                         </ItemTemplate>
                     </asp:Repeater>
                    
@@ -50,6 +50,7 @@
             </div>
             <div class="msgdetail"></div>
         </div>
+        <div class="tips">提示：所有消息从收到日起，保留28天。</div>
      </div>
     </form>
 </body>
