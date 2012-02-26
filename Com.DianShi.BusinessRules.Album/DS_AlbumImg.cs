@@ -14,7 +14,7 @@ namespace Com.DianShi.BusinessRules.Album
     {
         public void Add(DS_AlbumImg AlbumImg)
         {
-            using (var con = DbHelperSQL.Connection) {
+            using (var con = DbHelperSQL.GetConnection()) {
                 var tran = con.BeginTransaction();
                 var ct = new DS_AlbumImgDataContext(con);
                 ct.Transaction=tran;
@@ -43,7 +43,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public void Update(DS_AlbumImg AlbumImg, bool FrontCover)
         {
-            using (var con = DbHelperSQL.Connection)
+            using (var con = DbHelperSQL.GetConnection())
             {
                 var tran = con.BeginTransaction();
 
@@ -77,7 +77,7 @@ namespace Com.DianShi.BusinessRules.Album
 
         public void Delete(string Ids)
         {
-            using (var con = DbHelperSQL.Connection)
+            using (var con = DbHelperSQL.GetConnection())
             {
                 var tran = con.BeginTransaction();
                 var ct = new DS_AlbumImgDataContext(con);

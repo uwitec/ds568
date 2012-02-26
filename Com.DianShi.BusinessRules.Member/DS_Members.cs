@@ -92,7 +92,7 @@ namespace Com.DianShi.BusinessRules.Member
         /// <param name="Member"></param>
         /// <param name="Company"></param>
         public void Register(DS_Members Member,DS_CompanyInfo Company) {
-            using (DbConnection con=DbHelperSQL.Connection)
+            using (DbConnection con=DbHelperSQL.GetConnection())
             {
                 var tran = con.BeginTransaction();
                 var mbct = new DS_MembersDataContext(con);
