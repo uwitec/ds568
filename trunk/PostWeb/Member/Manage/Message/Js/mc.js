@@ -12,16 +12,19 @@
     var pageSize = $("#ps").val();     //每页显示条数初始化，修改显示条数，修改这里即可  
                                                    
     //分页，PageCount是总条目数，这是必选参数，其它参数都是可选
-    $(".pagerwrap").pagination(Number($("#pc").val()), {
-        callback:InitTable,
-        prev_text: '上一页',       //上一页按钮里text
-        next_text: '下一页',       //下一页按钮里text
-        items_per_page: pageSize,  //显示条数
-        num_display_entries: 6,    //连续分页主体部分分页条目数
-        current_page: pageIndex,   //当前页索引
-        num_edge_entries: 1        //两侧首尾分页条目数
-    });
-        
+    var pg=function(){
+        $(".pagerwrap").pagination(Number($("#pc").val()), {
+            callback:InitTable,
+            prev_text: '上一页',       //上一页按钮里text
+            next_text: '下一页',       //下一页按钮里text
+            items_per_page: pageSize,  //显示条数
+            num_display_entries: 6,    //连续分页主体部分分页条目数
+            current_page: pageIndex,   //当前页索引
+            num_edge_entries: 1        //两侧首尾分页条目数
+        });
+    }
+    pg();
+    
     //翻页调用
     function PageCallback(index, jq) {   
         InitTable(index);
@@ -63,8 +66,8 @@
                     msgid.find("span").addClass("isView");
                 },
                 error:function(req,state,err){
-                    //$(".msgdetail").html("获取数据出错。");
-                    //alert("123")
+                    $(".msgdetail").html("获取数据出错。");
+                    
                 },
                 beforeSend:function(){
                     $(".ulwrap li").removeClass("crtitem");
@@ -76,5 +79,29 @@
                 }
             });
         });
-    } 
+    }
+    //全选
+    $(".atbar input").click(function(){
+        $(".ulwrap li input").attr("checked",$(this).attr("checked"));    
+    });
+    
+    //删除
+    $("#msg_del").click(function(){
+        var msgids=$(".ulwrap li input").serialize().replace(/ch=/g,"").replace(/&/g,",");
+        if(msgids=="") return;
+        $.ajax({
+            type:"POST",
+            data:{action:"del",ids:msgids},
+            success:function(data,state){
+                $("#pc").val(Number($("#pc").val())-msgids.split(',').length);
+                pg();
+                InitTable(0);
+                $(".atbar input").attr("checked","")
+            },
+            error:function(req,state,err){
+                $(".msgdetail").html("删除出错。");
+            }
+        });
+    });
+    
 });
