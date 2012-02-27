@@ -38,6 +38,17 @@ namespace Com.DianShi.BusinessRules.Community
             }
         }
 
+        public void Delete(string Ids)
+        {
+            using (var ct = new DS_MessageDataContext(DbHelperSQL.Connection))
+            {
+                string[] idarray = Ids.Split(',');
+                var list = ct.DS_Message.Where(a => idarray.Contains(a.ID.ToString()));
+                ct.DS_Message.DeleteAllOnSubmit(list);
+                ct.SubmitChanges();
+            }
+        }
+
         public DS_Message GetSingle(int ID)
         {
             using (var ct = new DS_MessageDataContext(DbHelperSQL.Connection))
