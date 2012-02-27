@@ -9,10 +9,14 @@
 .pagerwrap{ overflow:auto;zoom:1;}
 .pagination a, .pagination span{padding:0px 3px;}
 .tlwrap{width:445px;margin:0 auto;border-bottom:solid 1px #efefef;line-height:38px; text-indent:6px;}
-.tlwrap span{background:url(../images/pageicon.png) no-repeat 4px 1px;padding-left:24px;line-height:38px;font-weight:bold;}
+.tlwrap span,.atbar a,.atbar a div{background:url(../images/pageicon.png) no-repeat}
+.tlwrap span{background-position:4px 1px;padding-left:24px;line-height:38px;font-weight:bold;}
 .tlwrap span.isView{ background-position:4px -43px;font-weight:normal;}
 .ulwrap li{cursor:pointer;}
 .ulwrap li:hover{ background-color:#f2f7fb;}
 .pagerwrap{padding-left:150px;}
 .tips{line-height:32px; text-indent:12px;}
 .crtitem{border:solid 1px #a7cbe4; border-right:none; background-color:#f2f7fb; position:relative;width:466px;}
+.atbar{height:30px;border-bottom:none;background-color:#f2f7fb;padding-top:7px; }
+.atbar a{display:block;float:left;height:22px; padding-left:6px;line-height:22px; background-position:left -261px;margin-left:10px;}
+.atbar a div{padding-right:10px;background-position:right -261px;}
