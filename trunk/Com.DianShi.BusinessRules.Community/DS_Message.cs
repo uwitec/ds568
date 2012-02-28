@@ -9,7 +9,6 @@ namespace Com.DianShi.BusinessRules.Community
 {
     public class DS_Message_Br:BllBase
     {
-        
         public void Add(DS_Message Message)
         {
             using (var ct = new DS_MessageDataContext(DbHelperSQL.Connection))

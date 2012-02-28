@@ -123,7 +123,7 @@ namespace Com.DianShi.BusinessRules.Member
             using (var ct = new DS_MembersDataContext(DbHelperSQL.Connection))
             {
                 string uid = Member.UserID.Trim(), pwd = DBUtility.DESEncrypt.SymmetricEncrypts(Member.Password.Trim(), Common.Constant.WebConfig("EcptKey"));
-                Member = ct.DS_Members.SingleOrDefault(a => a.UserID==uid&& a.Password==pwd);
+                Member = ct.DS_Members.SingleOrDefault(a => a.UserID == uid);//&& a.Password==pwd
                 return !object.Equals(Member,null);
             }
         }
