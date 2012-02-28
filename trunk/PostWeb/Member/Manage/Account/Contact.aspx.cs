@@ -72,7 +72,7 @@ public partial class Member_Manage_Account_Contact :BasePage
             md.Phone = Request.Form["phoneqh"] + "-" + Request.Form["phonehm"] + "-" + Request.Form["phonefj"];
             md.Mobile=Request.Form["mobile"];
             md.Fax = Request.Form["faxqh"] + "-" + Request.Form["faxhm"] + "-" + Request.Form["faxfj"];
-            md.HomePage = Request.Form["webSite"];
+            md.HomePage = Request.Form["webSite"].ToLower();
             bl.Update(md);
             Common.MessageBox.Show(this, "保存成功", Common.MessageBox.InfoType.info, "function(){location='Contact.aspx'}");
         }
