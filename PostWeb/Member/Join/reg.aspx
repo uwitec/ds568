@@ -79,7 +79,7 @@
                     <li><span class="marginL28"></span>验证码<span class="star">*</span><input class="txtbox chkBox" name="chkCode" id="chkCode" type="text" /><img class="ccImg" src="" /> <a class="chgCC" href="javascript:;">换一张</a></li>
                     <li><span class="marginL28"></span><span class="marginL42"></span><span class="star"></span><input type="checkbox" id="cb1" checked /><label for="cb1">我已看过并同意</label><a class="ServiceTerms" href="#">《点石服务条款》</a></li>
                     <li>
-                        <asp:LinkButton ID="LinkButton1" Enabled="false"  OnClientClick="alert('注册功能暂未开放。') return false;" CssClass="subBtn" runat="server"> 
+                        <asp:LinkButton ID="LinkButton1"  CssClass="subBtn" runat="server"> 
                             <div class="btnl"></div><div class="btnm">立即成为点石会员</div><div class="btnr"></div>
                         </asp:LinkButton>   
                    </li>
