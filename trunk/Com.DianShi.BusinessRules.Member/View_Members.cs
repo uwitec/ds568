@@ -21,6 +21,22 @@ namespace Com.DianShi.BusinessRules.Member
             }
         }
 
+        /// <summary>
+        /// 根据域名取得会员数据
+        /// </summary>
+        /// <param name="domain">域名字符串</param>
+        /// <returns></returns>
+        public View_Members GetSingle(Uri uri) {
+            using (var ct = new View_MembersDataContext(DbHelperSQL.Connection))
+            {
+                View_Members vMember= ct.View_Members.SingleOrDefault(a => a.UserID.ToLower() ==uri.Host.Split('.')[0].ToLower());
+                if (vMember == null) {
+                    vMember = ct.View_Members.SingleOrDefault(a => a.HomePage== "http://"+uri.Host.ToLower());
+                }
+                return vMember;
+            }
+        }
+
 
         public List<T> Query<T>(string sql, params object[] parameterValues)
         {
