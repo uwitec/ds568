@@ -16,7 +16,9 @@ public partial class index_home : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        var vmbbl = new View_Members_Br();
+        var md = vmbbl.GetSingle(Request.Url);
+
         try
         {
             if (!string.IsNullOrEmpty(Request["action"]))
@@ -26,7 +28,7 @@ public partial class index_home : System.Web.UI.Page
                 switch (act)
                 {
                     case "cominfo":
-                        var member = mbbl.GetSingleByMemberID(int.Parse(Request.QueryString["memberid"]));
+                        var member = mbbl.GetSingleByMemberID(md.ID);
                         Response.Write(member.Profile+"^"+member.ComImg.Split('|')[0]);//返回公司简介及第一张企业图片
                         Response.End();
                         break;
@@ -38,11 +40,10 @@ public partial class index_home : System.Web.UI.Page
 
         if (IsPostBack) return;
 
-
         var pbl = new DS_Products_Br();
         //最新产品
         int rc = 0;
-        var list = pbl.Query("memberid=@0", "createdate desc",0,8,ref rc, int.Parse(Request.QueryString["member_id"]));
+        var list = pbl.Query("memberid=@0", "createdate desc",0,8,ref rc,md.ID);
         Repeater1.DataSource = list;
         Repeater1.DataBind();
 
@@ -51,8 +52,10 @@ public partial class index_home : System.Web.UI.Page
         Repeater2.DataBind();
 
         //联系我们
-        var vmbbl = new View_Members_Br();
-        Repeater3.DataSource = vmbbl.Query("id=@0","",int.Parse(Request.QueryString["member_id"]));
+        
+        var list2 = new System.Collections.Generic.List<Com.DianShi.Model.Member.View_Members>();
+        list2.Add(md);
+        Repeater3.DataSource = list2; //vmbbl.Query("id=@0","",int.Parse(Request.QueryString["member_id"]));
         Repeater3.DataBind();
       
         

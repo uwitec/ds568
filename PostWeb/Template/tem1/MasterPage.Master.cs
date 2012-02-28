@@ -19,17 +19,20 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack) return;
+
+        var vmbbl = new View_Members_Br();
+        var md = vmbbl.GetSingle(Request.Url);
+
         var bl = new DS_DiyProCategory_Br();
         int rc = 0;
-        Repeater1.DataSource = bl.Query("memberid=@0","px",0,10,ref rc,int.Parse(Request.QueryString["member_id"]));
+        Repeater1.DataSource = bl.Query("memberid=@0","px",0,10,ref rc,md.ID);
         Repeater1.DataBind();
 
         //联系信息
-        var vmbbl = new View_Members_Br();
-        var list = vmbbl.Query("id=@0", "", int.Parse(Request.QueryString["member_id"]));
+        var list = new System.Collections.Generic.List<Com.DianShi.Model.Member.View_Members>();
+        list.Add(md);
         Repeater2.DataSource = list;
         Repeater2.DataBind();
-        var md=list.Single();
         ViewState["comName"] = md.CompanyName;
         ViewState["address"]=md.BusinessAddress;
         ViewState["TrueName"] = md.TrueName;
