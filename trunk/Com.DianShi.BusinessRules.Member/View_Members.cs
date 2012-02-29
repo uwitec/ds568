@@ -7,6 +7,7 @@ using System.Data.Common;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Member;
 using DBUtility;
+using SDG.Cache;
 namespace Com.DianShi.BusinessRules.Member
 {
     public class View_Members_Br:BllBase
@@ -27,14 +28,22 @@ namespace Com.DianShi.BusinessRules.Member
         /// <param name="domain">域名字符串</param>
         /// <returns></returns>
         public View_Members GetSingle(Uri uri) {
-            using (var ct = new View_MembersDataContext(DbHelperSQL.Connection))
+            var vm=CacheUtility.Get(uri.Host) as View_Members;
+            if (vm == null)
             {
-                View_Members vMember= ct.View_Members.SingleOrDefault(a => a.UserID.ToLower() ==uri.Host.Split('.')[0].ToLower());
-                if (vMember == null) {
-                    vMember = ct.View_Members.SingleOrDefault(a => a.HomePage== "http://"+uri.Host.ToLower());
+                using (var ct = new View_MembersDataContext(DbHelperSQL.Connection))
+                {
+                    View_Members vMember = ct.View_Members.SingleOrDefault(a => a.UserID.ToLower() == uri.Host.Split('.')[0].ToLower());
+                    if (vMember == null)
+                    {
+                        vMember = ct.View_Members.SingleOrDefault(a => a.HomePage == "http://" + uri.Host.ToLower());
+                    }
+                    CacheUtility.Insert(uri.Host, vMember, null);
+                    return vMember;
                 }
-                return vMember;
             }
+            else
+                return vm;
         }
 
 

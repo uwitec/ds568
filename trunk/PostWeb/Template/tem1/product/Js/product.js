@@ -11,7 +11,7 @@
 	
 	//搜索
 	$("#SearchBtn2").click(function(){
-	    location="index_product.aspx?"+$("#member_id,#pro_name,#low_price,#height_price").serialize();
+	    location="index_product.aspx?"+$("#pro_name,#low_price,#height_price").serialize();
 	});
 	
 	if($(".NewContent ul li").length==0){

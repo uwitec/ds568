@@ -22,7 +22,7 @@
                 <ul class="ul001">
                     <asp:Repeater ID="Repeater1" runat="server">
                         <ItemTemplate>
-                            <li><a href="?cat_id=<%#Eval("id") %>&member_id=<%#Request.QueryString["member_id"] %>"><%#Eval("categoryname") %>(<%#Eval("pcount") %>)</a></li>
+                            <li><a href="?cat_id=<%#Eval("id") %>"><%#Eval("categoryname") %>(<%#Eval("pcount") %>)</a></li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
@@ -42,7 +42,7 @@
                             <ItemTemplate>
                                 <li>
                                     <div class="NewImg">
-                                        <a href="product_show.aspx?member_id=<%#Request.QueryString["member_id"] %>&pro_id=<%#Eval("id") %>"><img  onload="changeImg(this,150,150)" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
+                                        <a href="product_show.aspx?pro_id=<%#Eval("id") %>"><img  onload="changeImg(this,150,150)" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
                                     </div>
                                     <div class="ProductTitle">
                                         <%#Eval("title") %>
@@ -61,7 +61,7 @@
                             </ItemTemplate>
                         </asp:Repeater>
                     </ul>
-                    <div class="nopro">抱歉，没有找到符合条件的供应信息。请重新搜索或者<a href="index_product.aspx?member_id=<%=Request.QueryString["member_id"] %>">查看全部供应信息！</a> </div>
+                    <div class="nopro">抱歉，没有找到符合条件的供应信息。请重新搜索或者<a href="index_product.aspx">查看全部供应信息！</a> </div>
                      <webdiyer:AspNetPager CssClass="pages"  AlwaysShowFirstLastPageNumber="true"  HorizontalAlign="Right" ShowDisabledButtons="false" ShowFirstLast="false" CurrentPageButtonClass="cpb"  ID="AspNetPager4" NumericButtonCount="7" runat="server"
         FirstPageText="首页" LastPageText="尾页" TextBeforePageIndexBox="共10页 到"  TextAfterPageIndexBox="页 " PageSize="16"  SubmitButtonText="确定" SubmitButtonClass="sBtn" ShowCustomInfoSection="Never" NextPageText="下一页"  ShowPageIndexBox="Always" PrevPageText="上一页">
     </webdiyer:AspNetPager>

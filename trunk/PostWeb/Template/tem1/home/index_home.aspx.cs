@@ -12,15 +12,13 @@ using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Member;
 using Com.DianShi.BusinessRules.Product;
-public partial class index_home : System.Web.UI.Page
+public partial class index_home :  ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        var vmbbl = new View_Members_Br();
-        var md = vmbbl.GetSingle(Request.Url);
-
         try
         {
+            //ajax
             if (!string.IsNullOrEmpty(Request["action"]))
             {
                 var mbbl = new DS_CompanyInfo_Br();
@@ -28,7 +26,7 @@ public partial class index_home : System.Web.UI.Page
                 switch (act)
                 {
                     case "cominfo":
-                        var member = mbbl.GetSingleByMemberID(md.ID);
+                        var member = mbbl.GetSingleByMemberID(_vMember.ID);
                         Response.Write(member.Profile+"^"+member.ComImg.Split('|')[0]);//返回公司简介及第一张企业图片
                         Response.End();
                         break;
@@ -43,7 +41,7 @@ public partial class index_home : System.Web.UI.Page
         var pbl = new DS_Products_Br();
         //最新产品
         int rc = 0;
-        var list = pbl.Query("memberid=@0", "createdate desc",0,8,ref rc,md.ID);
+        var list = pbl.Query("memberid=@0", "createdate desc", 0, 8, ref rc, _vMember.ID);
         Repeater1.DataSource = list;
         Repeater1.DataBind();
 
@@ -54,8 +52,8 @@ public partial class index_home : System.Web.UI.Page
         //联系我们
         
         var list2 = new System.Collections.Generic.List<Com.DianShi.Model.Member.View_Members>();
-        list2.Add(md);
-        Repeater3.DataSource = list2; //vmbbl.Query("id=@0","",int.Parse(Request.QueryString["member_id"]));
+        list2.Add(_vMember);
+        Repeater3.DataSource = list2;
         Repeater3.DataBind();
       
         

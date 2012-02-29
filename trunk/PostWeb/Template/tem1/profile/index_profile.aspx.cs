@@ -11,18 +11,17 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Member;
-public partial class Template_tem1_profile_index_profile : System.Web.UI.Page
+public partial class Template_tem1_profile_index_profile : ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack) return;
-        var bl = new View_Members_Br();
-        var list = bl.Query("id=@0","",int.Parse(Request.QueryString["member_id"]));
-        Repeater1.DataSource = list;
+        var mblist = new System.Collections.Generic.List<Com.DianShi.Model.Member.View_Members>();
+        mblist.Add(_vMember);
+        Repeater1.DataSource = mblist;
         Repeater1.DataBind();
-        var md = list.Single();
-        ViewState["ct"] = md.Profile;
-        ViewState["imgurl"] = md.ComImg;
+        ViewState["ct"] = _vMember.Profile;
+        ViewState["imgurl"] = _vMember.ComImg;
     }
     
     public string GetBt(object id) {//企业类型

@@ -17,7 +17,7 @@
     <input type="hidden" id="albumid" value="<%=Request.QueryString["album_id"] %>" />
     <div class="AlbumBodyBg">
 	<div class="head">
-    	<div class="HeadLeft">&nbsp;<%=ViewState["comName"]%></div>
+    	<div class="HeadLeft">&nbsp;<%=_vMember.CompanyName%></div>
         <div class="HeadRight" >
         	<div class="HRR1">
             	

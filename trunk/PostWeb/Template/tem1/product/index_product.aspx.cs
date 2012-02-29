@@ -11,15 +11,18 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Product;
-public partial class index_product : System.Web.UI.Page
+using Com.DianShi.BusinessRules.Member;
+public partial class index_product : ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         AspNetPager4.PageChanged+=new EventHandler(AspNetPager4_PageChanged);
         if (IsPostBack) return;
+        var vmbbl = new View_Members_Br();
+        var md = vmbbl.GetSingle(Request.Url);
         //分类
         var bl = new DS_DiyProCategory_Br();
-        var list = bl.Query<temClass>("select id,categoryname,(select count(id) from ds_products where shopcatid=ds_DiyProCategory.id) as pcount from ds_DiyProCategory where memberid={0}",int.Parse(Request.QueryString["member_id"]));
+        var list = bl.Query<temClass>("select id,categoryname,(select count(id) from ds_products where shopcatid=ds_DiyProCategory.id) as pcount from ds_DiyProCategory where memberid={0}", _vMember.ID);
         Repeater1.DataSource = list;
         Repeater1.DataBind();
 
@@ -50,7 +53,7 @@ public partial class index_product : System.Web.UI.Page
             BindDate(sql,param);
         }
         else {
-            BindDate("memberid=@0", int.Parse(Request.QueryString["member_id"]));
+            BindDate("memberid=@0", _vMember.ID);
         }
     }
 
