@@ -18,7 +18,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <input type="hidden" id="member_id" name="member_id" value="<%=Request.QueryString["member_id"] %>" />
     <div class="Main">
         <!--============顶部公共部分开始================-->
         <div class="TopBar">
@@ -94,14 +93,14 @@
             <!--========菜单开始==============-->
             <div class="HeaderMenuBar">
                 <ul>
-                    <li><a surl="home" href="../home/index_home.aspx?member_id=<%=Request.QueryString["member_id"] %>">首页</a></li>
-                    <li><a surl="product" href="../product/index_product.aspx?member_id=<%=Request.QueryString["member_id"] %>">供应产品</a></li>
+                    <li><a surl="home" href="../home/index_home.aspx">首页</a></li>
+                    <li><a surl="product" href="../product/index_product.aspx">供应产品</a></li>
                     <li><a surl="nourl" href="javascript:;alert('诚信档案尚未开放，请稍后访问。')">诚信档案</a></li>
-                    <li><a surl="profile" href="../profile/index_profile.aspx?member_id=<%=Request.QueryString["member_id"] %>">公司介绍</a></li>
-                    <li><a surl="album" href="../album/index_album.aspx?member_id=<%=Request.QueryString["member_id"] %>">我的相册</a></li>
-                    <li><a surl="news" href="../news/index_news.aspx?member_id=<%=Request.QueryString["member_id"] %>">公司新闻</a></li>
-                    <li><a surl="nourl" href="../../../Community/FeedBack/index.aspx?member_id=<%=Request.QueryString["member_id"] %>" target="_blank">在线留言</a></li>
-                    <li><a surl="contact" href="../contact/index_contact.aspx?member_id=<%=Request.QueryString["member_id"] %>">联系方式</a></li>
+                    <li><a surl="profile" href="../profile/index_profile.aspx">公司介绍</a></li>
+                    <li><a surl="album" href="../album/index_album.aspx">我的相册</a></li>
+                    <li><a surl="news" href="../news/index_news.aspx">公司新闻</a></li>
+                    <li><a surl="nourl" href="../../../Community/FeedBack/index.aspx>" target="_blank">在线留言</a></li>
+                    <li><a surl="contact" href="../contact/index_contact.aspx">联系方式</a></li>
                 </ul>
             </div>
             <!--========菜单结束==============-->
@@ -117,7 +116,7 @@
                         <li class="UserInfoHead"><img class="a_xl" src="http://i00.c.aliimg.com/cms/upload/winport/cxticon/a_xl_qy.gif" /><img class="tpx" src="http://i00.c.aliimg.com/images/cn/market/myalibaba/levelup/title_tpnianxian8.gif" /></li>
                         <li class="UserInfoMiddle">
                             <div class="ifm_wrap">
-                                <div class="ui_comname"><a href="../profile/index_profile.aspx?member_id=<%=Request.QueryString["member_id"] %>"><%=ViewState["comName"]%></a></div>
+                                <div class="ui_comname"><a href="../profile/index_profile.aspx"><%=ViewState["comName"]%></a></div>
                                 <div class="mbname bbord"><span class="sptn cl6c"><%=ViewState["TrueName"]%></span> <span><%=ViewState["Gender"]%></span><a class="qqonline" href="http://wpa.qq.com/msgrd?v=3&uin=416351551&site=qq&menu=yes"><img src="http://wpa.qq.com/pa?p=2:416351551:4" alt="给我留言" />和我联系</a></div>
                                 <div>诚信指数：<span class="cl6c">100</span></div>
                                 <div>证书荣誉：<span class="cl6c">12项</span></div>

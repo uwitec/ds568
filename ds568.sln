@@ -4,7 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PostWeb", "PostWeb\", "{43953D0B-97AC-4902-94B2-981C53481ECA}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
-		ProjectReferences = "{7F2E01EC-8210-414D-A1FC-64A68E328B25}|Com.DianShi.BusinessRules.Member.dll;{3645DD40-55AC-4B84-ACAF-C2243D30D27F}|Com.DianShi.BusinessRules.Product.dll;{A09622AB-70BD-45E0-B702-BC0D5D301372}|Com.DianShi.Model.Member.dll;{CB56EF5F-7015-4634-BB7F-742A4820C1FF}|Common.dll;{9059D062-9A62-453A-8AC9-470270117AFE}|DBUtility.dll;{8C1C5769-49C7-4C69-A7BF-ACF245E304FA}|Com.DianShi.Model.Product.dll;{E787A4CB-1647-414F-969A-5AB46B025D75}|Com.DianShi.BusinessRules.Album.dll;{22B64191-D3E9-472C-A12D-A2E5A0A88682}|Com.DianShi.Model.Album.dll;{92C621B0-5B29-4ECF-AA77-D2901D7B07AF}|Com.DianShi.BusinessRules.Community.dll;{78FD6204-5ED1-4955-8F14-8531F9D89482}|Com.DianShi.Model.Community.dll;"
+		ProjectReferences = "{7F2E01EC-8210-414D-A1FC-64A68E328B25}|Com.DianShi.BusinessRules.Member.dll;{3645DD40-55AC-4B84-ACAF-C2243D30D27F}|Com.DianShi.BusinessRules.Product.dll;{A09622AB-70BD-45E0-B702-BC0D5D301372}|Com.DianShi.Model.Member.dll;{CB56EF5F-7015-4634-BB7F-742A4820C1FF}|Common.dll;{9059D062-9A62-453A-8AC9-470270117AFE}|DBUtility.dll;{8C1C5769-49C7-4C69-A7BF-ACF245E304FA}|Com.DianShi.Model.Product.dll;{E787A4CB-1647-414F-969A-5AB46B025D75}|Com.DianShi.BusinessRules.Album.dll;{22B64191-D3E9-472C-A12D-A2E5A0A88682}|Com.DianShi.Model.Album.dll;{92C621B0-5B29-4ECF-AA77-D2901D7B07AF}|Com.DianShi.BusinessRules.Community.dll;{78FD6204-5ED1-4955-8F14-8531F9D89482}|Com.DianShi.Model.Community.dll;{508953E5-6810-4D78-8873-6FACC63B8214}|SDG.Cache.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/PostWeb"
 		Debug.AspNetCompiler.PhysicalPath = "PostWeb\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PostWeb\"
@@ -42,6 +42,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.DianShi.Model.Community", "Com.DianShi.Model.Community\Com.DianShi.Model.Community.csproj", "{78FD6204-5ED1-4955-8F14-8531F9D89482}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.DianShi.BusinessRules.Community", "Com.DianShi.BusinessRules.Community\Com.DianShi.BusinessRules.Community.csproj", "{92C621B0-5B29-4ECF-AA77-D2901D7B07AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDG.Cache", "SDG.Cache\SDG.Cache.csproj", "{508953E5-6810-4D78-8873-6FACC63B8214}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -163,6 +165,16 @@ Global
 		{92C621B0-5B29-4ECF-AA77-D2901D7B07AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92C621B0-5B29-4ECF-AA77-D2901D7B07AF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{92C621B0-5B29-4ECF-AA77-D2901D7B07AF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{508953E5-6810-4D78-8873-6FACC63B8214}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{508953E5-6810-4D78-8873-6FACC63B8214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508953E5-6810-4D78-8873-6FACC63B8214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508953E5-6810-4D78-8873-6FACC63B8214}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{508953E5-6810-4D78-8873-6FACC63B8214}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{508953E5-6810-4D78-8873-6FACC63B8214}.Release|.NET.ActiveCfg = Release|Any CPU
+		{508953E5-6810-4D78-8873-6FACC63B8214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508953E5-6810-4D78-8873-6FACC63B8214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{508953E5-6810-4D78-8873-6FACC63B8214}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{508953E5-6810-4D78-8873-6FACC63B8214}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

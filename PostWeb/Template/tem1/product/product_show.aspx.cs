@@ -13,7 +13,7 @@ using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Product;
 using Com.DianShi.BusinessRules.Member;
 [PartialCaching(1800, "pro_id", null, null)]
-public partial class Template_tem1_product_product_show : System.Web.UI.Page
+public partial class Template_tem1_product_product_show :ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -37,8 +37,8 @@ public partial class Template_tem1_product_product_show : System.Web.UI.Page
         ViewState["category"] = catbl.GetCategoryName(md.SysCatID,false).TrimEnd('>').Replace(">"," > ");
 
         //联系信息
-        var vmbbl = new View_Members_Br();
-        var mblist = vmbbl.Query("id=@0", "", int.Parse(Request.QueryString["member_id"]));
+        var mblist = new System.Collections.Generic.List<Com.DianShi.Model.Member.View_Members>();
+        mblist.Add(_vMember);
         Repeater2.DataSource = mblist;
         Repeater2.DataBind();
 

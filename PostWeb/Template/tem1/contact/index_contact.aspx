@@ -10,7 +10,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-<input type="hidden" id="mapNid" value="<%=ViewState["mapNid"] %>" />
+<input type="hidden" id="mapNid" value="<%=_vMember.MapNid%>" />
     <div class="MiddleRight">
         <!--========内容开始=============-->
         <div class="About">
@@ -21,11 +21,11 @@
             <div class="contactBody contacts">
                 <div>
                     <div class="companyName">
-                        <%=ViewState["comName"] %></div>
+                        <%=_vMember.CompanyName %></div>
                     <dl class="contact-man">
                         <dt>联系人：</dt>
                         <dd>
-                            <a href="../profile/index_profile.aspx?member_id=<%=Request.QueryString["member_id"] %>" ><%=ViewState["TrueName"]%></a>&nbsp;<%=ViewState["Gender"]%>（<%=ViewState["position"] %>）&nbsp;&nbsp;
+                            <a href="../profile/index_profile.aspx" ><%=_vMember.TrueName%></a>&nbsp;<%=_vMember.Gender%>（<%=_vMember.Position%>）&nbsp;&nbsp;
                         </dd>
                         <dd>
                             <a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=416351551">
@@ -37,13 +37,13 @@
                     <div class="contactsLine"></div>
                 </div>
                 <ul class="contactsDetail">
-                    <li>电<span class="marginLeft1em"></span><span class="marginLeft1em"></span>话： <%=ViewState["phone"] %></li>
-                    <li>移动电话： <%=ViewState["mobile"]%></li>
-                    <li>传<span class="marginLeft1em"></span><span class="marginLeft1em"></span>真： <%=ViewState["fax"]%></li>
-                    <li>地<span class="marginLeft1em"></span><span class="marginLeft1em"></span>址： <%=ViewState["address"]%></li>
-                    <li>邮<span class="marginLeft1em"></span><span class="marginLeft1em"></span>编： <%=ViewState["zipcode"]%></li>
+                    <li>电<span class="marginLeft1em"></span><span class="marginLeft1em"></span>话： <%=_vMember.Phone%></li>
+                    <li>移动电话： <%=_vMember.Mobile%></li>
+                    <li>传<span class="marginLeft1em"></span><span class="marginLeft1em"></span>真： <%=_vMember.Fax%></li>
+                    <li>地<span class="marginLeft1em"></span><span class="marginLeft1em"></span>址： <%=_vMember.BusinessAddress%></li>
+                    <li>邮<span class="marginLeft1em"></span><span class="marginLeft1em"></span>编： <%=_vMember.ZipCode%></li>
                     <li class="comLink">公司主页：
-                      <a href="<%=ViewState["homepage"] %>" target="_blank"><%=ViewState["homepage"] %></a>
+                      <a href="<%=_vMember.HomePage %>" target="_blank"><%=_vMember.HomePage%></a>
                     
                     </li>
                 </ul>

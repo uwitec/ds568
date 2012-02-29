@@ -11,13 +11,13 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Album;
-public partial class index_album : System.Web.UI.Page
+public partial class index_album : ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         AspNetPager4.PageChanged+=new EventHandler(AspNetPager4_PageChanged);
         if (IsPostBack) return;
-        BindData("memberid=@0 and PictureNum>0 and Permissions!=@1", int.Parse(Request.QueryString["member_id"]), (byte)DS_Album_Br.Permissions.密码访问);
+        BindData("memberid=@0 and PictureNum>0 and Permissions!=@1",_vMember.ID, (byte)DS_Album_Br.Permissions.密码访问);
         
     }
 
