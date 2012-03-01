@@ -39,6 +39,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         ViewState["Gender"] = md.Gender;
         ViewState["bsmd"] = md.BusinessModel;
         ViewState["area"] = md.Province;
+        ViewState["member_id"] = md.ID;
     }
 
    

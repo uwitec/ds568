@@ -34,7 +34,7 @@ public partial class index_product : ShopBasePage
         }
         else if (!string.IsNullOrEmpty(proname) || !string.IsNullOrEmpty(low_price) || !string.IsNullOrEmpty(height_price))
         {
-            object[] param = { int.Parse(Request.QueryString["member_id"]), 0.0, 0.0, "" };
+            object[] param = { _vMember.ID, 0.0, 0.0, "" };
             string sql = "memberid=@0";
             if (!string.IsNullOrEmpty(low_price)) {
                 sql = " and lowprice>@1";

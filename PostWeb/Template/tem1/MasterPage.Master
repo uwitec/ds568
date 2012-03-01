@@ -99,7 +99,7 @@
                     <li><a surl="profile" href="../profile/index_profile.aspx">公司介绍</a></li>
                     <li><a surl="album" href="../album/index_album.aspx">我的相册</a></li>
                     <li><a surl="news" href="../news/index_news.aspx">公司新闻</a></li>
-                    <li><a surl="nourl" href="../../../Community/FeedBack/index.aspx>" target="_blank">在线留言</a></li>
+                    <li><a surl="nourl" href="../../../Community/FeedBack/index.aspx?member_id=<%=ViewState["member_id"] %>" target="_blank">在线留言</a></li>
                     <li><a surl="contact" href="../contact/index_contact.aspx">联系方式</a></li>
                 </ul>
             </div>
