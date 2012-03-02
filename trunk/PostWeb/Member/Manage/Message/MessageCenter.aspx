@@ -45,7 +45,7 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
-                <div class="tlwrap atbar"><div class="floatL"><input type="checkbox" name="ch" /></div><a href="javascript:;" id="msg_del"><div>删除</div></a><a href="javascript:;"><div>标为已读</div></a><a href="javascript:;"><div>标为未读</div></a></div>
+                <div class="tlwrap atbar"><div class="floatL"><input type="checkbox" name="ch" /></div><a href="javascript:;" id="msg_del"><div>删除</div></a><a href="javascript:;" id="msg_nv"><div>标为已读</div></a><a href="javascript:;" id="msg_hv"><div>标为未读</div></a></div>
                 <div class="pagerwrap"></div>
             </div>
             <div class="msgdetail"></div>

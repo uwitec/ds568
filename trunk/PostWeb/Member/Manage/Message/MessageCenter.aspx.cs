@@ -26,11 +26,18 @@ public partial class Member_Manage_Message_MessageCenter : BasePage
                     var md = bl.GetSingle(int.Parse(Request.QueryString["id"]));
                     md.IsView = true;
                     bl.Update(md);
-                    Response.Write("<h2>"+md.Title+"</h2>"+"<br>"+md.Content);
+                    Response.Write("<h2>"+md.Title+"</h2>"+"<br>"+md.Content+"<p style='border-top:dashed 1px #ccc;margin-top:8px;padding-top:8px;'><ul><li>公司名称："+md.ClientCompany+"</li>"+
+                        "<li>电子邮箱：" + md.ClientEmail +  "</li>" +
+                        "<li>联系电话：" + md.ClientPhone + "</li>"+
+                        "<li>手    机：" + md.ClientMobile + "</li></ul></p>");
                     Response.End();
                     break;
                 case "del":
                     bl.Delete(Request.Form["ids"]);
+                    Response.End();
+                    break;
+                case "chgstate":
+                    bl.ChgState(Request.Form["ids"], bool.Parse(Request.Form["isview"]));
                     Response.End();
                     break;
             }

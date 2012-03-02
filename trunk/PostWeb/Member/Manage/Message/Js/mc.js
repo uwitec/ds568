@@ -56,7 +56,7 @@
     InitTable(0);    //Load事件，初始化表格数据，页面索引为0（第一页）
     
     var bitclick=function(){
-        $(".ulwrap li").click(function(){
+        $(".ulwrap>li").click(function(){
             var msgid=$(this);
             $.ajax({
                 cache:false,
@@ -67,7 +67,6 @@
                 },
                 error:function(req,state,err){
                     $(".msgdetail").html("获取数据出错。");
-                    
                 },
                 beforeSend:function(){
                     $(".ulwrap li").removeClass("crtitem");
@@ -87,7 +86,7 @@
     
     //删除
     $("#msg_del").click(function(){
-        var msgids=$(".ulwrap li input").serialize().replace(/ch=/g,"").replace(/&/g,",");
+        var msgids=$(".ulwrap li input[checked=true]").serialize().replace(/ch=/g,"").replace(/&/g,",");
         if(msgids=="") return;
         $.ajax({
             type:"POST",
@@ -102,6 +101,37 @@
                 $(".msgdetail").html("删除出错。");
             }
         });
+    });
+    
+    //标为已读或未读
+    var chgState=function(b){
+        var chkobj=$(".ulwrap li input[checked=true]")
+        var msgids=chkobj.serialize().replace(/ch=/g,"").replace(/&/g,",");
+        if(msgids=="") return;
+        $.ajax({
+            type:"POST",
+            data:{action:"chgstate",ids:msgids,isview:(b?"True":"False")},
+            success:function(data,state){
+                if(b)
+                    chkobj.each(function(){
+                        $(this).next().addClass("isView")
+                    });
+                else
+                    chkobj.each(function(){
+                        $(this).next().removeClass("isView");
+                    });
+            },
+            error:function(req,state,err){
+                alert("修改状态出错。");
+            }
+        });
+    };
+    
+    $("#msg_nv").click(function(){
+        chgState(true)
+    });
+    $("#msg_hv").click(function(){
+        chgState(false)
     });
     
 });
