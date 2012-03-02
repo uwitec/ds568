@@ -48,6 +48,19 @@ namespace Com.DianShi.BusinessRules.Community
             }
         }
 
+        public void ChgState(string Ids,bool isView) {
+            using (var ct = new DS_MessageDataContext(DbHelperSQL.Connection))
+            {
+                string[] idarray = Ids.Split(',');
+                var list = ct.DS_Message.Where(a => idarray.Contains(a.ID.ToString()));
+                foreach (var item in list)
+                {
+                    item.IsView = isView;
+                }
+                ct.SubmitChanges();
+            }
+        }
+
         public DS_Message GetSingle(int ID)
         {
             using (var ct = new DS_MessageDataContext(DbHelperSQL.Connection))
