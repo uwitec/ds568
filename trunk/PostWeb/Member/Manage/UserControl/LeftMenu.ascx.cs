@@ -63,6 +63,12 @@ public partial class Member_Manage_UserControl_LeftMenu : System.Web.UI.UserCont
                             "<li><a href=\"album_list.aspx\">相册管理</a></li>" +
                             "<li><a href=\"#\">设置水印</a></li>";
                     break;
+                case "公司动态":
+                    ViewState["icon"] = "news";
+                    return "<li><a  href=\"add.aspx\">发布公司动态</a></li>" +
+                            "<li><a href=\"news_list.aspx\">管理公司动态</a></li>";
+                            
+                    break;
             }
             return "";
         }

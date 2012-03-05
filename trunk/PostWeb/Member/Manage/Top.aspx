@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" target="conFrame">
+                <a href="news/add.aspx" target="conFrame">
                     <div class="icon-industryInformation"></div>
                     <div class="wname">公司动态</div>
                 </a>
