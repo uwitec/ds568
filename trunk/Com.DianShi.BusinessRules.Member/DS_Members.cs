@@ -140,11 +140,11 @@ namespace Com.DianShi.BusinessRules.Member
             {
                 newPwd = newPwd.Trim();
                 var md = GetSingle(ID);
-                if (md.Password ==DBUtility.DESEncrypt.SymmetricEncrypts(oldPwd.Trim(), Common.Constant.WebConfig("EcptKey")))
+                if (md.Password ==oldPwd.Trim())
                 {
                     if (Common.Validate.RegPwd(newPwd))
                     {
-                        md.Password = DBUtility.DESEncrypt.SymmetricEncrypts(newPwd, Common.Constant.WebConfig("EcptKey"));
+                        md.Password = newPwd;
                         Update(md);
                         return true;
                     }
