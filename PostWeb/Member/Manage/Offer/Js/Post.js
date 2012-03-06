@@ -116,20 +116,20 @@
    
    //价格区间
    $(".tdlast a").click(function(){
-      $(".hidden:hidden:first").show();
-      if($(".hidden:visible").length==2){
+      $(".hide:hidden:first").show();
+      if($(".hide:visible").length==2){
          $(this).parent().parent().hide();
-         $(".hidden:first").find("a").hide();
+         $(".hide:first").find("a").hide();
       }
       return false;
    });
    
    //删除一行价格区间
-   $(".hidden a").click(function(){
+   $(".hide a").click(function(){
        $(this).parent().parent().hide();
        $("#"+$(this).attr("et")).empty();
-       if($(".hidden:visible").length==1){
-           $(".hidden:first").find("a").show();
+       if($(".hide:visible").length==1){
+           $(".hide:first").find("a").show();
            $(".priceRang tr:last").show();
        }
        return false;
