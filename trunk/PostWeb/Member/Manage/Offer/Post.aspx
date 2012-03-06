@@ -231,7 +231,7 @@
                 <td><span class="untxt"></span></td>
                 <td class="tdaction">&nbsp;</td>
             </tr>
-            <tr class="hidden">
+            <tr class="hide">
                 <td class="tdfirst">购买 <input  name="wb2" id="wb2" size="20" class="txtbox et" type="text"   /></td>
                 <td> </td>
                 <td class="td3"> <span class="untxt"></span>及以上：</td>
@@ -240,7 +240,7 @@
                 <td><span class="untxt"></span></td>
                 <td class="tdaction">&nbsp;<a href="#" et="err2">删除</a></td>
             </tr>
-            <tr class="hidden">
+            <tr class="hide">
                 <td class="tdfirst">购买 <input  name="wb3" id="wb3" size="20" class="txtbox et" type="text"  /></td>
                 <td> </td>
                 <td class="td3"> <span class="untxt"></span>及以上：</td>
