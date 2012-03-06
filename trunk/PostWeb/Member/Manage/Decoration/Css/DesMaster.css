@@ -1,0 +1,4 @@
+﻿.topbar{ background:url(../images/topbg.gif) repeat-x;height:39px;}
+.barbody{width:952px;margin:0 auto; overflow:auto;zoom:1;}
+.logo{float:left; position:relative;top:7px;}
+.spline{width:1px; overflow:hidden;border-right:solid 1px #ccc;height:39px;margin:0 15px;}
