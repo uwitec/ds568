@@ -97,7 +97,6 @@ namespace Com.DianShi.BusinessRules.Member
                 var tran = con.BeginTransaction();
                 var mbct = new DS_MembersDataContext(con);
                 mbct.Transaction = tran;
-                Member.Password = DBUtility.DESEncrypt.SymmetricEncrypts(Member.Password, Common.Constant.WebConfig("EcptKey"));
                 mbct.DS_Members.InsertOnSubmit(Member);
                 mbct.SubmitChanges();
                 var comct = new DS_CompanyInfoDataContext(con);
@@ -122,8 +121,8 @@ namespace Com.DianShi.BusinessRules.Member
         public bool Login(ref DS_Members Member) {
             using (var ct = new DS_MembersDataContext(DbHelperSQL.Connection))
             {
-                string uid = Member.UserID.Trim(), pwd = DBUtility.DESEncrypt.SymmetricEncrypts(Member.Password.Trim(), Common.Constant.WebConfig("EcptKey"));
-                Member = ct.DS_Members.SingleOrDefault(a => a.UserID == uid);//&& a.Password==pwd
+                string uid = Member.UserID.Trim(), pwd = Member.Password.Trim();
+                Member = ct.DS_Members.SingleOrDefault(a => a.UserID == uid&& a.Password==pwd);
                 return !object.Equals(Member,null);
             }
         }
