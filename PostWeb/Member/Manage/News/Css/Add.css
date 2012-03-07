@@ -1,5 +1,5 @@
-﻿.tblist{width:100%; border-collapse:collapse;margin-top:8px;}
-.tblist th{ background:url(../images/bg.gif) repeat-x;}
-.tblist th{ background-position: 0 -51px;line-height:23px;border:solid 1px #dbd9d9;}
-.tblist td{ text-align:center;padding:6px 0;}
-.altr{ background-color:#f7fbfe;}
+﻿.item{ overflow:auto;zoom:1;line-height:26px;margin-top:6px;}
+.iLeft{width:112px; text-align:right;}
+.iRight{color:#686868;}
+.txtbox{width:234px;height:18px;line-height:18px;border:solid 1px #B5B5B5;}
+#content{width:90%;height:350px;}
