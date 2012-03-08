@@ -20,7 +20,7 @@
         <div class="iLeft floatL">
             动态标题：</div>
         <div class="iRight floatL">
-            <input name="news_title" class="txtbox" />
+            <input name="news_title" maxlength="150" class="txtbox" />
         </div>
     </div>
      <div class="item">
@@ -34,7 +34,7 @@
         <div class="iLeft floatL">
             &nbsp;</div>
         <div class="iRight floatL">
-            <input type="button" id="save" value="保存" />
+            <span class="loading2">数据提交中…</span><input type="button" id="save" value="保存" />
         </div>
     </div>
 </div>
