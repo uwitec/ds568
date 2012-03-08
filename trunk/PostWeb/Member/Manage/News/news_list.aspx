@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Member/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="news_list.aspx.cs" Inherits="Member_Manage_News_Add" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Member/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="news_list.aspx.cs" Inherits="Member_Manage_News_news_list" Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <link href="Css/news_list.css" rel="stylesheet" type="text/css" />
@@ -7,7 +7,7 @@
 <ul class="hmenu">
     <li>
         <div class="mLeft"></div>
-        <div class="mMiddle">发布公司动态</div>
+        <div class="mMiddle">管理动态</div>
         <div class="mRight"></div>
     </li>
     <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>

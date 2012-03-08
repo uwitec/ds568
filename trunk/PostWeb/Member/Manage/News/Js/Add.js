@@ -22,16 +22,17 @@
 	        type:"POST",
 	        data:{action:"add",title:title,content:encodeURI(KE.html())},
 	        success:function(data,state){
-	        
+	            location="news_list.aspx";
 	        },
 	        error:function(req,state,err){
-	        
+	            alert("提交出错。");
+	            $("body").append(req.responseText);
 	        },
 	        beforeSend:function(){
-	        
+	            $("#save,.loading2").toggle();
 	        },
 	        complete:function(){
-	            
+	            $("#save,.loading2").toggle();
 	        }
 	    });
 	});
