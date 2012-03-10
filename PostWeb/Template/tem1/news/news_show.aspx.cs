@@ -10,11 +10,19 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-
-public partial class Template_tem1_news_news_show : System.Web.UI.Page
+using Com.DianShi.BusinessRules.News;
+public partial class Template_tem1_news_news_show : ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        try
+        {
+            var bl=new DS_ComNews_Br();
+            Repeater1.DataSource = bl.Query("id=@0","",int.Parse(Request.QueryString["news_id"]));
+            Repeater1.DataBind();
+        }
+        catch {
+            Response.End();
+        }
     }
 }
