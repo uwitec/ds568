@@ -14,22 +14,24 @@
                     公司新闻</div>
             </div>
             <div class="newsBody">
-                <h3>
-                    <img align="absMiddle" src="../../images/icon_06.gif" />五一大促销，好礼送不停</h3>
-                <div class="gray">
-                    2010年03月27日 11:42:17 | 阅读：(120) | 评论：(9)
-                </div>
-                <div class="newsFontSize">
-                    浏览字体：<a href="javascript:;" onclick="$('.newsContent').css({'font-size':'16px','line-height':'27px'})">大</a>
-                    <a href="javascript:;" onclick="$('.newsContent').css({'font-size':'14px','line-height':'24px'})">
-                        中</a> <a href="javascript:;" onclick="$('.newsContent').css({'font-size':'12px','line-height':'21px'})">
-                            小</a>
-                </div>
-                <div class="newsContent justify">
-                    为了热烈欢庆一年一度五一大节日的到来，本店铺特推出：五一促销大放送，好礼送不停，优惠赠送活动。在此祝各商友，节日快乐，万事如意! （１）4.28日－5.6日期间，江浙沪在本店铺购满200元包邮，其它地区购满380元以上，均可享受全国包邮优惠活动.并赠送一份精美礼品！（港、澳、台）除外。
-                    （2）4.28日－5.6日期间，凡在本店铺购物，均赠送一份精美礼品！ （３）4.28日－5.6日期间，一次性购满600元以上，立即可升级本店高级会员，终身享受本店最优惠折扣！（9.5折）
-                    温馨提示：活动时间有限，活动过后优惠立即终止！机不可失，失不再来哦！ 注：本活动最终解释权归本店铺所有！ 详情联系本店客服 旺旺：jinyesp 企业QQ :625423460
-                </div>
+                <asp:Repeater ID="Repeater1" runat="server">
+                    <ItemTemplate> 
+                        <h3>
+                            <img align="absMiddle" src="../../images/icon_06.gif" /><%#Eval("title") %></h3>
+                        <div class="gray">
+                            <%#((DateTime)Eval("updatedate")).ToString("yyyy年MM月dd日 hh:mm:ss") %> | 阅读：(<%#Eval("hits") %>) | 评论：(<%#Eval("coment") %>)
+                        </div>
+                        <div class="newsFontSize">
+                            浏览字体：<a href="javascript:;" onclick="$('.newsContent *').css({'font-size':'16px','line-height':'27px'})">大</a>
+                            <a href="javascript:;" onclick="$('.newsContent *').css({'font-size':'14px','line-height':'24px'})">
+                                中</a> <a href="javascript:;" onclick="$('.newsContent *').css({'font-size':'12px','line-height':'21px'})">
+                                    小</a>
+                        </div>
+                        <div class="newsContent justify">
+                            <%#Server.UrlDecode(Eval("content").ToString()) %>
+                        </div>
+                   </ItemTemplate>
+                </asp:Repeater>
             </div>
         </div>
         <div class="About marginTop8">

@@ -4,10 +4,14 @@
 <title>公司新闻</title>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+<script type="text/javascript" src="/js/pager/pagination.js"></script>
+<link href="/js/pager/pagination.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/news_list.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<input type="hidden" id="rc" value="<%=ViewState["rc"] %>" />
     <div class="MiddleRight">
         <!--========内容开始=============-->
         <div class="About">
@@ -16,38 +20,19 @@
                     公司新闻</div>
             </div>
             <div class="newsBody">
-                <ul>
-                    <li>
-                        <img align="absMiddle" src="../../images/icon_06.gif" /><a href="news_show.aspx" target="_blank">新到飞毛腿精品王商务手机电池</a></li>
-                    <li class="gray"><span>阅读(88) 评论(0) 2010年03月27日 11:42:17</span></li>
-                </ul>
-                <ul>
-                    <li>
-                        <img align="absMiddle" src="../../images/icon_05.gif" /><a href="#" target="_blank">新到飞毛腿子弹头充电器</a></li>
-                    <li class="gray"><span>阅读(8)评论(0)2010-03-27 11:40:07</span></li>
-                </ul>
-                <ul>
-                    <li>
-                        <img align="absMiddle" src="../../images/icon_06.gif" /><a href="#" target="_blank">新到飞毛腿智能手机电池</a></li>
-                    <li class="gray"><span>阅读(2)评论(0)2010-03-27 11:36:27</span></li>
-                </ul>
-                <ul>
-                    <li>
-                        <img align="absMiddle" src="../../images/icon_06.gif" /><a href="#" target="_blank">新到大康商务蓝牙耳机</a></li>
-                    <li class="gray"><span>阅读(0) 评论(0) 2010-03-27 11:31:02</span></li>
-                </ul>
-                <ul>
-                    <li>
-                        <img align="absMiddle" src="../../images/icon_06.gif" /><a href="#" target="_blank">新到飞毛腿原电电芯</a></li>
-                    <li class="gray"><span>阅读(25)评论(0)2009-11-11 15:57:35</span></li>
-                </ul>
-                <ul>
-                    <li>
-                        <img src="../../images/icon_06.gif" /><a href="#" target="_blank">新到飞毛腿车载MP3</a></li>
-                    <li class="gray"><span>阅读(1)评论(1)2009-06-23 11:31:04</span></li>
-                </ul>
+                <asp:Repeater ID="Repeater1" runat="server">
+                    <ItemTemplate>
+                         <ul>
+                            <li>
+                                <img align="absMiddle" src="../../images/icon_06.gif" /><a href="news_show.aspx?news_id=<%#Eval("ID") %>" target="_blank"><%#Eval("title") %></a></li>
+                            <li class="gray"><span>阅读(<%#Eval("hits") %>) 评论(<%#Eval("coment") %>) <%#((DateTime)Eval("updatedate")).ToString("yyyy年MM月dd日 hh:mm:ss") %></span></li>
+                         </ul>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
+            <div class="pagerwrap"></div>
         </div>
         <!--========内容结束=============-->
+        
     </div>
 </asp:Content>
