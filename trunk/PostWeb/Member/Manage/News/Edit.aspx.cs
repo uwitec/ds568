@@ -11,30 +11,32 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.News;
-public partial class Member_Manage_News_news_list :  BasePage
+public partial class Member_Manage_News_Edit :  BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         //设置左边菜单
         var mst = this.Master as Member_Manage_MasterPage;
-        mst.SetMenuTitle("公司动态", "管理公司动态");
+        mst.SetMenuTitle("公司动态", "发布公司动态");
+        
         var bl = new DS_ComNews_Br();
         string act=Request["action"];
         if (!string.IsNullOrEmpty(act)) {
+            
             switch (act) { 
-                case "pager":
-                    int pageIndex = int.Parse(Request.Form["pageIndex"]), pageSize = int.Parse(Request.Form["pageSize"]),rc=0;
-                    Repeater1.DataSource = bl.Query("memberid=@0","px",(pageIndex-1)*pageSize,pageSize,ref rc, _userData.Member.ID);
-                    Repeater1.DataBind();
-                    ViewState["rc"] = rc;
+                case "edit":
+                    var md = bl.GetSingle(int.Parse(Request.Form["id"]));
+                    md.Title=Request.Form["title"];
+                    md.Content = Request.Form["content"];
+                    md.UpdateDate = DateTime.Now;
+                    bl.Update(md);
                     break;
-                case "del":
-                    bl.Delete(int.Parse(Request.Form["id"]));
-                    break;
-            }    
+            }
         }
 
         if (IsPostBack) return;
-        
+        var news = bl.GetSingle(int.Parse(Request.QueryString["id"]));
+        ViewState["title"] = news.Title;
+        ViewState["content"] =Server.UrlDecode(news.Content);
     }
 }

@@ -1,5 +1,11 @@
-﻿.tblist{width:100%; border-collapse:collapse;margin-top:8px;}
+﻿.tblist{width:100%; border-collapse:collapse;}
 .tblist th{ background:url(../images/bg.gif) repeat-x;}
 .tblist th{ background-position: 0 -51px;line-height:23px;border:solid 1px #dbd9d9;}
 .tblist td{ text-align:center;padding:6px 0;}
 .altr{ background-color:#f7fbfe;}
+.keyword{border-color:#d0cdcd;}
+.scctn{padding:10px 0;padding-left:24px;border:solid 1px #dbd9d9;border-top:none;border-bottom:none;}
+.txtbox{border:solid 1px #B5B5B5;}
+.proctn{border:solid 1px #dbd9d9;border-top:none;}
+#btnSearch{height:20px;}
+.pagerwrap{margin:10px;}
