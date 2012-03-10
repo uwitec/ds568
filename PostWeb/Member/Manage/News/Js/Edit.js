@@ -20,7 +20,7 @@
 	    
 	    $.ajax({
 	        type:"POST",
-	        data:{action:"add",title:title,content:encodeURIComponent(KE.html())},
+	        data:{action:"edit",id:$("#nid").val(), title:title,content:encodeURIComponent(KE.html())},
 	        success:function(data,state){
 	            location="news_list.aspx";
 	        },
