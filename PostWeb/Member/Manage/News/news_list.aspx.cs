@@ -31,7 +31,8 @@ public partial class Member_Manage_News_news_list :  BasePage
                 case "del":
                     bl.Delete(int.Parse(Request.Form["id"]));
                     break;
-            }    
+            }
+            return;
         }
 
         if (IsPostBack) return;

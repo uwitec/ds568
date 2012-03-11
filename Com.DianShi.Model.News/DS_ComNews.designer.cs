@@ -94,7 +94,15 @@ namespace Com.DianShi.Model.News
 		
 		private System.DateTime _UpdateDate;
 		
+		private int _Hits;
+		
+		private int _Coment;
+		
+		private string _Ip;
+		
 		private int _Px;
+		
+		private string _Reply;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -114,8 +122,16 @@ namespace Com.DianShi.Model.News
     partial void OnCreateDateChanged();
     partial void OnUpdateDateChanging(System.DateTime value);
     partial void OnUpdateDateChanged();
+    partial void OnHitsChanging(int value);
+    partial void OnHitsChanged();
+    partial void OnComentChanging(int value);
+    partial void OnComentChanged();
+    partial void OnIpChanging(string value);
+    partial void OnIpChanged();
     partial void OnPxChanging(int value);
     partial void OnPxChanged();
+    partial void OnReplyChanging(string value);
+    partial void OnReplyChanged();
     #endregion
 		
 		public DS_ComNews()
@@ -123,7 +139,7 @@ namespace Com.DianShi.Model.News
 			OnCreated();
 		}
 		
-		[Column(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true, IsDbGenerated=true, IsVersion=true)]
+		[Column(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, IsVersion=true)]
 		public int ID
 		{
 			get
@@ -263,6 +279,66 @@ namespace Com.DianShi.Model.News
 			}
 		}
 		
+		[Column(Storage="_Hits", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int Hits
+		{
+			get
+			{
+				return this._Hits;
+			}
+			set
+			{
+				if ((this._Hits != value))
+				{
+					this.OnHitsChanging(value);
+					this.SendPropertyChanging();
+					this._Hits = value;
+					this.SendPropertyChanged("Hits");
+					this.OnHitsChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Coment", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int Coment
+		{
+			get
+			{
+				return this._Coment;
+			}
+			set
+			{
+				if ((this._Coment != value))
+				{
+					this.OnComentChanging(value);
+					this.SendPropertyChanging();
+					this._Coment = value;
+					this.SendPropertyChanged("Coment");
+					this.OnComentChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ip", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string Ip
+		{
+			get
+			{
+				return this._Ip;
+			}
+			set
+			{
+				if ((this._Ip != value))
+				{
+					this.OnIpChanging(value);
+					this.SendPropertyChanging();
+					this._Ip = value;
+					this.SendPropertyChanged("Ip");
+					this.OnIpChanged();
+				}
+			}
+		}
+		
 		[Column(Storage="_Px", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public int Px
 		{
@@ -279,6 +355,26 @@ namespace Com.DianShi.Model.News
 					this._Px = value;
 					this.SendPropertyChanged("Px");
 					this.OnPxChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Reply", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string Reply
+		{
+			get
+			{
+				return this._Reply;
+			}
+			set
+			{
+				if ((this._Reply != value))
+				{
+					this.OnReplyChanging(value);
+					this.SendPropertyChanging();
+					this._Reply = value;
+					this.SendPropertyChanged("Reply");
+					this.OnReplyChanged();
 				}
 			}
 		}

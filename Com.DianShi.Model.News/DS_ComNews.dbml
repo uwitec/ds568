@@ -3,14 +3,18 @@
   <Connection Mode="AppSettings" ConnectionString="Data Source=.\MYSQLEXPRESS;Initial Catalog=DianShi;Integrated Security=True" SettingsObjectName="Com.DianShi.Model.News.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DS_ComNews" Member="DS_ComNews">
     <Type Name="DS_ComNews">
-      <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
       <Column Name="Title" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="Content" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Hits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Coment" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Px" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Reply" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
