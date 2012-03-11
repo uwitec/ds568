@@ -18,6 +18,17 @@ namespace Com.DianShi.BusinessRules.News
             }
         }
 
+        public void Comment(DS_ComNews ComNews)
+        {
+            using (var ct = new DS_ComNewsDataContext(DbHelperSQL.Connection))
+            {
+                ct.DS_ComNews.InsertOnSubmit(ComNews);
+                var md = ct.DS_ComNews.Single(a=>a.ID==ComNews.ParentID);
+                md.Coment++;
+                ct.SubmitChanges();
+            }
+        }
+
         public void Update(DS_ComNews ComNews)
         {
             using (var ct = new DS_ComNewsDataContext(DbHelperSQL.Connection))

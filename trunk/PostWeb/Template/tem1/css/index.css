@@ -445,7 +445,7 @@
   .comLiDetail{padding-left:1.5em;}
   .comCheck input{ visibility:visible;}
   .comSelectAll,.comDel{display:block;}
-  
+  .comSelectAll{margin:12px;}
   .publishComent{padding-top:2em;}
   .publishComent-cont,.publishComent-btn{ text-align:center;}
   .publishComent-cont textarea{width:550px;height:100px;}

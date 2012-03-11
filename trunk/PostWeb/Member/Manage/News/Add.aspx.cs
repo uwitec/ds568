@@ -29,7 +29,7 @@ public partial class Member_Manage_News_Add :  BasePage
                     md.Content = Request.Form["content"];
                     md.MemberID = _userData.Member.ID;
                     md.ParentID = 0;
-                    md.Px = 0;
+                    md.Hits= md.Coment =md.Px = 0;
                     md.CreateDate = md.UpdateDate = DateTime.Now;
                     bl.Add(md);
                     bl.Sort(md.ID,true);
