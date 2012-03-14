@@ -12,7 +12,8 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Product;
 using Com.DianShi.BusinessRules.Member;
-[PartialCaching(1800,"member_id",null,null)]
+using Com.DianShi.BusinessRules.Decoration;
+//[PartialCaching(1800,null,null,null)]
 public partial class MasterPage : System.Web.UI.MasterPage
 {
    
@@ -27,6 +28,17 @@ public partial class MasterPage : System.Web.UI.MasterPage
         int rc = 0;
         Repeater1.DataSource = bl.Query("memberid=@0","px",0,10,ref rc,md.ID);
         Repeater1.DataBind();
+
+        var dcbl = new DS_Decoration_Br();
+        var dcrt = dcbl.GetSingle(md.ID,true);
+        if (dcrt != null) {
+            ViewState["Sign"] = dcrt.Sign;
+            ViewState["MenuBg"] = dcrt.MenuBg;
+            ViewState["SelectedMenu"] = dcrt.SelectedMenu;
+            ViewState["NormalMenu"] = dcrt.NormalMenu;
+            ViewState["NmColor"] = dcrt.NmColor;
+            ViewState["SelmColor"] = dcrt.SelmColor;
+        }
 
         //联系信息
         var list = new System.Collections.Generic.List<Com.DianShi.Model.Member.View_Members>();

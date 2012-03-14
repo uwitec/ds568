@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="DianShi" Class="DS_DecorationDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\MYSQLEXPRESS;Initial Catalog=DianShi;Integrated Security=True" SettingsObjectName="Com.DianShi.Model.Decoration.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DS_Decoration" Member="DS_Decoration">
+    <Type Name="DS_Decoration">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Sign" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MenuBg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="SelectedMenu" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="NormalMenu" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="NmColor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SelmColor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

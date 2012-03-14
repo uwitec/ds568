@@ -15,6 +15,7 @@
     .itwrap{width:300px;height:120px;}
     span.loading2{padding-left:28px;display:none;}
     .cmpwd{width:150px;}
+    .newsContent{overflow:hidden;}
 </style>
 <script type="text/javascript" src="js/news_show.js"></script>
 </asp:Content>
@@ -43,9 +44,15 @@
                                 中</a> <a href="javascript:;" onclick="$('.newsContent *').css({'font-size':'12px','line-height':'21px'})">
                                     小</a>
                         </div>
-                        <div class="newsContent justify">
+                        <div class="newsContent">
                             <%#Server.UrlDecode(Eval("content").ToString()) %>
                         </div>
+                         <script type="text/javascript">
+                            //图片自缩放
+                           $(".newsContent img").each(function(){
+                               changeImg(this,708,1000)
+                           });
+                        </script>
                    </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -80,6 +87,7 @@
                                             <%#Eval("createdate") %><br />
                                             <a href="#" target="_blank">(http://alwdeguan.blog.china.alibaba.com)</a>
                                         </div>
+                                         
                                     </li>
                                 </ul>
                             </div>

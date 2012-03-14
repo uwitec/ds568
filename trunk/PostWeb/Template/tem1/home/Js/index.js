@@ -19,19 +19,19 @@
     };
     
     //公司简介
-    getdata({action:"cominfo",memberid:getQueryString("member_id")},
-        function(){//发送前
-            $("#about").css("visibility","hidden");
-        },
-        function(){//完成
-            $("#about").css("visibility","visible");
-        },
-        function(data){//成功
-            $("#about").html(data.split('^')[0]);
-            $(".AboutImg").show().attr("src",data.split('^')[1])
-          
-        }
-    );
+//    getdata({action:"cominfo",memberid:getQueryString("member_id")},
+//        function(){//发送前
+//            $("#about").css("visibility","hidden");
+//        },
+//        function(){//完成
+//            $("#about").css("visibility","visible");
+//        },
+//        function(data){//成功
+//            $("#about").html(data.split('^')[0]);
+//            $(".AboutImg").show().attr("src",data.split('^')[1])
+//          
+//        }
+//    );
     
     //滚动精品推荐
     var TzCon=TzCon=$(".TzContent1")
