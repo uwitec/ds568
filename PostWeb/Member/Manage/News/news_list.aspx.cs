@@ -24,7 +24,7 @@ public partial class Member_Manage_News_news_list :  BasePage
             switch (act) { 
                 case "pager":
                     int pageIndex = int.Parse(Request.Form["pageIndex"]), pageSize = int.Parse(Request.Form["pageSize"]),rc=0;
-                    Repeater1.DataSource = bl.Query("memberid=@0","px",(pageIndex-1)*pageSize,pageSize,ref rc, _userData.Member.ID);
+                    Repeater1.DataSource = bl.Query("memberid=@0 and parentid=0","px",(pageIndex-1)*pageSize,pageSize,ref rc, _userData.Member.ID);
                     Repeater1.DataBind();
                     ViewState["rc"] = rc;
                     break;

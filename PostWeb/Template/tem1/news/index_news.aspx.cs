@@ -23,7 +23,7 @@ public partial class Template_tem1_news_index_news : ShopBasePage
             {
                 case "pager":
                     int pageIndex = int.Parse(Request.Form["pageIndex"]), pageSize = int.Parse(Request.Form["pageSize"]), rc = 0;
-                    Repeater1.DataSource = bl.Query("memberid=@0", "px", (pageIndex - 1) * pageSize, pageSize, ref rc,_vMember.ID);
+                    Repeater1.DataSource = bl.Query("memberid=@0 and parentid=0", "px", (pageIndex - 1) * pageSize, pageSize, ref rc,_vMember.ID);
                     Repeater1.DataBind();
                     ViewState["rc"] = rc;
                     break;

@@ -17,7 +17,7 @@ public partial class index_album : ShopBasePage
     {
         AspNetPager4.PageChanged+=new EventHandler(AspNetPager4_PageChanged);
         if (IsPostBack) return;
-        BindData("memberid=@0 and PictureNum>0 and Permissions!=@1",_vMember.ID, (byte)DS_Album_Br.Permissions.密码访问);
+        BindData("memberid=@0 and PictureNum>0 and Permissions!=@1",_vMember.ID, (byte)DS_Album_Br.Permissions.不公开);
         
     }
 

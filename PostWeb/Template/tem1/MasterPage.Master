@@ -15,6 +15,16 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script type="text/javascript" src="/Template/tem1/js/shopMaster.js"></script>
+    <style type="text/css">
+        <%=string.IsNullOrEmpty(ViewState["Sign"] as string)?"":".Head{background-image:url("+ViewState["Sign"]+");}"%>
+        <%=string.IsNullOrEmpty(ViewState["MenuBg"] as string)?"":".HeaderMenuBar{background-image:url("+ViewState["MenuBg"]+");}"%>
+        <%=string.IsNullOrEmpty(ViewState["NormalMenu"] as string)?"":".HeaderMenuBar ul li{background-image:url("+ViewState["NormalMenu"]+");}"%>
+        <%=string.IsNullOrEmpty(ViewState["SelectedMenu"] as string)?"":".HeaderMenuBar ul li:hover{background-image:url("+ViewState["SelectedMenu"]+");}"%>
+        <%=string.IsNullOrEmpty(ViewState["SelectedMenu"] as string)?"":".HeaderMenuBar ul li.Check{background-image:url("+ViewState["SelectedMenu"]+");}"%>
+        <%=string.IsNullOrEmpty(ViewState["NmColor"] as string)?"":".HeaderMenuBar ul li a{color:"+ViewState["NmColor"]+";}"%>
+        <%=string.IsNullOrEmpty(ViewState["SelmColor"] as string)?"":".HeaderMenuBar ul li:hover a,.HeaderMenuBar ul li.Check a{color:"+ViewState["SelmColor"]+";}"%>
+       
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
