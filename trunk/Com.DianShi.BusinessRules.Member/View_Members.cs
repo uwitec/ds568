@@ -33,7 +33,7 @@ namespace Com.DianShi.BusinessRules.Member
             {
                 using (var ct = new View_MembersDataContext(DbHelperSQL.Connection))
                 {
-                    View_Members vMember = ct.View_Members.SingleOrDefault(a => a.UserID.ToLower() == uri.Host.Split('.')[0].ToLower());
+                    View_Members vMember = ct.View_Members.SingleOrDefault(a => a.ID.ToString() == uri.Host.Split('.')[0].Replace("shop",""));
                     if (vMember == null)
                     {
                         vMember = ct.View_Members.SingleOrDefault(a => a.HomePage == "http://" + uri.Host.ToLower());
