@@ -71,9 +71,9 @@
                             <div class="comContent">
                                 <ul>
                                     <li class="comCheck">
-                                        <input  type="checkbox" value="<%#Eval("id") %>" /></li>
+                                        <input  style="visibility:<%=ViewState["isLogin"].ToString()=="0"?"hidden":"visible" %>"  type="checkbox" name="cmid" value="<%#Eval("id") %>" /></li>
                                     <li class="comHeadFace">
-                                        <img src="http://i01.c.aliimg.com/club/upload/pic/user/h/e/b/c/hebchangcheng_s.jpeg" onerror="javascript:this.src='http://i00.c.aliimg.com/blog/images/club/ebook/pic85x85.jpg'" /></li>
+                                        <img  src="http://i01.c.aliimg.com/club/upload/pic/user/h/e/b/c/hebchangcheng_s.jpeg" onerror="javascript:this.src='http://i00.c.aliimg.com/blog/images/club/ebook/pic85x85.jpg'" /></li>
                                     <li class="comLiDetail">
                                         <div>
                                             <b><a href="#" target="_blank">alwdeguan</a></b><span class="marginLeft1em"></span><a
@@ -92,23 +92,23 @@
                                 </ul>
                             </div>
                             <div class="comReply">
-                                <a href="javascript:;">回复此评论</a></div>
+                                <a href="javascript:;" style="visibility:<%=ViewState["isLogin"].ToString()=="0"?"hidden":"visible" %>">回复此评论</a></div>
                             <div class="comDel">
                                 <%#Eval("ip") %>
-                                <input  type="button" value="删除评论" /><span class="loading2">提交</span></div>
+                                <input  type="button" style="visibility:<%=ViewState["isLogin"].ToString()=="0"?"hidden":"visible" %>" class="del_comment" cmid="<%#Eval("id") %>" value="删除评论" /><span class="loading2">提交中…</span></div>
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
             <div class="nocoment">
                 当前还没有评论。</div>
-            <div class="comSelectAll">
+            <div class="comSelectAll" style="visibility:<%=ViewState["isLogin"].ToString()=="0"?"hidden":"visible" %>">
                 <div class="comContent">
                     <ul>
                         <li>
                             <input id="Checkbox5" type="checkbox" />全部选择</li>
                         <li class="comLiDetail">
-                            <input id="Button4" type="button" value="删除所选评论" /></li>
+                            <input id="Button4" class="del_All" type="button" value="删除所选评论" /><span class="loading2">提交中…</span></li>
                     </ul>
                 </div>
             </div>

@@ -33,8 +33,8 @@
         <div class="TopBar">
             <div class="TopBarContent">
                 <ul>
-                    <li class="TopBarLogo"><a style="display:block;width:100px;height:100%" href="/home/index.html"></a></li>
-                    <li class="TopBarWelCome">您好，欢迎来到阿里巴巴</li>
+                    <li class="TopBarLogo"><a style="display:block;width:100px;height:100%" href="/home/index_home.aspx"></a></li>
+                    <li class="TopBarWelCome">您好，欢迎来到点石网</li>
                     <li class="TopBarLogin"><a href="/member/login/signin.aspx">[请登陆]</a> <a href="/member/Join/reg.aspx">[免费注册]</a></li>
                     <li class="TopBarSpritLine"></li>
                     <li class="TopBarOrders">
