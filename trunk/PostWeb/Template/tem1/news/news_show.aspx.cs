@@ -20,6 +20,8 @@ public partial class Template_tem1_news_news_show : ShopBasePage
         //try
         //{
             var bl = new DS_ComNews_Br();
+            var ud=Session["UserData"] as UserData;
+            ViewState["isLogin"] = (ud != null && ud.Member.ID == _vMember.ID) ? "1" : "0";
             string act = Request["action"];
             if (!string.IsNullOrEmpty(act)) {
                 switch (act) { 
@@ -44,7 +46,6 @@ public partial class Template_tem1_news_news_show : ShopBasePage
                         Response.End();
                         break;
                     case "comment":
-                        var ud=Session["UserData"] as UserData;
                         var news = bl.CreateModel();
                         news.Title = "";
                         news.ParentID = int.Parse(Request.Form["parent_id"]);
@@ -60,15 +61,35 @@ public partial class Template_tem1_news_news_show : ShopBasePage
                         Repeater2.DataBind();
                         break;
                     case "del":
-                        var ud = Session["UserData"] as UserData;
-                        
-                        bl.Delete(int.Parse(Request.Form["id"]));
+                        ud = Session["UserData"] as UserData;
+                        if (ud != null)
+                        {
+                            bl.Delete(int.Parse(Request.Form["id"]));
+                            Response.Write(1);
+                        }
+                        else {
+                            Response.Write(0);
+                        }
+                        Response.End();
+                        break;
+                    case "del_all":
+                        ud = Session["UserData"] as UserData;
+                        if (ud != null)
+                        {
+                            bl.Delete(Request.Form["ids"]);
+                            Response.Write(1);
+                        }
+                        else
+                        {
+                            Response.Write(0);
+                        }
                         Response.End();
                         break;
                 }
                 return;
             }
 
+            if(IsPostBack) return;
             var list = bl.Query("id=@0","",int.Parse(Request.QueryString["news_id"]));
             var md = list.Single();
             md.Hits++;
@@ -81,6 +102,7 @@ public partial class Template_tem1_news_news_show : ShopBasePage
             replyNum = list2.Count();
             Repeater2.DataSource = list2;
             Repeater2.DataBind();
+
             
             
         //}
