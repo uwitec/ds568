@@ -14,6 +14,7 @@ using Com.DianShi.BusinessRules.News;
 using Com.DianShi.BusinessRules.Member;
 public partial class Template_tem1_news_news_show : ShopBasePage
 {
+    public int replyNum = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         //try
@@ -53,8 +54,16 @@ public partial class Template_tem1_news_news_show : ShopBasePage
                         news.UpdateDate = news.CreateDate = DateTime.Now;
                         news.Ip = Request.UserHostAddress;
                         bl.Comment(news);
-                        Repeater2.DataSource = bl.Query("parentid=@0", "createdate desc", int.Parse(Request.Form["parent_id"]));
+                        var reply = bl.Query("parentid=@0", "createdate desc", int.Parse(Request.Form["parent_id"]));
+                        replyNum = reply.Count();
+                        Repeater2.DataSource = reply;
                         Repeater2.DataBind();
+                        break;
+                    case "del":
+                        var ud = Session["UserData"] as UserData;
+                        
+                        bl.Delete(int.Parse(Request.Form["id"]));
+                        Response.End();
                         break;
                 }
                 return;
@@ -68,8 +77,11 @@ public partial class Template_tem1_news_news_show : ShopBasePage
             Repeater1.DataSource = list;
             Repeater1.DataBind();
 
-            Repeater2.DataSource = bl.Query("parentid=@0","createdate desc",md.ID);
+            var list2 = bl.Query("parentid=@0","createdate desc",md.ID);
+            replyNum = list2.Count();
+            Repeater2.DataSource = list2;
             Repeater2.DataBind();
+            
             
         //}
         //catch {

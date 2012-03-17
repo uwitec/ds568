@@ -67,25 +67,25 @@
                     <ItemTemplate>
                         <div class="comentBody">
                             <div class="comfloor">
-                                第3楼</div>
+                                第<%#replyNum-Container.ItemIndex %>楼</div>
                             <div class="comContent">
                                 <ul>
                                     <li class="comCheck">
-                                        <input id="Checkbox1" type="checkbox" /></li>
+                                        <input  type="checkbox" value="<%#Eval("id") %>" /></li>
                                     <li class="comHeadFace">
                                         <img src="http://i01.c.aliimg.com/club/upload/pic/user/h/e/b/c/hebchangcheng_s.jpeg" onerror="javascript:this.src='http://i00.c.aliimg.com/blog/images/club/ebook/pic85x85.jpg'" /></li>
                                     <li class="comLiDetail">
                                         <div>
                                             <b><a href="#" target="_blank">alwdeguan</a></b><span class="marginLeft1em"></span><a
                                                 href="javascript:;"><img src="../images/button_dgzh.gif" /></a><span class="marginLeft1em"></span><a
-                                                    href="#" target="_blank">(http://alwdeguan.blog.china.alibaba.com)</a></div>
+                                                    href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank">(http://shop<%#Eval("memberid") %>.ds568.net)</a></div>
                                         <div class="comConDetail">
                                             <%#Server.UrlDecode(Eval("content").ToString()) %>
 
                                         </div>
                                         <div class="comDate">
                                             <%#Eval("createdate") %><br />
-                                            <a href="#" target="_blank">(http://alwdeguan.blog.china.alibaba.com)</a>
+                                            <a href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank">(http://shop<%#Eval("memberid") %>.ds568.net)</a>
                                         </div>
                                          
                                     </li>
@@ -95,7 +95,7 @@
                                 <a href="javascript:;">回复此评论</a></div>
                             <div class="comDel">
                                 <%#Eval("ip") %>
-                                <input type="button" value="删除评论" /></div>
+                                <input  type="button" value="删除评论" /><span class="loading2">提交</span></div>
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
