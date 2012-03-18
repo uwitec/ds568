@@ -18,21 +18,21 @@ public partial class index_home :  ShopBasePage
     {
         try
         {
-            //ajax
-            if (!string.IsNullOrEmpty(Request["action"]))
-            {
-                var mbbl = new DS_CompanyInfo_Br();
-                string act = Request["action"];
-                switch (act)
-                {
-                    case "cominfo":
-                        var member = mbbl.GetSingleByMemberID(_vMember.ID);
-                        Response.Write(member.Profile+"^"+member.ComImg.Split('|')[0]);//返回公司简介及第一张企业图片
-                        Response.End();
-                        break;
-                }
-                return;
-            }
+            ////ajax
+            //if (!string.IsNullOrEmpty(Request["action"]))
+            //{
+            //    var mbbl = new DS_CompanyInfo_Br();
+            //    string act = Request["action"];
+            //    switch (act)
+            //    {
+            //        case "cominfo":
+            //            var member = mbbl.GetSingleByMemberID(_vMember.ID);
+            //            Response.Write(member.Profile+"^"+member.ComImg.Split('|')[0]);//返回公司简介及第一张企业图片
+            //            Response.End();
+            //            break;
+            //    }
+            //    return;
+            //}
         }
         catch (System.Threading.ThreadAbortException ex) { }
 
