@@ -40,22 +40,56 @@ namespace Com.DianShi.BusinessRules.News
 
         public void Delete(int ID)
         {
-            using (var ct = new DS_ComNewsDataContext(DbHelperSQL.Connection))
-            {
-                DS_ComNews st = ct.DS_ComNews.Single(a => a.ID == ID);
-                ct.DS_ComNews.DeleteOnSubmit(st);
+            using (var con = DbHelperSQL.GetConnection()) {
+                var tran = con.BeginTransaction();
+                var ct = new DS_ComNewsDataContext(con);
+                ct.Transaction = tran;
+                var md = ct.DS_ComNews.Single(a => a.ID == ID);
+                if (md.ParentID > 0)
+                {
+                    var parent = ct.DS_ComNews.Single(a => a.ID == md.ParentID);
+                    parent.Coment--;
+                }
+                else {
+                    var comlist = ct.DS_ComNews.Where(a=>a.ParentID==md.ID);
+                    ct.DS_ComNews.DeleteAllOnSubmit(comlist);
+                }
+                ct.DS_ComNews.DeleteOnSubmit(md);
                 ct.SubmitChanges();
+
+                tran.Commit();
             }
+            
         }
+
+       
 
         public void Delete(string Ids)
         {
-            using (var ct = new DS_ComNewsDataContext(DbHelperSQL.Connection))
+            using (var con = DbHelperSQL.GetConnection())
             {
+                var tran = con.BeginTransaction();
+                var ct = new DS_ComNewsDataContext(con);
+                ct.Transaction = tran;
                 string[] idarray = Ids.Split(',');
                 var list = ct.DS_ComNews.Where(a => idarray.Contains(a.ID.ToString()));
+                foreach (var md in list)
+                {
+                    if (md.ParentID > 0)
+                    {
+                        var parent = ct.DS_ComNews.Single(a => a.ID == md.ParentID);
+                        parent.Coment--;
+                    }
+                    else
+                    {
+                        var comlist = ct.DS_ComNews.Where(a => a.ParentID == md.ID);
+                        ct.DS_ComNews.DeleteAllOnSubmit(comlist);
+                    }
+                }
                 ct.DS_ComNews.DeleteAllOnSubmit(list);
                 ct.SubmitChanges();
+
+                tran.Commit();
             }
         }
 

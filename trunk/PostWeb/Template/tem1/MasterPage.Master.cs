@@ -13,13 +13,11 @@ using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Product;
 using Com.DianShi.BusinessRules.Member;
 using Com.DianShi.BusinessRules.Decoration;
-//[PartialCaching(1800,null,null,null)]
 public partial class MasterPage : System.Web.UI.MasterPage
 {
    
     protected void Page_Load(object sender, EventArgs e)
     {
-        
         string act=Request["action"];
         if (!string.IsNullOrEmpty(act)) {
             switch (act) {
@@ -67,7 +65,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         ViewState["Gender"] = md.Gender;
         ViewState["bsmd"] = md.BusinessModel;
         ViewState["area"] = md.Province;
-        ViewState["member_id"] = md.ID;
+        ViewState["member_id"] = md.ID.ToString();
 
         
     }
