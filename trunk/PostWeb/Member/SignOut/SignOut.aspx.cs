@@ -11,10 +11,11 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-public partial class Member_Manage_Top : BasePage
+public partial class Member_SignOut_SignOut :BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-      
+        Session.Remove("UserData");
+        Response.Redirect("signout.aspx");
     }
 }
