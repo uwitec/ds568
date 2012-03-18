@@ -26,6 +26,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <input  type="hidden" name="member_id" value="<%=ViewState["member_id"] %>"  />
     <div class="Main">
         <!--============顶部公共部分开始================-->
         <div class="TopBar">

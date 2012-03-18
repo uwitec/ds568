@@ -22,7 +22,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-<input type="hidden" id="pid" value="<%=Request.QueryString["news_id"] %>" />
+    <asp:HiddenField ID="member_id" runat="server" />
     <div class="MiddleRight">
         <!--========内容开始=============-->
         <div class="About">

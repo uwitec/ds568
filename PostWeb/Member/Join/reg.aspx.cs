@@ -31,8 +31,8 @@ public partial class Member_Join_reg : System.Web.UI.Page
     }
 
     private void LinkButton1_Click(object sender, EventArgs e) {
-        try
-        {
+        //try
+        //{
             if (!Common.Validate.RegUid(Request.Form["account"])) {
                 Common.MessageBox.Show(this, "用户帐号格式不正确", Common.MessageBox.InfoType.info, "history.back");
                 return;
@@ -67,11 +67,12 @@ public partial class Member_Join_reg : System.Web.UI.Page
             com.OfferService = "";
             com.BuyService = "";
             com.MainIndustry = "";
+            com.ComImg = "";
             blMember.Register(mb, com);
             Common.MessageBox.Show(this, "恭喜，用户注册成功", Common.MessageBox.InfoType.info, "function(){location='../Login/login.aspx'}");
-        }
-        catch(Exception ex) {
-            Common.MessageBox.Show(this,"抱歉，提交发生意外，可尝试重新提交或联系我们客服人员解决",Common.MessageBox.InfoType.error,"history.back");
-        }
+        //}
+        //catch(Exception ex) {
+        //    Common.MessageBox.Show(this,"抱歉，提交发生意外，可尝试重新提交或联系我们客服人员解决",Common.MessageBox.InfoType.error,"history.back");
+        //}
     }
 }
