@@ -18,4 +18,17 @@
             $(this).parent().addClass("Check")
         }
     });
+    
+    //检查登录
+    $.ajax({
+        type:"POST",
+        data:{action:"chkLogin"},
+        success:function(data,state){
+            if(data!=""){
+                $(".TopBarWelCome span,.TopBarWelCome a").toggle();
+                $(".TopBarLogin").css("visibility","hidden");
+                $(".TopBarWelCome a:first").text(data);
+            }
+        }
+    });
 });

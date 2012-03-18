@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" EnableViewState="false" AutoEventWireup="true"
+﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master"  AutoEventWireup="true"
     CodeFile="news_show.aspx.cs" Inherits="Template_tem1_news_news_show" Title="Untitled Page" %>
 <asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="Server">
 <title><%=ViewState["title"] %></title>
@@ -31,7 +31,7 @@
                     公司新闻</div>
             </div>
             <div class="newsBody">
-                <asp:Repeater ID="Repeater1" runat="server">
+                <asp:Repeater ID="Repeater1" runat="server" EnableViewState="false">
                     <ItemTemplate> 
                         <h3>
                             <img align="absMiddle" src="../../images/icon_06.gif" /><%#Eval("title") %></h3>
@@ -63,7 +63,7 @@
                     文章评论</div>
             </div>
             <div class="newsComent">
-                <asp:Repeater ID="Repeater2" runat="server">
+                <asp:Repeater ID="Repeater2" runat="server" EnableViewState="false">
                     <ItemTemplate>
                         <div class="comentBody">
                             <div class="comfloor">

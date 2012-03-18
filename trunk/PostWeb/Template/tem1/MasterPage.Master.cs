@@ -19,6 +19,22 @@ public partial class MasterPage : System.Web.UI.MasterPage
    
     protected void Page_Load(object sender, EventArgs e)
     {
+        
+        string act=Request["action"];
+        if (!string.IsNullOrEmpty(act)) {
+            switch (act) {
+                case "chkLogin":
+                    var ud = Session["UserData"] as UserData;
+                    if (ud != null)
+                    {
+                        Response.Write(ud.Member.UserID);
+                    }
+                    Response.End();
+                    break;
+            }
+            return;
+        }
+
         if (IsPostBack) return;
 
         var vmbbl = new View_Members_Br();
@@ -52,6 +68,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         ViewState["bsmd"] = md.BusinessModel;
         ViewState["area"] = md.Province;
         ViewState["member_id"] = md.ID;
+
+        
     }
 
    

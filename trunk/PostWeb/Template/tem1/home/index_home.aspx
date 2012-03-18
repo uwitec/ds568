@@ -20,13 +20,11 @@
                 <div class="AHLeft">
                     关于我们</div>
                 <div class="AHRight">
-                    <a href="#">更多&gt;&gt;</a></div>
+                    <a href="../profile/index_profile.aspx">更多&gt;&gt;</a></div>
             </div>
             <div class="AboutBody justify">
-                <img onerror="javascript:this.style.display='none'" class="AboutImg" src="#" />
-                <span id="about">深圳市动感者科技有限公司，致力于多媒体音响产品的研发工作，生产规模雄厚并迅速扩大，成为—家集生产、开发与销售为一体的音响产品专业生产商，推出自有品牌"动感者"。公司本着精益求精的设计理念，全力打造多种视听产品，设立了市场信息中心，产品外观设计中心，产品研究开发实验室、国内自有品牌事业行销部、品牌推广市场部、国际贸易部及制造中心，并引进现代化的生产工艺设备和高素质管理人员。
-                由于公司采用了当今业界最为成熟的生产流程，融入了制造领域内最为先进的科技成分，使得"动感者"产品以其卓越的品质，在市场上让消费者体验了完美生动的视听感受。这些高品质的产品，价格相对适中，坚持产品的高性价比路线，自面市
-                （未完，全文请 查看更多 ） 深圳市动感者科技有限公司，致力于多媒体音响产品的研发工作，生产规模雄厚并迅速扩大，成为—家集生产、开发与销售为一体的音响产品专业生产商，推出自有品牌"动感者"</span>
+                <img onerror="javascript:this.style.display='none'" class="AboutImg" src="<%=_vMember.ComImg.Split('|')[0] %>" />
+                <span id="about"><%=string.IsNullOrEmpty(_vMember.Profile) ? "" : (_vMember.Profile.Length > 500 ? _vMember.Profile.Substring(0, 500) + "…（<a href='../profile/index_profile.aspx'>未完</a>）。" : _vMember.Profile)%></span>
             </div>
         </div>
         <!--========关于我们结束=============-->
@@ -38,7 +36,7 @@
                 <div class="TzHLeft">
                     精品推荐</div>
                 <div class="TzHRight">
-                    <a href="#">更多&gt;&gt;</a></div>
+                    <a href="../product/index_product.aspx">更多&gt;&gt;</a></div>
             </div>
             <div class="TzBody" id="TzBody">
                 <div class="TzContent1">
@@ -79,7 +77,7 @@
                 <div class="NewHLeft">
                     最新产品</div>
                 <div class="NewHRight">
-                    <a href="#">更多&gt;&gt;</a></div>
+                    <a href="../product/index_product.aspx">更多&gt;&gt;</a></div>
             </div>
             <div class="NewBody" id="NewBody">
                 <div class="NewContent">
