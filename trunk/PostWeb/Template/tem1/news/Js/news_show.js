@@ -2,8 +2,8 @@
     if ($(".comentBody").length == 0) {
         $(".nocoment").show();
     }
-    
-    var btn=null;
+
+    var btn = null;
     var wb = $(".iptSubmit").wBox({
         title: "登录点石",
         html: "<div class='lgwrap loading2'>正检查登录状态…</div>",
@@ -54,12 +54,12 @@
                 }
             });
         }
-    }).click(function(){
-        btn=$(this);
+    }).click(function() {
+        btn = $(this);
     });
 
     var sbm = function() {
-        if(btn.hasClass("iptSubmit")){//判断是提交评论还是删除评论
+        if (btn.hasClass("iptSubmit")) {//判断是提交评论还是删除评论
             var ctn = $.trim($("#coment").text());
             if (ctn == "") {
                 alert("请输入评论。");
@@ -76,7 +76,7 @@
                     del();
                 },
                 error: function(req, state, err) {
-                    alert("提交评论出错。");$("body").append(req.responseText);
+                    alert("提交评论出错。"); $("body").append(req.responseText);
                 },
                 beforeSend: function() {
                     $(".publishComent-btn span.loading2").show();
@@ -87,7 +87,7 @@
                     $(".scmwrap").show();
                 }
             });
-        }else{
+        } else {
             btn.click();
         }
     };
@@ -105,17 +105,17 @@
                     type: "POST",
                     data: { action: "del", id: obj.attr("cmid") },
                     success: function(data, state) {
-                        if(Number(data)){
+                        if (Number(data)) {
                             var item = obj.parent().parent();
                             item.slideUp(200, function() {
                                 item.remove();
                             });
-                        }else{
-                           obj.show().next().hide();
-                           $(".iptSubmit").click(); 
-                           btn=obj;
+                        } else {
+                            obj.show().next().hide();
+                            $(".iptSubmit").click();
+                            btn = obj;
                         }
-                        
+
                         if ($(".comentBody").length == 0) {
                             $(".nocoment").show();
                         }
@@ -133,44 +133,54 @@
                 });
             }
         });
+
+        //回复评论
+        $(".comReply a").wBox({
+            title: "回复评论",
+            html: "<div class='lgwrap loading2'>正检查登录状态…</div>",
+            callBack: function() { 
+                
+            }
+        });
+
     };
     del();
-    
+
     //删除所选
-    $("#Button4").click(function(){
+    $("#Button4").click(function() {
         if (confirm("确认删除所选评论？")) {
-                var obj = $(this);
-                $.ajax({
-                    type: "POST",
-                    data: { action: "del_all", ids: $(".comCheck input:checked").serialize().replace(/cmid=/g,"").replace(/&/g,",") },
-                    success: function(data, state) {
-                        if(Number(data)){
-                            $(".comCheck input:checked").parent().parent().parent().parent().slideUp(200, function() {
-                                $(this).remove();
-                            });
-                        }else{
-                            obj.show().next().hide();
-                            $(".iptSubmit").click(); 
-                            btn=obj;
-                        }
-                        
-                        if ($(".comentBody").length == 0) {
-                            $(".nocoment").show();
-                        }
-                    },
-                    error: function(req, state, err) {
-                        alert("删除出错。");
+            var obj = $(this);
+            $.ajax({
+                type: "POST",
+                data: { action: "del_all", ids: $(".comCheck input:checked").serialize().replace(/cmid=/g, "").replace(/&/g, ",") },
+                success: function(data, state) {
+                    if (Number(data)) {
+                        $(".comCheck input:checked").parent().parent().parent().parent().slideUp(200, function() {
+                            $(this).remove();
+                        });
+                    } else {
                         obj.show().next().hide();
-                        
-                    },
-                    beforeSend: function() {
-                        obj.hide().next().show();
-                    },
-                    complete: function() {
-                        obj.show().next().hide();
+                        $(".iptSubmit").click();
+                        btn = obj;
                     }
-                });
-            }
+
+                    if ($(".comentBody").length == 0) {
+                        $(".nocoment").show();
+                    }
+                },
+                error: function(req, state, err) {
+                    alert("删除出错。");
+                    obj.show().next().hide();
+
+                },
+                beforeSend: function() {
+                    obj.hide().next().show();
+                },
+                complete: function() {
+                    obj.show().next().hide();
+                }
+            });
+        }
     });
-    
+
 });
