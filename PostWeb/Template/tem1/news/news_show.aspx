@@ -22,7 +22,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:HiddenField ID="member_id" runat="server" />
+    <input type="hidden" id="pid" value="<%=Request.QueryString["news_id"] %>" />
     <div class="MiddleRight">
         <!--========内容开始=============-->
         <div class="About">
@@ -73,7 +73,7 @@
                                     <li class="comCheck">
                                         <input  style="visibility:<%=ViewState["isLogin"].ToString()=="0"?"hidden":"visible" %>"  type="checkbox" name="cmid" value="<%#Eval("id") %>" /></li>
                                     <li class="comHeadFace">
-                                        <img  src="http://i01.c.aliimg.com/club/upload/pic/user/h/e/b/c/hebchangcheng_s.jpeg" onerror="javascript:this.src='http://i00.c.aliimg.com/blog/images/club/ebook/pic85x85.jpg'" /></li>
+                                        <img  src="#" onerror="javascript:this.src='http://i00.c.aliimg.com/blog/images/club/ebook/pic85x85.jpg'" /></li>
                                     <li class="comLiDetail">
                                         <div>
                                             <b><a href="#" target="_blank">alwdeguan</a></b><span class="marginLeft1em"></span><a
@@ -91,11 +91,11 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="comReply">
-                                <a href="javascript:;" style="visibility:<%=ViewState["isLogin"].ToString()=="0"?"hidden":"visible" %>">回复此评论</a></div>
-                            <div class="comDel">
+                            <div class="comReply" style="visibility:<%=ViewState["isLogin"].ToString()=="0"?"hidden":"visible" %>">
+                                <a href="javascript:void(0);" >回复此评论</a></div>
+                            <div class="comDel" style="visibility:<%=ViewState["isLogin"].ToString()=="0"?"hidden":"visible" %>">
                                 <%#Eval("ip") %>
-                                <input  type="button" style="visibility:<%=ViewState["isLogin"].ToString()=="0"?"hidden":"visible" %>" class="del_comment" cmid="<%#Eval("id") %>" value="删除评论" /><span class="loading2">提交中…</span></div>
+                                <input  type="button"  class="del_comment" cmid="<%#Eval("id") %>" value="删除评论" /><span class="loading2">提交中…</span></div>
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
