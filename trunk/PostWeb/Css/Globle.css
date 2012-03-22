@@ -22,7 +22,8 @@ a:hover{color:#ff7300;}
 .red{color:Red;}
 .gray{color:Gray;}
 .bold{font-weight:bold;}
-.loading{ background:url(/images/loading.gif) no-repeat center center;}
-.loading2{ background:url(/images/loading2.gif) no-repeat center center;}
-.loading3{ background:url(/images/loading3.gif) no-repeat center center;}
+.loading{background:url(/images/loading.gif) no-repeat center center;}
+.loading2{background:url(/images/loading2.gif) no-repeat center center;}
+.loading3{background:url(/images/loading3.gif) no-repeat center center;}
+.loadLeft{padding-left:18px; background-position:left center;display:none;}
 .hidden{ visibility:hidden;}
