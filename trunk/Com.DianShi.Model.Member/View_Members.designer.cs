@@ -30,13 +30,10 @@ namespace Com.DianShi.Model.Member
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertView_Members(View_Members instance);
-    partial void UpdateView_Members(View_Members instance);
-    partial void DeleteView_Members(View_Members instance);
     #endregion
 		
 		public View_MembersDataContext() : 
-				base(global::Com.DianShi.Model.Member.Properties.Settings.Default.DianShiConnectionString, mappingSource)
+				base(global::Com.DianShi.Model.Member.Properties.Settings.Default.DianShiConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -75,10 +72,8 @@ namespace Com.DianShi.Model.Member
 	}
 	
 	[Table(Name="dbo.View_Members")]
-	public partial class View_Members : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class View_Members
 	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _ID;
 		
@@ -93,6 +88,8 @@ namespace Com.DianShi.Model.Member
 		private string _Department;
 		
 		private string _Position;
+		
+		private string _QQ;
 		
 		private string _Gender;
 		
@@ -180,118 +177,11 @@ namespace Com.DianShi.Model.Member
 		
 		private string _MapNid;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnUserIDChanging(string value);
-    partial void OnUserIDChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnTrueNameChanging(string value);
-    partial void OnTrueNameChanged();
-    partial void OnDepartmentChanging(string value);
-    partial void OnDepartmentChanged();
-    partial void OnPositionChanging(string value);
-    partial void OnPositionChanged();
-    partial void OnGenderChanging(string value);
-    partial void OnGenderChanged();
-    partial void OnPhoneChanging(string value);
-    partial void OnPhoneChanged();
-    partial void OnFaxChanging(string value);
-    partial void OnFaxChanged();
-    partial void OnMobileChanging(string value);
-    partial void OnMobileChanged();
-    partial void OnHomePageChanging(string value);
-    partial void OnHomePageChanged();
-    partial void OnEmailValidateChanging(bool value);
-    partial void OnEmailValidateChanged();
-    partial void OnMobileValidateChanging(bool value);
-    partial void OnMobileValidateChanged();
-    partial void OnCompanyNameChanging(string value);
-    partial void OnCompanyNameChanged();
-    partial void OnBusinessTypeChanging(System.Nullable<byte> value);
-    partial void OnBusinessTypeChanged();
-    partial void OnBusinessModelChanging(string value);
-    partial void OnBusinessModelChanged();
-    partial void OnCapitalTypeChanging(string value);
-    partial void OnCapitalTypeChanged();
-    partial void OnRegisteredCapitalChanging(System.Nullable<double> value);
-    partial void OnRegisteredCapitalChanged();
-    partial void OnYearEstablishedChanging(short value);
-    partial void OnYearEstablishedChanged();
-    partial void OnRegistrationAreaChanging(string value);
-    partial void OnRegistrationAreaChanged();
-    partial void OnProvinceChanging(string value);
-    partial void OnProvinceChanged();
-    partial void OnCityChanging(string value);
-    partial void OnCityChanged();
-    partial void OnCountyChanging(string value);
-    partial void OnCountyChanged();
-    partial void OnBusinessAddressChanging(string value);
-    partial void OnBusinessAddressChanged();
-    partial void OnZipCodeChanging(string value);
-    partial void OnZipCodeChanged();
-    partial void OnMemberTypeChanging(byte value);
-    partial void OnMemberTypeChanged();
-    partial void OnOfferServiceChanging(string value);
-    partial void OnOfferServiceChanged();
-    partial void OnBuyServiceChanging(string value);
-    partial void OnBuyServiceChanged();
-    partial void OnMainIndustryChanging(string value);
-    partial void OnMainIndustryChanged();
-    partial void OnProfileChanging(string value);
-    partial void OnProfileChanged();
-    partial void OnLegalRepresentativeChanging(string value);
-    partial void OnLegalRepresentativeChanged();
-    partial void OnBankChanging(string value);
-    partial void OnBankChanged();
-    partial void OnAccountChanging(string value);
-    partial void OnAccountChanged();
-    partial void OnStorageAreaChanging(string value);
-    partial void OnStorageAreaChanged();
-    partial void OnEmployeesChanging(System.Nullable<byte> value);
-    partial void OnEmployeesChanged();
-    partial void OnStudyEmployeesChanging(System.Nullable<byte> value);
-    partial void OnStudyEmployeesChanged();
-    partial void OnBrandNameChanging(string value);
-    partial void OnBrandNameChanged();
-    partial void OnMonthlyChanging(System.Nullable<int> value);
-    partial void OnMonthlyChanged();
-    partial void OnMonthlyUnitChanging(string value);
-    partial void OnMonthlyUnitChanged();
-    partial void OnAnnualTurnoverChanging(System.Nullable<byte> value);
-    partial void OnAnnualTurnoverChanged();
-    partial void OnAnnualExportChanging(System.Nullable<byte> value);
-    partial void OnAnnualExportChanged();
-    partial void OnAnnualImportsChanging(System.Nullable<byte> value);
-    partial void OnAnnualImportsChanged();
-    partial void OnMSCerChanging(string value);
-    partial void OnMSCerChanged();
-    partial void OnQualityControlChanging(string value);
-    partial void OnQualityControlChanged();
-    partial void OnMainMarketChanging(string value);
-    partial void OnMainMarketChanged();
-    partial void OnMajorCustomersChanging(string value);
-    partial void OnMajorCustomersChanged();
-    partial void OnOEMChanging(System.Nullable<bool> value);
-    partial void OnOEMChanged();
-    partial void OnComImgChanging(string value);
-    partial void OnComImgChanged();
-    partial void OnMapNidChanging(string value);
-    partial void OnMapNidChanged();
-    #endregion
-		
 		public View_Members()
 		{
-			OnCreated();
 		}
 		
-		[Column(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true, IsDbGenerated=true, IsVersion=true)]
+		[Column(Storage="_ID", DbType="Int NOT NULL", IsDbGenerated=true, IsVersion=true)]
 		public int ID
 		{
 			get
@@ -302,11 +192,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._ID != value))
 				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
 					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
 				}
 			}
 		}
@@ -322,11 +208,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._UserID != value))
 				{
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
 					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
 				}
 			}
 		}
@@ -342,11 +224,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Password != value))
 				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
 					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
 				}
 			}
 		}
@@ -362,11 +240,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Email != value))
 				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
 					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
 				}
 			}
 		}
@@ -382,11 +256,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._TrueName != value))
 				{
-					this.OnTrueNameChanging(value);
-					this.SendPropertyChanging();
 					this._TrueName = value;
-					this.SendPropertyChanged("TrueName");
-					this.OnTrueNameChanged();
 				}
 			}
 		}
@@ -402,11 +272,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Department != value))
 				{
-					this.OnDepartmentChanging(value);
-					this.SendPropertyChanging();
 					this._Department = value;
-					this.SendPropertyChanged("Department");
-					this.OnDepartmentChanged();
 				}
 			}
 		}
@@ -422,11 +288,23 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Position != value))
 				{
-					this.OnPositionChanging(value);
-					this.SendPropertyChanging();
 					this._Position = value;
-					this.SendPropertyChanged("Position");
-					this.OnPositionChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_QQ", DbType="NVarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		public string QQ
+		{
+			get
+			{
+				return this._QQ;
+			}
+			set
+			{
+				if ((this._QQ != value))
+				{
+					this._QQ = value;
 				}
 			}
 		}
@@ -442,11 +320,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Gender != value))
 				{
-					this.OnGenderChanging(value);
-					this.SendPropertyChanging();
 					this._Gender = value;
-					this.SendPropertyChanged("Gender");
-					this.OnGenderChanged();
 				}
 			}
 		}
@@ -462,11 +336,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Phone != value))
 				{
-					this.OnPhoneChanging(value);
-					this.SendPropertyChanging();
 					this._Phone = value;
-					this.SendPropertyChanged("Phone");
-					this.OnPhoneChanged();
 				}
 			}
 		}
@@ -482,11 +352,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Fax != value))
 				{
-					this.OnFaxChanging(value);
-					this.SendPropertyChanging();
 					this._Fax = value;
-					this.SendPropertyChanged("Fax");
-					this.OnFaxChanged();
 				}
 			}
 		}
@@ -502,11 +368,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Mobile != value))
 				{
-					this.OnMobileChanging(value);
-					this.SendPropertyChanging();
 					this._Mobile = value;
-					this.SendPropertyChanged("Mobile");
-					this.OnMobileChanged();
 				}
 			}
 		}
@@ -522,11 +384,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._HomePage != value))
 				{
-					this.OnHomePageChanging(value);
-					this.SendPropertyChanging();
 					this._HomePage = value;
-					this.SendPropertyChanged("HomePage");
-					this.OnHomePageChanged();
 				}
 			}
 		}
@@ -542,11 +400,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._EmailValidate != value))
 				{
-					this.OnEmailValidateChanging(value);
-					this.SendPropertyChanging();
 					this._EmailValidate = value;
-					this.SendPropertyChanged("EmailValidate");
-					this.OnEmailValidateChanged();
 				}
 			}
 		}
@@ -562,11 +416,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._MobileValidate != value))
 				{
-					this.OnMobileValidateChanging(value);
-					this.SendPropertyChanging();
 					this._MobileValidate = value;
-					this.SendPropertyChanged("MobileValidate");
-					this.OnMobileValidateChanged();
 				}
 			}
 		}
@@ -582,11 +432,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._CompanyName != value))
 				{
-					this.OnCompanyNameChanging(value);
-					this.SendPropertyChanging();
 					this._CompanyName = value;
-					this.SendPropertyChanged("CompanyName");
-					this.OnCompanyNameChanged();
 				}
 			}
 		}
@@ -602,11 +448,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._BusinessType != value))
 				{
-					this.OnBusinessTypeChanging(value);
-					this.SendPropertyChanging();
 					this._BusinessType = value;
-					this.SendPropertyChanged("BusinessType");
-					this.OnBusinessTypeChanged();
 				}
 			}
 		}
@@ -622,11 +464,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._BusinessModel != value))
 				{
-					this.OnBusinessModelChanging(value);
-					this.SendPropertyChanging();
 					this._BusinessModel = value;
-					this.SendPropertyChanged("BusinessModel");
-					this.OnBusinessModelChanged();
 				}
 			}
 		}
@@ -642,11 +480,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._CapitalType != value))
 				{
-					this.OnCapitalTypeChanging(value);
-					this.SendPropertyChanging();
 					this._CapitalType = value;
-					this.SendPropertyChanged("CapitalType");
-					this.OnCapitalTypeChanged();
 				}
 			}
 		}
@@ -662,11 +496,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._RegisteredCapital != value))
 				{
-					this.OnRegisteredCapitalChanging(value);
-					this.SendPropertyChanging();
 					this._RegisteredCapital = value;
-					this.SendPropertyChanged("RegisteredCapital");
-					this.OnRegisteredCapitalChanged();
 				}
 			}
 		}
@@ -682,11 +512,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._YearEstablished != value))
 				{
-					this.OnYearEstablishedChanging(value);
-					this.SendPropertyChanging();
 					this._YearEstablished = value;
-					this.SendPropertyChanged("YearEstablished");
-					this.OnYearEstablishedChanged();
 				}
 			}
 		}
@@ -702,11 +528,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._RegistrationArea != value))
 				{
-					this.OnRegistrationAreaChanging(value);
-					this.SendPropertyChanging();
 					this._RegistrationArea = value;
-					this.SendPropertyChanged("RegistrationArea");
-					this.OnRegistrationAreaChanged();
 				}
 			}
 		}
@@ -722,11 +544,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Province != value))
 				{
-					this.OnProvinceChanging(value);
-					this.SendPropertyChanging();
 					this._Province = value;
-					this.SendPropertyChanged("Province");
-					this.OnProvinceChanged();
 				}
 			}
 		}
@@ -742,11 +560,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._City != value))
 				{
-					this.OnCityChanging(value);
-					this.SendPropertyChanging();
 					this._City = value;
-					this.SendPropertyChanged("City");
-					this.OnCityChanged();
 				}
 			}
 		}
@@ -762,11 +576,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._County != value))
 				{
-					this.OnCountyChanging(value);
-					this.SendPropertyChanging();
 					this._County = value;
-					this.SendPropertyChanged("County");
-					this.OnCountyChanged();
 				}
 			}
 		}
@@ -782,11 +592,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._BusinessAddress != value))
 				{
-					this.OnBusinessAddressChanging(value);
-					this.SendPropertyChanging();
 					this._BusinessAddress = value;
-					this.SendPropertyChanged("BusinessAddress");
-					this.OnBusinessAddressChanged();
 				}
 			}
 		}
@@ -802,11 +608,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._ZipCode != value))
 				{
-					this.OnZipCodeChanging(value);
-					this.SendPropertyChanging();
 					this._ZipCode = value;
-					this.SendPropertyChanged("ZipCode");
-					this.OnZipCodeChanged();
 				}
 			}
 		}
@@ -822,11 +624,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._MemberType != value))
 				{
-					this.OnMemberTypeChanging(value);
-					this.SendPropertyChanging();
 					this._MemberType = value;
-					this.SendPropertyChanged("MemberType");
-					this.OnMemberTypeChanged();
 				}
 			}
 		}
@@ -842,11 +640,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._OfferService != value))
 				{
-					this.OnOfferServiceChanging(value);
-					this.SendPropertyChanging();
 					this._OfferService = value;
-					this.SendPropertyChanged("OfferService");
-					this.OnOfferServiceChanged();
 				}
 			}
 		}
@@ -862,11 +656,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._BuyService != value))
 				{
-					this.OnBuyServiceChanging(value);
-					this.SendPropertyChanging();
 					this._BuyService = value;
-					this.SendPropertyChanged("BuyService");
-					this.OnBuyServiceChanged();
 				}
 			}
 		}
@@ -882,11 +672,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._MainIndustry != value))
 				{
-					this.OnMainIndustryChanging(value);
-					this.SendPropertyChanging();
 					this._MainIndustry = value;
-					this.SendPropertyChanged("MainIndustry");
-					this.OnMainIndustryChanged();
 				}
 			}
 		}
@@ -902,11 +688,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Profile != value))
 				{
-					this.OnProfileChanging(value);
-					this.SendPropertyChanging();
 					this._Profile = value;
-					this.SendPropertyChanged("Profile");
-					this.OnProfileChanged();
 				}
 			}
 		}
@@ -922,11 +704,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._LegalRepresentative != value))
 				{
-					this.OnLegalRepresentativeChanging(value);
-					this.SendPropertyChanging();
 					this._LegalRepresentative = value;
-					this.SendPropertyChanged("LegalRepresentative");
-					this.OnLegalRepresentativeChanged();
 				}
 			}
 		}
@@ -942,11 +720,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Bank != value))
 				{
-					this.OnBankChanging(value);
-					this.SendPropertyChanging();
 					this._Bank = value;
-					this.SendPropertyChanged("Bank");
-					this.OnBankChanged();
 				}
 			}
 		}
@@ -962,11 +736,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Account != value))
 				{
-					this.OnAccountChanging(value);
-					this.SendPropertyChanging();
 					this._Account = value;
-					this.SendPropertyChanged("Account");
-					this.OnAccountChanged();
 				}
 			}
 		}
@@ -982,11 +752,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._StorageArea != value))
 				{
-					this.OnStorageAreaChanging(value);
-					this.SendPropertyChanging();
 					this._StorageArea = value;
-					this.SendPropertyChanged("StorageArea");
-					this.OnStorageAreaChanged();
 				}
 			}
 		}
@@ -1002,11 +768,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Employees != value))
 				{
-					this.OnEmployeesChanging(value);
-					this.SendPropertyChanging();
 					this._Employees = value;
-					this.SendPropertyChanged("Employees");
-					this.OnEmployeesChanged();
 				}
 			}
 		}
@@ -1022,11 +784,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._StudyEmployees != value))
 				{
-					this.OnStudyEmployeesChanging(value);
-					this.SendPropertyChanging();
 					this._StudyEmployees = value;
-					this.SendPropertyChanged("StudyEmployees");
-					this.OnStudyEmployeesChanged();
 				}
 			}
 		}
@@ -1042,11 +800,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._BrandName != value))
 				{
-					this.OnBrandNameChanging(value);
-					this.SendPropertyChanging();
 					this._BrandName = value;
-					this.SendPropertyChanged("BrandName");
-					this.OnBrandNameChanged();
 				}
 			}
 		}
@@ -1062,11 +816,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._Monthly != value))
 				{
-					this.OnMonthlyChanging(value);
-					this.SendPropertyChanging();
 					this._Monthly = value;
-					this.SendPropertyChanged("Monthly");
-					this.OnMonthlyChanged();
 				}
 			}
 		}
@@ -1082,11 +832,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._MonthlyUnit != value))
 				{
-					this.OnMonthlyUnitChanging(value);
-					this.SendPropertyChanging();
 					this._MonthlyUnit = value;
-					this.SendPropertyChanged("MonthlyUnit");
-					this.OnMonthlyUnitChanged();
 				}
 			}
 		}
@@ -1102,11 +848,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._AnnualTurnover != value))
 				{
-					this.OnAnnualTurnoverChanging(value);
-					this.SendPropertyChanging();
 					this._AnnualTurnover = value;
-					this.SendPropertyChanged("AnnualTurnover");
-					this.OnAnnualTurnoverChanged();
 				}
 			}
 		}
@@ -1122,11 +864,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._AnnualExport != value))
 				{
-					this.OnAnnualExportChanging(value);
-					this.SendPropertyChanging();
 					this._AnnualExport = value;
-					this.SendPropertyChanged("AnnualExport");
-					this.OnAnnualExportChanged();
 				}
 			}
 		}
@@ -1142,11 +880,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._AnnualImports != value))
 				{
-					this.OnAnnualImportsChanging(value);
-					this.SendPropertyChanging();
 					this._AnnualImports = value;
-					this.SendPropertyChanged("AnnualImports");
-					this.OnAnnualImportsChanged();
 				}
 			}
 		}
@@ -1162,11 +896,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._MSCer != value))
 				{
-					this.OnMSCerChanging(value);
-					this.SendPropertyChanging();
 					this._MSCer = value;
-					this.SendPropertyChanged("MSCer");
-					this.OnMSCerChanged();
 				}
 			}
 		}
@@ -1182,11 +912,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._QualityControl != value))
 				{
-					this.OnQualityControlChanging(value);
-					this.SendPropertyChanging();
 					this._QualityControl = value;
-					this.SendPropertyChanged("QualityControl");
-					this.OnQualityControlChanged();
 				}
 			}
 		}
@@ -1202,11 +928,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._MainMarket != value))
 				{
-					this.OnMainMarketChanging(value);
-					this.SendPropertyChanging();
 					this._MainMarket = value;
-					this.SendPropertyChanged("MainMarket");
-					this.OnMainMarketChanged();
 				}
 			}
 		}
@@ -1222,11 +944,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._MajorCustomers != value))
 				{
-					this.OnMajorCustomersChanging(value);
-					this.SendPropertyChanging();
 					this._MajorCustomers = value;
-					this.SendPropertyChanged("MajorCustomers");
-					this.OnMajorCustomersChanged();
 				}
 			}
 		}
@@ -1242,11 +960,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._OEM != value))
 				{
-					this.OnOEMChanging(value);
-					this.SendPropertyChanging();
 					this._OEM = value;
-					this.SendPropertyChanged("OEM");
-					this.OnOEMChanged();
 				}
 			}
 		}
@@ -1262,11 +976,7 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._ComImg != value))
 				{
-					this.OnComImgChanging(value);
-					this.SendPropertyChanging();
 					this._ComImg = value;
-					this.SendPropertyChanged("ComImg");
-					this.OnComImgChanged();
 				}
 			}
 		}
@@ -1282,32 +992,8 @@ namespace Com.DianShi.Model.Member
 			{
 				if ((this._MapNid != value))
 				{
-					this.OnMapNidChanging(value);
-					this.SendPropertyChanging();
 					this._MapNid = value;
-					this.SendPropertyChanged("MapNid");
-					this.OnMapNidChanged();
 				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
