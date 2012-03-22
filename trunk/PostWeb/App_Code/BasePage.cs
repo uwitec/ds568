@@ -25,7 +25,7 @@ public class BasePage : System.Web.UI.Page
         _userData = Session["UserData"] as UserData;
         if (_userData == null)
         {
-            Response.Write("<script>open('"+Resources.Constant.LoginPage+"','_top')</script>");
+            Response.Write("<script>alert('登录超时，请重新登录。');open('"+Resources.Constant.LoginPage+"','_top')</script>");
             Response.End();
             //Response.Redirect(Resources.PageConstant.LoginPage);
         }
