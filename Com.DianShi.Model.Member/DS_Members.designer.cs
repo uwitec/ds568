@@ -36,8 +36,7 @@ namespace Com.DianShi.Model.Member
     #endregion
 		
 		public DS_MembersDataContext() : 
-				base("Data Source=.\\MYSQLEXPRESS;Initial Catalog=DianShi;User ID=ShuInDianShi;Password=" +
-						"Shu6898411;Persist Security Info=False", mappingSource)
+				base("Data Source=.\\MYSQLEXPRESS;Initial Catalog=DianShi;Integrated Security=True", mappingSource)
 		{
 			OnCreated();
 		}
@@ -109,6 +108,8 @@ namespace Com.DianShi.Model.Member
 		
 		private bool _MobileValidate;
 		
+		private string _QQ;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -141,6 +142,8 @@ namespace Com.DianShi.Model.Member
     partial void OnEmailValidateChanged();
     partial void OnMobileValidateChanging(bool value);
     partial void OnMobileValidateChanged();
+    partial void OnQQChanging(string value);
+    partial void OnQQChanged();
     #endregion
 		
 		public DS_Members()
@@ -424,6 +427,26 @@ namespace Com.DianShi.Model.Member
 					this._MobileValidate = value;
 					this.SendPropertyChanged("MobileValidate");
 					this.OnMobileValidateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_QQ", DbType="NVarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		public string QQ
+		{
+			get
+			{
+				return this._QQ;
+			}
+			set
+			{
+				if ((this._QQ != value))
+				{
+					this.OnQQChanging(value);
+					this.SendPropertyChanging();
+					this._QQ = value;
+					this.SendPropertyChanged("QQ");
+					this.OnQQChanged();
 				}
 			}
 		}
