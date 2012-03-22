@@ -41,10 +41,11 @@
             mibile:{mobile:true},
             faxqh:{digits:true,rangelength:[3,4]},
             faxhm:{required:function(){
-                    return  $.trim($("#faxqh").val())!="";
+                    return  $.trim($("input[name=faxqh]").val())!="";
                    },digits:true,rangelength:[7,8]},
             faxfj:{digits:true,rangelength:[3,4]},
-            webSite:{url:true}
+            webSite:{url:true},
+            qq:{required:true,digits:true,rangelength:[6,15]}
         },
         messages:{
             phoneqh:{rangelength:"格式错误",digits:"格式错误"},
@@ -52,7 +53,8 @@
             phonefj:{rangelength:"格式错误",digits:"格式错误"},
             faxqh:{rangelength:"格式错误",digits:"格式错误"},
             faxhm:{rangelength:"格式错误",digits:"格式错误"},
-            faxfj:{rangelength:"格式错误",digits:"格式错误"}
+            faxfj:{rangelength:"格式错误",digits:"格式错误"},
+            qq:{digits:"QQ号码必须为数字"}
         }
     });
     //-----------验证结束------------
@@ -60,13 +62,24 @@
     //提交按扭事件
     $(".subBtn").click(function(){
         var b=fvalid.form();
-        //if(!b){
-        //    using("messager",function(){
-        //       $.messager.alert('系统提示','尚有信息未通过验证，请检查。',"info");
-        //    });
-        //}
-        return b;
-         
+        if(b){
+            $.ajax({
+                url:"?action=save&"+$(".txtbox,.mType").serialize(),
+                cache:false,
+                success:function(data,state){
+                    $("body").append(data);
+                },
+                error:function(req,state,err){
+                    alert("保存出错。");
+                },
+                beforeSend:function(){
+                    $(".subBtn,#subload").toggle();
+                },
+                complete:function(){
+                    $(".subBtn,#subload").toggle();
+                }
+            });
+        }
     });
     
    

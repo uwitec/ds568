@@ -19,11 +19,11 @@
     <li><span>性别：<label class="star">*</label></span><input class="mType" name="sex" id="sex1" <%=ViewState["Gender"].ToString().Equals("先生")?"checked":"" %> value="先生"  type="radio" /><label for="sex1">先生</label>
                         <input class="mType"  name="sex" id="sex2" <%=ViewState["Gender"].ToString().Equals("女士")?"checked":"" %> value="女士" type="radio" /><label for="sex2">女士</label></li>
     <li><span>部门职位：<label class="star">*</label></span><input type="text" class="txtbox" value="<%=ViewState["Position"] %>" id="position" name="position" maxlength="20" /></li>
-    <li><span>电话：<label class="star">*</label></span><input class="txtbox phone-qh" value="<%=ViewState["Phoneqh"] %>" maxlength=4 name="phoneqh" id="phoneqh" type="text" />-<input class="txtbox phone-hm" value="<%=ViewState["Phonehm"] %>" maxlength=9   name="phonehm" id="phonehm" type="text" />-<input class="txtbox phone-fj" value="<%=ViewState["Phonefj"] %>" maxlength=4  name="phonefj" id="phonefj" type="text" /></li>
+    <li><span>电话：<label class="star">*</label></span><input class="txtbox phone-qh" value="<%=ViewState["Phoneqh"] %>" maxlength=4 name="phoneqh"   type="text" />-<input class="txtbox phone-hm" value="<%=ViewState["Phonehm"] %>" maxlength=9   name="phonehm" id="Text2" type="text" />-<input class="txtbox phone-fj" value="<%=ViewState["Phonefj"] %>" maxlength=4  name="phonefj" id="Text3" type="text" /></li>
+    <li><span>QQ：<label class="star">*</label></span><input type="text"  class="txtbox qq" value="<%=ViewState["qq"] %>" maxlength=15 name="qq"/></li>
     <li><span>手机：&nbsp;</span><input class="txtbox mobile" name="mobile" value="<%=ViewState["Mobile"] %>" id="mobile" type="text" /></li>
-    <li><span>传真：&nbsp;</span><input class="txtbox fax-qh" name="faxqh" maxlength=4 value="<%=ViewState["Faxqh"] %>"  id="faxqh" type="text" />-<input class="txtbox fax-hm" value="<%=ViewState["Faxhm"] %>" name="faxhm" maxlength=9   id="faxhm" type="text" />-<input class="txtbox fax-fj" value="<%=ViewState["Faxfj"] %>" name="faxfj" maxlength=4 id="faxfj"  type="text" /></li>
+    <li><span>传真：&nbsp;</span><input class="txtbox fax-qh" name="faxqh" maxlength=4 value="<%=ViewState["Faxqh"] %>"  type="text" />-<input class="txtbox fax-hm" value="<%=ViewState["Faxhm"] %>" name="faxhm" maxlength=9   id="faxhm" type="text" />-<input class="txtbox fax-fj" value="<%=ViewState["Faxfj"] %>" name="faxfj" maxlength=4 id="faxfj"  type="text" /></li>
     <li><span>公司网址：&nbsp;</span><input type="text" id="webSite" value="<%=ViewState["HomePage"] %>" class="txtbox" name="webSite" maxlength="200" /></li>
-    <li><span>&nbsp;</span><asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="保存" /></li>
+    <li><span>&nbsp;</span><input class="subBtn" type="button" value="保存" /><label id="subload" class="loading2 loadLeft">数据提交中…</label></li>
 </ul>
 </asp:Content>
-

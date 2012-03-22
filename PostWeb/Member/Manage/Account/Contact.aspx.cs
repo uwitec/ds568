@@ -19,8 +19,15 @@ public partial class Member_Manage_Account_Contact :BasePage
         var mst = this.Master as Member_Manage_MasterPage;
         mst.SetMenuTitle("帐号管理", "修改联系信息");
 
-        //保存事件
-        Button1.Click+=new EventHandler(Button1_Click);
+        //ajax事件
+        string act=Request["action"];
+        if (!string.IsNullOrEmpty(act)) {
+            switch (act) { 
+                case "save":
+                    save();
+                    break;
+            }
+        }
 
         if (IsPostBack) return;
         try
@@ -32,6 +39,7 @@ public partial class Member_Manage_Account_Contact :BasePage
             ViewState["TrueName"] = md.TrueName;
             ViewState["Gender"] = string.IsNullOrEmpty(md.Gender) ? "" : md.Gender;
             ViewState["Position"] = md.Position;
+            ViewState["qq"] = md.QQ;
             string[] phone = md.Phone.Split('-');
             if (phone.Length > 2)
             {
@@ -59,26 +67,20 @@ public partial class Member_Manage_Account_Contact :BasePage
         }
     }
 
-    private void Button1_Click(object sender, EventArgs e) {
-        try
-        {
-            var ud = Session["UserData"] as UserData;
-            var bl = new DS_Members_Br();
-            var md = bl.GetSingle(ud.Member.ID);
-            md.Email=Request.Form["email"];
-            md.TrueName=Request.Form["trueName"];
-            md.Gender=Request.Form["sex"];
-            md.Position=Request.Form["position"];
-            md.Phone = Request.Form["phoneqh"] + "-" + Request.Form["phonehm"] + "-" + Request.Form["phonefj"];
-            md.Mobile=Request.Form["mobile"];
-            md.Fax = Request.Form["faxqh"] + "-" + Request.Form["faxhm"] + "-" + Request.Form["faxfj"];
-            md.HomePage = Request.Form["webSite"].ToLower().TrimEnd('/');
-            bl.Update(md);
-            Common.MessageBox.Show(this, "保存成功", Common.MessageBox.InfoType.info, "function(){location='Contact.aspx'}");
-        }
-        catch (Exception ex) {
-            Common.WriteLog.SetErrLog(Request.Url.ToString(), "Button1_Click", ex.Message);
-            Common.MessageBox.Show(this, "保存出错", Common.MessageBox.InfoType.error, "history.back");
-        }
+    private void save() {
+        var bl = new DS_Members_Br();
+        var md = bl.GetSingle(_userData.Member.ID);
+        md.Email=Request.QueryString["email"];
+        md.TrueName=Request.QueryString["trueName"];
+        md.Gender=Request.QueryString["sex"];
+        md.Position=Request.QueryString["position"];
+        md.Phone = Request.QueryString["phoneqh"] + "-" + Request.QueryString["phonehm"] + "-" + Request.QueryString["phonefj"];
+        md.Mobile=Request.QueryString["mobile"];
+        md.Fax = Request.QueryString["faxqh"] + "-" + Request.QueryString["faxhm"] + "-" + Request.QueryString["faxfj"];
+        md.HomePage = Request.QueryString["webSite"].ToLower().TrimEnd('/');
+        md.QQ=Request.QueryString["qq"];
+        bl.Update(md);
+        Response.Write("<script>alert('保存成功。')</script>");
+        Response.End();
     }
 }
