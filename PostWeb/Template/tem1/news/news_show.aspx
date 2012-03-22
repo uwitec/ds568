@@ -76,8 +76,7 @@
                                         <img  src="#" onerror="javascript:this.src='http://i00.c.aliimg.com/blog/images/club/ebook/pic85x85.jpg'" /></li>
                                     <li class="comLiDetail">
                                         <div>
-                                            <b><a href="#" target="_blank">alwdeguan</a></b><span class="marginLeft1em"></span><a
-                                                href="javascript:;"><img src="../images/button_dgzh.gif" /></a><span class="marginLeft1em"></span><a
+                                            <b><a href="#" target="_blank">alwdeguan</a></b><span class="marginLeft1em"></span><a  target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin="><img src="../images/button_dgzh.gif" /></a><span class="marginLeft1em"></span><a
                                                     href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank">(http://shop<%#Eval("memberid") %>.ds568.net)</a></div>
                                         <div class="comConDetail">
                                             <%#Server.UrlDecode(Eval("content").ToString()) %>
