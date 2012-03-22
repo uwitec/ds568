@@ -126,7 +126,7 @@
                         <li class="UserInfoMiddle">
                             <div class="ifm_wrap">
                                 <div class="ui_comname"><a href="../profile/index_profile.aspx"><%=ViewState["comName"]%></a></div>
-                                <div class="mbname bbord"><span class="sptn cl6c"><%=ViewState["TrueName"]%></span> <span><%=ViewState["Gender"]%></span><a class="qqonline" href="http://wpa.qq.com/msgrd?v=3&uin=416351551&site=qq&menu=yes"><img src="http://wpa.qq.com/pa?p=2:416351551:4" alt="给我留言" />和我联系</a></div>
+                                <div class="mbname bbord"><span class="sptn cl6c"><%=ViewState["TrueName"]%></span> <span><%=ViewState["Gender"]%></span><a class="qqonline" href="http://wpa.qq.com/msgrd?v=3&uin=<%=ViewState["qq"] %>&site=qq&menu=yes"><img src="http://wpa.qq.com/pa?p=2:<%=ViewState["qq"] %>:4" alt="给我留言" />和我联系</a></div>
                                 <div>诚信指数：<span class="cl6c">100</span></div>
                                 <div>证书荣誉：<span class="cl6c">12项</span></div>
                                 <div class="bbord">工商注册信息：<img alt="已认证" src="http://img.china.alibaba.com/cms/upload/integrity/promotion/certificate1.gif" /></div>
@@ -213,8 +213,8 @@
                                     <ItemTemplate>
                                         <ul>
                                             <li><%#Eval("TrueName")%> <%#Eval("Gender")%> （<%#Eval("Position")%>）</li>
-                                            <li class="QQ"><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=416351551">
-                                                <img border="0" src="http://wpa.qq.com/pa?p=1:416351551:1" title="给我发消息" alt="给我发消息"></a></li>
+                                            <li class="QQ"><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=<%=ViewState["qq"] %>">
+                                                <img border="0" src="http://wpa.qq.com/pa?p=1:<%=ViewState["qq"] %>:1" title="给我发消息" alt="给我发消息"></a></li>
                                             <li>电&nbsp;&nbsp;&nbsp;&nbsp;话：<%#Eval("Phone").ToString().TrimEnd('-')%></li>
                                             <li>移动电话：<%#Eval("Mobile")%></li>
                                             <li>传&nbsp;&nbsp;&nbsp;&nbsp;真：<%#Eval("Fax").ToString().TrimEnd('-')%></li>

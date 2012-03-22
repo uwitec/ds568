@@ -66,7 +66,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         ViewState["bsmd"] = md.BusinessModel;
         ViewState["area"] = md.Province;
         ViewState["member_id"] = md.ID.ToString();
-
+        ViewState["qq"] = md.QQ;
         
     }
 
