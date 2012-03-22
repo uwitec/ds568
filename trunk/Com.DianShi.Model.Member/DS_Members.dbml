@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="DianShi" Class="DS_MembersDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="ConnectionString" ConnectionString="Data Source=.\MYSQLEXPRESS;Initial Catalog=DianShi;User ID=ShuInDianShi;Password=Shu6898411;Persist Security Info=False" Provider="System.Data.SqlClient" />
+  <Connection Mode="ConnectionString" ConnectionString="Data Source=.\MYSQLEXPRESS;Initial Catalog=DianShi;Integrated Security=True" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DS_Members" Member="DS_Members">
     <Type Name="DS_Members">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
@@ -17,6 +17,7 @@
       <Column Name="HomePage" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="EmailValidate" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="MobileValidate" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="QQ" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
