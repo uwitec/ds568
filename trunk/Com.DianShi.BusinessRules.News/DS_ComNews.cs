@@ -138,6 +138,19 @@ namespace Com.DianShi.BusinessRules.News
             }
         }
 
+        public List<View_ComNews> QueryView(string condition, string orderby, params object[] param)
+        {
+            using (var ct = new View_ComNewsDataContext(DbHelperSQL.Connection))
+            {
+                IQueryable<View_ComNews> ComNewsList = ct.View_ComNews;
+                if (!string.IsNullOrEmpty(condition))
+                    ComNewsList = ComNewsList.Where(condition, param);
+                if (!string.IsNullOrEmpty(orderby))
+                    ComNewsList = ComNewsList.OrderBy(orderby);
+                return ComNewsList.ToList();
+            }
+        }
+
         public Com.DianShi.Model.News.DS_ComNews CreateModel() {
             return new Com.DianShi.Model.News.DS_ComNews();
         }
