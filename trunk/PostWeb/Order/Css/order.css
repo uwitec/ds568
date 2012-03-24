@@ -1,0 +1,18 @@
+﻿.pur_logo{font-size:26px;color:#666;font-weight:bold;line-height:36px; text-indent:6px;font-family:黑体; margin-top:8px;border-bottom:solid 1px #ccc;}
+.navwrap{ overflow:auto;zoom:1;margin-top:8px;color:#666}
+.navwrap li{float:left;height:24px;line-height:24px; text-indent:6px;}
+.sthead,.step1,.step2,.step3,.step4,.step5{ background:url(../images/nav1.png) no-repeat;width:190px;}
+.sthead{ background-position:0 -175px;width:3px; overflow:hidden;}
+.step1{background-position:-313px -50px;width:187px;}
+.curent{color:White;font-weight:bold;}
+.step2,.step3,.step4{background-position:-310px -75px;}
+.step5{background-position:-310px -100px;}
+.title_bar{height:26px;line-height:26px;border:solid 1px #e8e8e8;border-left:none;border-right:none; background-color:#fafafa;margin-top:8px; overflow:auto;zoom:1;}
+.filed1,.filed2,.filed3,.filed4,.filed5,.filed6{text-align:center;float:left;}
+.filed1{width:390px;}
+.filed2{width:200px;margin-left:30px;_margin-left:27px;}
+.filed3{width:50px;}
+.filed4{width:80px;}
+.filed5{width:100px;}
+.filed6{width:80px;}
+.filed_left{width:310px;float:left;text-indent:12px;}
