@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="midcon overflowAuto">
-            <div class="floatL"><img width="500" src="https://loginchina.alibaba.com/img/springfestival.jpg" /></div>
+            <div class="floatL"><img width="500" src="https://loginchina.alibaba.com/img/busyspring.jpg" /></div>
             <div class="lgf floatR">
                 <div class="lghead"></div>
                 <div class="lgmiddle">

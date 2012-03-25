@@ -98,13 +98,11 @@ public partial class Template_tem1_news_news_show : ShopBasePage
             Repeater1.DataSource = list;
             Repeater1.DataBind();
 
-            var list2 = bl.Query("parentid=@0","createdate desc",md.ID);
+            var list2 = bl.QueryView("parentid=@0","createdate desc",md.ID);
             replyNum = list2.Count();
             Repeater2.DataSource = list2;
             Repeater2.DataBind();
-
-            
-            
+ 
         //}
         //catch {
         //    Response.End();
