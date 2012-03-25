@@ -10,7 +10,7 @@
     <script type="text/javascript" src="Js/Login.js"></script>
     <link href="Css/login.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body> 
     <div class="main">
         <div class="overflowAuto">
             <div class="logo floatL bold"><img src="http://i01.c.aliimg.com/images/cn/home/070827/logo2.gif" />登录</div>
