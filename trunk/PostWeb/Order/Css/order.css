@@ -60,3 +60,5 @@
 .itemR input{line-height:20px;height:20px;}
 .zipcode,.username,.phone,.mobile{width:120px;}
 .street{width:416px;}
+.com_info{text-indent:10px;}
+.qq span{ text-decoration:underline;color:#001d4c;}
