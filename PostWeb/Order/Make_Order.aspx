@@ -49,6 +49,7 @@
         </div>
     </div>
     <div class="m_tl_bar margin_16"><span class="b_block">&nbsp;</span><span class="b_tl">订购信息确认</span></div>
+    <div class="com_info">卖家：<a href="http://shop14.ds568.net" target="_blank">杭州康盾生物科技有限公司</a> <a class="qq" href="http://wpa.qq.com/msgrd?v=3&uin=416351551&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('和我联系');" src="http://wpa.qq.com/pa?p=2:416351551:4" alt="和我联系" /><span>给我留言</span></a></div>
 </div>
 </asp:Content>
 
