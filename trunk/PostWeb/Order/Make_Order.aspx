@@ -50,8 +50,8 @@
     </div>
     <div class="m_tl_bar margin_16"><span class="b_block">&nbsp;</span><span class="b_tl">订购信息确认</span></div>
     <div class="com_info">卖家：<a href="http://shop14.ds568.net" target="_blank">杭州康盾生物科技有限公司</a> <a class="qq" href="http://wpa.qq.com/msgrd?v=3&uin=416351551&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('和我联系');" src="http://wpa.qq.com/pa?p=2:416351551:4" alt="和我联系" /><span>给我留言</span></a></div>
-    <div class="">
-        
+    <div class="lt_wrap">
+        <div class="filed_wrap"><div class="fd_pro_name">货品</div><div class="fd_weight">总重量（公斤）</div><div class="fd_freight">运费（元）</div><div class="fd_price">单价（元）</div><div class="fd_num">数量</div><div class="fd_amount">金额（元）</div></div>
     </div>
 </div>
 </asp:Content>
