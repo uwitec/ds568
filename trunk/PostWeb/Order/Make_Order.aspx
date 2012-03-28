@@ -52,7 +52,36 @@
     <div class="com_info">卖家：<a href="http://shop14.ds568.net" target="_blank">杭州康盾生物科技有限公司</a> <a class="qq" href="http://wpa.qq.com/msgrd?v=3&uin=416351551&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('和我联系');" src="http://wpa.qq.com/pa?p=2:416351551:4" alt="和我联系" /><span>给我留言</span></a></div>
     <div class="lt_wrap">
         <div class="filed_wrap"><div class="fd_pro_name">货品</div><div class="fd_weight">总重量（公斤）</div><div class="fd_freight">运费（元）</div><div class="fd_price">单价（元）</div><div class="fd_num">数量</div><div class="fd_amount">金额（元）</div></div>
+        <div class="p_d_ctn">
+            <div class="dt_item">
+                <div class="tdi_1"><img width="47" src="http://i02.c.aliimg.com/img/ibank/2012/887/740/491047788_1135752292.summ.jpg" /></div>
+                <div class="tdi_2"><a href="#">（厂家直销）袋装洗手液500ml袋装抑菌洗手液招商代理加盟总经销</a></div>
+                <div class="tdi_3">--</div>
+                <div class="tdi_4"><p><b>总计：0.00</b></p><p>卖家承担运费</p></div>
+                <div class="tdi_5">2.50</div>
+                <div class="tdi_6"><p><b>2000</b></p><p>（可售10000000瓶）</p></div>
+                <div class="tdi_7">5000.00</div>                
+            </div>
+            <div class="dt_item">
+                <div class="tdi_1"><img width="47" src="http://i03.c.aliimg.com/img/ibank/2011/193/760/422067391_1135752292.summ.jpg" /></div>
+                <div class="tdi_2"><a href="#">（厂家直销）袋装洗手液500ml袋装抑菌洗手液招商代理加盟总经销</a></div>
+                <div class="tdi_3">--</div>
+                <div class="tdi_4"><p><b>总计：0.00</b></p><p>卖家承担运费</p></div>
+                <div class="tdi_5">2.50</div>
+                <div class="tdi_6"><p><b>2000</b></p><p>（可售10000000瓶）</p></div>
+                <div class="tdi_7">5000.00</div>                
+            </div>
+        </div>
     </div>
+    <div class="btm_wrap">
+        <div class="btm_l">给卖家留言：</div>
+        <div class="btm_m"><textarea>请输入您对该笔交易或货品的特殊要求以提醒供应商，字数不超过500字</textarea></div>
+        <div class="btm_r">
+            <p>运费共计：<b>0.00</b> 元</p>
+            <p><b>实付款（含运费 ）：</b><span>12400.00</span> 元</p>
+        </div>
+    </div>
+    <div class="sub_wrap"><a class="make_order" href="javascript:void(0);"><span>确认无误，订购！</span></a></div>
 </div>
 </asp:Content>
 

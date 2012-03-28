@@ -29,7 +29,7 @@
 .item_5{text-align:center;line-height:56px;width:50px;font-size:14px;}
 .item_6{width:80px;_padding-top:18px;}
 .item_6 input{width:35px; text-align:right;}
-.item_6 input,.itemR input{border:solid 1px #a7a6aa; background:url(/images/input-bg.png) no-repeat;}
+.item_6 input,.itemR input,.btm_m textarea{border:solid 1px #a7a6aa; background:url(/images/input-bg.png) no-repeat;}
 .item_6 a{font-size:10px;line-height:10px;padding:0px 3px;border:solid 1px #ccc; background-color:White; text-align:center;font-family:黑体; position:relative;top:-2px;}
 .item_6 a:hover{border-color:#ff7300; text-decoration:none;}
 .item_7{width:30px;font-size:14px;}
@@ -62,12 +62,29 @@
 .street{width:416px;}
 .com_info{text-indent:10px;margin-bottom:5px;}
 .qq span{ text-decoration:underline;color:#001d4c;}
-.lt_wrap{border:solid 1px #ccc;}
-.filed_wrap{height:31px; background:url(../images/bg3.png);line-height:31px;text-align:center; overflow:auto;zoom:1;}
-.filed_wrap div{float:left;}
-.fd_pro_name{width:386px;}
+.lt_wrap{border:solid 1px #e3e3ea;}
+.filed_wrap{height:31px; line-height:31px;text-align:center; overflow:auto;zoom:1;}
+.filed_wrap div{float:left;background:url(../images/bg3.png) no-repeat;}
+div.fd_pro_name{width:386px; background-position:-1px 0;}
 .fd_weight{width:98px;}
-.fd_freight{width:115px;}
-.fd_price{width:100px;}
+.fd_freight{width:120px;}
+.fd_price{width:104px;}
 .fd_num{width:120px;}
 .fd_amount{width:120px;}
+.p_d_ctn{}
+.dt_item{overflow:auto;zoom:1;margin:8px 0;}
+.dt_item div{float:left;}
+.tdi_1{width:70px;padding-left:14px;}
+.tdi_2{width:292px;padding-right:12px}
+.tdi_3{text-align:center;width:98px;}
+.tdi_4{width:110px;padding-left:10px;}
+.tdi_5{text-align:center;width:104px;}
+.tdi_6{text-align:center;width:120px;}
+.tdi_7{width:104px;text-align:center;font-weight:bold;color:#ff7300;}
+.btm_wrap{overflow:auto;zoom:1;margin-top:8px;}
+.btm_l{width:72px;float:left;}
+.btm_m{width:478px;float:left;}
+.btm_r{margin-left:550px;_margin-left:547px; text-align:right;}
+.btm_r span{font-weight:bold;color:#ff7300;font-size:16px;}
+.btm_m textarea{width:474px;height:106px;font-size:12px;color:Gray;}
+.sub_wrap{text-align:right;margin-bottom:10px;}
