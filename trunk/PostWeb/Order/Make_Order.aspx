@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Make_Order.aspx.cs" Inherits="Order_Make_Order" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
@@ -75,7 +74,7 @@
     </div>
     <div class="btm_wrap">
         <div class="btm_l">给卖家留言：</div>
-        <div class="btm_m"><textarea>请输入您对该笔交易或货品的特殊要求以提醒供应商，字数不超过500字</textarea></div>
+        <div class="btm_m"><textarea dv="请输入您对该笔交易或货品的特殊要求以提醒供应商，字数不超过500字"></textarea></div>
         <div class="btm_r">
             <p>运费共计：<b>0.00</b> 元</p>
             <p><b>实付款（含运费 ）：</b><span>12400.00</span> 元</p>
