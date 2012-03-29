@@ -39,7 +39,7 @@
      <!--==========顶部Start===============-->
      <div class="top"><div class="container">
           <div  id="div_3"><span class="margin_1em"></span>您好, smalldug123 <a href="#">[请登录]</a> <a href="#">[免费注册] </a></div>
-          <div id="div_4"><div class="divCar"><img src="/images/car.gif" class="car" /><a href="#" >我的购物车</a></div> <span class="topSplitLine">|</span> <a href="#">设为首页</a> <span class="topSplitLine" >|</span> <a href="#">加入收藏</a></div>
+          <div id="div_4"><div class="divCar"><a href="#" ><img src="/images/car.gif" class="car" />进货单</a></div> <span class="topSplitLine">|</span> <a href="#">设为首页</a> <span class="topSplitLine" >|</span> <a href="#">加入收藏</a></div>
           </div>
      </div>
      <!--==========顶部End===============-->
