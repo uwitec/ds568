@@ -11,7 +11,7 @@
         <li class="sthead">&nbsp;</li>
         <li class="step1 curent">1.选择货品</li>
         <li class="step2">2.确认订单信息</li>
-        <li class="step3">3.选择付款方式并付款</li>
+        <li class="step3">3.支付宝担保付款</li>
         <li class="step4">4.确认收货</li>
         <li class="step5">5.完成</li>
     </ul>
