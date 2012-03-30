@@ -98,7 +98,23 @@ namespace Com.DianShi.BusinessRules.Area
             return new Com.DianShi.Model.Sys.DS_Area();
         }
 
-        
+        /// <summary>
+        /// 获取当前类别及其父类别的路径
+        /// </summary>
+        /// <param name="CatID">当前类别ID</param>
+        /// <param name="IsFirst">路径是否包含当前类别名称</param>
+        /// <returns></returns>
+        public string GetAreaName(int ID, bool IsFirst)
+        {
+            var md = GetSingle(ID);
+            string AreaName = IsFirst ? "" : md.AreaName + ">";
+            if (!md.ParentID.Equals(0))
+            {
+                return GetAreaName(md.ParentID, false) + AreaName;
+            }
+            else
+                return AreaName;
+        }
      
     }
 }
