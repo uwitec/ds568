@@ -15,6 +15,7 @@ public partial class Template_tem1_profile_index_profile : ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Page.Header.Title = "公司简价," + _vMember.CompanyName;
         if (IsPostBack) return;
         var mblist = new System.Collections.Generic.List<Com.DianShi.Model.Member.View_Members>();
         mblist.Add(_vMember);

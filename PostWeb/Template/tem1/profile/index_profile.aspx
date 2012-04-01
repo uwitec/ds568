@@ -1,9 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true"
     CodeFile="index_profile.aspx.cs" Inherits="Template_tem1_profile_index_profile"
     Title="Untitled Page" %>
-<asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="Server">
-<title>公司简价</title>
-</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript" src="js/profile.js"></script>
 </asp:Content>

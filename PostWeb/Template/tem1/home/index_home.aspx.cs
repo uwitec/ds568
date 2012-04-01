@@ -16,6 +16,7 @@ public partial class index_home :  ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Page.Header.Title = "商铺首页,"+_vMember.CompanyName;
         if (IsPostBack) return;
 
         var pbl = new DS_Products_Br();

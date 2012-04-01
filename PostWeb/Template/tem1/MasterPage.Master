@@ -8,6 +8,8 @@
     <meta name="keywords" content="方伟泽，插卡音箱;电话线;电话转接头;电话配件;" />
     <script src="/js/lib.js" type="text/javascript"></script>
     <script src="/js/common.js" type="text/javascript"></script>
+    <link href="/css/Globle.css" rel="stylesheet" type="text/css" />
+    <link href="/template/css/Globle.css" rel="stylesheet" type="text/css" />
     <link href="/js/wbox/wbox/wbox.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/js/wbox/wbox-min.js"></script>
     <link rel="stylesheet" rev="stylesheet" href="css/index.css" type="text/css"  />

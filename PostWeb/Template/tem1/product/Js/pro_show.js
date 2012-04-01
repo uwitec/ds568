@@ -79,12 +79,7 @@
            }
            $(this).parent().blur(); 
        });
-//       $("#J_sugPre").click(function(){
-//          $(this).blur()
-//       });
-//       $("#J_sugNext").click(function(){
-//          $(this).blur()
-//       });
+
        
        //处理显示数据
        var pr=$("#priceRang").val();//价格区间
@@ -104,6 +99,16 @@
            $("#txtOrderNum").val(prs[0].split(',')[0]);//最低起订量
        }
        
+       //加入进货单
+       $("#J_LinkPurchase").click(function(){
+            $(".add_pur_wrap").show();
+            $(".pur_panel_Left,.ri_1,.ri_2,.ri_3").addClass("hidden");
+            $(".pur_panel_Right").addClass("loading3");
+       });
        
+       //关闭成功加入进货单提示
+       $(".ri_0 a,.pur_buy").click(function(){
+          $(".add_pur_wrap").hide(300);
+       });
     });
   

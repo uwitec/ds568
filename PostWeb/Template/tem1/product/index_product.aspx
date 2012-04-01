@@ -1,9 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/template/tem1/MasterPage.Master" ValidateRequest="false" AutoEventWireup="true"
     CodeFile="index_product.aspx.cs" Inherits="index_product"
     Title="Untitled Page" %>
-<asp:Content ID="Content3" ContentPlaceHolderID="Title" runat="server">
-    <title>供应产品</title>
-</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" rev="stylesheet" href="/css/Pager.css" type="text/css"  />
     <script type="text/javascript" src="js/product.js"></script>
