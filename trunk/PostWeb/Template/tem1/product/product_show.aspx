@@ -2,15 +2,24 @@
     CodeFile="product_show.aspx.cs" Inherits="Template_tem1_product_product_show"
     Title="Untitled Page" %>
 <%@ Register src="~/Template/tem1/product/Property.ascx" tagname="Property" tagprefix="uc1" %>
-<asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="Server">
-<title><%=ViewState["title"] %></title>
-</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
-        .ContentMiddle
-        {
-            overflow: hidden;
-        }
+        .ContentMiddle{overflow: hidden;}
+        .add_pur_wrap,.ri_3 a{background:url(images/sprites2.png) no-repeat;}
+        .add_pur_wrap{width:406px;height:122px; position:absolute;top:330px;}
+        .pur_panel_Left{float:left;width:55px;background:url(/images/ok.gif) no-repeat 15px 8px;height:100px;}
+        .pur_panel_Right{margin-left:55px;_margin-left:52px;}
+        .ri_0,.add_pur_wrap{overflow:auto;zoom:1;}
+        .ri_0{padding:3px 7px 0 0;}
+        .ri_0 a{width:14px;height:14px;overflow:hidden;float:right;display:block;}
+        .ri_1{font-size:14px;font-weight:bold;padding-top:2px;*padding-top:0;}
+        .ri_2{color:#555;padding-top:14px;}
+        .ri_2 span{font-weight:bold;color:#ff7300;}
+        .ri_3{overflow:hidden;padding-top:10px;height:38px;}
+        .ri_3 a{display:block;width:78px;height:28px;float:left;margin-right:12px;}
+        .ri_3 a span{visibility:hidden;}
+        .ri_3 a.pur_view{ background-position:-414px -36px;}
+        .ri_3 a.pur_buy{ background-position:-414px 0;}
     </style>
     <script type="text/javascript" src="js/pro_show.js"></script>
 </asp:Content>
@@ -80,20 +89,18 @@
                                 <dd class="dd001">
                                     &nbsp;</dd>
                                 <dd class="d-btn-buy">
-                                    <a title="点击此按钮，到下一步确认购买信息。" target="_self" href="#" id="J_LinkOrder" class="dmtrack"
-                                        dmt="addtoorder1">立即购买</a>
+                                    <a title="点击此按钮，到下一步确认购买信息。" href="javascript:void(0);">立即购买</a>
                                 </dd>
                                 <dd class="d-btn-add">
-                                    <a title="加入进货单" target="_self" href="#" id="J_LinkPurchase" class="dmtrack" dmt="addtocart1">
-                                        加入进货单</a>
+                                    <a title="加入进货单"  href="javascript:void(0);" id="J_LinkPurchase">加入进货单</a>
                                 </dd>
                                 <dd class="d-tip-add">
-                                    <a target="_blank" href="http://service.china.alibaba.com/kf/detail/2410329.html"
-                                        class="dmtrack" dmt="carthelp">什么是进货单?</a>
+                                    <a href="javascript:void(0);">什么是进货单?</a>
                                 </dd>
                             </dl>
                             <div class="divLine1">
                             </div>
+                           
                         </li>
                         <li class="msgTitle">供应商目前不在线，请在下面留言:</li>
                         <li>
@@ -101,6 +108,15 @@
                                 id="btnSend" type="button" value="发送" />
                         </li>
                     </ul>
+                    <div class="add_pur_wrap">
+                        <div class="pur_panel_Left"></div>     
+                        <ul class="pur_panel_Right">
+                            <li class="ri_0"><a href="javascript:void(0);">&nbsp;</a></li>
+                            <li class="ri_1">货品已成功添加到进货单。</li>
+                            <li class="ri_2">进货单共 <b>1</b> 种商品合计：<span>11.20</span> 元</li>
+                            <li class="ri_3"><a href="javascript:void(0);" class="pur_view"><span>查看进货单</span></a> <a href="javascript:void(0);" class="pur_buy"><span>继续购物</span></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

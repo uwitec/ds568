@@ -16,6 +16,7 @@ public partial class index_product : ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Page.Header.Title = "供应产品";
         AspNetPager4.PageChanged+=new EventHandler(AspNetPager4_PageChanged);
         if (IsPostBack) return;
         var vmbbl = new View_Members_Br();
