@@ -3,7 +3,7 @@
   <Connection Mode="AppSettings" ConnectionString="Data Source=PC2011102412YEG\sql0801;Initial Catalog=ds;Integrated Security=True" SettingsObjectName="Com.DianShi.Model.Transaction.Properties.Settings" SettingsPropertyName="dsConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DS_Purchase" Member="DS_Purchase">
     <Type Name="DS_Purchase">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>

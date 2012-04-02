@@ -103,7 +103,7 @@ namespace Com.DianShi.Model.Transaction
 			OnCreated();
 		}
 		
-		[Column(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, IsVersion=true)]
+		[Column(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int ID
 		{
 			get
@@ -123,7 +123,7 @@ namespace Com.DianShi.Model.Transaction
 			}
 		}
 		
-		[Column(Storage="_MemberID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_MemberID", DbType="Int NOT NULL")]
 		public int MemberID
 		{
 			get
@@ -143,7 +143,7 @@ namespace Com.DianShi.Model.Transaction
 			}
 		}
 		
-		[Column(Storage="_CreateDate", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_CreateDate", DbType="DateTime NOT NULL")]
 		public System.DateTime CreateDate
 		{
 			get
