@@ -21,4 +21,37 @@ public class UserData
     public DS_Members Member{ get; set; }
 
     public string ValiCode { get; set; }
+
+    public Com.DianShi.BusinessRules.Transaction.DS_Cart ShoppingCart { get; set; }
+
+    /// <summary>
+    /// 检查对象是否为空,验证中如果发现Session["UserData"]为空则创建Session["UserData"]
+    /// </summary>
+    /// <param name="ot"></param>
+    /// <returns></returns>
+    public static bool ChkObjNull(ObjType ot) {
+        bool b = false;
+        var ud = HttpContext.Current.Session["UserData"] as UserData;
+        if (ud == null)
+        {
+            HttpContext.Current.Session["UserData"]=ud = new UserData();
+            return b;
+        }
+        
+        switch (ot) {
+            case ObjType.会员信息:
+                b = !object.Equals(ud.Member,null);
+                break;
+            case ObjType.购物车:
+                b = !object.Equals(ud.ShoppingCart, null);
+                break;
+        }
+
+        return b;
+    }
+
+    public enum ObjType { 
+        会员信息,
+        购物车
+    }
 }
