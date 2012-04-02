@@ -48,12 +48,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_Cart.cs" />
     <Compile Include="DS_Purchase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DS_Orders.cs" />
     <Compile Include="DS_OrderDetail.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Com.DianShi.Model.Member\Com.DianShi.Model.Member.csproj">
+      <Project>{A09622AB-70BD-45E0-B702-BC0D5D301372}</Project>
+      <Name>Com.DianShi.Model.Member</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.DianShi.Model.Product\Com.DianShi.Model.Product.csproj">
+      <Project>{8C1C5769-49C7-4C69-A7BF-ACF245E304FA}</Project>
+      <Name>Com.DianShi.Model.Product</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Com.DianShi.Model.Transaction\Com.DianShi.Model.Transaction.csproj">
       <Project>{6DDDB8FE-1C02-4479-9E35-8671544C3DBC}</Project>
       <Name>Com.DianShi.Model.Transaction</Name>
