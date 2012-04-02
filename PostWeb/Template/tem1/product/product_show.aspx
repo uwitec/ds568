@@ -92,7 +92,7 @@
                                     <a title="点击此按钮，到下一步确认购买信息。" href="javascript:void(0);">立即购买</a>
                                 </dd>
                                 <dd class="d-btn-add">
-                                    <a title="加入进货单"  href="javascript:void(0);" id="J_LinkPurchase">加入进货单</a>
+                                    <a title="加入进货单"  href="javascript:void(0);" pid="<%=Request.QueryString["pro_id"] %>" id="J_LinkPurchase">加入进货单</a>
                                 </dd>
                                 <dd class="d-tip-add">
                                     <a href="javascript:void(0);">什么是进货单?</a>
@@ -100,7 +100,6 @@
                             </dl>
                             <div class="divLine1">
                             </div>
-                           
                         </li>
                         <li class="msgTitle">供应商目前不在线，请在下面留言:</li>
                         <li>
