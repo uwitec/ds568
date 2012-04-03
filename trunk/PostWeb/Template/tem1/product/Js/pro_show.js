@@ -103,13 +103,14 @@ $(document).ready(function() {
     $("#J_LinkPurchase").click(function() {
         var id = $(this).attr("pid");
         $.ajax({
+            url: "action.aspx",
             type: "POST",
-            data: { action: "add_pur", id: id },
+            data: { action: "add_pur", id: id, num: $("#txtOrderNum").val()},
             success: function(data, state) {
-                
+                alert("123");
             },
             error: function(req, state, err) {
-
+                $("body").append(req.responseText);
             },
             beforeSend: function() {
                 $(".add_pur_wrap").show();
@@ -117,7 +118,7 @@ $(document).ready(function() {
                 $(".pur_panel_Right").addClass("loading3");
             },
             complete: function() {
-               
+
             }
         });
     });
