@@ -9,6 +9,7 @@ public partial class Order_Purchase_purchaseList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Page.Header.Title = "进货单";
         if (UserData.ChkObjNull(UserData.ObjType.购物车)) {
             Repeater1.ItemDataBound += new RepeaterItemEventHandler(Repeater1_ItemDataBound);
             var ud = Session["UserData"] as UserData;
