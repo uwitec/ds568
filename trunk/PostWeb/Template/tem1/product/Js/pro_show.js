@@ -105,12 +105,17 @@ $(document).ready(function() {
         $.ajax({
             url: "action.aspx",
             type: "POST",
+            dataType:"json",
             data: { action: "add_pur", id: id, num: $("#txtOrderNum").val()},
             success: function(data, state) {
-                alert("123");
+                $(".ri_2 b").text(data.pc);
+                $(".ri_2 span").text(data.pa);
+                $(".pur_panel_Left,.ri_1,.ri_2,.ri_3").removeClass("hidden");
+                $(".pur_panel_Right").removeClass("loading3");
             },
             error: function(req, state, err) {
-                $("body").append(req.responseText);
+                //$("body").append(req.responseText);
+                alert(err);
             },
             beforeSend: function() {
                 $(".add_pur_wrap").show();
