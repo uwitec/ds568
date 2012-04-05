@@ -6,7 +6,7 @@
     <style type="text/css">
         .ContentMiddle{overflow: hidden;}
         .add_pur_wrap,.ri_3 a{background:url(images/sprites2.png) no-repeat;}
-        .add_pur_wrap{width:406px;height:122px; position:absolute;top:330px;}
+        .add_pur_wrap{width:406px;height:122px; position:absolute;top:330px;display:none;}
         .pur_panel_Left{float:left;width:55px;background:url(/images/ok.gif) no-repeat 15px 8px;height:100px;}
         .pur_panel_Right{margin-left:55px;_margin-left:52px;}
         .ri_0,.add_pur_wrap{overflow:auto;zoom:1;}
@@ -113,7 +113,7 @@
                             <li class="ri_0"><a href="javascript:void(0);">&nbsp;</a></li>
                             <li class="ri_1">货品已成功添加到进货单。</li>
                             <li class="ri_2">进货单共 <b>1</b> 种商品合计：<span>11.20</span> 元</li>
-                            <li class="ri_3"><a href="/order/purchaseList.aspx" class="pur_view"><span>查看进货单</span></a> <a href="javascript:void(0);" class="pur_buy"><span>继续购物</span></a></li>
+                            <li class="ri_3"><a href="/order/purchaseList.aspx" target="_blank" class="pur_view"><span>查看进货单</span></a> <a href="javascript:void(0);" class="pur_buy"><span>继续购物</span></a></li>
                         </ul>
                     </div>
                 </div>
