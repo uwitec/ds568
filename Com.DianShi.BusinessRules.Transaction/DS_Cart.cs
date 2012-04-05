@@ -32,7 +32,7 @@ namespace Com.DianShi.BusinessRules.Transaction
             OrderDetail.ProductID = ProductID;
             OrderDetail.Price = GetPrice(product.PriceRang,ProNum);
             OrderDetail.ProName = product.Title;
-            OrderDetail.Amount = ProNum * OrderDetail.Price;
+            OrderDetail.Amount = Math.Round(double.Parse(ProNum.ToString()) * OrderDetail.Price);
             return OrderDetail;
         }
 
@@ -41,7 +41,9 @@ namespace Com.DianShi.BusinessRules.Transaction
         /// </summary>
         /// <param name="ProductID">产品ID</param>
         /// <param name="ProNum">产品数量</param>
-        public void Add(int ProductID, int ProNum)
+        /// <param name="ProTotalCount">添加商品后反回进货单中的总商品数</param>
+        /// <param name="ProTotalAmount">添加商品后反回进货单中的总金额</param>
+        public void Add(int ProductID, int ProNum,ref int ProTotalCount,ref double ProTotalAmount)
         {
             var orderDetail = CreateOrderDetail(ProductID,ProNum);
             var productbl = new DS_ProductsDataContext(DBUtility.DbHelperSQL.Connection);
@@ -74,13 +76,17 @@ namespace Com.DianShi.BusinessRules.Transaction
                 }
                 else {
                     var oddt = existoddt.Single();
+                    order.Amount -= Math.Round(double.Parse(oddt.ProNum.ToString()) * oddt.Price);
                     oddt.ProNum += orderDetail.ProNum;
                     oddt.Price = GetPrice(product.PriceRang,oddt.ProNum);
-                    oddt.Amount =Math.Round(oddt.ProNum*oddt.Price);
+                    oddt.Amount = Math.Round(double.Parse(oddt.ProNum.ToString()) * oddt.Price);
                     order.Amount += oddt.Amount;
-                    order.ProNum += oddt.ProNum;
+                    order.ProNum += orderDetail.ProNum;
                 }
             }
+
+            ProTotalCount = Orders.Sum(a=>a.ProNum);
+            ProTotalAmount = Orders.Sum(a=>a.Amount);
         }
 
         /// <summary>

@@ -113,7 +113,7 @@
                             <li class="ri_0"><a href="javascript:void(0);">&nbsp;</a></li>
                             <li class="ri_1">货品已成功添加到进货单。</li>
                             <li class="ri_2">进货单共 <b>1</b> 种商品合计：<span>11.20</span> 元</li>
-                            <li class="ri_3"><a href="javascript:void(0);" class="pur_view"><span>查看进货单</span></a> <a href="javascript:void(0);" class="pur_buy"><span>继续购物</span></a></li>
+                            <li class="ri_3"><a href="/order/purchaseList.aspx" class="pur_view"><span>查看进货单</span></a> <a href="javascript:void(0);" class="pur_buy"><span>继续购物</span></a></li>
                         </ul>
                     </div>
                 </div>
