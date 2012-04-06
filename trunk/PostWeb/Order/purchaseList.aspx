@@ -26,7 +26,7 @@
     <asp:Repeater ID="Repeater1" runat="server">
         <ItemTemplate>
             <div class="title_bar">
-                <div class="filed_left">供应商：<a href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank"><%#Eval("memberid") %></a> <a href="http://wpa.qq.com/msgrd?v=3&uin=416351551&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('在线洽谈');" src="http://wpa.qq.com/pa?p=2:416351551:4" alt="给我留言" /><span>给我留言</span></a></div><div class="filed_right"><span>本店不支持混批</span> <a href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank">继续采购</a></div>
+                <div class="filed_left">供应商：<a href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank"><%#Eval("CompanyName") %></a> <a href="http://wpa.qq.com/msgrd?v=3&uin=416351551&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('在线洽谈');" src="http://wpa.qq.com/pa?p=2:416351551:4" alt="给我留言" /><span>给我留言</span></a></div><div class="filed_right"><span>本店不支持混批</span> <a href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank">继续采购</a></div>
             </div>
             <asp:Repeater ID="Repeater2" runat="server">
                 <ItemTemplate>
