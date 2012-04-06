@@ -47,17 +47,19 @@ namespace Com.DianShi.BusinessRules.Transaction
         {
             var orderDetail = CreateOrderDetail(ProductID,ProNum);
             var productbl = new DS_ProductsDataContext(DBUtility.DbHelperSQL.Connection);
+            var memberbl = new DS_CompanyInfoDataContext(DBUtility.DbHelperSQL.Connection);
             var product = productbl.DS_Products.Single(a=>a.ID.Equals(orderDetail.ProductID));
             var existod=Orders.Where(a=>a.MemberID.Equals(product.MemberID));
             if (existod.Count().Equals(0))//检查订单中是否存在相同公司
             {
                 var order = new DS_Orders();
                 order.MemberID = product.MemberID;
+                order.CompanyName = memberbl.DS_CompanyInfo.Single(a=>a.MenberID.Equals(product.MemberID)).CompanyName;
                 order.ProNum = orderDetail.ProNum;
                 order.PurchaseID = 0;
                 order.Amount = orderDetail.Amount;
                 order.CreateDate = DateTime.Now;
-                order.OrderNum = "";
+                order.OrderNum = string.Empty;
                 order.ID = id++;
                 Orders.Add(order);
                 orderDetail.OrderID = order.ID;

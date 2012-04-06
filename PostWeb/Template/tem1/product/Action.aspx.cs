@@ -10,8 +10,7 @@ public partial class Template_tem1_product_Action : ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        try
-        {
+         
             string act = Request["action"];
             if (!string.IsNullOrEmpty(act))
             {
@@ -31,7 +30,6 @@ public partial class Template_tem1_product_Action : ShopBasePage
                         break;
                 }
             }
-        }
-        catch { }
+         
     }
 }

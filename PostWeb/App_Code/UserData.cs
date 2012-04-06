@@ -23,7 +23,7 @@ public class UserData
     public string ValiCode { get; set; }
 
     public Com.DianShi.BusinessRules.Transaction.DS_Cart ShoppingCart { get; set; }
-
+   
     /// <summary>
     /// 检查对象是否为空,验证中如果发现Session["UserData"]为空则创建Session["UserData"]
     /// </summary>
