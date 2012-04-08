@@ -33,6 +33,7 @@ namespace Com.DianShi.BusinessRules.Transaction
             OrderDetail.Price = GetPrice(product.PriceRang,ProNum);
             OrderDetail.ProName = product.Title;
             OrderDetail.Amount = Math.Round(double.Parse(ProNum.ToString()) * OrderDetail.Price);
+            OrderDetail.PriceRang = "<p>"+product.PriceRang.Replace("|","</p><p>")+"</p>";
             return OrderDetail;
         }
 
