@@ -132,5 +132,8 @@ $(document).ready(function() {
     $(".ri_0 a,.pur_buy").click(function() {
         $(".add_pur_wrap").hide(300);
     });
+    
+    //查看进货单
+    $(".pur_view").click(function(){$(".ri_0 a,.pur_buy").click();});
 });
   
