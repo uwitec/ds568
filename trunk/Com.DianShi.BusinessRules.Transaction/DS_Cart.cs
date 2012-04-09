@@ -33,7 +33,7 @@ namespace Com.DianShi.BusinessRules.Transaction
             OrderDetail.Price = GetPrice(product.PriceRang,ProNum);
             OrderDetail.ProName = product.Title;
             OrderDetail.Amount = Math.Round(double.Parse(ProNum.ToString()) * OrderDetail.Price);
-            OrderDetail.PriceRang = "<p>"+product.PriceRang.Replace("|","</p><p>")+"</p>";
+            OrderDetail.PriceRang = GetPriceRang(product.PriceRang, ProNum);
             return OrderDetail;
         }
 
@@ -82,6 +82,7 @@ namespace Com.DianShi.BusinessRules.Transaction
                     order.Amount -= Math.Round(double.Parse(oddt.ProNum.ToString()) * oddt.Price);
                     oddt.ProNum += orderDetail.ProNum;
                     oddt.Price = GetPrice(product.PriceRang,oddt.ProNum);
+                    oddt.PriceRang = GetPriceRang(product.PriceRang,oddt.ProNum);
                     oddt.Amount = Math.Round(double.Parse(oddt.ProNum.ToString()) * oddt.Price);
                     order.Amount += oddt.Amount;
                     order.ProNum += orderDetail.ProNum;
@@ -120,6 +121,46 @@ namespace Com.DianShi.BusinessRules.Transaction
                 }
             }
             return 0;
+        }
+
+        /// <summary>
+        /// 获取当前价格的价格区间显示字符串
+        /// </summary>
+        /// <param name="PriceRang"></param>
+        /// <param name="ProductNum"></param>
+        /// <returns></returns>
+        public string GetPriceRang(string PriceRang, int ProductNum)
+        {
+            string[] pr = PriceRang.Split('|');
+            string proNum = "", prices = "",str = "";
+            foreach (var item in pr)
+            {
+                proNum += item.Split(',')[0] + ",";
+                prices += item.Split(',')[1] + ",";
+            }
+            string[] pns = proNum.TrimEnd(',').Split(','), prs = prices.TrimEnd(',').Split(',');
+  
+            for (int i = 0; i < pns.Length; i++)
+            {
+                if (i + 1 < pns.Length)
+                {
+                    if (ProductNum >= int.Parse(pns[i]) && ProductNum < int.Parse(pns[i + 1]))
+                    {
+                        str += "<p>" + pns[i] + "-" + (int.Parse(pns[i + 1]) - 1) + "：" + prs[i] + "</p>";
+                    }
+                    else {
+                        str += "<p class='gray'>" + pns[i] + "-" + (int.Parse(pns[i + 1]) - 1) + "：" + prs[i] + "</p>";
+                    }
+                }
+                else
+                {
+                    if(ProductNum>=int.Parse(pns[i]))
+                        str += "<p>≥" + pns[i]  + "：" + prs[i] + "</p>";
+                    else
+                        str += "<p class='gray'>≥" + pns[i] + "：" + prs[i] + "</p>";
+                }
+            }
+            return str;
         }
     }
 }
