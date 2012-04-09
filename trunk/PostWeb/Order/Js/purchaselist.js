@@ -2,8 +2,12 @@
     $(".item_6 a").click(function() {
         if ($.trim($(this).text()) == "-") {
 
-        } else { 
-            
+        } else {
+
         }
+
+        $.ajax({
+            
+        });
     });
 })
