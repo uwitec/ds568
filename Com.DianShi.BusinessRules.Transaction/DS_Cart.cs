@@ -44,7 +44,8 @@ namespace Com.DianShi.BusinessRules.Transaction
         /// <param name="ProNum">产品数量</param>
         /// <param name="ProTotalCount">添加商品后反回进货单中的总商品数</param>
         /// <param name="ProTotalAmount">添加商品后反回进货单中的总金额</param>
-        public void Add(int ProductID, int ProNum,ref int ProTotalCount,ref double ProTotalAmount)
+        /// <param name="CurrentProAmount">当前产品ID的总金额</param>
+        public void Add(int ProductID, int ProNum,ref OrderInfo odinfo)
         {
             var orderDetail = CreateOrderDetail(ProductID,ProNum);
             var productbl = new DS_ProductsDataContext(DBUtility.DbHelperSQL.Connection);
@@ -89,8 +90,10 @@ namespace Com.DianShi.BusinessRules.Transaction
                 }
             }
 
-            ProTotalCount = Orders.Sum(a=>a.ProNum);
-            ProTotalAmount = Orders.Sum(a=>a.Amount);
+            odinfo.PurTotalCount = Orders.Sum(a=>a.ProNum);
+            odinfo.CrtProAmount= OrderDetail.Where(a=>a.ProductID.Equals(ProductID)).Sum(a=>a.Amount);
+            odinfo.PurTotalAmount = Orders.Sum(a=>a.Amount);
+            odinfo.CrtOrderAmount = Orders.Where(a=>a.ID.Equals(orderDetail.OrderID)).Sum(a=>a.Amount);
         }
 
         /// <summary>
@@ -162,5 +165,29 @@ namespace Com.DianShi.BusinessRules.Transaction
             }
             return str;
         }
+
+       public class OrderInfo {
+            /// <summary>
+            /// 进货单总产品数
+            /// </summary>
+            public int PurTotalCount { get; set; }
+
+            /// <summary>
+            /// 当前产品ID所对应的总金额
+            /// </summary>
+            public double CrtProAmount { get; set; }
+
+            /// <summary>
+            /// 进货单总金额
+            /// </summary>
+            public double PurTotalAmount { get; set; }
+
+            /// <summary>
+            /// 当前订单总金额
+            /// </summary>
+            public double CrtOrderAmount { get; set; }
+        }
     }
+
+
 }
