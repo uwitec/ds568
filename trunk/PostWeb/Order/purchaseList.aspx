@@ -35,9 +35,7 @@
                         <div class="item_2"><img width="56" height="56" src="http://i02.c.aliimg.com/img/ibank/2012/887/740/491047788_1135752292.summ.jpg" /></div>
                         <div class="item_3"><a href="#"><%#Eval("proname") %></a></div>
                         <div class="item_4">
-                            <p>2000-3999 瓶： 2.50</p>
-                            <p class="gray">4000-4999 瓶： 2.40</p>
-                            <p class="gray">≥5000瓶： 2.30</p>
+                            <%#Eval("PriceRang") %>
                         </div>
                         <div class="item_5">×</div>
                         <div class="item_6"><a href="javascript:void(0);"> -</a>&nbsp;<input value="<%#Eval("proNum") %>" />&nbsp;<a href="javascript:void(0);">+</a></div>
