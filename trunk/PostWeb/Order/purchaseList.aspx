@@ -2,7 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
-    <link rel="stylesheet" rev="stylesheet" href="css/order.css" type="text/css"  />    
+    <link rel="stylesheet" rev="stylesheet" href="css/order.css" type="text/css"  /> 
+    <script type="text/javascript" src="js/purchaselist.js"></script>  
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div class="order_wrap">
@@ -38,7 +39,7 @@
                             <%#Eval("PriceRang") %>
                         </div>
                         <div class="item_5">×</div>
-                        <div class="item_6"><a href="javascript:void(0);"> -</a>&nbsp;<input value="<%#Eval("proNum") %>" />&nbsp;<a href="javascript:void(0);">+</a></div>
+                        <div class="item_6" oid="<%#Eval("orderid") %>"><a ind="<%#Container.ItemIndex %>" pid="<%#Eval("productid") %>" href="javascript:void(0);"> -</a>&nbsp;<input value="<%#Eval("proNum") %>" />&nbsp;<a href="javascript:void(0);" ind="<%#Container.ItemIndex %>" pid="<%#Eval("productid") %>">+</a></div>
                         <div class="item_7"> ＝</div>
                         <div class="item_8"><%#Eval("amount") %></div>
                         <div class="item_9"><a href="javascript:void(0)">删除</a></div>
@@ -47,7 +48,7 @@
             </asp:Repeater>
             <div class="pro_item_wrap item_bottom">
                 <div class="btm_left"><input type="checkbox" id="chk_1" /><label for="chk_1">全选</label> <a class="del_chk" href="javascript:void(0);">删除所选 </a></div>
-                <p class="btm_right">货品金额总计(不包含运费)：<span class="amount"><%#Eval("amount") %></span>元<span class="margin_1em"></span><a class="make_order" href="javascript:void(0);"><span>确认下单</span></a></p>
+                <p class="btm_right">货品金额总计(不包含运费)：<span class="amount" id="am_<%#Eval("id") %>"><%#Eval("amount") %></span>元<span class="margin_1em"></span><a class="make_order" href="javascript:void(0);"><span>确认下单</span></a></p>
             </div>
         </ItemTemplate>
     </asp:Repeater>

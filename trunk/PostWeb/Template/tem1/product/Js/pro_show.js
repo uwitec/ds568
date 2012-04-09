@@ -108,8 +108,8 @@ $(document).ready(function() {
             dataType: "json",
             data: { action: "add_pur", id: id, num: $("#txtOrderNum").val() },
             success: function(data, state) {
-                $(".ri_2 b").text(data.pc);
-                $(".ri_2 span").text(data.pa);
+                $(".ri_2 b").text(data.PurTotalCount);
+                $(".ri_2 span").text(data.PurTotalAmount);
                 $(".pur_panel_Left,.ri_1,.ri_2,.ri_3").removeClass("hidden");
                 $(".pur_panel_Right").removeClass("loading3");
             },

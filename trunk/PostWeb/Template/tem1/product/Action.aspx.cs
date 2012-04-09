@@ -23,10 +23,10 @@ public partial class Template_tem1_product_Action : ShopBasePage
                             ud = Session["UserData"] as UserData;
                             ud.ShoppingCart = new DS_Cart();
                         }
-                        int proCount = 0;
-                        double proAmount = 0;
-                        ud.ShoppingCart.Add(int.Parse(Request.Form["id"]), int.Parse(Request.Form["num"]), ref proCount, ref proAmount);
-                        Response.Write("{\"pc\":\"" + proCount + "\",\"pa\":\"" + proAmount + "\"}");
+                        var odinfo = new DS_Cart.OrderInfo();
+                        ud.ShoppingCart.Add(int.Parse(Request.Form["id"]), int.Parse(Request.Form["num"]), ref odinfo);
+                        var js = new System.Web.Script.Serialization.JavaScriptSerializer();
+                        Response.Write(js.Serialize(odinfo));
                         break;
                 }
             }
