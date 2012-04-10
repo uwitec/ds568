@@ -45,9 +45,11 @@ namespace Com.DianShi.BusinessRules.Transaction
         /// <param name="ProTotalCount">添加商品后反回进货单中的总商品数</param>
         /// <param name="ProTotalAmount">添加商品后反回进货单中的总金额</param>
         /// <param name="CurrentProAmount">当前产品ID的总金额</param>
-        public void Add(int ProductID, int ProNum,ref OrderInfo odinfo)
+        public OrderInfo Add(int ProductID, int ProNum)
         {
+            var odinfo = new OrderInfo();
             var orderDetail = CreateOrderDetail(ProductID,ProNum);
+            odinfo.CrtPriceRang=orderDetail.PriceRang;
             var productbl = new DS_ProductsDataContext(DBUtility.DbHelperSQL.Connection);
             var memberbl = new DS_CompanyInfoDataContext(DBUtility.DbHelperSQL.Connection);
             var product = productbl.DS_Products.Single(a=>a.ID.Equals(orderDetail.ProductID));
@@ -84,16 +86,38 @@ namespace Com.DianShi.BusinessRules.Transaction
                     oddt.ProNum += orderDetail.ProNum;
                     oddt.Price = GetPrice(product.PriceRang,oddt.ProNum);
                     oddt.PriceRang = GetPriceRang(product.PriceRang,oddt.ProNum);
+                    odinfo.CrtPriceRang=oddt.PriceRang;
                     oddt.Amount = Math.Round(double.Parse(oddt.ProNum.ToString()) * oddt.Price);
                     order.Amount += oddt.Amount;
                     order.ProNum += orderDetail.ProNum;
                 }
             }
-
+             
             odinfo.PurTotalCount = Orders.Sum(a=>a.ProNum);
             odinfo.CrtProAmount= OrderDetail.Where(a=>a.ProductID.Equals(ProductID)).Sum(a=>a.Amount);
             odinfo.PurTotalAmount = Orders.Sum(a=>a.Amount);
             odinfo.CrtOrderAmount = Orders.Where(a=>a.ID.Equals(orderDetail.OrderID)).Sum(a=>a.Amount);
+            return odinfo;
+        }
+
+        public OrderInfo Del(int ProductID) {
+            var oddt= OrderDetail.Single(a => a.ProductID.Equals(ProductID));
+            int odid = oddt.OrderID;
+            var od=Orders.Single(a=>a.ID.Equals(oddt.OrderID));
+            od.ProNum-=oddt.ProNum;
+            od.Amount -= oddt.Amount;
+            OrderDetail.RemoveAll(a=>a.ProductID.Equals(ProductID));
+            Orders.RemoveAll(a=>a.ProNum.Equals(0));
+            var odif= new OrderInfo { 
+                PurTotalCount = Orders.Sum(a=>a.ProNum),
+                PurTotalAmount = Orders.Sum(a=>a.Amount),
+                CrtOrderAmount=0
+            };
+            var odlist=Orders.Where(a => a.ID.Equals(odid));
+            if (odlist.Count() > 0) {
+                odif.CrtOrderAmount = odlist.Sum(a => a.Amount);
+            }
+            return odif;
         }
 
         /// <summary>
@@ -186,7 +210,12 @@ namespace Com.DianShi.BusinessRules.Transaction
             /// 当前订单总金额
             /// </summary>
             public double CrtOrderAmount { get; set; }
-        }
+
+            /// <summary>
+            /// 当前订单价格区间字符串
+            /// </summary>
+            public string CrtPriceRang { get; set; }
+        } 
     }
 
 
