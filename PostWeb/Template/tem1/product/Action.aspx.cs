@@ -23,8 +23,7 @@ public partial class Template_tem1_product_Action : ShopBasePage
                             ud = Session["UserData"] as UserData;
                             ud.ShoppingCart = new DS_Cart();
                         }
-                        var odinfo = new DS_Cart.OrderInfo();
-                        ud.ShoppingCart.Add(int.Parse(Request.Form["id"]), int.Parse(Request.Form["num"]), ref odinfo);
+                        var odinfo =ud.ShoppingCart.Add(int.Parse(Request.Form["id"]), int.Parse(Request.Form["num"]));
                         var js = new System.Web.Script.Serialization.JavaScriptSerializer();
                         Response.Write(js.Serialize(odinfo));
                         break;
