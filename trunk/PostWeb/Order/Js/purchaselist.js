@@ -43,7 +43,6 @@
 
     //删除
     $(".item_9 a").click(function() {
-
         var pid = $(this).attr("pid");
         var oid = $(this).attr("oid");
         var ind = $(this).attr("ind");
@@ -68,6 +67,23 @@
                 $("body").append(req.responseText);
             }
         });
+    });
+
+    //全选
+    $(".btm_left input").click(function() {
+        $(".item_1 input[oid=" + $(this).attr("oid") + "]").attr("checked", $(this).attr("checked"))
+    });
+
+    $(".item_1 input").click(function() {
+        if (!$(this).attr("checked")) {
+            $("#odbt_" + $(this).attr("oid") + " .btm_left input").removeAttr("checked");
+        }
+    });
+
+    //删除所选
+    $(".del_chk").click(function() {
+        chgNum();
+        return false;
     });
 
 })
