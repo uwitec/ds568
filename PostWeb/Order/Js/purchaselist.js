@@ -122,5 +122,42 @@
         });
         return false;
     });
+    
+    //确认下单
+    $(".make_order").click(function(){
+        var oid=$(this).attr("oid");
+        if($("#mdw_"+oid+" .item_1 input:checked").length==0){
+            alert("您还没选择任何货品。");
+            return false;
+        }
+        
+        var ids="";
+        $("#mdw_"+oid+" .item_1 input").not(":checked").each(function(){
+            ids+=$(this).attr("pid")+",";
+        });
+        if(ids!=""){
+            $.ajax({
+                url:"action.aspx",
+                type:"POST",
+                data:{action:"dels",ids:ids},
+                success:function(data,state){
+                    location="Make_Order.aspx";
+                },
+                error:function(req,state,err){
+                    alert("抱歉，确认订单出错，请联系客服人员。")
+                },
+                beforeSend:function(){
+                    
+                },
+                complete:function(){
+                    
+                }
+            });
+        }else{
+            location="Make_Order.aspx";
+        }
+        
+        return false;
+    });
 
 })
