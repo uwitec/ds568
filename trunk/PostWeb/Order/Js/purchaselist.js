@@ -5,15 +5,21 @@
         var data = { action: "chg_num", id: pid, num: num };
         var oid = $(obj).parent().attr("oid");
         var ind = $(obj).parent().attr("ind");
+        var mdw = $("#mdw_" + oid + " .pro_item_wrap[ind=" + ind + "]");
         $.ajax({
             url: "action.aspx",
             type: "POST",
             dataType: "json",
             data: data,
             success: function(data, state) {
-                $("#odwp_" + ind + " .item_8").text(data.CrtProAmount);
-                $("#odwp_" + ind + " .item_4").html(data.CrtPriceRang);
-                $("#am_" + oid).text(data.CrtOrderAmount);
+                mdw.find(".item_8").text(data.CrtProAmount);
+                mdw.find(".item_4").html(data.CrtPriceRang);
+                var cam = 0;
+                $("#mdw_" + oid + " .item_1 input").not(":checked").each(function() { 
+                    cam+=Number($(this).parent().parent().find(".item_8").text());
+                });
+                
+                $("#am_" + oid).text(data.CrtOrderAmount-cam);
             },
             error: function(req, state, err) {
                 $("body").append(req.responseText);
@@ -22,6 +28,7 @@
     }
 
     $(".item_6 a").click(function() {
+        if ($(this).attr("disabled")) return;
         var ipt = $(this).parent().find("input");
         var num = 1;
         if ($.trim($(this).text()) == "+") {
@@ -46,6 +53,7 @@
         var pid = $(this).attr("pid");
         var oid = $(this).attr("oid");
         var ind = $(this).attr("ind");
+        var mdw = $("#mdw_" + oid + " .pro_item_wrap[ind=" + ind + "]");
         $.ajax({
             url: "action.aspx",
             type: "POST",
@@ -53,12 +61,16 @@
             dataType: "json",
             success: function(data, state) {
                 if (data.CrtOrderAmount == 0) {
-                    $("#odhd_" + oid + ",#odwp_" + ind + ",#odbt_" + oid).slideUp(300, function() {
+                    $("#odhd_" + oid + ",#mdw_" + oid + ",#odbt_" + oid).slideUp(300, function() {
                         $(this).remove();
                     });
                 } else {
-                    $("#am_" + oid).text(data.CrtOrderAmount);
-                    $("#odwp_" + ind).slideUp(300, function() {
+                    var cam = 0;
+                    $("#mdw_" + oid + " .item_1 input").not(":checked").each(function() {
+                        cam += Number($(this).parent().parent().find(".item_8").text());
+                    });
+                    $("#am_" + oid).text(data.CrtOrderAmount-cam);
+                    mdw.slideUp(300, function() {
                         $(this).remove();
                     });
                 }
@@ -69,20 +81,45 @@
         });
     });
 
+    var chkclick = function(obj) {
+        var ind = $(obj).attr("ind");
+        var oid = $(obj).attr("oid");
+        var mdw = $("#mdw_" + oid + " .pro_item_wrap[ind=" + ind + "]");
+        var amount = Number($("#am_" + oid).text()); //当前订单总额
+        var cam = Number(mdw.find(".item_8").text()); //当前产品项金额
+        if (!$(obj).attr("checked")) {
+            $("#odbt_" + oid + " .btm_left input").removeAttr("checked");
+            mdw.css("background-color", "#f0f0f0");
+            mdw.find(".item_6 a").attr("disabled", "disabled");
+            $("#am_" + oid).text(amount - cam);
+        } else {
+            mdw.css("background-color", "#e2f2ff");
+            mdw.find(".item_6 a").removeAttr("disabled");
+            $("#am_" + oid).text(amount + cam);
+        }
+    }
+
     //全选
     $(".btm_left input").click(function() {
-        $(".item_1 input[oid=" + $(this).attr("oid") + "]").attr("checked", $(this).attr("checked"))
+        var oid = $(this).attr("oid");
+        if ($(this).attr("checked"))
+            $("#am_" + oid).text("0");
+        $(".item_1 input[oid=" + oid + "]").attr("checked", $(this).attr("checked")).each(function() {
+            chkclick(this)
+        });
     });
 
     $(".item_1 input").click(function() {
-        if (!$(this).attr("checked")) {
-            $("#odbt_" + $(this).attr("oid") + " .btm_left input").removeAttr("checked");
-        }
+        chkclick(this)
     });
 
     //删除所选
     $(".del_chk").click(function() {
-        chgNum();
+        var oid = $(this).attr("oid");
+        var mdw = $("#mdw_" + oid + " .pro_item_wrap");
+        mdw.find(".item_1 input:checked").each(function() {
+            mdw.find(".item_9 a[ind=" + $(this).attr("ind") + "]").click();
+        });
         return false;
     });
 
