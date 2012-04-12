@@ -29,26 +29,28 @@
             <div class="title_bar" id="odhd_<%#Eval("id") %>">
                 <div class="filed_left">供应商：<a href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank"><%#Eval("CompanyName") %></a> <a href="http://wpa.qq.com/msgrd?v=3&uin=416351551&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('在线洽谈');" src="http://wpa.qq.com/pa?p=2:416351551:4" alt="给我留言" /><span>给我留言</span></a></div><div class="filed_right"><span>本店不支持混批</span> <a href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank">继续采购</a></div>
             </div>
-            <asp:Repeater ID="Repeater2" runat="server">
-                <ItemTemplate>
-                    <div class="pro_item_wrap" id="odwp_<%#Container.ItemIndex %>">
-                        <div class="item_1"><input oid="<%#Eval("orderid") %>" type="checkbox" checked />&nbsp;</div>
-                        <div class="item_2"><img width="56" height="56" src="http://i02.c.aliimg.com/img/ibank/2012/887/740/491047788_1135752292.summ.jpg" /></div>
-                        <div class="item_3"><a href="#"><%#Eval("proname") %></a></div>
-                        <div class="item_4">
-                            <%#Eval("PriceRang") %>
+            <div class="mid_wrap" id="mdw_<%#Eval("id") %>">
+                <asp:Repeater ID="Repeater2" runat="server">
+                    <ItemTemplate>
+                        <div class="pro_item_wrap" ind="<%#Container.ItemIndex %>">
+                            <div class="item_1"><input ind="<%#Container.ItemIndex %>" oid="<%#Eval("orderid") %>" type="checkbox" checked />&nbsp;</div>
+                            <div class="item_2"><img width="56" height="56" src="http://i02.c.aliimg.com/img/ibank/2012/887/740/491047788_1135752292.summ.jpg" /></div>
+                            <div class="item_3"><a href="#"><%#Eval("proname") %></a></div>
+                            <div class="item_4">
+                                <%#Eval("PriceRang") %>
+                            </div>
+                            <div class="item_5">×</div>
+                            <div class="item_6" oid="<%#Eval("orderid") %>" ind="<%#Container.ItemIndex %>"><a pid="<%#Eval("productid") %>" href="javascript:void(0);"> -</a>&nbsp;<input pid="<%#Eval("productid") %>" value="<%#Eval("proNum") %>" />&nbsp;<a href="javascript:void(0);"  pid="<%#Eval("productid") %>">+</a></div>
+                            <div class="item_7"> ＝</div>
+                            <div class="item_8"><%#Eval("amount") %></div>
+                            <div class="item_9"><a href="javascript:void(0)" oid="<%#Eval("orderid") %>" ind="<%#Container.ItemIndex %>" pid="<%#Eval("productid") %>">删除</a></div>
                         </div>
-                        <div class="item_5">×</div>
-                        <div class="item_6" oid="<%#Eval("orderid") %>" ind="<%#Container.ItemIndex %>"><a pid="<%#Eval("productid") %>" href="javascript:void(0);"> -</a>&nbsp;<input pid="<%#Eval("productid") %>" value="<%#Eval("proNum") %>" />&nbsp;<a href="javascript:void(0);"  pid="<%#Eval("productid") %>">+</a></div>
-                        <div class="item_7"> ＝</div>
-                        <div class="item_8"><%#Eval("amount") %></div>
-                        <div class="item_9"><a href="javascript:void(0)" oid="<%#Eval("orderid") %>" ind="<%#Container.ItemIndex %>" pid="<%#Eval("productid") %>">删除</a></div>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
             <div class="pro_item_wrap item_bottom" id="odbt_<%#Eval("id") %>">
-                <div class="btm_left"><input type="checkbox" oid="<%#Eval("id") %>" id="chk_<%#Container.ItemIndex %>" checked /><label for="chk_1">全选</label> <a class="del_chk" href="javascript:void(0);">删除所选 </a></div>
-                <p class="btm_right">货品金额总计(不包含运费)：<span class="amount" id="am_<%#Eval("id") %>"><%#Eval("amount") %></span>元<span class="margin_1em"></span><a class="make_order" href="javascript:void(0);"><span>确认下单</span></a></p>
+                <div class="btm_left"><input type="checkbox" oid="<%#Eval("id") %>" id="chk_<%#Container.ItemIndex %>" checked /><label for="chk_1">全选</label> <a class="del_chk" oid="<%#Eval("id") %>" href="javascript:void(0);">删除所选 </a></div>
+                <p class="btm_right">货品金额总计(不包含运费)：<span class="amount" id="am_<%#Eval("id") %>"><%#Eval("amount") %></span>元<span class="margin_1em"></span><a class="make_order" id="odbt_<%#Eval("id") %>" href="javascript:void(0);"><span>确认下单</span></a></p>
             </div>
         </ItemTemplate>
     </asp:Repeater>
