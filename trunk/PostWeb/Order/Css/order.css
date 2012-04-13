@@ -86,6 +86,6 @@ div.fd_pro_name{width:386px; background-position:-1px 0;}
 .btm_m{width:478px;float:left;}
 .btm_r{margin-left:550px;_margin-left:547px; text-align:right;}
 .btm_r span{font-weight:bold;color:#ff7300;font-size:16px;}
-.btm_m textarea{width:474px;height:106px;font-size:12px;color:Gray;}
+.btm_m textarea{width:474px;height:106px;font-size:12px;color:Gray; overflow:auto;}
 .sub_wrap{text-align:right;margin-bottom:10px;}
 .norecord{display:none;}
