@@ -52,24 +52,19 @@
     <div class="lt_wrap">
         <div class="filed_wrap"><div class="fd_pro_name">货品</div><div class="fd_weight">总重量（公斤）</div><div class="fd_freight">运费（元）</div><div class="fd_price">单价（元）</div><div class="fd_num">数量</div><div class="fd_amount">金额（元）</div></div>
         <div class="p_d_ctn">
-            <div class="dt_item">
-                <div class="tdi_1"><img width="47" src="http://i02.c.aliimg.com/img/ibank/2012/887/740/491047788_1135752292.summ.jpg" /></div>
-                <div class="tdi_2"><a href="#">（厂家直销）袋装洗手液500ml袋装抑菌洗手液招商代理加盟总经销</a></div>
-                <div class="tdi_3">--</div>
-                <div class="tdi_4"><p><b>总计：0.00</b></p><p>卖家承担运费</p></div>
-                <div class="tdi_5">2.50</div>
-                <div class="tdi_6"><p><b>2000</b></p><p>（可售10000000瓶）</p></div>
-                <div class="tdi_7">5000.00</div>                
-            </div>
-            <div class="dt_item">
-                <div class="tdi_1"><img width="47" src="http://i03.c.aliimg.com/img/ibank/2011/193/760/422067391_1135752292.summ.jpg" /></div>
-                <div class="tdi_2"><a href="#">（厂家直销）袋装洗手液500ml袋装抑菌洗手液招商代理加盟总经销</a></div>
-                <div class="tdi_3">--</div>
-                <div class="tdi_4"><p><b>总计：0.00</b></p><p>卖家承担运费</p></div>
-                <div class="tdi_5">2.50</div>
-                <div class="tdi_6"><p><b>2000</b></p><p>（可售10000000瓶）</p></div>
-                <div class="tdi_7">5000.00</div>                
-            </div>
+            <asp:Repeater ID="Repeater1" runat="server">
+                <ItemTemplate>
+                    <div class="dt_item">
+                        <div class="tdi_1"><img width="47" src="http://i02.c.aliimg.com/img/ibank/2012/887/740/491047788_1135752292.summ.jpg" /></div>
+                        <div class="tdi_2"><a href="#"><%#Eval("proname") %></a></div>
+                        <div class="tdi_3">--</div>
+                        <div class="tdi_4"><p><b>总计：<%#Eval("amount") %></b></p><p>卖家承担运费</p></div>
+                        <div class="tdi_5">2.50</div>
+                        <div class="tdi_6"><p><b>2000</b></p><p>（可售10000000瓶）</p></div>
+                        <div class="tdi_7">5000.00</div>            
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
     </div>
     <div class="btm_wrap">
