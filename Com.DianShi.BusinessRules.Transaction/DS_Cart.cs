@@ -121,7 +121,7 @@ namespace Com.DianShi.BusinessRules.Transaction
         }
 
         public OrderInfo Del(string ids) {
-            OrderInfo odif;
+            OrderInfo odif=null;
             foreach (var item in ids.Split(','))
             {
                 odif = Del(int.Parse(item));
