@@ -140,8 +140,8 @@
                 url:"action.aspx",
                 type:"POST",
                 data:{action:"dels",ids:ids},
-                success:function(data,state){
-                    location="Make_Order.aspx";
+                success: function (data, state) {
+                    location="Make_Order.aspx?oid="+oid;
                 },
                 error:function(req,state,err){
                     alert("抱歉，确认订单出错，请联系客服人员。")
@@ -154,7 +154,7 @@
                 }
             });
         }else{
-            location="Make_Order.aspx";
+            location = "Make_Order.aspx?oid=" + oid;
         }
         
         return false;

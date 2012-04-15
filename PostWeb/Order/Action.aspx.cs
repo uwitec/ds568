@@ -26,6 +26,10 @@ public partial class Order_Action : System.Web.UI.Page
                 odinfo=ud.ShoppingCart.Del(int.Parse(Request.Form["id"]));
                 Response.Write(js.Serialize(odinfo));
                 break;
+            case "dels":
+                odinfo = ud.ShoppingCart.Del(Request.Form["ids"].TrimEnd(','));
+                Response.Write(js.Serialize(odinfo));
+                break;
         }
     }
 }
