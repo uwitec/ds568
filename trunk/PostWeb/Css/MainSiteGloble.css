@@ -39,6 +39,6 @@ div.areaDiv:hover ul{display:block;}
 /*------顶部共同部分，包括搜索栏--------*/
 /*------底部共同部分--------*/
 .spLine{height:2px;width:950px;float:left;background-color:#ff7300;margin-top:8px;overflow:hidden;}
-.footer{overflow:auto;zoom:1;width:948px;float:left;margin-top:8px; text-align:center;}
+.footer{overflow:auto;zoom:1;width:948px;float:left;margin-top:8px;margin-bottom:26px; text-align:center;}
 /*------底部共同部分--------*/
 .mainContent{margin-top:7px;}
