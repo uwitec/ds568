@@ -106,7 +106,7 @@
                 <ul>
                     <li><a surl="home" href="../home/index_home.aspx">首页</a></li>
                     <li><a surl="product" href="../product/index_product.aspx">供应产品</a></li>
-                    <li><a surl="nourl" href="javascript:;alert('诚信档案尚未开放，请稍后访问。')">诚信档案</a></li>
+                    <%--<li><a surl="nourl" href="javascript:;alert('诚信档案尚未开放，请稍后访问。')">诚信档案</a></li>--%>
                     <li><a surl="profile" href="../profile/index_profile.aspx">公司介绍</a></li>
                     <li><a surl="album" href="../album/index_album.aspx">我的相册</a></li>
                     <li><a surl="news" href="../news/index_news.aspx">公司新闻</a></li>
