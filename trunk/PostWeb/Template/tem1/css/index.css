@@ -118,7 +118,7 @@
 .pPicTop img{max-width:312px;max-height:312px;_autosize:expression(changeImg(this,312,312));}
 .pPicBottom{width:230px; margin:0 auto;margin-top:12px;}
 .pPicBottom  li{float:left;height:58px;width:58px;overflow:hidden;line-height:58px;text-align:center;border:solid 1px #ddd;}
-.pPicBottom  li div{width:56px;height:56px;_font-size:50px; text-align:left;padding:1px; display:table-cell;vertical-align:middle;}
+.pPicBottom  li div{width:56px;height:56px;_font-size:50px; text-align:center;padding:1px; display:table-cell;vertical-align:middle;}
 .pPicBottom  li.lisplit{width:20px;border:none 0;}
 .pPicBottom li img{max-width:56px;max-height:56px;_autosize:expression(changeImg(this,56,56));}
 .thrumFrame{background-image:url(../images/thrumFrame.gif);width:60px;height:64px; position:absolute;display:none}
