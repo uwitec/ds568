@@ -110,11 +110,11 @@ public partial class Member_Manage_CompanyInfo_BaseInfo : BasePage
             md.MainIndustry = MainIndu;
             md.Profile = profile;
             bl.Update(md);
-            Common.MessageBox.Show(this, "保存成功", Common.MessageBox.InfoType.info, "function(){location='baseinfo.aspx'}");
+            Common.MessageBox.ShowAndRedirect(this, "保存成功", "baseinfo.aspx");
         }
         catch (Exception ex) {
             Common.WriteLog.SetErrLog(Request.Url.ToString(), "Button1_Click", ex.Message);
-            Common.MessageBox.Show(this, "保存出错", Common.MessageBox.InfoType.error, "history.back");
+            Common.MessageBox.ResponseScript(this, "alert('保存出错');history.back();");
         }
     }
 }
