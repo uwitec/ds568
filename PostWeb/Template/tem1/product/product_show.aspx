@@ -234,11 +234,11 @@
                                     <ItemTemplate>
                                         <div>
                                             <ul>
-                                                <li ><a class="linkImg" href="product_show.aspx?member_id=<%#Request.QueryString["member_id"] %>&pro_id=<%#Eval("id") %>">
+                                                <li ><a class="linkImg" href="product_show.aspx?pro_id=<%#Eval("id") %>">
                                                     <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
                                                         onload="changeImg(this,100,100)" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
                                                     <h4>
-                                                        <a href="#" title="UK2升级版UK2B 音乐天使最新产品 外置电池 礼品音箱"><%#Eval("title") %></a></h4>
+                                                        <a href="product_show.aspx?pro_id=<%#Eval("id") %>" title="<%#Eval("title") %>"><%#Eval("title") %></a></h4>
                                                     <p class="fontSize14">
                                                         ¥ <em class="Amount  bold"><%#double.Parse(Eval("priceRang").ToString().Split('|')[0].Split(',')[1]).ToString("N2") %></em><br />
                                                     </p>
