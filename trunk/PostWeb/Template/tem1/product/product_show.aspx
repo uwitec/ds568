@@ -89,7 +89,7 @@
                                 <dd class="dd001">
                                     &nbsp;</dd>
                                 <dd class="d-btn-buy">
-                                    <a title="点击此按钮，到下一步确认购买信息。" href="javascript:void(0);">立即购买</a>
+                                    <a title="点击此按钮，到下一步确认购买信息。" pid="<%=Request.QueryString["pro_id"] %>" id="J_LinkOrder" href="javascript:void(0);">立即购买</a>
                                 </dd>
                                 <dd class="d-btn-add">
                                     <a title="加入进货单"  href="javascript:void(0);" pid="<%=Request.QueryString["pro_id"] %>" id="J_LinkPurchase">加入进货单</a>

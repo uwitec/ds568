@@ -99,23 +99,27 @@ $(document).ready(function() {
         $("#txtOrderNum").val(prs[0].split(',')[0]); //最低起订量
     }
 
-    //加入进货单
-    $("#J_LinkPurchase").click(function() {
+    //加入进货单或立即订购
+    $("#J_LinkPurchase,#J_LinkOrder").click(function() {
         var id = $(this).attr("pid");
+        var lkid = this.id;
         $.ajax({
             url: "action.aspx",
             type: "POST",
             dataType: "json",
             data: { action: "add_pur", id: id, num: $("#txtOrderNum").val() },
             success: function(data, state) {
-                $(".ri_2 b").text(data.PurTotalCount);
-                $(".ri_2 span").text(data.PurTotalAmount);
-                $(".pur_panel_Left,.ri_1,.ri_2,.ri_3").removeClass("hidden");
-                $(".pur_panel_Right").removeClass("loading3");
+                if (lkid == "J_LinkPurchase") {
+                    $(".ri_2 b").text(data.PurTotalCount);
+                    $(".ri_2 span").text(data.PurTotalAmount);
+                    $(".pur_panel_Left,.ri_1,.ri_2,.ri_3").removeClass("hidden");
+                    $(".pur_panel_Right").removeClass("loading3");
+                } else {
+                    location = "/order/Make_Order.aspx?oid=" + data.ID;
+                }
             },
             error: function(req, state, err) {
-                $("body").append(req.responseText);
-                //alert(err);
+                alert(err);
             },
             beforeSend: function() {
                 $(".add_pur_wrap").show();
@@ -126,14 +130,16 @@ $(document).ready(function() {
 
             }
         });
+        return false;
     });
 
     //关闭成功加入进货单提示
     $(".ri_0 a,.pur_buy").click(function() {
         $(".add_pur_wrap").hide(300);
     });
-    
+
     //查看进货单
-    $(".pur_view").click(function(){$(".ri_0 a,.pur_buy").click();});
+    $(".pur_view").click(function() { $(".ri_0 a,.pur_buy").click(); });
+
 });
   
