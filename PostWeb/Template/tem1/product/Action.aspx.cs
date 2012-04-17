@@ -14,17 +14,17 @@ public partial class Template_tem1_product_Action : ShopBasePage
             string act = Request["action"];
             if (!string.IsNullOrEmpty(act))
             {
+                UserData ud = Session["UserData"] as UserData;
+                var js = new System.Web.Script.Serialization.JavaScriptSerializer();
                 switch (act)
                 {
                     case "add_pur":
-                        UserData ud = Session["UserData"] as UserData;
                         if (!UserData.ChkObjNull(UserData.ObjType.购物车))
                         {
                             ud = Session["UserData"] as UserData;
                             ud.ShoppingCart = new DS_Cart();
                         }
                         var odinfo =ud.ShoppingCart.Add(int.Parse(Request.Form["id"]), int.Parse(Request.Form["num"]));
-                        var js = new System.Web.Script.Serialization.JavaScriptSerializer();
                         Response.Write(js.Serialize(odinfo));
                         break;
                 }
