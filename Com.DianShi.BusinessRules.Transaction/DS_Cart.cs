@@ -32,6 +32,7 @@ namespace Com.DianShi.BusinessRules.Transaction
             OrderDetail.ProductID = ProductID;
             OrderDetail.Price = GetPrice(product.PriceRang,ProNum);
             OrderDetail.ProName = product.Title;
+            OrderDetail.ImgUrl = product.Img1;
             OrderDetail.Amount = Math.Round(double.Parse(ProNum.ToString()) * OrderDetail.Price);
             OrderDetail.PriceRang = GetPriceRang(product.PriceRang, ProNum);
             return OrderDetail;
@@ -51,20 +52,23 @@ namespace Com.DianShi.BusinessRules.Transaction
             var orderDetail = CreateOrderDetail(ProductID,ProNum);
             odinfo.CrtPriceRang=orderDetail.PriceRang;
             var productbl = new DS_ProductsDataContext(DBUtility.DbHelperSQL.Connection);
-            var memberbl = new DS_CompanyInfoDataContext(DBUtility.DbHelperSQL.Connection);
+            var memberbl = new View_MembersDataContext(DBUtility.DbHelperSQL.Connection);
             var product = productbl.DS_Products.Single(a=>a.ID.Equals(orderDetail.ProductID));
             var existod=Orders.Where(a=>a.MemberID.Equals(product.MemberID));
             if (existod.Count().Equals(0))//检查订单中是否存在相同公司
             {
                 var order = new DS_Orders();
                 order.MemberID = product.MemberID;
-                order.CompanyName = memberbl.DS_CompanyInfo.Single(a=>a.MenberID.Equals(product.MemberID)).CompanyName;
+                var member = memberbl.View_Members.Single(a=>a.ID.Equals(product.MemberID));
+                order.CompanyName = member.CompanyName;
+                order.QQ = member.QQ;
                 order.ProNum = orderDetail.ProNum;
                 order.PurchaseID = 0;
                 order.Amount = orderDetail.Amount;
                 order.CreateDate = DateTime.Now;
                 order.OrderNum = string.Empty;
                 order.ID = id++;
+                odinfo.ID = order.ID;
                 Orders.Add(order);
                 orderDetail.OrderID = order.ID;
                 OrderDetail.Add(orderDetail);
@@ -72,6 +76,7 @@ namespace Com.DianShi.BusinessRules.Transaction
             else {
                 var order = existod.Single();
                 orderDetail.OrderID = order.ID;
+                odinfo.ID = order.ID;
                 //检查购物车中是否已存在相同商品
                 var existoddt = OrderDetail.Where(a=>a.ProductID.Equals(orderDetail.ProductID));
                 if (existoddt.Count().Equals(0))
@@ -200,30 +205,34 @@ namespace Com.DianShi.BusinessRules.Transaction
         }
 
        public class OrderInfo {
-            /// <summary>
-            /// 进货单总产品数
-            /// </summary>
-            public int PurTotalCount { get; set; }
+           /// <summary>
+           /// 进货单总产品数
+           /// </summary>
+           public int PurTotalCount { get; set; }
 
-            /// <summary>
-            /// 当前产品ID所对应的总金额
-            /// </summary>
-            public double CrtProAmount { get; set; }
+           /// <summary>
+           /// 当前产品ID所对应的总金额
+           /// </summary>
+           public double CrtProAmount { get; set; }
 
-            /// <summary>
-            /// 进货单总金额
-            /// </summary>
-            public double PurTotalAmount { get; set; }
+           /// <summary>
+           /// 进货单总金额
+           /// </summary>
+           public double PurTotalAmount { get; set; }
 
-            /// <summary>
-            /// 当前订单总金额
-            /// </summary>
-            public double CrtOrderAmount { get; set; }
+           /// <summary>
+           /// 当前订单总金额
+           /// </summary>
+           public double CrtOrderAmount { get; set; }
 
-            /// <summary>
-            /// 当前订单价格区间字符串
-            /// </summary>
-            public string CrtPriceRang { get; set; }
+           /// <summary>
+           /// 当前订单价格区间字符串
+           /// </summary>
+           public string CrtPriceRang { get; set; }
+           /// <summary>
+           /// 
+           /// </summary>
+           public int ID { get; set; }
         } 
     }
 
