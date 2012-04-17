@@ -27,14 +27,14 @@
     <asp:Repeater ID="Repeater1" runat="server">
         <ItemTemplate>
             <div class="title_bar" id="odhd_<%#Eval("id") %>">
-                <div class="filed_left">供应商：<a href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank"><%#Eval("CompanyName") %></a> <a href="http://wpa.qq.com/msgrd?v=3&uin=416351551&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('在线洽谈');" src="http://wpa.qq.com/pa?p=2:416351551:4" alt="给我留言" /><span>给我留言</span></a></div><div class="filed_right"><span>本店不支持混批</span> <a href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank">继续采购</a></div>
+                <div class="filed_left">供应商：<a href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank"><%#Eval("CompanyName") %></a> <a href="http://wpa.qq.com/msgrd?v=3&uin=<%#Eval("qq") %>&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('在线洽谈');" src="http://wpa.qq.com/pa?p=2:<%#Eval("qq") %>:4" alt="给我留言" /><span>给我留言</span></a></div><div class="filed_right"><span>本店不支持混批</span> <a href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank">继续采购</a></div>
             </div>
             <div class="mid_wrap" id="mdw_<%#Eval("id") %>">
                 <asp:Repeater ID="Repeater2" runat="server">
                     <ItemTemplate>
                         <div class="pro_item_wrap" ind="<%#Container.ItemIndex %>">
                             <div class="item_1"><input ind="<%#Container.ItemIndex %>" oid="<%#Eval("orderid") %>" pid="<%#Eval("productid") %>" type="checkbox" checked />&nbsp;</div>
-                            <div class="item_2"><img width="56" height="56" src="http://i02.c.aliimg.com/img/ibank/2012/887/740/491047788_1135752292.summ.jpg" /></div>
+                            <div class="item_2"><img onload="changeImg(this,56,100)" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'" src="<%#Eval("imgurl") %>"  /></div>
                             <div class="item_3"><a href="#"><%#Eval("proname") %></a></div>
                             <div class="item_4">
                                 <%#Eval("PriceRang") %>

@@ -21,6 +21,7 @@ public partial class Order_Make_Order : System.Web.UI.Page
                 ViewState["comName"] = order.CompanyName;
                 ViewState["amount"] = order.Amount;
                 ViewState["memberid"] = order.MemberID;
+                ViewState["qq"] = order.QQ;
             }
         //}
         //catch {
