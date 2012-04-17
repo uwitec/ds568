@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Database Name="DianShi" Class="DS_OrdersDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\MYSQLEXPRESS;Initial Catalog=DianShi;Integrated Security=True" SettingsObjectName="Com.DianShi.Model.Transaction.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
+<Database Name="hds0230549_db" Class="DS_OrdersDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=hds-023.hichina.com;Initial Catalog=hds0230549_db;Persist Security Info=True;User ID=hds0230549" SettingsObjectName="Com.DianShi.Model.Transaction.Properties.Settings" SettingsPropertyName="hds0230549_dbConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DS_Orders" Member="DS_Orders">
     <Type Name="DS_Orders">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
-      <Column Name="OrderNum" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CompanyName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="PurchaseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ProNum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNum" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="QQ" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
