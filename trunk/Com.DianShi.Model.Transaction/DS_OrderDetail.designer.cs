@@ -82,9 +82,9 @@ namespace Com.DianShi.Model.Transaction
 		
 		private int _ID;
 		
-		private System.Nullable<int> _OrderID;
+		private int _OrderID;
 		
-		private System.Nullable<int> _ProductID;
+		private int _ProductID;
 		
 		private string _ProName;
 		
@@ -104,9 +104,9 @@ namespace Com.DianShi.Model.Transaction
     partial void OnCreated();
     partial void OnIDChanging(int value);
     partial void OnIDChanged();
-    partial void OnOrderIDChanging(System.Nullable<int> value);
+    partial void OnOrderIDChanging(int value);
     partial void OnOrderIDChanged();
-    partial void OnProductIDChanging(System.Nullable<int> value);
+    partial void OnProductIDChanging(int value);
     partial void OnProductIDChanged();
     partial void OnProNameChanging(string value);
     partial void OnProNameChanged();
@@ -147,8 +147,8 @@ namespace Com.DianShi.Model.Transaction
 			}
 		}
 		
-		[Column(Storage="_OrderID", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> OrderID
+		[Column(Storage="_OrderID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int OrderID
 		{
 			get
 			{
@@ -167,8 +167,8 @@ namespace Com.DianShi.Model.Transaction
 			}
 		}
 		
-		[Column(Storage="_ProductID", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> ProductID
+		[Column(Storage="_ProductID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int ProductID
 		{
 			get
 			{

@@ -4,8 +4,8 @@
   <Table Name="dbo.DS_OrderDetail" Member="DS_OrderDetail">
     <Type Name="DS_OrderDetail">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
-      <Column Name="OrderID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ProductID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ProName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="ProNum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
