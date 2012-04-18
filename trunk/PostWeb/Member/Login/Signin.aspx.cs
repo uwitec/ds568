@@ -24,8 +24,8 @@ public partial class Member_Login_login : System.Web.UI.Page
         {
             string uid=Request.Form["uid"] as string;
             string pwd=Request.Form["pwd"] as string;
-            if (string.IsNullOrEmpty(uid)||string.IsNullOrEmpty(pwd)) { 
-                Common.MessageBox.Show(this,"请输入会员登录名和密码",Common.MessageBox.InfoType.warning,"history.back");
+            if (string.IsNullOrEmpty(uid)||string.IsNullOrEmpty(pwd)) {
+                Common.MessageBox.ResponseScript(this,"alert('请输入会员登录名和密码');history.back();");
                 return;
             }
             var bl = new DS_Members_Br();
@@ -34,17 +34,24 @@ public partial class Member_Login_login : System.Web.UI.Page
             md.Password = pwd;
             if (bl.Login(ref md))
             {
-                Session["UserData"] = new UserData { Member = md };
-                Response.Redirect(Resources.Constant.ManagePage);
+
+                UserData.ChkObjNull(UserData.ObjType.会员信息);
+                var ud =Session["UserData"] as UserData;
+                ud.Member = md;
+                string url=Request.QueryString["return_url"];
+                if(string.IsNullOrEmpty(url))
+                    Response.Redirect(Resources.Constant.ManagePage);
+                else
+                    Response.Redirect(url);
             }
             else
             {
-                Common.MessageBox.Show(this, "用户名或密码错误", Common.MessageBox.InfoType.warning, "history.back");
+                Common.MessageBox.ResponseScript(this, "alert('用户名或密码错误');history.back();");
             }
         }
         catch (Exception ex)
         {
-            Common.MessageBox.Show(this, "抱歉，登录发生意外，可联系客服人员寻找帮助", Common.MessageBox.InfoType.error, "history.back");
+            Common.MessageBox.ResponseScript(this, "alert('抱歉，登录发生意外，可联系客服人员提供帮助');history.back();");
         }
     }
 }
