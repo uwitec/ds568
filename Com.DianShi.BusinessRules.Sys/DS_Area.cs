@@ -115,6 +115,44 @@ namespace Com.DianShi.BusinessRules.Area
             else
                 return AreaName;
         }
+
+        /// <summary>
+        /// 排序
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="IsUp"></param>
+        public void Sort(int ID, bool IsUp)
+        {
+            using (var ct = new DS_AreaDataContext(DbHelperSQL.Connection))
+            {
+                var md = ct.DS_Area.Single(a => a.ID == ID);
+                ct.ExecuteCommand("update DS_Area  set px=(select RowNumber from (select (ROW_NUMBER() OVER (ORDER BY px)) AS RowNumber,id from DS_Area where  ParentID={0}) as p2 where id=DS_Area.id) where ParentID={0}", md.ParentID);
+                if (IsUp)
+                {
+                    DS_Area p = ct.DS_Area.Single(a => a.ID == ID);
+                    DS_Area p1;
+                    if (p.Px > 1)
+                    {
+                        p1 = ct.DS_Area.Single(a => a.Px == (p.Px - 1) && a.ParentID == md.ParentID);
+                        p.Px--;
+                        p1.Px++;
+                    }
+
+                }
+                else
+                {
+                    DS_Area p = ct.DS_Area.Single(a => a.ID == ID);
+                    DS_Area p1;
+                    if (p.Px < ct.DS_Area.Where(a => a.ParentID == md.ParentID).Count())
+                    {
+                        p1 = ct.DS_Area.Single(a => a.Px == (p.Px + 1) && a.ParentID == md.ParentID);
+                        p.Px++;
+                        p1.Px--;
+                    }
+                }
+                ct.SubmitChanges();
+            }
+        }
      
     }
 }
