@@ -23,13 +23,15 @@ public partial class DSAdmin_Area_list : System.Web.UI.Page
         ToolBar1.AddBtn("添加", new EventHandler(Add));
         
         if (IsPostBack) return;
-        BindDate("");
+        BindDate("parentid=0");
        
     }
      
     private void BindDate(string sql, params object[] param)
     {
-        
+        var bl=new DS_Area_Br();
+        Repeater1.DataSource = bl.Query(sql,"px",param);
+        Repeater1.DataBind();
     } 
 
     private void Add(object sender,EventArgs e) {
@@ -74,8 +76,14 @@ public partial class DSAdmin_Area_list : System.Web.UI.Page
         }
     }
 
-  
-    
+
+    protected void LinkButtonPx_Click(object sender, EventArgs e)
+    {
+        var lb = (LinkButton)sender;
+        var bl = new DS_Area_Br();
+        bl.Sort(int.Parse(lb.Attributes["pid"]), bool.Parse(lb.Attributes["cn"]));
+        BindDate(ViewState["sql"].ToString(),(object[])ViewState["param"]);
+    }
 
     
 

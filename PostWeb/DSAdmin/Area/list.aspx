@@ -17,8 +17,42 @@
 <body>
     <form id="form1" runat="server">
     <Custom:ToolBar runat="server" ID="ToolBar1" />
-    <asp:TreeView ID="TreeView1" runat="server">
-    </asp:TreeView>
+   <table  border="0" class="tabList" align="center" cellpadding="0" cellspacing="1">
+        <tr class="tbhead">
+            <td width="60" align=center>
+                全<input type="checkbox" id="chkall" />选
+            </td>
+            
+            <td>
+               地区名称
+            </td>
+            <td>
+                排序
+            </td>
+        </tr>
+        <asp:Repeater ID="Repeater1" runat="server">
+            <ItemTemplate>
+                <tr>
+                <td>
+                    <div align="center">
+                        <input name="checkboxid" type="checkbox" value="<%#Eval("ID") %>" />
+                    </div>
+                </td>
+                <td>
+                   <%#Eval("AreaName")%>
+                </td>
+                <td>
+                    <div class="order">
+                        <asp:LinkButton ID="LinkButton1" OnClick="LinkButtonPx_Click" pid='<%#Eval("ID")%>' ToolTip="置上" cn="True" CssClass="pxup" runat="server">&nbsp;</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton2" OnClick="LinkButtonPx_Click" pid='<%#Eval("ID")%>' ToolTip="置下" cn="False" CssClass="pxdown" runat="server">&nbsp;</asp:LinkButton>
+                    </div>
+                </td>
+            </tr>
+            </ItemTemplate>
+        </asp:Repeater>
+      
+    </table>
+    
     </form>
 </body>
 </html>
