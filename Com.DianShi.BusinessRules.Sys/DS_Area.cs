@@ -34,17 +34,33 @@ namespace Com.DianShi.BusinessRules.Sys
             using (var ct = new DS_AreaDataContext(DbHelperSQL.Connection))
             {
                 var st = ct.DS_Area.Single(a => a.ID == ID);
+                var list = ct.DS_Area.Where(a=>a.ParentID.Equals(st.ID));
+                if (list.Count() > 0)
+                {
+                    foreach (var item in list)
+                    {
+                        Delete(item.ID);
+                    }
+                }
                 ct.DS_Area.DeleteOnSubmit(st);
                 ct.SubmitChanges();
+                
             }
         }
 
         public void Delete(string Ids)
         {
+            string[] idarray = Ids.Split(',');
+            foreach (var item in idarray)
+            {
+                Delete(int.Parse(item));
+            }
+           
+        }
+
+        private void delSub(List<DS_Area> list) {
             using (var ct = new DS_AreaDataContext(DbHelperSQL.Connection))
             {
-                string[] idarray = Ids.Split(',');
-                var list = ct.DS_Area.Where(a => idarray.Contains(a.ID.ToString()));
                 ct.DS_Area.DeleteAllOnSubmit(list);
                 ct.SubmitChanges();
             }
@@ -107,7 +123,7 @@ namespace Com.DianShi.BusinessRules.Sys
         public string GetAreaName(int ID, bool IsFirst)
         {
             var md = GetSingle(ID);
-            string AreaName = IsFirst ? "" : md.AreaName + ">";
+            string AreaName = IsFirst ? "" : "<a href='?id="+ID+"'>"+md.AreaName + "</a> > ";
             if (!md.ParentID.Equals(0))
             {
                 return GetAreaName(md.ParentID, false) + AreaName;
