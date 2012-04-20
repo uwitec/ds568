@@ -7,7 +7,7 @@ using System.Data.Common;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Sys;
 using DBUtility;
-namespace Com.DianShi.BusinessRules.Area
+namespace Com.DianShi.BusinessRules.Sys
 {
     public class DS_Area_Br :BllBase
     {
