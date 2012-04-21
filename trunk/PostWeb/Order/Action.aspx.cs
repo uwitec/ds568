@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Com.DianShi.BusinessRules.Transaction;
+using Com.DianShi.BusinessRules.Sys;
 public partial class Order_Action : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -29,6 +30,10 @@ public partial class Order_Action : System.Web.UI.Page
             case "dels":
                 odinfo = ud.ShoppingCart.Del(Request.Form["ids"].TrimEnd(','));
                 Response.Write(js.Serialize(odinfo));
+                break;
+            case "chgarea":
+                var bl = new DS_Area_Br();
+                Response.Write(js.Serialize(bl.Query("parentid=@0","px",int.Parse(Request["id"]))));
                 break;
         }
     }

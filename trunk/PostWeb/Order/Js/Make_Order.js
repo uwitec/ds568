@@ -2,7 +2,7 @@
 
     //-----------验证开始------------
     $.validator.addMethod("chkone", function(value, element) {//手机和固话必填一项
-        if ($(".phone").val().replace("区号-电话号码-分机","") == "" && $(".mobile").val() == "") {
+        if ($(".phone").val().replace("区号-电话号码-分机", "") == "" && $(".mobile").val() == "") {
             return false;
         } else
             return true;
@@ -25,6 +25,15 @@
         "请输入正确的手机号码"
     );
 
+    $.validator.addMethod("varea", function(value, element) {//验证地区
+        if ($("select[name=province]").val() == "" || $("select[name=city]").val() == "" || $("select[name=town]").val() == "") {
+            return false;
+        } else
+            return true;
+    },
+        "请选择完整的地区"
+    );
+
 
     var fvalid = $("#form1").validate({
         //onkeyup:false,//为true时，当ajax远程验证时此选项会增加服务器负荷
@@ -35,13 +44,16 @@
         success: function(label) {
             label.remove();
         },
-        groups: { phone: "phone mobile" },
+        groups: { phone: "phone mobile", area: "province city town" },
         rules: {
             zipcode: { required: true, digits: true, minlength: 5, maxlength: 5 },
             street: { required: true, minlength: 5, maxlength: 100 },
             username: { required: true, minlength: 2, maxlength: 4 },
             phone: { phone: true, chkone: true },
-            mobile: { vmobile: true, chkone: true }
+            mobile: { vmobile: true, chkone: true },
+            province: { varea: true },
+            city: { varea: true },
+            town: { varea: true }
         },
         messages: {
             phone: {}
@@ -58,6 +70,7 @@
         } else
             $(".ads_det_item,.chk_body_right").hide();
     });
+    $(".a_l_chk input:last").click();
 
     $(".btm_m textarea").text(function() {
         return $(this).attr("dv")
@@ -81,8 +94,35 @@
 
     $(".make_order").click(function() {
         var b = fvalid.form();
-
+        if (b) { 
+            
+        }
         return false;
     });
+
+    //地区选择
+    $("select[name=province],select[name=city]").change(function() {
+        var id = $(this).val();
+        var obj = $("select[name=town]");
+        obj[0].options.length = 1;
+        if ($(this).attr("name") == "province") {
+            obj = $("select[name=city]");
+            obj[0].options.length = 1;
+        }
+        $.ajax({
+            url: "action.aspx",
+            data: { action: "chgarea", id: id },
+            dataType: "json",
+            success: function(data, state) {
+                $.each(data, function(ind, area) {
+                    obj[0].options[ind + 1] = new Option(area.AreaName, area.ID);
+                });
+            },
+            error: function(req, state, err) {
+                $("body").append(req.responseText);
+            }
+        });
+    });
+
 
 });
