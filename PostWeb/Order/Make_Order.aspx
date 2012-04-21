@@ -26,14 +26,26 @@
     </ul>
     <div class="m_tl_bar margin_16"><span class="b_block">&nbsp;</span><span class="b_tl">收货地址确认</span></div>
     <form id="form1">
-        <div class="address_list crt_ads" id="ads_lt_1">
-            <div class="a_l_chk"><input type="radio" ind="1" checked name="a_l_chk" id="a_l_chk_1" /><label for="a_l_chk_1">苏得冠 广东省 深圳市 福田区 华强北 </label></div>
+        <div class="address_list crt_ads" id="ads_lt_1" style="display:none;">
+            <div class="a_l_chk"><input type="radio" ind="1"  name="a_l_chk" id="a_l_chk_1" /><label for="a_l_chk_1">苏得冠 广东省 深圳市 福田区 华强北 </label></div>
         </div>
         <div class="address_list" id="ads_lt_2">
-            <div class="a_l_chk"><div class="chk_body_left"><input type="radio" ind="2" name="a_l_chk" id="a_l_chk_other" /><label for="a_l_chk_other">使用其他地址</label></div><div class="chk_body_right"><span class="star">*</span>为必填项</div></div>
+            <div class="a_l_chk"><div class="chk_body_left"><input type="radio" checked ind="2" name="a_l_chk" id="a_l_chk_other" /><label for="a_l_chk_other">使用其他地址</label></div><div class="chk_body_right"><span class="star">*</span>为必填项</div></div>
             <div class="ads_det_item">
                 <div class="itemL"><span class="star">*</span>地址：</div>
-                <div class="itemR"><select name="province"></select> 省 <select name="city"></select> 市 <select name="town"></select> 区</div>
+                <div class="itemR">
+                <select name="province">
+                    <option value="">请选择</option>
+                    <asp:Repeater ID="Repeater2" runat="server">
+                        <ItemTemplate>
+                            <option value="<%#Eval("id") %>"><%#Eval("areaname").ToString().Replace("省","").Replace("市","") %></option>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </select> <span>省</span> <select name="city">
+                    <option value="">请选择</option>
+                </select> <span>市</span> <select name="town">
+                    <option value="">请选择</option>
+                </select> <span>区</span></div>
             </div>
             <div class="ads_det_item">
                 <div class="itemL"><span class="star">*</span>邮政编码：</div>
