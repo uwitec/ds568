@@ -37,9 +37,16 @@ public partial class index_home :  ShopBasePage
         Repeater3.DataBind();
       
         //焦点图
-        RM_1.Src = _Decoration.RollImg1;
-        RM_2.Src = _Decoration.RollImg2;
-        RM_3.Src = _Decoration.RollImg3;
+        if (!string.IsNullOrEmpty(_Decoration.RollImg1 + _Decoration.RollImg2 + _Decoration.RollImg3))
+        {
+            Roll_Img_wrap.Visible = true;
+            DefaultR.Visible = false;
+            RM_1.Src = _Decoration.RollImg1;
+            RM_2.Src = _Decoration.RollImg2;
+            RM_3.Src = _Decoration.RollImg3;
+        }
+       
+       
     }
 }
 
