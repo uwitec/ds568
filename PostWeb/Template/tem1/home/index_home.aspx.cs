@@ -31,13 +31,15 @@ public partial class index_home :  ShopBasePage
         Repeater2.DataBind();
 
         //联系我们
-        
         var list2 = new System.Collections.Generic.List<Com.DianShi.Model.Member.View_Members>();
         list2.Add(_vMember);
         Repeater3.DataSource = list2;
         Repeater3.DataBind();
       
-        
+        //焦点图
+        RM_1.Src = _Decoration.RollImg1;
+        RM_2.Src = _Decoration.RollImg2;
+        RM_3.Src = _Decoration.RollImg3;
     }
 }
 
