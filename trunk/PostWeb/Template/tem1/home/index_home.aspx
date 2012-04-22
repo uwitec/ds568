@@ -1,13 +1,36 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/template/tem1/MasterPage.Master" AutoEventWireup="true"   CodeFile="index_home.aspx.cs" Inherits="index_home"  %>
 <%@ OutputCache Duration="1800" VaryByParam="member_id" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="/template/tem1/home/js/index.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <!--========用户展示图开始=================-->
-    <div class="headTopic">
+    <div class="headTopic" runat="server" id="DefaultR"></div>
+    <div runat="server" visible="false" id="Roll_Img_wrap">
+    <!--焦点图开始-->
+    <link href="/template/tem1/home/css/focusimg.css" rel="stylesheet" type="text/css" />
+    <div class="flash-box">
+      <div class="focusImg">
+        <div class="autoImg">
+          <div class="scrollwrapper">
+            <div style="WIDTH: 3100px" class="imgBox">
+              <div class="layt"><img runat="server" id="RM_1" src="530045538_1340326976.jpg" /></div>
+              <div class="layt"><img runat="server" id="RM_2" src="530046693_1340326976.jpg" /></div>
+              <div class="layt"><img runat="server" id="RM_3" src="530045520_1340326976.jpg" /></div>
+            </div>
+          </div>
+          <div class="switchable-nav">
+            <ul>
+              <li class="active">•</li>
+              <li>•</li>
+              <li>•</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <!--========用户展示图结束=================-->
+    <script type="text/javascript" src="/template/tem1/home/js/vGlobal.js"></script>
+    <!--焦点图结束-->
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="MiddleRight">
