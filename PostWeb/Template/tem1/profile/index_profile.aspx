@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true"
-    CodeFile="index_profile.aspx.cs" Inherits="Template_tem1_profile_index_profile"
-    Title="Untitled Page" %>
+    CodeFile="index_profile.aspx.cs" Inherits="Template_tem1_profile_index_profile" %>
+    <%@ OutputCache Duration="1800" VaryByParam="member_id" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript" src="js/profile.js"></script>
 </asp:Content>

@@ -162,11 +162,11 @@
                                 <ul>
                                     <asp:Repeater ID="Repeater1" runat="server">
                                         <ItemTemplate>
-                                            <li><a href="../product/index_product.aspx?cat_id=<%#Eval("id") %>&member_id=<%#Request.QueryString["member_id"] %>"><%#Eval("CategoryName")%> </a></li>
+                                            <li><a href="../product/index_product.aspx?cat_id=<%#Eval("id") %>"><%#Eval("CategoryName")%> </a></li>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </ul>
-                                <div class="more" ><a href="../product/index_product.aspx?member_id=<%=Request.QueryString["member_id"] %>">更多</a></div>
+                                <div class="more" ><a href="../product/index_product.aspx">更多</a></div>
                             </div>
                         </div>
                     </div>
@@ -212,7 +212,7 @@
                                             <li>移动电话：<%#Eval("Mobile")%></li>
                                             <li>传&nbsp;&nbsp;&nbsp;&nbsp;真：<%#Eval("Fax").ToString().TrimEnd('-')%></li>
                                         </ul>
-                                        <div class="more" ><a href="../contact/index_contact.aspx?member_id=<%=Request.QueryString["member_id"] %>">更多</a></div>
+                                        <div class="more" ><a href="../contact/index_contact.aspx">更多</a></div>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </div>

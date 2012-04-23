@@ -12,7 +12,6 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Product;
 using Com.DianShi.BusinessRules.Member;
-[PartialCaching(1800, "pro_id", null, null)]
 public partial class Template_tem1_product_product_show :ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
