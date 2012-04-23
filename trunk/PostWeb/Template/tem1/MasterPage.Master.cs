@@ -35,25 +35,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         if (IsPostBack) return;
 
-        var vmbbl = new View_Members_Br();
-        var md = vmbbl.GetSingle(Request.Url);
+        var bpage = this.Page as ShopBasePage;
+        var md = bpage._vMember;
 
         var bl = new DS_DiyProCategory_Br();
         int rc = 0;
         Repeater1.DataSource = bl.Query("memberid=@0","px",0,10,ref rc,md.ID);
         Repeater1.DataBind();
         
-        //装修数据
-        //var bpage=this.Page as ShopBasePage;
-        //var dcrt = bpage._Decoration;
-        //if (dcrt != null) {
-        //    ViewState["Sign"] = dcrt.Sign;
-        //    ViewState["MenuBg"] = dcrt.MenuBg;
-        //    ViewState["SelectedMenu"] = dcrt.SelectedMenu;
-        //    ViewState["NormalMenu"] = dcrt.NormalMenu;
-        //    ViewState["NmColor"] = dcrt.NmColor;
-        //    ViewState["SelmColor"] = dcrt.SelmColor;
-        //}
+       
 
         //联系信息
         var list = new System.Collections.Generic.List<Com.DianShi.Model.Member.View_Members>();

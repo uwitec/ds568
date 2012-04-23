@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true"
-    CodeFile="index_contact.aspx.cs" Inherits="Template_tem1_contact_index_contact"
-    Title="Untitled Page" %>
+    CodeFile="index_contact.aspx.cs" Inherits="Template_tem1_contact_index_contact" %>
+    <%@ OutputCache Duration="1800" VaryByParam="member_id" %>
 <asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="Server">
 <title>联系我们</title>
 </asp:Content>
@@ -28,8 +28,8 @@
                             <a href="../profile/index_profile.aspx" ><%=_vMember.TrueName%></a>&nbsp;<%=_vMember.Gender%>（<%=_vMember.Position%>）&nbsp;&nbsp;
                         </dd>
                         <dd>
-                            <a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=416351551">
-                                <img border="0" src="http://wpa.qq.com/pa?p=1:416351551:1" title="给我发消息" alt="给我发消息"></a></dd>
+                            <a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=<%=_vMember.QQ %>">
+                                <img border="0" src="http://wpa.qq.com/pa?p=1:<%=_vMember.QQ %>:1" title="给我发消息" alt="给我发消息"></a></dd>
                     </dl>
                     <div class="credit">
                         <a href="javascript:;alert('诚信档案尚未开放，请稍后访问。')" title="点击查看信用状况">查看信用状况</a>
@@ -37,9 +37,9 @@
                     <div class="contactsLine"></div>
                 </div>
                 <ul class="contactsDetail">
-                    <li>电<span class="marginLeft1em"></span><span class="marginLeft1em"></span>话： <%=_vMember.Phone%></li>
+                    <li>电<span class="marginLeft1em"></span><span class="marginLeft1em"></span>话： <%=_vMember.Phone.TrimEnd('-')%></li>
                     <li>移动电话： <%=_vMember.Mobile%></li>
-                    <li>传<span class="marginLeft1em"></span><span class="marginLeft1em"></span>真： <%=_vMember.Fax%></li>
+                    <li>传<span class="marginLeft1em"></span><span class="marginLeft1em"></span>真： <%=_vMember.Fax.TrimEnd('-')%></li>
                     <li>地<span class="marginLeft1em"></span><span class="marginLeft1em"></span>址： <%=_vMember.BusinessAddress%></li>
                     <li>邮<span class="marginLeft1em"></span><span class="marginLeft1em"></span>编： <%=_vMember.ZipCode%></li>
                     <li class="comLink">公司主页：

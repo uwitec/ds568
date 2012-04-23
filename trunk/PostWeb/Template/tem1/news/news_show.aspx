@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master"  AutoEventWireup="true"
-    CodeFile="news_show.aspx.cs" Inherits="Template_tem1_news_news_show" Title="Untitled Page" %>
+    CodeFile="news_show.aspx.cs" Inherits="Template_tem1_news_news_show" %>
+    <%@ OutputCache Duration="1800" VaryByParam="news_id" %>
 <asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="Server">
 <title><%=ViewState["title"] %></title>
 </asp:Content>

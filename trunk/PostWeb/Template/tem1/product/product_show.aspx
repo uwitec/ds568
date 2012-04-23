@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true"
-    CodeFile="product_show.aspx.cs" Inherits="Template_tem1_product_product_show"
-    Title="Untitled Page" %>
+    CodeFile="product_show.aspx.cs" Inherits="Template_tem1_product_product_show" %>
+    <%@ OutputCache Duration="1800" VaryByParam="pro_id" %>
 <%@ Register src="~/Template/tem1/product/Property.ascx" tagname="Property" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">

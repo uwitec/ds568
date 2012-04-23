@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true"
-    CodeFile="index_news.aspx.cs" Inherits="Template_tem1_news_index_news" Title="Untitled Page" %>
+    CodeFile="index_news.aspx.cs" Inherits="Template_tem1_news_index_news" %>
+    <%@ OutputCache Duration="1800" VaryByParam="member_id" %>
 <asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="Server">
 <title>公司新闻</title>
 </asp:Content>
