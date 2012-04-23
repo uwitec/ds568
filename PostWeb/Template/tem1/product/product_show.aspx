@@ -103,7 +103,7 @@
                         </li>
                         <li class="msgTitle">供应商目前不在线，请在下面留言:</li>
                         <li>
-                            <input id="inpMsg" name="inpMsg" value="请输入关于您产品的问题（70字以内）" type="text" /><input
+                            <input id="inpMsg" name="inpMsg" dv="请输入关于您产品的问题（70字以内）" type="text" /><input
                                 id="btnSend" type="button" value="发送" />
                         </li>
                     </ul>
