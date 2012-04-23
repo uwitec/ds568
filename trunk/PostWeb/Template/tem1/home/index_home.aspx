@@ -65,7 +65,7 @@
                             <ItemTemplate>
                                  <li>
                                     <div class="TzImg">
-                                        <a href="../product/product_show.aspx?member_id=<%=Request.QueryString["member_id"] %>&pro_id=<%#Eval("id") %>">
+                                        <a href="../product/product_show.aspx?pro_id=<%#Eval("id") %>">
                                             <img  onload="changeImg(this,150,150)" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
                                     </div>
                                     <div class="ProductTitle">
@@ -106,7 +106,7 @@
                             <ItemTemplate>
                                      <li>
                                         <div class="NewImg">
-                                            <a href="../product/product_show.aspx?member_id=<%=Request.QueryString["member_id"] %>&pro_id=<%#Eval("id") %>">
+                                            <a href="../product/product_show.aspx?pro_id=<%#Eval("id") %>">
                                                 <img  onload="changeImg(this,150,150)" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
                                         </div>
                                         <div class="ProductTitle">
@@ -144,18 +144,17 @@
                 <asp:Repeater ID="Repeater3" runat="server">
                     <ItemTemplate>
                          <ul>
-                            <li><a href="http://profile.china.alibaba.com/user/xuhechai.html"><%#Eval("TrueName") %></a> <%#Eval("Gender")%> （<%#Eval("Position")%>）
-                                <a title="我不在网上，给我留个消息吧" onmousedown="aliclick(this, '?info_id=26806687');traceXunpanLog(this,'xuhechai','','');return traceParrotStatLog(this, 'alitalk', 'xuhechai', 'athena');"
-                                    href="#" alitalk="{id:'xuhechai',siteID:'cnalichn',type:1}">给我留言</a></li>
+                            <li><%#Eval("TrueName") %> <%#Eval("Gender")%> （<%#Eval("Position")%>）
+                                <a  href="http://wpa.qq.com/msgrd?v=3&uin=<%#Eval("qq") %>&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('在线洽谈');"  src="http://wpa.qq.com/pa?p=2:<%#Eval("qq") %>:4" alt="给我留言" /><span>给我留言</span></a></li>
                          </ul>
                          <ul>
-                             <li>电 话： <%#Eval("Phone").ToString().TrimEnd('-')%></li>
+                             <li>电<span class="marginLeft1em"></span><span class="marginLeft1em"></span>话： <%#Eval("Phone").ToString().TrimEnd('-')%></li>
                          </ul>
                          <ul>
                              <li>移动电话： <%#Eval("Mobile") %></li>
                          </ul>
                          <ul>
-                             <li>传 真： <%#Eval("Fax").ToString().TrimEnd('-')%></li>
+                             <li>传<span class="marginLeft1em"></span><span class="marginLeft1em"></span>真： <%#Eval("Fax").ToString().TrimEnd('-')%></li>
                          </ul>
                          <ul>
                              <li>经营地址： <%#Eval("BusinessAddress")%> </li>
