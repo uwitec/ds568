@@ -35,6 +35,23 @@ public partial class Order_Action : System.Web.UI.Page
                 var bl = new DS_Area_Br();
                 Response.Write(js.Serialize(bl.Query("parentid=@0","px",int.Parse(Request["id"]))));
                 break;
+            case "sub_order":
+                var am = new ActMsg {succe=false,msg="" };
+                try
+                {
+                    var oddtbl = new DS_Orders_Br();
+
+                }
+                catch (Exception ex) {
+                    am.msg = "抱歉，提交出错。";
+                }
+                break;
         }
+    }
+
+    class ActMsg {
+        public bool succe { get; set; }
+        public string msg { get; set; }
+        
     }
 }
