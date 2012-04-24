@@ -40,6 +40,7 @@ public partial class Order_Action : System.Web.UI.Page
                 try
                 {
                     var oddtbl = new DS_Orders_Br();
+                    oddtbl.Add(ud.ShoppingCart.Orders,ud.ShoppingCart.OrderDetail);
 
                 }
                 catch (Exception ex) {
