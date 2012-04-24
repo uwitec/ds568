@@ -34,25 +34,27 @@ public class ShopBasePage : System.Web.UI.Page
         //装修数据
         var dcbl = new DS_Decoration_Br();
         _Decoration = dcbl.GetSingle(_vMember.ID, true);
-       
-        var lctr = new LiteralControl();
-        lctr.Text = "<style type=\"text/css\">";
-        if (!string.IsNullOrEmpty(_Decoration.Sign))
-            lctr.Text += ".Head{background-image:url(" + _Decoration.Sign + ");}\n";
-        if (!string.IsNullOrEmpty(_Decoration.MenuBg))
-            lctr.Text += ".HeaderMenuBar{background-image:url(" + _Decoration.MenuBg + ");}\n";
-        if (!string.IsNullOrEmpty(_Decoration.NormalMenu))
-            lctr.Text += ".HeaderMenuBar ul li{background-image:url(" + _Decoration.NormalMenu + ");}\n";
-        if (!string.IsNullOrEmpty(_Decoration.SelectedMenu))
-            lctr.Text += ".HeaderMenuBar ul li:hover{background-image:url(" + _Decoration.SelectedMenu + ");}\n";
-        if (!string.IsNullOrEmpty(_Decoration.SelectedMenu))
-            lctr.Text += ".HeaderMenuBar ul li.Check{background-image:url(" + _Decoration.SelectedMenu + ");}\n";
-        if (!string.IsNullOrEmpty(_Decoration.NmColor))
-            lctr.Text += ".HeaderMenuBar ul li a:link,.HeaderMenuBar ul li a:visited{color:" + _Decoration.NmColor + ";}\n";
-        if (!string.IsNullOrEmpty(_Decoration.SelmColor))
-            lctr.Text += ".HeaderMenuBar ul li:hover a,.HeaderMenuBar ul li a:hover,.HeaderMenuBar ul li.Check a:link,.HeaderMenuBar ul li.Check a:visited{color:" + _Decoration.SelmColor + ";}\n";
-        lctr.Text += "</style>";
-        this.Page.Header.Controls.Add(lctr);
+        if (!object.Equals(this.Page.Header, null))
+        {
+            var lctr = new LiteralControl();
+            lctr.Text = "<style type=\"text/css\">";
+            if (!string.IsNullOrEmpty(_Decoration.Sign))
+                lctr.Text += ".Head{background-image:url(" + _Decoration.Sign + ");}\n";
+            if (!string.IsNullOrEmpty(_Decoration.MenuBg))
+                lctr.Text += ".HeaderMenuBar{background-image:url(" + _Decoration.MenuBg + ");}\n";
+            if (!string.IsNullOrEmpty(_Decoration.NormalMenu))
+                lctr.Text += ".HeaderMenuBar ul li{background-image:url(" + _Decoration.NormalMenu + ");}\n";
+            if (!string.IsNullOrEmpty(_Decoration.SelectedMenu))
+                lctr.Text += ".HeaderMenuBar ul li:hover{background-image:url(" + _Decoration.SelectedMenu + ");}\n";
+            if (!string.IsNullOrEmpty(_Decoration.SelectedMenu))
+                lctr.Text += ".HeaderMenuBar ul li.Check{background-image:url(" + _Decoration.SelectedMenu + ");}\n";
+            if (!string.IsNullOrEmpty(_Decoration.NmColor))
+                lctr.Text += ".HeaderMenuBar ul li a:link,.HeaderMenuBar ul li a:visited{color:" + _Decoration.NmColor + ";}\n";
+            if (!string.IsNullOrEmpty(_Decoration.SelmColor))
+                lctr.Text += ".HeaderMenuBar ul li:hover a,.HeaderMenuBar ul li a:hover,.HeaderMenuBar ul li.Check a:link,.HeaderMenuBar ul li.Check a:visited{color:" + _Decoration.SelmColor + ";}\n";
+            lctr.Text += "</style>";
+            this.Page.Header.Controls.Add(lctr);
+        }
     }
  
 }

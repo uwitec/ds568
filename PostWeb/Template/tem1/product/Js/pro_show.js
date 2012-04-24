@@ -118,6 +118,7 @@ $(document).ready(function () {
             },
             error: function (req, state, err) {
                 alert(err);
+                $("body").append(req.responseText);
             },
             beforeSend: function () {
                 $(".add_pur_wrap").show();

@@ -21,12 +21,16 @@ public partial class Template_tem1_news_news_show : ShopBasePage
         //{
             var bl = new DS_ComNews_Br();
             var ud=Session["UserData"] as UserData;
-            ViewState["isLogin"] = (ud != null && ud.Member.ID == _vMember.ID) ? "1" : "0";
+            if (UserData.ChkObjNull(UserData.ObjType.会员信息)&&ud.Member.ID == _vMember.ID){
+                ViewState["isLogin"] ="1";
+            }
+            else
+                ViewState["isLogin"] = "0";
             string act = Request["action"];
             if (!string.IsNullOrEmpty(act)) {
                 switch (act) { 
                     case "chklogin":
-                        Response.Write((Session["UserData"]==null)?"0":"1");
+                        Response.Write(UserData.ChkObjNull(UserData.ObjType.会员信息) ? "1" : "0");
                         Response.End();
                         break;
                     case "login":
@@ -36,7 +40,10 @@ public partial class Template_tem1_news_news_show : ShopBasePage
                         mb.Password = Request.Form["pwd"].Trim();
                         if (mbbl.Login(ref mb))
                         {
-                            Session["UserData"] = new UserData { Member = mb };
+                            if (UserData.ChkObjNull(UserData.ObjType.会员信息)) {
+                                ud.Member = mb;
+                            }else
+                                Session["UserData"] = new UserData { Member = mb };
                             Response.Write("1");
                         }
                         else
@@ -62,7 +69,7 @@ public partial class Template_tem1_news_news_show : ShopBasePage
                         break;
                     case "del":
                         ud = Session["UserData"] as UserData;
-                        if (ud != null)
+                        if (UserData.ChkObjNull(UserData.ObjType.会员信息))
                         {
                             bl.Delete(int.Parse(Request.Form["id"]));
                             Response.Write(1);
@@ -74,7 +81,7 @@ public partial class Template_tem1_news_news_show : ShopBasePage
                         break;
                     case "del_all":
                         ud = Session["UserData"] as UserData;
-                        if (ud != null)
+                        if (UserData.ChkObjNull(UserData.ObjType.会员信息))
                         {
                             bl.Delete(Request.Form["ids"]);
                             Response.Write(1);
