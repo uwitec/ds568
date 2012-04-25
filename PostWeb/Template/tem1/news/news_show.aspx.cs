@@ -62,7 +62,7 @@ public partial class Template_tem1_news_news_show : ShopBasePage
                         news.UpdateDate = news.CreateDate = DateTime.Now;
                         news.Ip = Request.UserHostAddress;
                         bl.Comment(news);
-                        var reply = bl.Query("parentid=@0", "createdate desc", int.Parse(Request.Form["parent_id"]));
+                        var reply = bl.QueryView("parentid=@0", "createdate desc", int.Parse(Request.Form["parent_id"]));
                         replyNum = reply.Count();
                         Repeater2.DataSource = reply;
                         Repeater2.DataBind();
