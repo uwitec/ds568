@@ -101,7 +101,7 @@ public partial class Template_tem1_news_news_show : ShopBasePage
             var md = list.Single();
             md.Hits++;
             bl.Update(md);
-            ViewState["title"] = md.Title;
+            this.Page.Header.Title = md.Title;
             Repeater1.DataSource = list;
             Repeater1.DataBind();
 

@@ -41,11 +41,13 @@ public partial class Order_Action : System.Web.UI.Page
                 {
                     var oddtbl = new DS_Orders_Br();
                     oddtbl.Add(ud.ShoppingCart.Orders,ud.ShoppingCart.OrderDetail);
-
+                    am.succe = true;
+                    am.msg = "提交订单成功。";
                 }
                 catch (Exception ex) {
                     am.msg = "抱歉，提交出错。";
                 }
+                Response.Write(js.Serialize(am));
                 break;
         }
     }
