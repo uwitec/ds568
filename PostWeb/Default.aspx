@@ -13,18 +13,9 @@
     <script type="text/javascript" src="js/common.js"></script>
 </head>
 <body style="padding:20px;"> 
-  <input class="Area" type="text" />
-<script type="text/javascript">
-    $(document).ready(function(){
-        function cb(p,c){
-            alert(p)
-        }
-        Area.Create($(".Area"),cb);
-    });
-</script>
+
 <form id="form1" runat="server">
-<asp:Button ID="Button1" runat="server" Text="Button" />
-<uc1:Property ID="Property1" runat="server" />
+<h2 >测试首页</h2>
 </form>
 </body>
 </html>

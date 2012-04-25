@@ -17,8 +17,7 @@ namespace Com.ItOnline.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Button1.Click+=new EventHandler(Button1_Click);
-
+           
             //int albumID = 12;
             //var bl = new DS_Album_Br();
             //string album = bl.GetDirByID(albumID);

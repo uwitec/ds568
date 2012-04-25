@@ -46,7 +46,7 @@
         },
         groups: { phone: "phone mobile", area: "province city town" },
         rules: {
-            zipcode: { required: true, digits: true, minlength: 5, maxlength: 5 },
+            zipcode: { required: true, digits: true, minlength: 6, maxlength: 6 },
             street: { required: true, minlength: 5, maxlength: 100 },
             username: { required: true, minlength: 2, maxlength: 4 },
             phone: { phone: true, chkone: true },
@@ -102,16 +102,16 @@
                 dataType: "json",
                 success: function(data, state) {
                     if (data.succe) {
-                        
+                        alert(data.msg);
                     } else {
                         alert(data.msg);
                     }
                 },
                 error: function(req, state, err) {
-                    
+                    $("body").append(req.responseText);
                 },
                 beforeSend: function() {
-                    
+
                 }
             });
         }

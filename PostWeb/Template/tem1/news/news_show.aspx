@@ -1,9 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master"  AutoEventWireup="true"
     CodeFile="news_show.aspx.cs" Inherits="Template_tem1_news_news_show" %>
     <%@ OutputCache Duration="1800" VaryByParam="news_id" %>
-<asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="Server">
-<title><%=ViewState["title"] %></title>
-</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 <style type="text/css">
     .nocoment{ text-align:center;line-height:32px;display:none;}

@@ -28,9 +28,9 @@ namespace Com.DianShi.BusinessRules.Transaction
                 ct2.Transaction = tran;
                 foreach (var item in Orders)
                 {
+                    var list = OrderDetail.Where(a => a.OrderID.Equals(item.ID)).ToList();
                     ct.DS_Orders.InsertOnSubmit(item);
                     ct.SubmitChanges();
-                    var list = OrderDetail.Where(a => a.OrderID.Equals(item.ID));
                     foreach (var odd in list)
                     {
                         odd.OrderID = item.ID;

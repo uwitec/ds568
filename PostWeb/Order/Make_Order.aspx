@@ -78,7 +78,7 @@
                         <div class="tdi_3">--</div>
                         <div class="tdi_4"><p><b>总计：--</b></p><p>卖家承担运费</p></div>
                         <div class="tdi_5"><%#Eval("price") %></div>
-                        <div class="tdi_6"><p><b><%#Eval("pronum") %></b></p><p>（可售10000000瓶）</p></div>
+                        <div class="tdi_6"><p><b><%#Eval("pronum") %></b></p><%--<p>（可售10000000瓶）</p>--%></div>
                         <div class="tdi_7"><%#Eval("amount") %></div>            
                     </div>
                 </ItemTemplate>
