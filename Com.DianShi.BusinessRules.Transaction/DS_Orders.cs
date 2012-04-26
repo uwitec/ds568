@@ -18,7 +18,7 @@ namespace Com.DianShi.BusinessRules.Transaction
             }
         }
 
-        public void Add(List<DS_Orders> Orders,List<DS_OrderDetail> OrderDetail)
+        public void Add(DS_Orders Order,List<DS_OrderDetail> OrderDetail)
         {
             using (var con = DbHelperSQL.GetConnection()) {
                 var tran = con.BeginTransaction();
@@ -26,18 +26,15 @@ namespace Com.DianShi.BusinessRules.Transaction
                 ct.Transaction = tran;
                 var ct2 = new DS_OrderDetailDataContext(con);
                 ct2.Transaction = tran;
-                foreach (var item in Orders)
+                ct.DS_Orders.InsertOnSubmit(Order);
+                ct.SubmitChanges();
+                foreach (var odd in OrderDetail)
                 {
-                    var list = OrderDetail.Where(a => a.OrderID.Equals(item.ID)).ToList();
-                    ct.DS_Orders.InsertOnSubmit(item);
-                    ct.SubmitChanges();
-                    foreach (var odd in list)
-                    {
-                        odd.OrderID = item.ID;
-                    }
-                    ct2.DS_OrderDetail.InsertAllOnSubmit(list);
-                    ct2.SubmitChanges();
+                    odd.OrderID = Order.ID;
                 }
+                ct2.DS_OrderDetail.InsertAllOnSubmit(OrderDetail);
+                ct2.SubmitChanges();
+                
                 tran.Commit();
             }
            

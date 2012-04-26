@@ -40,7 +40,7 @@
                 <div class="AHLeft">
                     关于我们</div>
                 <div class="AHRight">
-                    <a href="../profile/index_profile.aspx">更多&gt;&gt;</a></div>
+                    <a href="/template/tem1/profile/index_profile.aspx">更多&gt;&gt;</a></div>
             </div>
             <div class="AboutBody justify">
                 <img onerror="javascript:this.style.display='none'" class="AboutImg" src="<%=_vMember.ComImg.Split('|')[0] %>" />
@@ -65,7 +65,7 @@
                             <ItemTemplate>
                                  <li>
                                     <div class="TzImg">
-                                        <a href="../product/product_show.aspx?pro_id=<%#Eval("id") %>">
+                                        <a href="/template/tem1/product/product_show.aspx?pro_id=<%#Eval("id") %>">
                                             <img  onload="changeImg(this,150,150)" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
                                     </div>
                                     <div class="ProductTitle">
@@ -106,7 +106,7 @@
                             <ItemTemplate>
                                      <li>
                                         <div class="NewImg">
-                                            <a href="../product/product_show.aspx?pro_id=<%#Eval("id") %>">
+                                            <a href="/template/tem1/product/product_show.aspx?pro_id=<%#Eval("id") %>">
                                                 <img  onload="changeImg(this,150,150)" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
                                         </div>
                                         <div class="ProductTitle">

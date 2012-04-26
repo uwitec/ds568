@@ -3,9 +3,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <asp:ContentPlaceHolder ID="Title" runat="server"></asp:ContentPlaceHolder>
+    <meta charset="utf-8"/>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
+    <asp:ContentPlaceHolder ID="Title" runat="server"></asp:ContentPlaceHolder>
     <script src="/js/lib.js" type="text/javascript"></script>
     <script src="/js/common.js" type="text/javascript"></script>
     <link href="/css/Globle.css" rel="stylesheet" type="text/css" />
@@ -31,7 +32,7 @@
                     <li class="TopBarSpritLine"></li>
                     <li class="TopBarOrders">
                         <div class="Order">
-                            <a href="#">进货单</a>
+                            <a href="/order/purchaseList.aspx" target="_blank">进货单</a>
                             <div class="OverLine">
                             </div>
                             <ul>
@@ -95,14 +96,14 @@
             <!--========菜单开始==============-->
             <div class="HeaderMenuBar">
                 <ul>
-                    <li><a surl="home" href="../home/index_home.aspx">首页</a></li>
-                    <li><a surl="product" href="../product/index_product.aspx">供应产品</a></li>
+                    <li><a surl="home" href="/template/tem1/home/index_home.aspx">首页</a></li>
+                    <li><a surl="product" href="/template/tem1/product/index_product.aspx">供应产品</a></li>
                     <%--<li><a surl="nourl" href="javascript:;alert('诚信档案尚未开放，请稍后访问。')">诚信档案</a></li>--%>
-                    <li><a surl="profile" href="../profile/index_profile.aspx">公司介绍</a></li>
-                    <li><a surl="album" href="../album/index_album.aspx">我的相册</a></li>
-                    <li><a surl="news" href="../news/index_news.aspx">公司新闻</a></li>
-                    <li><a surl="nourl" href="../../../Community/FeedBack/index.aspx?member_id=<%=ViewState["member_id"] %>" target="_blank">在线留言</a></li>
-                    <li><a surl="contact" href="../contact/index_contact.aspx">联系方式</a></li>
+                    <li><a surl="profile" href="/template/tem1/profile/index_profile.aspx">公司介绍</a></li>
+                    <li><a surl="album" href="/template/tem1/album/index_album.aspx">我的相册</a></li>
+                    <li><a surl="news" href="/template/tem1/news/index_news.aspx">公司新闻</a></li>
+                    <li><a surl="nourl" href="/Community/FeedBack/index.aspx?member_id=<%=ViewState["member_id"] %>" target="_blank">在线留言</a></li>
+                    <li><a surl="contact" href="/template/tem1/contact/index_contact.aspx">联系方式</a></li>
                 </ul>
             </div>
             <!--========菜单结束==============-->
@@ -162,11 +163,11 @@
                                 <ul>
                                     <asp:Repeater ID="Repeater1" runat="server">
                                         <ItemTemplate>
-                                            <li><a href="../product/index_product.aspx?cat_id=<%#Eval("id") %>"><%#Eval("CategoryName")%> </a></li>
+                                            <li><a href="/template/tem1/product/index_product.aspx?cat_id=<%#Eval("id") %>"><%#Eval("CategoryName")%> </a></li>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </ul>
-                                <div class="more" ><a href="../product/index_product.aspx">更多</a></div>
+                                <div class="more" ><a href="/template/tem1/product/index_product.aspx">更多</a></div>
                             </div>
                         </div>
                     </div>
@@ -212,7 +213,7 @@
                                             <li>移动电话：<%#Eval("Mobile")%></li>
                                             <li>传&nbsp;&nbsp;&nbsp;&nbsp;真：<%#Eval("Fax").ToString().TrimEnd('-')%></li>
                                         </ul>
-                                        <div class="more" ><a href="../contact/index_contact.aspx">更多</a></div>
+                                        <div class="more" ><a href="/template/tem1/contact/index_contact.aspx">更多</a></div>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </div>

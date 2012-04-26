@@ -40,7 +40,18 @@ public partial class Order_Action : System.Web.UI.Page
                 try
                 {
                     var oddtbl = new DS_Orders_Br();
-                    oddtbl.Add(ud.ShoppingCart.Orders,ud.ShoppingCart.OrderDetail);
+                    var od=ud.ShoppingCart.Orders.Single(a=>a.ID.Equals(int.Parse(Request.QueryString["oid"])));
+                    od.ClientArea = Request["province"].Split(',')[0] + " " + Request["city"].Split(',')[0] + " " + Request["town"].Split(',')[0];
+                    od.ClientZipCode=Request["zipcode"];
+                    od.ClientStreet = Request["street"];
+                    od.ClientName = Request["username"];
+                    od.ClientPhone = Request["phone"].Replace("区号-电话号码-分机","");
+                    od.ClientMobile=Request["mobile"];
+                    od.ClientRemark = Request["remark"].Replace("请输入您对该笔交易或货品的特殊要求以提醒供应商，字数不超过500字", "").Trim();
+                    var list=ud.ShoppingCart.OrderDetail.Where(a=>a.OrderID.Equals(od.ID)).ToList();
+                    oddtbl.Add(od,list);
+                    ud.ShoppingCart.OrderDetail.RemoveAll(a=>a.OrderID.Equals(od.ID));
+                    ud.ShoppingCart.Orders.Remove(od);
                     am.succe = true;
                     am.msg = "提交订单成功。";
                 }
