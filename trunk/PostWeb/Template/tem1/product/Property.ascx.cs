@@ -22,14 +22,16 @@ public partial class Template_tem1_product_Property : System.Web.UI.UserControl
             var bl = new DS_Property_Br();
             var list = bl.Query("SysCatID=@0", "px", Product.SysCatID);
             Type t = Product.GetType();
+            int PryCount = 0;
             foreach (var item in list)
             {
                 object obj =t.GetProperty("Property" + item.MapID).GetValue(Product,null);
                 if (obj != null&&!string.IsNullOrEmpty(obj.ToString().Trim())) {
                     AddItem(item.ProName,obj.ToString()+item.Unit);//添加一项属性
+                    PryCount++;
                 }
             }
-            if(list.Count()%2>0)//如果属性个数为单数，则最后要多添加一个空属性
+            if(PryCount%2>0)//如果有效属性个数为单数，则最后要多添加一个空属性
                 AddItem("","");   
 
         }

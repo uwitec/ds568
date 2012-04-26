@@ -96,9 +96,8 @@
         var b = fvalid.form();
         if (b) {
             $.ajax({
-                url: "action.aspx",
-                type: "POST",
-                data: { action: "sub_order" },
+            url: "action.aspx?action=sub_order&" + $("#form1").serialize(),
+                cache:false,
                 dataType: "json",
                 success: function(data, state) {
                     if (data.succe) {
@@ -120,7 +119,7 @@
 
     //地区选择
     $("select[name=province],select[name=city]").change(function() {
-        var id = $(this).val();
+        var id = $(this).val().split(',')[1];
         var obj = $("select[name=town]");
         obj[0].options.length = 1;
         if ($(this).attr("name") == "province") {
@@ -133,7 +132,7 @@
             dataType: "json",
             success: function(data, state) {
                 $.each(data, function(ind, area) {
-                    obj[0].options[ind + 1] = new Option(area.AreaName, area.ID);
+                    obj[0].options[ind + 1] = new Option(area.AreaName, area.AreaName+","+area.ID);
                 });
             },
             error: function(req, state, err) {

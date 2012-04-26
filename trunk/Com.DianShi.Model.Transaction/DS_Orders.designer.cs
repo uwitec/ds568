@@ -98,6 +98,20 @@ namespace Com.DianShi.Model.Transaction
 		
 		private string _QQ;
 		
+		private string _ClientArea;
+		
+		private string _ClientZipCode;
+		
+		private string _ClientStreet;
+		
+		private string _ClientName;
+		
+		private string _ClientPhone;
+		
+		private string _ClientMobile;
+		
+		private string _ClientRemark;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -120,6 +134,20 @@ namespace Com.DianShi.Model.Transaction
     partial void OnCreateDateChanged();
     partial void OnQQChanging(string value);
     partial void OnQQChanged();
+    partial void OnClientAreaChanging(string value);
+    partial void OnClientAreaChanged();
+    partial void OnClientZipCodeChanging(string value);
+    partial void OnClientZipCodeChanged();
+    partial void OnClientStreetChanging(string value);
+    partial void OnClientStreetChanged();
+    partial void OnClientNameChanging(string value);
+    partial void OnClientNameChanged();
+    partial void OnClientPhoneChanging(string value);
+    partial void OnClientPhoneChanged();
+    partial void OnClientMobileChanging(string value);
+    partial void OnClientMobileChanged();
+    partial void OnClientRemarkChanging(string value);
+    partial void OnClientRemarkChanged();
     #endregion
 		
 		public DS_Orders()
@@ -303,6 +331,146 @@ namespace Com.DianShi.Model.Transaction
 					this._QQ = value;
 					this.SendPropertyChanged("QQ");
 					this.OnQQChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ClientArea", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string ClientArea
+		{
+			get
+			{
+				return this._ClientArea;
+			}
+			set
+			{
+				if ((this._ClientArea != value))
+				{
+					this.OnClientAreaChanging(value);
+					this.SendPropertyChanging();
+					this._ClientArea = value;
+					this.SendPropertyChanged("ClientArea");
+					this.OnClientAreaChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ClientZipCode", DbType="NVarChar(6) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string ClientZipCode
+		{
+			get
+			{
+				return this._ClientZipCode;
+			}
+			set
+			{
+				if ((this._ClientZipCode != value))
+				{
+					this.OnClientZipCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ClientZipCode = value;
+					this.SendPropertyChanged("ClientZipCode");
+					this.OnClientZipCodeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ClientStreet", DbType="NVarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string ClientStreet
+		{
+			get
+			{
+				return this._ClientStreet;
+			}
+			set
+			{
+				if ((this._ClientStreet != value))
+				{
+					this.OnClientStreetChanging(value);
+					this.SendPropertyChanging();
+					this._ClientStreet = value;
+					this.SendPropertyChanged("ClientStreet");
+					this.OnClientStreetChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ClientName", DbType="NVarChar(10) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string ClientName
+		{
+			get
+			{
+				return this._ClientName;
+			}
+			set
+			{
+				if ((this._ClientName != value))
+				{
+					this.OnClientNameChanging(value);
+					this.SendPropertyChanging();
+					this._ClientName = value;
+					this.SendPropertyChanged("ClientName");
+					this.OnClientNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ClientPhone", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string ClientPhone
+		{
+			get
+			{
+				return this._ClientPhone;
+			}
+			set
+			{
+				if ((this._ClientPhone != value))
+				{
+					this.OnClientPhoneChanging(value);
+					this.SendPropertyChanging();
+					this._ClientPhone = value;
+					this.SendPropertyChanged("ClientPhone");
+					this.OnClientPhoneChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ClientMobile", DbType="NVarChar(11)", UpdateCheck=UpdateCheck.Never)]
+		public string ClientMobile
+		{
+			get
+			{
+				return this._ClientMobile;
+			}
+			set
+			{
+				if ((this._ClientMobile != value))
+				{
+					this.OnClientMobileChanging(value);
+					this.SendPropertyChanging();
+					this._ClientMobile = value;
+					this.SendPropertyChanged("ClientMobile");
+					this.OnClientMobileChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ClientRemark", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string ClientRemark
+		{
+			get
+			{
+				return this._ClientRemark;
+			}
+			set
+			{
+				if ((this._ClientRemark != value))
+				{
+					this.OnClientRemarkChanging(value);
+					this.SendPropertyChanging();
+					this._ClientRemark = value;
+					this.SendPropertyChanged("ClientRemark");
+					this.OnClientRemarkChanged();
 				}
 			}
 		}

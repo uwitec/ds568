@@ -12,6 +12,13 @@
       <Column Name="OrderNum" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="QQ" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="ClientArea" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientZipCode" Type="System.String" DbType="NVarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientStreet" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientName" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ClientMobile" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="ClientRemark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

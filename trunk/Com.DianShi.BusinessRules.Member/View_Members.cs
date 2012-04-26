@@ -38,7 +38,8 @@ namespace Com.DianShi.BusinessRules.Member
                     {
                         vMember = ct.View_Members.SingleOrDefault(a => a.HomePage == "http://" + uri.Host.ToLower());
                     }
-                    CacheUtility.Insert(uri.Host, vMember, null);
+                    if(vMember!=null)
+                        CacheUtility.Insert(uri.Host, vMember, null);
                     return vMember;
                 }
             }
