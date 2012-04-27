@@ -26,6 +26,7 @@ public partial class Template_tem1_news_index_news : ShopBasePage
                     Repeater1.DataSource = bl.Query("memberid=@0 and parentid=0", "px", (pageIndex - 1) * pageSize, pageSize, ref rc,_vMember.ID);
                     Repeater1.DataBind();
                     ViewState["rc"] = rc;
+                    
                     break;
                 case "del":
                     bl.Delete(int.Parse(Request.Form["id"]));

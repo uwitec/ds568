@@ -21,6 +21,7 @@
     
     //检查登录
     $.ajax({
+        url:"/template/tem1/action.aspx",
         type:"POST",
         data:{action:"chkLogin"},
         success:function(data,state){
