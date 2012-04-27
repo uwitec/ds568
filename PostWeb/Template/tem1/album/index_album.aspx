@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/template/tem1/MasterPage.Master" AutoEventWireup="true"
     CodeFile="index_album.aspx.cs" Inherits="index_album" %>
-    <%@ OutputCache Duration="1800" VaryByParam="member_id" %>
+   <%@ OutputCache Duration="1800" VaryByParam="none" VaryByCustom="Host" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="Title" runat="server">
    <title>我的相册</title>
 </asp:Content>
