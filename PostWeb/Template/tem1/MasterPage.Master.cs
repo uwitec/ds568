@@ -18,20 +18,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
    
     protected void Page_Load(object sender, EventArgs e)
     {
-        string act=Request["action"];
-        if (!string.IsNullOrEmpty(act)) {
-            switch (act) {
-                case "chkLogin":
-                    var ud = Session["UserData"] as UserData;
-                    if (UserData.ChkObjNull(UserData.ObjType.会员信息))
-                    {
-                        Response.Write(ud.Member.UserID);
-                    }
-                    Response.End();
-                    break;
-            }
-            return;
-        }
+        
 
         if (IsPostBack) return;
 
