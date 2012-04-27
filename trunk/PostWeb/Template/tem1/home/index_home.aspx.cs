@@ -12,10 +12,12 @@ using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Member;
 using Com.DianShi.BusinessRules.Product;
+
 public partial class index_home :  ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Response.Write(DateTime.Now.ToString());
         Page.Header.Title = "商铺首页,"+_vMember.CompanyName;
         if (IsPostBack) return;
 

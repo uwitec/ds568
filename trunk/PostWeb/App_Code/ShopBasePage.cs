@@ -19,7 +19,7 @@ using Com.DianShi.BusinessRules.Decoration;
 public class ShopBasePage : System.Web.UI.Page
 {
     public  View_Members  _vMember = null;
-    public DS_Decoration _Decoration = null;
+    public DS_Decoration _Decoration;
    
     protected override void OnPreLoad(EventArgs e)
     {

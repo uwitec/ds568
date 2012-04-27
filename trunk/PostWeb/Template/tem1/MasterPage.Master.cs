@@ -23,7 +23,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             switch (act) {
                 case "chkLogin":
                     var ud = Session["UserData"] as UserData;
-                    if (ud != null)
+                    if (UserData.ChkObjNull(UserData.ObjType.会员信息))
                     {
                         Response.Write(ud.Member.UserID);
                     }
