@@ -17,7 +17,6 @@ public partial class index_home :  ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Response.Write(DateTime.Now.ToString());
         Page.Header.Title = "商铺首页,"+_vMember.CompanyName;
         if (IsPostBack) return;
 
