@@ -23,7 +23,7 @@ public partial class Community_FeedBack_index : System.Web.UI.Page
         ViewState["Gender"] = md.Gender;
 
         var ud = Session["UserData"] as UserData;
-        if (ud != null) {
+        if (UserData.ChkObjNull(UserData.ObjType.会员信息)) {
             var myinfo = bl.GetSingle(ud.Member.ID);
             string email = myinfo.Email;
             if (email.Contains("@")) {
