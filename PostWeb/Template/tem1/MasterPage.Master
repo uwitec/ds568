@@ -248,5 +248,9 @@
         <!--==============底部结束===============-->
     </div>
     </form>
+    <script type="text/javascript">
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe62367d449bbd5b723ebafa1693ee0a7' type='text/javascript'%3E%3C/script%3E"));
+    </script>
 </body>
 </html>
