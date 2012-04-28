@@ -53,7 +53,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" target="conFrame">
+                <a href="Transaction/seller_order_list.aspx" target="conFrame">
                     <div class="icon-salemanagement"></div>
                     <div class="wname">交易管理</div>
                 </a>
