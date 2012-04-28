@@ -11,4 +11,5 @@
 .companyinfo{background:url(/Member/Manage/UserControl/images/privateseller_summ.gif);}
 .imagemanager{background:url(/Member/Manage/UserControl/images/imagemanager.gif);}
 .news{background:url(/Member/Manage/UserControl/images/news.gif);}
-.accountmanagement,.offer,.companyinfo,.imagemanager,.news{ background-position:10px 0; background-repeat:no-repeat;}
+.trans{background:url(/Member/Manage/UserControl/images/trans.png);}
+.accountmanagement,.offer,.companyinfo,.imagemanager,.news,.trans{ background-position:10px 0; background-repeat:no-repeat;}
