@@ -2,12 +2,12 @@
 <%@ OutputCache Duration="1800" VaryByParam="none" VaryByCustom="Host" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript" src="/template/tem1/home/js/index.js"></script>
+    <link href="/template/tem1/home/css/focusimg.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="headTopic" runat="server"  id="DefaultR"></div>
     <div runat="server" visible="false" id="Roll_Img_wrap">
     <!--焦点图开始-->
-    <link href="/template/tem1/home/css/focusimg.css" rel="stylesheet" type="text/css" />
     <div class="flash-box">
       <div class="focusImg">
         <div class="autoImg">
