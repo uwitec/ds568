@@ -18,6 +18,8 @@ public partial class index_home :  ShopBasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.Header.Title = "商铺首页,"+_vMember.CompanyName;
+        var hm=this.Page.Master.FindControl("kw") as HtmlMeta;
+        hm.Content = "蜜蜂，荔枝花蜜，百合花蜜，纯天然不掺假";
         if (IsPostBack) return;
 
         var pbl = new DS_Products_Br();
