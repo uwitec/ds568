@@ -34,7 +34,7 @@ public class ShopBasePage : System.Web.UI.Page
         //装修数据
         var dcbl = new DS_Decoration_Br();
         _Decoration = dcbl.GetSingle(_vMember.ID, true);
-        if (!object.Equals(this.Page.Header, null))
+        if (!object.Equals(_Decoration,null)&&!object.Equals(this.Page.Header, null))
         {
             var lctr = new LiteralControl();
             lctr.Text = "<style type=\"text/css\">";
