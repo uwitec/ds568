@@ -40,7 +40,7 @@ public partial class index_home :  ShopBasePage
         Repeater3.DataBind();
       
         //焦点图
-        if (!string.IsNullOrEmpty(_Decoration.RollImg1 + _Decoration.RollImg2 + _Decoration.RollImg3))
+        if (!object.Equals(_Decoration,null)&&!string.IsNullOrEmpty(_Decoration.RollImg1 + _Decoration.RollImg2 + _Decoration.RollImg3))
         {
             Roll_Img_wrap.Visible = true;
             DefaultR.Visible = false;

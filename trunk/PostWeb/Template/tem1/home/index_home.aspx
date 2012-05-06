@@ -1,8 +1,12 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/template/tem1/MasterPage.Master" AutoEventWireup="true"   CodeFile="index_home.aspx.cs" Inherits="index_home"  %>
 <%@ OutputCache Duration="1800" VaryByParam="none" VaryByCustom="Host" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript" src="/template/tem1/home/js/index.js"></script>
     <link href="/template/tem1/home/css/focusimg.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #about{line-height:20px;}
+    </style>
+    <script type="text/javascript" src="/template/tem1/home/js/index.js"></script>
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="headTopic" runat="server"  id="DefaultR"></div>
@@ -44,7 +48,7 @@
             </div>
             <div class="AboutBody justify">
                 <img onerror="javascript:this.style.display='none'" class="AboutImg" src="<%=_vMember.ComImg.Split('|')[0] %>" />
-                <span id="about"><%=string.IsNullOrEmpty(_vMember.Profile) ? "" : (_vMember.Profile.Length > 500 ? _vMember.Profile.Substring(0, 500) + "…（<a href='../profile/index_profile.aspx'>未完</a>）。" : _vMember.Profile)%></span>
+                <span id="about">&nbsp;&nbsp;&nbsp;&nbsp;<%=string.IsNullOrEmpty(_vMember.Profile) ? "" : (_vMember.Profile.Length > 500 ? _vMember.Profile.Substring(0, 500) + "…（<a href='../profile/index_profile.aspx'>未完</a>）。" : _vMember.Profile)%></span>
             </div>
         </div>
         <!--========关于我们结束=============-->
