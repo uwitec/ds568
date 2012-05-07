@@ -1,4 +1,25 @@
-﻿$(document).ready(function(){
+﻿//企业图片不显示时
+imgErr1 = function (obj) {
+    $(obj).hide();
+    var ctn = $(".upbtn").eq(0);
+    ctn.find("input").val("上传图片");
+    ctn.find("a").hide();
+}
+imgErr2 = function (obj) {
+    $(obj).hide();
+    var ctn = $(".upbtn").eq(1);
+    ctn.find("input").val("上传图片");
+    ctn.find("a").hide();
+}
+
+imgErr3 = function (obj) {
+    $(obj).hide();
+    var ctn = $(".upbtn").eq(2);
+    ctn.find("input").val("上传图片");
+    ctn.find("a").hide();
+}
+
+$(document).ready(function(){
     
     //-----------验证开始------------
     
@@ -86,26 +107,7 @@
         wBox.close();
         getimg();
     }
-    //企业图片不显示时
-    imgErr1=function(obj){
-        $(obj).hide();
-        var ctn=$(".upbtn").eq(0);
-        ctn.find("input").val("上传图片");
-        ctn.find("a").hide();
-    }
-    imgErr2=function(obj){
-        $(obj).hide();
-        var ctn=$(".upbtn").eq(1);
-        ctn.find("input").val("上传图片");
-        ctn.find("a").hide();
-    }
     
-    imgErr3=function(obj){
-        $(obj).hide();
-        var ctn=$(".upbtn").eq(2);
-        ctn.find("input").val("上传图片");
-        ctn.find("a").hide();
-    }
   
     //--------------还原公司信息开始---------------------
     $("select[name=Employees] option[value="+$("#HD_Employees").val()+"]").attr("selected",true);
