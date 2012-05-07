@@ -204,7 +204,7 @@
 .suggest{width:700px;overflow:hidden;}
 .suggestContainer div{width:140px;float:left;height:166px; text-align:center;}
 .suggestContainer div ul{width:108px;margin:0 auto;}
-.suggestContainer div a.linkImg{display:table-cell; *display:block; vertical-align:middle; text-align:center; width:104px;height:104px;padding:1px;border:solid 1px #e5e5e5;overflow:hidden;}
+.suggestContainer div a.linkImg{display:table-cell; *display:block;vertical-align:middle;text-align:center;width:104px;height:104px;padding:1px;border:solid 1px #e5e5e5;overflow:hidden;}
 .suggestContainer div a:hover.linkImg{border-color: #ff7300;}
 h4{font-weight:normal;font-size:12px;}
 h4 a{display:block;color:#0066cc;height:32px;line-height:16px;overflow:hidden;}
