@@ -1,8 +1,8 @@
 ﻿$(document).ready(function(){
     var adNum=0;
     var imgurl=$("#hdimgurl").val().split('|');
-    for(var i=0;i<imgurl.length;i++){
-        $(".comimgCtn").append("<img src='"+imgurl[i]+"' width='300' height='228' />")
+    for(var i=imgurl.length-1;i>=0;i--){
+        $(".comimgCtn").append("<img src='"+imgurl[i]+"'  width='300' height='228' />")
     }            
    
     function nextAd(){
