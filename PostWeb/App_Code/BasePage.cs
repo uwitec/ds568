@@ -18,36 +18,14 @@ public class BasePage : System.Web.UI.Page
 
     protected override void InitializeCulture()
     {
-        //测试登陆
-        //var mb = new Com.DianShi.Model.Member.DS_Members();
-        //Session["UserData"] = new UserData { Member=mb };
-
-        _userData = Session["UserData"] as UserData;
-        if (_userData == null)
+        if (!UserData.ChkObjNull(UserData.ObjType.会员信息))
         {
             Response.Write("<script>alert('登录超时，请重新登录。');open('"+Resources.Constant.LoginPage+"','_top')</script>");
             Response.End();
-            //Response.Redirect(Resources.PageConstant.LoginPage);
         }
-
-        //this.Page.Theme = System.Configuration.ConfigurationManager.AppSettings["Theme"].ToString();
-        //CultureInfo culture = new CultureInfo(_userData.Language != null ? _userData.Language : System.Configuration.ConfigurationManager.AppSettings["Langue"].ToString());
-
-        //System.Threading.Thread.CurrentThread.CurrentUICulture = culture;
-        //this.Theme = System.Configuration.ConfigurationManager.AppSettings["Theme"].ToString();
-        //this.Culture = System.Configuration.ConfigurationManager.AppSettings["Langue"];
-        //this.UICulture = System.Configuration.ConfigurationManager.AppSettings["Langue"];
-        //this.UICulture = HttpContext.Current.Profile.GetPropertyValue("UICulture").ToString();
-        //this.Culture = HttpContext.Current.Profile.GetPropertyValue("Culture").ToString();
-        //Thread.CurrentThread.CurrentCulture =
-        //CultureInfo.CreateSpecificCulture(System.Configuration.ConfigurationManager.AppSettings["Langue"].ToString());
-        //base.InitializeCulture();
+        _userData = Session["UserData"] as UserData;
+       
     }
 
-    protected void Page_PreInit(object sender, EventArgs e)
-    {
-
-        //Page.Theme = HttpContext.Current.Profile.GetPropertyValue("theme").ToString();
-        //this.Culture = "zh-cn";            
-    }
+ 
 }

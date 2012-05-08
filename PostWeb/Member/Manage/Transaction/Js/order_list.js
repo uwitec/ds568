@@ -27,19 +27,17 @@
             type: "POST",
             data: { action: "pager", pageIndex: (pageIndex + 1), pageSize: pageSize},
             success: function (data) {
-                $(".ulwrap li").remove();
-                $(".ulwrap").append($(data).find(".ulwrap li"));
-                bitclick();
-                $(".ulwrap li:first").click();
+                $(".tblist tr:nth-child(n+1)").remove();
+                $(".tblist").append($(data).find(".tblist tr:nth-child(n+1)"));
             },
             error: function (req, state, err) {
                 $("body").append(req.responseText);
             },
             beforeSend: function () {
-                $(".ulwrap").addClass("loading3").find("li").addClass("hidden")
+                $(".tblist").addClass("loading3").find("tr:nth-child(n+1)").addClass("hidden")
             },
             complete: function () {
-                $(".ulwrap").removeClass("loading3").find("li").removeClass("hidden")
+                $(".tblist").removeClass("loading3").find("tr:nth-child(n+1)").removeClass("hidden")
             }
         });
     }

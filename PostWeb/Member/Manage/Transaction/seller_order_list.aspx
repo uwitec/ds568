@@ -29,13 +29,13 @@
     </div>
 <div class="proctn">
     <table cellpadding=0 cellspacing=0 class="tblist">
-        <tr><th colspan=2>货品</th><th>单价</th><th>数量</th><th>总金额</th><th>订单状态</th><th>操作</th></tr>
+        <tr><th colspan="2">货品</th><th>单价</th><th>数量</th><th>总金额</th><th>订单状态</th><th>操作</th></tr>
         <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
-                <tr><td class="tdcb"><input type="checkbox" value="<%#Eval("id") %>" name="chb_pro" /></td><td><img src="<%#Eval("Img1") %>" onload="changeImg(this,80,80)" /></td><td><%#Eval("title") %></td><td>---</td><td><%#Eval("categoryname") %></td><td><%#((DateTime)Eval("ExpiredDate")).ToString("yyyy-MM-dd")%></td><td><a href="post.aspx?id=<%#Eval("id") %>">修改</a> / <a href="#">重发</a></td></tr>        
+                <tr><td><img src="<%#Eval("ImgUrl") %>" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'" onload="changeImg(this,80,80)" /></td><td><%#Eval("title") %></td><td><%#Eval("price") %></td><td><%#Eval("pronum") %></td><td><%#Eval("amount")%></td><td>--</td><td>--</td></tr>        
             </ItemTemplate>
             <AlternatingItemTemplate>
-                <tr class="altr"><td class="tdcb"><input type="checkbox" value="<%#Eval("id") %>" name="chb_pro" /></td><td><img src="<%#Eval("Img1") %>" onload="changeImg(this,80,80)" /></td><td><%#Eval("title") %></td><td>---</td><td><%#Eval("categoryname")%></td><td><%#((DateTime)Eval("ExpiredDate")).ToString("yyyy-MM-dd")%></td><td><a href="post.aspx?id=<%#Eval("id") %>">修改</a> / <a href="#">重发</a></td></tr>        
+                <tr class="altr"><td><img src="<%#Eval("Img1") %>" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'" onload="changeImg(this,80,80)" /></td><td><%#Eval("title") %></td><td><%#Eval("price") %></td><td><%#Eval("pronum")%></td><td><%#Eval("amount")%></td><td>--</td><td>--</td></tr>        
             </AlternatingItemTemplate>
         </asp:Repeater>
     </table>
