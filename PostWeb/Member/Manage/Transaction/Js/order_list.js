@@ -1,9 +1,9 @@
-﻿$(function () {
+﻿$(function() {
     var pageIndex = 0;     //页面索引初始值
     var pageSize = 10;    //每页显示条数初始化，修改显示条数，修改这里即可  
 
     //分页，PageCount是总条目数，这是必选参数，其它参数都是可选
-    var pg = function () {
+    var pg = function() {
         $(".pagerwrap").pagination(Number($("#rc").val()), {
             callback: InitTable,
             prev_text: '上一页',       //上一页按钮里text
@@ -25,19 +25,19 @@
     function InitTable(pageIndex) {
         $.ajax({
             type: "POST",
-            data: { action: "pager", pageIndex: (pageIndex + 1), pageSize: pageSize},
-            success: function (data) {
+            data: { action: "pager", pageIndex: (pageIndex + 1), pageSize: pageSize, orderNum: $("#orderNum").val(), orderState: $("orderState").val(), startDate: $("#startDate").val(),endDate:$("#endDate").val(),proName:$("#proName").val() },
+            success: function(data) {
                 $(".tblist tr:nth-child(n+1)").remove();
                 $(".tblist").append($(data).find(".tblist tr:nth-child(n+1)"));
             },
-            error: function (req, state, err) {
+            error: function(req, state, err) {
                 $("body").append(req.responseText);
             },
-            beforeSend: function () {
-                $(".tblist").addClass("loading3").find("tr:nth-child(n+1)").addClass("hidden")
+            beforeSend: function() {
+                $(".tblist").addClass("loading3").find("tr:nth-child(n+1)").addClass("hidden");
             },
-            complete: function () {
-                $(".tblist").removeClass("loading3").find("tr:nth-child(n+1)").removeClass("hidden")
+            complete: function() {
+                $(".tblist").removeClass("loading3").find("tr:nth-child(n+1)").removeClass("hidden");
             }
         });
     }
