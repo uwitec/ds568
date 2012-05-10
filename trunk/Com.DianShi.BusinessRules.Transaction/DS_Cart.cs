@@ -33,6 +33,9 @@ namespace Com.DianShi.BusinessRules.Transaction
             OrderDetail.Price = GetPrice(product.PriceRang,ProNum);
             OrderDetail.ProName = product.Title;
             OrderDetail.ImgUrl = product.Img1;
+            OrderDetail.OrderNum = string.Empty;
+            OrderDetail.State = (byte)State.待卖家确认订单;
+            OrderDetail.CreateDate = DateTime.Now;
             OrderDetail.Amount = Math.Round(double.Parse(ProNum.ToString()) * OrderDetail.Price);
             OrderDetail.PriceRang = GetPriceRang(product.PriceRang, ProNum);
             return OrderDetail;
@@ -66,16 +69,17 @@ namespace Com.DianShi.BusinessRules.Transaction
                 order.PurchaseID = 0;
                 order.Amount = orderDetail.Amount;
                 order.CreateDate = DateTime.Now;
-                order.OrderNum = string.Empty;
                 order.ID = id++;
                 odinfo.ID = order.ID;
                 Orders.Add(order);
                 orderDetail.OrderID = order.ID;
+                orderDetail.MemberID = order.MemberID;
                 OrderDetail.Add(orderDetail);
             }
             else {
                 var order = existod.Single();
                 orderDetail.OrderID = order.ID;
+                orderDetail.MemberID = order.MemberID;
                 odinfo.ID = order.ID;
                 //检查购物车中是否已存在相同商品
                 var existoddt = OrderDetail.Where(a=>a.ProductID.Equals(orderDetail.ProductID));
@@ -202,6 +206,11 @@ namespace Com.DianShi.BusinessRules.Transaction
                 }
             }
             return str;
+        }
+
+        public enum State : byte { 
+            待卖家确认订单,
+            交易完成
         }
 
        public class OrderInfo {

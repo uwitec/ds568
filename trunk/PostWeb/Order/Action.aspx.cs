@@ -37,8 +37,8 @@ public partial class Order_Action : System.Web.UI.Page
                 break;
             case "sub_order":
                 var am = new ActMsg {succe=false,msg="" };
-                try
-                {
+                //try
+                //{
                     var oddtbl = new DS_Orders_Br();
                     var od=ud.ShoppingCart.Orders.Single(a=>a.ID.Equals(int.Parse(Request.QueryString["oid"])));
                     od.ClientArea = Request["province"].Split(',')[0] + " " + Request["city"].Split(',')[0] + " " + Request["town"].Split(',')[0];
@@ -54,10 +54,10 @@ public partial class Order_Action : System.Web.UI.Page
                     ud.ShoppingCart.Orders.Remove(od);
                     am.succe = true;
                     am.msg = "提交订单成功。";
-                }
-                catch (Exception ex) {
-                    am.msg = "抱歉，提交出错。";
-                }
+                //}
+                //catch (Exception ex) {
+                //    am.msg = "抱歉，提交出错。";
+                //}
                 Response.Write(js.Serialize(am));
                 break;
         }

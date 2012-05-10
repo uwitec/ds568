@@ -9,7 +9,6 @@
       <Column Name="PurchaseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ProNum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="OrderNum" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="QQ" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="ClientArea" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
