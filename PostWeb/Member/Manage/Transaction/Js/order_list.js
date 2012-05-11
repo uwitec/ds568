@@ -1,4 +1,4 @@
-﻿$(function() {
+﻿$(function () {
     var pageIndex = 0;     //页面索引初始值
     var pageSize = 3;    //每页显示条数初始化，修改显示条数，修改这里即可  
     var ispost = false;   //开关调用分页
@@ -25,33 +25,38 @@
         $.ajax({
             type: "POST",
             data: { action: "pager", pageIndex: (pageIndex + 1), pageSize: pageSize, orderNum: $("#orderNum").val(), orderState: $("#orderState").val(), startDate: $("#startDate").val(), endDate: $("#endDate").val(), proName: $("#proName").val() },
-            success: function(data) {
+            success: function (data) {
                 $(".tblist tr:nth-child(n+2)").remove();
                 $(".tblist").append($(data).find(".tblist tr:nth-child(n+2)"));
             },
-            error: function(req, state, err) {
+            error: function (req, state, err) {
                 $("body").append(req.responseText);
             },
-            beforeSend: function() {
+            beforeSend: function () {
                 $(".tblist").addClass("loading3").find("tr:nth-child(n+2)").addClass("hidden");
             },
-            complete: function() {
+            complete: function () {
                 $(".tblist").removeClass("loading3").find("tr:nth-child(n+2)").removeClass("hidden");
             }
         });
     }
 
     //搜索
-    $("#btnSearch").click(function() {
+    $("#btnSearch").click(function () {
         location = "?" + $(".scctn ul input").serialize();
     });
 
     //设定搜索时间：三天，一周，一个月
-    $("#threeDay,#week,#month").click(function() {
+    $("#threeDay,#week,#month").click(function () {
         var date = new Date();
-        $("input[name=endDate]").val(date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate());
+        $("input[name=endDate]").val(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate());
         date.setDate(date.getDate() - $(this).attr("day"));
         $("input[name=startDate]").val(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate());
     });
 
+    //详情
+    $(".od_det").click(function () {
+        var ofs = $(this).offset();
+        $(".client_det_wrap").css({"top":ofs.top+19,"left":ofs.left-400+49});
+    });
 });

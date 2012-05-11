@@ -39,14 +39,28 @@
         <tr><th colspan="2">货品</th><th>单价</th><th>数量</th><th>总金额</th><th>订单状态</th><th>操作</th></tr>
         <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
-                <tr><td><img src="<%#Eval("ImgUrl") %>" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'" onload="changeImg(this,80,80)" /></td><td><%#Eval("proname") %></td><td><%#Eval("price") %></td><td><%#Eval("pronum") %></td><td><%#Eval("amount")%></td><td><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Transaction.DS_Cart.State),Eval("state")) %></td><td>--</td></tr>        
+                <tr><td><img src="<%#Eval("ImgUrl") %>" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'" onload="changeImg(this,80,80)" /></td><td><%#Eval("proname") %></td><td><%#Eval("price") %></td><td><%#Eval("pronum") %></td><td><%#Eval("amount")%></td><td><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Transaction.DS_Cart.State),Eval("state")) %></td><td class="act_wrap"><a  class="od_det" href="javascript:void(0);"><span class="spdet">详情</span><div class="client_det_wrap">
+        <ul>
+            <li>姓名：<span id="ClientName"></span></li>
+            <li>手机：<span id="Span1"></span></li>
+            <li>电话：<span id="Span2"></span></li>
+            <li>所在地区：<span id="Span3"></span></li>
+            <li>街道地址：<span id="Span4"></span></li>
+            <li>邮编：<span id="Span5"></span></li>
+            <li>备注：<span id="Span6"></span></li>
+            <li>手机：<span id="Span7"></span></li>
+        </ul>
+    </div>
+    <div class="ovline">&nbsp;</div>
+    </a><a  href="javascript:void(0);">删除</a></td></tr>        
             </ItemTemplate>
             <AlternatingItemTemplate>
-                <tr class="altr"><td><img src="<%#Eval("ImgUrl") %>" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'" onload="changeImg(this,80,80)" /></td><td><%#Eval("proname") %></td><td><%#Eval("price") %></td><td><%#Eval("pronum")%></td><td><%#Eval("amount")%></td><td><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Transaction.DS_Cart.State),Eval("state")) %></td><td>--</td></tr>        
+                <tr class="altr"><td><img src="<%#Eval("ImgUrl") %>" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'" onload="changeImg(this,80,80)" /></td><td><%#Eval("proname") %></td><td><%#Eval("price") %></td><td><%#Eval("pronum")%></td><td><%#Eval("amount")%></td><td><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Transaction.DS_Cart.State),Eval("state")) %></td><td class="act_wrap"><a class="od_det" href="javascript:void(0);"><span class="spdet">详情</span></a><a href="javascript:void(0);">删除</a></td></tr>        
             </AlternatingItemTemplate>
         </asp:Repeater>
     </table>
     <div class="pagerwrap"></div>
+    
 </div>
 </asp:Content>
 
