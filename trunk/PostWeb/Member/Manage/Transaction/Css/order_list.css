@@ -13,3 +13,12 @@
 .tblist td{ text-align:center;padding:6px 0;}
 .date{ background:url(../images/date-bg1.png) no-repeat right top;width:98px;}
 .altr{ background-color:#f7fbfe;}
+
+.client_det_wrap{ position:absolute;z-index:60;background-color:White;border:solid 1px #ccc;width:400px;height:150px;top:19px;left:-360px;display:none;}
+.od_det{position:relative; cursor:pointer; z-index:6;}
+.od_det span.spdet{width:30px;line-height:18px;border:solid 1px white;display:block;border-bottom:none;}
+.od_det div.ovline{height:1px; overflow:hidden; background-color:White;width:30px; position:absolute; bottom:0px;left:1px;display:none;}
+.od_det:hover span.spdet{border-color:#ccc;}
+.od_det:hover div{display:block;}
+
+.act_wrap a{display:block;width:30px;height:20px;margin:0 auto;}
