@@ -29,7 +29,7 @@
             <option value="0">等待卖家确认订单</option>
             </select>
         </li>
-        <li><b>成交时间：</b><input type="text" name="startDate" readonly="readonly" onfocus="calendar()" maxlength="10" class="txtbox keyword date" /> - <input name="endDate" onfocus="calendar()" readonly="readonly" maxlength="10" class="txtbox keyword date" />&nbsp;&nbsp;[ <a href="javascript:void(0);">最近3天</a> <a href="javascript:void(0);">最近1周</a> <a href="javascript:void(0);">最近1月</a> ] </li>
+        <li><b>成交时间：</b><input type="text" name="startDate" readonly="readonly" onfocus="calendar()" maxlength="10" class="txtbox keyword date" /> - <input name="endDate" onfocus="calendar()" readonly="readonly" maxlength="10" class="txtbox keyword date" />&nbsp;&nbsp;[ <a href="javascript:void(0);" id="threeDay" day="2">最近3天</a> <a href="javascript:void(0);" id="week" day="6">最近1周</a> <a href="javascript:void(0);" id="month" day="29">最近1月</a> ] </li>
     </ul>
     <div class="scwrap"><div>&nbsp;</div>
         &nbsp;<input id="btnSearch" type="button" value="搜索" /></div>
