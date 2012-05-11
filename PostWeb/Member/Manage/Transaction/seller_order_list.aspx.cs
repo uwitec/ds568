@@ -19,17 +19,18 @@ public partial class Member_Manage_Transaction_seller_order_list : BasePage
             switch (act)
             {
                 case "pager":
-                    BindData(Request["orderNum"], Request["startDate"], Request["endDate"], Request["orderState"], Request["proName"], Request["pageIndex"], Request["pageSize"]);
+                    BindData();
                     break;
             }
             return;
         }
         if (IsPostBack) return;
-        
+        BindData();
     }
 
-    private void BindData(string orderNum,string startDate, string endDate,  string orderState, string proName,string pageIndex,string pageSize)
+    private void BindData()
     {
+        string orderNum = Request["orderNum"], startDate = Request["startDate"], endDate = Request["endDate"], orderState = Request["orderState"], proName = Request["proName"],pageIndex=Request["pageIndex"],pageSize=Request["pageSize"];
         var bl = new DS_OrderDetail_Br();
         var sql = new System.Text.StringBuilder();
         var param=new object[6];
@@ -37,8 +38,8 @@ public partial class Member_Manage_Transaction_seller_order_list : BasePage
         param[0] = _userData.Member.ID;
         if (!string.IsNullOrEmpty(orderNum))
         {
-            sql.Append(" and id=@1");
-            param[1] = orderNum;
+            sql.Append(" and OrderNum=@1");
+            param[1] = orderNum.Trim();
         }
         else
         {
@@ -60,10 +61,10 @@ public partial class Member_Manage_Transaction_seller_order_list : BasePage
             if (!string.IsNullOrEmpty(proName))
             {
                 sql.Append(" and ProName.Contains(@5)");
-                param[5] = proName;
+                param[5] = proName.Trim();
             }
         }
-        int recordCount = 0, _pageIndex = string.IsNullOrEmpty(pageIndex) ? 1 : int.Parse(pageIndex), _pageSize = string.IsNullOrEmpty(pageSize) ? 10 : int.Parse(pageSize);
+        int recordCount = 0, _pageIndex = string.IsNullOrEmpty(pageIndex) ? 1 : int.Parse(pageIndex), _pageSize = string.IsNullOrEmpty(pageSize) ? 3 : int.Parse(pageSize);
         Repeater1.DataSource = bl.Query(sql.ToString(), "id desc", (_pageIndex - 1) * _pageSize, _pageSize, ref recordCount, param);
         Repeater1.DataBind();
         ViewState["rc"] = recordCount;
