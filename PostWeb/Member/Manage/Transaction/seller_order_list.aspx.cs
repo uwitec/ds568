@@ -21,6 +21,13 @@ public partial class Member_Manage_Transaction_seller_order_list : BasePage
                 case "pager":
                     BindData();
                     break;
+                case "od_det":
+                    var bl = new DS_Orders_Br();
+                    var js = new System.Web.Script.Serialization.JavaScriptSerializer();
+                    var md = bl.GetSingle(int.Parse(Request["id"]));
+                    Response.Write(js.Serialize(md));
+                    Response.End();
+                    break;
             }
             return;
         }
