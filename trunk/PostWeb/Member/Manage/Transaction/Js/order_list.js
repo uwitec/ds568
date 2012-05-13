@@ -1,4 +1,4 @@
-﻿$(function() {
+﻿$(function () {
     var pageIndex = 0;     //页面索引初始值
     var pageSize = 3;    //每页显示条数初始化，修改显示条数，修改这里即可  
     var ispost = false;   //开关调用分页
@@ -25,29 +25,30 @@
         $.ajax({
             type: "POST",
             data: { action: "pager", pageIndex: (pageIndex + 1), pageSize: pageSize, orderNum: $("#orderNum").val(), orderState: $("#orderState").val(), startDate: $("#startDate").val(), endDate: $("#endDate").val(), proName: $("#proName").val() },
-            success: function(data) {
+            success: function (data) {
                 $(".tblist tr:nth-child(n+2)").remove();
                 $(".tblist").append($(data).find(".tblist tr:nth-child(n+2)"));
+                cbbind();
             },
-            error: function(req, state, err) {
+            error: function (req, state, err) {
                 $("body").append(req.responseText);
             },
-            beforeSend: function() {
-                $(".tblist").addClass("loading3").find("tr:nth-child(n+2)").addClass("hidden");
+            beforeSend: function () {
+                $(".tblist").addClass("loading3").find("tr:nth-child(n+2),img").addClass("hidden");
             },
-            complete: function() {
-                $(".tblist").removeClass("loading3").find("tr:nth-child(n+2)").removeClass("hidden");
+            complete: function () {
+                $(".tblist").removeClass("loading3").find("tr:nth-child(n+2),img").removeClass("hidden");
             }
         });
     }
 
     //搜索
-    $("#btnSearch").click(function() {
+    $("#btnSearch").click(function () {
         location = "?" + $(".scctn ul input").serialize();
     });
 
     //设定搜索时间：三天，一周，一个月
-    $("#threeDay,#week,#month").click(function() {
+    $("#threeDay,#week,#month").click(function () {
         var date = new Date();
         $("input[name=endDate]").val(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate());
         date.setDate(date.getDate() - $(this).attr("day"));
@@ -55,39 +56,67 @@
     });
 
     //详情
-    $(".od_det").click(function() {
-        var ofs = $(this).offset();
-        $(".client_det_wrap").css({ "top": ofs.top + 17, "left": ofs.left - 771 + 34 }).show();
-        $(".client_det_wrap table td").not(".tdfild").text('');
-        $(this).blur();
-        var od_id = $(this).attr("oid");
-        $.ajax({
-            data: { action: "od_det", id: od_id },
-            dataType: "json",
-            success: function(data, state) {
-                $("#Name").text(data.ClientName);
-                $("#Mobile").text(data.ClientName);
-                $("#Phone").text(data.ClientPhone);
-                $("#Area").text(data.ClientArea);
-                $("#Street").text(data.ClientStreet);
-                $("#Zipcode").text(data.ClientZipCode);
-                $("#Remark").text(data.ClientRemark);
-            },
-            error: function(req, state, err) {
-                alert("获取数据出错。")
-                $("body").append(req.responseText);
-            },
-            beforeSend: function() {
-                $(".client_det_wrap").addClass("loading").find("table").addClass("hidden");
-            },
-            complete: function() {
-                $(".client_det_wrap").removeClass("loading").find("table").removeClass("hidden");
-            }
+    var cbbind = function () {
+        $(".od_det").click(function () {
+            var ofs = $(this).offset();
+            $(".client_det_wrap").css({ "top": ofs.top + 17, "left": ofs.left - 771 + 34 }).show();
+            $(".client_det_wrap table td").not(".tdfild").text('');
+            $(this).blur();
+            var od_id = $(this).attr("oid");
+            $.ajax({
+                data: { action: "od_det", id: od_id },
+                dataType: "json",
+                success: function (data, state) {
+                    $("#Name").text(data.ClientName);
+                    $("#Mobile").text(data.ClientMobile);
+                    $("#Phone").text(data.ClientPhone);
+                    $("#Area").text(data.ClientArea);
+                    $("#Street").text(data.ClientStreet);
+                    $("#Zipcode").text(data.ClientZipCode);
+                    $("#Remark").text(data.ClientRemark);
+                },
+                error: function (req, state, err) {
+                    alert("获取数据出错。")
+                    $("body").append(req.responseText);
+                },
+                beforeSend: function () {
+                    $(".client_det_wrap").addClass("loading").find("table").addClass("hidden");
+                },
+                complete: function () {
+                    $(".client_det_wrap").removeClass("loading").find("table").removeClass("hidden");
+                }
+            });
+
         });
 
-    });
-    $(".client_det_wrap").hover(function() { },
-        function() {
+        //删除
+        $(".od_del").click(function () {
+            if (confirm("确认删除？删除后不可恢复。")) {
+                var obj = $(this)
+                $.ajax({
+                    type: "POST",
+                    data: { action: "del", id: obj.attr("dtid") },
+                    success: function (data, state) {
+                        obj.parent().parent().slideUp(300, function () {
+                            $(this).remove();
+                            if ($(".tblist tr").length == 1) {
+                                location.reload();
+                            }
+                        });
+                    },
+                    error: function (req, state, err) {
+                        alert("删除出错。");
+                        $("body").append(req.responseText)
+                    }
+                });
+            }
+            return false;
+        });
+    }
+    cbbind();
+
+    $(".client_det_wrap").hover(function () { },
+        function () {
             $(this).slideUp();
         }
     );

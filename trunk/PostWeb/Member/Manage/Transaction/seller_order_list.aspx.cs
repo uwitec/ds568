@@ -28,6 +28,11 @@ public partial class Member_Manage_Transaction_seller_order_list : BasePage
                     Response.Write(js.Serialize(md));
                     Response.End();
                     break;
+                case "del":
+                    var oddbl = new DS_OrderDetail_Br();
+                    oddbl.Delete(int.Parse(Request.Form["id"]));
+                    Response.End();
+                    break;
             }
             return;
         }
