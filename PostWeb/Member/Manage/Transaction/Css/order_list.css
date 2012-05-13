@@ -1,4 +1,4 @@
-﻿html{ overflow:scroll;}
+﻿html{ overflow-y:scroll;}
 .txtbox{border:solid 1px #B5B5B5;height:20px;line-height:20px;width:115px;background:url(/images/input-bg.png) no-repeat;}
 .keyword{border-color:#d0cdcd;}
 .proctn{padding-top:0;}
