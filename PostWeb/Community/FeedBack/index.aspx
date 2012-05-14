@@ -38,8 +38,8 @@
         <div class="content01">
             <ul>
                 <li>公司名称 <a href="javascript:;"><%=ViewState["company"]%></a></li>
-                <li class="contactMan">联系人 <a href="javascript:;"><%=ViewState["trueName"] %> <%=ViewState["Gender"]%></a> <a class="linkQQ" target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=416351551">
-                                        <img border="0" src="http://wpa.qq.com/pa?p=1:416351551:4" title="给我发消息" alt="给我发消息"></a></li>
+                <li class="contactMan">联系人 <a href="javascript:;"><%=ViewState["trueName"] %> <%=ViewState["Gender"]%></a> <a class="linkQQ" target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=<%=ViewState["qq"] %>">
+                                        <img border="0" src="http://wpa.qq.com/pa?p=1:<%=ViewState["qq"] %>:4" title="给我发消息" alt="给我发消息"></a></li>
             </ul>
         </div>
         

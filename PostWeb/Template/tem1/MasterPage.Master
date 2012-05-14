@@ -121,7 +121,7 @@
                         <li class="UserInfoMiddle">
                             <div class="ifm_wrap">
                                 <div class="ui_comname"><a href="../profile/index_profile.aspx"><%=ViewState["comName"]%></a></div>
-                                <div class="mbname bbord"><span class="sptn cl6c"><%=ViewState["TrueName"]%></span> <span><%=ViewState["Gender"]%></span><a class="qqonline" href="http://wpa.qq.com/msgrd?v=3&uin=<%=ViewState["qq"] %>&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('在线洽谈');"  src="http://wpa.qq.com/pa?p=2:<%=ViewState["qq"] %>:4" alt="给我留言" /><span>给我留言</span></a></div>
+                                <div class="mbname bbord"><span class="sptn cl6c"><%=ViewState["TrueName"]%></span> <span><%=ViewState["Gender"]%></span><a class="qqonline" href="http://wpa.qq.com/msgrd?v=3&uin=<%=ViewState["qq"] %>&site=qq&menu=yes"><img onload="if(this.width>16){ $(this).next().text('在线洽谈'); $('.ol_wp').show();$('.msgTitle,.sd_wp').hide();}"  src="http://wpa.qq.com/pa?p=2:<%=ViewState["qq"] %>:4" alt="给我留言" /><span>给我留言</span></a></div>
                                 <div>诚信指数：<span class="cl6c">100</span></div>
                                 <div>证书荣誉：<span class="cl6c">12项</span></div>
                                 <div class="bbord">工商注册信息：<img alt="已认证" src="http://img.china.alibaba.com/cms/upload/integrity/promotion/certificate1.gif" /></div>

@@ -20,6 +20,8 @@
         .ri_3 a span{visibility:hidden;}
         .ri_3 a.pur_view{ background-position:-414px -36px;}
         .ri_3 a.pur_buy{ background-position:-414px 0;}
+        span.loading2{padding-left:20px; background-position:left center;display:block; clear:both;margin-top:8px;display:none;}
+        .ol_wp{display:none;}
     </style>
     <script type="text/javascript" src="js/pro_show.js"></script>
 </asp:Content>
@@ -101,10 +103,12 @@
                             <div class="divLine1">
                             </div>
                         </li>
+                        <li class="ol_wp">供应商目前在线，<a   href="http://wpa.qq.com/msgrd?v=3&uin=<%=_vMember.QQ %>&site=qq&menu=yes"><img   src="http://wpa.qq.com/pa?p=2:<%=_vMember.QQ %>:4"  />点击交谈</a></li>
                         <li class="msgTitle">供应商目前不在线，请在下面留言:</li>
-                        <li>
-                            <input id="inpMsg" name="inpMsg" dv="请输入关于您产品的问题（70字以内）" type="text" /><input
+                        <li class="sd_wp">
+                            <input id="inpMsg" maxlength="70" name="inpMsg" dv="请输入关于您产品的问题及联系方式(70字以内)" type="text" /><input
                                 id="btnSend" type="button" value="发送" />
+                                <span class="loading2">数据提交中…</span>
                         </li>
                     </ul>
                     <div class="add_pur_wrap">
@@ -204,8 +208,8 @@
                         <asp:Repeater ID="Repeater2" runat="server">
                             <ItemTemplate>
                                 <div class="ctctn">
-                                    <span class="ctname"><%#Eval("TrueName") %></span> <%#Eval("Gender")%> | <%#Eval("Position")%> <a class="ctqq" target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=416351551">
-                                        <img border="0" src="http://wpa.qq.com/pa?p=1:416351551:1" title="给我发消息" alt="给我发消息"></a>
+                                    <span class="ctname"><%#Eval("TrueName") %></span> <%#Eval("Gender")%> | <%#Eval("Position")%> <a class="ctqq" target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=<%#Eval("qq") %>">
+                                        <img border="0" src="http://wpa.qq.com/pa?p=1:<%#Eval("qq") %>:1" title="给我发消息" alt="给我发消息"></a>
                                 </div>
                                 <ul class="ctlist">
                                     <li>手机：<%#Eval("Mobile") %></li>
@@ -224,7 +228,7 @@
                         <div class="moreTitle">
                             供应商的其他相关信息</div>
                         <div class="moreProduct">
-                            <a href="index_product.aspx?member_id=<%=Request.QueryString["member_id"] %>">查看该供应商更多供应产品</a></div>
+                            <a href="index_product.aspx">查看该供应商更多供应产品</a></div>
                     </div>
                     <div class="moreContent">
                         <a id="J_sugPre" href="javascript:;"><span class="disabled">上一组</span></a>

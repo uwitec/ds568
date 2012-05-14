@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.CompilerServices;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Transaction;
 using DBUtility;
@@ -102,10 +103,18 @@ namespace Com.DianShi.BusinessRules.Transaction
             }
         }
 
-        public Com.DianShi.Model.Transaction.DS_Orders CreateModel() {
-            return new Com.DianShi.Model.Transaction.DS_Orders();
+        public DS_Orders CreateModel() {
+            return new DS_Orders();
         }
 
         
+        private static int Seed = 0;
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public static string GetSerial() {
+            if (++Seed > 999)
+                Seed = 1;
+            return DateTime.Now.ToString("yyyyMMddhhmmss")+Seed.ToString().PadLeft(3,'0');    
+        }
     }
 }

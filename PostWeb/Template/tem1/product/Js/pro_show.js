@@ -1,8 +1,8 @@
 ﻿
-$(document).ready(function () {
+$(document).ready(function() {
     //切换产品缩略图                 
     var fra = $(".thrumFrame")
-    $(".pPicBottom  li").not(".lisplit").mouseover(function () {
+    $(".pPicBottom  li").not(".lisplit").mouseover(function() {
         fra.css("left", $(this).offset().left)
         fra.css("top", $(this).offset().top - 4)
         fra.css("display", "block");
@@ -11,30 +11,30 @@ $(document).ready(function () {
     $(".pPicBottom  li:first").mouseover()
 
     //更改订购产品数量
-    $(".up").click(function () {
+    $(".up").click(function() {
         $("#txtOrderNum").val(Number($("#txtOrderNum").val()) + 1)
     });
-    $(".down").click(function () {
+    $(".down").click(function() {
         if (Number($("#txtOrderNum").val()) > 1) {
             $("#txtOrderNum").val(Number($("#txtOrderNum").val()) - 1)
         }
     });
 
     //留言框事件
-    $("#inpMsg").val(function () {
+    $("#inpMsg").val(function() {
         return $(this).attr("dv");
-    }).focus(function () {
+    }).focus(function() {
         if ($(this).val() == $(this).attr("dv")) {
             $(this).val('').css("color", "black");
         }
-    }).blur(function () {
+    }).blur(function() {
         if ($(this).val() == "") {
-            $(this).val($(this).attr("dv")).css("color", "#bfbfbf");
+            $(this).val($(this).attr("dv")).css("color", "#666");
         }
     });
 
     //产品详细卡切换
-    $(".dLeft a").click(function () {
+    $(".dLeft a").click(function() {
         $(".divProDetail ul li div").removeClass("dLeftChk").removeClass("dRightChk")
         $(this).parent().addClass("dLeftChk").next().addClass("dRightChk")
         $(this).blur();
@@ -53,10 +53,10 @@ $(document).ready(function () {
         $("#J_sugNext span").addClass("active")
 
     //上一组，下一组事件
-    $("#J_sugNext span").click(function () {
+    $("#J_sugNext span").click(function() {
         if ($(this).hasClass("active")) {
             var sl = $(".suggest").scrollLeft();
-            $(".suggest").animate({ scrollLeft: sl + 5 * 140 }, 600, function () {
+            $(".suggest").animate({ scrollLeft: sl + 5 * 140 }, 600, function() {
                 if ($(".suggest").scrollLeft() >= $(".suggestContainer").width() - 700) {
                     $("#J_sugNext span").removeClass("active").addClass("disabled");
                 }
@@ -65,10 +65,10 @@ $(document).ready(function () {
         }
         $(this).parent().blur();
     });
-    $("#J_sugPre span").click(function () {
+    $("#J_sugPre span").click(function() {
         if ($(this).hasClass("active")) {
             var sl = $(".suggest").scrollLeft();
-            $(".suggest").animate({ scrollLeft: sl - 5 * 140 }, 600, function () {
+            $(".suggest").animate({ scrollLeft: sl - 5 * 140 }, 600, function() {
                 if ($(".suggest").scrollLeft() == 0) {
                     $("#J_sugPre span").removeClass("active").addClass("disabled")
                 }
@@ -98,7 +98,7 @@ $(document).ready(function () {
     }
 
     //加入进货单或立即订购
-    $("#J_LinkPurchase,#J_LinkOrder").click(function () {
+    $("#J_LinkPurchase,#J_LinkOrder").click(function() {
         var id = $(this).attr("pid");
         var lkid = this.id;
         $.ajax({
@@ -106,7 +106,7 @@ $(document).ready(function () {
             type: "POST",
             dataType: "json",
             data: { action: "add_pur", id: id, num: $("#txtOrderNum").val() },
-            success: function (data, state) {
+            success: function(data, state) {
                 if (lkid == "J_LinkPurchase") {
                     $(".ri_2 b").text(data.PurTotalCount);
                     $(".ri_2 span").text(data.PurTotalAmount);
@@ -116,16 +116,16 @@ $(document).ready(function () {
                     location = "/order/Make_Order.aspx?oid=" + data.ID;
                 }
             },
-            error: function (req, state, err) {
+            error: function(req, state, err) {
                 alert(err);
                 $("body").append(req.responseText);
             },
-            beforeSend: function () {
+            beforeSend: function() {
                 $(".add_pur_wrap").show();
                 $(".pur_panel_Left,.ri_1,.ri_2,.ri_3").addClass("hidden");
                 $(".pur_panel_Right").addClass("loading3");
             },
-            complete: function () {
+            complete: function() {
 
             }
         });
@@ -133,12 +133,40 @@ $(document).ready(function () {
     });
 
     //关闭成功加入进货单提示
-    $(".ri_0 a,.pur_buy").click(function () {
+    $(".ri_0 a,.pur_buy").click(function() {
         $(".add_pur_wrap").hide(300);
     });
 
     //查看进货单
-    $(".pur_view").click(function () { $(".ri_0 a,.pur_buy").click(); });
+    $(".pur_view").click(function() { $(".ri_0 a,.pur_buy").click(); });
+
+    //发送留言
+    $("#btnSend").click(function() {
+        var cnt = $.trim($("#inpMsg").val().replace($("#inpMsg").attr("dv"), ""));
+        if (cnt != "") {
+            $.ajax({
+                url: "action.aspx",
+                type: "POST",
+                data: { action: "send_msg", content: cnt },
+                success: function(data, state) {
+                    alert("留言成功。")
+                },
+                error: function(req, state, err) {
+                    alert("留言出错，可点击菜单中的在线留言给卖家留言。");
+                },
+                beforeSend: function() {
+                    $("#btnSend").attr("disabled", "disabled");
+                    $("span.loading2").show();
+                },
+                complete: function() {
+                    $("#btnSend").removeAttr("disabled");
+                    $("span.loading2").hide();
+                }
+            });
+        } else {
+            alert("请输入留言内容及联系方式。");
+        }
+    });
 
 });
   
