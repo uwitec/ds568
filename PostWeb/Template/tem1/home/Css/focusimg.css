@@ -1,7 +1,4 @@
 @charset "utf-8";
-/* CSS Document */
-
-
 .itemrightbox .flash-box {
 	WIDTH: 952px; ZOOM: 1; HEIGHT: 300px; OVERFLOW: hidden
 }
@@ -9,10 +6,10 @@
 	WIDTH: 952px; HEIGHT: 300px; OVERFLOW: hidden
 }
 .focusImg .autoImg {
-	POSITION: relative; WIDTH: 952px; ZOOM: 1; FLOAT: left; HEIGHT: 300px; OVERFLOW: hidden;
+	POSITION: relative; z-index:20; WIDTH: 952px; ZOOM: 1; FLOAT: left; HEIGHT: 300px; OVERFLOW: hidden;
 }
 .autoImg .scrollwrapper {
-	POSITION: absolute; WIDTH: 952px; OVERFLOW: hidden
+	POSITION: absolute; WIDTH: 952px; OVERFLOW: hidden;z-index:33;
 }
 .autoImg .scrollwrapper .imgBox {
 	WIDTH: 2325px; HEIGHT: 300px
@@ -84,5 +81,5 @@
 	WIDTH: 775px
 }
 .layt .layer {
-	Z-INDEX: 1; POSITION: absolute; FILTER: Alpha(opacity=30); BACKGROUND-COLOR: #fff; WIDTH: 100%; HEIGHT: 100%; TOP: 0px; CURSOR: pointer; LEFT: 0px; opacity: 0.3
+	Z-INDEX: 1; POSITION: absolute; z-index:28; FILTER: Alpha(opacity=30); BACKGROUND-COLOR: #fff; WIDTH: 100%; HEIGHT: 100%; TOP: 0px; CURSOR: pointer; LEFT: 0px; opacity: 0.3
 }

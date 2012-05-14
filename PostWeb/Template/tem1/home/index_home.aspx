@@ -12,8 +12,8 @@
     <div class="headTopic" runat="server"  id="DefaultR"></div>
     <div runat="server" visible="false" id="Roll_Img_wrap">
     <!--焦点图开始-->
-    <div class="flash-box">
-      <div class="focusImg">
+    <div class="flash-box" >
+      <div class="focusImg" >
         <div class="autoImg">
           <div class="scrollwrapper">
             <div style="WIDTH: 3100px" class="imgBox">

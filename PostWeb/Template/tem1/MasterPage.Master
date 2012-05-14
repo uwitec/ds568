@@ -73,7 +73,7 @@
                                     <div>
                                         货品合计：<span class="Amount"><b>1840</b><span class="Yuan"> 元</span></span></div>
                                     <div class="OrderButtonContainer">
-                                        <a class="OrderButton" href="#">查看进货单</a></div>
+                                        <a class="OrderButton" href="/order/purchaseList.aspx">查看进货单</a></div>
                                 </li>
                             </ul>
                         </div>
