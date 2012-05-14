@@ -12,11 +12,11 @@
 .TopBarLogin { width:115px; }
 .TopBarSpritLine {width: 2px;background-position:0 -49px;}
 .TopBarOrders {width:78px;}
-.TopBarOrders div.Order {display:block;width:72px;height:28px;line-height:28px;margin:4px auto 5px auto;background-position: 5px -24px;text-align:center;border:solid 1px #f6f6f6;position:relative;}
+.TopBarOrders div.Order {display:block;width:72px;height:28px;line-height:28px;margin:4px auto 5px auto;background-position: 5px -24px;text-align:center;border:solid 1px #f6f6f6;position:relative;z-index:1000;}
 .TopBarOrders div.Order:hover{border-color:#b1b1b1;color:#ff7300;}
-.TopBarOrders div.Order ul{color:#333;border:solid 1px #b1b1b1;display:none;position:absolute;top:28px;left:-1px;background-color:White;z-index:1;cursor:default;}
+.TopBarOrders div.Order ul{color:#333;border:solid 1px #b1b1b1;display:none;position:absolute;top:28px;left:-1px;background-color:White;cursor:default;}
 .TopBarOrders div.Order ul li{width:225px;}
-.TopBarOrders div.Order div.OverLine{width:72px;height:1px;line-height:1px;position:absolute;top:28px;left:0;display:none;background-color:#f6f6f6;overflow:hidden;z-index:2;}
+.TopBarOrders div.Order div.OverLine{width:72px;height:1px;line-height:1px;position:absolute;top:28px;left:0;display:none;background-color:#f6f6f6;overflow:hidden;z-index:1001;}
 .TopBarOrders div.Order:hover div.OverLine{display:block;}
 .TopBarOrders div.Order:hover ul{display:block;}
 .TopBarOrders div.Order ul li.OrderBottom{height:82px;background-color:#eef3f9;}
