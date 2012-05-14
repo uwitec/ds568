@@ -24,3 +24,5 @@
 .tdfild{width:80px;text-align:right; background-color:#e6e6e6;height:30px; vertical-align:middle; }
 .tdval{width:170px;}
 .client_det_wrap table{ position:relative;top:-15px;left:5px;}
+
+td.proname{text-align:left;}

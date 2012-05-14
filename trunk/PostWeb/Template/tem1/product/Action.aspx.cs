@@ -27,6 +27,13 @@ public partial class Template_tem1_product_Action : ShopBasePage
                         var odinfo =ud.ShoppingCart.Add(int.Parse(Request.Form["id"]), int.Parse(Request.Form["num"]));
                         Response.Write(js.Serialize(odinfo));
                         break;
+                    case "send_msg":
+                        var email = new Common.EmailUitility();
+                        email.AddEmailAddress(_vMember.QQ+"@qq.com");
+                        email.Title = "客户留言--点石网";
+                        email.Content=Request.Form["content"];
+                        email.SendEmail();
+                        break;
                 }
             }
          

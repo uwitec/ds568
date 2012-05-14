@@ -74,6 +74,7 @@ namespace Com.DianShi.BusinessRules.Transaction
                 Orders.Add(order);
                 orderDetail.OrderID = order.ID;
                 orderDetail.MemberID = order.MemberID;
+                orderDetail.OrderNum = DS_Orders_Br.GetSerial();
                 OrderDetail.Add(orderDetail);
             }
             else {
@@ -87,6 +88,7 @@ namespace Com.DianShi.BusinessRules.Transaction
                 {
                     order.Amount += orderDetail.Amount;
                     order.ProNum += orderDetail.ProNum;
+                    orderDetail.OrderNum = DS_Orders_Br.GetSerial();
                     OrderDetail.Add(orderDetail);
                 }
                 else {

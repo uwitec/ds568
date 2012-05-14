@@ -97,7 +97,7 @@
                     type: "POST",
                     data: { action: "del", id: obj.attr("dtid") },
                     success: function (data, state) {
-                        obj.parent().parent().slideUp(300, function () {
+                        obj.parent().parent().slideUp('slow', function () {
                             $(this).remove();
                             if ($(".tblist tr").length == 1) {
                                 location.reload();

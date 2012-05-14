@@ -21,7 +21,8 @@ public partial class Community_FeedBack_index : System.Web.UI.Page
         ViewState["company"] = md.CompanyName;
         ViewState["trueName"] = md.TrueName;
         ViewState["Gender"] = md.Gender;
-
+        ViewState["qq"] = md.QQ;
+        
         var ud = Session["UserData"] as UserData;
         if (UserData.ChkObjNull(UserData.ObjType.会员信息)) {
             var myinfo = bl.GetSingle(ud.Member.ID);
@@ -35,6 +36,7 @@ public partial class Community_FeedBack_index : System.Web.UI.Page
             ViewState["phone_1"] = phone[0];
             ViewState["phone_2"] =phone.Length>1?phone[1]:"";
             ViewState["mobile"] = myinfo.Mobile;
+            
 
         }
     }

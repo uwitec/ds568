@@ -101,7 +101,7 @@
                 dataType: "json",
                 success: function(data, state) {
                     if (data.succe) {
-                        alert(data.msg);
+                        location = "Show_Msg.aspx"
                     } else {
                         alert(data.msg);
                     }
