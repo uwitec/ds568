@@ -1,6 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Make_Order.aspx.cs" Inherits="Order_Make_Order" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="Title" Runat="Server">
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
 <link rel="stylesheet" rev="stylesheet" href="css/order.css" type="text/css"  />
 <script type="text/javascript" src="/js/Validate/jquery.validate.min.js"></script>
