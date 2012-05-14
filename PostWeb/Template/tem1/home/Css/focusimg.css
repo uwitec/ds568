@@ -1,85 +1,26 @@
 @charset "utf-8";
-.itemrightbox .flash-box {
-	WIDTH: 952px; ZOOM: 1; HEIGHT: 300px; OVERFLOW: hidden
-}
-.focusImg {
-	WIDTH: 952px; HEIGHT: 300px; OVERFLOW: hidden
-}
-.focusImg .autoImg {
-	POSITION: relative; z-index:20; WIDTH: 952px; ZOOM: 1; FLOAT: left; HEIGHT: 300px; OVERFLOW: hidden;
-}
-.autoImg .scrollwrapper {
-	POSITION: absolute; WIDTH: 952px; OVERFLOW: hidden;z-index:33;
-}
-.autoImg .scrollwrapper .imgBox {
-	WIDTH: 2325px; HEIGHT: 300px
-}
-.autoImg .layt {
-	WIDTH: 952px; FLOAT: left
-}
+.itemrightbox .flash-box{WIDTH: 952px; ZOOM:1;HEIGHT:300px;OVERFLOW: hidden}
+.focusImg{WIDTH:952px;HEIGHT:300px;OVERFLOW: hidden}
+.focusImg .autoImg{POSITION:relative;z-index:20;WIDTH: 952px;ZOOM:1; FLOAT:left;HEIGHT:300px;OVERFLOW: hidden;}
+.autoImg .scrollwrapper{POSITION:absolute;WIDTH: 952px;OVERFLOW:hidden;z-index:33;}
+.autoImg .scrollwrapper .imgBox{WIDTH:2325px;HEIGHT:300px}
+.autoImg .layt{WIDTH: 952px;FLOAT:left}
 .autoImg .btn-next{ background:url(../Images/btn_focus.gif) no-repeat; position:absolute; z-index:100; width:50px; height:50px; right:0px; top:150px;filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity: 0.5;	opacity: 0.5;}
-.autoImg .switchable-nav {
-	Z-INDEX: 200;
-	POSITION: absolute;
-	PADDING-BOTTOM: 0px;
-	MARGIN: 0px;
-	PADDING-LEFT: 0px;
-	PADDING-RIGHT: 0px;
-	HEIGHT: 16px;
-	FONT-SIZE: 26px;
-	OVERFLOW: hidden;
-	TOP: 272px;
-	RIGHT: 9px;
-	PADDING-TOP: 0px
-}
-.autoImg .switchable-nav UL {
-	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
-}
-.switchable-nav LI {
-	TEXT-ALIGN: center; PADDING-BOTTOM: 2px; LINE-HEIGHT: 15px; PADDING-LEFT: 2px; WIDTH: 16px; PADDING-RIGHT: 2px; FLOAT: left; HEIGHT: 15px; COLOR: #7a7f89; OVERFLOW: hidden; CURSOR: pointer; PADDING-TOP: 2px
-}
-.switchable-nav .active {
-	COLOR: #ffae01;
-}
-.focusImg .layt UL {
-	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
-}
-.layt LI {
-	DISPLAY: inline; FLOAT: left
-}
-.layt A {
-	POSITION: relative; DISPLAY: block
-}
-.layt .pl2 {
-	PADDING-LEFT: 2px; WIDTH: 374px
-}
-.layt .laytLeft02 IMG {
-	WIDTH: 510px; HEIGHT: 330px
-}
-.layt .laytReght01 IMG {
-	WIDTH: 265px; HEIGHT: 330px
-}
-.layt .laytRT01 IMG {
-	WIDTH: 186px; HEIGHT: 189px
-}
-.layt .laytRT01 A {
-	DISPLAY: inline; FLOAT: left
-}
-.layt .pl2-02 {
-	WIDTH: 265px
-}
-.layt .pl2-02 IMG {
-	WIDTH: 265px; HEIGHT: 165px
-}
-.layt .pl2-03 IMG {
-	WIDTH: 265px; HEIGHT: 165px
-}
-.layt .pl2-03 {
-	WIDTH: 265px
-}
-.layt .def IMG {
-	WIDTH: 775px
-}
-.layt .layer {
-	Z-INDEX: 1; POSITION: absolute; z-index:28; FILTER: Alpha(opacity=30); BACKGROUND-COLOR: #fff; WIDTH: 100%; HEIGHT: 100%; TOP: 0px; CURSOR: pointer; LEFT: 0px; opacity: 0.3
-}
+.autoImg .switchable-nav {Z-INDEX: 200;POSITION: absolute;PADDING-BOTTOM: 0px;MARGIN: 0px;PADDING-LEFT: 0px;PADDING-RIGHT: 0px;HEIGHT: 16px;FONT-SIZE: 26px;OVERFLOW: hidden;TOP: 272px;RIGHT: 9px;PADDING-TOP: 0px}
+.autoImg .switchable-nav UL {PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px}
+.switchable-nav LI {TEXT-ALIGN: center; PADDING-BOTTOM: 2px; LINE-HEIGHT: 15px; PADDING-LEFT: 2px; WIDTH: 16px; PADDING-RIGHT: 2px; FLOAT: left; HEIGHT: 15px; COLOR: #7a7f89; OVERFLOW: hidden; CURSOR: pointer; PADDING-TOP: 2px}
+.switchable-nav .active {COLOR: #ffae01;}
+.focusImg .layt UL {PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px}
+.layt LI {DISPLAY: inline; FLOAT: left}
+.layt A {POSITION: relative; DISPLAY: block}
+.layt .pl2 {PADDING-LEFT: 2px; WIDTH: 374px}
+.layt .laytLeft02 IMG {WIDTH: 510px; HEIGHT: 330px}
+.layt .laytReght01 IMG {WIDTH: 265px; HEIGHT: 330px}
+.layt .laytRT01 IMG {WIDTH: 186px; HEIGHT: 189px}
+.layt .laytRT01 A {DISPLAY: inline; FLOAT: left}
+.layt .pl2-02 {WIDTH: 265px}
+.layt .pl2-02 IMG {WIDTH: 265px; HEIGHT: 165px}
+.layt .pl2-03 IMG {WIDTH: 265px; HEIGHT: 165px}
+.layt .pl2-03 {WIDTH: 265px}
+.layt .def IMG {WIDTH: 775px}
+.layt .layer {Z-INDEX: 1; POSITION: absolute; z-index:28; FILTER: Alpha(opacity=30); BACKGROUND-COLOR: #fff; WIDTH: 100%; HEIGHT: 100%; TOP: 0px; CURSOR: pointer; LEFT: 0px; opacity: 0.3}
