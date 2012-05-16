@@ -99,6 +99,7 @@ $(document).ready(function() {
 
     //加入进货单或立即订购
     $("#J_LinkPurchase,#J_LinkOrder").click(function() {
+        if (!Number($("#txtOrderNum").val())) return false;
         var id = $(this).attr("pid");
         var lkid = this.id;
         $.ajax({
@@ -112,13 +113,16 @@ $(document).ready(function() {
                     $(".ri_2 span").text(data.PurTotalAmount);
                     $(".pur_panel_Left,.ri_1,.ri_2,.ri_3").removeClass("hidden");
                     $(".pur_panel_Right").removeClass("loading3");
+                    if (odinfo) {//更新顶部q进货单列表
+                        odinfo();
+                        cartInfo();
+                    }
                 } else {
                     location = "/order/Make_Order.aspx?oid=" + data.ID;
                 }
             },
             error: function(req, state, err) {
-                alert(err);
-                $("body").append(req.responseText);
+                alert("提交数据出错。")
             },
             beforeSend: function() {
                 $(".add_pur_wrap").show();
