@@ -36,44 +36,29 @@
                             <a href="/order/purchaseList.aspx" target="_blank">进货单</a>
                             <div class="OverLine">
                             </div>
-                            <ul>
-                                <li class="OrderProduct">
+                            <ul class="od_item_wrap">
+                                <li class="OrderProduct" style="display:none;">
                                     <div class="ProductImg">
-                                        <img src="http://hiphotos.baidu.com/cuigf_sx_cn/pic/item/2dd12d19f1b11b3ddbb4bd16.jpg"
-                                            width="64" height="64" onload="changeImg(this,64,64)" />
+                                        <img src="" onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'" width="64" height="64" onload="changeImg(this,64,64)" />
                                     </div>
                                     <div class="ProductMemo">
                                         <div class="ProductName">
-                                            <a href="#">铝合金插卡音箱 TT2 铝合金音响 插卡迷你音箱</a>
+                                            <a href="#" target="_blank">铝合金插卡音箱 TT2 铝合金音响 插卡迷你音箱</a>
                                         </div>
                                         <div class="ProductAccount">
-                                            <span class="Amount"><b>54.00</b></span>元×<span class="Amount">20</span></div>
+                                            <span class="Amount"><b>54.00</b></span>元×<span class="Amount proNum">20</span></div>
                                         <div class="ProductDel">
-                                            删除</div>
-                                    </div>
-                                </li>
-                                <li class="OrderProduct">
-                                    <div class="ProductImg">
-                                        <img src="http://hiphotos.baidu.com/pengmeiming/pic/item/b4e2c741e07ed17685947340.jpg"
-                                            width="64" height="64" onload="changeImg(this,64,64)" />
-                                    </div>
-                                    <div class="ProductMemo">
-                                        <div class="ProductName">
-                                            <a href="#">铝合金插卡音箱 TT2 铝合金音响 插卡迷你音箱</a>
-                                        </div>
-                                        <div class="ProductAccount">
-                                            <span class="Amount"><b>54.00</b></span>元×<span class="Amount">20</span></div>
-                                        <div class="ProductDel">
-                                            删除</div>
+                                            <a href="javascript:void(0);">删除</a></div>
                                     </div>
                                 </li>
                                 <li class="OrderBottom">
                                     <div>
-                                        共计2种货品（30件）</div>
+                                        共计<span id="ptype_num"></span>种货品（<span id="pro_nume"></span>件）</div>
                                     <div>
-                                        货品合计：<span class="Amount"><b>1840</b><span class="Yuan"> 元</span></span></div>
+                                        货品合计：<span class="Amount"><b id="od_amount"></b><span class="Yuan"> 元</span></span></div>
+                                    <div class="no_order">进货单中暂未添加任何货品</div>
                                     <div class="OrderButtonContainer">
-                                        <a class="OrderButton" href="/order/purchaseList.aspx">查看进货单</a></div>
+                                        <a class="OrderButton" target="_blank" href="/order/purchaseList.aspx">查看进货单</a></div>
                                 </li>
                             </ul>
                         </div>

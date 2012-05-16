@@ -5,8 +5,8 @@
 .TopBar a:hover { color:#ff7300; }
 .TopBarContent {width:950px;margin:0 auto;color:#666;}
 .TopBarContent ul li {float:left;height:38px;line-height:38px;}
-.TopBarLogo, .TopBarSpritLine,.TopBarOrders div.Order,.UserCenter,.KeyWord,.BtnSearch,.BtnSearch2{background: url(../images/allbgs.gif) no-repeat;}
-.TopBarLogo {width: 110px;background-position:0 -190px;}
+.TopBarSpritLine,.TopBarOrders div.Order,.UserCenter,.KeyWord,.BtnSearch,.BtnSearch2{background: url(../images/allbgs.gif) no-repeat;}
+.TopBarLogo {width: 110px;background: url(../images/logo.png) no-repeat 0 0;}
 .TopBarWelCome { width:140px; }
 .TopBarWelCome a{display:none;}
 .TopBarLogin { width:115px; }
@@ -22,6 +22,7 @@
 .TopBarOrders div.Order ul li.OrderBottom{height:82px;background-color:#eef3f9;}
 .TopBarOrders div.Order ul li.OrderBottom div{line-height:20px;}
 .OrderButton{display:block;width:76px;line-height:22px;background-color:White;border:solid 1px #b1b1b1;margin:10px auto 10px auto;}
+.no_order{text-align:center;padding:10px 0;display:none;}
 .OrderButtonContainer{height:42px;}
 .Amount{color:#ff7300;}
 .Yuan{color:#b1b1b1;}

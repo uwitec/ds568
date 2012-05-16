@@ -36,32 +36,32 @@
         </div>
         <div class="Split12px">
         </div>
-        <div class="divProHead">
+        <div class="divProHead" >
             <div class="pPic">
                 <table class="pPicTop" cellpadding="0" cellspacing="0">
                     <tr>
                         <td align="center">
                             <div>
-                                <img id="bigimg" onerror="javascript:$(this).hide()" src="<%=ViewState["img1"] %>" /></div>
+                                <img  alt="<%=ViewState["title"] %>" width="211" height="312" id="bigimg" onerror="javascript:$(this).hide()" src="<%=ViewState["img1"] %>" /></div>
                         </td>
                     </tr>
                 </table>
                 <ul class="pPicBottom">
                     <li>
                         <div>
-                            <img onerror="javascript:$(this).hide()" src="<%=ViewState["img1"] %>" />
+                            <img  onerror="javascript:$(this).parent().parent().hide()" width="55" height="55" alt="<%=ViewState["title"] %>" src="<%=ViewState["img1"] %>" />
                         </div>
                     </li>
                     <li class="lisplit"></li>
                     <li>
                         <div>
-                            <img onerror="javascript:$(this).parent().parent().hide()" src="<%=ViewState["img2"] %>" />
+                            <img onerror="javascript:$(this).parent().parent().hide()" width="55" height="55" alt="<%=ViewState["title"] %>" src="<%=ViewState["img2"] %>" />
                         </div>
                     </li>
                     <li class="lisplit"></li>
                     <li>
                         <div>
-                            <img onerror="javascript:$(this).parent().parent().hide()" src="<%=ViewState["img3"] %>" />
+                            <img  onerror="javascript:$(this).parent().parent().hide()" width="55" height="55" alt="<%=ViewState["title"] %>" src="<%=ViewState["img3"] %>" />
                         </div>
                     </li>
                 </ul>
@@ -230,7 +230,7 @@
                         <div class="moreProduct">
                             <a href="index_product.aspx">查看该供应商更多供应产品</a></div>
                     </div>
-                    <div class="moreContent">
+                    <div class="moreContent" >
                         <a id="J_sugPre" href="javascript:;"><span class="disabled">上一组</span></a>
                         <div class="suggest" >
                             <div class="suggestContainer">
@@ -240,7 +240,7 @@
                                             <ul>
                                                 <li ><a class="linkImg" href="product_show.aspx?pro_id=<%#Eval("id") %>">
                                                     <img onerror="javascript:this.src='http://img.china.alibaba.com/news/upload/5002027/48x48_1276134613200.gif'"
-                                                        onload="changeImg(this,100,100)" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
+                                                        onload="changeImg(this,100,100)" width="100" height="100" alt="<%#Eval("title") %>" src="<%#Eval("img1") %>" /></a>
                                                     <h4>
                                                         <a href="product_show.aspx?pro_id=<%#Eval("id") %>" title="<%#Eval("title") %>"><%#Eval("title") %></a></h4>
                                                     <p class="fontSize14">
