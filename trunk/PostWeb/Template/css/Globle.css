@@ -6,7 +6,7 @@
 .TopBarContent {width:950px;margin:0 auto;color:#666;}
 .TopBarContent ul li {float:left;height:38px;line-height:38px;}
 .TopBarSpritLine,.TopBarOrders div.Order,.UserCenter,.KeyWord,.BtnSearch,.BtnSearch2{background: url(../images/allbgs.gif) no-repeat;}
-.TopBarLogo {width: 110px;background: url(../images/logo.png) no-repeat 0 0;}
+.TopBarLogo {width: 118px;background: url(../images/logo.png) no-repeat 0 4px;}
 .TopBarWelCome { width:140px; }
 .TopBarWelCome a{display:none;}
 .TopBarLogin { width:115px; }
