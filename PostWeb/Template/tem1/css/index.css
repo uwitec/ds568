@@ -227,7 +227,7 @@ h4 a{display:block;color:#0066cc;height:32px;line-height:16px;overflow:hidden;}
 .contactsLine{border-bottom:dashed 1px #b5b5b5;margin:1em 0;}
 em{font-style:normal;}
 .newsBody,.newsComent{padding:1em;}
-.newsBody ul{padding-bottom:14px;margin-bottom:10px;border-bottom:dashed 1px #b5b5b5;}
+.newsBody ul{padding-bottom:14px;border-bottom:dashed 1px #b5b5b5;}
 .newsBody ul li{line-height:22px;padding-left:1em;overflow:auto;}
 .newsBody ul li img,.newsBody ul li a{float:left;}
 .newsBody ul li img{margin-top:2px;margin-right:2px;_margin-top:4px;}

@@ -1,13 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true"
     CodeFile="index_news.aspx.cs" Inherits="Template_tem1_news_index_news" %>
    <%@ OutputCache Duration="1800" VaryByParam="none" VaryByCustom="Host" %>
-<asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="Server">
-<title>公司新闻</title>
-</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-<script type="text/javascript" src="/js/pager/pagination.js"></script>
-<link href="/js/pager/pagination.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/news_list.js"></script>
+<link rel="stylesheet" rev="stylesheet" href="/css/Pager.css" type="text/css"  />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
 </asp:Content>
@@ -31,7 +26,11 @@
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
-            <div class="pagerwrap"></div>
+            <div class="pagerwrap">
+              <webdiyer:AspNetPager CssClass="pages" AlwaysShow="true"  AlwaysShowFirstLastPageNumber="true" UrlPaging="true"  HorizontalAlign="Right" ShowDisabledButtons="false" ShowFirstLast="false" CurrentPageButtonClass="cpb"  ID="AspNetPager4" NumericButtonCount="7" runat="server"
+                    FirstPageText="首页" LastPageText="尾页" TextBeforePageIndexBox="共10页 到"  TextAfterPageIndexBox="页 " PageSize="16"  SubmitButtonText="确定" SubmitButtonClass="sBtn" ShowCustomInfoSection="Never" NextPageText="下一页"  ShowPageIndexBox="Always" PrevPageText="上一页">
+               </webdiyer:AspNetPager>
+           </div>
         </div>
         <!--========内容结束=============-->
         
