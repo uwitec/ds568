@@ -15,10 +15,10 @@
                     $("body").append(req.responseText);
                 },
                 beforeSend:function(){
-                    $(".tblist").addClass("loading3").find("tr:nth-child(n+1)").addClass("hidden")
+                    $(".tblist").addClass("loading3").find("tr:nth-child(n+2)").addClass("hidden")
                 },
                 complete:function(){
-                    $(".tblist").removeClass("loading3").find("tr:nth-child(n+1)").removeClass("hidden")
+                    $(".tblist").removeClass("loading3").find("tr:nth-child(n+2)").removeClass("hidden")
                 }
             });
         });
@@ -64,10 +64,10 @@
                 $("body").append(req.responseText);
             },
             beforeSend:function(){
-                $(".tblist").addClass("loading3").find("tr:nth-child(n+1)").addClass("hidden")
+                $(".tblist").addClass("loading3").find("tr:nth-child(n+2)").addClass("hidden")
             },
             complete:function(){
-                $(".tblist").removeClass("loading3").find("tr:nth-child(n+1)").removeClass("hidden")
+                $(".tblist").removeClass("loading3").find("tr:nth-child(n+2)").removeClass("hidden")
             }
         });            
     }  
