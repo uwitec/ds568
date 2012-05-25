@@ -29,7 +29,7 @@
                 <ul>
                     <li class="TopBarLogo"><a style="display:block;width:100px;height:100%" href="/home/index_home.aspx"></a></li>
                     <li class="TopBarWelCome">您好，<span>欢迎来到点石网</span><a target="_blank" href="/Member/Manage/index.aspx"><%=ViewState["uid"] %></a> <a href="/member/signout/signout.aspx">退出</a></li>
-                    <li class="TopBarLogin"><a href="/member/login/signin.aspx">[请登陆]</a> <a href="/member/Join/reg.aspx">[免费注册]</a></li>
+                    <li class="TopBarLogin"><a href="/member/login/signin.aspx">[请登陆]</a> <a href="/member/Join/reg.aspx" target="_blank">[免费注册]</a></li>
                     <li class="TopBarSpritLine"></li>
                     <li class="TopBarOrders">
                         <div class="Order">
@@ -64,7 +64,7 @@
                         </div>
                     </li>
                     <li class="TopBarSpritLine"></li>
-                    <li><a href="/member/Manage/" class="UserCenter">会员中心</a> </li>
+                    <li><a href="javascript:alert('请注册后再登录会员中心');" class="UserCenter">会员中心</a> </li>
                     <li class="LiSearch">
                         <input name="top_pro_name" id="top_pro_name" type="text" class="KeyWord" /><input id="top_dssch_btn"  class="BtnSearch" type="button" /><input
                              id="top_sch_btn" class="BtnSearch2" type="button" /></li>
