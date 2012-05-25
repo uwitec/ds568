@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true"
     CodeFile="index_news.aspx.cs" Inherits="Template_tem1_news_index_news" %>
-   <%@ OutputCache Duration="1800" VaryByParam="none" VaryByCustom="Host" %>
+   <%@ OutputCache Duration="1800" VaryByParam="page" VaryByCustom="Host" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 <link rel="stylesheet" rev="stylesheet" href="/css/Pager.css" type="text/css"  />
 </asp:Content>
