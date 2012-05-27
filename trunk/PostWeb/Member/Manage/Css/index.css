@@ -17,4 +17,25 @@ html{ overflow:hidden;}
 .mnhv div.mr{background-position:-86px -300px;}
 .mnhv div.mm span{display:block;float:left;height:25px;background-position:-150px -293px;padding-left:16px;}
 .ds_logo{width:94px; background-position:-84px 0;}
-.app_wrap{position:absolute;background-color:Black;left:0px;top:44px;height:150px;width:880px;border:solid 1px;filter:alpha(opacity=75);-moz-opacity:0.75;-khtml-opacity: 0.75;opacity: 0.75;}
+
+.app_wrap{position:absolute;left:0px;top:44px;height:150px;width:952px;border:solid 1px;}
+.app_sub_wrap{position:relative;height:150px;}
+.fix_bg{background-color:Black;height:150px;width:952px;z-index:3; position:absolute;filter:alpha(opacity=80);-moz-opacity:0.80;-khtml-opacity: 0.80;opacity: 0.80;}
+.fix_ctn{position:absolute;height:150px;width:952px;z-index:4;color:White;}
+.fix_ctn ul{overflow:auto;zoom:1;width:880px;margin:20px auto;}
+.fix_ctn li{float:left;}
+.fix_ctn a{display:block;width:86px;height:86px;padding:2px;color:White;cursor:pointer;}
+.fix_ctn a:hover{background-color:#7e7e7e;}
+.md_wrap{width:86px;height:86px;}
+.fix_ctn a:hover .md_wrap{background-color:#454545;}
+.model_ico{height:58px;width:86px;}
+.fix_ctn a .model_name{font-size:12px;text-align:center;line-height:28px;}
+.offer,.salemana,.account,.winporter,.imagemanager,.idinfo,.purchase,.privateseller{background:none no-repeat center bottom;}
+.offer{background-image:url(../images/icon/offer.png)}
+.salemana{background-image:url(../images/icon/salemanagement.png);}
+.account{background-image:url(../images/icon/accountmanagement.png);}
+.winporter{background-image:url(../images/icon/winporter.png);}
+.imagemanager{background-image:url(../images/icon/imagemanager.png);}
+.idinfo{background-image:url(../images/icon/industryInformation.png);}
+.purchase{background-image:url(../images/icon/purchasemanagement.png);}
+.privateseller{background-image:url(../images/icon/privateseller.png);}
