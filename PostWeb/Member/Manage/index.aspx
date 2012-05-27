@@ -20,7 +20,77 @@
             <li class="menu mnhv"><a href="#"><div class="ml">&nbsp;</div><div class="mm"><span>我的应用</span></div><div class="mr">&nbsp;</div></a></li>
         </ul>
         <div class="app_wrap">
-            1321
+            <div class="app_sub_wrap">
+                <div class="fix_bg">&nbsp;</div>
+                <div class="fix_ctn">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div class="md_wrap">
+                                    <div class="model_ico offer">&nbsp;</div>
+                                    <div class="model_name">供应管理</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="md_wrap">
+                                    <div class="model_ico purchase">&nbsp;</div>
+                                    <div class="model_name">采购管理</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="md_wrap">
+                                    <div class="model_ico imagemanager">&nbsp;</div>
+                                    <div class="model_name">相册管理</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="md_wrap">
+                                    <div class="model_ico idinfo">&nbsp;</div>
+                                    <div class="model_name">公司动态</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="md_wrap">
+                                    <div class="model_ico privateseller">&nbsp;</div>
+                                    <div class="model_name">公司资料</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="md_wrap">
+                                    <div class="model_ico salemana">&nbsp;</div>
+                                    <div class="model_name">交易管理</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="md_wrap">
+                                    <div class="model_ico winporter">&nbsp;</div>
+                                    <div class="model_name">装修商铺</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="md_wrap">
+                                    <div class="model_ico account">&nbsp;</div>
+                                    <div class="model_name">帐号管理</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
         </div>
     </div>
 </div>
