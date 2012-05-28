@@ -2,7 +2,7 @@
 html{ overflow:hidden;}
 .topbar_wrap{height:42px; background:url(../images/259721_426256670.png) repeat-x;border-bottom:solid 2px #ccc;}
 .ct_wrap{width:962px;margin:0 auto;height:42px; position:relative;}
-.ds_logo,.menu a:hover div,.mm span,.mnhv div{background:url(../images/352592_426256671.gif) no-repeat;}
+.ds_logo,.menu a:hover div,.mm span,.mnhv div,.fix_tag{background:url(../images/352592_426256671.gif) no-repeat;}
 .ct_ul{height:42px; overflow:hidden;}
 .ct_ul li{float:left;height:42px;}
 .menu{margin-left:8px;padding-top:9px;font-size:14px;}
@@ -18,9 +18,9 @@ html{ overflow:hidden;}
 .mnhv div.mm span{display:block;float:left;height:25px;background-position:-150px -293px;padding-left:16px;}
 .ds_logo{width:94px; background-position:-84px 0;}
 
-.app_wrap{position:absolute;left:0px;top:44px;height:150px;width:952px;border:solid 1px;}
+.app_wrap{position:absolute;left:0px;top:44px;height:150px;width:952px;border:solid 1px;display:none;}
 .app_sub_wrap{position:relative;height:150px;}
-.fix_bg{background-color:Black;height:150px;width:952px;z-index:3; position:absolute;filter:alpha(opacity=80);-moz-opacity:0.80;-khtml-opacity: 0.80;opacity: 0.80;}
+.fix_bg{background-color:Black;height:150px;width:952px;z-index:3;position:absolute; filter:alpha(opacity=80);-moz-opacity:0.80;-khtml-opacity: 0.80;opacity: 0.80;}
 .fix_ctn{position:absolute;height:150px;width:952px;z-index:4;color:White;}
 .fix_ctn ul{overflow:auto;zoom:1;width:880px;margin:20px auto;}
 .fix_ctn li{float:left;}
@@ -28,6 +28,7 @@ html{ overflow:hidden;}
 .fix_ctn a:hover{background-color:#7e7e7e;}
 .md_wrap{width:86px;height:86px;}
 .fix_ctn a:hover .md_wrap{background-color:#454545;}
+.fix_tag{position:absolute;height:10px;width:15px; overflow:hidden; left:292px;top:-11px; background-position:-49px -200px;}
 .model_ico{height:58px;width:86px;}
 .fix_ctn a .model_name{font-size:12px;text-align:center;line-height:28px;}
 .offer,.salemana,.account,.winporter,.imagemanager,.idinfo,.purchase,.privateseller{background:none no-repeat center bottom;}
