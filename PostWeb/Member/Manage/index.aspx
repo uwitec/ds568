@@ -21,6 +21,7 @@
         </ul>
         <div class="app_wrap">
             <div class="app_sub_wrap">
+                <div class="fix_tag">&nbsp;</div>
                 <div class="fix_bg">&nbsp;</div>
                 <div class="fix_ctn">
                     <ul>
