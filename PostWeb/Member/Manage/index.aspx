@@ -18,6 +18,7 @@
             <li class="menu"><a href="Offer/Post.aspx"><div class="ml">&nbsp;</div><div class="mm">销售</div><div class="mr">&nbsp;</div></a></li>
             <li class="menu"><a href="#"><div class="ml">&nbsp;</div><div class="mm">采购</div><div class="mr">&nbsp;</div></a></li>
             <li class="menu mnhv"><a href="#"><div class="ml">&nbsp;</div><div class="mm"><span>我的应用</span></div><div class="mr">&nbsp;</div></a></li>
+            <li class="sch_ctn"><div class="sch_wrap"><a class="sch_prj" href="javascript:void(0);">产品</a><div><input type="text" name="kw" /></div><a class="sch_btn" href="javascript:void(0);">&nbsp;</a></div></li>
         </ul>
         <div class="app_wrap">
             <div class="app_sub_wrap">
@@ -26,7 +27,7 @@
                 <div class="fix_ctn">
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="offer/list.aspx">
                                 <div class="md_wrap">
                                     <div class="model_ico offer">&nbsp;</div>
                                     <div class="model_name">供应管理</div>
@@ -42,7 +43,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="Album/Album_List.aspx">
                                 <div class="md_wrap">
                                     <div class="model_ico imagemanager">&nbsp;</div>
                                     <div class="model_name">相册管理</div>
@@ -50,7 +51,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="News/news_list.aspx">
                                 <div class="md_wrap">
                                     <div class="model_ico idinfo">&nbsp;</div>
                                     <div class="model_name">公司动态</div>
@@ -58,7 +59,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="ComInfo/BaseInfo.aspx">
                                 <div class="md_wrap">
                                     <div class="model_ico privateseller">&nbsp;</div>
                                     <div class="model_name">公司资料</div>
@@ -66,7 +67,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="Transaction/seller_order_list.aspx">
                                 <div class="md_wrap">
                                     <div class="model_ico salemana">&nbsp;</div>
                                     <div class="model_name">交易管理</div>
@@ -82,7 +83,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="Account/Contact.aspx">
                                 <div class="md_wrap">
                                     <div class="model_ico account">&nbsp;</div>
                                     <div class="model_name">帐号管理</div>
