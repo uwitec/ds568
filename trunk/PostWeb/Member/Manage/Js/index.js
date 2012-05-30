@@ -1,5 +1,5 @@
 ﻿$(function () {
-    $(".menu a").click(function () {
+    $(".menu a,.fix_ctn a").click(function () {
         $("#mainFrame").attr("src", $(this).attr("href"));
         return false;
     });
@@ -25,10 +25,10 @@
             setTimeout(fadeOut, 300);
         }
     );
-    
+
     $(".app_wrap").hover(function () {
-            ishover = false;
-        },
+        ishover = false;
+    },
         function () {
             ishover = true;
             setTimeout(fadeOut, 300);

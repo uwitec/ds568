@@ -2,7 +2,7 @@
 html{ overflow:hidden;}
 .topbar_wrap{height:42px; background:url(../images/259721_426256670.png) repeat-x;border-bottom:solid 2px #ccc;}
 .ct_wrap{width:962px;margin:0 auto;height:42px; position:relative;}
-.ds_logo,.menu a:hover div,.mm span,.mnhv div,.fix_tag{background:url(../images/352592_426256671.gif) no-repeat;}
+.ds_logo,.menu a:hover div,.mm span,.mnhv div,.fix_tag,.sch_prj,.sch_btn{background:url(../images/352592_426256671.gif) no-repeat;}
 .ct_ul{height:42px; overflow:hidden;}
 .ct_ul li{float:left;height:42px;}
 .menu{margin-left:8px;padding-top:9px;font-size:14px;}
@@ -40,3 +40,11 @@ html{ overflow:hidden;}
 .idinfo{background-image:url(../images/icon/industryInformation.png);}
 .purchase{background-image:url(../images/icon/purchasemanagement.png);}
 .privateseller{background-image:url(../images/icon/privateseller.png);}
+
+.sch_ctn{margin-left:30px;}
+.sch_wrap{position:relative;height:24px; top:9px;line-height:24px;}
+.sch_wrap a,.sch_wrap div{float:left;display:block;height:24px;background-color:White;}
+.sch_wrap div input{border:none 0;}
+.sch_wrap a:link,.sch_wrap a:visited{color:#555;}
+.sch_prj{width:45px;background-position:33px -241px;text-indent:6px;}
+.sch_btn{width:30px;background-position:0 -150px;}
