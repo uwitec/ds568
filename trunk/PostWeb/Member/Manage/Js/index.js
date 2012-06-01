@@ -14,7 +14,7 @@
     var ishover = false;
     var fadeOut = function () {
         if (ishover)
-            $(".app_wrap").fadeOut(500)
+            $(".app_wrap").not("img").fadeOut(500)
     }
     $(".mnhv a").hover(function () {
         $(".app_wrap").fadeIn(500);
@@ -34,5 +34,21 @@
             setTimeout(fadeOut, 300);
         }
     );
+
+    $("input[name=kw]").val(function () {
+        return $(this).attr("dv");
+    }).focus(function () {
+        if ($(this).val() == $(this).attr("dv")) {
+            $(this).val('').css("color", "#555");
+            $(".sch_wrap *").css("background-color", "White")
+            $(".sch_btn").css("background-position", "-50px -150px");
+        }
+    }).blur(function () {
+        if ($(this).val() == '') {
+            $(this).val($(this).attr("dv")).css("color", "gray");
+            $(".sch_wrap *").css("background-color", "#f1f1f1");
+            $(".sch_btn").css("background-position", "0 -150px");
+        }
+    });
 
 });

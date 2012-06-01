@@ -16,24 +16,22 @@
     <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
 </ul>
 <div class="scctn">信息标题：<input name="keyword" class="txtbox keyword" />&nbsp;<input id="btnSearch" type="button" value="查询" /></div>
-<div class="proctn">
-    <input type="hidden" id="rc" value="<%=ViewState["rc"] %>" />
-    <table cellpadding=0 cellspacing=0 class="tblist">
-        <tr><th >标题</th><th>排序</th><th>更新时间</th><th>操作</th></tr>
-        <asp:Repeater ID="Repeater1" runat="server">
-            <ItemTemplate>
-                <tr><td><%#Eval("title") %></td><td>--</td><td><%#Eval("updatedate") %></td><td>
-                    <div class="cmctn_1" ind="<%#Container.ItemIndex %>"><a href="edit.aspx?id=<%#Eval("id") %>"  class="lkedit">修改</a> / <a href="javascript:viod();"  class="lkdel" nid="<%#Eval("id") %>">删除</a></div>
-                </td></tr>      
-            </ItemTemplate>
-            <AlternatingItemTemplate>
-                <tr class="altr"><td><%#Eval("title") %></td><td>--</td><td><%#Eval("updatedate") %></td><td>
-                    <div class="cmctn_1" ind="<%#Container.ItemIndex %>"><a href="edit.aspx?id=<%#Eval("id") %>"  class="lkedit">修改</a> / <a href="javascript:viod();"  class="lkdel" nid="<%#Eval("id") %>">删除</a></div>
-                </td></tr>   
-            </AlternatingItemTemplate>
-        </asp:Repeater>
-    </table>
-    <div class="pagerwrap"></div>
-</div>
+<input type="hidden" id="rc" value="<%=ViewState["rc"] %>" />
+<table cellpadding=0 cellspacing=0 class="tblist">
+    <tr><th >标题</th><th>排序</th><th>更新时间</th><th>操作</th></tr>
+    <asp:Repeater ID="Repeater1" runat="server">
+        <ItemTemplate>
+            <tr><td><%#Eval("title") %></td><td>--</td><td><%#Eval("updatedate") %></td><td>
+                <div class="cmctn_1" ind="<%#Container.ItemIndex %>"><a href="edit.aspx?id=<%#Eval("id") %>"  class="lkedit">修改</a> / <a href="javascript:viod();"  class="lkdel" nid="<%#Eval("id") %>">删除</a></div>
+            </td></tr>      
+        </ItemTemplate>
+        <AlternatingItemTemplate>
+            <tr class="altr"><td><%#Eval("title") %></td><td>--</td><td><%#Eval("updatedate") %></td><td>
+                <div class="cmctn_1" ind="<%#Container.ItemIndex %>"><a href="edit.aspx?id=<%#Eval("id") %>"  class="lkedit">修改</a> / <a href="javascript:viod();"  class="lkdel" nid="<%#Eval("id") %>">删除</a></div>
+            </td></tr>   
+        </AlternatingItemTemplate>
+    </asp:Repeater>
+</table>
+<div class="pagerwrap"></div>
 </asp:Content>
 

@@ -1,5 +1,5 @@
 ﻿.main{width:952px;margin:0 auto;}
-.conLeft{width:150px;}
+.conLeft{width:150px;float:left;}
 .conRight{margin-left:160px;_margin-left:157px;}
 .subBtn{ background:url(../images/icon.gif) no-repeat;}
 .subBtn{width:69px;height:31px; background-position:0 -89px;border:none;color:White;font-weight:bold;}
