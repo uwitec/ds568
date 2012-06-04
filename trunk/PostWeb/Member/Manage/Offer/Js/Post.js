@@ -139,15 +139,15 @@
     var imgInd = 0; //当前上传图片索引
     $(".upbtn input").click(function () {
         imgInd = $(".upbtn input").index(this);
-        wBox = $(this).wBox({
-            title: "添加产品图片",
-            requestType: "iframe",
-            target: "addimg.aspx",
-            show: true,
-            drag: false
-        });
-
     });
+    var prowBox = $(".upbtn input").wBox({
+        title: "添加产品图片",
+        requestType: "iframe",
+        target: "addimg.aspx",
+        show: false,
+        drag: false
+    });
+
     //删除产品图片
     $(".upbtn a").click(function () {
         var ind = $(".upbtn a").index(this);
@@ -162,7 +162,7 @@
         $("#img0" + imgInd).show().attr("src", imgUrl);
         $(".upbtn input").eq(imgInd).val("重新上传")
         $(".upbtn a").eq(imgInd).show();
-        wBox.close();
+        prowBox.close();
     }
 
     //自定义插件
@@ -173,7 +173,7 @@
         var self = this, name = 'diyimg';
         window.diyimg = self;
         self.clickToolbar(name, function () {
-            wBox = $(document).wBox({
+            detImgBox = $(this).wBox({
                 title: "插入图片",
                 requestType: "iframe",
                 target: "adddetailimg.aspx",
@@ -182,7 +182,6 @@
             });
         });
     });
-
     KindEditor.ready(function (K) {
         KE = K.create('textarea[name="content"]', {
             resizeType: 1,
@@ -195,38 +194,42 @@
         });
     });
 
+    //给弹窗调用的插入图片回调函数
+    insertDetImg = function (html) {
+        detImgBox.close();
+        diyimg.insertHtml(html);
+    }
+
     //添加自定义分类
-    $("#addCat").click(function () {
-        var wbox = $(this).wBox({
-            title: "添加分类",
-            target: "#wrall",
-            show: true,
-            drag: false,
-            callBack: function () {
-                $(".saveCat").eq(1).click(function () {
-                    var catname = $(".catname").eq(1).val().trim();
-                    if (catname != "") {
-                        $.ajax({
-                            url: "?action=addcat&catname=" + encodeURI(catname),
-                            cache: false,
-                            complete: function (req, Status) {
-                                if (req.responseText.indexOf("id") > -1) {
-                                    var id = req.responseText.split('=')[1];
-                                    $("select[name=shopCat]").append("<option value='" + id + "'>" + catname + "</option>")
-                                    $("select[name=shopCat] option[value=" + id + "]").attr("selected", "true")
-                                    wbox.close();
-                                } else
-                                    alert(req.responseText);
-                            },
-                            error: function () {
-                                alert("添加分类出错。");
-                            }
-                        });
-                    }
-                });
-            }
-        });
+    var diycatbox = $("#addCat").wBox({
+        title: "添加分类",
+        target: "#wrall",
+        show: false,
+        callBack: function () {
+            $(".saveCat").eq(1).click(function () {
+                var catname = $(".catname").eq(1).val().trim();
+                if (catname != "") {
+                    $.ajax({
+                        url: "?action=addcat&catname=" + encodeURI(catname),
+                        cache: false,
+                        complete: function (req, Status) {
+                            if (req.responseText.indexOf("id") > -1) {
+                                var id = req.responseText.split('=')[1];
+                                $("select[name=shopCat]").append("<option value='" + id + "'>" + catname + "</option>")
+                                $("select[name=shopCat] option[value=" + id + "]").attr("selected", "true")
+                                diycatbox.close();
+                            } else
+                                alert(req.responseText);
+                        },
+                        error: function () {
+                            alert("添加分类出错。");
+                        }
+                    });
+                }
+            });
+        }
     });
+
 
     //常用分类
     $("#sysCat").change(function () {
@@ -266,7 +269,7 @@
             } else {
                 return false;
             }
-        } 
+        }
     }).focus(function () {
         this.style.imeMode = 'disabled';   // 禁用输入法,禁止输入中文字符
         // imeMode有四种形式，分别是：

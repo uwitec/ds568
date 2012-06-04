@@ -17,9 +17,9 @@
             <li class="menu"><a href="#"><div class="ml">&nbsp;</div><div class="mm">首页</div><div class="mr">&nbsp;</div></a></li>
             <li class="menu"><a href="Offer/Post.aspx"><div class="ml">&nbsp;</div><div class="mm">销售</div><div class="mr">&nbsp;</div></a></li>
             <li class="menu"><a href="#"><div class="ml">&nbsp;</div><div class="mm">采购</div><div class="mr">&nbsp;</div></a></li>
-            <li class="menu mnhv"><a href="#"><div class="ml">&nbsp;</div><div class="mm"><span>我的应用</span></div><div class="mr">&nbsp;</div></a></li>
+            <li class="menu mnhv"><a class="nolk" href="javascript:void(0)"><div class="ml">&nbsp;</div><div class="mm"><span>我的应用</span></div><div class="mr">&nbsp;</div></a></li>
             <li class="sch_ctn"><div class="sch_wrap"><a class="sch_prj" onfocus="this.blur();" href="javascript:void(0);">产品</a><div><input type="text" dv="搜索…" name="kw" /></div><a class="sch_btn" href="javascript:void(0);">&nbsp;</a></div></li>
-            <li class="menu"><a href="#"><div class="ml">&nbsp;</div><div class="mm"><span class="msg">消息</span><span class="msgc"><span class="mc_block">0</span></span></div><div class="mr">&nbsp;</div></a></li>
+            <li class="menu"><a  href="Message/MessageCenter.aspx"><div class="ml">&nbsp;</div><div class="mm"><span class="msg">消息</span><span class="msgc"><span class="mc_block"><%=msgCount%></span></span></div><div class="mr">&nbsp;</div></a></li>
         </ul>
         <div class="app_wrap">
             <div class="app_sub_wrap">
