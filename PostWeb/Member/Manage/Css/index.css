@@ -42,13 +42,13 @@ html{ overflow:hidden;}
 .privateseller{background-image:url(../images/icon/privateseller.png);}
 
 .sch_ctn{margin-left:60px;_margin-left:57px;}
-.sch_wrap{position:relative;height:24px; top:9px;line-height:24px;}
+.sch_wrap{position:relative;height:24px; top:9px;line-height:24px;float:left;}
 .sch_wrap a,.sch_wrap div{float:left;display:block;height:24px;background-color:#f1f1f1;}
 .sch_wrap div input{border:none 0;color:Gray; background-color:#f1f1f1;height:22px;line-height:22px;padding:0;}
 .sch_wrap a:link,.sch_wrap a:visited{color:#555;}
 .sch_prj{width:45px;background-position:33px -241px;text-indent:6px;}
 .sch_btn{width:30px;background-position:0 -150px;}
 
-.msg,.msgc{display:block;float:left;font-size:12px;color:#d4dadf;border:solid 1px red;height:25px;}
+.msg,.msgc{display:block;float:left;font-size:12px;color:#d4dadf;height:25px;}
 .msgc{padding-left:4px;}
 .mc_block{padding:0px 3px;line-height:16px; position:relative;top:4px; background-color:#df3726;}

@@ -35,13 +35,13 @@
         </asp:Repeater>
     </table>
 </div>
-<div class="addctn">
-    <div id="divadd">
-        <ul>
-            <li>分类名称：<input class="txtbox catname" name="catname" /></li>
-            <li><input type="button" value="保存" class="btnsub" /> <input type="button" value="取消" class="btncancel wBox_close" /></li>
-        </ul>
-    </div>
+
+<div id="divadd" style="display:none">
+    <ul>
+        <li>分类名称：<input class="txtbox catname" name="catname" /></li>
+        <li><input type="button" value="保存" class="btnsub" /> <input type="button" value="取消" class="btncancel wBox_close" /></li>
+    </ul>
 </div>
+
 </asp:Content>
 

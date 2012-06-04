@@ -1,5 +1,5 @@
 ﻿$(function () {
-    $(".menu a,.fix_ctn a").click(function () {
+    $(".menu a,.fix_ctn a").not(".nolk").click(function () {
         $("#mainFrame").attr("src", $(this).attr("href"));
         return false;
     });
@@ -49,6 +49,14 @@
             $(".sch_wrap *").css("background-color", "#f1f1f1");
             $(".sch_btn").css("background-position", "0 -150px");
         }
+    });
+
+    //检查未读消息，若为0则隐藏提醒标志。
+    $(".mc_block").text(function () {
+        if ($(this).text() == "0") {
+            $(this).hide();
+        }
+        return $(this).text();
     });
 
 });
