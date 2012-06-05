@@ -4,9 +4,9 @@ html{ overflow:hidden;}
 .ct_wrap{width:962px;margin:0 auto;height:42px; position:relative;}
 .ds_logo,.menu a:hover div,.mnhv span,.mnhv div,.fix_tag,.sch_prj,.sch_btn{background:url(../images/352592_426256671.gif) no-repeat;}
 .ct_ul{height:42px; overflow:hidden;}
-.ct_ul li{float:left;height:42px;}
-.menu{margin-left:8px;padding-top:9px;font-size:14px;}
-.menu a:link,.menu a:visited{cursor:pointer;color:white; overflow:auto;zoom:1;}
+.ct_ul li{float:left;height:42px;font-family:"微软雅黑";}
+.menu{margin-left:8px;padding-top:9px;font-size:15px;}
+.menu a:link,.menu a:visited{cursor:pointer;color:#d4dadf; overflow:auto;zoom:1;}
 .menu div{float:left;line-height:25px;height:25px;}
 .menu div.ml,.menu div.mr{width:8px; overflow:hidden;}
 .menu a:hover div.ml{background-position:left -100px;}
@@ -15,7 +15,7 @@ html{ overflow:hidden;}
 .mnhv div.ml{background-position:left -300px;}
 .mnhv div.mm{background-position:-8px -300px; overflow:auto;zoom:1;}
 .mnhv div.mr{background-position:-86px -300px;}
-.mnhv div.mm span{display:block;float:left;height:25px;background-position:-150px -293px;padding-left:16px;}
+.mnhv div.mm span{display:block;float:left;height:25px;line-height:25px;background-position:-150px -292px;padding-left:16px;}
 .ds_logo{width:94px; background-position:-84px 0;}
 
 .app_wrap{position:absolute;left:0px;top:44px;height:150px;width:952px;border:solid 1px;display:none;}
@@ -49,6 +49,8 @@ html{ overflow:hidden;}
 .sch_prj{width:45px;background-position:33px -241px;text-indent:6px;}
 .sch_btn{width:30px;background-position:0 -150px;}
 
-.msg,.msgc{display:block;float:left;font-size:12px;color:#d4dadf;height:25px;}
+.msg,.msgc{display:block;float:left;color:#d4dadf;height:25px;font-size:12px;}
 .msgc{padding-left:4px;}
-.mc_block{padding:0px 3px;line-height:16px; position:relative;top:4px; background-color:#df3726;}
+.mc_block{padding:0px 3px;line-height:14px; position:relative;top:6px; background-color:#df3726;}
+.welcome,.homepage{margin-left:12px;line-height:42px;font-size:13px;}
+.welcome,.homepage a:link,.homepage a:visited,.welcome a:link,.welcome a:visited{color:#d4dadf;}
