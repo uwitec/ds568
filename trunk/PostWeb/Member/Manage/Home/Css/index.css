@@ -1,0 +1,27 @@
+﻿.main{width:952px;margin:0 auto;margin-top:10px; overflow:auto;zoom:1;}
+.left{width:760px;float:left;}
+.right{width:172px;margin-left:780px;_margin-left:777px;}
+.box_head{ background-color:#f5f5f5;margin-top:1px;border-bottom:solid 1px #e3e3e3;height:34px;line-height:34px;}
+.b_d_title{font-size:14px;font-weight:bold; text-indent:14px;}
+.app_wrap{border:solid 1px #e3e3e3;margin-bottom:10px;}
+.app_list{width:752px;margin:0px auto;padding:7px 0; overflow:auto;zoom:1;}
+.app_list li{float:left;}
+.app_list a:link,.app_list a:visited{display:block;width:90px;height:90px;padding:1px;border:solid 1px white;cursor:pointer;}
+.md_wrap{width:90px;height:90px;}
+.app_list a:hover{border-color:#cad0d4;}
+.app_list a:hover .md_wrap{background-color:#f5f5f5;}
+.model_ico{height:58px;width:90px;}
+.app_list a .model_name{font-size:12px;text-align:center;line-height:28px;}
+.offer,.salemana,.account,.winporter,.imagemanager,.idinfo,.purchase,.privateseller{background:none no-repeat center bottom;}
+.offer{background-image:url(../../images/icon/offer.png)}
+.salemana{background-image:url(../../images/icon/salemanagement.png);}
+.account{background-image:url(../../images/icon/accountmanagement.png);}
+.winporter{background-image:url(../../images/icon/winporter.png);}
+.imagemanager{background-image:url(../../images/icon/imagemanager.png);}
+.idinfo{background-image:url(../../images/icon/industryInformation.png);}
+.purchase{background-image:url(../../images/icon/purchasemanagement.png);}
+.privateseller{background-image:url(../../images/icon/privateseller.png);}
+.right a:visited,.right a:link,.right{color:#666;}
+.right a:hover{color:#ff7300;}
+ul.nt_list{line-height:16px;width:160px;margin:0 auto;padding:8px 0;list-style:disc inside;}
+.nt_list li{border-bottom:dashed 1px #ccc;margin-bottom:10px; }
