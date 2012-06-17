@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>上传头像</title>
+    <link href="css/avatar.css" rel="Stylesheet" type="text/css" />
+    <link href="css/ui-lightness/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/lib.js"></script>
+    <script src="js/ui.js" type="text/javascript"></script>
+    <script src="js/fileupload.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/avatar.js"></script>
+    <style type="text/css">
+        body{padding:0;margin:0;}
+        .main_wrap{height: 554px;  margin:10px auto; width: 800px; background-color:#eef5ff;}
+        .head{height:38px;line-height:38px;border:solid 1px #2d70c1; background:url(images/hd_bg.gif) repeat-x;font-family:"微软雅黑";font-size:24px;color:White;text-indent:8px;}
+        .up_body{border:solid 4px #c7ddfe;height:510px;overflow:hidden;}
+        .bd_left{width:660px;float:left;}
+        .bd_right{margin-left:660px;_margin-left:657px;}
+        .img_bg{width:606px;height:470px; background:url(images/img_bg.gif);margin:20px auto; position:relative;}
+        .upload_img_bg{width:600px;height:464px;margin:3px auto;}
+        .btnsel{overflow:hidden;background:url(images/btnsel.gif);margin:0 auto;width:150px;height:41px;display:block;line-height:14px;text-decoration:none; position:absolute; left:225px;top:210px;}
+        .view_title{margin-top:50px;}
+        .view_wrap{height:100px;width:100px; background-color:White;margin-top:8px;}
+        .view_btn_wrap{margin-top:20px;}
+        .view_btn{width:108px;height:31px; background:url(images/btnUpload.gif) no-repeat;border:none 0;}
+         #avatarFile{filter:alpha(opacity=0);-moz-opacity:.0;opacity:0.0; cursor:pointer;}
+         .btnsel2{width:108px;height:31px; background:url(images/btnsel2.gif) no-repeat;border:none 0;display:none;}
+    </style>
+   
+</head>
+<body>
+    <div class="main_wrap">
+        <div class="head">个人头像编辑器</div>
+        <div class="up_body">
+            <div class="bd_left">
+                <div class="img_bg" id="divContenter">
+                    <div class="upload_img_bg" id="divBG">
+                        <div id="divCuter"></div>
+                        
+                    </div>
+                    <a href="javascript:void(0);" class="btnsel"><input style="width:150px;height:40px;font-size:100px;" type="file" id="avatarFile" name="avatarFile" /></a>
+                </div>
+            </div>
+            <div class="bd_right">
+                <div class="view_title">图片预览区域</div>
+                <div class="view_wrap"><img id="imgAvatarView"style="width:100px;height:100px;" alt="头像" style="display: none;" /></div>
+                <div class="view_btn_wrap"><input type="button"  class="view_btn" /></div>
+                <div class="view_btn_wrap"><input type="button"  class="btnsel2" /></div>
+            </div>
+        </div>
+
+
+        <div style="width: 175px; height: 175px; float: left; border: 1px solid #ccc;">
+            <img src="" id="img" style="width: 175px; height: 175px" />
+        </div>
+        <div id="divUp" style="width: 520px; float: left; margin-left: 20px">
+            
+            <div id="divUploadAvatar">
+                <div id="divContenter1">
+                    <div id="divBG1">
+                        <div id="divCuter1">
+                        </div>
+                    </div>
+                </div>
+                <div id="divAvatarInfo">
+                    <div id="divImgAvatar">
+                        <img id="imgAvatarView1" alt="头像" style="display: none;" />
+                    </div>
+                    <div id="divUploadTxt">
+                        通过移动和改变左边橙色方块大小可选择图像区域
+                    </div>
+                    <div id="divUploadBtn">
+                        <input type="button" class="btnAvatar" id="btnupload" value="确定" />
+                        <input type="button" class="btnAvatar" id="btncancel"  value="取消" />
+                    </div>
+                    <div id="divSaveInfo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
