@@ -22,6 +22,7 @@
     }).offset({ top: gbOS.top + 63, left: gbOS.left + 63 });   //把cuter主位在BG中间
 
     function _uploadImg() {
+        $(".loading_wrap,.btnsel").toggle();
         $.ajaxFileUpload({
             url: __avatar_handlerUrl,
             secureuri: false,
@@ -60,6 +61,7 @@
                 alert("上传失败，请检查文件是否符合格式要求。");
             },
             complete: function () {
+                $(".loading_wrap").toggle();
                 $("#avatarFile").change(function () {
                     _uploadImg();
                 });
