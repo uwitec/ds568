@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿
     var __avatar_handlerUrl = "AvatarService.ashx?time=" + Math.random();
     var avatarFileName = "";
     var __avatar_size = 1;  //缩放比例
@@ -22,12 +22,17 @@
     }).offset({ top: gbOS.top + 63, left: gbOS.left + 63 });   //把cuter主位在BG中间
 
     function _uploadImg() {
+        var member_id = $("#member_id").val();
+        if (!Number(member_id)) {
+            alert("缺少参数。");
+            return false;
+        }
         $(".loading_wrap,.btnsel").toggle();
         $.ajaxFileUpload({
             url: __avatar_handlerUrl,
             secureuri: false,
             fileElementId: 'avatarFile',
-            data: { myaction: "upload" },
+            data: { myaction: "upload", member_id: member_id },
             success: function (data) {
                 $("#divBG").show();
                 $(".btnsel").hide();
@@ -62,9 +67,7 @@
             },
             complete: function () {
                 $(".loading_wrap").toggle();
-                $("#avatarFile").change(function () {
-                    _uploadImg();
-                });
+                
             }
         });
     }
@@ -105,29 +108,24 @@
             },
             function (data, status) {
                 if (data == "1") {
-                    if (OnAvatarUploaded) {//外部的函数
-                        OnAvatarUploaded(avatarFileName);
-                    }
-                    $("#divSaveInfo").html("保存成功").css("color", "orange");
+                    alert("保存成功。")
                 }
                 else {
-                    $("#divSaveInfo").html("保存失败").css("color", "red");
+                    alert("保存失败。")
                 }
                 $("#divBG").css("background", "none");
                 $("#imgAvatarView").hide();
                 avatarFileName = "";
                 __avatar_size = 1;
-                setTimeout('$("#divSaveInfo").html("");', 1500);
+                //setTimeout('$("#divSaveInfo").html("");', 1500);
             }
         )
         }
     }
 
-    $("#btnupload").click(function () {
+    $(".view_btn").click(function () {
         _uploadAvatarOK();
-        $("#avatarFile").change(function () {
-            _uploadImg();
-        });
+       
     });
     function _uploadAvatarCancel() {
         if (avatarFileName != "") {
@@ -147,9 +145,7 @@
         _uploadAvatarCancel()
     });
 
-    function OnAvatarUploaded(file) {
-        $("#img").attr("src", file + "?n=" + Math.random()); //防止缓存
-    }
+   
 
     $(".btnsel2").click(function () {
         $("#divBG,.btnsel2").hide();
@@ -158,5 +154,5 @@
         $("#imgAvatarView").hide();
     });
 
-});
+
     

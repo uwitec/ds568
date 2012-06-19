@@ -3,9 +3,7 @@
 #divContenter{}
 #divBG{background-repeat: no-repeat;display:none;}
 #divCuter{border: 2px solid orange;height: 175px;width: 175px;}
-#divAvatarInfo{margin: auto auto auto 10px;float: left;width: 180px;}
-#divImgAvatar{border: 1px green solid;width: 175px;height: 175px;}
-#imgAvatarView{width: 175px;height: 175px;}
+#imgAvatarView{width: 100px;height: 100px;}
 #divUploadTxt{color: #999999;margin: 15px 10px auto 0px;}
 #divUploadBtn{margin: 15px 10px auto 0px;}
 #divSaveInfo{margin: 5px 10px auto 0px;font-weight: bold;}
