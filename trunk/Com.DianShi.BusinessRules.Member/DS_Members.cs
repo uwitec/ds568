@@ -156,5 +156,15 @@ namespace Com.DianShi.BusinessRules.Member
                 return false;
             }
         }
+
+        /// <summary>
+        /// 获取会员资源文件夹路径,路径开头和结尾没有"/"
+        /// </summary>
+        /// <param name="MemberID"></param>
+        /// <returns></returns>
+        public string GetMemberDir(int MemberID) {
+            int md = MemberID / 5001 + 1;
+            return "S" + md.ToString().PadLeft(3, '0') + "/U" + MemberID;
+        }
     }
 }
