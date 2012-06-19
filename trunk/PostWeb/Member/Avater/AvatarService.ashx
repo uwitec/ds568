@@ -6,11 +6,14 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using Com.DianShi.BusinessRules.Member;
+using System.Web.Script.Serialization;
 public class AvatarService : IHttpHandler
 {
 
     public void ProcessRequest(HttpContext context)
     {
+        var json = new JavaScriptSerializer();
         context.Response.ContentType = "text/plain";
         string action = context.Request["myaction"];
         if (action == "upload")
@@ -31,7 +34,9 @@ public class AvatarService : IHttpHandler
                 msg = "请您上传512字节内的图片";
             }
             string newName = Guid.NewGuid().ToString();
-            string tempPath = "upload/";
+            var mbbl = new DS_Members_Br();
+
+            string tempPath = "/Resource/" + mbbl.GetMemberDir(int.Parse(context.Request["member_id"])) + "/Avater/";
 
             string img = tempPath + newName + ext;
             string filePath = context.Server.MapPath(img);
@@ -76,8 +81,8 @@ public class AvatarService : IHttpHandler
                     msg = img;
                 }
             }
-            string strWrite = "{ \"result\":" + result + ",\"size\":" + size + ",\"msg\":\"" + msg + "\",\"w\":" + ww + ",\"h\":" + hh + "}";
-            context.Response.Write(strWrite);
+            //string strWrite = "{ \"result\":" + result + ",\"size\":" + size + ",\"msg\":\"" + msg + "\",\"w\":" + ww + ",\"h\":" + hh + "}";
+            context.Response.Write(json.Serialize(new {result=result,size=size,msg=msg,w=ww,h=hh }));
         }
         else if (action == "view")
         {
