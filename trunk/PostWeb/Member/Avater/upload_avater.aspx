@@ -27,10 +27,11 @@
         #avatarFile{filter:alpha(opacity=0);-moz-opacity:.0;opacity:0.0; cursor:pointer;}
         .btnsel2{width:108px;height:31px; background:url(images/btnsel2.gif) no-repeat;border:none 0;display:none;}
         .loading_wrap{height:50px;width:200px; background-color:White;position:absolute; left:212px;top:205px;display:none;border:solid 1px #ccc;}
+        .loading2{background-position:left center;text-indent:18px;display:none;}
     </style>
 </head>
 <body>
-    <input type="hidden" id="member_id" value="<%=Request["member_id"] %>" />
+    <input type="hidden" id="member_id" value="<%=_userData.Member.ID %>" />
     <div class="main_wrap">
         <div class="head">个人头像编辑器</div>
         <div class="up_body">
@@ -47,7 +48,7 @@
             <div class="bd_right">
                 <div class="view_title">图片预览区域</div>
                 <div class="view_wrap"><img id="imgAvatarView"style="width:100px;height:100px;" alt="头像" style="display: none;" /></div>
-                <div class="view_btn_wrap"><input type="button"  class="view_btn" /></div>
+                <div class="view_btn_wrap"><input type="button"  class="view_btn" /><div class="loading2">数据提交中…</div></div>
                 <div class="view_btn_wrap"><input type="button"  class="btnsel2" /></div>
             </div>
         </div>

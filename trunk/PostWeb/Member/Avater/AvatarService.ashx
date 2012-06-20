@@ -81,7 +81,6 @@ public class AvatarService : IHttpHandler
                     msg = img;
                 }
             }
-            //string strWrite = "{ \"result\":" + result + ",\"size\":" + size + ",\"msg\":\"" + msg + "\",\"w\":" + ww + ",\"h\":" + hh + "}";
             context.Response.Write(json.Serialize(new {result=result,size=size,msg=msg,w=ww,h=hh }));
         }
         else if (action == "view")

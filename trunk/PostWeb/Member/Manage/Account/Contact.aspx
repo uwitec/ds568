@@ -11,6 +11,11 @@
         <div class="mMiddle">联系信息</div>
         <div class="mRight"></div>
     </li>
+    <li>
+        <div class="mLeft lunsl"></div>
+        <div class="mMiddle munsl">个人头像</div>
+        <div class="mRight runsl"></div>
+    </li>
     <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
 </ul>
 <ul class="ctList">
@@ -26,4 +31,17 @@
     <li><span>公司网址：&nbsp;</span><input type="text" id="webSite" value="<%=ViewState["HomePage"] %>" class="txtbox" name="webSite" maxlength="200" /></li>
     <li><span>&nbsp;</span><input class="subBtn" type="button" value="保存" /><label id="subload" class="loading2 loadLeft">数据提交中…</label></li>
 </ul>
+<div class="atater">
+    <div class="a_left">
+        <div class="atater_img">
+            <img  src="#" onerror="javascript:this.src='http://i04.c.aliimg.com/images/member/da1_r13_c21.gif'" alt="个人头像" width="100" height="100" />
+        </div>
+        <div class="a_tips">您当前的头像</div>
+    </div>
+    <div class="a_right">
+        <div class="up_tips_h"><span>您目前还没有头像，</span><a id="lk_up"  href="javascript:;">点此上传</a></div>
+        <div class="up_tips_m">上传图片要求：</div>
+        <div class="up_tips_b">请使用真实头像，展示风格支持JPG, JPEG, GIF, PNG风格，支持512KB以内的图片。</div>
+    </div>
+</div>
 </asp:Content>
