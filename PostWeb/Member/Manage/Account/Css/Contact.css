@@ -1,4 +1,4 @@
-﻿.ctList{margin-bottom:30px;}
+﻿.ctList{margin-bottom:30px;display:none;}
 .ctList li{margin-top:18px;position:relative;}
 .ctList li span{width:100px; text-align:right;float:left;display:block;line-height:32px;margin-right:12px;}
 .txtbox{width:234px;height:24px;line-height:24px;border:solid 1px #B5B5B5;}
@@ -6,3 +6,11 @@
 .phone-hm,.fax-hm{width:110px;}
 .phone-fj,.fax-fj{width:55px;}
 label.error{left:360px;_left:260px; position:absolute;}
+
+.atater{width:540px;margin:40px auto; overflow:auto;zoom:1;}
+.a_left{float:left;width:106px;}
+.atater_img{width:100px;height:100px;padding:2px;border:solid 1px; overflow:hidden;}
+.a_tips{text-align:center;line-height:20px;}
+.a_right{margin-left:136px;_margin-left:133px;width:300px;}
+.up_tips_h{font-size:14px;font-weight:bold;}
+.up_tips_m{font-weight:bold;line-height:40px;}

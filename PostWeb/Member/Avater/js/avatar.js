@@ -33,10 +33,11 @@
             secureuri: false,
             fileElementId: 'avatarFile',
             data: { myaction: "upload", member_id: member_id },
+            dataType:"json",
             success: function (data) {
                 $("#divBG").show();
                 $(".btnsel").hide();
-                var obj = $.parseJSON(data);
+                var obj = data;
                 if (obj.result == 1) {
                     var file = obj.msg;
                     avatarFileName = file;
@@ -67,7 +68,6 @@
             },
             complete: function () {
                 $(".loading_wrap").toggle();
-                
             }
         });
     }
@@ -97,6 +97,7 @@
     }
     function _uploadAvatarOK() {
         if (avatarFileName != "") {
+            $(".view_btn,.btnsel2,.loading2").toggle();
             $.get(__avatar_handlerUrl,
             { myaction: "save",
                 size: __avatar_size,
@@ -106,18 +107,19 @@
                 h: __avatar_h,
                 w: __avatar_w
             },
-            function (data, status) {
+            function(data, status) {
                 if (data == "1") {
-                    alert("保存成功。")
+                    if (window.opener.opencallBack) {
+                        window.opener.opencallBack(avatarFileName)
+                    }
+                    window.open('', '_top')
+                    window.close();
                 }
                 else {
                     alert("保存失败。")
                 }
-                $("#divBG").css("background", "none");
-                $("#imgAvatarView").hide();
-                avatarFileName = "";
-                __avatar_size = 1;
-                //setTimeout('$("#divSaveInfo").html("");', 1500);
+                //avatarFileName = "";
+                //__avatar_size = 1;
             }
         )
         }
