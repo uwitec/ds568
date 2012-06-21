@@ -33,12 +33,12 @@
             secureuri: false,
             fileElementId: 'avatarFile',
             data: { myaction: "upload", member_id: member_id },
-            dataType:"json",
-            success: function (data) {
-                $("#divBG").show();
-                $(".btnsel").hide();
+            dataType: "json",
+            success: function(data) {
                 var obj = data;
-                if (obj.result == 1) {
+                if (obj.succ) {
+                    $("#divBG").show();
+                    $(".btnsel").hide();
                     var file = obj.msg;
                     avatarFileName = file;
                     __avatar_size = obj.size;
@@ -63,10 +63,10 @@
                     alert(obj.msg);
                 }
             },
-            error: function () {
-                alert("上传失败，请检查文件是否符合格式要求。");
+            error: function(req) {
+                alert("上传失败，请检查文件是否符合格式要求。"+req.responseText);
             },
-            complete: function () {
+            complete: function() {
                 $(".loading_wrap").toggle();
             }
         });
@@ -108,7 +108,8 @@
                 w: __avatar_w
             },
             function(data, status) {
-                if (data == "1") {
+                var obj = $.parseJSON(data);
+                if (obj.succ) {
                     if (window.opener.opencallBack) {
                         window.opener.opencallBack(avatarFileName)
                     }
@@ -116,7 +117,8 @@
                     window.close();
                 }
                 else {
-                    alert("保存失败。")
+                    alert(obj.msg);
+                    $(".view_btn,.btnsel2,.loading2").toggle();
                 }
                 //avatarFileName = "";
                 //__avatar_size = 1;
@@ -154,6 +156,10 @@
         $(".btnsel").show();
         $(".view_btn").css("background-image", "url(images/btnUpload.gif)");
         $("#imgAvatarView").hide();
+
+        $("#avatarFile").change(function() {
+            _uploadImg();
+        });
     });
 
 
