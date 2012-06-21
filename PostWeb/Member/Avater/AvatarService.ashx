@@ -8,18 +8,27 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using Com.DianShi.BusinessRules.Member;
 using System.Web.Script.Serialization;
-public class AvatarService : IHttpHandler
+using System.Web.SessionState;
+public class AvatarService : IHttpHandler,IRequiresSessionState 
 {
 
     public void ProcessRequest(HttpContext context)
     {
-        var json = new JavaScriptSerializer();
         context.Response.ContentType = "text/plain";
+        var json = new JavaScriptSerializer();
+        var od = context.Session["UserData"] as UserData;
+        if (od == null || od.Member == null)
+        {
+            context.Response.Write(json.Serialize(new { succ = false, msg = "登录超时，请重新登录。" }));
+            return;
+        }
+        var mbbl = new DS_Members_Br();
+        string tempPath = "/Resource/" + mbbl.GetMemberDir(od.Member.ID) + "/Avater/";
         string action = context.Request["myaction"];
         if (action == "upload")
         {
             string msg = "";
-            string result = "0";
+            bool result = false;
             string ww = "0";
             string hh = "0";
             string size = "1";//缩放
@@ -34,10 +43,7 @@ public class AvatarService : IHttpHandler
                 msg = "请您上传512字节内的图片";
             }
             string newName = Guid.NewGuid().ToString();
-            var mbbl = new DS_Members_Br();
-
-            string tempPath = "/Resource/" + mbbl.GetMemberDir(int.Parse(context.Request["member_id"])) + "/Avater/";
-
+            
             string img = tempPath + newName + ext;
             string filePath = context.Server.MapPath(img);
             tempPath = context.Server.MapPath(tempPath);
@@ -77,11 +83,11 @@ public class AvatarService : IHttpHandler
                         hh = h.ToString();
                     }
                     file.SaveAs(filePath);//保存原图
-                    result = "1";
+                    result = true;
                     msg = img;
                 }
             }
-            context.Response.Write(json.Serialize(new {result=result,size=size,msg=msg,w=ww,h=hh }));
+            context.Response.Write(json.Serialize(new {succ=result,size=size,msg=msg,w=ww,h=hh }));
         }
         else if (action == "view")
         {
@@ -112,35 +118,38 @@ public class AvatarService : IHttpHandler
                 {
                     //这里没有生成缩略图，如果需要，可以在这里加
                     string file = HttpContext.Current.Server.MapPath(context.Request["file"]);
-                    DeleteImage();
+                    DeleteImage(tempPath);
                     viewimg.Save(file, ImageFormat.Jpeg);
-                    context.Response.Write("1");
+                    od.Member.Avater = context.Request["file"];
+                    mbbl.Update(od.Member);
+                    context.Response.Write(json.Serialize(new { succ=true }));
                 }
                 catch
                 {
-                    context.Response.Write("0");
+                    context.Response.Write(json.Serialize(new { succ = false,msg="保存发生意外。" }));
                 }
             }
         }
         else if (action == "delete")
         {
-            DeleteImage();
+            DeleteImage(tempPath);
         }
     }
 
-    public static void DeleteImage()
+    public static void DeleteImage(string path)
     {
-        string file = HttpContext.Current.Server.MapPath(HttpContext.Current.Request["file"]);
+        string crtfile = HttpContext.Current.Server.MapPath(HttpContext.Current.Request["file"]);
         try
         {
-            if (File.Exists(file))
+            string[] files=Directory.GetFiles(HttpContext.Current.Server.MapPath(path));
+            foreach (var file in files)
             {
-                File.Delete(file);
+                if (crtfile!=file&&File.Exists(file))
+                {
+                    File.Delete(file);
+                }
             }
-            if (HttpContext.Current.Request["size"] != "1")
-            {
-                File.Delete(file + ".view.jpg");
-            }
+            
         }
         catch { }
     }

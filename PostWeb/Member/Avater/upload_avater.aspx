@@ -47,7 +47,7 @@
             </div>
             <div class="bd_right">
                 <div class="view_title">图片预览区域</div>
-                <div class="view_wrap"><img id="imgAvatarView"style="width:100px;height:100px;" alt="头像" style="display: none;" /></div>
+                <div class="view_wrap"><img id="imgAvatarView" style="width:100px;height:100px;display: none;" onerror="javascript:$(this).hide()" alt="头像"  /></div>
                 <div class="view_btn_wrap"><input type="button"  class="view_btn" /><div class="loading2">数据提交中…</div></div>
                 <div class="view_btn_wrap"><input type="button"  class="btnsel2" /></div>
             </div>
