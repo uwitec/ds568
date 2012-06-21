@@ -18,12 +18,18 @@ public class BasePage : System.Web.UI.Page
 
     protected override void InitializeCulture()
     {
-        if (!UserData.ChkObjNull(UserData.ObjType.会员信息))
+        _userData=Session["UserData"] as UserData;
+        if (_userData == null)
+        {
+            Session["UserData"] = _userData = new UserData();
+        }
+       
+        if (_userData.Member==null)
         {
             Response.Write("<script>alert('登录超时，请重新登录。');open('"+Resources.Constant.LoginPage+"','_top')</script>");
             Response.End();
         }
-        _userData = Session["UserData"] as UserData;
+        
        
     }
 
