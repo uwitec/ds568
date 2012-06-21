@@ -100,6 +100,8 @@
         crtli.removeClass("munsl");
         crtli.removeClass("runsl");
 
+        $(".ctList,.atater").hide();
+        $("."+$(this).attr("cl")).show();
 
     });
 

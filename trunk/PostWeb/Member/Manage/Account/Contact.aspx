@@ -6,12 +6,12 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ul class="hmenu">
-    <li>
+    <li cl="ctList">
         <div class="mLeft"></div>
         <div class="mMiddle">联系信息</div>
         <div class="mRight"></div>
     </li>
-    <li>
+    <li cl="atater">
         <div class="mLeft lunsl"></div>
         <div class="mMiddle munsl">个人头像</div>
         <div class="mRight runsl"></div>
@@ -34,12 +34,19 @@
 <div class="atater">
     <div class="a_left">
         <div class="atater_img">
-            <img  src="#" onerror="javascript:this.src='http://i04.c.aliimg.com/images/member/da1_r13_c21.gif'" alt="个人头像" width="100" height="100" />
+            <img  src="<%=string.IsNullOrEmpty(_userData.Member.Avater)?"#":_userData.Member.Avater %>" onerror="javascript:noAvater(this)" alt="个人头像" width="100" height="100" />
+            <script type="text/javascript">
+                function noAvater(obj) {
+                    obj.src = 'http://i04.c.aliimg.com/images/member/da1_r13_c21.gif';
+                    $(".up_tips_h span").text("您目前还没有头像，");
+                    $(".up_tips_h a").text("点此上传");
+                }
+            </script>
         </div>
         <div class="a_tips">您当前的头像</div>
     </div>
     <div class="a_right">
-        <div class="up_tips_h"><span>您目前还没有头像，</span><a id="lk_up"  href="javascript:;">点此上传</a></div>
+        <div class="up_tips_h"><span>不满意自己的头像，请 </span><a id="lk_up"  href="javascript:;">点此修改</a></div>
         <div class="up_tips_m">上传图片要求：</div>
         <div class="up_tips_b">请使用真实头像，展示风格支持JPG, JPEG, GIF, PNG风格，支持512KB以内的图片。</div>
     </div>
