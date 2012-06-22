@@ -21,18 +21,16 @@
         }
     }).offset({ top: gbOS.top + 63, left: gbOS.left + 63 });   //把cuter主位在BG中间
 
+
     function _uploadImg() {
-        var member_id = $("#member_id").val();
-        if (!Number(member_id)) {
-            alert("缺少参数。");
-            return false;
-        }
-        $(".loading_wrap,.btnsel").toggle();
+        if (!checkFiles($("#avatarFile").val())) return false;
+        $(".loading_wrap").show();
+        $(".btnsel").hide();
         $.ajaxFileUpload({
             url: __avatar_handlerUrl,
             secureuri: false,
             fileElementId: 'avatarFile',
-            data: { myaction: "upload", member_id: member_id },
+            data: { myaction: "upload"},
             dataType: "json",
             success: function(data) {
                 var obj = data;
@@ -61,13 +59,18 @@
                 }
                 else {
                     alert(obj.msg);
+                    $(".btnsel").show();
                 }
             },
             error: function(req) {
-                alert("上传失败，请检查文件是否符合格式要求。"+req.responseText);
+                $(".btnsel").show();
+                alert("上传失败，请检查文件是否符合格式要求。");
             },
             complete: function() {
-                $(".loading_wrap").toggle();
+                $(".loading_wrap").hide();
+                $("#avatarFile").change(function() {
+                    _uploadImg();
+                });
             }
         });
     }
@@ -110,11 +113,14 @@
             function(data, status) {
                 var obj = $.parseJSON(data);
                 if (obj.succ) {
-                    if (window.opener.opencallBack) {
-                        window.opener.opencallBack(avatarFileName)
+                    if (window.opener && window.opener.opencallBack) {
+                        window.opener.opencallBack(avatarFileName);
+                        window.open('', '_top')
+                        window.close();
+                    } else {
+                        alert("上传成功。");
+                        $(".view_btn,.btnsel2,.loading2").toggle();
                     }
-                    window.open('', '_top')
-                    window.close();
                 }
                 else {
                     alert(obj.msg);
@@ -149,18 +155,27 @@
         _uploadAvatarCancel()
     });
 
-   
 
-    $(".btnsel2").click(function () {
+
+    $(".btnsel2").click(function() {
         $("#divBG,.btnsel2").hide();
         $(".btnsel").show();
         $(".view_btn").css("background-image", "url(images/btnUpload.gif)");
         $("#imgAvatarView").hide();
 
-        $("#avatarFile").change(function() {
-            _uploadImg();
-        });
     });
+
+    function checkFiles(str) {
+        var strRegex = "(.jpg|.jpeg|.gif|.png)$";
+        var re = new RegExp(strRegex);
+        if (re.test(str.toLowerCase())) {
+            return true;
+        }
+        else {
+            alert("文件格式不合法，文件的扩展名必须为jpg、gif、png格式");
+            return false;
+        }
+    }
 
 
     
