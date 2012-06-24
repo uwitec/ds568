@@ -16,9 +16,10 @@
                 <div class="box_head">
                     <div class="b_d_title">快捷入口</div>
                 </div>
+                <div class="content-wrap">
                 <ul class="app_list">
                     <li>
-                        <a href="offer/list.aspx">
+                        <a href="/member/manage/offer/list.aspx">
                             <div class="md_wrap">
                                 <div class="model_ico offer">&nbsp;</div>
                                 <div class="model_name">供应管理</div>
@@ -34,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="Album/Album_List.aspx">
+                        <a href="/member/manage/Album/Album_List.aspx">
                             <div class="md_wrap">
                                 <div class="model_ico imagemanager">&nbsp;</div>
                                 <div class="model_name">相册管理</div>
@@ -42,7 +43,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="News/news_list.aspx">
+                        <a href="/member/manage/News/news_list.aspx">
                             <div class="md_wrap">
                                 <div class="model_ico idinfo">&nbsp;</div>
                                 <div class="model_name">公司动态</div>
@@ -50,7 +51,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="ComInfo/BaseInfo.aspx">
+                        <a href="/member/manage/ComInfo/BaseInfo.aspx">
                             <div class="md_wrap">
                                 <div class="model_ico privateseller">&nbsp;</div>
                                 <div class="model_name">公司资料</div>
@@ -58,7 +59,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="Transaction/seller_order_list.aspx">
+                        <a href="/member/manage/Transaction/seller_order_list.aspx">
                             <div class="md_wrap">
                                 <div class="model_ico salemana">&nbsp;</div>
                                 <div class="model_name">交易管理</div>
@@ -74,7 +75,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="Account/Contact.aspx">
+                        <a href="/member/manage/Account/Contact.aspx">
                             <div class="md_wrap">
                                 <div class="model_ico account">&nbsp;</div>
                                 <div class="model_name">帐号管理</div>
@@ -82,11 +83,89 @@
                         </a>
                     </li>
                 </ul>
+                </div>
             </div>
             <div class="md_account app_wrap">
                 <div class="box_head">
                     <div class="b_d_title">我的帐户信息</div>
                 </div>
+	    		<div class="content-wrap">
+                    <div class="cel0">
+                        <div  class="row">
+                            <div class="member-info">
+                                <div class="user-pic-grid">
+                                    <a title="" target="_blank" href="http://profile.china.alibaba.com/user/alwdeguan.htm">
+                                        <img height="40" width="40" id="user-pic" alt="" src="<%=_userData.Member.Avater %>"></a></div>
+                                <h3>
+                                    <a title="河源蜂蜜" target="_blank" href="http://china.alibaba.com/company/detail/alwdeguan.html"
+                                        class="company-link">河源蜂蜜</a><a title="您还未进行任何认证,通过认证让买家更放心!" target="_blank" href="http://levit.china.alibaba.com/authenticate/center/myauth.htm?tracelog=work_home_credit_nocredit"
+                                            class="not-auth site-link">公司未认证</a></h3>
+                                <div class="sub-info-wrap">
+                                    <div class="sub-info"><span class="member-level">点石网普通会员</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="iserver">
+                                <div class="t-box">
+                                    <a title="" target="_blank" href="http://work.china.alibaba.com/app/contact.htm">完善<br>
+                                        信息</a></div>
+                                <div class="iserver-grid border-lf">
+                                    <table style="width: 300px;">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a title="" target="_blank" href="http://work.china.alibaba.com/app/contact.htm">完善帐户信息</a>
+                                                </td>
+                                                <td>
+                                                    <a title="" target="_blank" href="http://work.china.alibaba.com/app/mobile.htm">手机验证设置</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a title="" target="_blank" href="http://work.china.alibaba.com/app/passwordsetup.htm">
+                                                        修改密码</a>
+                                                </td>
+                                                <td>
+                                                    <a title="" target="_blank" href="http://work.china.alibaba.com/app/passwordProtect.htm">
+                                                        密保问题管理</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+	    			
+                    <div class="cel1">
+                        <div id="row-4" class="row">
+                            <div id="icommunity" class="icommunity">
+                                <div class="t-box">
+                                    <a title="" target="_blank" href="http://work.china.alibaba.com/channel/sns.htm">我的<br>
+                                        社区</a></div>
+                                <div class="default-grid border-lf">
+                                    <table style="width: 300px;">
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="2">
+                                                    客户留言：<a title="" target="_blank" href="http://work.china.alibaba.com/app/SNSMessageFriend.htm">0<span
+                                                        class="unit">条</span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    系统消息：<a title="" target="_blank" href="http://work.china.alibaba.com/app/SNSMessageSys.htm">0<span
+                                                        class="unit">条</span></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+	    		</div>
             </div>
         </div>
         <div class="right">
@@ -94,11 +173,13 @@
                 <div class="box_head">
                     <div class="b_d_title">最新公告</div>
                 </div>
-                <ul class="nt_list">
-                    <li><a href="#">【有奖活动】 测财运？测人品？不如测操作！</a></li>
-                    <li><a href="#">找货源，学营销，赚大钱，就来网货交易会！</a></li>
-                    <li><a href="#">穿越啦~穿越啦~“甄嬛”喊你来晋升了！测测你是深宫里的宠妃还是冷妃？</a></li>
-                </ul>
+                <div class="content-wrap">
+                    <ul class="nt_list">
+                        <li><a href="#">【有奖活动】 测财运？测人品？不如测操作！</a></li>
+                        <li><a href="#">找货源，学营销，赚大钱，就来网货交易会！</a></li>
+                        <li><a href="#">穿越啦~穿越啦~“甄嬛”喊你来晋升了！测测你是深宫里的宠妃还是冷妃？</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

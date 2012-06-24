@@ -22,11 +22,11 @@ html{ overflow:hidden;}
 .app_sub_wrap{position:relative;height:150px;}
 .fix_bg{background-color:Black;height:150px;width:952px;z-index:3;position:absolute; filter:alpha(opacity=80);-moz-opacity:0.80;-khtml-opacity: 0.80;opacity: 0.80;}
 .fix_ctn{position:absolute;height:150px;width:952px;z-index:4;color:White;}
-.fix_ctn ul{overflow:auto;zoom:1;width:880px;margin:20px auto;}
+.fix_ctn ul{overflow:hidden;height:94px;width:880px;margin:20px auto;}
 .fix_ctn li{float:left;}
 .fix_ctn a:link,.fix_ctn a:visited{display:block;width:86px;height:86px;padding:2px;color:White;cursor:pointer;}
 .fix_ctn a:hover{background-color:#7e7e7e;}
-.md_wrap{width:86px;height:86px;}
+.md_wrap{width:86px;height:86px;overflow:hidden;}
 .fix_ctn a:hover .md_wrap{background-color:#454545;}
 .fix_tag{position:absolute;height:10px;width:15px; overflow:hidden; left:292px;top:-11px; background-position:-49px -200px;}
 .model_ico{height:58px;width:86px;}

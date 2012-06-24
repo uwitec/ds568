@@ -45,8 +45,8 @@
                     }
                     var pof = $("#divContenter").offset();
                     $("#divBG").css({ "background-image": "url(" + file + ")",
-                        width: obj.w,
-                        height: obj.h
+                        width: obj.w+"px",
+                        height: obj.h+"px"
                     }).offset({ top: pof.top + (464 - obj.h) / 2 + 1, left: pof.left + (606 - obj.w) / 2 + 1 });
                     //设置cuter大小
                     var mh = Math.min(175, obj.h);

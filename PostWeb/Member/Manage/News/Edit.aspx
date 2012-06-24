@@ -16,7 +16,7 @@
     </li>
     <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
 </ul>
-<div>
+<div class="news_main_wrap">
     <div class="item">
         <div class="iLeft floatL">
             动态标题：</div>

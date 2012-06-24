@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Database Name="DianShi" Class="View_ComNewsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\MYSQLEXPRESS;Initial Catalog=DianShi;Integrated Security=True" SettingsObjectName="Com.DianShi.Model.News.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hds0230549_db" Class="View_ComNewsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=hds-023.hichina.com;Initial Catalog=hds0230549_db;Persist Security Info=True;User ID=hds0230549" SettingsObjectName="Com.DianShi.Model.News.Properties.Settings" SettingsPropertyName="hds0230549_dbConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.View_ComNews" Member="View_ComNews">
     <Type Name="View_ComNews">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
       <Column Name="Title" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="Content" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -13,10 +12,11 @@
       <Column Name="Hits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Coment" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Ip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Px" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Reply" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Px" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="QQ" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="UserID" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Avater" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
