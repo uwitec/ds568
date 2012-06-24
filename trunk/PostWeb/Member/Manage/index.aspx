@@ -14,7 +14,7 @@
     <div class="ct_wrap">
         <ul class="ct_ul">
             <li class="ds_logo">&nbsp;</li>
-            <li class="menu"><a href="#"><div class="ml">&nbsp;</div><div class="mm">首页</div><div class="mr">&nbsp;</div></a></li>
+            <li class="menu"><a href="/Member/Manage/home/index.aspx"><div class="ml">&nbsp;</div><div class="mm">首页</div><div class="mr">&nbsp;</div></a></li>
             <li class="menu"><a href="Offer/Post.aspx"><div class="ml">&nbsp;</div><div class="mm">销售</div><div class="mr">&nbsp;</div></a></li>
             <li class="menu"><a href="#"><div class="ml">&nbsp;</div><div class="mm">采购</div><div class="mr">&nbsp;</div></a></li>
             <li class="menu mnhv"><a class="nolk" href="javascript:void(0)"><div class="ml">&nbsp;</div><div class="mm"><span>我的应用</span></div><div class="mr">&nbsp;</div></a></li>

@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master"  AutoEventWireup="true"
     CodeFile="news_show.aspx.cs" Inherits="Template_tem1_news_news_show" %>
-    <%@ OutputCache Duration="1800" VaryByParam="news_id" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 <style type="text/css">
     .nocoment{ text-align:center;line-height:32px;display:none;}
@@ -29,7 +28,7 @@
                     公司新闻</div>
             </div>
             <div class="newsBody">
-                <asp:Repeater ID="Repeater1" runat="server" EnableViewState="false">
+                <asp:Repeater ID="Repeater1" runat="server" EnableViewState="false" >
                     <ItemTemplate> 
                         <h3>
                             <img align="absMiddle" src="../../images/icon_06.gif" /><%#Eval("title") %></h3>
@@ -71,14 +70,13 @@
                                     <li class="comCheck">
                                         <input  style="visibility:<%=ViewState["isLogin"].ToString()=="0"?"hidden":"visible" %>"  type="checkbox" name="cmid" value="<%#Eval("id") %>" /></li>
                                     <li class="comHeadFace">
-                                        <img  src="#" onerror="javascript:this.src='http://i00.c.aliimg.com/blog/images/club/ebook/pic85x85.jpg'" /></li>
+                                        <img  src="<%#Eval("avater") %>" alt="个人头像" onerror="javascript:this.src='http://i00.c.aliimg.com/blog/images/club/ebook/pic85x85.jpg'" /></li>
                                     <li class="comLiDetail">
                                         <div>
                                             <b><%#Eval("UserID") %></b><span class="marginLeft1em"></span><a  target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=<%#Eval("qq") %>"><img src="../images/button_dgzh.gif" /></a><span class="marginLeft1em"></span><a
                                                     href="http://shop<%#Eval("memberid") %>.ds568.net" target="_blank">(http://shop<%#Eval("memberid") %>.ds568.net)</a></div>
                                         <div class="comConDetail">
                                             <%#Server.UrlDecode(Eval("content").ToString()) %>
-
                                         </div>
                                         <div class="comDate">
                                             <%#Eval("createdate") %><br />

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Member_Manage_Home_index : System.Web.UI.Page
+public partial class Member_Manage_Home_index :BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
