@@ -1,59 +1,59 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Database Name="DianShi" Class="View_MembersDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\MYSQLEXPRESS;Initial Catalog=DianShi;Integrated Security=True" SettingsObjectName="Com.DianShi.Model.Member.Properties.Settings" SettingsPropertyName="DianShiConnectionString1" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hds0230549_db" Class="View_MembersDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=hds-023.hichina.com;Initial Catalog=hds0230549_db;Persist Security Info=True;User ID=hds0230549" SettingsObjectName="Com.DianShi.Model.Member.Properties.Settings" SettingsPropertyName="hds0230549_dbConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.View_Members" Member="View_Members">
     <Type Name="View_Members">
-      <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
-      <Column Name="UserID" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(120) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="TrueName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Department" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Position" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="QQ" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="Gender" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="Phone" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Fax" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
-      <Column Name="HomePage" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="EmailValidate" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="MobileValidate" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="BusinessType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="BusinessModel" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="CapitalType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="RegisteredCapital" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="YearEstablished" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="RegistrationArea" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Province" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="City" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="County" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BusinessAddress" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="ZipCode" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
-      <Column Name="MemberType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
-      <Column Name="OfferService" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="BuyService" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="MainIndustry" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Profile" Type="System.String" DbType="NVarChar(1800)" CanBeNull="true" />
-      <Column Name="LegalRepresentative" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Bank" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Account" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="StorageArea" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Employees" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="StudyEmployees" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="BrandName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Monthly" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MonthlyUnit" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="AnnualTurnover" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="AnnualExport" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="AnnualImports" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="MSCer" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="QualityControl" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="MainMarket" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="MajorCustomers" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="OEM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="ComImg" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="MapNid" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Column Name="UserID" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(120) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="TrueName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="Department" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Avater" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="QQ" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="HomePage" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="EmailValidate" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="MobileValidate" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="BusinessType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="BusinessModel" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="CapitalType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="RegisteredCapital" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="YearEstablished" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="RegistrationArea" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Province" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="County" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="BusinessAddress" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="ZipCode" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="MemberType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="OfferService" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="BuyService" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="MainIndustry" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="Profile" Type="System.String" DbType="NVarChar(1800)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="LegalRepresentative" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Bank" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="StorageArea" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Employees" Type="System.Byte" DbType="TinyInt" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="StudyEmployees" Type="System.Byte" DbType="TinyInt" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="BrandName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Monthly" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="MonthlyUnit" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="AnnualTurnover" Type="System.Byte" DbType="TinyInt" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="AnnualExport" Type="System.Byte" DbType="TinyInt" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="AnnualImports" Type="System.Byte" DbType="TinyInt" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="MSCer" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="QualityControl" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="MainMarket" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="MajorCustomers" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="OEM" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="ComImg" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="MapNid" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" UpdateCheck="Always" />
     </Type>
   </Table>
 </Database>
