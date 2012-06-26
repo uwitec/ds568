@@ -97,8 +97,8 @@
                                     <a title="" target="_blank" href="http://profile.china.alibaba.com/user/alwdeguan.htm">
                                         <img height="40" width="40" id="user-pic" alt="" src="<%=_userData.Member.Avater %>"></a></div>
                                 <h3>
-                                    <a title="河源蜂蜜" target="_blank" href="http://china.alibaba.com/company/detail/alwdeguan.html"
-                                        class="company-link">河源蜂蜜</a><a title="您还未进行任何认证,通过认证让买家更放心!" target="_blank" href="http://levit.china.alibaba.com/authenticate/center/myauth.htm?tracelog=work_home_credit_nocredit"
+                                    <a title="<%=_userData.vMember.CompanyName %>" target="_blank" href="http://china.alibaba.com/company/detail/alwdeguan.html"
+                                        class="company-link"><%=_userData.vMember.CompanyName %></a><a title="您还未进行任何认证,通过认证让买家更放心!" target="_blank" href="http://levit.china.alibaba.com/authenticate/center/myauth.htm?tracelog=work_home_credit_nocredit"
                                             class="not-auth site-link">公司未认证</a></h3>
                                 <div class="sub-info-wrap">
                                     <div class="sub-info"><span class="member-level">点石网普通会员</span></div>
