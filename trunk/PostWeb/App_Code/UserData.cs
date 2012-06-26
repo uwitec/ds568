@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Security;
 using System.Xml.Linq;
 using Com.DianShi.Model.Member;
+using Com.DianShi.BusinessRules.Member;
 /// <summary>
 ///UserData 的摘要说明
 /// </summary>
@@ -18,7 +19,18 @@ public class UserData
         //
        
     }
-    public DS_Members Member{ get; set; }
+
+    public View_Members vMember;
+
+    private DS_Members _member;
+    public DS_Members Member { 
+        get { return _member; } 
+        set {
+            _member = value;
+            var bl = new View_Members_Br();
+            vMember = bl.GetSingle(_member.ID);
+        }
+    }
 
     public string ValiCode { get; set; }
 
