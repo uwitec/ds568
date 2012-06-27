@@ -97,8 +97,8 @@
                                     <a title="" target="_blank" href="http://profile.china.alibaba.com/user/alwdeguan.htm">
                                         <img height="40" width="40" id="user-pic" alt="" src="<%=_userData.Member.Avater %>"></a></div>
                                 <h3>
-                                    <a title="<%=_userData.vMember.CompanyName %>" target="_blank" href="http://china.alibaba.com/company/detail/alwdeguan.html"
-                                        class="company-link"><%=_userData.vMember.CompanyName %></a><a title="您还未进行任何认证,通过认证让买家更放心!" target="_blank" href="http://levit.china.alibaba.com/authenticate/center/myauth.htm?tracelog=work_home_credit_nocredit"
+                                    <a title="<%=_userData.vMember.CompanyName %>" target="_blank" href="http://shop<%=_userData.Member.ID %>.ds568.net"
+                                        class="company-link"><%=_userData.vMember.CompanyName %></a><a title="您还未进行任何认证,通过认证让买家更放心!"  href="javascript:;"
                                             class="not-auth site-link">公司未认证</a></h3>
                                 <div class="sub-info-wrap">
                                     <div class="sub-info"><span class="member-level">点石网普通会员</span></div>
@@ -108,26 +108,26 @@
                         <div class="row">
                             <div class="iserver">
                                 <div class="t-box">
-                                    <a title="" target="_blank" href="http://work.china.alibaba.com/app/contact.htm">完善<br>
+                                    <a  href="/member/Manage/account/contact.aspx">完善<br>
                                         信息</a></div>
                                 <div class="iserver-grid border-lf">
                                     <table style="width: 300px;">
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <a title="" target="_blank" href="http://work.china.alibaba.com/app/contact.htm">完善帐户信息</a>
+                                                    <a  href="/member/Manage/account/contact.aspx">完善帐户信息</a>
                                                 </td>
                                                 <td>
-                                                    <a title="" target="_blank" href="http://work.china.alibaba.com/app/mobile.htm">手机验证设置</a>
+                                                    <a  href="/member/Manage/account/MobileValidate.aspx">手机验证设置</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a title="" target="_blank" href="http://work.china.alibaba.com/app/passwordsetup.htm">
+                                                    <a title="" target="_blank" href="/member/Manage/account/Password.aspx">
                                                         修改密码</a>
                                                 </td>
                                                 <td>
-                                                    <a title="" target="_blank" href="http://work.china.alibaba.com/app/passwordProtect.htm">
+                                                    <a title="" target="_blank" href="/member/Manage/account/PwdProtect.aspx">
                                                         密保问题管理</a>
                                                 </td>
                                             </tr>
@@ -167,6 +167,35 @@
                     </div>
 	    		</div>
             </div>
+            <ul class="middle_wrap">
+                <li class="box_wrap odd">
+                    <div class="app_wrap">
+                        <div class="box_head">
+                            <div class="b_d_title">
+                                为您推荐</div>
+                        </div>
+                        <div class="content-wrap">
+                            <div class="wrap368">
+                                <ul class="box-mn">
+                                    <li>供应信息</li>
+                                    <li>公司</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="box_wrap">
+                    <div class="app_wrap">
+                        <div class="box_head">
+                            <div class="b_d_title">
+                                最新收藏</div>
+                        </div>
+                        <div class="content-wrap">
+                        gdew
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
         <div class="right">
             <div class="md_notic app_wrap">
