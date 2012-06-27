@@ -67,4 +67,105 @@ table a:link, table a:visited {color: #336699;}
 .default-grid {height: 58px;padding-left: 10px;width: 310px;}
 
 
+.middle_wrap{overflow:auto;zoom:1;}
+.box_wrap{width:370px; float:left;}
+.odd{margin-right:20px;}
 
+/*=========为您推荐=============*/
+.wrap368 {
+  overflow: hidden;
+  width: 340px;
+  margin:10px auto;
+}
+.box-mn{border-bottom:solid 1px #b1c8d7;height:25px;}
+.box-mn li{float:left;line-height:24px;text-align:center;width:68px;border:solid 1px #b1c8d7;border-bottom-color:White;margin-left:10px; position:relative;top:0px;}
+
+.m15 {
+  margin: 10px 15px;
+}
+.lt-tab3 {
+  border-bottom: 1px solid #B1C8D7;
+  height: 25px;
+  margin-bottom: 10px;
+}
+.lt-tab3 li {
+  float: left;
+  padding: 0 5px;
+}
+.lt-tab3 li.now a {
+    background-position: -50px -147px;
+    color: #333333;
+    font-weight: bold;
+}
+
+.lt-tab li a, .lt-tab li.now a, .lt-tab3 a, .lt-tab3 li.now a {
+    background-image: url("http://img.china.alibaba.com/cms/upload/search/workplatform/20110320/lt-somepic.png");
+}
+
+.lt-tab3 li a {
+    display: block;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    position: relative;
+    text-align: center;
+    top: 1px;
+    width: 70px;
+}
+.lt-fix:after {
+  clear: both;
+  content: " ";
+  display: block;
+  height: 0;
+}
+.lc-c-info {
+  float: left;
+  height: 110px;
+  margin-right: 19px;
+  overflow: hidden;
+  width: 73px;
+}
+.lt-img-box {
+  display: block;
+  height: 73px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  width: 73px;
+}
+.lt-newsList3 li {
+  height: 48px;
+}
+.lt-newsList2 li {
+  border-bottom: 1px dotted #D2E4FA;
+  line-height: 25px;
+  overflow: hidden;
+}
+.lt-newsList2 li a {
+  display: block;
+  float: left;
+  overflow: hidden;
+  width: 250px;
+}
+.lt-newsList3 li a p {
+  height: 20px;
+  overflow: hidden;
+}
+.lt-newsList3 li i {
+  float: none;
+  height: 25px;
+  margin-top: 2px;
+}
+.lt-newsList3 span {
+  float: left;
+}
+.lt-newsList2 span {
+  color: #999999;
+}
+.lt-newsList2 span {
+  display: block;
+  width: 60px;
+}
+.lt-t10 {
+  margin-top: 10px;
+}
+/*=========为您推荐=============*/
