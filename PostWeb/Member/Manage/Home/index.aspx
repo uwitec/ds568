@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
     <Custom:Header ID="Header1" runat="server" />
     <link href="css/index.css" rel="Stylesheet" type="text/css"  />
+    <script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
     <div class="main">
@@ -177,9 +178,63 @@
                         <div class="content-wrap">
                             <div class="wrap368">
                                 <ul class="box-mn">
-                                    <li>供应信息</li>
+                                    <li class="current">供应信息</li>
                                     <li>公司</li>
                                 </ul>
+                                <div class="com_wrap">
+                                    <ul class="pro-list">
+                                        <li>
+                                            <div class="img-ctn"><a href="#"><img width="73" onload="changeImg(this,73,73)" src="http://i02.c.aliimg.com/img/ibank/2011/509/330/309033905_750275240.summ.jpg.summ.jpg" /></a></div>
+                                            <div class="pro-title"><a href="#">专业生产供应地</a></div>
+                                            <div class="pro-pri"><span>100.0</span>元</div>
+                                        </li>
+                                        <li>
+                                            <div class="img-ctn"><a href="#"><img width="73" onload="changeImg(this,73,73)" src="http://i00.c.aliimg.com/img/ibank/2011/121/662/454266121_836585338.summ.jpg.summ.jpg" /></a></div>
+                                            <div class="pro-title"><a href="#">专业生产供应地</a></div>
+                                            <div class="pro-pri"><span>100.0</span>元</div>
+                                        </li>
+                                        <li>
+                                            <div class="img-ctn"><a href="#"><img width="73" onload="changeImg(this,73,73)" src="http://i02.c.aliimg.com/img/ibank/2011/509/330/309033905_750275240.summ.jpg.summ.jpg" /></a></div>
+                                            <div class="pro-title"><a href="#">专业生产供应地</a></div>
+                                            <div class="pro-pri"><span>100.0</span>元</div>
+                                        </li>
+                                        <li>
+                                            <div class="img-ctn"><a href="#"><img width="73" onload="changeImg(this,73,73)" src="http://i00.c.aliimg.com/img/ibank/2011/121/662/454266121_836585338.summ.jpg.summ.jpg" /></a></div>
+                                            <div class="pro-title"><a href="#">专业生产供应地</a></div>
+                                            <div class="pro-pri"><span>100.0</span>元</div>
+                                        </li>
+                                        <li>
+                                            <div class="img-ctn"><a href="#"><img width="73" onload="changeImg(this,73,73)" src="http://i05.c.aliimg.com/img/ibank/2011/306/521/322125603_1408605981.search.jpg" /></a></div>
+                                            <div class="pro-title"><a href="#">专业生产供应地</a></div>
+                                            <div class="pro-pri"><span>100.0</span>元</div>
+                                        </li>
+                                        <li>
+                                            <div class="img-ctn"><a href="#"><img width="73" onload="changeImg(this,73,73)" src="http://i00.c.aliimg.com/img/ibank/2012/737/882/513288737_245691504.summ.jpg.summ.jpg" /></a></div>
+                                            <div class="pro-title"><a href="#">超大护颈防</a></div>
+                                            <div class="pro-pri"><span>9.80</span>元</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="com_wrap" style="display:none;">
+                                    <ul class="com-list">
+                                        <li>
+                                           <div class="com-name"><a href="#">深圳点石网络科技有限公司</a><div class="com-area gray">广东深圳市</div></div>
+                                           <div class="com-pro-model gray">经销批发</div>
+                                        </li>
+                                         <li>
+                                           <div class="com-name"><a href="#">深圳点石网络科技有限公司</a><div class="com-area gray">广东深圳市</div></div>
+                                           <div class="com-pro-model gray">经销批发</div>
+                                        </li>
+                                         <li>
+                                           <div class="com-name"><a href="#">深圳点石网络科技有限公司</a><div class="com-area gray">广东深圳市</div></div>
+                                           <div class="com-pro-model gray">经销批发</div>
+                                        </li>
+                                         <li>
+                                           <div class="com-name"><a href="#">深圳点石网络科技有限公司</a><div class="com-area gray">广东深圳市</div></div>
+                                           <div class="com-pro-model gray">经销批发</div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
