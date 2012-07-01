@@ -214,6 +214,7 @@
                                             <div class="pro-pri"><span>9.80</span>元</div>
                                         </li>
                                     </ul>
+                                    <div class="more"><a href="#">更多&gt;&gt;</a></div>
                                 </div>
                                 <div class="com_wrap" style="display:none;">
                                     <ul class="com-list">
@@ -234,6 +235,7 @@
                                            <div class="com-pro-model gray">经销批发</div>
                                         </li>
                                     </ul>
+                                    <div class="more"><a href="#">更多&gt;&gt;</a></div>
                                 </div>
                             </div>
                         </div>
@@ -242,11 +244,29 @@
                 <li class="box_wrap">
                     <div class="app_wrap">
                         <div class="box_head">
-                            <div class="b_d_title">
-                                最新收藏</div>
+                            <div class="b_d_title">常见问题</div>
                         </div>
                         <div class="content-wrap">
-                        gdew
+                            <div class="wrap368">
+                                <ul class="que-list">
+                                    <li>
+                                        <a href="#">忘记密码怎么办？</a> 
+                                    </li>
+                                    <li>
+                                        <a href="#">如何修改联系方式？</a> 
+                                    </li> 
+                                    <li>
+                                        <a href="#">为什么信息审核不通过？</a> 
+                                    </li>
+                                    <li>
+                                        <a href="#">如何对旺铺的外观进行设计？</a> 
+                                    </li>
+                                    <li>
+                                        <a href="#">如何发布高质量的产品信息？</a> 
+                                    </li>
+                                </ul> 
+                                <div class="more"><a href="#">查看更多&gt;&gt;</a></div>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -256,6 +276,18 @@
             <div class="md_notic app_wrap">
                 <div class="box_head">
                     <div class="b_d_title">最新公告</div>
+                </div>
+                <div class="content-wrap">
+                    <ul class="nt_list">
+                        <li><a href="#">【有奖活动】 测财运？测人品？不如测操作！</a></li>
+                        <li><a href="#">找货源，学营销，赚大钱，就来网货交易会！</a></li>
+                        <li><a href="#">穿越啦~穿越啦~“甄嬛”喊你来晋升了！测测你是深宫里的宠妃还是冷妃？</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="md_notic app_wrap">
+                <div class="box_head">
+                    <div class="b_d_title">客服中心</div>
                 </div>
                 <div class="content-wrap">
                     <ul class="nt_list">
