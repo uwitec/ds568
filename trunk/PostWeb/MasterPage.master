@@ -6,10 +6,8 @@
 <head runat="server">
     <asp:ContentPlaceHolder id="Title" runat="server"> 
     </asp:ContentPlaceHolder>
-    <link href="/css/Globle.css" rel="stylesheet" type="text/css" />
+    <Custom:Header ID="Header" runat="server" />
     <link href="/css/MainSiteGloble.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="/js/lib.js"></script>
-    <script type="text/javascript" src="/js/common.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             

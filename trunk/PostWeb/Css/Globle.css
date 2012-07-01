@@ -1,12 +1,5 @@
 ﻿/* CSS Document */
-body {
-	margin:0 auto;
-	font-size:12px;
-	font-family:Tahoma;
-	line-height: 1.5;
-	behavior:url('/css/csshover.htc');
-	color:#333;
-}
+body {margin:0 auto;font-size:12px;font-family:Tahoma,宋体;line-height: 1.5;	color:#333;}
 ul,dl,dd,h1,h2,h3,h4,h5,h6,form,p { padding:0; margin:0;}
 ul { list-style:none;}
 img { border:0px;}

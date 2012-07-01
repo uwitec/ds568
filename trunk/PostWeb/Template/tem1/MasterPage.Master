@@ -8,13 +8,18 @@
     <meta name="keywords" id="kw" content="" />
     <title id="tl"></title>
     <asp:ContentPlaceHolder ID="Title" runat="server"></asp:ContentPlaceHolder>
+    <link href="/css/Globle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" rev="stylesheet" href="/Template/tem1/css/index.css" type="text/css"  />
+    <link href="/template/css/Globle.css" rel="stylesheet" type="text/css" />
+     <!--[if IE 6]>
+         <style type="text/css">
+            body{behavior:url('/css/csshover.htc');}
+         </style>
+    <![endif]-->
+    <link href="/js/wbox/wbox/wbox.css" rel="stylesheet" type="text/css" />
     <script src="/js/lib.js" type="text/javascript"></script>
     <script src="/js/common.js" type="text/javascript"></script>
-    <link href="/css/Globle.css" rel="stylesheet" type="text/css" />
-    <link href="/template/css/Globle.css" rel="stylesheet" type="text/css" />
-    <link href="/js/wbox/wbox/wbox.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/js/wbox/wbox-min.js"></script>
-    <link rel="stylesheet" rev="stylesheet" href="/Template/tem1/css/index.css" type="text/css"  />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script type="text/javascript" src="/Template/tem1/js/shopMaster.js"></script>

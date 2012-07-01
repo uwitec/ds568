@@ -1,7 +1,8 @@
 ﻿.main{width:952px;margin:0 auto;margin-top:10px; overflow:auto;zoom:1;}
 .left{width:760px;float:left;}
 .right{width:172px;margin-left:780px;_margin-left:777px;}
-.box_head{ background-color:#f5f5f5;margin-top:1px;height:34px;line-height:34px;}
+.box_head{background-color:#f5f5f5;margin-top:10px;height:34px;line-height:34px;}
+ 
 .b_d_title{font-size:14px;font-weight:bold; text-indent:14px;}
 .app_wrap{border:solid 1px #e3e3e3;margin-bottom:10px;}
 ul.app_list{width:752px;margin:0px auto;padding:7px 0; overflow:hidden;}
@@ -27,6 +28,7 @@ ul.nt_list{line-height:16px;width:160px;margin:0 auto;padding:8px 0;list-style:d
 .nt_list li{border-bottom:dashed 1px #ccc;margin-bottom:10px; }
 
 .content-wrap{border-top:1px solid #E3E3E3;min-height: 1px;margin-top:1px;}
+.md_notic .content-wrap{margin-top:0;}
 .cel0,.cel1{overflow:auto;zoom:1;}
 .cel0{padding: 0 0 8px; }
 .row {float: left;height: 100%;overflow: hidden;width: 379px;}
@@ -85,7 +87,7 @@ table a:link, table a:visited {color: #336699;}
 .pro-list li{float:left;width:73px;margin-right:19px; overflow:hidden;margin-bottom:3px;}
 .img-ctn{width:73px;height:73px; overflow:hidden;text-align:center;}
 .pro-title{line-height:16px;height:16px; overflow:hidden}
-.pro-title a:link,.pro-title a:visited,.com-name a:link,.com-name a:visited{color:#0066cc}
+.pro-title a:link,.pro-title a:visited,.com-name a:link,.com-name a:visited,.more a:link,.more a:visited{color:#0066cc}
 .pro-pri span{color:#ff7300}
 
 .com-list li{border-bottom:dotted 1px #d2e4fa;margin-bottom:3px;}
@@ -94,4 +96,9 @@ table a:link, table a:visited {color: #336699;}
 .com-area{margin-left:240px;_margin-left:237px;text-align:right;}
 .com-pro-model{margin-top:9px;}
 
+ul.que-list{ list-style:disc inside;line-height:30px;}
+.que-list li{border-bottom:dotted 1px #d9d9d9;height:30px;overflow:hidden;}
+.que-list a:link,.que-list a:visited{color:#555;}
+.more{margin-top:10px;text-align:right;}
+.more a{font-family:宋体;}
 /*=========为您推荐=============*/
