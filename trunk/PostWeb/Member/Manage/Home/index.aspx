@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="Member_Manage_Home_index" %>
-
+<%@ Import Namespace="Com.DianShi.BusinessRules.Community" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -96,7 +96,7 @@
                             <div class="member-info">
                                 <div class="user-pic-grid">
                                     <a title="" target="_blank" href="http://profile.china.alibaba.com/user/alwdeguan.htm">
-                                        <img height="40" width="40" id="user-pic" alt="" src="<%=_userData.Member.Avater %>"></a></div>
+                                        <img height="40" width="40" id="user-pic" alt="" src="<%=_userData.Member.Avater %>" onerror="javascript:this.src='http://i04.c.aliimg.com/images/member/da1_r13_c21.gif'"></a></div>
                                 <h3>
                                     <a title="<%=_userData.vMember.CompanyName %>" target="_blank" href="http://shop<%=_userData.Member.ID %>.ds568.net"
                                         class="company-link"><%=_userData.vMember.CompanyName %></a><a title="您还未进行任何认证,通过认证让买家更放心!"  href="javascript:;"
@@ -150,14 +150,12 @@
                                         <tbody>
                                             <tr>
                                                 <td colspan="2">
-                                                    客户留言：<a title="" target="_blank" href="http://work.china.alibaba.com/app/SNSMessageFriend.htm">0<span
-                                                        class="unit">条</span></a>
+                                                    客户留言：<a href="/Member/Manage/Message/MessageCenter.aspx?tid=0"><%=DS_Message_Br.GetMsgNum(_userData.Member.ID,false,DS_Message_Br.MsgType.留言互动) %><span class="unit">条</span></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2">
-                                                    系统消息：<a title="" target="_blank" href="http://work.china.alibaba.com/app/SNSMessageSys.htm">0<span
-                                                        class="unit">条</span></a>
+                                                    系统消息：<a href="/Member/Manage/Message/MessageCenter.aspx?tid=1"><%=DS_Message_Br.GetMsgNum(_userData.Member.ID,false,DS_Message_Br.MsgType.系统消息) %><span class="unit">条</span></a>
                                                 </td>
                                             </tr>
                                         </tbody>
