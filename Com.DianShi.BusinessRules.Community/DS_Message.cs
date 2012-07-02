@@ -112,5 +112,20 @@ namespace Com.DianShi.BusinessRules.Community
             留言互动,
             系统消息
         }
+
+        public static int GetMsgNum(int memberId,bool isView,MsgType msgType) {
+            using (var ct = new DS_MessageDataContext(DbHelperSQL.Connection))
+            {
+                return ct.DS_Message.Where(a=>a.MemberID.Equals(memberId)&&a.MsgType.Equals((byte)msgType)&&a.IsView.Equals(isView)).Count();
+            }
+        }
+
+        public static int GetMsgNum(int memberId, bool isView)
+        {
+            using (var ct = new DS_MessageDataContext(DbHelperSQL.Connection))
+            {
+                return ct.DS_Message.Where(a => a.MemberID.Equals(memberId) && a.IsView.Equals(isView)).Count();
+            }
+        }
     }
 }

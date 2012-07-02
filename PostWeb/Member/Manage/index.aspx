@@ -19,7 +19,7 @@
             <li class="menu"><a href="#"><div class="ml">&nbsp;</div><div class="mm">采购</div><div class="mr">&nbsp;</div></a></li>
             <li class="menu mnhv"><a class="nolk" href="javascript:void(0)"><div class="ml">&nbsp;</div><div class="mm"><span>我的应用</span></div><div class="mr">&nbsp;</div></a></li>
             <li class="sch_ctn"><div class="sch_wrap"><a class="sch_prj" onfocus="this.blur();" href="javascript:void(0);">产品</a><div><input type="text" dv="搜索…" name="kw" /></div><a class="sch_btn" href="javascript:void(0);">&nbsp;</a></div></li>
-            <li class="menu"><a  href="Message/MessageCenter.aspx"><div class="ml">&nbsp;</div><div class="mm"><span class="msg">消息</span><span class="msgc"><span class="mc_block"><%=msgCount%></span></span></div><div class="mr">&nbsp;</div></a></li>
+            <li class="menu"><a  href="Message/MessageCenter.aspx"><div class="ml">&nbsp;</div><div class="mm"><span class="msg">消息</span><span class="msgc"><span class="mc_block"><%=Com.DianShi.BusinessRules.Community.DS_Message_Br.GetMsgNum(_userData.Member.ID,false)%></span></span></div><div class="mr">&nbsp;</div></a></li>
             <li class="welcome"><%=_userData.Member.UserID%> <a href="/member/signout/SignOut.aspx">[退出]</a></li>
             <li class="homepage"><a href="/home/index.aspx" target="_blank">点石网首页</a></li>
         </ul>
