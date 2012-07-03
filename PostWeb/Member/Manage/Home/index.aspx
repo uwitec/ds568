@@ -150,12 +150,12 @@
                                         <tbody>
                                             <tr>
                                                 <td colspan="2">
-                                                    客户留言：<a href="/Member/Manage/Message/MessageCenter.aspx?tid=0"><%=DS_Message_Br.GetMsgNum(_userData.Member.ID,false,DS_Message_Br.MsgType.留言互动) %><span class="unit">条</span></a>
+                                                    客户留言：<a href="/Member/Manage/Message/MessageCenter.aspx?tid=<%=(byte)DS_Message_Br.MsgType.留言互动 %>"><%=DS_Message_Br.GetMsgNum(_userData.Member.ID,false,DS_Message_Br.MsgType.留言互动) %> <span class="unit">条</span></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2">
-                                                    系统消息：<a href="/Member/Manage/Message/MessageCenter.aspx?tid=1"><%=DS_Message_Br.GetMsgNum(_userData.Member.ID,false,DS_Message_Br.MsgType.系统消息) %><span class="unit">条</span></a>
+                                                    系统消息：<a href="/Member/Manage/Message/MessageCenter.aspx?tid=<%=(byte)DS_Message_Br.MsgType.系统消息 %>"><%=DS_Message_Br.GetMsgNum(_userData.Member.ID,false,DS_Message_Br.MsgType.系统消息) %> <span class="unit">条</span></a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -288,11 +288,14 @@
                     <div class="b_d_title">客服中心</div>
                 </div>
                 <div class="content-wrap">
-                    <ul class="nt_list">
-                        <li><a href="#">【有奖活动】 测财运？测人品？不如测操作！</a></li>
-                        <li><a href="#">找货源，学营销，赚大钱，就来网货交易会！</a></li>
-                        <li><a href="#">穿越啦~穿越啦~“甄嬛”喊你来晋升了！测测你是深宫里的宠妃还是冷妃？</a></li>
-                    </ul>
+                    <div class="ol-ctn">
+                        <div class="on-wrap">
+                            <a class="qqonline" href="http://wpa.qq.com/msgrd?v=3&uin=2608180302&site=qq&menu=yes"><img   src="http://wpa.qq.com/pa?p=2:2608180302:4" alt="在线咨询" /><span>在线咨询</span></a>
+                        </div>
+                        <div class="ct-ctn">
+                            <a href="#">进入客服中心>></a>
+                        </div>
+                   </div>
                 </div>
             </div>
         </div>
