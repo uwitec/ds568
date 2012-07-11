@@ -298,6 +298,24 @@
                    </div>
                 </div>
             </div>
+            <div class="md_notic app_wrap">
+                <div class="box_head">
+                    <div class="b_d_title">我要提建议</div>
+                </div>
+                <div class="content-wrap">
+                    <div class="sug-wrap">
+                        <div class="sug-item">
+                            <textarea name="suggestion" class="input-bg"></textarea>
+                        </div>
+                        <div class="sug-item">
+                            <input class="sug-chkcode" /><img src="/checkcode.aspx" height="22" />
+                        </div>
+                        <div class="sug-item">
+                            <input type="button"  class="sug-submit" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
