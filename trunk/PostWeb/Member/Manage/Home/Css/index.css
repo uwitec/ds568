@@ -110,3 +110,10 @@ ul.que-list{ list-style:disc inside;line-height:30px;}
 a.qqonline:hover{ background-color:#ff7c2c;color:White !important;border-color:#fb4601;}
 .qqonline *{float:left;}
 .ct-ctn{border-top:dashed 1px #ccc;margin-top:10px;line-height:30px;}
+
+.sug-wrap{width:153px;margin:10px auto;}
+.sug-wrap textarea{width:148px;height:80px;}
+.sug-item{margin-top:5px; overflow:auto;zoom:1;}
+.sug-chkcode{border:solid 1px #ccc;height:20px;line-height:20px;width:50px;float:left;}
+.sug-submit {height: 22px;line-height:22px;text-align: center;width:50px;background:url(../images/sug-btn.gif);border:none 0;cursor:pointer;}
+.sug-item img{cursor:pointer;float:left;margin-left:6px;}
