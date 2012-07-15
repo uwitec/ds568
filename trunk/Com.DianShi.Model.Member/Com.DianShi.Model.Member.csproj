@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A09622AB-70BD-45E0-B702-BC0D5D301372}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -74,6 +74,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_BusType.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DS_Certificate.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Certificate.dbml</DependentUpon>
     </Compile>
     <Compile Include="DS_CompanyInfo.designer.cs">
       <DependentUpon>DS_CompanyInfo.dbml</DependentUpon>
@@ -203,6 +208,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DS_Certificate.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DS_Certificate.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DS_Turnover.dbml.layout">
       <DependentUpon>DS_Turnover.dbml</DependentUpon>
     </None>
@@ -223,6 +233,11 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DS_Certificate.dbml.layout">
+      <DependentUpon>DS_Certificate.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

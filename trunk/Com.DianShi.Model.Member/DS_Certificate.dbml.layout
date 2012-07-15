@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DS_Certificate">
+  <DataContextMoniker Name="/DS_CertificateDataContext" />
+  <nestedChildShapes>
+    <classShape Id="14bd2d07-d912-4263-8c35-d1df25becbc9" absoluteBounds="2.5, 1.5, 2, 2.2356999169786773">
+      <DataClassMoniker Name="/DS_CertificateDataContext/DS_Certificate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d363491-c529-4dc0-bf68-955f77d1d5b2" absoluteBounds="2.515, 1.96, 1.9700000000000002, 1.6756999169786773" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
