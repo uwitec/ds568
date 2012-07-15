@@ -1,0 +1,14 @@
+﻿.txtbox{border:solid 1px #B5B5B5;}
+.keyword{border-color:#d0cdcd;}
+.scctn{padding:10px 0;overflow:auto;zoom:1;padding-left:24px;border:solid 1px #dbd9d9;border-top:none;border-bottom:none;}
+#btnSearch,.btnbar{height:20px;}
+.btnbar{color:#304f59;}
+.tblist{width:792px; border-collapse:collapse;border:solid 1px #dbd9d9;border-top:none;}
+.tblist th{ background:url(../images/bg.gif) repeat-x;}
+.tblist th{ background-position: 0 -51px;line-height:23px;border:solid 1px #dbd9d9;}
+.tblist td{ text-align:center;padding:6px 0;}
+.altr{ background-color:#f7fbfe;}
+td.tdcb{ text-align:left;}
+td.actbar{text-align:left; background-color:#fcfcf1;}
+#btncat{width:104px}
+#btnReSend{}
