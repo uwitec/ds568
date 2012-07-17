@@ -24,9 +24,13 @@
     </asp:Repeater>
     <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
 </ul>
-<div class="scctn">信息标题：<input name="keyword" class="txtbox keyword" />&nbsp;<input id="btnSearch" type="button" value="查询" /></div>
+<div class="scctn">
+<div class="Remind">
+   展示证书，彰显公司实力，为公司信用加分！<a class="commBtn" href="CtfPost.aspx"><span class="cb_l">&nbsp;</span><span class="cb_m">发布新证书</span><span class="cb_r">&nbsp;</span></a>
+</div>
+</div>
 <table cellpadding=0 cellspacing=0 class="tblist">
-    <tr><th colspan=2>图片</th><th>名称</th><th>发证机构</th><th>生效日期</th><th>截止日期</th><th>操作</th></tr>
+    <tr><th colspan=2>图片</th><th>名称</th><th>发证机构</th><th>状态</th><th>有效日期</th><th>操作</th></tr>
     <asp:Repeater ID="Repeater2" runat="server">
         <ItemTemplate>
             <tr><td class="tdcb"><input type="checkbox" value="<%#Eval("id") %>" name="chb_pro" /></td><td><img src="<%#Eval("Img1") %>" onload="changeImg(this,80,80)" /></td><td><%#Eval("title") %></td><td>---</td><td><%#Eval("categoryname") %></td><td><%#((DateTime)Eval("ExpiredDate")).ToString("yyyy-MM-dd")%></td><td><a href="post.aspx?id=<%#Eval("id") %>">修改</a> / <a href="#">删除</a></td></tr>        

@@ -21,3 +21,12 @@ a:hover{color:#ff7300 !important;}
 .loadLeft{padding-left:18px; background-position:left center;display:none;}
 .hidden{ visibility:hidden;}
 .input-bg{border:solid 1px #ccc; background:url(/images/input-bg.png) no-repeat;}
+/**=============通用按扭=============**/
+.commBtn{display:block; overflow:auto;zoom:1;float:left;line-height:26px;cursor:pointer;}
+a.commBtn:link,a.commBtn:visited{color:White;font-weight:bold;}
+a.commBtn:hover{color:#fff !important;}
+.commBtn span{display:block;background:url(/images/commBtn.gif);float:left;height:26px;}
+.commBtn .cb_l,.commBtn .cb_r{width:5px;overflow:hidden;}
+.commBtn .cb_l{background-position:left top;}
+.commBtn .cb_r{background-position:right top;}
+.commBtn .cb_m{background-position:-5px top;}

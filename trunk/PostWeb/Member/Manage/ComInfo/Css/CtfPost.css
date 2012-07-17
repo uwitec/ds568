@@ -1,0 +1,4 @@
+﻿.ctList{margin-bottom:30px;}
+.ctList li{margin-top:10px;position:relative; overflow:auto;zoom:1;}
+.ctList li span.sp_filed{width:100px; text-align:right;float:left;display:block;line-height:22px;*line-height:26px;margin-right:12px;}
+.txtbox{width:234px;height:22px;line-height:22px;}
