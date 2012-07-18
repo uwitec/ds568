@@ -86,15 +86,21 @@ namespace Com.DianShi.Model.Member
 		
 		private string _IssuingAgency;
 		
+		private string _IssPhone;
+		
+		private string _IssWebSite;
+		
 		private System.DateTime _StartDate;
 		
-		private System.DateTime _EndDate;
+		private System.Nullable<System.DateTime> _EndDate;
 		
-		private string _Number;
+		private string _CtfNumber;
 		
 		private string _CtfProfile;
 		
 		private string _CtfImg;
+		
+		private byte _CtfType;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -106,16 +112,22 @@ namespace Com.DianShi.Model.Member
     partial void OnCtfNameChanged();
     partial void OnIssuingAgencyChanging(string value);
     partial void OnIssuingAgencyChanged();
+    partial void OnIssPhoneChanging(string value);
+    partial void OnIssPhoneChanged();
+    partial void OnIssWebSiteChanging(string value);
+    partial void OnIssWebSiteChanged();
     partial void OnStartDateChanging(System.DateTime value);
     partial void OnStartDateChanged();
-    partial void OnEndDateChanging(System.DateTime value);
+    partial void OnEndDateChanging(System.Nullable<System.DateTime> value);
     partial void OnEndDateChanged();
-    partial void OnNumberChanging(string value);
-    partial void OnNumberChanged();
+    partial void OnCtfNumberChanging(string value);
+    partial void OnCtfNumberChanged();
     partial void OnCtfProfileChanging(string value);
     partial void OnCtfProfileChanged();
     partial void OnCtfImgChanging(string value);
     partial void OnCtfImgChanged();
+    partial void OnCtfTypeChanging(byte value);
+    partial void OnCtfTypeChanged();
     #endregion
 		
 		public DS_Certificate()
@@ -183,6 +195,46 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
+		[Column(Storage="_IssPhone", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string IssPhone
+		{
+			get
+			{
+				return this._IssPhone;
+			}
+			set
+			{
+				if ((this._IssPhone != value))
+				{
+					this.OnIssPhoneChanging(value);
+					this.SendPropertyChanging();
+					this._IssPhone = value;
+					this.SendPropertyChanged("IssPhone");
+					this.OnIssPhoneChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_IssWebSite", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string IssWebSite
+		{
+			get
+			{
+				return this._IssWebSite;
+			}
+			set
+			{
+				if ((this._IssWebSite != value))
+				{
+					this.OnIssWebSiteChanging(value);
+					this.SendPropertyChanging();
+					this._IssWebSite = value;
+					this.SendPropertyChanged("IssWebSite");
+					this.OnIssWebSiteChanged();
+				}
+			}
+		}
+		
 		[Column(Storage="_StartDate", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public System.DateTime StartDate
 		{
@@ -203,8 +255,8 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_EndDate", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public System.DateTime EndDate
+		[Column(Storage="_EndDate", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> EndDate
 		{
 			get
 			{
@@ -223,27 +275,27 @@ namespace Com.DianShi.Model.Member
 			}
 		}
 		
-		[Column(Storage="_Number", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string Number
+		[Column(Storage="_CtfNumber", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string CtfNumber
 		{
 			get
 			{
-				return this._Number;
+				return this._CtfNumber;
 			}
 			set
 			{
-				if ((this._Number != value))
+				if ((this._CtfNumber != value))
 				{
-					this.OnNumberChanging(value);
+					this.OnCtfNumberChanging(value);
 					this.SendPropertyChanging();
-					this._Number = value;
-					this.SendPropertyChanged("Number");
-					this.OnNumberChanged();
+					this._CtfNumber = value;
+					this.SendPropertyChanged("CtfNumber");
+					this.OnCtfNumberChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_CtfProfile", DbType="NVarChar(500) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_CtfProfile", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
 		public string CtfProfile
 		{
 			get
@@ -279,6 +331,26 @@ namespace Com.DianShi.Model.Member
 					this._CtfImg = value;
 					this.SendPropertyChanged("CtfImg");
 					this.OnCtfImgChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_CtfType", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte CtfType
+		{
+			get
+			{
+				return this._CtfType;
+			}
+			set
+			{
+				if ((this._CtfType != value))
+				{
+					this.OnCtfTypeChanging(value);
+					this.SendPropertyChanging();
+					this._CtfType = value;
+					this.SendPropertyChanged("CtfType");
+					this.OnCtfTypeChanged();
 				}
 			}
 		}
