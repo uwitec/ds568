@@ -38,9 +38,9 @@ public class AvatarService : IHttpHandler,IRequiresSessionState
             {
                 msg = "请您上传jpg、gif、png图片";
             }
-            if (file.ContentLength > 5 * 1024 * 1024)
+            if (file.ContentLength >512 * 1024)
             {
-                msg = "请您上传512字节内的图片";
+                msg = "请您上传512KB内的图片";
             }
             string newName = Guid.NewGuid().ToString();
             

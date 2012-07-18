@@ -10,7 +10,7 @@
     <link href="css/ui-lightness/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/js/lib.js"></script>
     <script src="js/ui.js" type="text/javascript"></script>
-    <script src="js/fileupload.js" type="text/javascript"></script>
+    <script src="/js/ajaxupload.js" type="text/javascript"></script>
     <style type="text/css">
         .main_wrap{height: 554px;  margin:10px auto; width: 800px; background-color:#eef5ff;}
         .head{height:38px;line-height:38px;border:solid 1px #2d70c1; background:url(images/hd_bg.gif) repeat-x;font-family:"微软雅黑";font-size:24px;color:White;text-indent:8px;}

@@ -13,7 +13,7 @@
 .tblist th{ background:url(../images/bg.gif) repeat-x;}
 .tblist th{ background-position: 0 -51px;line-height:23px;border:solid 1px #dbd9d9;color:#555;}
 .tblist td{ text-align:center;padding:6px 0;}
-.date{ background:url(../images/date-bg1.png) no-repeat right top;width:98px;}
+.date{ background:url(/images/date-bg1.png) no-repeat right top;width:98px;}
 .altr{ background-color:#f7fbfe;}
 
 .imgwrap{width:80px;height:80px; overflow:hidden;}
