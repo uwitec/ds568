@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <link rel="Stylesheet" type="text/css" href="Css/ctfpost.css" />
-<script type="text/javascript" src="/js/Calendar1.js"></script>
+ 
 <script type="text/javascript" src="/js/ajaxupload.js"></script>
 <script type="text/javascript" src="js/CtfPost.js"></script>
 </asp:Content>
@@ -34,10 +34,10 @@
         <input name="ctfname" class="txtbox input-bg" />
     </div></li>
     <li><span class="sp_filed">生效时间：<label class="star">*</label></span><div class="floatL">
-        <input class="txtbox input-bg date" name="startdate" readonly onfocus="calendar()"  />
+        <input class="txtbox input-bg date" name="startdate"  onfocus="calendar()"  />
     </div></li>
     <li><span class="sp_filed">截止时间：<label class="star">&nbsp;</label></span><div class="floatL">
-        <input class="txtbox input-bg date" name="enddate" readonly onfocus="calendar()" />
+        <input class="txtbox input-bg date" name="enddate"  onfocus="calendar()" />
         <div class="remark gray">如果证书上有，必须填写。</div>
     </div></li><li><span class="sp_filed">证书编号：<label class="star">&nbsp;</label></span><div class="floatL">
         <input class="txtbox input-bg"  />
