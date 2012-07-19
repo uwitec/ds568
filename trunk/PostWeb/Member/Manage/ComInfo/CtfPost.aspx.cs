@@ -10,11 +10,21 @@ public partial class Member_Manage_ComInfo_CtfPost : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        var od = Session["UserData"] as UserData;
+        if (od == null || od.Member == null)
+        {
+            Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false,lgout=true, msg = "抱歉，操作超时，需重新登录。" }));
+            Response.End();
+            return;
+        }
+
         //ajax事件
         string act = Request["action"];
         if (!string.IsNullOrEmpty(act)) {
             switch (act) { 
                 case "upload":
+                    var mbbl = new DS_Members_Br();
+                    string tempPath = "/Resource/" + mbbl.GetMemberDir(od.Member.ID) + "/Certificate/";
                     HttpPostedFile file = Request.Files[0];
                     string ext = Path.GetExtension(file.FileName).ToLower();
                     if (ext != ".jpg" && ext != ".gif")
@@ -28,15 +38,15 @@ public partial class Member_Manage_ComInfo_CtfPost : System.Web.UI.Page
                     else
                     {
                         string newName = Guid.NewGuid().ToString();
-
                         string img = tempPath + newName + ext;
-                        string filePath = context.Server.MapPath(img);
-                        tempPath = context.Server.MapPath(tempPath);
+                        string filePath = Server.MapPath(img);
+                        tempPath = Server.MapPath(tempPath);
                         if (!Directory.Exists(tempPath))
                         {
                             Directory.CreateDirectory(tempPath);
                         }
-                        Common.JSONHelper.ObjectToJSON(new { succ = true });
+                        file.SaveAs(filePath);//保存图
+                        Common.JSONHelper.ObjectToJSON(new { succ = true, fileName = newName + ext });
                     }
                     break;
             }

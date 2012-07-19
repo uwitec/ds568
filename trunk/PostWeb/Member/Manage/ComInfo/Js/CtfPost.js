@@ -33,19 +33,21 @@
                 data: { action: "upload" },
                 dataType: "json",
                 success: function(data) {
-                if (data.succ) {
-                        alert("上传成功")
+                    if (data.succ) {
+                        alert(data.fileName)
                     }
                     else {
                         alert(data.msg);
-                      
+
                     }
                 },
-                error: function(req) {
-                    alert("上传失败，请检查文件格式和大小是否符合要求。");
+                error: function(data, status, e) {
+                    //alert("上传失败，请检查文件格式和大小是否符合要求。");
+                    alert(e)
+                    alert(data.msg);
                 },
                 complete: function() {
-                   
+                    //alert("1");
                 }
             });
         }
