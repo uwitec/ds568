@@ -25,6 +25,7 @@
             重要提醒：</div>
         贵公司的资料上网后会受到其他客户及工商质检部门等多方关注，请如实填写！因此虚假信息产生的相关责任，将由贵公司自行承担！
     </div>
+    <form id="form1" runat="server" class="mstForm">
     <ul class="ctList">
         <li><span>法定代表人/负责人：</span><div class="floatL">
             <input class="txtbox LegRep" value="<%=ViewState["LegRep"] %>" name="LegRep" maxlength="20" /></div>
@@ -245,4 +246,5 @@
         <li><span>&nbsp;</span><asp:Button ID="Button1" CssClass="subBtn" runat="server"
             Text="保存" /></li>
     </ul>
+    </form>
 </asp:Content>

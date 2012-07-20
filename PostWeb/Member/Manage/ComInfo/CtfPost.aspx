@@ -20,6 +20,7 @@
    1、上传证书可以提高企业信用级别，赢得买家信赖！请认真填写、仔细填写。 <br />
    2、为了顺利通过审核，请如实填写证书上的相关信息。
 </div>
+<form class="mstForm">
 <ul class="ctList">
     <li><span class="sp_filed">选择证书类别：<label class="star">*</label></span><div class="floatL">
         <select>
@@ -60,5 +61,6 @@
     </div></li>
     <li><span class="sp_filed">&nbsp;</span><a class="commBtn" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">提交审核</span><span class="cb_r">&nbsp;</span></a></li>
 </ul>
+</form>
 </asp:Content>
 

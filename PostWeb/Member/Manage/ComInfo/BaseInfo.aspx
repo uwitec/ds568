@@ -20,6 +20,7 @@
    <div class="red"> 重要提醒：</div> 
    贵公司的资料上网后会受到其他客户及工商质检部门等多方关注，请如实填写！因此虚假信息产生的相关责任，将由贵公司自行承担！ 
 </div>
+<form id="form1" runat="server" class="mstForm">
 <ul class="ctList">
     <li><span>公司名称：<label class="star">*</label></span><div class="floatL"><input  class="txtbox" value="<%=ViewState["companyName"] %>" name="companyName" maxlength="100" /></div></li>
     <li><span>企业类型：<label class="star">*</label></span><div class="floatL">
@@ -114,5 +115,6 @@
     
     <li><span>&nbsp;</span><asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="保存" /></li>
 </ul>
+</form>
 </asp:Content>
 
