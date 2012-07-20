@@ -10,10 +10,10 @@
             label.remove();
         },
         rules: {
-            ctfname: { required: true, minlength: 2, maxlength: 50 },
-            startdate: { required: true, dateISO: true },
-            enddate: { dateISO: true },
-            issag: { required: true, minlength: 2, maxlength: 50 },
+            //ctfname: { required: true, minlength: 2, maxlength: 50 },
+            //startdate: { required: true, dateISO: true },
+            //enddate: { dateISO: true },
+            //issag: { required: true, minlength: 2, maxlength: 50 },
             ctfimg: { required: true, accept: "jpg,gif" },
             ctfprofile: { minlength: 10, maxlength: 500 }
         },
@@ -25,26 +25,29 @@
 
     //提交
     $(".commBtn").click(function() {
-        var b = fvalid.form();
+        var b =  fvalid.form();
         if (b) {
             $.ajaxFileUpload({
+                url: "action.aspx?time=" + Math.random(),
+                type: "POST",
                 secureuri: false,
                 fileElementId: 'ctfimg',
-                data: { action: "upload" },
+                data: { myaction: "upload" },
                 dataType: "json",
                 success: function(data) {
-                    if (data.succ) {
-                        alert(data.fileName)
-                    }
-                    else {
-                        alert(data.msg);
+                    //                    if (data.succ) {
+                    //                        alert(data.fileName)
+                    //                    }
+                    //                    else {
+                    //                        alert(data.msg);
 
-                    }
+                    //                    }
+                    alert("123")
                 },
                 error: function(data, status, e) {
                     //alert("上传失败，请检查文件格式和大小是否符合要求。");
                     alert(e)
-                    alert(data.msg);
+
                 },
                 complete: function() {
                     //alert("1");

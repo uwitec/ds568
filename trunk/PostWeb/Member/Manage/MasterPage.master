@@ -16,7 +16,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-<form id="form1" runat="server" class="mstForm">
+
     <div class="main overflowAuto">
         <div class="conLeft floatL">
             <Custom:MemberLeftMenu runat="server" ID="LeftMenu1" />
@@ -25,6 +25,6 @@
            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
         </div>
     </div>
-    </form>
+   
 </body>
 </html>
