@@ -26,7 +26,10 @@ public class BasePage : System.Web.UI.Page
        
         if (_userData.Member==null)
         {
-            Response.Write("<script>alert('登录超时，请重新登录。');open('"+Resources.Constant.LoginPage+"','_top')</script>");
+            string url = Resources.Constant.LoginPage+"?return_url="+HttpUtility.UrlEncode(Request.Url.ToString());
+           
+                
+            Response.Write("<script>alert('登录超时，请重新登录。');open('"+url+"','_top')</script>");
             Response.End();
         }
         
