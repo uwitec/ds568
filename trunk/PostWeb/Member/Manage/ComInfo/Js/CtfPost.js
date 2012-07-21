@@ -10,10 +10,10 @@
             label.remove();
         },
         rules: {
-            //ctfname: { required: true, minlength: 2, maxlength: 50 },
-            //startdate: { required: true, dateISO: true },
-            //enddate: { dateISO: true },
-            //issag: { required: true, minlength: 2, maxlength: 50 },
+            ctfname: { required: true, minlength: 2, maxlength: 50 },
+            startdate: { required: true, dateISO: true },
+            enddate: { dateISO: true },
+            issag: { required: true, minlength: 2, maxlength: 50 },
             ctfimg: { required: true, accept: "jpg,gif" },
             ctfprofile: { minlength: 10, maxlength: 500 }
         },
@@ -25,7 +25,7 @@
 
     //提交
     $(".commBtn").click(function() {
-        var b = fvalid.form();
+    var b = fvalid.form();
         if (b) {
             $.ajaxFileUpload({
                 url: "Action.ashx?time=" + Math.random(),
@@ -38,14 +38,16 @@
                     if (data.succ) {
                         alert(data.fileName)
                     }
+                    else if (data.lgout) {
+                        alert(data.msg);
+                        open("/member/login/Signin.aspx?return_url="+location.href, "_top");
+                    }
                     else {
                         alert(data.msg);
-
                     }
                 },
                 error: function(data, status, e) {
-                    //alert("上传失败，请检查文件格式和大小是否符合要求。");
-                    alert(e)
+                    alert("上传失败，请检查文件格式和大小是否符合要求。");
 
                 },
                 complete: function() {

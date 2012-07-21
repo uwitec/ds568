@@ -10,6 +10,7 @@
     <script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
+<input type="hidden" id="returnUrl" value="<%=Request["return_url"] %>" />
 <div class="topbar_wrap" >
     <div class="ct_wrap">
         <ul class="ct_ul">
