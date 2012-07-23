@@ -21,9 +21,10 @@ public class Action : IHttpHandler, IRequiresSessionState
         string act = context.Request["myaction"];
         if (!string.IsNullOrEmpty(act))
         {
+            var bl = new DS_Certificate_Br();
             switch (act)
             {
-                case "upload":
+                case "addctf":
                     try
                     {
                         var mbbl = new DS_Members_Br();
@@ -49,11 +50,28 @@ public class Action : IHttpHandler, IRequiresSessionState
                                 Directory.CreateDirectory(tempPath);
                             }
                             file.SaveAs(filePath);//保存图
+                            
+                            //保存数据
+                            var md = bl.CreateModel();
+                            md.CtfImg = newName + ext;
+                            md.CtfName = context.Request["ctfname"];
+                            md.CtfNumber = context.Request["ctfnumber"];
+                            md.CtfProfile = context.Request["ctfprofile"];
+                            md.CtfType = byte.Parse(context.Request["ctftype"]);
+                            if (!string.IsNullOrEmpty(context.Request["enddate"]))
+                                md.EndDate = DateTime.Parse(context.Request["enddate"]);
+                            md.IssPhone = context.Request["issphone"];
+                            md.IssuingAgency = context.Request["issag"];
+                            md.IssWebSite = context.Request["isswebsite"];
+                            md.StartDate = DateTime.Parse(context.Request["startdate"]);
+                            bl.Add(md);
+                            
                             context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = true, fileName = newName + ext }));
                         }
                     }
                     catch (Exception ex) { context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false, msg = ex.Message })); }
                     break;
+            
             }
         }
     }
