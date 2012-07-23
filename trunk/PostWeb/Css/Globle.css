@@ -30,3 +30,5 @@ a.commBtn:hover{color:#fff !important;}
 .commBtn .cb_l{background-position:left top;}
 .commBtn .cb_r{background-position:right top;}
 .commBtn .cb_m{background-position:-5px top;}
+.commBtn.loading2{padding-left:12px; background-position:left center;}
+a.commBtn.loading2 span{background:none;color:#555;}

@@ -5,6 +5,8 @@
  
 <script type="text/javascript" src="/js/ajaxupload.js"></script>
 <script type="text/javascript" src="js/CtfPost.js"></script>
+<script src="/js/Calendar5.js" type="text/javascript"></script>
+ 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ul class="hmenu">
@@ -23,7 +25,7 @@
 <form class="mstForm">
 <ul class="ctList">
     <li><span class="sp_filed">选择证书类别：<label class="star">*</label></span><div class="floatL">
-        <select>
+        <select name="ctftype">
             <asp:Repeater ID="Repeater1" runat="server">
                 <ItemTemplate>
                     <option><%#Container.DataItem %></option>
@@ -35,13 +37,13 @@
         <input name="ctfname" class="txtbox input-bg" />
     </div></li>
     <li><span class="sp_filed">生效时间：<label class="star">*</label></span><div class="floatL">
-        <input class="txtbox input-bg date" name="startdate"  onfocus="calendar()"  />
+        <input class="txtbox input-bg date" name="startdate"  onclick="MyCalendar.SetDate(this)"   />
     </div></li>
     <li><span class="sp_filed">截止时间：<label class="star">&nbsp;</label></span><div class="floatL">
-        <input class="txtbox input-bg date" name="enddate"  onfocus="calendar()" />
+        <input class="txtbox input-bg date" name="enddate" onclick="MyCalendar.SetDate(this)"   />
         <div class="remark gray">如果证书上有，必须填写。</div>
     </div></li><li><span class="sp_filed">证书编号：<label class="star">&nbsp;</label></span><div class="floatL">
-        <input class="txtbox input-bg"  />
+        <input class="txtbox input-bg" name="ctfnumber"  />
     </div></li>
     <li><span class="sp_filed">发证机构：<label class="star">*</label></span><div class="floatL">
         <input class="txtbox input-bg" name="issag"  />

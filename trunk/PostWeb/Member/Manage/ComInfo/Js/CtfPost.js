@@ -11,8 +11,8 @@
         },
         rules: {
             ctfname: { required: true, minlength: 2, maxlength: 50 },
-            startdate: { required: true, dateISO: true },
-            enddate: { dateISO: true },
+            startdate: { required: true, date: true },
+            enddate: { date: true },
             issag: { required: true, minlength: 2, maxlength: 50 },
             ctfimg: { required: true, accept: "jpg,gif" },
             ctfprofile: { minlength: 10, maxlength: 500 }
@@ -25,33 +25,35 @@
 
     //提交
     $(".commBtn").click(function() {
-    var b = fvalid.form();
+        if ($(this).hasClass("loading2")) return false;
+        var b = fvalid.form();
         if (b) {
+            $(".commBtn").addClass("loading2").find(".cb_m").text("数据提交中…");
             $.ajaxFileUpload({
-                url: "Action.ashx?time=" + Math.random(),
+                url: "Action.ashx?time="+Math.random(),
                 type: "POST",
                 secureuri: false,
                 fileElementId: 'ctfimg',
-                data: { myaction: "upload" },
+                data: { myaction: "addctf", ctfname: $("input[name=ctfname]").val(), ctfnumber: $("input[name=ctfnumber]").val(), ctfprofile: $("textarea[name=ctfprofile]").val(), ctftype: $("select[name=ctftype]").val(), enddate: $("input[name=enddate]").val(), issphone: $("input[name=issphone]").val(), issag: $("input[name=issag]").val(), isswebsite: $("input[name=isswebsite]").val(), startdate: $("input[name=startdate]").val() },
                 dataType: "json",
                 success: function(data, status) {
                     if (data.succ) {
-                        alert(data.fileName)
+                        alert("提交成功。");
                     }
                     else if (data.lgout) {
                         alert(data.msg);
-                        open("/member/login/Signin.aspx?return_url="+location.href, "_top");
+                        open("/member/login/Signin.aspx?return_url=" + location.href, "_top");
                     }
                     else {
                         alert(data.msg);
                     }
                 },
                 error: function(data, status, e) {
-                    alert("上传失败，请检查文件格式和大小是否符合要求。");
-
+                //alert("上传失败，请检查文件格式和大小是否符合要求。");
+                    alert(e);
                 },
                 complete: function() {
-                    //alert("1");
+                    $(".commBtn").removeClass("loading2").find(".cb_m").text("提交审核");
                 }
             });
         }
