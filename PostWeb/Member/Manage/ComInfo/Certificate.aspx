@@ -33,10 +33,10 @@
     <tr><th colspan=2>图片</th><th>名称</th><th>发证机构</th><th>状态</th><th>有效日期</th><th>操作</th></tr>
     <asp:Repeater ID="Repeater2" runat="server">
         <ItemTemplate>
-            <tr><td class="tdcb"><input type="checkbox" value="<%#Eval("id") %>" name="chb_pro" /></td><td><img src="<%#Eval("Img1") %>" onload="changeImg(this,80,80)" /></td><td><%#Eval("title") %></td><td>---</td><td><%#Eval("categoryname") %></td><td><%#((DateTime)Eval("ExpiredDate")).ToString("yyyy-MM-dd")%></td><td><a href="post.aspx?id=<%#Eval("id") %>">修改</a> / <a href="#">删除</a></td></tr>        
+            <tr><td class="tdcb"><input type="checkbox" value="<%#Eval("id") %>" name="chb_pro" /></td><td><img src="<%#tempPath+Eval("ctfimg") %>" onload="changeImg(this,80,80)" /></td><td><%#Eval("ctfname") %></td><td><%#Eval("IssuingAgency")%></td><td><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Member.DS_Certificate_Br.CtfState),(byte)Eval("ctfstate")) %></td><td><%#Eval("endDate")%></td><td><a href="CtfPost.aspx?id=<%#Eval("id") %>">修改</a> / <a href="#">删除</a></td></tr>        
         </ItemTemplate>
         <AlternatingItemTemplate>
-            <tr class="altr"><td class="tdcb"><input type="checkbox" value="<%#Eval("id") %>" name="chb_pro" /></td><td><img src="<%#Eval("Img1") %>" onload="changeImg(this,80,80)" /></td><td><%#Eval("title") %></td><td>---</td><td><%#Eval("categoryname")%></td><td><%#((DateTime)Eval("ExpiredDate")).ToString("yyyy-MM-dd")%></td><td><a href="post.aspx?id=<%#Eval("id") %>">修改</a> / <a href="#">删除</a></td></tr>        
+            <tr class="altr"><td class="tdcb"><input type="checkbox" value="<%#Eval("id") %>" name="chb_pro" /></td><td><img src="<%#tempPath+Eval("ctfimg") %>" onload="changeImg(this,80,80)" /></td><td><%#Eval("ctfname") %></td><td><%#Eval("IssuingAgency")%></td><td><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Member.DS_Certificate_Br.CtfState),(byte)Eval("ctfstate")) %></td><td><%#Eval("endDate")%></td><td><a href="CtfPost.aspx?id=<%#Eval("id") %>">修改</a> / <a href="#">删除</a></td></tr>        
         </AlternatingItemTemplate>
     </asp:Repeater>
 </table>

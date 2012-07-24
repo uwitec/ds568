@@ -28,7 +28,7 @@ public class Action : IHttpHandler, IRequiresSessionState
                     try
                     {
                         var mbbl = new DS_Members_Br();
-                        string tempPath = "/Resource/" + mbbl.GetMemberDir(od.Member.ID) + "/Certificate/";
+                        string tempPath = "/Resource/" + DS_Members_Br.GetMemberDir(od.Member.ID) + "/Certificate/";
                         HttpPostedFile file = context.Request.Files[0];
                         string ext = Path.GetExtension(file.FileName).ToLower();
                         if (ext != ".jpg" && ext != ".gif")
@@ -64,6 +64,7 @@ public class Action : IHttpHandler, IRequiresSessionState
                             md.IssuingAgency = context.Request["issag"];
                             md.IssWebSite = context.Request["isswebsite"];
                             md.StartDate = DateTime.Parse(context.Request["startdate"]);
+                            md.CtfState = (byte)DS_Certificate_Br.CtfState.审核中;
                             bl.Add(md);
                             
                             context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = true, fileName = newName + ext }));

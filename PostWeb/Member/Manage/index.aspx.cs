@@ -15,6 +15,6 @@ public partial class Member_Login_login : BasePage
     
     protected void Page_Load(object sender, EventArgs e)
     {
-        var bl = new DS_Members_Br();
+       
     }
 }

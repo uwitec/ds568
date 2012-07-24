@@ -102,6 +102,8 @@ namespace Com.DianShi.Model.Member
 		
 		private byte _CtfType;
 		
+		private byte _CtfState;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -128,6 +130,8 @@ namespace Com.DianShi.Model.Member
     partial void OnCtfImgChanged();
     partial void OnCtfTypeChanging(byte value);
     partial void OnCtfTypeChanged();
+    partial void OnCtfStateChanging(byte value);
+    partial void OnCtfStateChanged();
     #endregion
 		
 		public DS_Certificate()
@@ -351,6 +355,26 @@ namespace Com.DianShi.Model.Member
 					this._CtfType = value;
 					this.SendPropertyChanged("CtfType");
 					this.OnCtfTypeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_CtfState", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte CtfState
+		{
+			get
+			{
+				return this._CtfState;
+			}
+			set
+			{
+				if ((this._CtfState != value))
+				{
+					this.OnCtfStateChanging(value);
+					this.SendPropertyChanging();
+					this._CtfState = value;
+					this.SendPropertyChanged("CtfState");
+					this.OnCtfStateChanged();
 				}
 			}
 		}

@@ -28,7 +28,7 @@
         <select name="ctftype">
             <asp:Repeater ID="Repeater1" runat="server">
                 <ItemTemplate>
-                    <option><%#Container.DataItem %></option>
+                    <option value="<%#(byte)Container.DataItem %>"><%#Container.DataItem %></option>
                 </ItemTemplate>
             </asp:Repeater>
         </select>
