@@ -162,7 +162,7 @@ namespace Com.DianShi.BusinessRules.Member
         /// </summary>
         /// <param name="MemberID"></param>
         /// <returns></returns>
-        public string GetMemberDir(int MemberID) {
+        public static string GetMemberDir(int MemberID) {
             int md = MemberID / 5001 + 1;
             return "S" + md.ToString().PadLeft(3, '0') + "/U" + MemberID;
         }

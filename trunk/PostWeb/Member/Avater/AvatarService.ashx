@@ -23,7 +23,7 @@ public class AvatarService : IHttpHandler,IRequiresSessionState
             return;
         }
         var mbbl = new DS_Members_Br();
-        string tempPath = "/Resource/" + mbbl.GetMemberDir(od.Member.ID) + "/Avater/";
+        string tempPath = "/Resource/" + DS_Members_Br.GetMemberDir(od.Member.ID) + "/Avater/";
         string action = context.Request["myaction"];
         if (action == "upload")
         {

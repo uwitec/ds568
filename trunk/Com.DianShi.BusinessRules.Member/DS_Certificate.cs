@@ -91,6 +91,12 @@ namespace Com.DianShi.BusinessRules.Member
             其他
         }
 
+        public enum CtfState : byte { 
+            审核中,
+            审核不通过,
+            已上网
+        }
+
        
     }
 }
