@@ -19,5 +19,6 @@ public partial class Member_Manage_ComInfo_CtfPost : BasePage
         var vs = Enum.GetValues(typeof(DS_Certificate_Br.CtfType));
         Repeater1.DataSource = vs;
         Repeater1.DataBind();
+
     }
 }
