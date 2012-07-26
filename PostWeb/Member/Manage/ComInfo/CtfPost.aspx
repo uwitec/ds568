@@ -6,9 +6,9 @@
 <script type="text/javascript" src="/js/ajaxupload.js"></script>
 <script type="text/javascript" src="js/CtfPost.js"></script>
 <script src="/js/Calendar5.js" type="text/javascript"></script>
- 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<input type="hidden" id="ctfid" value="<%=Request["id"] %>" />
 <ul class="hmenu">
     <li>
         <div class="mLeft"></div>
