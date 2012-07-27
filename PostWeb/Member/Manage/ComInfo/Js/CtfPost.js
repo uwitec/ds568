@@ -67,19 +67,20 @@
         $.ajax({
             url: _url + "?time=" + Math.random(),
             type: "POST",
-            data: { action: "" },
+            data: { action: "getmd", id: id },
             dataType: "json",
             success: function (data) {
-                $("select[name=ctftype] option[value="+data.CtfType+"]").attr("selected","selected")
+                //$("select[name=ctftype] option[value=" + data.CtfType + "]").attr("selected", "selected")
+                $("input[name=ctfname]").val(data.CtfName);alert("123")
             },
             error: function (req) {
-
+                $("body").append(req.responseText)
             },
             beforeSend: function () {
 
             },
-            complete: function () { 
-                
+            complete: function () {
+
             }
         });
     }
