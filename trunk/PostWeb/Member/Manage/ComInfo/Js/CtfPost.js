@@ -61,17 +61,33 @@
         }
     });
 
-
+    function getDateTime(date) {
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var hh = date.getHours();
+        var mm = date.getMinutes();
+        var ss = date.getSeconds();
+        return year + "-" + month + "-" + day + " " + hh + ":" + mm + ":" + ss;
+    }
+    
     var id = $("#ctfid").val();
     if (id != "") {
         $.ajax({
             url: _url + "?time=" + Math.random(),
             type: "POST",
-            data: { action: "getmd", id: id },
+            data: { myaction: "getmd", id: id },
             dataType: "json",
             success: function (data) {
-                //$("select[name=ctftype] option[value=" + data.CtfType + "]").attr("selected", "selected")
-                $("input[name=ctfname]").val(data.CtfName);alert("123")
+                $("select[name=ctftype] option[value=" + data.CtfType + "]").attr("selected", "selected")
+                $("input[name=ctfname]").val(data.CtfName);
+                $("input[name=startdate]").val(getDateTime(eval("new "+data.StartDate)));
+                $("input[name=enddate]").val(getDateTime(eval("new "+data.EndDate)));
+                $("input[name=ctfnumber]").val(data.CtfNumber);
+                $("input[name=issag]").val(data.IssuingAgency);
+                $("input[name=issphone]").val(data.IssPhone);
+                $("input[name=isswebsite]").val(data.IssWebSite);
+                $("textarea[name=ctfprofile]").val(data.ctfprofile);
             },
             error: function (req) {
                 $("body").append(req.responseText)
