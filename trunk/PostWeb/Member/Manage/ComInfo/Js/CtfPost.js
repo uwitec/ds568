@@ -70,7 +70,7 @@
             data: { action: "" },
             dataType: "json",
             success: function (data) {
-                
+                $("select[name=ctftype] option[value="+data.CtfType+"]").attr("selected","selected")
             },
             error: function (req) {
 

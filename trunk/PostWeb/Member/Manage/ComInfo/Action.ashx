@@ -72,6 +72,9 @@ public class Action : IHttpHandler, IRequiresSessionState
                     }
                     catch (Exception ex) { context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false, msg = ex.Message })); }
                     break;
+                case "getmd":
+                    //var md=bl.GetSing
+                    break;
             
             }
         }
