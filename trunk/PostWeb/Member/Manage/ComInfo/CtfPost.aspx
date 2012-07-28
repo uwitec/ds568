@@ -55,7 +55,7 @@
         <input class="txtbox input-bg" name="isswebsite" style="width:300px;" />
     </div></li>
     <li><span class="sp_filed">上传证书：<label class="star">*</label></span><div class="floatL">
-        <input type="file" class="txtbox input-bg" name="ctfimg" id="ctfimg"  />
+        <input type="file" class="txtbox input-bg" name="ctfimg" id="ctfimg"  /><img id="ctfimg" onerror="javascript:this.style.display='none'" style="width:120px;" />
         <div class="remark gray">证书图片格式必须为<span class="red"> <b>jpg</b> </span>或<span class="red"> <b>gif</b> </span>,图片大小不超过<span class="red"> <b>1M</b> </span>(1024KB)</div>
     </div></li>
     <li><span class="sp_filed">证书介绍：<label class="star">&nbsp;</label></span><div class="floatL">
