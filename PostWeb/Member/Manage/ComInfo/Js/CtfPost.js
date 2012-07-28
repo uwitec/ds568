@@ -81,8 +81,8 @@
             success: function (data) {
                 $("select[name=ctftype] option[value=" + data.CtfType + "]").attr("selected", "selected")
                 $("input[name=ctfname]").val(data.CtfName);
-                $("input[name=startdate]").val(getDateTime(eval("new "+data.StartDate)));
-                $("input[name=enddate]").val(getDateTime(eval("new "+data.EndDate)));
+                $("input[name=startdate]").val(getDateTime(eval("new "+data.StartDate.replace("/",""))));
+                $("input[name=enddate]").val(getDateTime(eval("new " + data.EndDate.replace("/", ""))));
                 $("input[name=ctfnumber]").val(data.CtfNumber);
                 $("input[name=issag]").val(data.IssuingAgency);
                 $("input[name=issphone]").val(data.IssPhone);
