@@ -63,7 +63,8 @@
                     }
                 },
                 error: function(data, status, e) {
-                    //alert("上传失败，请检查文件格式和大小是否符合要求。");
+                //alert("上传失败，请检查文件格式和大小是否符合要求。");
+                    $("body").append(data.responseText)
                     alert(e);
                 },
                 complete: function() {

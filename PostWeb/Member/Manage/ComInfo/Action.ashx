@@ -10,8 +10,8 @@ public class Action : IHttpHandler, IRequiresSessionState
     
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/plain";
-        var od = context.Session["UserData"] as UserData;
-        if (od == null || od.Member == null)
+        var ud = context.Session["UserData"] as UserData;
+        if (ud == null || ud.Member == null)
         {
             context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false, lgout = true, msg = "抱歉，操作超时，需重新登录。" }));
             return;
@@ -22,7 +22,7 @@ public class Action : IHttpHandler, IRequiresSessionState
         if (!string.IsNullOrEmpty(act))
         {
             var bl = new DS_Certificate_Br();
-            string tempPath = "/Resource/" + DS_Members_Br.GetMemberDir(od.Member.ID) + "/Certificate/";
+            string tempPath = Common.Constant.WebConfig("AlbumRootPath") + DS_Members_Br.GetMemberDir(ud.Member.ID) + "/Certificate/";
             switch (act)
             {
                 case "ctf":
@@ -35,6 +35,7 @@ public class Action : IHttpHandler, IRequiresSessionState
                         if (isEdit) {
                             md = bl.GetSingle(int.Parse(id));
                         }
+                        md.MemberID = ud.Member.ID;
                         md.CtfName = context.Request["ctfname"];
                         md.CtfNumber = context.Request["ctfnumber"];
                         md.CtfProfile = context.Request["ctfprofile"];
@@ -99,6 +100,10 @@ public class Action : IHttpHandler, IRequiresSessionState
                     var ctf=bl.GetSingle(int.Parse(context.Request["id"]));
                     ctf.CtfImg = tempPath + ctf.CtfImg;
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(ctf));
+                    break;
+                case "del":
+                    bl.Delete(int.Parse(context.Request["id"]));
+                    context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = true }));
                     break;
             
             }

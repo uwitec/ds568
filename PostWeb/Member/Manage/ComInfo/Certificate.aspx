@@ -2,16 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <link rel="Stylesheet" type="text/css" href="Css/Certificate.css" />
-<script type="text/javascript">
-    $(function() {
-        //设置选中项
-        var state = $("#showType").val();
-        var curmn = $(".hmenu li[state=" + state + "]").find("div").removeClass("lunsl munsl runsl")
-    })
-</script>
+<script type="text/javascript" src="js/ctf_list.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<input type="hidden" id="showType" value="<%=Request["show_type"] %>" />
+<input type="hidden" id="showType" name="showType" value="<%=Request["show_type"] %>" />
+<input type="hidden" id="rc" value="<%=rc %>" />
 <ul class="hmenu">
      <asp:Repeater ID="Repeater1" runat="server">
         <ItemTemplate>
@@ -33,12 +28,13 @@
     <tr><th colspan=2>图片</th><th>名称</th><th>发证机构</th><th>状态</th><th>有效日期</th><th>操作</th></tr>
     <asp:Repeater ID="Repeater2" runat="server">
         <ItemTemplate>
-            <tr><td class="tdcb"><input type="checkbox" value="<%#Eval("id") %>" name="chb_pro" /></td><td><img src="<%#tempPath+Eval("ctfimg") %>" onload="changeImg(this,80,80)" /></td><td><%#Eval("ctfname") %></td><td><%#Eval("IssuingAgency")%></td><td><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Member.DS_Certificate_Br.CtfState),(byte)Eval("ctfstate")) %></td><td><%#Eval("endDate")%></td><td><a href="CtfPost.aspx?id=<%#Eval("id") %>">修改</a> / <a href="#">删除</a></td></tr>        
+            <tr><td class="tdcb"><input type="checkbox" value="<%#Eval("id") %>" name="chb_pro" /></td><td><img src="<%#tempPath+Eval("ctfimg") %>" onload="changeImg(this,80,80)" /></td><td><%#Eval("ctfname") %></td><td><%#Eval("IssuingAgency")%></td><td><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Member.DS_Certificate_Br.CtfState),(byte)Eval("ctfstate")) %></td><td><%#Eval("endDate")%></td><td><a href="CtfPost.aspx?id=<%#Eval("id") %>">修改</a> / <a ctfid="<%#Eval("id") %>" class="del" href="#"><span>删除</span></a></td></tr>        
         </ItemTemplate>
         <AlternatingItemTemplate>
-            <tr class="altr"><td class="tdcb"><input type="checkbox" value="<%#Eval("id") %>" name="chb_pro" /></td><td><img src="<%#tempPath+Eval("ctfimg") %>" onload="changeImg(this,80,80)" /></td><td><%#Eval("ctfname") %></td><td><%#Eval("IssuingAgency")%></td><td><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Member.DS_Certificate_Br.CtfState),(byte)Eval("ctfstate")) %></td><td><%#Eval("endDate")%></td><td><a href="CtfPost.aspx?id=<%#Eval("id") %>">修改</a> / <a href="#">删除</a></td></tr>        
+            <tr class="altr"><td class="tdcb"><input type="checkbox" value="<%#Eval("id") %>" name="chb_pro" /></td><td><img src="<%#tempPath+Eval("ctfimg") %>" onload="changeImg(this,80,80)" /></td><td><%#Eval("ctfname") %></td><td><%#Eval("IssuingAgency")%></td><td><%#Enum.GetName(typeof(Com.DianShi.BusinessRules.Member.DS_Certificate_Br.CtfState),(byte)Eval("ctfstate")) %></td><td><%#Eval("endDate")%></td><td><a href="CtfPost.aspx?id=<%#Eval("id") %>">修改</a> / <a ctfid="<%#Eval("id") %>" class="del" href="#"><span>删除</span></a></td></tr>        
         </AlternatingItemTemplate>
     </asp:Repeater>
 </table>
+<div class="pagerwrap"></div>
 </asp:Content>
 
