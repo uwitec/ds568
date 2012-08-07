@@ -11,7 +11,7 @@ public partial class Member_Manage_ComInfo_Certificate : BasePage
     public int rc = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        tempPath = Common.Constant.WebConfig("AlbumRootPath") + DS_Members_Br.GetMemberDir(_userData.Member.ID) + "/Certificate/";
         string act = Request["action"];
         if (!string.IsNullOrEmpty(act))
         {
@@ -32,6 +32,7 @@ public partial class Member_Manage_ComInfo_Certificate : BasePage
         mst.SetMenuTitle("公司资料", "公司证书");
 
         bindMenu();
+        
     }
 
     private void bindMenu()
