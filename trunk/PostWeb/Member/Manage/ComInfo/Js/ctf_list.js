@@ -40,7 +40,7 @@
     //分页，PageCount是总条目数，这是必选参数，其它参数都是可选
     var pg = function() {
         $(".pagerwrap").pagination(Number($("#rc").val()), {
-            callback: InitTable,
+            callback: PageCallback,
             prev_text: '上一页',       //上一页按钮里text
             next_text: '下一页',       //下一页按钮里text
             items_per_page: pageSize,  //显示条数
@@ -52,7 +52,8 @@
     var ispg = false;
     //翻页调用
     function PageCallback(index, jq) {
-        InitTable(index);
+        if(ispg)
+            InitTable(index);
     }
 
     //请求数据

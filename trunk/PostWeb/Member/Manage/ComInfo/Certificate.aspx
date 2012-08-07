@@ -2,6 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <link rel="Stylesheet" type="text/css" href="Css/Certificate.css" />
+ <script type="text/javascript" src="/js/pager/pagination.js"></script>
+<link href="/js/pager/pagination.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/ctf_list.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
