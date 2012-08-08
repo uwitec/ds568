@@ -26,7 +26,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <input  type="hidden" name="member_id" value="<%=ViewState["member_id"] %>"  />
+    <input  type="hidden" name="member_id" value="<%=vMember.ID %>"  />
     <div class="Main">
         <!--============顶部公共部分开始================-->
         <div class="TopBar">
@@ -93,7 +93,7 @@
                     <li><a surl="profile" href="/template/tem1/profile/index_profile.aspx">公司介绍</a></li>
                     <li><a surl="album" href="/template/tem1/album/index_album.aspx">我的相册</a></li>
                     <li><a surl="news" href="/template/tem1/news/index_news.aspx">公司新闻</a></li>
-                    <li><a surl="nourl" href="/Community/FeedBack/index.aspx?member_id=<%=ViewState["member_id"] %>" target="_blank">在线留言</a></li>
+                    <li><a surl="nourl" href="/Community/FeedBack/index.aspx?member_id=<%=vMember.ID %>" target="_blank">在线留言</a></li>
                     <li><a surl="contact" href="/template/tem1/contact/index_contact.aspx">联系方式</a></li>
                 </ul>
             </div>
@@ -110,14 +110,14 @@
                         <li class="UserInfoHead"><img class="a_xl" src="http://i00.c.aliimg.com/cms/upload/winport/cxticon/a_xl_qy.gif" /><img class="tpx" src="http://i00.c.aliimg.com/images/cn/market/myalibaba/levelup/title_tpnianxian8.gif" /></li>
                         <li class="UserInfoMiddle">
                             <div class="ifm_wrap">
-                                <div class="ui_comname"><a href="../profile/index_profile.aspx"><%=ViewState["comName"]%></a></div>
-                                <div class="mbname bbord"><span class="sptn cl6c"><%=ViewState["TrueName"]%></span> <span><%=ViewState["Gender"]%></span><a class="qqonline" href="http://wpa.qq.com/msgrd?v=3&uin=<%=ViewState["qq"] %>&site=qq&menu=yes"><img onload="if(this.width>16){ $(this).next().text('在线洽谈'); $('.ol_wp').show();$('.msgTitle,.sd_wp').hide();}"  src="http://wpa.qq.com/pa?p=2:<%=ViewState["qq"] %>:4" alt="给我留言" /><span>给我留言</span></a></div>
+                                <div class="ui_comname"><a href="../profile/index_profile.aspx"><%=vMember.CompanyName %></a></div>
+                                <div class="mbname bbord"><span class="sptn cl6c"><%=vMember.TrueName %></span> <span><%=vMember.Gender %></span><a class="qqonline" href="http://wpa.qq.com/msgrd?v=3&uin=<%=vMember.QQ %>&site=qq&menu=yes"><img onload="if(this.width>16){ $(this).next().text('在线洽谈'); $('.ol_wp').show();$('.msgTitle,.sd_wp').hide();}"  src="http://wpa.qq.com/pa?p=2:<%=vMember.QQ %>:4" alt="给我留言" /><span>给我留言</span></a></div>
                                 <div>诚信指数：<span class="cl6c">100</span></div>
                                 <div>证书荣誉：<span class="cl6c">12项</span></div>
                                 <div class="bbord">工商注册信息：<img alt="已认证" src="http://img.china.alibaba.com/cms/upload/integrity/promotion/certificate1.gif" /></div>
-                                <div>经营模式：<%=ViewState["bsmd"]%></div>
-                                <div class="bbord">所在地区：<%=ViewState["area"]%></div>
-                                <div class="addfv"><a href="javascript:AddFavorite(this.location.herf, '<%=ViewState["comName"]%>');"><span>收藏本公司</span></a> 收藏数：3004</div>
+                                <div>经营模式：<%=vMember.BusinessModel %></div>
+                                <div class="bbord">所在地区：<%=vMember.Province %></div>
+                                <div class="addfv"><a href="javascript:AddFavorite(this.location.herf, '<%=vMember.CompanyName %>');"><span>收藏本公司</span></a> 收藏数：3004</div>
                             </div>
                         </li>
                         <li class="UserInfoBottom"></li>
@@ -152,7 +152,7 @@
                         <div class="LeftModleBody">
                             <div>
                                 <ul>
-                                    <asp:Repeater ID="Repeater1" runat="server">
+                                    <asp:Repeater ID="Repeater1"  runat="server">
                                         <ItemTemplate>
                                             <li><a href="/template/tem1/product/index_product.aspx?cat_id=<%#Eval("id") %>"><%#Eval("CategoryName")%> </a></li>
                                         </ItemTemplate>
@@ -194,19 +194,15 @@
                         </div>
                         <div class="ContactBody">
                             <div>
-                                <asp:Repeater ID="Repeater2" runat="server" EnableViewState="false">
-                                    <ItemTemplate>
-                                        <ul>
-                                            <li><%#Eval("TrueName")%> <%#Eval("Gender")%> （<%#Eval("Position")%>）</li>
-                                            <li class="QQ"><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=<%=ViewState["qq"] %>">
-                                                <img border="0" src="http://wpa.qq.com/pa?p=1:<%=ViewState["qq"] %>:1" title="给我发消息" alt="给我发消息"></a></li>
-                                            <li>电&nbsp;&nbsp;&nbsp;&nbsp;话：<%#Eval("Phone").ToString().TrimEnd('-')%></li>
-                                            <li>移动电话：<%#Eval("Mobile")%></li>
-                                            <li>传&nbsp;&nbsp;&nbsp;&nbsp;真：<%#Eval("Fax").ToString().TrimEnd('-')%></li>
-                                        </ul>
-                                        <div class="more" ><a href="/template/tem1/contact/index_contact.aspx">更多</a></div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
+                                <ul>
+                                    <li><%=vMember.TrueName%> <%=vMember.Gender%> （<%=vMember.Position%>）</li>
+                                    <li class="QQ"><a target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=<%=ViewState["qq"] %>">
+                                        <img border="0" src="http://wpa.qq.com/pa?p=1:<%=vMember.QQ%>:1" title="给我发消息" alt="给我发消息"></a></li>
+                                    <li>电&nbsp;&nbsp;&nbsp;&nbsp;话：<%=string.IsNullOrEmpty(vMember.Phone)?"":vMember.Phone.TrimEnd('-')%></li>
+                                    <li>移动电话：<%=vMember.Mobile%></li>
+                                    <li>传&nbsp;&nbsp;&nbsp;&nbsp;真：<%=string.IsNullOrEmpty(vMember.Fax)?"":vMember.Fax.TrimEnd('-')%></li>
+                                </ul>
+                                <div class="more" ><a href="/template/tem1/contact/index_contact.aspx">更多</a></div>
                             </div>
                         </div>
                     </div>
@@ -228,7 +224,7 @@
         <!--==============底部开始===============-->
         <div class="Bottom">
             <p>
-                <%=ViewState["comName"]%> 地址： <%=ViewState["address"]%>
+                <%=vMember.CompanyName%> 地址： <%=vMember.BusinessAddress%>
             </p>
             <p>
                 技术支持：<a href="javascript:;">深圳点石网络科技有限公司</a></p>
