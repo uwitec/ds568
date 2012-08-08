@@ -14,7 +14,7 @@ using Com.DianShi.Model.Member;
 using Com.DianShi.Model.Decoration;
 using Com.DianShi.BusinessRules.Decoration;
 /// <summary>
-///BasePage 的摘要说明
+///商铺基类
 /// </summary>
 public class ShopBasePage : System.Web.UI.Page
 {
