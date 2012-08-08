@@ -104,6 +104,33 @@ namespace Com.DianShi.BusinessRules.Member
             已上网
         }
 
+        /// <summary>
+        /// 获取指定会员已上网证书数量
+        /// </summary>
+        /// <param name="MemberID">会员ID</param>
+        /// <param name="IsCache">是否缓存</param>
+        /// <returns></returns>
+        public static int CtfCount(int MemberID, bool IsCache)
+        {
+
+            string che_key = "che_ctf_count_" + MemberID;
+            var ch = SDG.Cache.CacheUtility.Get(che_key);
+            if (ch == null||!IsCache)
+            {
+                using (var ct = new DS_CertificateDataContext(DbHelperSQL.Connection))
+                {
+                    int cc = ct.DS_Certificate.Where(a => a.MemberID.Equals(MemberID) && a.CtfState.Equals(CtfState.已上网)).Count();
+                    if(IsCache)
+                        SDG.Cache.CacheUtility.Insert(che_key, cc, null, 20.0, true);
+                    return cc;
+                }
+            }
+            else
+            {
+                return (int)ch;
+            }
+
+        }
        
     }
 }
