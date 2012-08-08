@@ -33,13 +33,13 @@ namespace Com.DianShi.BusinessRules.Member
             {
                 using (var ct = new View_MembersDataContext(DbHelperSQL.Connection))
                 {
-                    View_Members vMember = ct.View_Members.SingleOrDefault(a => a.ID.ToString() == uri.Host.Split('.')[0].Replace("shop",""));
+                    View_Members vMember = ct.View_Members.SingleOrDefault(a => a.ID.ToString() == uri.Host.Split('.')[0].ToLower().Replace("shop",""));
                     if (vMember == null)
                     {
                         vMember = ct.View_Members.SingleOrDefault(a => a.HomePage == "http://" + uri.Host.ToLower());
                     }
                     if(vMember!=null)
-                        CacheUtility.Insert(uri.Host, vMember, null);
+                        CacheUtility.Insert(uri.Host, vMember, null,20,true);
                     return vMember;
                 }
             }
