@@ -22,9 +22,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         
 
         if (IsPostBack) return;
-
-        var bpage = this.Page as ShopBasePage;
-        vMember = bpage._vMember;
+        vMember =(this.Page as ShopBasePage)._vMember;
 
         var bl = new DS_DiyProCategory_Br();
         int rc = 0;
