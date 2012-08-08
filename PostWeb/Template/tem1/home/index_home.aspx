@@ -148,23 +148,23 @@
                 <asp:Repeater ID="Repeater3" runat="server">
                     <ItemTemplate>
                          <ul>
-                            <li><%#Eval("TrueName") %> <%#Eval("Gender")%> （<%#Eval("Position")%>）
-                                <a  href="http://wpa.qq.com/msgrd?v=3&uin=<%#Eval("qq") %>&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('在线洽谈');"  src="http://wpa.qq.com/pa?p=2:<%#Eval("qq") %>:4" alt="给我留言" /><span>给我留言</span></a></li>
+                            <li><%=_vMember.TrueName %> <%=_vMember.Gender %> （<%=_vMember.Position %>）
+                                <a  href="http://wpa.qq.com/msgrd?v=3&uin=<%=_vMember.QQ %>&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('在线洽谈');"  src="http://wpa.qq.com/pa?p=2:<%=_vMember.QQ %>:4" alt="给我留言" /><span>给我留言</span></a></li>
                          </ul>
                          <ul>
-                             <li>电<span class="marginLeft1em"></span><span class="marginLeft1em"></span>话： <%#Eval("Phone").ToString().TrimEnd('-')%></li>
+                             <li>电<span class="marginLeft1em"></span><span class="marginLeft1em"></span>话： <%=string.IsNullOrEmpty(_vMember.Phone)?"":_vMember.Phone.TrimEnd('-')%></li>
                          </ul>
                          <ul>
-                             <li>移动电话： <%#Eval("Mobile") %></li>
+                             <li>移动电话： <%=_vMember.Mobile %></li>
                          </ul>
                          <ul>
-                             <li>传<span class="marginLeft1em"></span><span class="marginLeft1em"></span>真： <%#Eval("Fax").ToString().TrimEnd('-')%></li>
+                             <li>传<span class="marginLeft1em"></span><span class="marginLeft1em"></span>真： <%=string.IsNullOrEmpty(_vMember.Fax)?"":_vMember.Fax.TrimEnd('-')%></li>
                          </ul>
                          <ul>
-                             <li>经营地址： <%#Eval("BusinessAddress")%> </li>
+                             <li>经营地址： <%=_vMember.BusinessAddress %> </li>
                          </ul>
                          <ul>
-                             <li>公司主页： <a href="<%#Eval("HomePage") %>" target="_blank"><%#Eval("HomePage") %></a></li>
+                             <li>公司主页： <a href="<%=_vMember.HomePage %>" target="_blank"><%=_vMember.HomePage %></a></li>
                          </ul>
                     </ItemTemplate>
                 </asp:Repeater>

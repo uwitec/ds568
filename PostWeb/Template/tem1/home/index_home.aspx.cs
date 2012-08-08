@@ -33,11 +33,11 @@ public partial class index_home :  ShopBasePage
         Repeater2.DataSource = list.Take(4);
         Repeater2.DataBind();
 
-        //联系我们
-        var list2 = new System.Collections.Generic.List<Com.DianShi.Model.Member.View_Members>();
-        list2.Add(_vMember);
-        Repeater3.DataSource = list2;
-        Repeater3.DataBind();
+        ////联系我们
+        //var list2 = new System.Collections.Generic.List<Com.DianShi.Model.Member.View_Members>();
+        //list2.Add(_vMember);
+        //Repeater3.DataSource = list2;
+        //Repeater3.DataBind();
       
         //焦点图
         if (!object.Equals(_Decoration,null)&&!string.IsNullOrEmpty(_Decoration.RollImg1 + _Decoration.RollImg2 + _Decoration.RollImg3))
