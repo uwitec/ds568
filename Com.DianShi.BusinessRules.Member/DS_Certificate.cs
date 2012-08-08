@@ -5,6 +5,7 @@ using System.Text;
 using System.Linq.Dynamic;
 using Com.DianShi.Model.Member;
 using DBUtility;
+using System.IO;
 namespace Com.DianShi.BusinessRules.Member
 {
     public class DS_Certificate_Br:BllBase
@@ -31,7 +32,13 @@ namespace Com.DianShi.BusinessRules.Member
         {
             using (var ct = new DS_CertificateDataContext(DbHelperSQL.Connection))
             {
+                
                 DS_Certificate st = ct.DS_Certificate.Single(a => a.ID == ID);
+                string imgpath = System.Web.HttpContext.Current.Server.MapPath(Common.Constant.WebConfig("AlbumRootPath") + DS_Members_Br.GetMemberDir(st.MemberID) + "/Certificate/");
+                if (File.Exists(imgpath += st.CtfImg))
+                {
+                    File.Delete(imgpath);
+                }
                 ct.DS_Certificate.DeleteOnSubmit(st);
                 ct.SubmitChanges();
             }
