@@ -104,6 +104,8 @@ namespace Com.DianShi.Model.Member
 		
 		private byte _CtfState;
 		
+		private int _MemberID;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -132,6 +134,8 @@ namespace Com.DianShi.Model.Member
     partial void OnCtfTypeChanged();
     partial void OnCtfStateChanging(byte value);
     partial void OnCtfStateChanged();
+    partial void OnMemberIDChanging(int value);
+    partial void OnMemberIDChanged();
     #endregion
 		
 		public DS_Certificate()
@@ -375,6 +379,26 @@ namespace Com.DianShi.Model.Member
 					this._CtfState = value;
 					this.SendPropertyChanged("CtfState");
 					this.OnCtfStateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MemberID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int MemberID
+		{
+			get
+			{
+				return this._MemberID;
+			}
+			set
+			{
+				if ((this._MemberID != value))
+				{
+					this.OnMemberIDChanging(value);
+					this.SendPropertyChanging();
+					this._MemberID = value;
+					this.SendPropertyChanged("MemberID");
+					this.OnMemberIDChanged();
 				}
 			}
 		}
