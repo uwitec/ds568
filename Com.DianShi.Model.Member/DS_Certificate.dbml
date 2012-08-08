@@ -15,6 +15,7 @@
       <Column Name="CtfImg" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
       <Column Name="CtfType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Column Name="CtfState" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
