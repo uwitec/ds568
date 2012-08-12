@@ -5,7 +5,7 @@
  
 <script type="text/javascript" src="/js/ajaxupload.js"></script>
 <script type="text/javascript" src="js/CtfPost.js"></script>
-<script src="/js/Calendar5.js" type="text/javascript"></script>
+<script src="/js/wpCalendar.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <input type="hidden" id="ctfid" value="<%=Request["id"] %>" />
@@ -37,10 +37,10 @@
         <input name="ctfname" class="txtbox input-bg" />
     </div></li>
     <li><span class="sp_filed">生效时间：<label class="star">*</label></span><div class="floatL">
-        <input class="txtbox input-bg date" name="startdate"  onclick="MyCalendar.SetDate(this)"   />
+        <input class="txtbox input-bg ctfdate" name="startdate"  onfocus="showCalendar(this)" readonly   />
     </div></li>
     <li><span class="sp_filed">截止时间：<label class="star">&nbsp;</label></span><div class="floatL">
-        <input class="txtbox input-bg date" name="enddate" onclick="MyCalendar.SetDate(this)"   />
+        <input class="txtbox input-bg ctfdate" name="enddate" onfocus="showCalendar(this)" readonly  />
         <div class="remark gray">如果证书上有，必须填写。</div>
     </div></li><li><span class="sp_filed">证书编号：<label class="star">&nbsp;</label></span><div class="floatL">
         <input class="txtbox input-bg" name="ctfnumber"  />

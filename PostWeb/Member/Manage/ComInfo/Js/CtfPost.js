@@ -1,9 +1,9 @@
-﻿$(function() {
+﻿$(function () {
 
     var id = $("#ctfid").val();
     //-----------验证开始------------
 
-    $.validator.addMethod("ctfreq", function(value, element) {//增加验证函数(验证以字母开头，字母和数字组合)
+    $.validator.addMethod("ctfreq", function (value, element) {//增加验证函数(验证以字母开头，字母和数字组合)
         if (id == "") {
             return $("#ctfimg").val() != "";
         }
@@ -14,16 +14,15 @@
 
     var fvalid = $(".mstForm").validate({
         focusInvalid: true,
-        errorPlacement: function(error, element) { //设置错误提示位置,此函数为默认，可不设置
+        errorPlacement: function (error, element) { //设置错误提示位置,此函数为默认，可不设置
             error.appendTo(element.parent());  //表示添加到元素后面，
         },
-        success: function(label) {
+        success: function (label) {
             label.remove();
         },
         rules: {
             ctfname: { required: true, minlength: 2, maxlength: 50 },
-            startdate: { required: true, date: true },
-            enddate: { date: true },
+            startdate: { required: true},
             issag: { required: true, minlength: 2, maxlength: 50 },
             ctfimg: { ctfreq: true, accept: "jpg,gif" },
             ctfprofile: { minlength: 10, maxlength: 500 }
@@ -38,7 +37,7 @@
 
 
     //提交
-    $(".commBtn").click(function() {
+    $(".commBtn").click(function () {
         if ($(this).hasClass("loading2")) return false;
         var b = fvalid.form();
         if (b) {
@@ -50,7 +49,7 @@
                 fileElementId: 'ctfimg',
                 data: { myaction: "ctf", id: id, ctfname: $("input[name=ctfname]").val(), ctfnumber: $("input[name=ctfnumber]").val(), ctfprofile: $("textarea[name=ctfprofile]").val(), ctftype: $("select[name=ctftype]").val(), enddate: $("input[name=enddate]").val(), issphone: $("input[name=issphone]").val(), issag: $("input[name=issag]").val(), isswebsite: $("input[name=isswebsite]").val(), startdate: $("input[name=startdate]").val() },
                 dataType: "json",
-                success: function(data, status) {
+                success: function (data, status) {
                     if (data.succ) {
                         alert("提交成功。");
                     }
@@ -62,12 +61,12 @@
                         alert(data.msg);
                     }
                 },
-                error: function(data, status, e) {
-                //alert("上传失败，请检查文件格式和大小是否符合要求。");
+                error: function (data, status, e) {
+                    //alert("上传失败，请检查文件格式和大小是否符合要求。");
                     $("body").append(data.responseText)
                     alert(e);
                 },
-                complete: function() {
+                complete: function () {
                     $(".commBtn").removeClass("loading2").find(".cb_m").text("提交审核");
                 }
             });
@@ -91,7 +90,7 @@
             type: "POST",
             data: { myaction: "getmd", id: id },
             dataType: "json",
-            success: function(data) {
+            success: function (data) {
                 $("select[name=ctftype] option[value=" + data.CtfType + "]").attr("selected", "selected")
                 $("input[name=ctfname]").val(data.CtfName);
                 $("input[name=startdate]").val(getDateTime(eval("new " + data.StartDate.replace(/\//g, ""))));
@@ -104,13 +103,13 @@
                 $("textarea[name=ctfprofile]").text(data.CtfProfile);
                 $("#ctf-img").attr("src", data.CtfImg).show();
             },
-            error: function(req) {
+            error: function (req) {
                 $("body").append(req.responseText)
             },
-            beforeSend: function() {
+            beforeSend: function () {
 
             },
-            complete: function() {
+            complete: function () {
 
             }
         });
