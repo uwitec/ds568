@@ -2,7 +2,7 @@
 .ctList li{margin-top:10px;position:relative; overflow:auto;zoom:1;}
 .ctList li span.sp_filed{width:100px; text-align:right;float:left;display:block;line-height:22px;*line-height:26px;margin-right:12px;}
 .txtbox{width:234px;height:22px;line-height:22px;}
-.date{ background:url(/images/date-bg1.png) no-repeat right top;width:120px;}
+.ctfdate{ background:url(/images/date-bg1.png) no-repeat right top;width:100px;}
 .ctf-detail{overflow:auto;zoom:1;width:300px;height:80px;}
 .remark{margin-top:5px;}
 .Remind{padding:5px;line-height:20px;border:solid 1px #ffc590; background-color:#fff7eb;margin-top:15px; overflow:auto;zoom:1;width:730px;}
