@@ -21,9 +21,9 @@ namespace SDG.Cache
         /// <param name="cacheDependency">缓存依赖项</param>
         /// <param name="cacheMinutes">缓存时间，以分钟为单位</param>
         /// <param name="IsAbsolute">是否使用绝对过期</param>
-        public static void Insert(string cacheKey, object value, CacheDependency cacheDependency, double cacheMinutes, bool IsAbsolute)
+        public static void Insert(string cacheKey, object value, CacheDependency cacheDependency, double cacheMinutes, ExpiType expiType)
         {
-            if (IsAbsolute)
+            if (expiType.Equals(ExpiType.绝对过期))
             {
                 HttpRuntime.Cache.Insert(cacheKey, value, cacheDependency, DateTime.Now.AddMinutes(cacheMinutes), TimeSpan.Zero);
             }
@@ -42,6 +42,10 @@ namespace SDG.Cache
             HttpRuntime.Cache.Remove(cacheKey);
         }
 
+        public enum ExpiType {
+            绝对过期,
+            延时过期
+        }
       
     }
 }
