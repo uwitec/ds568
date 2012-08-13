@@ -121,7 +121,7 @@ namespace Com.DianShi.BusinessRules.Member
                 {
                     int cc = ct.DS_Certificate.Where(a => a.MemberID.Equals(MemberID) && a.CtfState.Equals(CtfState.已上网)).Count();
                     if(IsCache)
-                        SDG.Cache.CacheUtility.Insert(che_key, cc, null, 20.0, true);
+                        SDG.Cache.CacheUtility.Insert(che_key, cc, null, 20.0,SDG.Cache.CacheUtility.ExpiType.绝对过期);
                     return cc;
                 }
             }
