@@ -81,7 +81,7 @@
         <div class="Content">
             <!--==============头部开始，放公司名称或个人名称===============-->
             <div class="Head">
-                <h1><%=ViewState["comName"]%></h1>
+                <h1><%=vMember.CompanyName%></h1>
             </div>
             <!--==============头部结束，放公司名称或个人名称===============-->
             <!--========菜单开始==============-->
@@ -113,7 +113,7 @@
                                 <div class="ui_comname"><a href="../profile/index_profile.aspx"><%=vMember.CompanyName %></a></div>
                                 <div class="mbname bbord"><span class="sptn cl6c"><%=vMember.TrueName %></span> <span><%=vMember.Gender %></span><a class="qqonline" href="http://wpa.qq.com/msgrd?v=3&uin=<%=vMember.QQ %>&site=qq&menu=yes"><img onload="if(this.width>16){ $(this).next().text('在线洽谈'); $('.ol_wp').show();$('.msgTitle,.sd_wp').hide();}"  src="http://wpa.qq.com/pa?p=2:<%=vMember.QQ %>:4" alt="给我留言" /><span>给我留言</span></a></div>
                                 <div>诚信指数：<span class="cl6c">100</span></div>
-                                <div>证书荣誉：<span class="cl6c"><%=Com.DianShi.BusinessRules.Member.DS_Certificate_Br.CtfCount(vMember.ID,true) %>项</span></div>
+                                <div>证书荣誉：<span class="cl6c"><a href="/template/tem1/Certificate/ctf_index.aspx"><%=Com.DianShi.BusinessRules.Member.DS_Certificate_Br.CtfCount(vMember.ID,true) %></a>项</span></div>
                                 <div class="bbord">工商注册信息：<img alt="已认证" src="http://img.china.alibaba.com/cms/upload/integrity/promotion/certificate1.gif" /></div>
                                 <div>经营模式：<%=vMember.BusinessModel %></div>
                                 <div class="bbord">所在地区：<%=vMember.Province %></div>
@@ -235,9 +235,10 @@
         <!--==============底部结束===============-->
     </div>
     </form>
+    <div style="display:none;">
     <script type="text/javascript">
         var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
         document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe62367d449bbd5b723ebafa1693ee0a7' type='text/javascript'%3E%3C/script%3E"));
-    </script>
+    </script></div>
 </body>
 </html>
