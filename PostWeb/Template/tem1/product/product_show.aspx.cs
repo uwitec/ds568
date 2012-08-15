@@ -36,11 +36,5 @@ public partial class Template_tem1_product_product_show :ShopBasePage
         var catbl = new DS_SysProductCategory_Br();
         ViewState["category"] = catbl.GetCategoryName(md.SysCatID,false).TrimEnd('>').Replace(">"," > ");
 
-        //联系信息
-        var mblist = new System.Collections.Generic.List<Com.DianShi.Model.Member.View_Members>();
-        mblist.Add(_vMember);
-        Repeater2.DataSource = mblist;
-        Repeater2.DataBind();
-
     }
 }

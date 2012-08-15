@@ -19,8 +19,7 @@ public partial class index_product : ShopBasePage
         Page.Header.Title = "供应产品";
         AspNetPager4.PageChanged+=new EventHandler(AspNetPager4_PageChanged);
         if (IsPostBack) return;
-        var vmbbl = new View_Members_Br();
-        var md = vmbbl.GetSingle(Request.Url);
+        
         //分类
         var bl = new DS_DiyProCategory_Br();
         var list = bl.Query<temClass>("select id,categoryname,(select count(id) from ds_products where shopcatid=ds_DiyProCategory.id) as pcount from ds_DiyProCategory where memberid={0}", _vMember.ID);

@@ -205,22 +205,18 @@
                     <div class="pInfoH propertyPf">
                         联系方式</div>
                     <div class="proContent">
-                        <asp:Repeater ID="Repeater2" runat="server">
-                            <ItemTemplate>
-                                <div class="ctctn">
-                                    <span class="ctname"><%#Eval("TrueName") %></span> <%#Eval("Gender")%> | <%#Eval("Position")%> <a class="ctqq" target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=<%#Eval("qq") %>">
-                                        <img border="0" src="http://wpa.qq.com/pa?p=1:<%#Eval("qq") %>:1" title="给我发消息" alt="给我发消息"></a>
-                                </div>
-                                <ul class="ctlist">
-                                    <li>手机：<%#Eval("Mobile") %></li>
-                                    <li>电话：<%#Eval("Phone").ToString().TrimEnd('-')%></li>
-                                    <li>传真：<%#Eval("Fax").ToString().TrimEnd('-')%></li>
-                                    <li>地址：<%#Eval("BusinessAddress")%></li>
-                                    <li>邮编：<%#Eval("ZipCode")%></li>
-                                    <li>网址：<a href="<%#Eval("HomePage") %>" target="_blank"><%#Eval("HomePage") %></a></li>
-                                </ul>
-                            </ItemTemplate>
-                        </asp:Repeater>
+                        <div class="ctctn">
+                            <span class="ctname"><%=_vMember.TrueName %></span> <%=_vMember.Gender %> | <%=_vMember.Position %> <a class="ctqq" target="blank" href="http://wpa.qq.com/msgrd?V=1&Uin=<%=_vMember.QQ %>">
+                                <img border="0" src="http://wpa.qq.com/pa?p=1:<%=_vMember.QQ %>:1" title="给我发消息" alt="给我发消息"></a>
+                        </div>
+                        <ul class="ctlist">
+                            <li>手机：<%=_vMember.Mobile %></li>
+                            <li>电话：<%=string.IsNullOrEmpty(_vMember.Phone)?"":_vMember.Phone.TrimEnd('-')%></li>
+                            <li>传真：<%=string.IsNullOrEmpty(_vMember.Fax)?"":_vMember.Fax.TrimEnd('-')%></li>
+                            <li>地址：<%=_vMember.BusinessAddress %></li>
+                            <li>邮编：<%=_vMember.ZipCode %></li>
+                            <li>网址：<a href="<%=_vMember.HomePage %>" target="_blank"><%=_vMember.HomePage %></a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="moreHead">
