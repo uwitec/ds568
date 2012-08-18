@@ -1,1 +1,18 @@
-﻿.ctf-main{background-color:#dde5ed;height:300px;}
+﻿.ctf-main{background-color:#dde5ed;padding:8px 0;}
+.ctf-ctn-wrap{width:936px;margin:0 auto;background-color:White;}
+.ctf-h,.ctf-item-h div{background-image:url(../images/ctf-index.gif);}
+.ctf-h{height:37px;}
+.ctf-list-wrap{width:896px;margin:0 auto;margin-top:14px; overflow:auto;}
+.ctf-item-h{height:30px;overflow:auto;}
+.ctf-item-h div{float:left;height:30px;}
+.ctf-h-l,.ctf-h-r{width:5px;overflow:hidden;}
+.ctf-h-l{background-position:left -40px;}
+.ctf-h-m{background-position:left -72px;width:886px;}
+.ctf-h-r{background-position:left -105px;}
+.tag-icon{background-position:left -137px;float:left;margin-left:9px; background-repeat:no-repeat;;padding-left:22px;line-height:30px;font:16px/1.8 "微软雅黑","黑体","文泉驿正黑体","华文细黑";}
+.ctf-item-bd{border:solid 1px #ccc;border-top:none;height:200px;}
+.ctf-list-item{margin-bottom:22px;}
+.ctf-item-bd ul{width:800px;margin:0 auto;}
+.ctf-item-bd ul li{width:400px; overflow:auto;float:left;padding:19px 0;}
+.ctf-item-bd dt{float:left;text-align:center;border:solid 1px #c9c9c9;width:174px !important;padding-top:6px;height:119px !important; width:176px;height:128px;}
+.ctf-img-bd{text-align:center;margin:0 auto;border:solid 1px #c9c9c9;background-color:#f5f5f5;width:162px !important;height:112px !important; width:164px;height:114px;line-height:110px !important;line-height:112px;vertical-align:middle;}
