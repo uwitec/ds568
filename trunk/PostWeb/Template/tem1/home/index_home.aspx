@@ -145,30 +145,25 @@
                     <a href="../profile/index_profile.aspx">更多&gt;&gt;</a></div>
             </div>
             <div class="AboutBody">
-                <asp:Repeater ID="Repeater3" runat="server">
-                    <ItemTemplate>
-                         <ul>
-                            <li><%=_vMember.TrueName %> <%=_vMember.Gender %> （<%=_vMember.Position %>）
-                                <a  href="http://wpa.qq.com/msgrd?v=3&uin=<%=_vMember.QQ %>&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('在线洽谈');"  src="http://wpa.qq.com/pa?p=2:<%=_vMember.QQ %>:4" alt="给我留言" /><span>给我留言</span></a></li>
-                         </ul>
-                         <ul>
-                             <li>电<span class="marginLeft1em"></span><span class="marginLeft1em"></span>话： <%=string.IsNullOrEmpty(_vMember.Phone)?"":_vMember.Phone.TrimEnd('-')%></li>
-                         </ul>
-                         <ul>
-                             <li>移动电话： <%=_vMember.Mobile %></li>
-                         </ul>
-                         <ul>
-                             <li>传<span class="marginLeft1em"></span><span class="marginLeft1em"></span>真： <%=string.IsNullOrEmpty(_vMember.Fax)?"":_vMember.Fax.TrimEnd('-')%></li>
-                         </ul>
-                         <ul>
-                             <li>经营地址： <%=_vMember.BusinessAddress %> </li>
-                         </ul>
-                         <ul>
-                             <li>公司主页： <a href="<%=_vMember.HomePage %>" target="_blank"><%=_vMember.HomePage %></a></li>
-                         </ul>
-                    </ItemTemplate>
-                </asp:Repeater>
-               
+                <ul>
+                <li><%=_vMember.TrueName %> <%=_vMember.Gender %> （<%=_vMember.Position %>）
+                    <a  href="http://wpa.qq.com/msgrd?v=3&uin=<%=_vMember.QQ %>&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('在线洽谈');"  src="http://wpa.qq.com/pa?p=2:<%=_vMember.QQ %>:4" alt="给我留言" /><span>给我留言</span></a></li>
+                </ul>
+                <ul>
+                    <li>电<span class="marginLeft1em"></span><span class="marginLeft1em"></span>话： <%=string.IsNullOrEmpty(_vMember.Phone)?"":_vMember.Phone.TrimEnd('-')%></li>
+                </ul>
+                <ul>
+                    <li>移动电话： <%=_vMember.Mobile %></li>
+                </ul>
+                <ul>
+                    <li>传<span class="marginLeft1em"></span><span class="marginLeft1em"></span>真： <%=string.IsNullOrEmpty(_vMember.Fax)?"":_vMember.Fax.TrimEnd('-')%></li>
+                </ul>
+                <ul>
+                    <li>经营地址： <%=_vMember.BusinessAddress %> </li>
+                </ul>
+                <ul>
+                    <li>公司主页： <a href="<%=_vMember.HomePage %>" target="_blank"><%=_vMember.HomePage %></a></li>
+                </ul>
             </div>
         </div>
         <!--========联系我们结束=============-->
