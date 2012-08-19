@@ -7,6 +7,7 @@
 <style type="text/css">
     .MiddleLeft{display:none;}
 </style>
+<script type="text/javascript" src="js/ctf_index.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
 </asp:Content>
@@ -27,14 +28,20 @@
                                             <dl>
                                                 <dt>
                                                     <div class="ctf-img-bd">
-                                                        &nbsp;<img width="100" src="<%#ctfdir %><%#Eval("ctfimg") %>" alt="<%#Eval("ctfname") %>" />&nbsp;
+                                                         &nbsp;<img width="100" onload="changeImg(this,100,100)" src="<%#ctfdir %><%#Eval("ctfimg") %>" alt="<%#Eval("ctfname") %>" />&nbsp;
                                                     </div>
                                                 </dt>
-                                                <dd>
+                                                <dd class="cname">
                                                     <%#Eval("ctfname") %>
                                                 </dd>
                                                 <dd>
-                                                    发证机构：<%#Eval("IssuingAgency")%>
+                                                    发证机构：<span><%#Eval("IssuingAgency")%></span>
+                                                </dd>
+                                                <dd>
+                                                    生效日期：<%#((DateTime)Eval("startdate")).ToString("yyyy-MM-dd")%>
+                                                </dd>
+                                                <dd>
+                                                    截止日期：<%#object.Equals(Eval("enddate"), null) ? "" : ((DateTime)Eval("enddate")).ToString("yyyy-MM-dd")%>
                                                 </dd>
                                             </dl>
                                         </li>
