@@ -43,6 +43,9 @@
                                                 <dd>
                                                     截止日期：<%#object.Equals(Eval("enddate"), null) ? "" : ((DateTime)Eval("enddate")).ToString("yyyy-MM-dd")%>
                                                 </dd>
+                                                <dd>
+                                                    <a class="view-big-img" target="_blank" href="">查看大图</a>
+                                                </dd>
                                             </dl>
                                         </li>
                                     </ItemTemplate>
