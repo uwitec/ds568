@@ -1,6 +1,6 @@
 ﻿.ctf-main{background-color:#dde5ed;padding:8px 0;}
 .ctf-ctn-wrap{width:936px;margin:0 auto;background-color:White;}
-.ctf-h,.ctf-item-h div{background-image:url(../images/ctf-index.gif);}
+.ctf-h,.ctf-item-h div,.view-big-img{background-image:url(../images/ctf-index.gif);}
 .ctf-h{height:37px;}
 .ctf-list-wrap{width:896px;margin:0 auto;margin-top:14px; overflow:auto;}
 .ctf-item-h{height:30px;overflow:auto;}
@@ -20,3 +20,4 @@
 .ctf-img-bd{text-align:center;margin:0 auto;border:solid 1px #c9c9c9;background-color:#f5f5f5;width:162px !important;height:112px !important; width:164px;height:114px;_width:162px;_height:112px;line-height:110px !important;line-height:112px;_font-size:92px;overflow:hidden;}
 .ctf-img-bd img{ vertical-align:middle;}
 .ctf-item-bd dd.cname{padding-top:10px;line-height:1.8;color:#333;height:20px;}
+.view-big-img{background-position:-179px 0;padding-left:18px;border:solid 1px;}
