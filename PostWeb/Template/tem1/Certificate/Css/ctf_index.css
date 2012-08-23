@@ -20,4 +20,5 @@
 .ctf-img-bd{text-align:center;margin:0 auto;border:solid 1px #c9c9c9;background-color:#f5f5f5;width:162px !important;height:112px !important; width:164px;height:114px;_width:162px;_height:112px;line-height:110px !important;line-height:112px;_font-size:92px;overflow:hidden;}
 .ctf-img-bd img{ vertical-align:middle;}
 .ctf-item-bd dd.cname{padding-top:10px;line-height:1.8;color:#333;height:20px;}
-.view-big-img{background-position:-179px 0;padding-left:18px;border:solid 1px;}
+.view-big-img{background-position:0px -181px;background-repeat:no-repeat;padding-left:18px;}
+.ctf-dd-sw{margin-top:4px;}

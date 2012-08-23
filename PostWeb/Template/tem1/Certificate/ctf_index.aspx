@@ -43,8 +43,8 @@
                                                 <dd>
                                                     截止日期：<%#object.Equals(Eval("enddate"), null) ? "" : ((DateTime)Eval("enddate")).ToString("yyyy-MM-dd")%>
                                                 </dd>
-                                                <dd>
-                                                    <a class="view-big-img" target="_blank" href="">查看大图</a>
+                                                <dd class="ctf-dd-sw">
+                                                    <a class="view-big-img" target="_blank" href="ctf_show.aspx?img_url=<%#ctfdir %><%#Eval("ctfimg") %>">查看大图</a>
                                                 </dd>
                                             </dl>
                                         </li>

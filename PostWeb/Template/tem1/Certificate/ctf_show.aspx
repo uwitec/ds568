@@ -4,13 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>企业证书</title>
+    <style type="text/css">
+        .main{text-align:center;margin-top:50px;}
+    </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
+    <div class="main">
+        <img src="<%=Request["img_url"] %>" onerror="this.style.display='none'" />
     </div>
-    </form>
 </body>
 </html>
