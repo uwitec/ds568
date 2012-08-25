@@ -6,12 +6,53 @@
 <head runat="server">
     <title>企业证书</title>
     <style type="text/css">
-        .main{text-align:center;margin-top:50px;}
+        .wp-t-l{width:24px;height:21px;}
+        .wp-t-m{background:url(images/top-mid.png);}
+        .wp-t-r{width:22px;}
+        .wp-m-l{ background:url(images/left-mid.png);width:24px;}
+        .wp-m-m{padding:4px 24px; background-color:#fbfbe1;}
+        .wp-m-r{background:url(images/right-mid.png);width:22px;}
+        .wp-b-l{height:20px;width:22px;}
+        .wp-b-m{background:url(images/bottom-mid.png);}
+        .wp-m-m div{padding:5px;border:solid 1px #ccc;}
     </style>
 </head>
 <body>
     <div class="main">
-        <img src="<%=Request["img_url"] %>" onerror="this.style.display='none'" />
+    <%--<div class="wrap-ctn">
+        <div class="wp-left">
+            <div class="wp-l-t"></div>
+            <div class="wp-l-m"></div>
+            <div class="wp-l-b"></div>
+        </div>
+        <div class="wp-mid">
+            <div class="wp-m-t"></div>
+            <div class="wp-m-m"></div>
+            <div class="wp-m-b"></div>
+        </div>
+        <div class="wp-right">
+            <div class="wp-r-t"></div>
+            <div class="wp-r-m">&nbsp;</div>
+            <div class="wp-r-b"></div>
+        </div>
+    </div>--%>
+        <table cellpadding=0 cellspacing=0 align="center">
+            <tr>
+                <td class="wp-t-l"><img src="images/top-left.png" /></td>
+                <td class="wp-t-m"></td>
+                <td class="wp-t-r"><img src="images/top-right.png" /></td>
+            </tr>
+            <tr>
+                <td class="wp-m-l"></td>
+                <td class="wp-m-m"><div><img src="<%=Request["img_url"] %>" onerror="this.style.display='none'" /></div></td>
+                <td class="wp-m-r"></td>
+            </tr>
+            <tr>
+                <td class="wp-b-l"><img src="images/bottom-left.png" /></td>
+                <td class="wp-b-m">&nbsp;</td>
+                <td class="wp-b-r"><img src="images/bottom-right.png" /></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
