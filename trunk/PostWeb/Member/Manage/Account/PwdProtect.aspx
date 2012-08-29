@@ -13,6 +13,7 @@
     </li>
     <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
 </ul>
+<form id="form1" runat="server" class="mstForm">
 <ul class="ctList">
     <li><span>密保问题：<label class="star">*</label></span>
         <select  id="confirm_question" class="safeQuestion"	name="passsafe_question">
@@ -32,18 +33,19 @@
     
     <li><span>&nbsp;</span><asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="保存" /></li>
 </ul>
+</form>
 <div class="validSuccess">
     <div class="sicon floatL"></div>
     <div class="sccon floatL"><b>您的密保问题已设置！</b><br />
         您可以 <a href="javascript:;" id="chgquestion">修改密保问题</a> 
     </div>
 </div>
-<div id="popwindow" class="popwindow" >
+<div id="popwindow" class="popwindow" style="display:none;">
     <div class="info">修改密保问题前需先完成安全验证</div>
     <ul>
         <li><span>密码保护问题：</span><input type="text" class="txtbox popquestion" readonly value="<%=ViewState["question"] %>"  maxlength="50" /></li>
-        <li><span>密码保护答案：</span><input type="text" class="txtbox"  id="answer3" name="answer3" maxlength="50" /></li>
-        <li><span>&nbsp;</span><input type="button" value="确定" id="popsub" class="subBtn" /></li>
+        <li><span>密码保护答案：</span><input type="text" class="txtbox answer3"   name="answer3" maxlength="50" /></li>
+        <li><span>&nbsp;</span><input type="button" value="确定"   class="subBtn subque" /></li>
     </ul>
 </div>
 </asp:Content>

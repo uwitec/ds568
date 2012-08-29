@@ -12,7 +12,7 @@ label.error{left:380px;_left:270px;position:absolute;}
 .sccon b{font-size:14px;}
 .sicon,.info{ background:url(../images/icon.gif) no-repeat;}
 .sicon{width:54px;height:46px;}
-.popwindow{display:none;}
+.popwindow{}
 .popwindow ul{width:350px;height:250px;}
 .popwindow ul li{ overflow:auto;zoom:1;margin-top:12px;}
 .popwindow ul li input.txtbox{width:180px;}

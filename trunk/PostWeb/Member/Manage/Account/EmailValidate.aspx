@@ -13,12 +13,14 @@
     </li>
     <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
 </ul>
+<form id="form1" runat="server" class="mstForm">
 <ul class="ctList">
     <li><span>电子邮箱：<label class="red">*</label></span><input type="hidden" runat="server" class="cemail" value="" id="cemail" name="cemail" /><input type="text" class="txtbox email" value="<%=ViewState["Email"] %>" id="email" name="email" maxlength="100" /></li>
     <li><span>&nbsp;</span><label class="msg"></label><a href="javascript:;" class="sendCC">发送验证码</a></li>
     <li><span>验证码：<label class="red">*</label></span><input type="text" class="txtbox gray" value="请输入6位验证码" id="valiCode" name="valiCode" maxlength="20" /></li>
     <li><span>&nbsp;</span><asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="确定" /></li>
 </ul>
+</form>
 <div class="validSuccess">
     <div class="sicon floatL"></div>
     <div class="sccon floatL"><b>您的电子邮箱 <%=cemail.Value %>  已验证！</b><br />
