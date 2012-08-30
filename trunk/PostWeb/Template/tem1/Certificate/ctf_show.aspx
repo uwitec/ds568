@@ -19,23 +19,7 @@
 </head>
 <body>
     <div class="main">
-    <%--<div class="wrap-ctn">
-        <div class="wp-left">
-            <div class="wp-l-t"></div>
-            <div class="wp-l-m"></div>
-            <div class="wp-l-b"></div>
-        </div>
-        <div class="wp-mid">
-            <div class="wp-m-t"></div>
-            <div class="wp-m-m"></div>
-            <div class="wp-m-b"></div>
-        </div>
-        <div class="wp-right">
-            <div class="wp-r-t"></div>
-            <div class="wp-r-m">&nbsp;</div>
-            <div class="wp-r-b"></div>
-        </div>
-    </div>--%>
+   
         <table cellpadding=0 cellspacing=0 align="center">
             <tr>
                 <td class="wp-t-l"><img src="images/top-left.png" /></td>
