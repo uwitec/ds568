@@ -65,7 +65,7 @@
 
     //提交按扭事件
     $(".subBtn").click(function () {
-        alert('暂未开放注册，请稍后访问。'); return false;
+        //alert('暂未开放注册，请稍后访问。'); return false;
         var b = fvalid.form();
         return b;
 
@@ -78,14 +78,14 @@
     });
 
     //关闭注册
-    $(".main").wBox({
-        title: "系统提示",
-        html: "<div style='padding:30px;width:300px;font-size:14px;'>点石网暂未开放注册，如果您想开通商铺，请联系业务负责人：小苏，电话:15118829914，感谢您的支持。</div>",
-        show: true,
-        callBack: function () {
-            $(".wBox_close").click(function () {
-                open('', '_top'); close();
-            });
-        }
-    });
+//    $(".main").wBox({
+//        title: "系统提示",
+//        html: "<div style='padding:30px;width:300px;font-size:14px;'>点石网暂未开放注册，如果您想开通商铺，请联系业务负责人：小苏，电话:15118829914，感谢您的支持。</div>",
+//        show: true,
+//        callBack: function () {
+//            $(".wBox_close").click(function () {
+//                open('', '_top'); close();
+//            });
+//        }
+//    });
 });
