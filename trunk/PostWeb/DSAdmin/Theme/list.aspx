@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
-    <Custom:Header runat="server" ID="Header1" />
+    <Custom:Header runat="server" />
     <style type="text/css">
         .htm-main{width:776px;margin:0 auto;margin-top:10px;}
         .list-wrap ul{overflow:auto;}
@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="htm-main">
-    <div class="btn-ctn"><input type="button" value="添加主题" /></div>
+    <div class="btn-ctn"><input type="button" onclick="location='add.aspx'" value="添加主题" /></div>
     <div class="list-wrap">
         <ul>
             <li>
