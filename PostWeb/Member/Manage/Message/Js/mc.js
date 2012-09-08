@@ -4,8 +4,8 @@
     var curmn=$(".hmenu li:first")
     if(tid){
         curmn=$(".hmenu li[tid="+tid+"]");
-    } 
-    curmn=curmn.find("div").removeClass("lunsl munsl runsl").filter(".mMiddle");
+    }
+    curmn = curmn.addClass("mn-wrap-crt").find(".mMiddle");
     curmn.html(curmn.find("a").html());
     
     var pageIndex = 0;     //页面索引初始值

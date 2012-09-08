@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Member;
 public partial class Member_Manage_Account_Contact :BasePage
 {
+    public string phoneqh, phonehm, phonefj, faxqh, faxhm, faxfj;
     protected void Page_Load(object sender, EventArgs e)
     {
         //设置左边菜单
@@ -32,34 +33,25 @@ public partial class Member_Manage_Account_Contact :BasePage
         if (IsPostBack) return;
         try
         {
-            var ud = Session["UserData"] as UserData;
-            var bl = new DS_Members_Br();
-            var md = bl.GetSingle(ud.Member.ID);
-            ViewState["Email"] = md.Email;
-            ViewState["TrueName"] = md.TrueName;
-            ViewState["Gender"] = string.IsNullOrEmpty(md.Gender) ? "" : md.Gender;
-            ViewState["Position"] = md.Position;
-            ViewState["qq"] = md.QQ;
-            string[] phone = md.Phone.Split('-');
+            var mb = _userData.vMember;
+            string[] phone = mb.Phone.Split('-');
             if (phone.Length > 2)
             {
-                ViewState["Phoneqh"] = phone[0];
-                ViewState["Phonehm"] = phone[1];
-                ViewState["Phonefj"] = phone[2];
+                phoneqh = phone[0];
+                phonehm = phone[1];
+                phonefj = phone[2];
             }
-            ViewState["Mobile"] = md.Mobile;
-            if (!string.IsNullOrEmpty(md.Fax))
+           
+            if (!string.IsNullOrEmpty(mb.Fax))
             {
-                string[] fax = md.Fax.Split('-');
+                string[] fax = mb.Fax.Split('-');
                 if (fax.Length > 2)
                 {
-                    ViewState["Faxqh"] = fax[0];
-                    ViewState["Faxhm"] = fax[1];
-                    ViewState["Faxfj"] = fax[2];
+                    faxqh = fax[0];
+                    faxhm = fax[1];
+                    faxfj = fax[2];
                 }
             }
-
-            ViewState["HomePage"] = md.HomePage;
         }
         catch (Exception ex) {
             Common.WriteLog.SetErrLog(Request.Url.ToString(), "Page_Load",ex.Message);
@@ -69,18 +61,18 @@ public partial class Member_Manage_Account_Contact :BasePage
 
     private void save() {
         var bl = new DS_Members_Br();
-        var md = bl.GetSingle(_userData.Member.ID);
-        md.Email=Request.QueryString["email"];
-        md.TrueName=Request.QueryString["trueName"];
-        md.Gender=Request.QueryString["sex"];
-        md.Position=Request.QueryString["position"];
-        md.Phone = Request.QueryString["phoneqh"] + "-" + Request.QueryString["phonehm"] + "-" + Request.QueryString["phonefj"];
-        md.Mobile=Request.QueryString["mobile"];
-        md.Fax = Request.QueryString["faxqh"] + "-" + Request.QueryString["faxhm"] + "-" + Request.QueryString["faxfj"];
-        md.HomePage = Request.QueryString["webSite"].ToLower().TrimEnd('/');
-        md.QQ=Request.QueryString["qq"];
+        var md = _userData.Member;
+        md.Email = _userData.vMember.Email=Request["email"];
+        md.TrueName = _userData.vMember.TrueName=Request["trueName"];
+        md.Gender = _userData.vMember.Gender=Request["sex"];
+        md.Position = _userData.vMember.Position=Request["position"];
+        md.Phone =_userData.vMember.Phone= Request["phoneqh"] + "-" + Request["phonehm"] + "-" + Request["phonefj"];
+        md.Mobile = _userData.vMember.Mobile=Request["mobile"];
+        md.Fax =_userData.vMember.Fax= Request["faxqh"] + "-" + Request["faxhm"] + "-" + Request["faxfj"];
+        md.HomePage =_userData.vMember.HomePage= Request["webSite"].ToLower().TrimEnd('/');
+        md.QQ = _userData.vMember.QQ=Request["qq"];
         bl.Update(md);
-        Response.Write("<script>alert('保存成功。')</script>");
+        Response.Write(Common.JSONHelper.ObjectToJSON(new {succ=true }));
         Response.End();
     }
 }

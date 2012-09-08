@@ -8,7 +8,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <input type="hidden" id="proid" value="<%=Request["id"] %>" />
 <ul class="hmenu">
-    <li>
+    <li class="mn-wrap-crt">
         <div class="mLeft"></div>
         <div class="mMiddle">发布供应信息</div>
         <div class="mRight"></div>

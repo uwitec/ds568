@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ul class="hmenu">
-    <li>
+    <li class="mn-wrap-crt">
         <div class="mLeft"></div>
         <div class="mMiddle">密保问题管理</div>
         <div class="mRight"></div>
@@ -33,7 +33,7 @@
     
     <li><span>&nbsp;</span><asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="保存" /></li>
 </ul>
-</form>
+
 <div class="validSuccess">
     <div class="sicon floatL"></div>
     <div class="sccon floatL"><b>您的密保问题已设置！</b><br />
@@ -48,5 +48,6 @@
         <li><span>&nbsp;</span><input type="button" value="确定"   class="subBtn subque" /></li>
     </ul>
 </div>
+</form>
 </asp:Content>
 

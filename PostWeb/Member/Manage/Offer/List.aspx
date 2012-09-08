@@ -11,9 +11,9 @@
     <asp:Repeater ID="Repeater1" runat="server">
         <ItemTemplate>
              <li state="<%#(byte)Container.DataItem %>">
-                 <div class="mLeft lunsl"></div>
-                 <div class="mMiddle munsl"><a href="?show_type=<%#(byte)Container.DataItem %>"><%#Container.DataItem %><span>(<%#GetProCount((byte)Container.DataItem)%>)</span></a></div>
-                 <div class="mRight runsl"></div>
+                 <div class="mLeft"></div>
+                 <div class="mMiddle"><a href="?show_type=<%#(byte)Container.DataItem %>"><%#Container.DataItem %><span>(<%#GetProCount((byte)Container.DataItem)%>)</span></a></div>
+                 <div class="mRight"></div>
             </li>
         </ItemTemplate>
     </asp:Repeater>

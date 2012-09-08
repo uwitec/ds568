@@ -2,7 +2,7 @@
 
     //设置选中项
     var state = $("#showType").val();
-    var curmn = $(".hmenu li[state=" + state + "]").find("div").removeClass("lunsl munsl runsl");
+    var curmn = $(".hmenu li[state=" + state + "]").addClass("mn-wrap-crt");
 
     //删除事件
     var bindact = function() {

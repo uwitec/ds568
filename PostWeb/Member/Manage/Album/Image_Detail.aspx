@@ -8,7 +8,7 @@
 <input type="hidden" id="img_id" value="<%=Request.QueryString["img_id"] %>" />
 <input type="hidden" id="FrontCover" value="<%=ViewState["FrontCover"] %>" />
 <ul class="hmenu">
-    <li>
+    <li class="mn-wrap-crt">
         <div class="mLeft"></div>
         <div class="mMiddle">相册管理</div>
         <div class="mRight"></div>
