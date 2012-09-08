@@ -14,8 +14,9 @@
         .itemL{width:120px;text-align:right;float:left;}
         .itemR{float:left;}
         .item-main-wrap li{overflow:auto;margin-bottom:10px;}
-        
+        .hmenu li{margin-left:1px;_margin-left:-2pxpx;}
     </style>
+    <script type="text/javascript" src="js/add.js"></script>
 </head>
 <body>
     <div class="htm-main">
@@ -25,10 +26,25 @@
                 <div class="itemL">主题名称：</div>
                 <div class="itemR"><input class="input-bg" name="themeName" /></div>
             </li>
-            <li>
-                <div class="itemL">招牌图片：</div>
-                <div class="itemR"><input class="input-bg" name="themeName" /></div>
+            
+        </ul>
+        <ul class="hmenu">
+           
+            <li class="mn-wrap-crt">
+                <div class="mLeft"></div>
+                <div class="mMiddle">招牌</div>
+                <div class="mRight"></div>
             </li>
+            <li>
+                <div class="mLeft"></div>
+                <div class="mMiddle">广告</div>
+                <div class="mRight"></div>
+            </li>
+            <li>
+                <div class="mLeft"></div>
+                <div class="mMiddle">背景</div>
+                <div class="mRight"></div>
+            </li>  
         </ul>
     </div>
 </body>
