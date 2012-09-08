@@ -18,35 +18,20 @@ public partial class Member_Manage_Account_EmailValidate : BasePage
         //设置左边菜单
         var mst = this.Master as Member_Manage_MasterPage;
         mst.SetMenuTitle("帐号管理", "邮箱验证");
-
         //保存事件
         Button1.Click+=new EventHandler(Button1_Click);
-
         if (IsPostBack) return;
-        var ud = Session["UserData"] as UserData;
         var bl = new DS_Members_Br();
-        Com.DianShi.Model.Member.DS_Members md = null ;
-        try
-        {
-            md= bl.GetSingle(ud.Member.ID);
-            ViewState["Email"] = md.Email;
-        }
-        catch (Exception ex) {
-            Common.WriteLog.SetErrLog(Request.Url.ToString(), "Page_Load",ex.Message);
-            Common.MessageBox.Show(this,"获取数据出错",Common.MessageBox.InfoType.error,"history.back");
-        }
-
-
         if (!string.IsNullOrEmpty(Request.QueryString["action"]))
         {
             string act = Request.QueryString["action"];
             switch (act)
             {
                 case "vlemail"://获取邮箱验证码
-                    ud.ValiCode = Common.StringFormat.ValidateCode(6);
+                    _userData.ValiCode = Common.StringFormat.ValidateCode(6);
                     var emun = new Common.EmailUitility();
                     emun.Title = "点石网邮箱验证！";
-                    emun.Content = "您的邮箱验证码是：" + ud.ValiCode;
+                    emun.Content = "您的邮箱验证码是：" + _userData.ValiCode;
                     emun.AddEmailAddress(Request.QueryString["email"]);
                     emun.FromAddress = "\"点石网会员中心\" " + emun.FromAddress;
                     emun.SendEmail();
@@ -55,16 +40,16 @@ public partial class Member_Manage_Account_EmailValidate : BasePage
                     
                     break;
                 case "cancle"://取消验证
-                    md.EmailValidate = false;
-                    bl.Update(md);
+                    _userData.Member.EmailValidate = false;
+                    bl.Update(_userData.Member);
                     Common.MessageBox.ResponseScript(this, "window.cancelValidate()");
                     break;
             }
         }//没有动作
         else {
-            if (md.EmailValidate)//如果已验证则显示已验证界面
+            if (_userData.Member.EmailValidate)//如果已验证则显示已验证界面
             {
-                cemail.Value = md.Email;
+                cemail.Value = _userData.Member.Email;
                 Common.MessageBox.ResponseScript(this, "window.vlsucc();");
             }
         }
@@ -77,17 +62,17 @@ public partial class Member_Manage_Account_EmailValidate : BasePage
             string cem=cemail.Value.Trim();
             string valiCode=Request.Form["valiCode"].Trim();
             if (string.IsNullOrEmpty(cem)) {
-                Common.MessageBox.Show(this, "尚未获取验证码，请获取后再提交", Common.MessageBox.InfoType.warning,"history.back");
+                Common.MessageBox.Show(this, "尚未获取验证码，请获取后再提交");
                 return;
             }
             if (!email.Equals(cem))
             {
-                Common.MessageBox.Show(this, "当前邮箱地址与提交验证的邮箱地址不一致，请重新发送验证码再确定", Common.MessageBox.InfoType.warning, "history.back");
+                Common.MessageBox.Show(this, "当前邮箱地址与提交验证的邮箱地址不一致，请重新发送验证码再确定");
                 return;
             }
             var ud = Session["UserData"] as UserData;
             if (!valiCode.Equals(ud.ValiCode)) {
-                Common.MessageBox.Show(this, "验证码输入不正确，请重输", Common.MessageBox.InfoType.warning, "history.back");
+                Common.MessageBox.Show(this, "验证码输入不正确，请重输");
                 return;
             }
             var bl = new DS_Members_Br();
@@ -99,7 +84,7 @@ public partial class Member_Manage_Account_EmailValidate : BasePage
         }
         catch (Exception ex) {
             Common.WriteLog.SetErrLog(Request.Url.ToString(), "Button1_Click", ex.Message);
-            Common.MessageBox.Show(this, "保存出错", Common.MessageBox.InfoType.error, "history.back");
+            Common.MessageBox.Show(this, "保存出错。");
         }
     }
 

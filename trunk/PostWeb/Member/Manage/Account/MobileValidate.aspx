@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ul class="hmenu">
-    <li>
+    <li class="mn-wrap-crt">
         <div class="mLeft"></div>
         <div class="mMiddle">手机验证</div>
         <div class="mRight"></div>
@@ -15,7 +15,7 @@
 </ul>
 <form id="form1" runat="server" class="mstForm">
 <ul class="ctList">
-    <li><span>手机号码：<label class="red">*</label></span><input type="hidden" runat="server" class="cmobile" value="" id="cmobile" name="cmobile" /><input type="text" class="txtbox mobile" value="<%=ViewState["Mobile"] %>" id="mobile" name="mobile" maxlength="100" /></li>
+    <li><span>手机号码：<label class="red">*</label></span><input type="hidden" runat="server" class="cmobile" value="" id="cmobile" name="cmobile" /><input type="text" class="txtbox mobile" value="<%=_userData.Member.Mobile %>" id="mobile" name="mobile" maxlength="100" /></li>
     <li><span>&nbsp;</span><label class="msg"></label><a href="javascript:;" class="sendCC">发送验证码</a></li>
     <li><span>验证码：<label class="red">*</label></span><input type="text" class="txtbox gray" value="请输入6位验证码" id="valiCode" name="valiCode" maxlength="20" /></li>
     <li><span>&nbsp;</span><asp:Button ID="Button1" CssClass="subBtn" runat="server" Text="确定" /></li>

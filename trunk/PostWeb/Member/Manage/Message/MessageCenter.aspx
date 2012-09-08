@@ -21,16 +21,16 @@
          <div class="msghd">消息中心</div>
          <ul class="hmenu">
             <li>
-                 <div class="mLeft lunsl"></div>
-                 <div class="mMiddle munsl"><a href="?">最近消息</a></div>
-                 <div class="mRight runsl"></div>
+                 <div class="mLeft"></div>
+                 <div class="mMiddle"><a href="?">最近消息</a></div>
+                 <div class="mRight"></div>
             </li>
             <asp:Repeater ID="Repeater1" runat="server">
                 <ItemTemplate>
                       <li tid="<%#(byte)Container.DataItem %>">
-                         <div class="mLeft lunsl"></div>
-                         <div class="mMiddle munsl"><a href="?tid=<%#(byte)Container.DataItem %>"><%#Container.DataItem %></a></div>
-                         <div class="mRight runsl"></div>
+                         <div class="mLeft"></div>
+                         <div class="mMiddle"><a href="?tid=<%#(byte)Container.DataItem %>"><%#Container.DataItem %></a></div>
+                         <div class="mRight"></div>
                     </li>
                 </ItemTemplate>
             </asp:Repeater>

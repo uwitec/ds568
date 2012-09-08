@@ -10,13 +10,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <ul class="hmenu">
-        <li>
-            <div class="mLeft">
-            </div>
-            <div class="mMiddle">
-                详细资料</div>
-            <div class="mRight">
-            </div>
+        <li class="mn-wrap-crt">
+            <div class="mLeft"></div>
+            <div class="mMiddle">详细资料</div>
+            <div class="mRight"></div>
         </li>
         <li class="request"><span class="red">*</span><span class="gray">表示该项必填</span></li>
     </ul>

@@ -74,7 +74,7 @@
 });
 
 //验证成功后执行的事件
-window.vlsucc= function(){
+window.vlsucc = function () {
     $(".ctList").hide();
     $(".validSuccess").show();
 }

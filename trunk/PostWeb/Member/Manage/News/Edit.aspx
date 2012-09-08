@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <input type="hidden" value="<%=Request.QueryString["id"] %>" id="nid" />
 <ul class="hmenu">
-    <li>
+    <li class="mn-wrap-crt">
         <div class="mLeft"></div>
         <div class="mMiddle">修改动态</div>
         <div class="mRight"></div>

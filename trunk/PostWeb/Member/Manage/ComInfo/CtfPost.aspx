@@ -10,7 +10,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <input type="hidden" id="ctfid" value="<%=Request["id"] %>" />
 <ul class="hmenu">
-    <li>
+    <li class="mn-wrap-crt">
         <div class="mLeft"></div>
         <div class="mMiddle">填写证书信息</div>
         <div class="mRight"></div>

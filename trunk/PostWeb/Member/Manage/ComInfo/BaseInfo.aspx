@@ -9,7 +9,7 @@
 <input type="hidden" value="<%=ViewState["mapNid"] %>" name="mapNid" />
 <input type="hidden" value="<%=_userData.Member.ID %>" name="memberID" />
 <ul class="hmenu">
-    <li>
+    <li class="mn-wrap-crt">
         <div class="mLeft"></div>
         <div class="mMiddle">基本资料</div>
         <div class="mRight"></div>
