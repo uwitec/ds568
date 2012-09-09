@@ -32,3 +32,6 @@ a.commBtn:hover{color:#fff !important;}
 .commBtn .cb_m{background-position:-5px top;}
 .commBtn.loading2{padding-left:12px; background-position:left center;}
 a.commBtn.loading2 span{background:none;color:#555;}
+
+/*==============单复选框与文字上下对齐=================*/
+.valign{vertical-align:middle; margin-top:-2px; margin-bottom:1px;}
