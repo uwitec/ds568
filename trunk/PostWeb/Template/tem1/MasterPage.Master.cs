@@ -13,7 +13,7 @@ using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Product;
 using Com.DianShi.BusinessRules.Member;
 using Com.DianShi.Model.Member;
-using Com.DianShi.BusinessRules.Decoration;
+using Com.DianShi.BusinessRules.SiteConfig;
 public partial class MasterPage : System.Web.UI.MasterPage
 {
     public View_Members vMember;

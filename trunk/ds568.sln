@@ -49,9 +49,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.DianShi.Model.News", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.DianShi.BusinessRules.News", "Com.DianShi.BusinessRules.News\Com.DianShi.BusinessRules.News.csproj", "{BA44468F-C499-433E-8D54-3A638C5950E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.DianShi.Model.Decoration", "Com.DianShi.Model.Decoration\Com.DianShi.Model.Decoration.csproj", "{B60CF4B6-46DB-445A-8F9D-4EB8C745142F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.DianShi.Model.SiteConfig", "Com.DianShi.Model.Decoration\Com.DianShi.Model.SiteConfig.csproj", "{B60CF4B6-46DB-445A-8F9D-4EB8C745142F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.DianShi.BusinessRules.Decoration", "Com.DianShi.BusinessRules.Decoration\Com.DianShi.BusinessRules.Decoration.csproj", "{0AA584BE-E61D-4796-B236-54FF3B296C37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.DianShi.BusinessRules.SiteConfig", "Com.DianShi.BusinessRules.Decoration\Com.DianShi.BusinessRules.SiteConfig.csproj", "{0AA584BE-E61D-4796-B236-54FF3B296C37}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.DianShi.Model.Sys", "Com.DianShi.Model.Sys\Com.DianShi.Model.Sys.csproj", "{CA4C27FE-BE4B-40A7-8757-5DC00D08A4F5}"
 EndProject
