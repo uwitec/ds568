@@ -99,7 +99,7 @@ input.html_color{border: medium none;
           <ul class="item-main-wrap" style="display:none;margin-top:10px;" >
             <li>
                 <div class="itemL" >显示状态：</div>
-                <div class="itemR"><input type="radio" checked class="valign" name="comns" id="comns1"  /><label for="comns1">显示</label> <input type="radio" checked class="valign" name="comns" id="comns2"  /><label for="comns2">不显示</label></div>
+                <div class="itemR"><input type="radio" checked class="valign" value="True" name="comns" id="comns1"  /><label for="comns1">显示</label> <input type="radio" checked class="valign" value="False" name="comns" id="comns2"  /><label for="comns2">不显示</label></div>
             </li>
             <li>
                 <div class="itemL" >文字样式：</div>
@@ -107,7 +107,7 @@ input.html_color{border: medium none;
                     <table cellpadding=0 cellspacing=0>
                         <tr>
                             <td><select  name="comfontName"><option value="宋体">宋体</option><option value="仿宋">仿宋</option><option value="黑体">黑体</option><option value="楷体">楷体</option></select><select  name="comfontSize"><option value="12">12</option><option value="14">14</option><option value="16">16</option><option value="18">18</option><option value="20">20</option><option value="22">22</option><option value="24">24</option><option value="26">26</option><option value="28">28</option><option value="30">30</option></select></td>
-                            <td style="padding-left:12px;"><span class="fontselbold"><img   id="fontBold"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img  id="fontItalic"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="fontColor" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                            <td style="padding-left:12px;"><span class="fontselbold"><img   id="fontBold" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="fontItalic"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="fontColor" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
                         </tr>
                     </table>
                 </div>
