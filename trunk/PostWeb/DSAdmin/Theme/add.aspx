@@ -80,22 +80,21 @@ input.html_color{border: medium none;
             <ul class="sub-model-menu">
                 <li class="crt">设定招牌背景图</li>
                 <li>设置公司名称字体</li>
-                <li style="float:right;border:none; background-color:White;top:-1px;"><input type="button" class="btn-save" value="保存" /></li>
+                <li style="float:right;border:none; background-color:White;top:-1px;"><a id="btn-sign-save" class="commBtn" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a></li>
             </ul>
             <ul class="item-main-wrap" style="margin-top:10px;">
-            <li>
-                <div class="itemL" style="text-align:left;"><input type="radio" checked class="valign" name="bgtype" id="bgtype1"  /><label for="bgtype1">背景图</label></div>
-                <div class="itemR"></div>
-            </li>
-            <li>
-                <div class="itemL" style="width:20px;">&nbsp;</div>
-                <div class="itemR"><input type="file"   name="bgfile" id="bgfile" /></div>
-            </li>
-            <li>
-                <div class="itemL" style="text-align:left;"><input type="radio" class="valign" name="bgtype" id="bgtype2"  /><label for="bgtype2">选择背景色</label></div>
-                <div class="itemR"><input id="color_a" type="text" class="html_color" readonly /></div>
-            </li>
-            
+                <li>
+                    <div class="itemL" style="text-align:left;"><input type="radio" checked class="valign" name="bgtype" id="bgtype1"  /><label for="bgtype1">背景图</label></div>
+                    <div class="itemR"></div>
+                </li>
+                <li>
+                    <div class="itemL" style="width:20px;">&nbsp;</div>
+                    <div class="itemR"><input type="file"   name="signfile" id="signfile" /></div>
+                </li>
+                <li>
+                    <div class="itemL" style="text-align:left;"><input type="radio" class="valign" name="bgtype" id="bgtype2"  /><label for="bgtype2">选择背景色</label></div>
+                    <div class="itemR"><input id="color_a" type="text" class="html_color" readonly /></div>
+                </li>
           </ul>
           <ul class="item-main-wrap" style="display:none;margin-top:10px;" >
             <li>
