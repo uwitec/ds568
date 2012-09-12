@@ -34,45 +34,47 @@
     //提交
     $("#btn-sign-save").click(function() {
         if ($(this).hasClass("loading2")) return false;
-            
-            var themeName=$.trim($("input[name=themeName]").val());
-            if(themeName==""){
-                alert("请输入主题名称。");
-                return false;
-            }
-            $("#btn-sign-save").addClass("loading2").find(".cb_m").text("数据提交中…");
-            $.ajaxFileUpload({
-                url: _url + "?time=" + Math.random(),
-                type: "POST",
-                secureuri: false,
-                fileElementId: 'signfile',
-                data: { myaction: "signSave", themeName: themeName },
-                dataType: "json",
-                success: function(data, status) {
-                    if (data.succ) {
-                        alert("提交成功。");
-                    }
-                    else if (data.lgout) {
-                        alert(data.msg);
-                        open("/member/login/Signin.aspx?return_url=" + location.href, "_top");
-                    }
-                    else {
-                        alert(data.msg);
-                    }
-                },
-                error: function(data, status, e) {
-                    $("body").append(data.responseText)
-                    alert(e);
-                },
-                complete: function() {
-                $("#btn-sign-save").removeClass("loading2").find(".cb_m").text("提交审核");
+
+        var themeName = $.trim($("input[name=themeName]").val());
+        if (themeName == "") {
+            alert("请输入主题名称。");
+            return false;
+        }
+        var cnstyle = "";
+        if()
+        $("#btn-sign-save").addClass("loading2").find(".cb_m").text("数据提交中…");
+        $.ajaxFileUpload({
+            url: _url + "?time=" + Math.random(),
+            type: "POST",
+            secureuri: false,
+            fileElementId: 'signfile',
+            data: { myaction: "signSave", themeName: themeName, signType: $("input[name=signType]:checked").val(), signBgColor: $("#color_a").val() },
+            dataType: "json",
+            success: function(data, status) {
+                if (data.succ) {
+                    alert("提交成功。");
                 }
-            });
-        
+                else if (data.lgout) {
+                    alert(data.msg);
+                    open("/member/login/Signin.aspx?return_url=" + location.href, "_top");
+                }
+                else {
+                    alert(data.msg);
+                }
+            },
+            error: function(data, status, e) {
+                $("body").append(data.responseText)
+                alert(e);
+            },
+            complete: function() {
+                $("#btn-sign-save").removeClass("loading2").find(".cb_m").text("提交审核");
+            }
+        });
+
     });
 
 
-    
- 
+
+
 
 })

@@ -84,7 +84,7 @@ input.html_color{border: medium none;
             </ul>
             <ul class="item-main-wrap" style="margin-top:10px;">
                 <li>
-                    <div class="itemL" style="text-align:left;"><input type="radio" checked class="valign" name="bgtype" id="bgtype1"  /><label for="bgtype1">背景图</label></div>
+                    <div class="itemL" style="text-align:left;"><input type="radio" checked class="valign" name="signType" id="signType1"  /><label for="signType1">背景图</label></div>
                     <div class="itemR"></div>
                 </li>
                 <li>
@@ -92,7 +92,7 @@ input.html_color{border: medium none;
                     <div class="itemR"><input type="file"   name="signfile" id="signfile" /></div>
                 </li>
                 <li>
-                    <div class="itemL" style="text-align:left;"><input type="radio" class="valign" name="bgtype" id="bgtype2"  /><label for="bgtype2">选择背景色</label></div>
+                    <div class="itemL" style="text-align:left;"><input type="radio" class="valign" name="signType" id="signType2"  /><label for="signType2">选择背景色</label></div>
                     <div class="itemR"><input id="color_a" type="text" class="html_color" readonly /></div>
                 </li>
           </ul>
