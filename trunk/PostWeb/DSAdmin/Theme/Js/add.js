@@ -1,10 +1,10 @@
-﻿$(function() {
-    $(".hmenu li").click(function() {
+﻿$(function () {
+    $(".hmenu li").click(function () {
         $(".hmenu li").removeClass("mn-wrap-crt");
         $(this).addClass("mn-wrap-crt");
     });
 
-    $(".sub-model-menu li").not(":last").click(function() {
+    $(".sub-model-menu li").not(":last").click(function () {
         var ind = $(".sub-model-menu li").removeClass("crt").index(this);
         $(this).addClass("crt");
         $(".sub-model-menu").parent().find(".item-main-wrap").hide().eq(ind).show();
@@ -13,26 +13,27 @@
     $("#color_a").colorSelect();
     $("#fontColor").colorSelect();
 
-    $("#fontBold").click(function() {
+    $("#fontBold").click(function () {
         var src = "http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif";
         if ($(this).attr("src") == src) {
-            $(this).attr("src", "http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_2.gif")
-        } else
-            $(this).attr("src", src)
+            $(this).attr("src", "http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_2.gif").attr("val", "bold")
+        } else {
+            $(this).attr("src", src).attr("val", "normal")
+        }
     });
-    $("#fontItalic").click(function() {
+    $("#fontItalic").click(function () {
         var src = "http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif";
         if ($(this).attr("src") == src) {
-            $(this).attr("src", "http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_2.gif")
+            $(this).attr("src", "http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_2.gif").attr("val", "italic")
         } else
-            $(this).attr("src", src)
+            $(this).attr("src", src).attr("val", "normal")
     });
 
 
     //上传
     var _url = "Action.ashx"
     //提交
-    $("#btn-sign-save").click(function() {
+    $("#btn-sign-save").click(function () {
         if ($(this).hasClass("loading2")) return false;
 
         var themeName = $.trim($("input[name=themeName]").val());
@@ -40,17 +41,17 @@
             alert("请输入主题名称。");
             return false;
         }
-        var cnstyle = "";
-        if()
+        var cnstyle = "font-family:" + $("select[name=comfontName]").val() + ";font-size:" + $("select[name=comfontSize]").val() + ";font-weight:" + $("#fontBold").attr("val") + ";font-style:" + $("#fontItalic").attr("val") + ";color:" + $("#fontColor").css("background-color");
+        
         $("#btn-sign-save").addClass("loading2").find(".cb_m").text("数据提交中…");
         $.ajaxFileUpload({
             url: _url + "?time=" + Math.random(),
             type: "POST",
             secureuri: false,
             fileElementId: 'signfile',
-            data: { myaction: "signSave", themeName: themeName, signType: $("input[name=signType]:checked").val(), signBgColor: $("#color_a").val() },
+            data: { myaction: "signSave", themeName: themeName, signType: $("input[name=signType]:checked").val(), signBgColor: $("#color_a").css("background-color"), comNameShow: $("input[name=comns]:checked").val(),signStyle: cnstyle },
             dataType: "json",
-            success: function(data, status) {
+            success: function (data) {
                 if (data.succ) {
                     alert("提交成功。");
                 }
@@ -62,11 +63,11 @@
                     alert(data.msg);
                 }
             },
-            error: function(data, status, e) {
+            error: function (data, status, e) {
                 $("body").append(data.responseText)
                 alert(e);
             },
-            complete: function() {
+            complete: function () {
                 $("#btn-sign-save").removeClass("loading2").find(".cb_m").text("提交审核");
             }
         });
