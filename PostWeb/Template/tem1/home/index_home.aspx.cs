@@ -40,13 +40,13 @@ public partial class index_home :  ShopBasePage
         //Repeater3.DataBind();
       
         //焦点图
-        if (!object.Equals(_SiteConfig,null)&&!string.IsNullOrEmpty(_SiteConfig.RollImg1 + _SiteConfig.RollImg2 + _SiteConfig.RollImg3))
+        if (!object.Equals(_ShopConfig,null)&&!string.IsNullOrEmpty(_ShopConfig.RollImg1 + _ShopConfig.RollImg2 + _ShopConfig.RollImg3))
         {
             Roll_Img_wrap.Visible = true;
             DefaultR.Visible = false;
-            RM_1.Src = _SiteConfig.RollImg1;
-            RM_2.Src = _SiteConfig.RollImg2;
-            RM_3.Src = _SiteConfig.RollImg3;
+            RM_1.Src = _ShopConfig.RollImg1;
+            RM_2.Src = _ShopConfig.RollImg2;
+            RM_3.Src = _ShopConfig.RollImg3;
         }
        
        

@@ -11,15 +11,15 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Com.DianShi.BusinessRules.Member;
 using Com.DianShi.Model.Member;
-using Com.DianShi.Model.SiteConfig;
-using Com.DianShi.BusinessRules.SiteConfig;
+using Com.DianShi.Model.ShopConfig;
+using Com.DianShi.BusinessRules.ShopConfig;
 /// <summary>
 ///商铺基类
 /// </summary>
 public class ShopBasePage : System.Web.UI.Page
 {
     public  View_Members  _vMember = null;
-    public DS_SiteConfig _SiteConfig;
+    public DS_ShopConfig _ShopConfig;
    
     protected override void OnPreLoad(EventArgs e)
     {
@@ -32,26 +32,26 @@ public class ShopBasePage : System.Web.UI.Page
         }
 
         //装修数据
-        var dcbl = new DS_SiteConfig_Br();
-        _SiteConfig = dcbl.GetSingle(_vMember.ID, true);
-        if (!object.Equals(_SiteConfig,null)&&!object.Equals(this.Page.Header, null))
+        var dcbl = new DS_ShopConfig_Br();
+        _ShopConfig = dcbl.GetSingle(_vMember.ID, true);
+        if (!object.Equals(_ShopConfig,null)&&!object.Equals(this.Page.Header, null))
         {
             var lctr = new LiteralControl();
             lctr.Text = "<style type=\"text/css\">";
-            if (!string.IsNullOrEmpty(_SiteConfig.Sign))
-                lctr.Text += ".Head{background-image:url(" + _SiteConfig.Sign + ");}\n";
-            if (!string.IsNullOrEmpty(_SiteConfig.MenuBg))
-                lctr.Text += ".HeaderMenuBar{background-image:url(" + _SiteConfig.MenuBg + ");}\n";
-            if (!string.IsNullOrEmpty(_SiteConfig.NormalMenu))
-                lctr.Text += ".HeaderMenuBar ul li{background-image:url(" + _SiteConfig.NormalMenu + ");}\n";
-            if (!string.IsNullOrEmpty(_SiteConfig.SelectedMenu))
-                lctr.Text += ".HeaderMenuBar ul li:hover{background-image:url(" + _SiteConfig.SelectedMenu + ");}\n";
-            if (!string.IsNullOrEmpty(_SiteConfig.SelectedMenu))
-                lctr.Text += ".HeaderMenuBar ul li.Check{background-image:url(" + _SiteConfig.SelectedMenu + ");}\n";
-            if (!string.IsNullOrEmpty(_SiteConfig.NmColor))
-                lctr.Text += ".HeaderMenuBar ul li a:link,.HeaderMenuBar ul li a:visited{color:" + _SiteConfig.NmColor + ";}\n";
-            if (!string.IsNullOrEmpty(_SiteConfig.SelmColor))
-                lctr.Text += ".HeaderMenuBar ul li:hover a,.HeaderMenuBar ul li a:hover,.HeaderMenuBar ul li.Check a:link,.HeaderMenuBar ul li.Check a:visited{color:" + _SiteConfig.SelmColor + ";}\n";
+            if (!string.IsNullOrEmpty(_ShopConfig.Sign))
+                lctr.Text += ".Head{background-image:url(" + _ShopConfig.Sign + ");}\n";
+            if (!string.IsNullOrEmpty(_ShopConfig.MenuBg))
+                lctr.Text += ".HeaderMenuBar{background-image:url(" + _ShopConfig.MenuBg + ");}\n";
+            if (!string.IsNullOrEmpty(_ShopConfig.NormalMenu))
+                lctr.Text += ".HeaderMenuBar ul li{background-image:url(" + _ShopConfig.NormalMenu + ");}\n";
+            if (!string.IsNullOrEmpty(_ShopConfig.SelectedMenu))
+                lctr.Text += ".HeaderMenuBar ul li:hover{background-image:url(" + _ShopConfig.SelectedMenu + ");}\n";
+            if (!string.IsNullOrEmpty(_ShopConfig.SelectedMenu))
+                lctr.Text += ".HeaderMenuBar ul li.Check{background-image:url(" + _ShopConfig.SelectedMenu + ");}\n";
+            if (!string.IsNullOrEmpty(_ShopConfig.NmColor))
+                lctr.Text += ".HeaderMenuBar ul li a:link,.HeaderMenuBar ul li a:visited{color:" + _ShopConfig.NmColor + ";}\n";
+            if (!string.IsNullOrEmpty(_ShopConfig.SelmColor))
+                lctr.Text += ".HeaderMenuBar ul li:hover a,.HeaderMenuBar ul li a:hover,.HeaderMenuBar ul li.Check a:link,.HeaderMenuBar ul li.Check a:visited{color:" + _ShopConfig.SelmColor + ";}\n";
             lctr.Text += "</style>";
             this.Page.Header.Controls.Add(lctr);
         }
