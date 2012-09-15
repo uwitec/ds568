@@ -1,7 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hds0230549_db" Class="DS_SiteConfigDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=hds-023.hichina.com;Initial Catalog=hds0230549_db;Persist Security Info=True;User ID=hds0230549" SettingsObjectName="Com.DianShi.Model.SiteConfig.Properties.Settings" SettingsPropertyName="hds0230549_dbConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.DS_SiteConfig" Member="DS_SiteConfig">
-    <Type Name="DS_SiteConfig">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="hds0230549_db" Class="DS_ShopConfigDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=hds-023.hichina.com;Initial Catalog=hds0230549_db;Persist Security Info=True;User ID=hds0230549" SettingsObjectName="Com.DianShi.Model.ShopConfig.Properties.Settings" SettingsPropertyName="hds0230549_dbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DS_ShopConfig" Member="DS_ShopConfig">
+    <Type Name="DS_ShopConfig">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
       <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Sign" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />

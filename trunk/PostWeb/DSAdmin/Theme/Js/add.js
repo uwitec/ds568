@@ -55,10 +55,6 @@
                 if (data.succ) {
                     alert("提交成功。");
                 }
-                else if (data.lgout) {
-                    alert(data.msg);
-                    open("/member/login/Signin.aspx?return_url=" + location.href, "_top");
-                }
                 else {
                     alert(data.msg);
                 }

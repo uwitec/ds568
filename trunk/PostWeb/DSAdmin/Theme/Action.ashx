@@ -2,7 +2,7 @@
 
 using System;
 using System.Web;
-using Com.DianShi.BusinessRules.Member;
+using Com.DianShi.BusinessRules.ShopConfig;
 using System.IO;
 using System.Web.SessionState;
 public class Action : IHttpHandler, IRequiresSessionState
@@ -21,32 +21,22 @@ public class Action : IHttpHandler, IRequiresSessionState
         string act = context.Request["myaction"];
         if (!string.IsNullOrEmpty(act))
         {
-            var bl = new DS_Certificate_Br();
-            string tempPath = Common.Constant.WebConfig("AlbumRootPath") + DS_Members_Br.GetMemberDir(ud.Member.ID) + "/Certificate/";
+            var bl = new DS_ShopTheme_Br();
+            string tempPath = "/DSAdmin/ThemeImg/the";
             switch (act)
             {
                 case "signSave":
                     try
                     {
-                        var mbbl = new DS_Members_Br();
                         string id = context.Request["id"];
                         bool isEdit=!string.IsNullOrEmpty(id);
                         var md = bl.CreateModel();
                         if (isEdit) {
                             md = bl.GetSingle(int.Parse(id));
                         }
-                        md.MemberID = ud.Member.ID;
-                        md.CtfName = context.Request["ctfname"];
-                        md.CtfNumber = context.Request["ctfnumber"];
-                        md.CtfProfile = context.Request["ctfprofile"];
-                        md.CtfType = byte.Parse(context.Request["ctftype"]);
-                        if (!string.IsNullOrEmpty(context.Request["enddate"]))
-                            md.EndDate = DateTime.Parse(context.Request["enddate"]);
-                        md.IssPhone = context.Request["issphone"];
-                        md.IssuingAgency = context.Request["issag"];
-                        md.IssWebSite = context.Request["isswebsite"];
-                        md.StartDate = DateTime.Parse(context.Request["startdate"]);
-                        md.CtfState = (byte)DS_Certificate_Br.CtfState.审核中;
+                        md.ThemeName = context.Request["themeName"];
+                        md.SignType = byte.Parse(context.Request["signType"]);
+                        md.SignBgColor=context.Request[""];
                         if (context.Request.Files[0].ContentLength > 0)
                         {
                             HttpPostedFile file = context.Request.Files[0];
@@ -56,7 +46,7 @@ public class Action : IHttpHandler, IRequiresSessionState
                                 context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false, msg = "请您上传jpg、gif、png图片" }));
                                 return;
                             }
-                            else if (file.ContentLength > 1024 * 1024)
+                            else if (file.ContentLength > 1024 * 300)
                             {
                                 context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false, msg = "请您上传1M(1024KB)内的图片" }));
                                 return;
