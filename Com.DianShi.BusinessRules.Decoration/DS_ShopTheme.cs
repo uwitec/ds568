@@ -25,8 +25,8 @@ namespace Com.DianShi.BusinessRules.ShopConfig
         {
             using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
             {
-                try
-                {
+                //try
+                //{
                     string themePath = "/DSAdmin/ThemeImg/the";
                     string id = request["id"];
                     bool isEdit = !string.IsNullOrEmpty(id);
@@ -87,8 +87,8 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                     }
                     ct.SubmitChanges();
                     return new ApiRunInfo { Succ = true};
-                }
-                catch (Exception ex) { return new ApiRunInfo { Succ = false, Msg =ex.Message }; }
+                //}
+                //catch (Exception ex) { return new ApiRunInfo { Succ = false, Msg =ex.Message }; }
             }
         }
 
