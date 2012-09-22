@@ -26,6 +26,14 @@ namespace DBUtility
               return DbHelperSQL.Query(tblName, strGetFields, fldName, PageSize, PageIndex, doCount, OrderType, strWhere);
         }
 
+        /// <summary>
+        /// API调用返回结果基类
+        /// </summary>
+        public  class ApiRunInfo {
+            public bool Succ { get; set; }
+            public string Msg { get; set; }
+        }
+
         
     }
 }

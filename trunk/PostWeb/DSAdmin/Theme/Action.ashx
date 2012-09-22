@@ -22,73 +22,14 @@ public class Action : IHttpHandler, IRequiresSessionState
         if (!string.IsNullOrEmpty(act))
         {
             var bl = new DS_ShopTheme_Br();
-            string tempPath = "/DSAdmin/ThemeImg/the";
             switch (act)
             {
                 case "signSave":
-                    try
-                    {
-                        string id = context.Request["id"];
-                        bool isEdit=!string.IsNullOrEmpty(id);
-                        var md = bl.CreateModel();
-                        if (isEdit) {
-                            md = bl.GetSingle(int.Parse(id));
-                        }
-                        md.ThemeName = context.Request["themeName"];
-                        md.SignType = byte.Parse(context.Request["signType"]);
-                        md.SignBgColor=context.Request[""];
-                        if (context.Request.Files[0].ContentLength > 0)
-                        {
-                            HttpPostedFile file = context.Request.Files[0];
-                            string ext = Path.GetExtension(file.FileName).ToLower();
-                            if (ext != ".jpg" && ext != ".gif")
-                            {
-                                context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false, msg = "请您上传jpg、gif、png图片" }));
-                                return;
-                            }
-                            else if (file.ContentLength > 1024 * 300)
-                            {
-                                context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false, msg = "请您上传1M(1024KB)内的图片" }));
-                                return;
-                            }
-                            else
-                            {
-                                string newName = Guid.NewGuid().ToString();
-                                string img = tempPath + newName + ext;
-                                string filePath = context.Server.MapPath(img);
-                                tempPath = context.Server.MapPath(tempPath);
-                                if (!Directory.Exists(tempPath))
-                                {
-                                    Directory.CreateDirectory(tempPath);
-                                }
-                                file.SaveAs(filePath);//保存图
-
-                                //如果是修改，则先删除原图片
-                                if (isEdit) {
-                                    //try
-                                    //{
-                                        File.Delete(tempPath+ md.CtfImg);
-                                    //}
-                                    //catch { }
-                                }
-                                md.CtfImg = newName + ext;
-                            }
-                        }
-                        
-                        if (isEdit)
-                            bl.Update(md);
-                        else
-                        {
-                            bl.Add(md);
-                        }
-                        context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = true}));
-                    }
-                    catch (Exception ex) { context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false, msg = ex.Message })); }
+                    bl.Save(context.Request);
                     break;
-              
                 case "getmd":
                     var ctf=bl.GetSingle(int.Parse(context.Request["id"]));
-                    ctf.CtfImg = tempPath + ctf.CtfImg;
+                    //ctf.CtfImg = tempPath + ctf.CtfImg;
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(ctf));
                     break;
                 case "del":
