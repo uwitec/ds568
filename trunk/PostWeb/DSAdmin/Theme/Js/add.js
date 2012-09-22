@@ -52,11 +52,11 @@
             data: { myaction: "signSave", themeName: themeName, signType: $("input[name=signType]:checked").val(), signBgColor: $("#color_a").css("background-color"), comNameShow: $("input[name=comns]:checked").val(),signStyle: cnstyle },
             dataType: "json",
             success: function (data) {
-                if (data.succ) {
+                if (data.Succ) {
                     alert("提交成功。");
                 }
                 else {
-                    alert(data.msg);
+                    alert(data.Msg);
                 }
             },
             error: function (data, status, e) {

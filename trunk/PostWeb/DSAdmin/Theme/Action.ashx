@@ -10,12 +10,12 @@ public class Action : IHttpHandler, IRequiresSessionState
     
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/plain";
-        var ud = context.Session["UserData"] as UserData;
-        if (ud == null || ud.Member == null)
-        {
-            context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false, lgout = true, msg = "抱歉，操作超时，需重新登录。" }));
-            return;
-        }
+        //var ud = context.Session["UserData"] as UserData;
+        //if (ud == null || ud.Member == null)
+        //{
+        //    context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false, lgout = true, msg = "抱歉，操作超时，需重新登录。" }));
+        //    return;
+        //}
 
         //ajax事件
         string act = context.Request["myaction"];
@@ -25,7 +25,7 @@ public class Action : IHttpHandler, IRequiresSessionState
             switch (act)
             {
                 case "signSave":
-                    bl.Save(context.Request);
+                    context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.Save(context.Request)));
                     break;
                 case "getmd":
                     var ctf=bl.GetSingle(int.Parse(context.Request["id"]));

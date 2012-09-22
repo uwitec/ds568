@@ -44,6 +44,7 @@ input.html_color{border: medium none;
      <script type="text/javascript" src="../js/chili-2.2.js"></script>
      <script type="text/javascript" src="../js/recipes.js"></script>
      <script type="text/javascript" src="../js/colorselect.js"></script>
+     <script type="text/javascript" src="/js/ajaxupload.js"></script>
     <script type="text/javascript" src="js/add.js"></script>
 </head>
 <body>
