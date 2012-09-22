@@ -4,7 +4,7 @@
   <Table Name="dbo.DS_ShopTheme" Member="DS_ShopTheme">
     <Type Name="DS_ShopTheme">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
-      <Column Name="ThemeName" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ThemeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="SignType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Column Name="SignImg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="SignBgColor" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
