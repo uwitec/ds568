@@ -64,7 +64,7 @@
                 alert(e);
             },
             complete: function () {
-                $("#btn-sign-save").removeClass("loading2").find(".cb_m").text("提交审核");
+                $("#btn-sign-save").removeClass("loading2").find(".cb_m").text("保存");
             }
         });
 
