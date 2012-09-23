@@ -21,7 +21,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
         }
 
 
-        public ApiRunInfo Save(HttpRequest request)
+        public Object Save(HttpRequest request)
         {
             using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
             {
@@ -37,7 +37,10 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         themePath += md.ID.ToString().PadLeft(3,'0');
                     }
                     else {
-                        themePath+=(ct.DS_ShopTheme.Max(a => a.ID) + 1).ToString().PadLeft(3, '0');
+                        int indent = 1;
+                        if (ct.DS_ShopTheme.Count() > 0)
+                            indent=ct.DS_ShopTheme.Max(a => a.ID) + 1;
+                        themePath+=indent.ToString().PadLeft(3, '0');
                     }
                     md.ThemeName = request["themeName"];
                     md.SignType = byte.Parse(request["signType"]);
@@ -50,12 +53,12 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         string ext =System.IO.Path.GetExtension(file.FileName).ToLower();
                         if (ext != ".jpg" && ext != ".gif")
                         {
-                            return new ApiRunInfo{ Succ = false, Msg = "请您上传jpg、gif、png图片" };
+                            return new { Succ = false, Msg = "请您上传jpg、gif、png图片" };
                            
                         }
                         else if (file.ContentLength > 1024 * 300)
                         {
-                            return new ApiRunInfo { Succ = false, Msg = "请您上传1M(1024KB)内的图片" };
+                            return new { Succ = false, Msg = "请您上传1M(1024KB)内的图片" };
                         }
                         else
                         {
@@ -86,7 +89,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         ct.DS_ShopTheme.InsertOnSubmit(md);
                     }
                     ct.SubmitChanges();
-                    return new ApiRunInfo { Succ = true};
+                    return new { Succ = true};
                 //}
                 //catch (Exception ex) { return new ApiRunInfo { Succ = false, Msg =ex.Message }; }
             }
