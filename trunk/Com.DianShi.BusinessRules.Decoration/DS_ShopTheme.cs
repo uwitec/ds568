@@ -27,20 +27,20 @@ namespace Com.DianShi.BusinessRules.ShopConfig
             {
                 //try
                 //{
-                    string themePath = "/DSAdmin/ThemeImg/the";
+                string themePath = Common.Constant.WebConfig("ThemeRootPath") + "the";
                     string id = request["id"];
                     bool isEdit = !string.IsNullOrEmpty(id);
                     var md = CreateModel();
                     if (isEdit)
                     {
                         md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(id)));
-                        themePath += md.ID.ToString().PadLeft(3,'0');
+                        themePath += md.ID.ToString().PadLeft(3,'0')+"/";
                     }
                     else {
                         int indent = 1;
                         if (ct.DS_ShopTheme.Count() > 0)
                             indent=ct.DS_ShopTheme.Max(a => a.ID) + 1;
-                        themePath+=indent.ToString().PadLeft(3, '0');
+                        themePath += indent.ToString().PadLeft(3, '0') + "/";
                     }
                     md.ThemeName = request["themeName"];
                     md.SignType = byte.Parse(request["signType"]);

@@ -80,6 +80,10 @@
       <Project>{B60CF4B6-46DB-445A-8F9D-4EB8C745142F}</Project>
       <Name>Com.DianShi.Model.ShopConfig</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{CB56EF5F-7015-4634-BB7F-742A4820C1FF}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DBUtility\DBUtility.csproj">
       <Project>{9059D062-9A62-453A-8AC9-470270117AFE}</Project>
       <Name>DBUtility</Name>
