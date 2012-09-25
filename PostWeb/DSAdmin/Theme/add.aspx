@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="add.aspx.cs" Inherits="DSAdmin_Theme_add" %>
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
     <Custom:Header runat="server" />
@@ -19,6 +19,7 @@
         .sub-model-menu li{cursor:pointer;float:left;display:block;line-height:22px;text-align:center;border:solid 1px #a1b5b4; position:relative;top:1px;padding:0px 8px; background-color:#F3F3F3;}
         .sub-model-menu li.crt{border-bottom-color:White; background-color:White;}
         .fontselbold img{cursor:pointer;}
+        
     </style>
     <style type="text/css">
 /* 颜色输入框
@@ -48,6 +49,7 @@ input.html_color{border: medium none;
     <script type="text/javascript" src="js/add.js"></script>
 </head>
 <body>
+    <input type="hidden" name="the_id" value="<%=Request["id"] %>" />
     <div class="htm-main">
         <div class="hd-bar">主题管理 》添加主题</div>
         <ul class="item-main-wrap">
@@ -90,7 +92,15 @@ input.html_color{border: medium none;
                 </li>
                 <li>
                     <div class="itemL" style="width:20px;">&nbsp;</div>
-                    <div class="itemR"><input type="file"   name="signfile" id="signfile" /></div>
+                    <div class="itemR">
+                        <input type="file"   name="signfile" id="signfile" />
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" >&nbsp;</div>
+                    <div class="itemR">
+                        <img alt="招牌背景" id="signimg" src="#" onerror="javascript:this.style.display='none'" style="width:80%;" />
+                    </div>
                 </li>
                 <li>
                     <div class="itemL" style="text-align:left;"><input type="radio" class="valign" name="signType" value="1" id="signType2"  /><label for="signType2">选择背景色</label></div>
