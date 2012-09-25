@@ -10,17 +10,15 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-using Com.DianShi.BusinessRules.Sys;
-public partial class DSAdmin_Area_list : System.Web.UI.Page
+using Com.DianShi.BusinessRules.ShopConfig;
+public partial class DSAdmin_Theme_list : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+        var bl = new DS_ShopTheme_Br();
+        Repeater1.DataSource = bl.Query("","");
+        Repeater1.DataBind();
     
     }
      
-    
-
-    
-
 }

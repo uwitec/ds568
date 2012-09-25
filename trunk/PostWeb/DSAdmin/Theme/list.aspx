@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="list.aspx.cs" Inherits="DSAdmin_Area_list" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="list.aspx.cs" Inherits="DSAdmin_Theme_list" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,18 +20,14 @@
     <div class="btn-ctn"><input type="button" onclick="location='add.aspx'" value="添加主题" /></div>
     <div class="list-wrap">
         <ul>
-            <li>
-                <div class="img-wrap">&nbsp;<img src="http://admin.baotel.cn/album/UploadImg/C0001/B00001/n95.jpg" onload="changeImg(this,120,120)" />&nbsp;</div>
-                <div class="thremTitle">套装1</div>
-            </li>
-            <li>
-                <div class="img-wrap">&nbsp;<img src="http://admin.baotel.cn/album/UploadImg/C0001/B00025/iphone4.jpg" onload="changeImg(this,120,120)" />&nbsp;</div>
-                <div class="thremTitle">套装2</div>
-            </li>
-            <li>
-                <div class="img-wrap">&nbsp;<img src="http://admin.baotel.cn/album/UploadImg/C0001/B00002/a510e.jpg" onload="changeImg(this,120,120)" />&nbsp;</div>
-                <div class="thremTitle">套装3</div>
-            </li>
+            <asp:Repeater ID="Repeater1" runat="server">
+                <ItemTemplate>
+                    <li>
+                        <div class="img-wrap">&nbsp;<a href="add.aspx?id=<%#Eval("id")%>"><img src="http://admin.baotel.cn/album/UploadImg/C0001/B00001/n95.jpg" onload="changeImg(this,120,120)" /></a>&nbsp;</div>
+                        <div class="thremTitle"><%#Eval("ThemeName")%></div>
+                    </li>
+                </ItemTemplate>
+            </asp:Repeater>
         </ul>
     </div>
     <div class="page-wrap"></div>
