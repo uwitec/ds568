@@ -1,10 +1,10 @@
-﻿$(function() {
-    $(".hmenu li").click(function() {
+﻿$(function () {
+    $(".hmenu li").click(function () {
         $(".hmenu li").removeClass("mn-wrap-crt");
         $(this).addClass("mn-wrap-crt");
     });
 
-    $(".sub-model-menu li").not(":last").click(function() {
+    $(".sub-model-menu li").not(":last").click(function () {
         var ind = $(".sub-model-menu li").removeClass("crt").index(this);
         $(this).addClass("crt");
         $(".sub-model-menu").parent().find(".item-main-wrap").hide().eq(ind).show();
@@ -13,7 +13,7 @@
     $("#color_a").colorSelect();
     $("#fontColor").colorSelect();
 
-    $("#fontBold").click(function() {
+    $("#fontBold").click(function () {
         var src = "http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif";
         if ($(this).attr("src") == src) {
             $(this).attr("src", "http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_2.gif").attr("val", "bold")
@@ -21,7 +21,7 @@
             $(this).attr("src", src).attr("val", "normal")
         }
     });
-    $("#fontItalic").click(function() {
+    $("#fontItalic").click(function () {
         var src = "http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif";
         if ($(this).attr("src") == src) {
             $(this).attr("src", "http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_2.gif").attr("val", "italic")
@@ -33,7 +33,7 @@
     //上传
     var _url = "Action.ashx"
     //提交
-    $("#btn-sign-save").click(function() {
+    $("#btn-sign-save").click(function () {
         if ($(this).hasClass("loading2")) return false;
 
         var themeName = $.trim($("input[name=themeName]").val());
@@ -51,7 +51,7 @@
             fileElementId: 'signfile',
             data: { myaction: "signSave", id: $("input[name=the_id]").val(), themeName: themeName, signType: $("input[name=signType]:checked").val(), signBgColor: $("#color_a").css("background-color"), comNameShow: $("input[name=comns]:checked").val(), signStyle: cnstyle },
             dataType: "json",
-            success: function(data) {
+            success: function (data) {
                 if (data.Succ) {
                     alert("提交成功。");
                     $("input[name=the_id]").val(data.Id);
@@ -60,11 +60,11 @@
                     alert(data.Msg);
                 }
             },
-            error: function(data, status, e) {
+            error: function (data, status, e) {
                 $("body").append(data.responseText)
                 alert(e);
             },
-            complete: function() {
+            complete: function () {
                 $("#btn-sign-save").removeClass("loading2").find(".cb_m").text("保存");
             }
         });
@@ -78,21 +78,30 @@
             url: _url,
             data: { myaction: "getmd", id: id },
             dataType: "json",
-            success: function(data) {
+            success: function (data) {
                 $("#signimg").attr("src", data.SignImg).show();
                 $("input[name=themeName]").val(data.ThemeName);
                 $("#color_a").css("background-color", data.SignBgColor);
                 $("input[name=signType]").removeAttr("checked").filter("[value=" + data.SignType + "]").attr("checked", "checked");
                 $("input[name=comns]").removeAttr("checked").filter("[value=" + String(data.ComNameShow).replace("t", "T").replace("f", "F") + "]").attr("checked", "checked");
-                $("select[name=comfontName]").val(data.the.ComNameCss.split(';')[0].replace("font-family:",""));
+                var cncss = data.ComNameCss.split(';');
+                $("select[name=comfontName]").val(cncss[0].replace("font-family:", ""));
+                $("select[name=comfontSize]").val(cncss[1].replace("font-size:", ""));
+                if (cncss[2].replace("font-weight:", "") != $("#fontBold").attr("val")) {
+                    $("#fontBold").click();
+                }
+                if (cncss[3].replace("font-style:", "") != $("#fontItalic").attr("val")) {
+                    $("#fontItalic").click();
+                }
+                $("#fontColor").css("background-color", cncss[4].replace("color:", ""))
             },
-            error: function(req) {
+            error: function (req) {
                 $("body").append(req.responseText);
             },
-            beforeSend: function() {
+            beforeSend: function () {
                 $("#btn-sign-save").addClass("loading2").find(".cb_m").text("正在获取数据…");
             },
-            complete: function() {
+            complete: function () {
                 $("#btn-sign-save").removeClass("loading2").find(".cb_m").text("保存");
             }
 
