@@ -79,7 +79,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/member/manage/Decoration/DecMaster.aspx" target="_blank">
                                 <div class="md_wrap">
                                     <div class="model_ico winporter">&nbsp;</div>
                                     <div class="model_name">装修商铺</div>
