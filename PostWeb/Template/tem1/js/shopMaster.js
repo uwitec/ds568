@@ -1,11 +1,16 @@
 ﻿$(function () {
+
+    if (parent.webconfig) {//判断装修状态
+        $(".TopBar").hide();
+    }
+
     $("#top_dssch_btn").click(function () {
         //if (confirm('点石网主站尚在建设中，您可以先预览我们的主页。')) { open('/home/index.aspx', '_blank', 'scrollbars=yes'); }
         //alert('点石网主站尚在完善中，请稍后访问，感谢您的支持。');
     }).wBox({
-        title:"系统消息",
+        title: "系统消息",
         html: "<div style='width:300px;padding:30px;font-size:14px;'>点石网主站尚在完善中，请稍后访问，如果您想开通商铺，请联系业务负责人：小苏，电话：15118829914，感谢您的支持。</div>",
-        show:false
+        show: false
     });
 
     $("#top_sch_btn").click(function () {
