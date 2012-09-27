@@ -25,7 +25,7 @@
     <script type="text/javascript" src="/Template/tem1/js/shopMaster.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
+    
     <input  type="hidden" name="member_id" value="<%=vMember.ID %>"  />
     <div class="Main">
         <!--============顶部公共部分开始================-->
@@ -234,7 +234,7 @@
         </div>
         <!--==============底部结束===============-->
     </div>
-    </form>
+   
     <div style="display:none;">
     <script type="text/javascript">
         var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
