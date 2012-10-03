@@ -23,7 +23,7 @@
             <asp:Repeater ID="Repeater1" runat="server">
                 <ItemTemplate>
                     <li>
-                        <div class="img-wrap">&nbsp;<a href="add.aspx?id=<%#Eval("id")%>"><img src="http://admin.baotel.cn/album/UploadImg/C0001/B00001/n95.jpg" onload="changeImg(this,120,120)" /></a>&nbsp;</div>
+                        <div class="img-wrap">&nbsp;<a href="add.aspx?id=<%#Eval("id")%>"><img src="<%#Com.DianShi.BusinessRules.ShopConfig.DS_ShopTheme_Br.ThemePath((int)Eval("ID"))+Eval("Thume") %>" onload="changeImg(this,120,120)" /></a>&nbsp;</div>
                         <div class="thremTitle"><%#Eval("ThemeName")%></div>
                     </li>
                 </ItemTemplate>

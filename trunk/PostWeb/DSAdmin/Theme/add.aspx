@@ -75,7 +75,12 @@ input.html_color{border: medium none;
                 <div class="mLeft"></div>
                 <div class="mMiddle">背景</div>
                 <div class="mRight"></div>
-            </li>  
+            </li>
+            <li>
+                <div class="mLeft"></div>
+                <div class="mMiddle">预览图</div>
+                <div class="mRight"></div>
+            </li>
         </ul>
         <div class="th-model-wrap">
             <h3>公司招牌设置效果示例：</h3>
@@ -125,6 +130,30 @@ input.html_color{border: medium none;
             </li>
             
         </ul>
+        </div>
+        <div class="th-model-wrap" style="display:none;"></div>
+        <div class="th-model-wrap" style="display:none;"></div>
+        <div class="th-model-wrap" style="display:none;">
+            <ul class="item-main-wrap" style="margin-top:10px;"> 
+                <li>
+                    <div class="itemL" style="width:20px;">&nbsp;</div>
+                    <div class="itemR">
+                        <input type="file"   name="thume" id="thume" />
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" >&nbsp;</div>
+                    <div class="itemR">
+                        <img alt="预览图" id="thumeimg" src="#" onerror="javascript:this.style.display='none'" style="width:80%;" />
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" style="width:20px;">&nbsp;</div>
+                    <div class="itemR">
+                        <a id="btn-thume-save" class="commBtn" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </body>
