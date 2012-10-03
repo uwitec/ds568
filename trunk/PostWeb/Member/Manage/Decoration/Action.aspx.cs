@@ -5,18 +5,27 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Com.DianShi.BusinessRules.ShopConfig;
-public partial class Member_Manage_Decoration_Action : System.Web.UI.Page
+public partial class Member_Manage_Decoration_Action : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         string act=Request["action"];
         if (!string.IsNullOrEmpty(act)) {
             var thebl = new DS_ShopTheme_Br();
+            var wcfbl = new DS_ShopConfig_Br(); ;
             switch (act) { 
                 case "viewThe":
                     var the = thebl.GetSingle(int.Parse(Request["id"]));
                     the.SignImg = DS_ShopTheme_Br.ThemePath(the.ID) + the.SignImg;
                     Response.Write(Common.JSONHelper.ObjectToJSON(the));
+                    break;
+                case "theSave":
+                    the = thebl.GetSingle(int.Parse(Request["theid"]));
+                    var shopcf = wcfbl.GetSingle(_userData.Member.ID,false);
+                    shopcf.Sign =DS_ShopTheme_Br.ThemePath(the.ID)+ the.SignImg;
+                    wcfbl.Update(shopcf);
+                    SDG.Cache.CacheUtility.Remove("ShopConfig_" + _userData.Member.ID);
+                    Response.Write(Common.JSONHelper.ObjectToJSON(new {succ=true }));
                     break;
             }
         }
