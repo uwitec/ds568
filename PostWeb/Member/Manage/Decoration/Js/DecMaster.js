@@ -19,16 +19,18 @@
     });
 
     var _url = "action.aspx";
+    var theid;
     //应用
     $(".theme-wrap li a").click(function() {
-        var id = $(this).attr("theid")
+        theid = $(this).attr("theid")
         $.ajax({
             url: _url,
-            type:"POST",
-            data: { action: "viewThe", id: id },
+            type: "POST",
+            data: { action: "viewThe", id: theid },
             dataType: "json",
             success: function(data) {
-                $(".Head", $("#mainFrame").contents()).css({ "background-image": "url("+data.SignImg+")" });
+                $(".Head", $("#mainFrame").contents()).css({ "background-image": "url(" + data.SignImg + ")" });
+                $(".close img").click();
             },
             error: function(req) {
                 alert("更换主题发生意外。" + req.responseText)
@@ -39,6 +41,33 @@
             },
             complete: function() {
                 $(".theme-wrap").removeClass("loading2").find("li").removeClass("hidden");
+            }
+        });
+    });
+
+    $("#btn-thume-save").click(function() {
+        var btn = this;
+        if ($(this).hasClass("loading2")) return false;
+        $.ajax({
+            url: _url,
+            type: "POST",
+            data: { action: "theSave", theid: theid },
+            dataType: "json",
+            success: function(data) {
+            if (data.succ) {
+                    alert("保存成功")
+                } else { 
+                    
+                }
+            },
+            error: function(req) {
+                alert("保存出错")
+            },
+            beforeSend: function() {
+                $(btn).addClass("loading2").find(".cb_m").text("数据提交中…");
+            },
+            complete: function() {
+                $(btn).removeClass("loading2").find(".cb_m").text("保存");
             }
         });
     });

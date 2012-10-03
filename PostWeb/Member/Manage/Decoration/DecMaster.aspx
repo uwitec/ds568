@@ -12,25 +12,26 @@
     <div class="topbar">
         <div class="barbody">
             <div class="logo">&nbsp;</div>
-                <a class="dc-menu" href="javascript:;">选择模板
-                    <div class="dec-wrap">
-                        <div class="stopbox">
-                          <div class="gapbox">您可以点击模板图片修改网站风格</div>
-                          <div class="close"><img src="http://style.org.hc360.com/images/detail/mysite/siteconfig/close.gif" /></div>
-                        </div>
-                        <ul class="theme-wrap">
-                            <asp:Repeater ID="Repeater1" runat="server">
-                                <ItemTemplate>
-                                    <li>
-                                        <a class="theimg" href="javascript:;" theid="<%#Eval("id") %>"><img onload="changeImg(this,98,98)" src="<%#Com.DianShi.BusinessRules.ShopConfig.DS_ShopTheme_Br.ThemePath((int)Eval("ID"))+Eval("Thume") %>"  /><em class="thename"><%#Eval("ThemeName") %></em></a>
-                                    </li>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                            
-                            
-                        </ul>
+            <a class="dc-menu" href="javascript:;">选择模板
+                <div class="dec-wrap">
+                    <div class="stopbox">
+                      <div class="gapbox">您可以点击模板图片修改网站风格</div>
+                      <div class="close"><img src="http://style.org.hc360.com/images/detail/mysite/siteconfig/close.gif" /></div>
                     </div>
-                </a>
+                    <ul class="theme-wrap">
+                        <asp:Repeater ID="Repeater1" runat="server">
+                            <ItemTemplate>
+                                <li>
+                                    <a class="theimg" href="javascript:;" theid="<%#Eval("id") %>"><img onload="changeImg(this,98,98)" src="<%#Com.DianShi.BusinessRules.ShopConfig.DS_ShopTheme_Br.ThemePath((int)Eval("ID"))+Eval("Thume") %>"  /><em class="thename"><%#Eval("ThemeName") %></em></a>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        
+                        
+                    </ul>
+                </div>
+            </a>
+            <div class="btn-wrap"><a id="btn-thume-save" class="commBtn" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a></div>
                 <%--<div class="spline"></div>--%>
         </div>
     </div>
