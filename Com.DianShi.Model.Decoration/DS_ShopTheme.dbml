@@ -10,6 +10,7 @@
       <Column Name="SignBgColor" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="ComNameShow" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="ComNameCss" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Thume" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

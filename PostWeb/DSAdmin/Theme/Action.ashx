@@ -20,11 +20,16 @@ public class Action : IHttpHandler, IRequiresSessionState
             switch (act)
             {
                 case "signSave":
-                    context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.Save(context.Request)));
+                    context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.SignSave(context.Request)));
+                    break;
+                case "thumeSave":
+                    context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.ThumeSave(context.Request)));
                     break;
                 case "getmd":
                     var the=bl.GetSingle(int.Parse(context.Request["id"]));
-                    the.SignImg = Common.Constant.WebConfig("ThemeRootPath")+"the"+the.ID.ToString().PadLeft(3,'0')+"/" + the.SignImg;
+                    string thepath = DS_ShopTheme_Br.ThemePath(the.ID);
+                    the.SignImg = thepath + the.SignImg;
+                    the.Thume = thepath + the.Thume;
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(the));
                     break;
                 case "del":

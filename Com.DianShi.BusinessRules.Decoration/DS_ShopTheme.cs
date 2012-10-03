@@ -21,26 +21,25 @@ namespace Com.DianShi.BusinessRules.ShopConfig
         }
 
 
-        public Object Save(HttpRequest request)
+        public Object SignSave(HttpRequest request)
         {
             using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
             {
                 //try
                 //{
-                string themePath = Common.Constant.WebConfig("ThemeRootPath") + "the";
+                    string themePath = "";
                     string id = request["id"];
                     bool isEdit = !string.IsNullOrEmpty(id);
                     var md = CreateModel();
                     if (isEdit)
                     {
                         md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(id)));
-                        themePath += md.ID.ToString().PadLeft(3,'0')+"/";
+                        themePath = ThemePath(md.ID);
                     }
-                    else {
-                        int indent = 1;
-                        if (ct.DS_ShopTheme.Count() > 0)
-                            indent=ct.DS_ShopTheme.Max(a => a.ID) + 1;
-                        themePath += indent.ToString().PadLeft(3, '0') + "/";
+                    else
+                    {
+                        var indent = ct.ExecuteQuery<decimal>("select IDENT_CURRENT('DS_ShopTheme')+1");
+                        themePath = ThemePath(int.Parse(indent.Single().ToString()));
                     }
                     md.ThemeName = request["themeName"];
                     md.SignType = byte.Parse(request["signType"]);
@@ -50,11 +49,11 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                     if (request.Files[0].ContentLength > 0)
                     {
                         HttpPostedFile file = request.Files[0];
-                        string ext =System.IO.Path.GetExtension(file.FileName).ToLower();
+                        string ext = System.IO.Path.GetExtension(file.FileName).ToLower();
                         if (ext != ".jpg" && ext != ".gif")
                         {
                             return new { Succ = false, Msg = "请您上传jpg、gif、png图片" };
-                           
+
                         }
                         else if (file.ContentLength > 1024 * 300)
                         {
@@ -64,15 +63,17 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         {
                             if (isEdit)
                             {
-                                    var files = Directory.GetFiles(HttpContext.Current.Server.MapPath(themePath),"sign_*");
-                                    foreach (var imgpath in files)
-                                        File.Delete(imgpath);
+                                var files = Directory.GetFiles(HttpContext.Current.Server.MapPath(themePath), "sign_*");
+                                foreach (var imgpath in files)
+                                    File.Delete(imgpath);
                             }
-                            else {
+
+                            if(string.IsNullOrEmpty(md.SignImg))
+                            {
                                 string newName = Guid.NewGuid().ToString();
-                                md.SignImg = "sign_"+newName + ext;
+                                md.SignImg = "sign_" + newName + ext;
                             }
-                            
+
                             string img = themePath + md.SignImg;
                             string filePath = HttpContext.Current.Server.MapPath(img);
                             themePath = HttpContext.Current.Server.MapPath(themePath);
@@ -89,9 +90,81 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         ct.DS_ShopTheme.InsertOnSubmit(md);
                     }
                     ct.SubmitChanges();
-                    return new { Succ = true};
+                    return new { Succ = true,md.SignImg };
                 //}
-                //catch (Exception ex) { return new ApiRunInfo { Succ = false, Msg =ex.Message }; }
+                //catch (Exception ex) { return new ApiRunInfo { Succ = false, Msg = ex.Message }; }
+            }
+        }
+
+        public Object ThumeSave(HttpRequest request)
+        {
+            using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
+            {
+                //try
+                //{
+                    string themePath = Common.Constant.WebConfig("ThemeRootPath") + "the";
+                    string id = request["id"];
+                    bool isEdit = !string.IsNullOrEmpty(id);
+                    var md = CreateModel();
+                    if (isEdit)
+                    {
+                        md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(id)));
+                        themePath = ThemePath(md.ID);
+                    }
+                    else
+                    {
+                        var indent = ct.ExecuteQuery<decimal>("select IDENT_CURRENT('DS_ShopTheme')+1");
+                        themePath = ThemePath(int.Parse(indent.Single().ToString()));
+                    }
+                    md.ThemeName = request["themeName"];
+                 
+                    if (request.Files[0].ContentLength > 0)
+                    {
+                        HttpPostedFile file = request.Files[0];
+                        string ext = System.IO.Path.GetExtension(file.FileName).ToLower();
+                        if (ext != ".jpg" && ext != ".gif")
+                        {
+                            return new { Succ = false, Msg = "请您上传jpg、gif、png图片" };
+
+                        }
+                        else if (file.ContentLength > 1024 * 300)
+                        {
+                            return new { Succ = false, Msg = "请您上传1M(1024KB)内的图片" };
+                        }
+                        else
+                        {
+                            themePath = HttpContext.Current.Server.MapPath(themePath);
+                            if (!Directory.Exists(themePath))
+                            {
+                                Directory.CreateDirectory(themePath);
+                            }
+                            if (isEdit)
+                            {
+                                var files = Directory.GetFiles(themePath, "thume_*");
+                                foreach (var imgpath in files)
+                                    File.Delete(imgpath);
+                            }
+
+                            if(string.IsNullOrEmpty(md.Thume))
+                            {
+                                string newName = Guid.NewGuid().ToString();
+                                md.Thume = "thume_" + newName + ext;
+                            }
+
+                            string img = themePath + md.Thume;
+                           
+                            file.SaveAs(img);//保存图
+                        }
+                    }
+
+                    if (!isEdit)
+                    {
+                        ct.DS_ShopTheme.InsertOnSubmit(md);
+                    }
+                    ct.SubmitChanges();
+                    return new { Succ = true,md.Thume };
+                //}
+                //catch (Exception ex) { return new { Succ = false, Msg = ex.Message }; }
             }
         }
 
@@ -178,6 +251,15 @@ namespace Com.DianShi.BusinessRules.ShopConfig
         public enum SignType : byte { 
             背景图,
             背景色
+        }
+
+        /// <summary>
+        /// 返回主题文件夹路径
+        /// </summary>
+        /// <param name="ID">主题ID</param>
+        /// <returns></returns>
+        public static string ThemePath(int ID) {
+            return Common.Constant.WebConfig("ThemeRootPath") + "the" + ID.ToString().PadLeft(3, '0')+"/";
         }
     }
 }

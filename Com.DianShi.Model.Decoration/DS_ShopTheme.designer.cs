@@ -94,6 +94,8 @@ namespace Com.DianShi.Model.ShopConfig
 		
 		private string _ComNameCss;
 		
+		private string _Thume;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -112,6 +114,8 @@ namespace Com.DianShi.Model.ShopConfig
     partial void OnComNameShowChanged();
     partial void OnComNameCssChanging(string value);
     partial void OnComNameCssChanged();
+    partial void OnThumeChanging(string value);
+    partial void OnThumeChanged();
     #endregion
 		
 		public DS_ShopTheme()
@@ -255,6 +259,26 @@ namespace Com.DianShi.Model.ShopConfig
 					this._ComNameCss = value;
 					this.SendPropertyChanged("ComNameCss");
 					this.OnComNameCssChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Thume", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string Thume
+		{
+			get
+			{
+				return this._Thume;
+			}
+			set
+			{
+				if ((this._Thume != value))
+				{
+					this.OnThumeChanging(value);
+					this.SendPropertyChanging();
+					this._Thume = value;
+					this.SendPropertyChanged("Thume");
+					this.OnThumeChanged();
 				}
 			}
 		}

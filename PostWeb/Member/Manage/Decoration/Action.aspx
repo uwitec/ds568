@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Action.aspx.cs" Inherits="Member_Manage_Decoration_Action" %>
