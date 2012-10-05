@@ -45,7 +45,7 @@
             success: function(data) {
                 if (data.Succ) {
                     alert("提交成功。");
-                    $("input[name=the_id]").val(data.Id);
+                    $("input[name=the_id]").val(data.ID);
                 }
                 else {
                     alert(data.Msg);
@@ -84,6 +84,7 @@
         }
         ajaxSave(this, 'thume', { myaction: "thumeSave", themeName: themeName, id: $("input[name=the_id]").val() });
     });
+
 
     //还原
     var id = $("input[name=the_id]").val();
