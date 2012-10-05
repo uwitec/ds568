@@ -50,7 +50,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                     {
                         HttpPostedFile file = request.Files[0];
                         string ext = System.IO.Path.GetExtension(file.FileName).ToLower();
-                        if (ext != ".jpg" && ext != ".gif")
+                        if (!".jpg|.gif|.png".Contains(ext))
                         {
                             return new { Succ = false, Msg = "请您上传jpg、gif、png图片" };
 
@@ -90,7 +90,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         ct.DS_ShopTheme.InsertOnSubmit(md);
                     }
                     ct.SubmitChanges();
-                    return new { Succ = true,md.SignImg };
+                    return new { Succ = true,md.SignImg,md.ID };
                 //}
                 //catch (Exception ex) { return new ApiRunInfo { Succ = false, Msg = ex.Message }; }
             }
@@ -122,7 +122,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                     {
                         HttpPostedFile file = request.Files[0];
                         string ext = System.IO.Path.GetExtension(file.FileName).ToLower();
-                        if (ext != ".jpg" && ext != ".gif")
+                        if (!".jpg|.gif|.png".Contains(ext))
                         {
                             return new { Succ = false, Msg = "请您上传jpg、gif、png图片" };
 
@@ -162,7 +162,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         ct.DS_ShopTheme.InsertOnSubmit(md);
                     }
                     ct.SubmitChanges();
-                    return new { Succ = true,md.Thume };
+                    return new { Succ = true,md.Thume,md.ID };
                 //}
                 //catch (Exception ex) { return new { Succ = false, Msg = ex.Message }; }
             }
@@ -184,6 +184,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                 DS_ShopTheme st = ct.DS_ShopTheme.Single(a => a.ID == ID);
                 ct.DS_ShopTheme.DeleteOnSubmit(st);
                 ct.SubmitChanges();
+                Directory.Delete(HttpContext.Current.Server.MapPath(ThemePath(ID)),true);
             }
         }
 
