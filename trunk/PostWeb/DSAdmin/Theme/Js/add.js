@@ -68,7 +68,7 @@
             alert("请输入主题名称。");
             return false;
         }
-        var cnstyle = "font-family:" + $("select[name=comfontName]").val() + ";font-size:" + $("select[name=comfontSize]").val() + ";font-weight:" + $("#fontBold").attr("val") + ";font-style:" + $("#fontItalic").attr("val") + ";color:" + $("#fontColor").css("background-color");
+        var cnstyle = "font-family:" + $("select[name=comfontName]").val() + ";font-size:" + $("select[name=comfontSize]").val() + "px;font-weight:" + $("#fontBold").attr("val") + ";font-style:" + $("#fontItalic").attr("val") + ";color:" + $("#fontColor").css("background-color");
         var data = { myaction: "signSave", id: $("input[name=the_id]").val(), themeName: themeName, signType: $("input[name=signType]:checked").val(), signBgColor: $("#color_a").css("background-color"), comNameShow: $("input[name=comns]:checked").val(), signStyle: cnstyle };
         ajaxSave(this, 'signfile', data);
 
@@ -102,7 +102,7 @@
                 $("input[name=comns]").removeAttr("checked").filter("[value=" + String(data.ComNameShow).replace("t", "T").replace("f", "F") + "]").attr("checked", "checked");
                 var cncss = data.ComNameCss.split(';');
                 $("select[name=comfontName]").val(cncss[0].replace("font-family:", ""));
-                $("select[name=comfontSize]").val(cncss[1].replace("font-size:", ""));
+                $("select[name=comfontSize]").val(cncss[1].replace("font-size:", "").replace("px",""));
                 if (cncss[2].replace("font-weight:", "") != $("#fontBold").attr("val")) {
                     $("#fontBold").click();
                 }

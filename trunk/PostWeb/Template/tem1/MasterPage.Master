@@ -25,7 +25,6 @@
     <script type="text/javascript" src="/Template/tem1/js/shopMaster.js"></script>
 </head>
 <body>
-    
     <input  type="hidden" name="member_id" value="<%=vMember.ID %>"  />
     <div class="Main">
         <!--============顶部公共部分开始================-->

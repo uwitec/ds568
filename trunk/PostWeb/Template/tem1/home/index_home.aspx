@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/template/tem1/MasterPage.Master" AutoEventWireup="true"   CodeFile="index_home.aspx.cs" Inherits="index_home"  %>
-<%@ OutputCache Duration="1800" VaryByParam="none" VaryByCustom="Host" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/template/tem1/home/css/focusimg.css" rel="stylesheet" type="text/css" />
     <style type="text/css">

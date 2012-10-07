@@ -19,7 +19,8 @@
         .sub-model-menu li{cursor:pointer;float:left;display:block;line-height:22px;text-align:center;border:solid 1px #a1b5b4; position:relative;top:1px;padding:0px 8px; background-color:#F3F3F3;}
         .sub-model-menu li.crt{border-bottom-color:White; background-color:White;}
         .fontselbold img{cursor:pointer;}
-        
+        .hd-bar{overflow:auto;}
+        .hd-bar a{float:right;font-family:宋体}
     </style>
     <style type="text/css">
 /* 颜色输入框
@@ -51,7 +52,7 @@ input.html_color{border: medium none;
 <body>
     <input type="hidden" name="the_id" value="<%=Request["id"] %>" />
     <div class="htm-main">
-        <div class="hd-bar">主题管理 》添加主题</div>
+        <div class="hd-bar">主题管理 》添加主题<a href="list.aspx">&lt;&lt;返回列表&nbsp;</a></div>
         <ul class="item-main-wrap">
             <li>
                 <div class="itemL">主题名称：</div>
