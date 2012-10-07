@@ -1,19 +1,19 @@
 ﻿html{ overflow:hidden;}
 .topbar{ background:url(../images/topbg.gif) repeat-x;height:39px;}
 .barbody{width:952px;margin:0 auto; overflow:hidden;height:39px}
-.barbody .dc-menu{display:block;float:left;position:relative;line-height:39px;}
+.barbody .dc-menu{display:block;float:left;height:39px;line-height:39px;cursor:pointer;}
 .logo{float:left; position:relative;top:7px; background:url(/template/images/logo.png) no-repeat 0 -4px;height:39px;width:122px;}
 .spline{width:1px; overflow:hidden;border-right:solid 1px #ccc;height:39px;margin:0 15px;}
-.dec-wrap{display:none;border:solid 1px #769BA0;width:422px;height:450px;position:absolute;top:30px;left:0;background: url("../images/menubg.gif") repeat-x scroll 0 0 transparent;}
+.dec-wrap{display:none;border:solid 1px #769BA0;width:422px;height:450px;position:absolute;top:30px;left:0px;background: url("../images/menubg.gif") repeat-x scroll 0 0 transparent;}
 .hd-hp{background:url(../images/gap.gif) repeat-x;height:16px;line-height:16px;}
 .stopbox{height:27px;width:422px;}
 .gapbox {color: #0A96A6;float: left; font-size: 12px;height: 22px;line-height: 22px;margin: 0 0 0 35px;padding-top: 5px;width: 220px;}
 .close {cursor: pointer;float: right;height: 12px;padding: 4px 4px 0 0;width: 12px;}
 .theme-wrap{margin:10px auto;width:400px;height:400px;overflow:auto;}
-.theme-wrap li{float:left;margin-right:10px;}
-.theimg .thename{width:98px;line-height:24px;opacity: 0.7;filter:alpha(opacity=70); position:absolute;top:75px;left:1px;display:none;text-align:center;color:#fff;background: none repeat scroll 0 0 #000000;font-style:normal;}
-.theimg{border:solid 1px #b2b2b2;padding:1px;position:relative;}
+.theme-wrap li{float:left;margin-right:10px;border:solid 1px #b2b2b2;padding:1px;}
+.theimg .thename{width:98px;line-height:24px;opacity: 0.6;filter:alpha(opacity=60); position:absolute;top:74px;left:0px;display:none;text-align:center;color:#fff;background: none repeat scroll 0 0 #000000;font-style:normal;}
+.theimg{display:block;width:98px;height:98px;position:relative;text-align:center; vertical-align:middle;line-height:98px;}
+.theimg img{ vertical-align:middle}
 .theimg:hover{border-color:#ff0000;}
 .theimg:hover .thename{display:block;}
-.btn-wrap{height:39px;width:100px;margin-left:100px;}
-.btn-wrap a{float:right;}
+.btn-wrap{float:right; overflow:auto;padding-top:4px;}

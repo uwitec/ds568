@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true"
     CodeFile="index_contact.aspx.cs" Inherits="Template_tem1_contact_index_contact" %>
-  <%@ OutputCache Duration="1800" VaryByParam="none" VaryByCustom="Host" %>
 <asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="Server">
 <title>联系我们</title>
 </asp:Content>
