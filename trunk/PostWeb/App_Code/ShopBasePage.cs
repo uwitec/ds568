@@ -38,8 +38,8 @@ public class ShopBasePage : System.Web.UI.Page
         {
             var lctr = new LiteralControl();
             lctr.Text = "<style type=\"text/css\">";
-            if (!string.IsNullOrEmpty(_ShopConfig.Sign))
-                lctr.Text += ".Head{background-image:url(" + _ShopConfig.Sign + ");}\n";
+            if (!string.IsNullOrEmpty(_ShopConfig.SignImg))
+                lctr.Text += ".Head{background-image:url(" + _ShopConfig.SignImg + ");}\n";
             if (!string.IsNullOrEmpty(_ShopConfig.MenuBg))
                 lctr.Text += ".HeaderMenuBar{background-image:url(" + _ShopConfig.MenuBg + ");}\n";
             if (!string.IsNullOrEmpty(_ShopConfig.NormalMenu))
