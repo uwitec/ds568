@@ -4,19 +4,20 @@
   <Table Name="dbo.DS_ShopConfig" Member="DS_ShopConfig">
     <Type Name="DS_ShopConfig">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
-      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Sign" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="MenuBg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="SelectedMenu" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="NormalMenu" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="NmColor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SelmColor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="RollImg1" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="RollImg2" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="RollImg3" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="SignType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="ComNameStyle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ComNameDisplay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="WhenChanged" />
+      <Column Name="SignType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" UpdateCheck="WhenChanged" />
+      <Column Name="SignImg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" UpdateCheck="WhenChanged" />
+      <Column Name="SignBgColor" Type="System.String" DbType="NChar(10)" CanBeNull="true" UpdateCheck="WhenChanged" />
+      <Column Name="ComNameCss" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" UpdateCheck="WhenChanged" />
+      <Column Name="ComNameShow" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="WhenChanged" />
+      <Column Name="MenuBg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" UpdateCheck="WhenChanged" />
+      <Column Name="SelectedMenu" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" UpdateCheck="WhenChanged" />
+      <Column Name="NormalMenu" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" UpdateCheck="WhenChanged" />
+      <Column Name="NmColor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="WhenChanged" />
+      <Column Name="SelmColor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="WhenChanged" />
+      <Column Name="RollImg1" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" UpdateCheck="WhenChanged" />
+      <Column Name="RollImg2" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" UpdateCheck="WhenChanged" />
+      <Column Name="RollImg3" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" UpdateCheck="WhenChanged" />
     </Type>
   </Table>
 </Database>

@@ -22,9 +22,12 @@ public partial class Member_Manage_Decoration_Action : BasePage
                 case "theSave":
                     the = thebl.GetSingle(int.Parse(Request["theid"]));
                     var shopcf = wcfbl.GetSingle(_userData.Member.ID,false);
-                    shopcf.Sign =DS_ShopTheme_Br.ThemePath(the.ID)+ the.SignImg;
+                    shopcf.SignImg =DS_ShopTheme_Br.ThemePath(the.ID)+ the.SignImg;
+                    shopcf.SignBgColor = the.SignBgColor;
+                    shopcf.ComNameCss = the.ComNameCss;
+                    shopcf.ComNameShow = the.ComNameShow;
+                    shopcf.SignType = the.SignType;
                     wcfbl.Update(shopcf);
-                    SDG.Cache.CacheUtility.Remove("ShopConfig_" + _userData.Member.ID);
                     Response.Write(Common.JSONHelper.ObjectToJSON(new {succ=true }));
                     break;
             }

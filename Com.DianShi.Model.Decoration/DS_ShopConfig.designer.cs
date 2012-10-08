@@ -84,7 +84,15 @@ namespace Com.DianShi.Model.ShopConfig
 		
 		private int _MemberID;
 		
-		private string _Sign;
+		private System.Nullable<byte> _SignType;
+		
+		private string _SignImg;
+		
+		private string _SignBgColor;
+		
+		private string _ComNameCss;
+		
+		private System.Nullable<bool> _ComNameShow;
 		
 		private string _MenuBg;
 		
@@ -102,12 +110,6 @@ namespace Com.DianShi.Model.ShopConfig
 		
 		private string _RollImg3;
 		
-		private System.Nullable<byte> _SignType;
-		
-		private string _ComNameStyle;
-		
-		private System.Nullable<bool> _ComNameDisplay;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -116,8 +118,16 @@ namespace Com.DianShi.Model.ShopConfig
     partial void OnIDChanged();
     partial void OnMemberIDChanging(int value);
     partial void OnMemberIDChanged();
-    partial void OnSignChanging(string value);
-    partial void OnSignChanged();
+    partial void OnSignTypeChanging(System.Nullable<byte> value);
+    partial void OnSignTypeChanged();
+    partial void OnSignImgChanging(string value);
+    partial void OnSignImgChanged();
+    partial void OnSignBgColorChanging(string value);
+    partial void OnSignBgColorChanged();
+    partial void OnComNameCssChanging(string value);
+    partial void OnComNameCssChanged();
+    partial void OnComNameShowChanging(System.Nullable<bool> value);
+    partial void OnComNameShowChanged();
     partial void OnMenuBgChanging(string value);
     partial void OnMenuBgChanged();
     partial void OnSelectedMenuChanging(string value);
@@ -134,12 +144,6 @@ namespace Com.DianShi.Model.ShopConfig
     partial void OnRollImg2Changed();
     partial void OnRollImg3Changing(string value);
     partial void OnRollImg3Changed();
-    partial void OnSignTypeChanging(System.Nullable<byte> value);
-    partial void OnSignTypeChanged();
-    partial void OnComNameStyleChanging(string value);
-    partial void OnComNameStyleChanged();
-    partial void OnComNameDisplayChanging(System.Nullable<bool> value);
-    partial void OnComNameDisplayChanged();
     #endregion
 		
 		public DS_ShopConfig()
@@ -167,7 +171,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[Column(Storage="_MemberID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_MemberID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.WhenChanged)]
 		public int MemberID
 		{
 			get
@@ -187,187 +191,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[Column(Storage="_Sign", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string Sign
-		{
-			get
-			{
-				return this._Sign;
-			}
-			set
-			{
-				if ((this._Sign != value))
-				{
-					this.OnSignChanging(value);
-					this.SendPropertyChanging();
-					this._Sign = value;
-					this.SendPropertyChanged("Sign");
-					this.OnSignChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MenuBg", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string MenuBg
-		{
-			get
-			{
-				return this._MenuBg;
-			}
-			set
-			{
-				if ((this._MenuBg != value))
-				{
-					this.OnMenuBgChanging(value);
-					this.SendPropertyChanging();
-					this._MenuBg = value;
-					this.SendPropertyChanged("MenuBg");
-					this.OnMenuBgChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_SelectedMenu", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string SelectedMenu
-		{
-			get
-			{
-				return this._SelectedMenu;
-			}
-			set
-			{
-				if ((this._SelectedMenu != value))
-				{
-					this.OnSelectedMenuChanging(value);
-					this.SendPropertyChanging();
-					this._SelectedMenu = value;
-					this.SendPropertyChanged("SelectedMenu");
-					this.OnSelectedMenuChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_NormalMenu", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string NormalMenu
-		{
-			get
-			{
-				return this._NormalMenu;
-			}
-			set
-			{
-				if ((this._NormalMenu != value))
-				{
-					this.OnNormalMenuChanging(value);
-					this.SendPropertyChanging();
-					this._NormalMenu = value;
-					this.SendPropertyChanged("NormalMenu");
-					this.OnNormalMenuChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_NmColor", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string NmColor
-		{
-			get
-			{
-				return this._NmColor;
-			}
-			set
-			{
-				if ((this._NmColor != value))
-				{
-					this.OnNmColorChanging(value);
-					this.SendPropertyChanging();
-					this._NmColor = value;
-					this.SendPropertyChanged("NmColor");
-					this.OnNmColorChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_SelmColor", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string SelmColor
-		{
-			get
-			{
-				return this._SelmColor;
-			}
-			set
-			{
-				if ((this._SelmColor != value))
-				{
-					this.OnSelmColorChanging(value);
-					this.SendPropertyChanging();
-					this._SelmColor = value;
-					this.SendPropertyChanged("SelmColor");
-					this.OnSelmColorChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_RollImg1", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string RollImg1
-		{
-			get
-			{
-				return this._RollImg1;
-			}
-			set
-			{
-				if ((this._RollImg1 != value))
-				{
-					this.OnRollImg1Changing(value);
-					this.SendPropertyChanging();
-					this._RollImg1 = value;
-					this.SendPropertyChanged("RollImg1");
-					this.OnRollImg1Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_RollImg2", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string RollImg2
-		{
-			get
-			{
-				return this._RollImg2;
-			}
-			set
-			{
-				if ((this._RollImg2 != value))
-				{
-					this.OnRollImg2Changing(value);
-					this.SendPropertyChanging();
-					this._RollImg2 = value;
-					this.SendPropertyChanged("RollImg2");
-					this.OnRollImg2Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_RollImg3", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string RollImg3
-		{
-			get
-			{
-				return this._RollImg3;
-			}
-			set
-			{
-				if ((this._RollImg3 != value))
-				{
-					this.OnRollImg3Changing(value);
-					this.SendPropertyChanging();
-					this._RollImg3 = value;
-					this.SendPropertyChanged("RollImg3");
-					this.OnRollImg3Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_SignType", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_SignType", DbType="TinyInt", UpdateCheck=UpdateCheck.WhenChanged)]
 		public System.Nullable<byte> SignType
 		{
 			get
@@ -387,42 +211,242 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[Column(Storage="_ComNameStyle", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string ComNameStyle
+		[Column(Storage="_SignImg", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		public string SignImg
 		{
 			get
 			{
-				return this._ComNameStyle;
+				return this._SignImg;
 			}
 			set
 			{
-				if ((this._ComNameStyle != value))
+				if ((this._SignImg != value))
 				{
-					this.OnComNameStyleChanging(value);
+					this.OnSignImgChanging(value);
 					this.SendPropertyChanging();
-					this._ComNameStyle = value;
-					this.SendPropertyChanged("ComNameStyle");
-					this.OnComNameStyleChanged();
+					this._SignImg = value;
+					this.SendPropertyChanged("SignImg");
+					this.OnSignImgChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_ComNameDisplay", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<bool> ComNameDisplay
+		[Column(Storage="_SignBgColor", DbType="NChar(10)", UpdateCheck=UpdateCheck.WhenChanged)]
+		public string SignBgColor
 		{
 			get
 			{
-				return this._ComNameDisplay;
+				return this._SignBgColor;
 			}
 			set
 			{
-				if ((this._ComNameDisplay != value))
+				if ((this._SignBgColor != value))
 				{
-					this.OnComNameDisplayChanging(value);
+					this.OnSignBgColorChanging(value);
 					this.SendPropertyChanging();
-					this._ComNameDisplay = value;
-					this.SendPropertyChanged("ComNameDisplay");
-					this.OnComNameDisplayChanged();
+					this._SignBgColor = value;
+					this.SendPropertyChanged("SignBgColor");
+					this.OnSignBgColorChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ComNameCss", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		public string ComNameCss
+		{
+			get
+			{
+				return this._ComNameCss;
+			}
+			set
+			{
+				if ((this._ComNameCss != value))
+				{
+					this.OnComNameCssChanging(value);
+					this.SendPropertyChanging();
+					this._ComNameCss = value;
+					this.SendPropertyChanged("ComNameCss");
+					this.OnComNameCssChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ComNameShow", DbType="Bit", UpdateCheck=UpdateCheck.WhenChanged)]
+		public System.Nullable<bool> ComNameShow
+		{
+			get
+			{
+				return this._ComNameShow;
+			}
+			set
+			{
+				if ((this._ComNameShow != value))
+				{
+					this.OnComNameShowChanging(value);
+					this.SendPropertyChanging();
+					this._ComNameShow = value;
+					this.SendPropertyChanged("ComNameShow");
+					this.OnComNameShowChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MenuBg", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		public string MenuBg
+		{
+			get
+			{
+				return this._MenuBg;
+			}
+			set
+			{
+				if ((this._MenuBg != value))
+				{
+					this.OnMenuBgChanging(value);
+					this.SendPropertyChanging();
+					this._MenuBg = value;
+					this.SendPropertyChanged("MenuBg");
+					this.OnMenuBgChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_SelectedMenu", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		public string SelectedMenu
+		{
+			get
+			{
+				return this._SelectedMenu;
+			}
+			set
+			{
+				if ((this._SelectedMenu != value))
+				{
+					this.OnSelectedMenuChanging(value);
+					this.SendPropertyChanging();
+					this._SelectedMenu = value;
+					this.SendPropertyChanged("SelectedMenu");
+					this.OnSelectedMenuChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_NormalMenu", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		public string NormalMenu
+		{
+			get
+			{
+				return this._NormalMenu;
+			}
+			set
+			{
+				if ((this._NormalMenu != value))
+				{
+					this.OnNormalMenuChanging(value);
+					this.SendPropertyChanging();
+					this._NormalMenu = value;
+					this.SendPropertyChanged("NormalMenu");
+					this.OnNormalMenuChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_NmColor", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.WhenChanged)]
+		public string NmColor
+		{
+			get
+			{
+				return this._NmColor;
+			}
+			set
+			{
+				if ((this._NmColor != value))
+				{
+					this.OnNmColorChanging(value);
+					this.SendPropertyChanging();
+					this._NmColor = value;
+					this.SendPropertyChanged("NmColor");
+					this.OnNmColorChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_SelmColor", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.WhenChanged)]
+		public string SelmColor
+		{
+			get
+			{
+				return this._SelmColor;
+			}
+			set
+			{
+				if ((this._SelmColor != value))
+				{
+					this.OnSelmColorChanging(value);
+					this.SendPropertyChanging();
+					this._SelmColor = value;
+					this.SendPropertyChanged("SelmColor");
+					this.OnSelmColorChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_RollImg1", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		public string RollImg1
+		{
+			get
+			{
+				return this._RollImg1;
+			}
+			set
+			{
+				if ((this._RollImg1 != value))
+				{
+					this.OnRollImg1Changing(value);
+					this.SendPropertyChanging();
+					this._RollImg1 = value;
+					this.SendPropertyChanged("RollImg1");
+					this.OnRollImg1Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_RollImg2", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		public string RollImg2
+		{
+			get
+			{
+				return this._RollImg2;
+			}
+			set
+			{
+				if ((this._RollImg2 != value))
+				{
+					this.OnRollImg2Changing(value);
+					this.SendPropertyChanging();
+					this._RollImg2 = value;
+					this.SendPropertyChanged("RollImg2");
+					this.OnRollImg2Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_RollImg3", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		public string RollImg3
+		{
+			get
+			{
+				return this._RollImg3;
+			}
+			set
+			{
+				if ((this._RollImg3 != value))
+				{
+					this.OnRollImg3Changing(value);
+					this.SendPropertyChanging();
+					this._RollImg3 = value;
+					this.SendPropertyChanged("RollImg3");
+					this.OnRollImg3Changed();
 				}
 			}
 		}
