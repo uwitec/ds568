@@ -5,16 +5,24 @@
         $(".th-model-wrap").hide().eq(ind).show();
     });
 
-    $(".sub-model-menu li").not(":last").click(function() {
-        var ind = $(".sub-model-menu li").removeClass("crt").index(this);
+    $("#smm-1 li").not(":last").click(function() {
+        var ind = $("#smm-1 li").removeClass("crt").index(this);
         $(this).addClass("crt");
-        $(".sub-model-menu").parent().find(".item-main-wrap").hide().eq(ind).show();
+        $("#smm-1").parent().find(".item-main-wrap").hide().eq(ind).show();
     });
 
-    $("#color_a").colorSelect();
-    $("#fontColor").colorSelect();
+    $("#smm-2 li").click(function() {
+        var ind = $("#smm-2 li").removeClass("crt").index(this);
+        $(this).addClass("crt");
+    });
 
-    $("#fontBold").click(function() {
+    $("#fontColor").colorSelect();
+    $("#color_a").colorSelect();
+    $("#img-fc1").colorSelect();
+    $("#img-fc2").colorSelect();
+    $("#img-fc3").colorSelect();
+    
+    $(".fb").click(function() {
         var src = "http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif";
         if ($(this).attr("src") == src) {
             $(this).attr("src", "http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_2.gif").attr("val", "bold")
@@ -22,7 +30,7 @@
             $(this).attr("src", src).attr("val", "normal")
         }
     });
-    $("#fontItalic").click(function() {
+    $(".ft").click(function() {
         var src = "http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif";
         if ($(this).attr("src") == src) {
             $(this).attr("src", "http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_2.gif").attr("val", "italic")
@@ -102,7 +110,7 @@
                 $("input[name=comns]").removeAttr("checked").filter("[value=" + String(data.ComNameShow).replace("t", "T").replace("f", "F") + "]").attr("checked", "checked");
                 var cncss = data.ComNameCss.split(';');
                 $("select[name=comfontName]").val(cncss[0].replace("font-family:", ""));
-                $("select[name=comfontSize]").val(cncss[1].replace("font-size:", "").replace("px",""));
+                $("select[name=comfontSize]").val(cncss[1].replace("font-size:", "").replace("px", ""));
                 if (cncss[2].replace("font-weight:", "") != $("#fontBold").attr("val")) {
                     $("#fontBold").click();
                 }

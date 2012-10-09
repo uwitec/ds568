@@ -1,0 +1,35 @@
+﻿ .htm-main{width:776px;margin:0 auto;margin-top:10px;}
+.item-main-wrap{line-height:18px;}
+.item-main-wrap .input-bg{width:180px;}
+.itemL{width:120px;text-align:right;float:left;}
+.itemR{float:left;}
+.item-main-wrap li{overflow:auto;margin-bottom:10px;}
+.hmenu li{margin-left:1px;_margin-left:-2pxpx;}
+
+.th-model-wrap{padding:10px;border:solid 1px #ccc;border-top:none 0;}
+.sub-model-menu{height:24px;border-bottom:solid 1px #a1b5b4;margin-top:8px;}
+.sub-model-menu li{cursor:pointer;float:left;display:block;line-height:22px;text-align:center;border:solid 1px #a1b5b4; position:relative;top:1px;padding:0px 8px; background-color:#F3F3F3;}
+.sub-model-menu li.crt{border-bottom-color:White; background-color:White;}
+.fontselbold img{cursor:pointer;}
+.hd-bar{overflow:auto;}
+.hd-bar a{float:right;font-family:宋体}
+        
+        /* 颜色输入框
+------------------------------ */
+input.html_color{border: medium none;
+    cursor: pointer;
+    font-size: 0;
+    height: 18px;
+    line-height: 0;
+    padding: 0;
+    vertical-align: middle;
+    width: 18px;border-radius: 2px 2px 2px 2px}
+
+/* 颜色选择器
+------------------------------ */
+.html_colorpane{display:none;position:absolute;z-index:999;}
+.html_colorpane h5{position:relative;width:220px;padding:0 5px;border:1px solid #000;border-bottom:none;background:#fff;color:#999;font:normal 12px/20px "\5B8B\4F53";}
+.html_colorpane h5 span{cursor:pointer;}
+.html_colorpane h5 em{position:absolute;top:0;right:5px;font:normal 16px/20px Tahoma;cursor:pointer;}
+.html_colorpane table{border-collapse:collapse;table-layout:fixed;empty-cells:show;}
+.html_colorpane td{position:static;width:10px;height:10px;padding:0;border:1px solid #000;font-size:0;line-height:0;cursor:pointer;}
