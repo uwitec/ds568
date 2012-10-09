@@ -14,6 +14,7 @@
     $("#smm-2 li").click(function() {
         var ind = $("#smm-2 li").removeClass("crt").index(this);
         $(this).addClass("crt");
+        $(".sub-item-wrap").hide().eq(ind).show();
     });
 
     $("#fontColor").colorSelect();

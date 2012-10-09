@@ -95,56 +95,109 @@
         </ul>
         </div>
         <div class="th-model-wrap" style="display:none;">
-            <ul id="smm-2" class="sub-model-menu">
-                <li class="crt">单图广告</li>
+            <ul id="smm-2" class="sub-model-menu" style="position:relative;left:-10px;width:772px;">
+                <li class="crt" style="margin-left:10px;">单图广告</li>
                 <li>多图广告</li>
                 <li>不显示</li>
             </ul>
-            <ul class="item-main-wrap" style="margin-top:10px;">
-                
-                <li>
-                    <div class="itemL" >显示图片：</div>
-                    <div class="itemR">
-                        <input type="file"   name="adfile1" id="adfile1" />
-                    </div>
-                </li>
-                <li>
-                        <img  id="ad1" src="#" onerror="javascript:this.style.display='none'" style="width:80%;" />
-                </li>
-                <li>
-                    <div class="itemL">图片连接至：</div>
-                    <div class="itemR"><input class="input-bg" style="width:300px;"  /></div>
-                </li>
-                <li>
-                    <div class="itemL">显示文字：</div>
-                    <div class="itemR" style="padding-left:12px;">
-                        <table cellpadding=0 cellspacing=0>
-                            <tr>
-                                <td>第一行文字显示：<input class="input-bg"  /></td>
-                                <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb1" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft1" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc1" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
-                            </tr>
-                        </table>
-                       <table cellpadding=0 cellspacing=0>
-                            <tr>
-                                <td>第二行文字显示：<input class="input-bg"  /></td>
-                                <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb2" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft2" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc2" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
-                            </tr>
-                        </table>
-                        <table cellpadding=0 cellspacing=0>
-                            <tr>
-                                <td>第三行文字显示：<input class="input-bg"  /></td>
-                                <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb3" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft3" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc3" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
-                            </tr>
-                        </table>
-                    </div>
-                </li>
-                <li>
-                    <div class="itemL" style="width:20px;">&nbsp;</div>
-                    <div class="itemR">
-                        <a id="ad-sigle-save" class="commBtn" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
-                    </div>
-                </li>
-          </ul>
+            <div class="sub-item-wrap">
+                <ul class="item-main-wrap" style="margin-top:10px;">
+                    <li>
+                        <div class="itemL" >显示图片：</div>
+                        <div class="itemR">
+                            <input type="file"   name="adfile1" id="adfile1" />
+                        </div>
+                    </li>
+                    <li>
+                            <img  id="ad1" src="#" onerror="javascript:this.style.display='none'" style="width:80%;" />
+                    </li>
+                    <li>
+                        <div class="itemL">图片连接至：</div>
+                        <div class="itemR"><input class="input-bg" style="width:300px;"  /></div>
+                    </li>
+                    <li>
+                        <div class="itemL">显示文字：</div>
+                        <div class="itemR" style="padding-left:12px;">
+                            <table cellpadding=0 cellspacing=0>
+                                <tr>
+                                    <td>第一行文字显示：<input class="input-bg"  /></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb1" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft1" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc1" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                </tr>
+                            </table>
+                           <table cellpadding=0 cellspacing=0>
+                                <tr>
+                                    <td>第二行文字显示：<input class="input-bg"  /></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb2" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft2" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc2" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                </tr>
+                            </table>
+                            <table cellpadding=0 cellspacing=0>
+                                <tr>
+                                    <td>第三行文字显示：<input class="input-bg"  /></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb3" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft3" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc3" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="itemL" style="width:20px;">&nbsp;</div>
+                        <div class="itemR">
+                            <a id="ad-sigle-save" class="commBtn" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="sub-item-wrap" style="display:none;">
+                <ul id="Ul1" class="sub-model-menu" >
+                    <li class="crt" >场景一</li>
+                    <li>场景二</li>
+                    <li>场景三</li>
+                    <li>场景四</li>
+                </ul>
+                <ul class="item-main-wrap" style="margin-top:10px;">
+                    <li>
+                        <div class="itemL" >显示图片：</div>
+                        <div class="itemR">
+                            <input type="file"   name="adfile1" id="File1" />
+                        </div>
+                    </li>
+                    <li>
+                            <img  id="Img1" src="#" onerror="javascript:this.style.display='none'" style="width:80%;" />
+                    </li>
+                    <li>
+                        <div class="itemL">图片连接至：</div>
+                        <div class="itemR"><input class="input-bg" style="width:300px;"  /></div>
+                    </li>
+                    <li>
+                        <div class="itemL">显示文字：</div>
+                        <div class="itemR" style="padding-left:12px;">
+                            <table cellpadding=0 cellspacing=0>
+                                <tr>
+                                    <td>第一行文字显示：<input class="input-bg"  /></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img2" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img3" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img4" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                </tr>
+                            </table>
+                            <table cellpadding=0 cellspacing=0>
+                                <tr>
+                                    <td>第二行文字显示：<input class="input-bg"  /></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img5" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img6" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img7" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                </tr>
+                            </table>
+                            <table cellpadding=0 cellspacing=0>
+                                <tr>
+                                    <td>第三行文字显示：<input class="input-bg"  /></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img8" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img9" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img10" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="itemL" style="width:20px;">&nbsp;</div>
+                        <div class="itemR">
+                            <a id="a1" class="commBtn" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="th-model-wrap" style="display:none;"></div>
         <div class="th-model-wrap" style="display:none;">
