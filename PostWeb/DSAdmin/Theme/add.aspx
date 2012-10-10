@@ -147,7 +147,7 @@
                 </ul>
             </div>
             <div class="sub-item-wrap" style="display:none;">
-                <ul id="Ul1" class="sub-model-menu" >
+                <ul id="smm-3" class="sub-model-menu" >
                     <li class="crt" >场景一</li>
                     <li>场景二</li>
                     <li>场景三</li>
@@ -173,19 +173,19 @@
                             <table cellpadding=0 cellspacing=0>
                                 <tr>
                                     <td>第一行文字显示：<input class="input-bg"  /></td>
-                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img2" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img3" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img4" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb4" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft4" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc4" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
                                 </tr>
                             </table>
                             <table cellpadding=0 cellspacing=0>
                                 <tr>
                                     <td>第二行文字显示：<input class="input-bg"  /></td>
-                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img5" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img6" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img7" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb5" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft5" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc5" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
                                 </tr>
                             </table>
                             <table cellpadding=0 cellspacing=0>
                                 <tr>
                                     <td>第三行文字显示：<input class="input-bg"  /></td>
-                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img8" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img9" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img10" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb6" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft6" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc6" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
                                 </tr>
                             </table>
                         </div>
