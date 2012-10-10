@@ -17,11 +17,20 @@
         $(".sub-item-wrap").hide().eq(ind).show();
     });
 
+    $("#smm-3 li").click(function() {
+        var ind = $("#smm-3 li").removeClass("crt").index(this);
+        $(this).addClass("crt");
+        $("#smm-3").parent().find(".item-main-wrap").hide().eq(ind).show();
+    });
+
     $("#fontColor").colorSelect();
     $("#color_a").colorSelect();
     $("#img-fc1").colorSelect();
     $("#img-fc2").colorSelect();
     $("#img-fc3").colorSelect();
+    $("#img-fc4").colorSelect();
+    $("#img-fc5").colorSelect();
+    $("#img-fc6").colorSelect();
     
     $(".fb").click(function() {
         var src = "http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif";
