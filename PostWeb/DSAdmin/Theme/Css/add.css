@@ -11,8 +11,8 @@
 .sub-model-menu li{cursor:pointer;float:left;display:block;line-height:22px;text-align:center;border:solid 1px #a1b5b4; position:relative;top:1px;padding:0px 8px; background-color:#F3F3F3;}
 .sub-model-menu li.crt{border-bottom-color:White; background-color:White;}
 .fontselbold img{cursor:pointer;}
-.hd-bar{overflow:auto;}
-.hd-bar a{float:right;font-family:宋体}
+.hd-bar{height:22px;position:relative;}
+.hd-bar a{position:absolute;right:5px;top:0; font-family:宋体;}
         
         /* 颜色输入框
 ------------------------------ */

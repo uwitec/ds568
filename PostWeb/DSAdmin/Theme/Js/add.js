@@ -102,6 +102,8 @@
         }
         ajaxSave(this, 'thume', { myaction: "thumeSave", themeName: themeName, id: $("input[name=the_id]").val() });
     });
+    
+    
 
 
     //还原
