@@ -100,6 +100,8 @@
                 <li>多图广告</li>
                 <li>不显示</li>
             </ul>
+            
+            <!----单图广告--->
             <div class="sub-item-wrap">
                 <ul class="item-main-wrap" style="margin-top:10px;">
                     <li>
@@ -111,10 +113,7 @@
                     <li>
                             <img  id="ad1" src="#" onerror="javascript:this.style.display='none'" style="width:80%;" />
                     </li>
-                    <li>
-                        <div class="itemL">图片连接至：</div>
-                        <div class="itemR"><input class="input-bg" style="width:300px;"  /></div>
-                    </li>
+                
                     <li>
                         <div class="itemL">显示文字：</div>
                         <div class="itemR" style="padding-left:12px;">
@@ -146,6 +145,8 @@
                     </li>
                 </ul>
             </div>
+            
+            <!----多图广告--->
             <div class="sub-item-wrap" style="display:none;">
                 <ul id="smm-3" class="sub-model-menu" >
                     <li class="crt" >场景一</li>
@@ -198,6 +199,7 @@
                     </li>
                 </ul>
             </div>
+            
         </div>
         <div class="th-model-wrap" style="display:none;"></div>
         <div class="th-model-wrap" style="display:none;">
