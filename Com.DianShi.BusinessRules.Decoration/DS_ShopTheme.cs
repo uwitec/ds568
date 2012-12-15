@@ -29,19 +29,9 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                 //{
                     string themePath = "";
                     string id = request["id"];
-                    bool isEdit = !string.IsNullOrEmpty(id);
-                    var md = CreateModel();
-                    if (isEdit)
-                    {
-                        md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(id)));
-                        themePath = ThemePath(md.ID);
-                    }
-                    else
-                    {
-                        var indent = ct.ExecuteQuery<decimal>("select IDENT_CURRENT('DS_ShopTheme')+1");
-                        themePath = ThemePath(int.Parse(indent.Single().ToString()));
-                    }
-                    md.ThemeName = request["themeName"];
+                    var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(id)));
+                    themePath = ThemePath(md.ID);
+                   
                     md.SignType = byte.Parse(request["signType"]);
                     md.SignBgColor = request["signBgColor"];
                     md.ComNameShow = bool.Parse(request["comNameShow"]);
@@ -61,12 +51,11 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         }
                         else
                         {
-                            if (isEdit)
-                            {
-                                var files = Directory.GetFiles(HttpContext.Current.Server.MapPath(themePath), "sign_*");
-                                foreach (var imgpath in files)
-                                    File.Delete(imgpath);
-                            }
+                           
+                            var files = Directory.GetFiles(HttpContext.Current.Server.MapPath(themePath), "sign_*");
+                            foreach (var imgpath in files)
+                                File.Delete(imgpath);
+                            
 
                             if(string.IsNullOrEmpty(md.SignImg))
                             {
@@ -85,10 +74,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         }
                     }
 
-                    if (!isEdit)
-                    {
-                        ct.DS_ShopTheme.InsertOnSubmit(md);
-                    }
+                   
                     ct.SubmitChanges();
                     return new { Succ = true,md.SignImg,md.ID };
                 //}
@@ -96,7 +82,12 @@ namespace Com.DianShi.BusinessRules.ShopConfig
             }
         }
 
-        public Object ThumeSave(HttpRequest request)
+        /// <summary>
+        /// 保存单图广告
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public Object AdSigleSave(HttpRequest request)
         {
             using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
             {
@@ -104,20 +95,10 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                 //{
                     string themePath = Common.Constant.WebConfig("ThemeRootPath") + "the";
                     string id = request["id"];
-                    bool isEdit = !string.IsNullOrEmpty(id);
-                    var md = CreateModel();
-                    if (isEdit)
-                    {
-                        md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(id)));
-                        themePath = ThemePath(md.ID);
-                    }
-                    else
-                    {
-                        var indent = ct.ExecuteQuery<decimal>("select IDENT_CURRENT('DS_ShopTheme')+1");
-                        themePath = ThemePath(int.Parse(indent.Single().ToString()));
-                    }
-                    md.ThemeName = request["themeName"];
-                 
+                  
+                    var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(id)));
+                    themePath = ThemePath(md.ID);
+                    md.AdSigleTxt=request["adsigletxt"];
                     if (request.Files[0].ContentLength > 0)
                     {
                         HttpPostedFile file = request.Files[0];
@@ -138,31 +119,83 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                             {
                                 Directory.CreateDirectory(themePath);
                             }
-                            if (isEdit)
-                            {
-                                var files = Directory.GetFiles(themePath, "thume_*");
-                                foreach (var imgpath in files)
-                                    File.Delete(imgpath);
-                            }
+                             
+                            var files = Directory.GetFiles(themePath, "adsigle_*");
+                            foreach (var imgpath in files)
+                                File.Delete(imgpath);
+                            
 
                             if(string.IsNullOrEmpty(md.Thume))
                             {
                                 string newName = Guid.NewGuid().ToString();
-                                md.Thume = "thume_" + newName + ext;
+                                md.AdSigleImg = "adsigle_" + newName + ext;
                             }
 
-                            string img = themePath + md.Thume;
+                            string img = themePath + md.AdSigleImg;
                            
                             file.SaveAs(img);//保存图
                         }
                     }
 
-                    if (!isEdit)
-                    {
-                        ct.DS_ShopTheme.InsertOnSubmit(md);
-                    }
                     ct.SubmitChanges();
-                    return new { Succ = true,md.Thume,md.ID };
+                    return new { Succ = true, md.AdSigleImg, md.ID };
+                //}
+                //catch (Exception ex) { return new { Succ = false, Msg = ex.Message }; }
+            }
+        }
+
+        public Object ThumeSave(HttpRequest request)
+        {
+            using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
+            {
+                //try
+                //{
+                string themePath = Common.Constant.WebConfig("ThemeRootPath") + "the";
+                string id = request["id"];
+                var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(id)));
+                themePath = ThemePath(md.ID);
+                
+                if (request.Files[0].ContentLength > 0)
+                {
+                    HttpPostedFile file = request.Files[0];
+                    string ext = System.IO.Path.GetExtension(file.FileName).ToLower();
+                    if (!".jpg|.gif|.png".Contains(ext))
+                    {
+                        return new { Succ = false, Msg = "请您上传jpg、gif、png图片" };
+
+                    }
+                    else if (file.ContentLength > 1024 * 300)
+                    {
+                        return new { Succ = false, Msg = "请您上传1M(1024KB)内的图片" };
+                    }
+                    else
+                    {
+                        themePath = HttpContext.Current.Server.MapPath(themePath);
+                        if (!Directory.Exists(themePath))
+                        {
+                            Directory.CreateDirectory(themePath);
+                        }
+                        
+                        var files = Directory.GetFiles(themePath, "thume_*");
+                        foreach (var imgpath in files)
+                            File.Delete(imgpath);
+                       
+
+                        if (string.IsNullOrEmpty(md.Thume))
+                        {
+                            string newName = Guid.NewGuid().ToString();
+                            md.Thume = "thume_" + newName + ext;
+                        }
+
+                        string img = themePath + md.Thume;
+
+                        file.SaveAs(img);//保存图
+                    }
+                }
+
+               
+                ct.SubmitChanges();
+                return new { Succ = true, md.Thume, md.ID };
                 //}
                 //catch (Exception ex) { return new { Succ = false, Msg = ex.Message }; }
             }
@@ -184,7 +217,9 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                 DS_ShopTheme st = ct.DS_ShopTheme.Single(a => a.ID == ID);
                 ct.DS_ShopTheme.DeleteOnSubmit(st);
                 ct.SubmitChanges();
-                Directory.Delete(HttpContext.Current.Server.MapPath(ThemePath(ID)),true);
+                var path=HttpContext.Current.Server.MapPath(ThemePath(ID));
+                if(Directory.Exists(path))
+                    Directory.Delete(path,true);
             }
         }
 
