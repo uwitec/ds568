@@ -23,6 +23,18 @@ function changeImg(obj,width,height) {
     }
 }
 
+//查询字符串转json，格式为action=save&truename=deven
+function strToJson(queryStr) {
+    var obj = {}, pairs = queryStr.split('&'), d = decodeURIComponent, name, value;
+    $.each(pairs, function (i, pair) {
+        pair = pair.split('=');
+        name = d(pair[0]);
+        value = d(pair[1]);
+        obj[name] = value;
+    });
+    return obj;
+}
+
 //----------地区插件开始-------------------
 var Area=function(options){
     var setting={

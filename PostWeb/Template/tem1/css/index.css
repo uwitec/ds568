@@ -211,7 +211,7 @@ h4 a{display:block;color:#0066cc;height:32px;line-height:16px;overflow:hidden;}
 .moreCategory{padding:6px;border:solid 3px #f6f6f6;margin-top:20px;}
 .moreCategory .propertyPf{border-top:none 0;border-bottom:dotted 1px #dcdcdc; text-indent:0;}
 .categoryLink{line-height:30px;font-family:"宋体";}
-.profileBody{padding:6px;line-height:20px;}
+.profileBody{padding:6px;line-height:20px; overflow:auto;}
 .comimgCtn{float:left;width:300px;height:228px; position:relative;margin-right:6px;margin-bottom:6px;}
 .comimgCtn img{ position:absolute;top:0;left:0;}
 .contactBody{padding:18px;padding-top:9px;}
