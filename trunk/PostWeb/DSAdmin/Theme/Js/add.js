@@ -31,7 +31,7 @@
     $("#img-fc4").colorSelect();
     $("#img-fc5").colorSelect();
     $("#img-fc6").colorSelect();
-    
+
     $(".fb").click(function() {
         var src = "http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif";
         if ($(this).attr("src") == src) {
@@ -78,6 +78,33 @@
             }
         });
     }
+
+    //保存主题名称
+    $(".btnsavethename").click(function() {
+        $.ajax({
+            url: _url,
+            type: "post",
+            dataType: "json",
+            data: { myaction: "savethename", thename: $("input[name=themeName]").val(), id: $("input[name=the_id]").val() },
+            success: function(data) {
+                if (data.succ) {
+                    alert("主题名称保存成功。");
+                } else {
+                    alert(data.msg)
+                }
+            },
+            error: function(req) {
+                alert("保存出错。");
+            },
+            beforeSend: function() {
+
+            },
+            complete: function() {
+
+            }
+        });
+    });
+
     //提交招牌
     $("#btn-sign-save").click(function() {
         if ($(this).hasClass("loading2")) return false;
@@ -102,8 +129,28 @@
         }
         ajaxSave(this, 'thume', { myaction: "thumeSave", themeName: themeName, id: $("input[name=the_id]").val() });
     });
-    
-    
+
+    //单图广告
+    $("#ad-sigle-save").click(function() {
+        if ($(this).hasClass("loading2")) return false;
+        $(".adsigle table").each(function() {
+            var ipts = $(this).find("input[type=hidden]");
+            var imgs = $(this).find("img");
+            ipts.each(function() {
+                var ind = ipts.index(this);
+                if (ind < 2)
+                    $(this).val(imgs.eq(ind).attr("val"));
+                else {
+                    $(this).val(imgs.eq(ind).css("background-color"));
+                }
+            });
+        });
+        
+        var data = strToJson($(".adsigletxt").serialize());
+        data.myaction = "adSigleSave";
+        data.id = $("input[name=the_id]").val();
+        //ajaxSave(this, 'adfile1', data);
+    });
 
 
     //还原

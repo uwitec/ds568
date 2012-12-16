@@ -16,6 +16,7 @@
         .list-wrap ul li .action-wrap{color:white;width:132px;line-height:24px;opacity: 0.7;filter:alpha(opacity=70); position:absolute;top:116px;left:2px;display:none;text-align:center;color:#fff;background: none repeat scroll 0 0 #000000;font-style:normal;}
         .list-wrap ul li:hover .action-wrap{display:block;}
         .btn-ctn{padding:8px 0;}
+        .add-wrap{padding:30px 10px;width:300px;}
     </style>
     <script type="text/javascript">
         $(function() {
@@ -41,12 +42,45 @@
                 });
                 return false;
             });
+
+            var wbox = $(".btnadd").wBox({
+                title: "添加主题",
+                html: "<div class='add-wrap'>主题名称：<input name='thename' /> <input class='btnsave' type='button' value='保存' /></div>",
+                show: false,
+                callBack: function() {
+                    $(".btnsave").click(function() {
+                        $.ajax({
+                            url: _url,
+                            type: "post",
+                            dataType: "json",
+                            data: { myaction: "savethename", thename: $("input[name=thename]").val() },
+                            success: function(data) {
+                                if (data.succ) {
+                                    wbox.close();
+                                    location = 'add.aspx?id=' + data.id;
+                                } else { 
+                                    alert(data.msg)
+                                }
+                            },
+                            error: function(req) {
+                                alert("保存出错。");
+                            },
+                            beforeSend: function() {
+
+                            },
+                            complete: function() {
+
+                            }
+                        });
+                    });
+                }
+            });
         })
     </script>
 </head>
 <body>
     <div class="htm-main">
-    <div class="btn-ctn"><input type="button" onclick="location='add.aspx'" value="添加主题" /></div>
+    <div class="btn-ctn"><input type="button" class="btnadd"   value="添加主题" /></div>
     <div class="list-wrap">
         <ul>
             <asp:Repeater ID="Repeater1" runat="server">
