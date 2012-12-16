@@ -20,7 +20,7 @@
         <ul class="item-main-wrap">
             <li>
                 <div class="itemL">主题名称：</div>
-                <div class="itemR"><input class="input-bg" name="themeName" /></div>
+                <div class="itemR"><input class="input-bg" name="themeName" /><input type="button" class="btnsavethename" value="保存" /></div>
             </li>
         </ul>
         <ul class="hmenu">
@@ -116,23 +116,29 @@
                 
                     <li>
                         <div class="itemL">显示文字：</div>
-                        <div class="itemR" style="padding-left:12px;">
-                            <table cellpadding=0 cellspacing=0>
+                        <div class="itemR adsigle" style="padding-left:12px;">
+                            <table cellpadding=0 cellspacing=0 >
                                 <tr>
-                                    <td>第一行文字显示：<input class="input-bg"  /></td>
-                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb1" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft1" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc1" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                    <td>第一行文字显示：<input class="input-bg adsigletxt" name="adsigletxt"  /></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb1" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft1" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc1" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span>
+                                        <input type="hidden" name="fb1" /><input type="hidden" name="ft1" /><input type="hidden" name="fc1" />
+                                    </td>
                                 </tr>
                             </table>
                            <table cellpadding=0 cellspacing=0>
                                 <tr>
-                                    <td>第二行文字显示：<input class="input-bg"  /></td>
-                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb2" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft2" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc2" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                    <td>第二行文字显示：<input class="input-bg adsigletxt" name="adsigletxt"  /></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb2" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft2" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc2" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span>
+                                        <input type="hidden" name="fb2" /><input type="hidden" name="ft2" /><input type="hidden" name="fc2" />
+                                    </td>
                                 </tr>
                             </table>
                             <table cellpadding=0 cellspacing=0>
                                 <tr>
-                                    <td>第三行文字显示：<input class="input-bg"  /></td>
-                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb3" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft3" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc3" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                    <td>第三行文字显示：<input class="input-bg adsigletxt" name="adsigletxt" /></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb3" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft3" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc3" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span>
+                                        <input type="hidden" name="fb3" /><input type="hidden" name="ft3" /><input type="hidden" name="fc3" />
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -194,7 +200,7 @@
                     <li>
                         <div class="itemL" style="width:20px;">&nbsp;</div>
                         <div class="itemR">
-                            <a id="a1" class="commBtn" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
+                            <a id="ad-muti-save" class="commBtn" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
                         </div>
                     </li>
                 </ul>

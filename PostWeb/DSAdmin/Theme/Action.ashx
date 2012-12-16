@@ -17,6 +17,7 @@ public class Action : IHttpHandler, IRequiresSessionState
         if (!string.IsNullOrEmpty(act))
         {
             var bl = new DS_ShopTheme_Br();
+            var the = bl.CreateModel();
             switch (act)
             {
                 case "signSave":
@@ -26,7 +27,7 @@ public class Action : IHttpHandler, IRequiresSessionState
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.ThumeSave(context.Request)));
                     break;
                 case "getmd":
-                    var the=bl.GetSingle(int.Parse(context.Request["id"]));
+                    the=bl.GetSingle(int.Parse(context.Request["id"]));
                     string thepath = DS_ShopTheme_Br.ThemePath(the.ID);
                     the.SignImg = thepath + the.SignImg;
                     the.Thume = thepath + the.Thume;
@@ -35,6 +36,33 @@ public class Action : IHttpHandler, IRequiresSessionState
                 case "del":
                     bl.Delete(int.Parse(context.Request["id"]));
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = true }));
+                    break;
+                case "adSigleSave":
+                    context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.AdSigleSave(context.Request)));
+                    break;
+                case "savethename":
+                    try
+                    {
+                        bool isedit=!string.IsNullOrEmpty(context.Request["id"]);
+                        if (isedit) {
+                            the = bl.GetSingle(int.Parse(context.Request["id"]));
+                        }
+                        the.ThemeName = context.Request["thename"];
+                        if (isedit)
+                            bl.Update(the);
+                        else
+                            bl.Add(the);
+                        context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = true, id = the.ID }));
+                    }
+                    catch (Exception ex) {
+                        if (ex.Message.Contains("IX_DS_ShopTheme"))
+                        {
+                            context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false,msg="已存在相同主题名称" }));
+                        }
+                        else {
+                            context.Response.Write(Common.JSONHelper.ObjectToJSON(new { succ = false, msg=ex.Message }));
+                        }
+                    }
                     break;
             
             }
