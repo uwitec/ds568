@@ -308,12 +308,12 @@
     //获取表单数据
     var getFormVal = function () {
         var subDate = {};
+        subDate.action = "add";
         if ($("#proid").val() != "") {//如果存在产品model,表示修改
             subDate.action = "edit";
             subDate.id = $("#proid").val();
         }
-        else
-            subDate.action = "add";
+
         subDate.sysCatID = $("#catid").val();
         subDate.shopCat = $("#shopCat").val();
         subDate.proTitle = $("#proTitle").val();
@@ -324,8 +324,9 @@
         for (var i = 1; i <= 24; i++) {
             var rv = getPrtVal(i);
             if (rv != null)
-                $(subDate).attr("property" + i, rv);
+                subDate["property" + i] = rv;
         }
+
         subDate.detail = encodeURI(KE.html());
         subDate.priceRang = $("#wb1").val() + "," + $("#wprice1").val();
         subDate.lowPrice = subDate.heightPrice = $("#wprice1").val()
@@ -349,18 +350,25 @@
             $.ajax({
                 type: "POST",
                 url: "post.aspx",
+                data: getFormVal(),
                 success: function (data) {
+
                     if (data == "True") {
                         alert("发布成功。");
                         location = "list.aspx"
                     } else
                         alert(data);
                 },
-                error: function (req, textStatus, errorThrown) {
+                error: function (req) {
                     alert("提交出错。");
 
                 },
-                data: getFormVal()
+                beforeSend: function () {
+
+                },
+                complete: function () {
+
+                }
             });
         }
     });

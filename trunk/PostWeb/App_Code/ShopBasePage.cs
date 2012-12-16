@@ -52,6 +52,8 @@ public class ShopBasePage : System.Web.UI.Page
                 lctr.Text += ".HeaderMenuBar ul li a:link,.HeaderMenuBar ul li a:visited{color:" + _ShopConfig.NmColor + ";}\n";
             if (!string.IsNullOrEmpty(_ShopConfig.SelmColor))
                 lctr.Text += ".HeaderMenuBar ul li:hover a,.HeaderMenuBar ul li a:hover,.HeaderMenuBar ul li.Check a:link,.HeaderMenuBar ul li.Check a:visited{color:" + _ShopConfig.SelmColor + ";}\n";
+            if (!string.IsNullOrEmpty(_ShopConfig.ComNameCss))
+                lctr.Text += ".Head h1{" + _ShopConfig.ComNameCss + "}\n";
             lctr.Text += "</style>";
             this.Page.Header.Controls.Add(lctr);
         }

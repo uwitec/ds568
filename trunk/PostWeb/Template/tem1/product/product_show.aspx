@@ -42,20 +42,20 @@
                     <tr>
                         <td align="center">
                             <div>
-                                <img  alt="<%=ViewState["title"] %>" width="211" height="312" id="bigimg" onerror="javascript:$(this).hide()" src="<%=ViewState["img1"] %>" /></div>
+                                <img  alt="<%=ViewState["title"] %>"  id="bigimg" onload="changeImg(this,315,315)"  onerror="javascript:$(this).hide()" src="<%=ViewState["img1"] %>" /></div>
                         </td>
                     </tr>
                 </table>
                 <ul class="pPicBottom">
                     <li>
                         <div>
-                            <img  onerror="javascript:$(this).parent().parent().hide()" width="55" height="55" alt="<%=ViewState["title"] %>" src="<%=ViewState["img1"] %>" />
+                            <img  onerror="javascript:$(this).parent().parent().hide()" onload="changeImg(this,315,315)" width="55" height="55" alt="<%=ViewState["title"] %>" src="<%=ViewState["img1"] %>" />
                         </div>
                     </li>
                     <li class="lisplit"></li>
                     <li>
                         <div>
-                            <img onerror="javascript:$(this).parent().parent().hide()" width="55" height="55" alt="<%=ViewState["title"] %>" src="<%=ViewState["img2"] %>" />
+                            <img onerror="javascript:$(this).parent().parent().hide()" onload="changeImg(this,315,315)" width="55" height="55" alt="<%=ViewState["title"] %>" src="<%=ViewState["img2"] %>" />
                         </div>
                     </li>
                     <li class="lisplit"></li>

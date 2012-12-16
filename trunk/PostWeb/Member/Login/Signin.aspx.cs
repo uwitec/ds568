@@ -20,8 +20,8 @@ public partial class Member_Login_login : System.Web.UI.Page
     }
 
     private void LinkButton1_Click(object sender, EventArgs e) {
-        try
-        {
+        //try
+        //{
             string uid=Request.Form["uid"] as string;
             string pwd=Request.Form["pwd"] as string;
             if (string.IsNullOrEmpty(uid)||string.IsNullOrEmpty(pwd)) {
@@ -48,10 +48,10 @@ public partial class Member_Login_login : System.Web.UI.Page
             {
                 Common.MessageBox.ResponseScript(this, "alert('用户名或密码错误');history.back();");
             }
-        }
-        catch (Exception ex)
-        {
-            Common.MessageBox.ResponseScript(this, "alert('抱歉，登录发生意外，可联系客服人员提供帮助');history.back();");
-        }
+        ////}
+        ////catch (Exception ex)
+        ////{
+        ////    Common.MessageBox.ResponseScript(this, "alert('抱歉，登录发生意外，可联系客服人员提供帮助');history.back();");
+        ////}
     }
 }

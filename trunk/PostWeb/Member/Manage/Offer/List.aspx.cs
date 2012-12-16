@@ -34,7 +34,7 @@ public partial class Member_Manage_Offer_List : BasePage
         mst.SetMenuTitle("供应管理", "管理供应信息");
         
         bindMenu();
-        BindDate("state=@0", byte.Parse(Request.QueryString["show_type"]));
+        BindDate("state=@0 and memberid=@1", byte.Parse(Request.QueryString["show_type"]),_userData.Member.ID);
     }
 
     private void bindMenu() {
