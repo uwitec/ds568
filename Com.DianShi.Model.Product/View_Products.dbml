@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Database Name="DianShi" Class="View_ProductsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\MYSQLEXPRESS;Initial Catalog=DianShi;Persist Security Info=False;User ID=ShuInDianShi" SettingsObjectName="Com.DianShi.Model.Product.Properties.Settings" SettingsPropertyName="DianShiConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hds0230549_db" Class="View_ProductsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=hds-023.hichina.com;Initial Catalog=hds0230549_db;Persist Security Info=True;User ID=hds0230549" SettingsObjectName="Com.DianShi.Model.Product.Properties.Settings" SettingsPropertyName="hds0230549_dbConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.View_Products" Member="View_Products">
     <Type Name="View_Products">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" IsVersion="true" />
       <Column Name="Img1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="Title" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
       <Column Name="SysCatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -11,6 +10,7 @@
       <Column Name="State" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Column Name="ExpiredDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="CategoryName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
