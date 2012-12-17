@@ -51,13 +51,13 @@
 
 
     var _url = "Action.ashx"
-    var ajaxSave = function(btn, fileID, data) {
-        $(btn).addClass("loading2").find(".cb_m").text("数据提交中…");
+    var ajaxSave = function(data) {
+        $(data.btn).addClass("loading2").find(".cb_m").text("数据提交中…");
         $.ajaxFileUpload({
             url: _url + "?time=" + Math.random(),
             type: "POST",
             secureuri: false,
-            fileElementId: fileID,
+            fileElementId: data.fileid,
             data: data,
             dataType: "json",
             success: function(data) {
@@ -114,8 +114,8 @@
             return false;
         }
         var cnstyle = "font-family:" + $("select[name=comfontName]").val() + ";font-size:" + $("select[name=comfontSize]").val() + "px;font-weight:" + $("#fontBold").attr("val") + ";font-style:" + $("#fontItalic").attr("val") + ";color:" + $("#fontColor").css("background-color");
-        var data = { myaction: "signSave", id: $("input[name=the_id]").val(), themeName: themeName, signType: $("input[name=signType]:checked").val(), signBgColor: $("#color_a").css("background-color"), comNameShow: $("input[name=comns]:checked").val(), signStyle: cnstyle };
-        ajaxSave(this, 'signfile', data);
+        var data = { myaction: "signSave", btn: this, id: $("input[name=the_id]").val(), fileid: "signfile", themeName: themeName, signType: $("input[name=signType]:checked").val(), signBgColor: $("#color_a").css("background-color"), comNameShow: $("input[name=comns]:checked").val(), signStyle: cnstyle };
+        ajaxSave(data);
 
     });
 
@@ -127,7 +127,7 @@
             alert("请输入主题名称。");
             return false;
         }
-        ajaxSave(this, 'thume', { myaction: "thumeSave", themeName: themeName, id: $("input[name=the_id]").val() });
+        ajaxSave({ myaction: "thumeSave",btn:this, fileid: 'thume', themeName: themeName, id: $("input[name=the_id]").val() });
     });
 
     //单图广告
@@ -145,11 +145,13 @@
                 }
             });
         });
-        
-        var data = strToJson($(".adsigletxt").serialize());
+
+        var data = strToJson($(".adsigle").serialize());
         data.myaction = "adSigleSave";
         data.id = $("input[name=the_id]").val();
-        //ajaxSave(this, 'adfile1', data);
+        data.fileid = "adfile1";
+        data.btn = this;
+        ajaxSave(data);
     });
 
 
