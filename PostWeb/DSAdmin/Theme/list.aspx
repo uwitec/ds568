@@ -10,7 +10,7 @@
         .list-wrap ul{overflow:auto;}
         .list-wrap ul li{float:left;margin-right:10px;position:relative;}
         
-        .img-wrap{width:125px;height:130px;border:solid 1px #ccc;padding:5px;text-align:center;line-height:130px;}
+        .img-wrap{width:125px;height:130px;border:solid 1px #ccc;padding:5px;text-align:center;line-height:130px;overflow:hidden;}
         .img-wrap img{ vertical-align:middle;}
         .thremTitle{line-height:18px;text-align:center;}
         .list-wrap ul li .action-wrap{color:white;width:132px;line-height:24px;opacity: 0.7;filter:alpha(opacity=70); position:absolute;top:116px;left:2px;display:none;text-align:center;color:#fff;background: none repeat scroll 0 0 #000000;font-style:normal;}
