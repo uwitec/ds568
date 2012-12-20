@@ -141,6 +141,46 @@ namespace Com.DianShi.BusinessRules.ShopConfig
             }
         }
 
+        /// <summary>
+        /// 保存多图广告
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public Object AdMutiSave(HttpRequest request)
+        {
+            using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
+            {
+                //try
+                //{
+                var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
+                var list = new List<object>();
+                list.Add(new { title = request["admutitext1"], fontWeight = request["admtfb1"], fontType = request["admtft1"], fontColor = request["admtfc1"] });
+                list.Add(new { title = request["admutitext2"], fontWeight = request["admtfb2"], fontType = request["admtft2"], fontColor = request["admtfc2"] });
+                list.Add(new { title = request["admutitext3"], fontWeight = request["admtfb3"], fontType = request["admtft3"], fontColor = request["admtfc3"] });
+                string jsonstr = Common.JSONHelper.ObjectToJSON(list); ;//以json字符串的型形保存，方便前端用js获取显示。
+                string itemind = request["admutiind"];
+                var prttxt = md.GetType().GetProperty("AdMutiTxt"+itemind);
+                prttxt.SetValue(md,jsonstr,null);
+                var prtimg = md.GetType().GetProperty("AdMutiImg"+itemind);
+                if (request.Files.Count > 0 && request.Files[0].ContentLength > 0)
+                {
+                    var rtobj = SaveImg(request.Files[0], md.ID, "admuti"+itemind+"_", prtimg.GetValue(md,null) as string, 300);
+                    if (rtobj.Succ)
+                    {
+                        prtimg.SetValue(md,rtobj.ReturnValue,null);
+                    }
+                    else
+                    {
+                        return new { Succ = false, Msg = rtobj.Msg };
+                    }
+                }
+                ct.SubmitChanges();
+                return new { Succ = true, imgUrl=prtimg.GetValue(md,null) as string, md.ID };
+                //}
+                //catch (Exception ex) { return new { Succ = false, Msg = ex.Message }; }
+            }
+        }
+
         public Object ThumeSave(HttpRequest request)
         {
             using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
