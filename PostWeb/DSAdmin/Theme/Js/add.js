@@ -1,4 +1,15 @@
 ﻿$(function() {
+    //克隆多图广告提交项
+    var adMutiItem = $(".ad-muti-list:first");
+    $(".ad-muti-wrap").append(adMutiItem.clone())
+    $(".ad-muti-wrap").append(adMutiItem.clone())
+    $(".ad-muti-wrap").append(adMutiItem.clone())
+    $(".ad-muti-list").hide().eq(0).show();
+    $(".ad-muti-list").eq(0).find("input[type=file]").attr("id", "admutifile0")
+    $(".ad-muti-list").eq(1).find("input[type=file]").attr("id", "admutifile1")
+    $(".ad-muti-list").eq(2).find("input[type=file]").attr("id", "admutifile2")
+    $(".ad-muti-list").eq(3).find("input[type=file]").attr("id","admutifile3")
+
     $(".hmenu li").click(function() {
         var ind = $(".hmenu li").removeClass("mn-wrap-crt").index(this);
         $(this).addClass("mn-wrap-crt");
@@ -23,14 +34,8 @@
         $("#smm-3").parent().find(".item-main-wrap").hide().eq(ind).show();
     });
 
-    $("#fontColor").colorSelect();
-    $("#color_a").colorSelect();
-    $("#img-fc1").colorSelect();
-    $("#img-fc2").colorSelect();
-    $("#img-fc3").colorSelect();
-    $("#img-fc4").colorSelect();
-    $("#img-fc5").colorSelect();
-    $("#img-fc6").colorSelect();
+
+
 
     $(".fb").click(function() {
         var src = "http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif";
@@ -49,6 +54,10 @@
     });
 
 
+
+    $(".fc").each(function() {
+        $(this).colorSelect();
+    });
 
     var _url = "Action.ashx"
     var ajaxSave = function(postdata) {
@@ -131,7 +140,7 @@
         ajaxSave({ myaction: "thumeSave", btn: this, fileid: 'thume', themeName: themeName, id: $("input[name=the_id]").val() });
     });
 
-    //单图广告
+    //保存单图广告
     $("#ad-sigle-save").click(function() {
         if ($(this).hasClass("loading2")) return false;
         $(".adsigle table").each(function() {//把显示文字样式赋值给对应隐藏控件，以便提交
@@ -147,7 +156,7 @@
             });
         });
 
-        var data = strToJson($(".adsigle input").serialize()); alert($(".adsigle input").serialize())
+        var data = strToJson($(".adsigle input").serialize());
         data.myaction = "adSigleSave";
         data.id = $("input[name=the_id]").val();
         data.fileid = "adfile1";
@@ -155,6 +164,32 @@
         ajaxSave(data);
     });
 
+    //保存多图广告
+    $(".btn-muti-save").click(function() {
+        if ($(this).hasClass("loading2")) return false;
+        var ind = $(".btn-muti-save").index(this);
+        var mtwrap = $(".ad-muti-list").eq(ind);
+        mtwrap.find("table").each(function() {
+            var ipts = $(this).find("input[type=hidden]");
+            var imgs = $(this).find("img");
+            ipts.each(function() {
+                var ind = ipts.index(this);
+                if (ind < 2)
+                    $(this).val(imgs.eq(ind).attr("val"));
+                else {
+                    $(this).val(imgs.eq(ind).css("background-color"));
+                }
+            });
+        });
+
+        var data = strToJson(mtwrap.find("input").serialize());
+        data.myaction = "adMutiSave"+ind;
+        data.id = $("input[name=the_id]").val();
+        data.fileid = mtwrap.find("input[type=file]").attr("id");
+        data.btn = this;
+        ajaxSave(data);
+        
+    });
 
     //还原
     var id = $("input[name=the_id]").val();
@@ -180,6 +215,28 @@
                     $("#fontItalic").click();
                 }
                 $("#fontColor").css("background-color", cncss[4].replace("color:", ""));
+
+                //单图广告
+                $("#adsigleimg").attr("src", data.AdSigleImg).show();
+                var adobj = eval(data.AdSigleTxt);
+                if (adobj) {
+                    $.each(adobj, function(i, obj) {
+                        $("input[name=adsigletxt" + (i + 1) + "]").val(obj.title);
+                        $("input[name=fb" + (i + 1) + "]").val(obj.fontWeight);
+                        if (obj.fontWeight != $("#img-fb" + (i + 1)).attr("val")) {
+                            $("#img-fb" + (i + 1)).click();
+                        }
+                        $("input[name=ft" + (i + 1) + "]").val(obj.fontType);
+                        if (obj.fontType != $("#img-ft" + (i + 1)).attr("val")) {
+                            $("#img-ft" + (i + 1)).click();
+                        }
+
+                        $("input[name=fc" + (i + 1) + "]").val(obj.fontColor);
+                        $("#img-fc" + (i + 1)).css("background-color", obj.fontColor);
+
+                    })
+                }
+
             },
             error: function(req) {
                 $("body").append(req.responseText);
@@ -194,7 +251,4 @@
         });
     }
 
-
-
-
-})
+});

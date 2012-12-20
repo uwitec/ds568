@@ -111,9 +111,11 @@
                         </div>
                     </li>
                     <li>
-                            <img  id="ad1" src="#" onerror="javascript:this.style.display='none'" style="width:80%;" />
+                        <div class="itemL" >&nbsp;</div>
+                        <div class="itemR">
+                            <img  id="adsigleimg" src="#" onerror="javascript:this.style.display='none'" onload="changeImg(this,500,200)" />
+                        </div>
                     </li>
-                
                     <li>
                         <div class="itemL">显示文字：</div>
                         <div class="itemR adsigle" style="padding-left:12px;">
@@ -153,26 +155,22 @@
             </div>
             
             <!----多图广告--->
-            <div class="sub-item-wrap" style="display:none;">
+            <div class="sub-item-wrap ad-muti-wrap" style="display:none;">
                 <ul id="smm-3" class="sub-model-menu" >
                     <li class="crt" >场景一</li>
                     <li>场景二</li>
                     <li>场景三</li>
                     <li>场景四</li>
                 </ul>
-                <ul class="item-main-wrap" style="margin-top:10px;">
+                <ul class="item-main-wrap ad-muti-list" style="margin-top:10px;">
                     <li>
                         <div class="itemL" >显示图片：</div>
                         <div class="itemR">
-                            <input type="file"   name="adfile1" id="File1" />
+                            <input type="file"  />
                         </div>
                     </li>
                     <li>
                             <img  id="Img1" src="#" onerror="javascript:this.style.display='none'" style="width:80%;" />
-                    </li>
-                    <li>
-                        <div class="itemL">图片连接至：</div>
-                        <div class="itemR"><input class="input-bg" style="width:300px;"  /></div>
                     </li>
                     <li>
                         <div class="itemL">显示文字：</div>
@@ -180,19 +178,25 @@
                             <table cellpadding=0 cellspacing=0>
                                 <tr>
                                     <td>第一行文字显示：<input class="input-bg"  /></td>
-                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb4" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft4" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc4" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"   class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img  class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span>
+                                        <input type="hidden" name="admtfb1" /><input type="hidden" name="admtft1" /><input type="hidden" name="admtfc1" />
+                                    </td>
                                 </tr>
                             </table>
                             <table cellpadding=0 cellspacing=0>
                                 <tr>
                                     <td>第二行文字显示：<input class="input-bg"  /></td>
-                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb5" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft5" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc5" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img   class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"   class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img  class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span>
+                                        <input type="hidden" name="admtfb2" /><input type="hidden" name="admtft2" /><input type="hidden" name="admtfc2" />
+                                    </td>
                                 </tr>
                             </table>
                             <table cellpadding=0 cellspacing=0>
                                 <tr>
                                     <td>第三行文字显示：<input class="input-bg"  /></td>
-                                    <td style="padding-left:12px;"><span class="fontselbold"><img   id="img-fb6" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  id="img-ft6" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="img-fc6" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
+                                    <td style="padding-left:12px;"><span class="fontselbold"><img  class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img  class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span>
+                                    <input type="hidden" name="admtfb3" /><input type="hidden" name="admtft3" /><input type="hidden" name="admtfc3" />
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -200,12 +204,12 @@
                     <li>
                         <div class="itemL" style="width:20px;">&nbsp;</div>
                         <div class="itemR">
-                            <a id="ad-muti-save" class="commBtn" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
+                            <a   class="commBtn btn-muti-save" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
                         </div>
                     </li>
                 </ul>
             </div>
-            
+            <!----多图广告--->
         </div>
         <div class="th-model-wrap" style="display:none;"></div>
         <div class="th-model-wrap" style="display:none;">
