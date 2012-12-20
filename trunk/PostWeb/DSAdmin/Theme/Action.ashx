@@ -30,6 +30,7 @@ public class Action : IHttpHandler, IRequiresSessionState
                     the=bl.GetSingle(int.Parse(context.Request["id"]));
                     string thepath = DS_ShopTheme_Br.ThemePath(the.ID);
                     the.SignImg = thepath + the.SignImg;
+                    the.AdSigleImg = thepath + the.AdSigleImg;
                     the.Thume = thepath + the.Thume;
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(the));
                     break;
