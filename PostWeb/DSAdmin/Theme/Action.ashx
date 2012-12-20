@@ -41,6 +41,9 @@ public class Action : IHttpHandler, IRequiresSessionState
                 case "adSigleSave":
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.AdSigleSave(context.Request)));
                     break;
+                case "adMutiSave":
+                    context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.AdMutiSave(context.Request)));
+                    break;
                 case "savethename":
                     try
                     {
