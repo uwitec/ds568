@@ -23,8 +23,16 @@ namespace Com.DianShi.BusinessRules.ShopConfig
             }
         }
 
-
-        private MethoInfo SaveImg(HttpPostedFile file,int thumeid,string startTag,string imgname)
+        /// <summary>
+        /// 保存主题图片
+        /// </summary>
+        /// <param name="file">图片文件流</param>
+        /// <param name="thumeid">主题ID</param>
+        /// <param name="startTag">图片标识，用于区分对应主题的某一位置，如店招“sign_”、单图广告“adsigle_”等</param>
+        /// <param name="imgname">图片名称，为空时则创建新文件，否则覆盖原有图片</param>
+        /// <param name="filesize">文件大小限制,以KB为单位</param>
+        /// <returns>返回MetheInfo对象</returns>
+        private MethoInfo SaveImg(HttpPostedFile file,int thumeid,string startTag,string imgname,int filesize)
         {
             string themePath = ThemePath(thumeid);
             string ext = System.IO.Path.GetExtension(file.FileName).ToLower();
@@ -32,9 +40,9 @@ namespace Com.DianShi.BusinessRules.ShopConfig
             {
                 return new MethoInfo{ Succ = false, Msg = "请您上传jpg、gif、png图片" };
             }
-            else if (file.ContentLength > 1024 * 300)
+            else if (file.ContentLength >1024*filesize)
             {
-                return new MethoInfo{ Succ = false, Msg = "请您上传1M(1024KB)内的图片" };
+                return new MethoInfo{ Succ = false, Msg = "请您上传"+(filesize>1024?(Math.Round(filesize/1024.0,2).ToString()+"M"):filesize.ToString()+"KB")+"内的图片" };
             }
             else
             {
@@ -62,24 +70,26 @@ namespace Com.DianShi.BusinessRules.ShopConfig
             
         }
 
+        /// <summary>
+        /// 保存店招
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public Object SignSave(HttpRequest request)
         {
             using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
             {
                 //try
                 //{
-                   
-                    string id = request["id"];
-                    var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(id)));
-                   
+                    var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
                     md.SignType = byte.Parse(request["signType"]);
                     md.SignBgColor = request["signBgColor"];
                     md.ComNameShow = bool.Parse(request["comNameShow"]);
                     md.ComNameCss = request["signStyle"];
 
-                    if (request.Files[0].ContentLength > 0)
+                    if (request.Files.Count > 0 && request.Files[0].ContentLength > 0)
                     {
-                        var rtobj = SaveImg(request.Files[0], md.ID, "sign_", md.SignImg);
+                        var rtobj = SaveImg(request.Files[0], md.ID, "sign_", md.SignImg,300);
                         if (rtobj.Succ)
                         {
                             md.AdSigleImg = rtobj.ReturnValue;
@@ -88,9 +98,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         {
                             return new { Succ = false, Msg = rtobj.Msg };
                         }
-
                     }
-                 
                     ct.SubmitChanges();
                     return new { Succ = true,md.SignImg,md.ID };
                 //}
@@ -109,13 +117,15 @@ namespace Com.DianShi.BusinessRules.ShopConfig
             {
                 //try
                 //{
-                     
-                    string id = request["id"];
-                    var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(id)));
-                    md.AdSigleTxt=request["adsigletxt"];
-                    
-                    if(request.Files[0].ContentLength > 0){
-                        var rtobj=SaveImg(request.Files[0],md.ID,"adsigle_",md.AdSigleImg);
+                    var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
+                    var list=new List<object>();
+                    list.Add(new { title = request["adsigletxt1"], fontWeight = request["fb1"], fontType = request["ft1"], fontColor = request["fc1"] });
+                    list.Add(new { title = request["adsigletxt2"], fontWeight = request["fb2"], fontType = request["ft2"], fontColor = request["fc2"] });
+                    list.Add(new { title = request["adsigletxt3"], fontWeight = request["fb3"], fontType = request["ft3"], fontColor = request["fc3"] });
+                    md.AdSigleTxt = Common.JSONHelper.ObjectToJSON(list); ;//以json字符串的型形保存，方便前端用js获取显示。
+                    if (request.Files.Count > 0 && request.Files[0].ContentLength>0)
+                    {
+                        var rtobj=SaveImg(request.Files[0],md.ID,"adsigle_",md.AdSigleImg,300);
                         if (rtobj.Succ)
                         {
                             md.AdSigleImg = rtobj.ReturnValue;
@@ -123,9 +133,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         else {
                             return new { Succ = false, Msg =rtobj.Msg };
                         }
-                        
                     }
-
                     ct.SubmitChanges();
                     return new { Succ = true, md.AdSigleImg, md.ID };
                 //}
@@ -139,12 +147,11 @@ namespace Com.DianShi.BusinessRules.ShopConfig
             {
                 //try
                 //{
-                
-                string id = request["id"];
-                var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(id)));
-                if (request.Files[0].ContentLength > 0)
+
+                var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
+                if (request.Files.Count > 0 && request.Files[0].ContentLength > 0)
                 {
-                    var rtobj = SaveImg(request.Files[0], md.ID, "thume_", md.Thume);
+                    var rtobj = SaveImg(request.Files[0], md.ID, "thume_", md.Thume,200);
                     if (rtobj.Succ)
                     {
                         md.Thume = rtobj.ReturnValue;
