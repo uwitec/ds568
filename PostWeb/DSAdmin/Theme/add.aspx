@@ -177,7 +177,7 @@
                         <div class="itemR" style="padding-left:12px;">
                             <table cellpadding=0 cellspacing=0>
                                 <tr>
-                                    <td>第一行文字显示：<input class="input-bg"  /></td>
+                                    <td>第一行文字显示：<input class="input-bg" name="admutitext1"  /></td>
                                     <td style="padding-left:12px;"><span class="fontselbold"><img   class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"   class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img  class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span>
                                         <input type="hidden" name="admtfb1" /><input type="hidden" name="admtft1" /><input type="hidden" name="admtfc1" />
                                     </td>
@@ -185,7 +185,7 @@
                             </table>
                             <table cellpadding=0 cellspacing=0>
                                 <tr>
-                                    <td>第二行文字显示：<input class="input-bg"  /></td>
+                                    <td>第二行文字显示：<input class="input-bg" name="admutitext2"  /></td>
                                     <td style="padding-left:12px;"><span class="fontselbold"><img   class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"   class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img  class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span>
                                         <input type="hidden" name="admtfb2" /><input type="hidden" name="admtft2" /><input type="hidden" name="admtfc2" />
                                     </td>
@@ -193,7 +193,7 @@
                             </table>
                             <table cellpadding=0 cellspacing=0>
                                 <tr>
-                                    <td>第三行文字显示：<input class="input-bg"  /></td>
+                                    <td>第三行文字显示：<input class="input-bg" name="admutitext3"  /></td>
                                     <td style="padding-left:12px;"><span class="fontselbold"><img  class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal"  class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img  class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span>
                                     <input type="hidden" name="admtfb3" /><input type="hidden" name="admtft3" /><input type="hidden" name="admtfc3" />
                                     </td>
@@ -204,6 +204,7 @@
                     <li>
                         <div class="itemL" style="width:20px;">&nbsp;</div>
                         <div class="itemR">
+                            <input type="hidden" name="admutiind" value="0" />
                             <a   class="commBtn btn-muti-save" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
                         </div>
                     </li>

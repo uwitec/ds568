@@ -8,7 +8,7 @@
     $(".ad-muti-list").eq(0).find("input[type=file]").attr("id", "admutifile0")
     $(".ad-muti-list").eq(1).find("input[type=file]").attr("id", "admutifile1")
     $(".ad-muti-list").eq(2).find("input[type=file]").attr("id", "admutifile2")
-    $(".ad-muti-list").eq(3).find("input[type=file]").attr("id","admutifile3")
+    $(".ad-muti-list").eq(3).find("input[type=file]").attr("id", "admutifile3")
 
     $(".hmenu li").click(function() {
         var ind = $(".hmenu li").removeClass("mn-wrap-crt").index(this);
@@ -168,6 +168,7 @@
     $(".btn-muti-save").click(function() {
         if ($(this).hasClass("loading2")) return false;
         var ind = $(".btn-muti-save").index(this);
+        $("input[name=admutiind]").val(ind+1);
         var mtwrap = $(".ad-muti-list").eq(ind);
         mtwrap.find("table").each(function() {
             var ipts = $(this).find("input[type=hidden]");
@@ -183,12 +184,12 @@
         });
 
         var data = strToJson(mtwrap.find("input").serialize());
-        data.myaction = "adMutiSave"+ind;
+        data.myaction = "adMutiSave" + ind;
         data.id = $("input[name=the_id]").val();
         data.fileid = mtwrap.find("input[type=file]").attr("id");
         data.btn = this;
         ajaxSave(data);
-        
+
     });
 
     //还原
