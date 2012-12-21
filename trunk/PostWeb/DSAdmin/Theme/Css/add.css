@@ -13,6 +13,9 @@
 .fontselbold img{cursor:pointer;}
 .hd-bar{height:22px;position:relative;}
 .hd-bar a{position:absolute;right:5px;top:0; font-family:宋体;}
+
+.adshow-wrap{width:500px;margin:20px auto;overflow:auto;}
+.adshow-wrap li{float:left;margin-right:12px;}
         
         /* 颜色输入框
 ------------------------------ */
