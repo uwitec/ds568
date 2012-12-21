@@ -116,6 +116,8 @@ namespace Com.DianShi.Model.ShopConfig
 		
 		private string _AdMutiTxt4;
 		
+		private System.Nullable<bool> _AdShow;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -156,6 +158,8 @@ namespace Com.DianShi.Model.ShopConfig
     partial void OnAdMutiTxt3Changed();
     partial void OnAdMutiTxt4Changing(string value);
     partial void OnAdMutiTxt4Changed();
+    partial void OnAdShowChanging(System.Nullable<bool> value);
+    partial void OnAdShowChanged();
     #endregion
 		
 		public DS_ShopTheme()
@@ -443,7 +447,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[Column(Storage="_AdMutiTxt1", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_AdMutiTxt1", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
 		public string AdMutiTxt1
 		{
 			get
@@ -463,7 +467,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[Column(Storage="_AdMutiTxt2", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_AdMutiTxt2", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
 		public string AdMutiTxt2
 		{
 			get
@@ -483,7 +487,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[Column(Storage="_AdMutiTxt3", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_AdMutiTxt3", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
 		public string AdMutiTxt3
 		{
 			get
@@ -503,7 +507,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[Column(Storage="_AdMutiTxt4", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_AdMutiTxt4", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
 		public string AdMutiTxt4
 		{
 			get
@@ -519,6 +523,26 @@ namespace Com.DianShi.Model.ShopConfig
 					this._AdMutiTxt4 = value;
 					this.SendPropertyChanged("AdMutiTxt4");
 					this.OnAdMutiTxt4Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_AdShow", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<bool> AdShow
+		{
+			get
+			{
+				return this._AdShow;
+			}
+			set
+			{
+				if ((this._AdShow != value))
+				{
+					this.OnAdShowChanging(value);
+					this.SendPropertyChanging();
+					this._AdShow = value;
+					this.SendPropertyChanged("AdShow");
+					this.OnAdShowChanged();
 				}
 			}
 		}
