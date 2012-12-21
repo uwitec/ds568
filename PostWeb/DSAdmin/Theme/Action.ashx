@@ -32,6 +32,10 @@ public class Action : IHttpHandler, IRequiresSessionState
                     the.SignImg = thepath + the.SignImg;
                     the.AdSigleImg = thepath + the.AdSigleImg;
                     the.Thume = thepath + the.Thume;
+                    the.AdMutiImg1 = thepath + the.AdMutiImg1;
+                    the.AdMutiImg2 = thepath + the.AdMutiImg2;
+                    the.AdMutiImg3 = thepath + the.AdMutiImg3;
+                    the.AdMutiImg4 = thepath + the.AdMutiImg4;
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(the));
                     break;
                 case "del":

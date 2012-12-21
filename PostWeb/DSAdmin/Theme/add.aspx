@@ -170,7 +170,10 @@
                         </div>
                     </li>
                     <li>
-                            <img  id="Img1" src="#" onerror="javascript:this.style.display='none'" style="width:80%;" />
+                        <div class="itemL" >&nbsp;</div>
+                        <div class="itemR">
+                           <img src="#" class="thumeimg" onerror="javascript:this.style.display='none'" onload="changeImg(this,500,200)"  />
+                        </div>
                     </li>
                     <li>
                         <div class="itemL">显示文字：</div>
@@ -211,6 +214,19 @@
                 </ul>
             </div>
             <!----多图广告--->
+
+            <!----不显示--->
+            <div class="sub-item-wrap" style="display:none;">
+                <ul class="adshow-wrap">
+                    <li><input type="radio" style="vertical-align:middle" checked name="adshow" id="adshow1" /><label for="adshow1">显示</label></li>
+                    <li><input type="radio" style="vertical-align:middle" name="adshow" id="adshow2" /><label for="adshow2">不显示</label></li>
+                </ul>
+                <div style="overflow:auto;padding-left:120px;">
+                    <a  class="commBtn btn-adshow" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
+                </div>
+            </div>
+            
+            
         </div>
         <div class="th-model-wrap" style="display:none;"></div>
         <div class="th-model-wrap" style="display:none;">
