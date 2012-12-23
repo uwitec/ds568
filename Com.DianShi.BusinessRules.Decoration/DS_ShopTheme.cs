@@ -181,6 +181,39 @@ namespace Com.DianShi.BusinessRules.ShopConfig
             }
         }
 
+        /// <summary>
+        /// 保存内外背景
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public Object BgSave(HttpRequest request)
+        {
+            using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
+            {
+                var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
+                var prt = md.GetType().GetProperty(request["fileid"]);
+                if (request.Files.Count > 0 && request.Files[0].ContentLength > 0)
+                {
+                    var rtobj = SaveImg(request.Files[0], md.ID, request["fileid"]+"_", prt.GetValue(md,null) as string, 500);
+                    if (rtobj.Succ)
+                    {
+                        prt.SetValue(md,rtobj.ReturnValue,null);
+                    }
+                    else
+                    {
+                        return new { Succ = false, Msg = rtobj.Msg };
+                    }
+                }
+                ct.SubmitChanges();
+                return new { Succ = true, imgUrl=prt.GetValue(md,null) as string, md.ID };
+            }
+        }
+
+        /// <summary>
+        /// 保存预览图
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public Object ThumeSave(HttpRequest request)
         {
             using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
