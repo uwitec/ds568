@@ -36,6 +36,8 @@ public class Action : IHttpHandler, IRequiresSessionState
                     the.AdMutiImg2 = thepath + the.AdMutiImg2;
                     the.AdMutiImg3 = thepath + the.AdMutiImg3;
                     the.AdMutiImg4 = thepath + the.AdMutiImg4;
+                    the.InnerBg = thepath + the.InnerBg;
+                    the.OuterBg = thepath + the.OuterBg;
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(the));
                     break;
                 case "del":
@@ -48,6 +50,15 @@ public class Action : IHttpHandler, IRequiresSessionState
                 case "adMutiSave":
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.AdMutiSave(context.Request)));
                     break;
+                case "adshow":
+                    the = bl.GetSingle(int.Parse(context.Request["id"]));
+                    the.AdShow = context.Request["adshow"].Equals("1") ? true : false;
+                    bl.Update(the);
+                    context.Response.Write(Common.JSONHelper.ObjectToJSON(new { Succ =true}));
+                    break;
+                case "bgSave":
+                    context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.BgSave(context.Request)));
+                    break;  
                 case "savethename":
                     try
                     {
