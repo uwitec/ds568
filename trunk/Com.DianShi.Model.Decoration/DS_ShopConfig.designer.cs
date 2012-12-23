@@ -90,9 +90,35 @@ namespace Com.DianShi.Model.ShopConfig
 		
 		private string _SignBgColor;
 		
+		private System.Nullable<bool> _ComNameShow;
+		
 		private string _ComNameCss;
 		
-		private System.Nullable<bool> _ComNameShow;
+		private string _AdSigleImg;
+		
+		private string _AdSigleTxt;
+		
+		private string _AdMutiImg1;
+		
+		private string _AdMutiImg2;
+		
+		private string _AdMutiImg3;
+		
+		private string _AdMutiImg4;
+		
+		private string _AdMutiTxt1;
+		
+		private string _AdMutiTxt2;
+		
+		private string _AdMutiTxt3;
+		
+		private string _AdMutiTxt4;
+		
+		private System.Nullable<bool> _AdShow;
+		
+		private string _InnerBg;
+		
+		private string _OuterBg;
 		
 		private string _MenuBg;
 		
@@ -124,10 +150,36 @@ namespace Com.DianShi.Model.ShopConfig
     partial void OnSignImgChanged();
     partial void OnSignBgColorChanging(string value);
     partial void OnSignBgColorChanged();
-    partial void OnComNameCssChanging(string value);
-    partial void OnComNameCssChanged();
     partial void OnComNameShowChanging(System.Nullable<bool> value);
     partial void OnComNameShowChanged();
+    partial void OnComNameCssChanging(string value);
+    partial void OnComNameCssChanged();
+    partial void OnAdSigleImgChanging(string value);
+    partial void OnAdSigleImgChanged();
+    partial void OnAdSigleTxtChanging(string value);
+    partial void OnAdSigleTxtChanged();
+    partial void OnAdMutiImg1Changing(string value);
+    partial void OnAdMutiImg1Changed();
+    partial void OnAdMutiImg2Changing(string value);
+    partial void OnAdMutiImg2Changed();
+    partial void OnAdMutiImg3Changing(string value);
+    partial void OnAdMutiImg3Changed();
+    partial void OnAdMutiImg4Changing(string value);
+    partial void OnAdMutiImg4Changed();
+    partial void OnAdMutiTxt1Changing(string value);
+    partial void OnAdMutiTxt1Changed();
+    partial void OnAdMutiTxt2Changing(string value);
+    partial void OnAdMutiTxt2Changed();
+    partial void OnAdMutiTxt3Changing(string value);
+    partial void OnAdMutiTxt3Changed();
+    partial void OnAdMutiTxt4Changing(string value);
+    partial void OnAdMutiTxt4Changed();
+    partial void OnAdShowChanging(System.Nullable<bool> value);
+    partial void OnAdShowChanged();
+    partial void OnInnerBgChanging(string value);
+    partial void OnInnerBgChanged();
+    partial void OnOuterBgChanging(string value);
+    partial void OnOuterBgChanged();
     partial void OnMenuBgChanging(string value);
     partial void OnMenuBgChanged();
     partial void OnSelectedMenuChanging(string value);
@@ -171,7 +223,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public int MemberID
 		{
 			get
@@ -191,7 +243,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SignType", DbType="TinyInt", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SignType", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<byte> SignType
 		{
 			get
@@ -211,7 +263,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SignImg", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SignImg", DbType="NVarChar(350)", UpdateCheck=UpdateCheck.Never)]
 		public string SignImg
 		{
 			get
@@ -231,7 +283,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SignBgColor", DbType="NChar(10)", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SignBgColor", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string SignBgColor
 		{
 			get
@@ -251,27 +303,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComNameCss", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
-		public string ComNameCss
-		{
-			get
-			{
-				return this._ComNameCss;
-			}
-			set
-			{
-				if ((this._ComNameCss != value))
-				{
-					this.OnComNameCssChanging(value);
-					this.SendPropertyChanging();
-					this._ComNameCss = value;
-					this.SendPropertyChanged("ComNameCss");
-					this.OnComNameCssChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComNameShow", DbType="Bit", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComNameShow", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<bool> ComNameShow
 		{
 			get
@@ -291,7 +323,287 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MenuBg", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComNameCss", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string ComNameCss
+		{
+			get
+			{
+				return this._ComNameCss;
+			}
+			set
+			{
+				if ((this._ComNameCss != value))
+				{
+					this.OnComNameCssChanging(value);
+					this.SendPropertyChanging();
+					this._ComNameCss = value;
+					this.SendPropertyChanged("ComNameCss");
+					this.OnComNameCssChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdSigleImg", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string AdSigleImg
+		{
+			get
+			{
+				return this._AdSigleImg;
+			}
+			set
+			{
+				if ((this._AdSigleImg != value))
+				{
+					this.OnAdSigleImgChanging(value);
+					this.SendPropertyChanging();
+					this._AdSigleImg = value;
+					this.SendPropertyChanged("AdSigleImg");
+					this.OnAdSigleImgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdSigleTxt", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string AdSigleTxt
+		{
+			get
+			{
+				return this._AdSigleTxt;
+			}
+			set
+			{
+				if ((this._AdSigleTxt != value))
+				{
+					this.OnAdSigleTxtChanging(value);
+					this.SendPropertyChanging();
+					this._AdSigleTxt = value;
+					this.SendPropertyChanged("AdSigleTxt");
+					this.OnAdSigleTxtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdMutiImg1", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string AdMutiImg1
+		{
+			get
+			{
+				return this._AdMutiImg1;
+			}
+			set
+			{
+				if ((this._AdMutiImg1 != value))
+				{
+					this.OnAdMutiImg1Changing(value);
+					this.SendPropertyChanging();
+					this._AdMutiImg1 = value;
+					this.SendPropertyChanged("AdMutiImg1");
+					this.OnAdMutiImg1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdMutiImg2", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string AdMutiImg2
+		{
+			get
+			{
+				return this._AdMutiImg2;
+			}
+			set
+			{
+				if ((this._AdMutiImg2 != value))
+				{
+					this.OnAdMutiImg2Changing(value);
+					this.SendPropertyChanging();
+					this._AdMutiImg2 = value;
+					this.SendPropertyChanged("AdMutiImg2");
+					this.OnAdMutiImg2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdMutiImg3", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string AdMutiImg3
+		{
+			get
+			{
+				return this._AdMutiImg3;
+			}
+			set
+			{
+				if ((this._AdMutiImg3 != value))
+				{
+					this.OnAdMutiImg3Changing(value);
+					this.SendPropertyChanging();
+					this._AdMutiImg3 = value;
+					this.SendPropertyChanged("AdMutiImg3");
+					this.OnAdMutiImg3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdMutiImg4", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string AdMutiImg4
+		{
+			get
+			{
+				return this._AdMutiImg4;
+			}
+			set
+			{
+				if ((this._AdMutiImg4 != value))
+				{
+					this.OnAdMutiImg4Changing(value);
+					this.SendPropertyChanging();
+					this._AdMutiImg4 = value;
+					this.SendPropertyChanged("AdMutiImg4");
+					this.OnAdMutiImg4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdMutiTxt1", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string AdMutiTxt1
+		{
+			get
+			{
+				return this._AdMutiTxt1;
+			}
+			set
+			{
+				if ((this._AdMutiTxt1 != value))
+				{
+					this.OnAdMutiTxt1Changing(value);
+					this.SendPropertyChanging();
+					this._AdMutiTxt1 = value;
+					this.SendPropertyChanged("AdMutiTxt1");
+					this.OnAdMutiTxt1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdMutiTxt2", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string AdMutiTxt2
+		{
+			get
+			{
+				return this._AdMutiTxt2;
+			}
+			set
+			{
+				if ((this._AdMutiTxt2 != value))
+				{
+					this.OnAdMutiTxt2Changing(value);
+					this.SendPropertyChanging();
+					this._AdMutiTxt2 = value;
+					this.SendPropertyChanged("AdMutiTxt2");
+					this.OnAdMutiTxt2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdMutiTxt3", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string AdMutiTxt3
+		{
+			get
+			{
+				return this._AdMutiTxt3;
+			}
+			set
+			{
+				if ((this._AdMutiTxt3 != value))
+				{
+					this.OnAdMutiTxt3Changing(value);
+					this.SendPropertyChanging();
+					this._AdMutiTxt3 = value;
+					this.SendPropertyChanged("AdMutiTxt3");
+					this.OnAdMutiTxt3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdMutiTxt4", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string AdMutiTxt4
+		{
+			get
+			{
+				return this._AdMutiTxt4;
+			}
+			set
+			{
+				if ((this._AdMutiTxt4 != value))
+				{
+					this.OnAdMutiTxt4Changing(value);
+					this.SendPropertyChanging();
+					this._AdMutiTxt4 = value;
+					this.SendPropertyChanged("AdMutiTxt4");
+					this.OnAdMutiTxt4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdShow", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<bool> AdShow
+		{
+			get
+			{
+				return this._AdShow;
+			}
+			set
+			{
+				if ((this._AdShow != value))
+				{
+					this.OnAdShowChanging(value);
+					this.SendPropertyChanging();
+					this._AdShow = value;
+					this.SendPropertyChanged("AdShow");
+					this.OnAdShowChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InnerBg", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string InnerBg
+		{
+			get
+			{
+				return this._InnerBg;
+			}
+			set
+			{
+				if ((this._InnerBg != value))
+				{
+					this.OnInnerBgChanging(value);
+					this.SendPropertyChanging();
+					this._InnerBg = value;
+					this.SendPropertyChanged("InnerBg");
+					this.OnInnerBgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OuterBg", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string OuterBg
+		{
+			get
+			{
+				return this._OuterBg;
+			}
+			set
+			{
+				if ((this._OuterBg != value))
+				{
+					this.OnOuterBgChanging(value);
+					this.SendPropertyChanging();
+					this._OuterBg = value;
+					this.SendPropertyChanged("OuterBg");
+					this.OnOuterBgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MenuBg", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
 		public string MenuBg
 		{
 			get
@@ -311,7 +623,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SelectedMenu", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SelectedMenu", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
 		public string SelectedMenu
 		{
 			get
@@ -331,7 +643,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NormalMenu", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NormalMenu", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
 		public string NormalMenu
 		{
 			get
@@ -351,7 +663,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NmColor", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NmColor", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string NmColor
 		{
 			get
@@ -371,7 +683,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SelmColor", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SelmColor", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string SelmColor
 		{
 			get
@@ -391,7 +703,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollImg1", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollImg1", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
 		public string RollImg1
 		{
 			get
@@ -411,7 +723,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollImg2", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollImg2", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
 		public string RollImg2
 		{
 			get
@@ -431,7 +743,7 @@ namespace Com.DianShi.Model.ShopConfig
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollImg3", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.WhenChanged)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollImg3", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
 		public string RollImg3
 		{
 			get
