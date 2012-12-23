@@ -20,6 +20,7 @@ public class ShopBasePage : System.Web.UI.Page
 {
     public  View_Members  _vMember = null;
     public DS_ShopConfig _ShopConfig;
+    public string title;
    
     protected override void OnPreLoad(EventArgs e)
     {

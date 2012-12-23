@@ -23,6 +23,8 @@
                 <div class="itemR"><input class="input-bg" name="themeName" /><input type="button" class="btnsavethename" value="保存" /></div>
             </li>
         </ul>
+
+        <!----------菜单START-------------->
         <ul class="hmenu">
             <li class="mn-wrap-crt">
                 <div class="mLeft"></div>
@@ -45,6 +47,9 @@
                 <div class="mRight"></div>
             </li>
         </ul>
+        <!----------菜单END-------------->
+
+        <!----------招牌START-------------->
         <div class="th-model-wrap">
             <h3>公司招牌设置效果示例：</h3>
             <div><img src="images/hintpic.gif" /></div>
@@ -94,6 +99,9 @@
             
         </ul>
         </div>
+        <!----------招牌END-------------->
+
+        <!----------广告START-------------->
         <div class="th-model-wrap" style="display:none;">
             <ul id="smm-2" class="sub-model-menu" style="position:relative;left:-10px;width:772px;">
                 <li class="crt" style="margin-left:10px;">单图广告</li>
@@ -218,17 +226,59 @@
             <!----不显示--->
             <div class="sub-item-wrap" style="display:none;">
                 <ul class="adshow-wrap">
-                    <li><input type="radio" style="vertical-align:middle" checked name="adshow" id="adshow1" /><label for="adshow1">显示</label></li>
-                    <li><input type="radio" style="vertical-align:middle" name="adshow" id="adshow2" /><label for="adshow2">不显示</label></li>
+                    <li><input type="radio" value="1" style="vertical-align:middle" checked name="adshow" id="adshow1" /><label for="adshow1">显示</label></li>
+                    <li><input type="radio" value="0" style="vertical-align:middle" name="adshow" id="adshow2" /><label for="adshow2">不显示</label></li>
                 </ul>
                 <div style="overflow:auto;padding-left:120px;">
                     <a  class="commBtn btn-adshow" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
                 </div>
             </div>
-            
-            
         </div>
-        <div class="th-model-wrap" style="display:none;"></div>
+        <!----------广告END-------------->
+
+        <!----------背景-------------->
+        <div class="th-model-wrap model-bg" style="display:none;">
+            <h3>旺铺背景设置效果示例：</h3>
+            <div><img src="images/BackgPic.gif" /></div>
+            <ul id="smm-bg" class="sub-model-menu">
+                <li class="crt">设定内背景图</li>
+                <li>设定外背景图</li>
+                <li style="float:right;border:none; background-color:White;top:-1px;"><a id="btnbgsave" class="commBtn" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a></li>
+            </ul>
+            <ul class="item-main-wrap" style="margin-top:10px;">
+              
+                <li>
+                    <div class="itemL" style="width:20px;">&nbsp;</div>
+                    <div class="itemR">
+                        <input type="file"   name="InnerBg" id="InnerBg" />
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" >&nbsp;</div>
+                    <div class="itemR">
+                        <img alt="内背景" class="imginner" src="#" onerror="javascript:this.style.display='none'" onload="changeImg(this,300,300)" />
+                    </div>
+                </li>
+               
+          </ul>
+          <ul class="item-main-wrap" style="margin-top:10px;display:none;">
+                
+                <li>
+                    <div class="itemL" style="width:20px;">&nbsp;</div>
+                    <div class="itemR">
+                        <input type="file"   name="OuterBg" id="OuterBg" />
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" >&nbsp;</div>
+                    <div class="itemR">
+                        <img alt="外背景" class="imgouter" src="#" onerror="javascript:this.style.display='none'" onload="changeImg(this,300,300)" />
+                    </div>
+                </li>
+          </ul>
+        </div>
+        <!----------背景END-------------->
+
         <div class="th-model-wrap" style="display:none;">
             <ul class="item-main-wrap" style="margin-top:10px;"> 
                 <li>
