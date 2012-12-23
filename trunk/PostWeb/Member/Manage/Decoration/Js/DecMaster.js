@@ -24,7 +24,7 @@
     var theid;
     //应用
     $(".theme-wrap li a").click(function () {
-        theid = $(this).attr("theid")
+        theid = $(this).attr("theid");
         $.ajax({
             url: _url,
             type: "POST",
