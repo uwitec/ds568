@@ -22,12 +22,46 @@ public partial class Member_Manage_Decoration_Action : BasePage
                 case "theSave":
                     the = thebl.GetSingle(int.Parse(Request["theid"]));
                     var shopcf = wcfbl.GetSingle(_userData.Member.ID,false);
-                    shopcf.SignImg =DS_ShopTheme_Br.ThemePath(the.ID)+ the.SignImg;
-                    shopcf.SignBgColor = the.SignBgColor;
-                    shopcf.ComNameCss = the.ComNameCss;
-                    shopcf.ComNameShow = the.ComNameShow;
-                    shopcf.SignType = the.SignType;
-                    wcfbl.Update(shopcf);
+                    if (shopcf == null)
+                        shopcf = wcfbl.CreateModel();
+                    string thepath=DS_ShopTheme_Br.ThemePath(the.ID);
+                    var ty = shopcf.GetType();
+                    var prts = the.GetType().GetProperties();
+                    foreach (var prt in prts)
+                    {
+                        if (prt.Name == "ID") continue ;
+                        var theitem=prt.GetValue(the, null);
+                        if (theitem != null)
+                        {
+                            var spprt = ty.GetProperty(prt.Name);
+                            if (spprt != null) {
+                                if (theitem.GetType() == typeof(string))
+                                {
+                                    string img = (theitem as string).ToLower();
+                                    if (img.EndsWith(".jpg") || img.EndsWith(".png") || img.EndsWith(".gif"))
+                                    {
+                                        spprt.SetValue(shopcf, thepath + theitem, null);
+                                        continue;
+                                    }
+                                }
+                               
+                                spprt.SetValue(shopcf, theitem, null);
+                            }
+                        }
+                    }
+
+                    //shopcf.SignImg =DS_ShopTheme_Br.ThemePath(the.ID)+ the.SignImg;
+                    //shopcf.SignBgColor = the.SignBgColor;
+                    //shopcf.ComNameCss = the.ComNameCss;
+                    //shopcf.ComNameShow = the.ComNameShow;
+                    //shopcf.SignType = the.SignType;
+                    if (shopcf.ID == 0)
+                    {
+                        shopcf.MemberID = _userData.Member.ID;
+                        wcfbl.Add(shopcf);
+                    }
+                    else
+                        wcfbl.Update(shopcf);
                     Response.Write(Common.JSONHelper.ObjectToJSON(new {succ=true }));
                     break;
             }
