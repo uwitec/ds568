@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true"
     CodeFile="index_news.aspx.cs" Inherits="Template_tem1_news_index_news" %>
+    <asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="server">
+    <%="企业资讯,"+_vMember.CompanyName %>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 <link rel="stylesheet" rev="stylesheet" href="/css/Pager.css" type="text/css"  />
 </asp:Content>

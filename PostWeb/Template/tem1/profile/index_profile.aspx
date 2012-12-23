@@ -1,12 +1,15 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true"
     CodeFile="index_profile.aspx.cs" Inherits="Template_tem1_profile_index_profile" %>
+    <asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="server">
+    <%="公司简介,"+ _vMember.CompanyName%>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript" src="js/profile.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-<input type="hidden" value="<%=ViewState["imgurl"] %>" id="hdimgurl" />
+<input type="hidden" value="<%=_vMember.ComImg %>" id="hdimgurl" />
     <div class="MiddleRight">
         <!--========内容开始=============-->
         <div class="About">
@@ -17,7 +20,7 @@
             <div class="profileBody">
                 <div class="comimgCtn"></div>
                
-                &nbsp;<%=ViewState["ct"]%>
+                &nbsp;<%=_vMember.Profile%>
             </div>
         </div>
         <div class="About NoTopBorder">

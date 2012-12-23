@@ -16,7 +16,7 @@ public partial class index_product : ShopBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Page.Header.Title = "供应产品";
+      
         AspNetPager4.PageChanged+=new EventHandler(AspNetPager4_PageChanged);
         if (IsPostBack) return;
         
@@ -37,16 +37,16 @@ public partial class index_product : ShopBasePage
             object[] param = { _vMember.ID, 0.0, 0.0, "" };
             string sql = "memberid=@0";
             if (!string.IsNullOrEmpty(low_price)) {
-                sql = " and lowprice>@1";
+                sql += " and lowprice>@1";
                 param[1] = double.Parse(low_price) - 0.01;
             }
             if (!string.IsNullOrEmpty(height_price))
             {
-                sql = " and heightprice<@2";
+                sql += " and heightprice<@2";
                 param[2] = double.Parse(height_price) + 0.01;
             }
             if (!string.IsNullOrEmpty(proname)) {
-                sql = " and Title.Contains(@3)";
+                sql += " and Title.Contains(@3)";
                 param[3] = proname;
             }
             sql = sql.Trim().TrimStart('a','n','d');

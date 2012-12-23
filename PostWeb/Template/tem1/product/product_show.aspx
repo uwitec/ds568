@@ -2,6 +2,9 @@
     CodeFile="product_show.aspx.cs" Inherits="Template_tem1_product_product_show" %>
     <%@ OutputCache Duration="1800" VaryByParam="pro_id" %>
 <%@ Register src="~/Template/tem1/product/Property.ascx" tagname="Property" tagprefix="uc1" %>
+<asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="server">
+    <%=Property1.Product.Title+ ","+ _vMember.CompanyName%>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
         .ContentMiddle{overflow: hidden;}
@@ -28,11 +31,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-<input type="hidden" id="priceRang" value="<%=ViewState["priceRang"] %>" />
+<input type="hidden" id="priceRang" value="<%=Property1.Product.PriceRang %>" />
     <div class="MiddleRight">
         <!--========产品内容开始=============-->
         <div class="pTitle">
-            <%=ViewState["title"] %>
+            <%=Property1.Product.Title%>
         </div>
         <div class="Split12px">
         </div>
@@ -42,39 +45,39 @@
                     <tr>
                         <td align="center">
                             <div>
-                                <img  alt="<%=ViewState["title"] %>"  id="bigimg" onload="changeImg(this,315,315)"  onerror="javascript:$(this).hide()" src="<%=ViewState["img1"] %>" /></div>
+                                <img  alt="<%=Property1.Product.Title %>"  id="bigimg" onload="changeImg(this,315,315)"  onerror="javascript:$(this).hide()" src="<%=Property1.Product.Img1 %>" /></div>
                         </td>
                     </tr>
                 </table>
                 <ul class="pPicBottom">
                     <li>
                         <div>
-                            <img  onerror="javascript:$(this).parent().parent().hide()" onload="changeImg(this,315,315)" width="55" height="55" alt="<%=ViewState["title"] %>" src="<%=ViewState["img1"] %>" />
+                            <img  onerror="javascript:$(this).parent().parent().hide()" onload="changeImg(this,315,315)" width="55" height="55" alt="<%=Property1.Product.Title %>" src="<%=Property1.Product.Img1 %>" />
                         </div>
                     </li>
                     <li class="lisplit"></li>
                     <li>
                         <div>
-                            <img onerror="javascript:$(this).parent().parent().hide()" onload="changeImg(this,315,315)" width="55" height="55" alt="<%=ViewState["title"] %>" src="<%=ViewState["img2"] %>" />
+                            <img onerror="javascript:$(this).parent().parent().hide()" onload="changeImg(this,315,315)" width="55" height="55" alt="<%=Property1.Product.Title %>" src="<%=Property1.Product.Img2 %>" />
                         </div>
                     </li>
                     <li class="lisplit"></li>
                     <li>
                         <div>
-                            <img  onerror="javascript:$(this).parent().parent().hide()" width="55" height="55" alt="<%=ViewState["title"] %>" src="<%=ViewState["img3"] %>" />
+                            <img  onerror="javascript:$(this).parent().parent().hide()" width="55" height="55" alt="<%=Property1.Product.Title %>" src="<%=Property1.Product.Img3 %>" />
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="pInfo">
                 <ul class="ul004">
-                    <li class="pInfoH">数量(<%=ViewState["unit"] %>)</li><li class="pInfoH">单价(元/<%=ViewState["unit"] %>)</li>
+                    <li class="pInfoH">数量(<%=Property1.Product.Unit%>)</li><li class="pInfoH">单价(元/<%=Property1.Product.Unit%>)</li>
                     <li class="pInfoL" >5-29</li><li class="pInfoL"><span class="Amount fontSize14 bold">
-                        57.00</span> 元/<%=ViewState["unit"] %></li>
+                        57.00</span> 元/<%=Property1.Product.Unit%></li>
                     <li class="pInfoL">≥30</li><li class="pInfoL"><span class="Amount fontSize14 bold">57.00</span>
-                        元/<%=ViewState["unit"] %></li>
+                        元/<%=Property1.Product.Unit%></li>
                     <li class="pInfoL">≥30</li><li class="pInfoL"><span class="Amount fontSize14 bold">57.00</span>
-                        元/<%=ViewState["unit"] %></li>
+                        元/<%=Property1.Product.Unit%></li>
                 </ul>
                 <div class="Split12px">
                     &nbsp;</div>
@@ -91,10 +94,10 @@
                                 <dd class="dd001">
                                     &nbsp;</dd>
                                 <dd class="d-btn-buy">
-                                    <a title="点击此按钮，到下一步确认购买信息。" pid="<%=Request.QueryString["pro_id"] %>" id="J_LinkOrder" href="javascript:void(0);">立即购买</a>
+                                    <a title="点击此按钮，到下一步确认购买信息。" pid="<%=Request["pro_id"] %>" id="J_LinkOrder" href="javascript:void(0);">立即购买</a>
                                 </dd>
                                 <dd class="d-btn-add">
-                                    <a title="加入进货单"  href="javascript:void(0);" pid="<%=Request.QueryString["pro_id"] %>" id="J_LinkPurchase">加入进货单</a>
+                                    <a title="加入进货单"  href="javascript:void(0);" pid="<%=Request["pro_id"] %>" id="J_LinkPurchase">加入进货单</a>
                                 </dd>
                                 <dd class="d-tip-add">
                                     <a href="javascript:void(0);">什么是进货单?</a>
@@ -157,7 +160,7 @@
                     <uc1:Property ID="Property1" runat="server" />
                     
                     <div class="description-detail">
-                        <%=ViewState["Detail"]%>
+                        <%=Property1.Product.Detail%>
                         <script type="text/javascript">
                             //产品描术图片自缩放
                            $(".description-detail img").each(function(){
