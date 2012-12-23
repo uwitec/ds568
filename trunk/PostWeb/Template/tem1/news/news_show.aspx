@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master"  AutoEventWireup="true"
     CodeFile="news_show.aspx.cs" Inherits="Template_tem1_news_news_show" %>
+    <asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="server">
+    <%=title+","+ _vMember.CompanyName%>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 <style type="text/css">
     .nocoment{ text-align:center;line-height:32px;display:none;}

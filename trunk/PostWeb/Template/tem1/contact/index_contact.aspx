@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true"
     CodeFile="index_contact.aspx.cs" Inherits="Template_tem1_contact_index_contact" %>
 <asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="Server">
-<title>联系我们</title>
+联系我们
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 <script type="text/javascript" src="js/contact.js"></script>

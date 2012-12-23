@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/template/tem1/MasterPage.Master" AutoEventWireup="true"
     CodeFile="index_album.aspx.cs" Inherits="index_album" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="Title" runat="server">
-   <title>我的相册</title>
+   我的相册
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" rev="stylesheet" href="/css/Pager.css" type="text/css"  />

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template/tem1/MasterPage.Master" AutoEventWireup="true" CodeFile="ctf_index.aspx.cs" Inherits="Template_tem1_Certificate_ctf_index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" Runat="Server">
+企业证书
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
 <link type="text/css" rel="Stylesheet" href="css/ctf_index.css" />

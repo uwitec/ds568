@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>图片展示</title>
-    <meta name="description" content="方伟泽，深圳市福田区华强北路经济大厦D22，主要经营插卡音箱;电话线;电话转接头;电话配件;，86-0755- 82796991，如需购买插卡音箱;电话线;电话转接头;电话配件;，请联系我们方伟泽，一流的质量有竞争力的价格是您的不二选择!" />
-    <meta name="keywords" content="方伟泽，插卡音箱;电话线;电话转接头;电话配件;" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
     <Custom:Header ID="Header1" runat="server" />
     <script type="text/javascript" src="js/gallery.js"></script>
     <link rel="stylesheet" type="text/css" href="css/gallery.css" />
