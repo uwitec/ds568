@@ -1,12 +1,12 @@
 ﻿a{ color:#333; }
 .txtBox{height:21px;*height:20px;_height:22px;line-height:20px;border:solid 1px #c9c9c9}
-.TopBar {background: url(../images/topbg.gif);height: 39px;}
+.TopBar {background: url(/Template/images/topbg.gif);height: 39px;}
 .TopBar a { color:#666; }
 .TopBar a:hover { color:#ff7300; }
 .TopBarContent {width:950px;margin:0 auto;color:#666;}
 .TopBarContent ul li {float:left;height:38px;line-height:38px;}
-.TopBarSpritLine,.TopBarOrders div.Order,.UserCenter,.KeyWord,.BtnSearch,.BtnSearch2{background: url(../images/allbgs.gif) no-repeat;}
-.TopBarLogo {width: 118px;background: url(../images/logo.png) no-repeat 0 4px;}
+.TopBarSpritLine,.TopBarOrders div.Order,.UserCenter,.KeyWord,.BtnSearch,.BtnSearch2{background: url(/Template/images/allbgs.gif) no-repeat;}
+.TopBarLogo {width: 118px;background: url(/Template/images/logo.png) no-repeat 0 4px;}
 .TopBarWelCome { width:140px; }
 .TopBarWelCome a{display:none;}
 .TopBarLogin { width:115px; }
