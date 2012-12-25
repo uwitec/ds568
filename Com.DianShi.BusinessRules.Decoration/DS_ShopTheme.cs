@@ -118,6 +118,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                 //try
                 //{
                     var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
+                    md.AdType = (byte)AdType.单图广告;
                     var list=new List<object>();
                     list.Add(new { title = request["adsigletxt1"], fontWeight = request["fb1"], fontType = request["ft1"], fontColor = request["fc1"] });
                     list.Add(new { title = request["adsigletxt2"], fontWeight = request["fb2"], fontType = request["ft2"], fontColor = request["fc2"] });
@@ -153,6 +154,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                 //try
                 //{
                 var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
+                md.AdType = (byte)AdType.多图广告;
                 var list = new List<object>();
                 list.Add(new { title = request["admutitext1"], fontWeight = request["admtfb1"], fontType = request["admtft1"], fontColor = request["admtfc1"] });
                 list.Add(new { title = request["admutitext2"], fontWeight = request["admtfb2"], fontType = request["admtft2"], fontColor = request["admtfc2"] });
@@ -330,6 +332,12 @@ namespace Com.DianShi.BusinessRules.ShopConfig
         public enum SignType : byte { 
             背景图,
             背景色
+        }
+
+        public enum AdType : byte
+        {
+            单图广告,
+            多图广告
         }
 
         /// <summary>
