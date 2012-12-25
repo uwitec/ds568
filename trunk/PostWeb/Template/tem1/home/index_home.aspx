@@ -11,9 +11,13 @@
     
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <div class="headTopic" runat="server"  id="DefaultR"></div>
-    <div runat="server" visible="false" id="Roll_Img_wrap">
-    <!--焦点图开始-->
+    <%if (!_ShopConfig.AdType.HasValue || _ShopConfig.AdType.Equals((byte)Com.DianShi.BusinessRules.ShopConfig.DS_ShopTheme_Br.AdType.单图广告))
+      { %>
+        <div class="headTopic" ></div>
+    <%}
+      else if (_ShopConfig.AdType.Equals((byte)Com.DianShi.BusinessRules.ShopConfig.DS_ShopTheme_Br.AdType.多图广告))
+      { %>
+    <!--多图广告开始-->
     <div class="flash-box" >
       <div class="focusImg" >
         <div class="autoImg">
@@ -35,8 +39,8 @@
       </div>
     </div>
     <script type="text/javascript" src="/template/tem1/home/js/vGlobal.js"></script>
-    <!--焦点图结束-->
-    </div>
+    <!--多图广告结束-->
+    <%} %>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="MiddleRight">
