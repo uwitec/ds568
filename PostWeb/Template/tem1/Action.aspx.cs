@@ -57,6 +57,9 @@ public partial class Template_tem1_Action : System.Web.UI.Page
                         Response.Write(js.Serialize(new { succ = false }));
                     }
                     break;
+                case "shopconfig":
+                    
+                    break;
             }
             return;
         }
