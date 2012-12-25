@@ -50,12 +50,6 @@ public class Action : IHttpHandler, IRequiresSessionState
                 case "adMutiSave":
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.AdMutiSave(context.Request)));
                     break;
-                case "adshow":
-                    the = bl.GetSingle(int.Parse(context.Request["id"]));
-                    the.AdShow = context.Request["adshow"].Equals("1") ? true : false;
-                    bl.Update(the);
-                    context.Response.Write(Common.JSONHelper.ObjectToJSON(new { Succ =true}));
-                    break;
                 case "bgSave":
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.BgSave(context.Request)));
                     break;  
