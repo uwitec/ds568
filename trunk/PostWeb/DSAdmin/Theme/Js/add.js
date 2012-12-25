@@ -196,11 +196,11 @@
     });
 
     //保存是否显示广告
-    $(".btn-adshow").click(function () {
-        if ($(this).hasClass("loading2")) return false;
-        var postdata = { myaction: "adshow", btn: this, adshow: $("input[name=adshow]:checked").val(), id: $("input[name=the_id]").val() };
-        ajaxSave(postdata);
-    });
+//    $(".btn-adshow").click(function () {
+//        if ($(this).hasClass("loading2")) return false;
+//        var postdata = { myaction: "adshow", btn: this, adshow: $("input[name=adshow]:checked").val(), id: $("input[name=the_id]").val() };
+//        ajaxSave(postdata);
+//    });
 
     //保存背景
     $("#btnbgsave").click(function () {

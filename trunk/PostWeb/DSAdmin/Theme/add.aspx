@@ -106,7 +106,6 @@
             <ul id="smm-2" class="sub-model-menu" style="position:relative;left:-10px;width:772px;">
                 <li class="crt" style="margin-left:10px;">单图广告</li>
                 <li>多图广告</li>
-                <li>不显示</li>
             </ul>
             
             <!----单图广告--->
@@ -224,15 +223,14 @@
             <!----多图广告--->
 
             <!----不显示--->
-            <div class="sub-item-wrap" style="display:none;">
-                <ul class="adshow-wrap">
-                    <li><input type="radio" value="1" style="vertical-align:middle" checked name="adshow" id="adshow1" /><label for="adshow1">显示</label></li>
-                    <li><input type="radio" value="0" style="vertical-align:middle" name="adshow" id="adshow2" /><label for="adshow2">不显示</label></li>
-                </ul>
+            <%--<div class="sub-item-wrap" style="display:none;">
+                <div class="adshow-wrap">
+                   
+                </div>
                 <div style="overflow:auto;padding-left:120px;">
                     <a  class="commBtn btn-adshow" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
                 </div>
-            </div>
+            </div>--%>
         </div>
         <!----------广告END-------------->
 
