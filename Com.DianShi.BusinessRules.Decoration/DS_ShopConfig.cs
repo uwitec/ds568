@@ -58,7 +58,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
             }
         }
 
-        public DS_ShopConfig GetSingle(int MemberID,bool IsCache)
+        public static DS_ShopConfig GetSingle(int MemberID,bool IsCache)
         {
             var ShopConfig = SDG.Cache.CacheUtility.Get("ShopConfig_"+MemberID) as DS_ShopConfig;
             if (!IsCache||ShopConfig == null)
