@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/template/tem1/MasterPage.Master" AutoEventWireup="true"   CodeFile="index_home.aspx.cs" Inherits="index_home"  %>
+<%@ Import Namespace="Com.DianShi.BusinessRules.ShopConfig" %>
 <asp:Content ID="Content4" ContentPlaceHolderID="Title" runat="server">
     <%="商铺首页,"+_vMember.CompanyName %>
 </asp:Content>
@@ -11,11 +12,11 @@
     
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <%if (!_ShopConfig.AdType.HasValue || _ShopConfig.AdType.Equals((byte)Com.DianShi.BusinessRules.ShopConfig.DS_ShopTheme_Br.AdType.单图广告))
+    <%if (!_ShopConfig.AdType.HasValue || _ShopConfig.AdType.Equals((byte)DS_ShopTheme_Br.AdType.单图广告))
       { %>
-        <div class="headTopic" ></div>
+        <div class="headTopic" <%=string.IsNullOrEmpty(_ShopConfig.AdSigleImg)?"":"style=\"background-image:url("+_ShopConfig.AdSigleImg+")\"" %> ></div>
     <%}
-      else if (_ShopConfig.AdType.Equals((byte)Com.DianShi.BusinessRules.ShopConfig.DS_ShopTheme_Br.AdType.多图广告))
+      else if (_ShopConfig.AdType.Equals((byte)DS_ShopTheme_Br.AdType.多图广告))
       { %>
     <!--多图广告开始-->
     <div class="flash-box" >
@@ -23,16 +24,39 @@
         <div class="autoImg">
           <div class="scrollwrapper">
             <div style="WIDTH: 3100px" class="imgBox">
-              <div class="layt"><img runat="server" id="RM_1" src="530045538_1340326976.jpg" /></div>
-              <div class="layt"><img runat="server" id="RM_2" src="530046693_1340326976.jpg" /></div>
-              <div class="layt"><img runat="server" id="RM_3" src="530045520_1340326976.jpg" /></div>
+                <%
+                    var ty = _ShopConfig.GetType();
+                    int imgnum = 4;
+                    string[] imgs=new string[imgnum];
+                    for (int i = 1; i <= imgnum; i++)
+                    {
+                        imgs[i-1]=ty.GetProperty("AdMutiImg" + i).GetValue(_ShopConfig,null) as string;
+                    }
+                    for (int i = 0; i < imgnum; i++)
+                    {
+                        if (!string.IsNullOrEmpty(imgs[i])) { 
+                        %>
+                            <div class="layt"><img  src="<%=imgs[i] %>" /></div>
+                        <%
+                        }
+                    }
+                %>
+              
             </div>
           </div>
           <div class="switchable-nav">
             <ul>
-              <li class="active">•</li>
-              <li>•</li>
-              <li>•</li>
+              <%
+                    for (int i = 0; i < imgnum; i++)
+                    {
+                        if (!string.IsNullOrEmpty(imgs[i]))
+                        { 
+                                %>
+                                    <li <%=i==0?"class=\"active\"":""%> >•</li>
+                                <%
+                        }
+                    }
+               %>
             </ul>
           </div>
         </div>
