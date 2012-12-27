@@ -21,7 +21,7 @@ public partial class Member_Manage_Decoration_Action : BasePage
                     break;
                 case "theSave":
                     the = thebl.GetSingle(int.Parse(Request["theid"]));
-                    var shopcf = wcfbl.GetSingle(_userData.Member.ID,false);
+                    var shopcf = DS_ShopConfig_Br.GetSingle(_userData.Member.ID, false);
                     if (shopcf == null)
                         shopcf = wcfbl.CreateModel();
                     string thepath=DS_ShopTheme_Br.ThemePath(the.ID);
