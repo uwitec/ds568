@@ -75,7 +75,11 @@
             dataType: "json",
             success: function (data) {
                 if (data.Succ) {
-                    alert("提交成功。");
+                    if (postdata.img) {
+                        $(postdata.img).attr("src", data.imgUrl + "?rd" + Math.random()).show();
+                    } else {
+                        alert("提交成功。");
+                    }
                 }
                 else {
                     alert(data.Msg);
@@ -127,7 +131,7 @@
         }
 
         var cnstyle = "font-family:" + $("select[name=comfontName]").val() + ";font-size:" + $("select[name=comfontSize]").val() + "px;font-weight:" + $("#fontBold").attr("val") + ";font-style:" + $("#fontItalic").attr("val") + ";color:" + $("#fontColor").css("background-color");
-        var data = { myaction: "signSave", btn: this, id: $("input[name=the_id]").val(), fileid: "signfile", themeName: themeName, signType: $("input[name=signType]:checked").val(), signBgColor: $("#color_a").css("background-color"), comNameShow: $("input[name=comns]:checked").val(), signStyle: cnstyle };
+        var data = { myaction: "signSave", img: $("#signimg"), btn: this, id: $("input[name=the_id]").val(), fileid: "signfile", themeName: themeName, signType: $("input[name=signType]:checked").val(), signBgColor: $("#color_a").css("background-color"), comNameShow: $("input[name=comns]:checked").val(), signStyle: cnstyle };
         ajaxSave(data);
 
     });
@@ -140,7 +144,7 @@
             alert("请输入主题名称。");
             return false;
         }
-        ajaxSave({ myaction: "thumeSave", btn: this, fileid: 'thume', themeName: themeName, id: $("input[name=the_id]").val() });
+        ajaxSave({ myaction: "thumeSave", img: $("#thumeimg"), btn: this, fileid: 'thume', themeName: themeName, id: $("input[name=the_id]").val() });
     });
 
     //保存单图广告
@@ -164,6 +168,7 @@
         data.id = $("input[name=the_id]").val();
         data.fileid = "adfile1";
         data.btn = this;
+        data.img = $("#adsigleimg");
         ajaxSave(data);
     });
 
@@ -191,22 +196,23 @@
         data.id = $("input[name=the_id]").val();
         data.fileid = mtwrap.find("input[type=file]").attr("id");
         data.btn = this;
+        data.img = $(".thumeimg").eq(ind);
         ajaxSave(data);
 
     });
 
     //保存是否显示广告
-//    $(".btn-adshow").click(function () {
-//        if ($(this).hasClass("loading2")) return false;
-//        var postdata = { myaction: "adshow", btn: this, adshow: $("input[name=adshow]:checked").val(), id: $("input[name=the_id]").val() };
-//        ajaxSave(postdata);
-//    });
+    //    $(".btn-adshow").click(function () {
+    //        if ($(this).hasClass("loading2")) return false;
+    //        var postdata = { myaction: "adshow", btn: this, adshow: $("input[name=adshow]:checked").val(), id: $("input[name=the_id]").val() };
+    //        ajaxSave(postdata);
+    //    });
 
     //保存背景
     $("#btnbgsave").click(function () {
         if ($(this).hasClass("loading2")) return false;
-        var ind = $("#smm-bg li").index($("#smm-bg li.crt")); alert(ind)
-        var postdata = { myaction: "bgSave", btn: this, fileid: (ind == 0 ? "InnerBg" : "OuterBg"), id: $("input[name=the_id]").val() };
+        var ind = $("#smm-bg li").index($("#smm-bg li.crt"));
+        var postdata = { myaction: "bgSave", img: $(ind == 0 ? ".imginner" : ".imgouter"), btn: this, fileid: (ind == 0 ? "InnerBg" : "OuterBg"), id: $("input[name=the_id]").val() };
         ajaxSave(postdata);
     });
 
@@ -289,7 +295,7 @@
                 //背景图
                 $(".imginner").attr("src", data.InnerBg).show();
                 $(".imgouter").attr("src", data.OuterBg).show();
-              
+
             },
             error: function (req) {
                 $("body").append(req.responseText);

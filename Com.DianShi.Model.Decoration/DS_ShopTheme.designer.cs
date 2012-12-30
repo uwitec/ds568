@@ -116,8 +116,6 @@ namespace Com.DianShi.Model.ShopConfig
 		
 		private string _AdMutiTxt4;
 		
-		private System.Nullable<byte> _AdType;
-		
 		private string _InnerBg;
 		
 		private string _OuterBg;
@@ -162,8 +160,6 @@ namespace Com.DianShi.Model.ShopConfig
     partial void OnAdMutiTxt3Changed();
     partial void OnAdMutiTxt4Changing(string value);
     partial void OnAdMutiTxt4Changed();
-    partial void OnAdTypeChanging(System.Nullable<byte> value);
-    partial void OnAdTypeChanged();
     partial void OnInnerBgChanging(string value);
     partial void OnInnerBgChanged();
     partial void OnOuterBgChanging(string value);
@@ -531,26 +527,6 @@ namespace Com.DianShi.Model.ShopConfig
 					this._AdMutiTxt4 = value;
 					this.SendPropertyChanged("AdMutiTxt4");
 					this.OnAdMutiTxt4Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdType", DbType="TinyInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<byte> AdType
-		{
-			get
-			{
-				return this._AdType;
-			}
-			set
-			{
-				if ((this._AdType != value))
-				{
-					this.OnAdTypeChanging(value);
-					this.SendPropertyChanging();
-					this._AdType = value;
-					this.SendPropertyChanged("AdType");
-					this.OnAdTypeChanged();
 				}
 			}
 		}

@@ -12,32 +12,29 @@
     
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <%if (!_ShopConfig.AdType.HasValue || _ShopConfig.AdType.Equals((byte)DS_ShopTheme_Br.AdType.单图广告))
+    <%if (!_ShopConfig.AdType.HasValue || _ShopConfig.AdType.Equals((byte)DS_ShopConfig_Br.AdType.单图广告))
       { %>
         <div class="headTopic" <%=string.IsNullOrEmpty(_ShopConfig.AdSigleImg)?"":"style=\"background-image:url("+_ShopConfig.AdSigleImg+")\"" %> ></div>
     <%}
-      else if (_ShopConfig.AdType.Equals((byte)DS_ShopTheme_Br.AdType.多图广告))
+      else if (_ShopConfig.AdType.Equals((byte)DS_ShopConfig_Br.AdType.多图广告))
       { %>
     <!--多图广告开始-->
     <div class="flash-box" >
       <div class="focusImg" >
         <div class="autoImg">
           <div class="scrollwrapper">
-            <div style="WIDTH: 3100px" class="imgBox">
+            <div style="WIDTH: 4000px" class="imgBox">
                 <%
                     var ty = _ShopConfig.GetType();
-                    int imgnum = 4;
-                    string[] imgs=new string[imgnum];
-                    for (int i = 1; i <= imgnum; i++)
+                    int imgnum = 0;
+                    for (int i = 1; i <= 4; i++)
                     {
-                        imgs[i-1]=ty.GetProperty("AdMutiImg" + i).GetValue(_ShopConfig,null) as string;
-                    }
-                    for (int i = 0; i < imgnum; i++)
-                    {
-                        if (!string.IsNullOrEmpty(imgs[i])) { 
-                        %>
-                            <div class="layt"><img  src="<%=imgs[i] %>" /></div>
-                        <%
+                        var img=ty.GetProperty("AdMutiImg" + i).GetValue(_ShopConfig,null) as string;
+                        if (!string.IsNullOrEmpty(img)) {
+                            imgnum++;
+                             %>
+                            <div class="layt"><img  src="<%=img %>" /></div>
+                            <%
                         }
                     }
                 %>
@@ -47,14 +44,11 @@
           <div class="switchable-nav">
             <ul>
               <%
-                    for (int i = 0; i < imgnum; i++)
+                    for (int i = 1; i <= imgnum; i++)
                     {
-                        if (!string.IsNullOrEmpty(imgs[i]))
-                        { 
-                                %>
-                                    <li <%=i==0?"class=\"active\"":""%> >•</li>
-                                <%
-                        }
+                        %>
+                            <li <%=i==1?"class=\"active\"":""%> >•</li>
+                        <%
                     }
                %>
             </ul>

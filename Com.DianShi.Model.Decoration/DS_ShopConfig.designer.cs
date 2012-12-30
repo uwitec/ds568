@@ -132,12 +132,6 @@ namespace Com.DianShi.Model.ShopConfig
 		
 		private string _SelmColor;
 		
-		private string _RollImg1;
-		
-		private string _RollImg2;
-		
-		private string _RollImg3;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -194,12 +188,6 @@ namespace Com.DianShi.Model.ShopConfig
     partial void OnNmColorChanged();
     partial void OnSelmColorChanging(string value);
     partial void OnSelmColorChanged();
-    partial void OnRollImg1Changing(string value);
-    partial void OnRollImg1Changed();
-    partial void OnRollImg2Changing(string value);
-    partial void OnRollImg2Changed();
-    partial void OnRollImg3Changing(string value);
-    partial void OnRollImg3Changed();
     #endregion
 		
 		public DS_ShopConfig()
@@ -723,66 +711,6 @@ namespace Com.DianShi.Model.ShopConfig
 					this._SelmColor = value;
 					this.SendPropertyChanged("SelmColor");
 					this.OnSelmColorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollImg1", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string RollImg1
-		{
-			get
-			{
-				return this._RollImg1;
-			}
-			set
-			{
-				if ((this._RollImg1 != value))
-				{
-					this.OnRollImg1Changing(value);
-					this.SendPropertyChanging();
-					this._RollImg1 = value;
-					this.SendPropertyChanged("RollImg1");
-					this.OnRollImg1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollImg2", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string RollImg2
-		{
-			get
-			{
-				return this._RollImg2;
-			}
-			set
-			{
-				if ((this._RollImg2 != value))
-				{
-					this.OnRollImg2Changing(value);
-					this.SendPropertyChanging();
-					this._RollImg2 = value;
-					this.SendPropertyChanged("RollImg2");
-					this.OnRollImg2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollImg3", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string RollImg3
-		{
-			get
-			{
-				return this._RollImg3;
-			}
-			set
-			{
-				if ((this._RollImg3 != value))
-				{
-					this.OnRollImg3Changing(value);
-					this.SendPropertyChanging();
-					this._RollImg3 = value;
-					this.SendPropertyChanged("RollImg3");
-					this.OnRollImg3Changed();
 				}
 			}
 		}

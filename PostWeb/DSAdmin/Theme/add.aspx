@@ -33,6 +33,11 @@
             </li>
             <li>
                 <div class="mLeft"></div>
+                <div class="mMiddle">导航</div>
+                <div class="mRight"></div>
+            </li>
+            <li>
+                <div class="mLeft"></div>
                 <div class="mMiddle">广告</div>
                 <div class="mRight"></div>
             </li>
@@ -100,6 +105,31 @@
         </ul>
         </div>
         <!----------招牌END-------------->
+
+        <!----------导航start-------------->
+        <div class="th-model-wrap" style="display:none;">
+            <ul class="item-main-wrap" style="margin-top:10px;"> 
+                <li>
+                    <div class="itemL" style="width:20px;">&nbsp;</div>
+                    <div class="itemR">
+                        <input type="file"  />
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" >&nbsp;</div>
+                    <div class="itemR">
+                        <img alt="预览图" id="Img1" src="#" onerror="javascript:this.style.display='none'" style="width:80%;" />
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" style="width:20px;">&nbsp;</div>
+                    <div class="itemR">
+                        <a id="A1" class="commBtn" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!----------导航end-------------->
 
         <!----------广告START-------------->
         <div class="th-model-wrap" style="display:none;">
@@ -277,6 +307,7 @@
         </div>
         <!----------背景END-------------->
 
+        <!----------预览图start-------------->
         <div class="th-model-wrap" style="display:none;">
             <ul class="item-main-wrap" style="margin-top:10px;"> 
                 <li>
@@ -299,6 +330,8 @@
                 </li>
             </ul>
         </div>
+        <!----------预览图end-------------->
+
     </div>
 </body>
 </html>

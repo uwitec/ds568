@@ -1,7 +1,7 @@
 .Main {width: 100%;overflow:auto;zoom:1;color:#333;}
 .Content{width:952px;margin:8px auto 0 auto;overflow:auto;zoom:1;}
 .Head{height:90px;line-height:90px;background: url(/Template/tem1/images/topbaner.gif) no-repeat;}
-.Head h1{color:#333;}
+.Head h1{color:#333;text-indent:12px;}
 .HeaderMenuBar{background: url(/Template/tem1/images/header_menu.gif) repeat-x;height: 28px;}
 .HeaderMenuBar ul{margin-left:2em;}
 .HeaderMenuBar ul li a:link,.HeaderMenuBar ul li a:visited{font-size:14px;font-weight:bold;color:#555;}
@@ -9,7 +9,7 @@
 .HeaderMenuBar ul li:hover{background: url(/Template/tem1/images/header_menu_check.gif) no-repeat;}
 .HeaderMenuBar ul li a:hover,.HeaderMenuBar ul li.Check a:link,.HeaderMenuBar ul li.Check a:visited{color:#ff7300;}
 .HeaderMenuBar ul li.Check{background: url(/Template/tem1/images/header_menu_check.gif) no-repeat;}
-.headTopic{background:url(http://i03.c.aliimg.com/images/app/winport/layout/diybackground/style/temp61/head_topic.jpg) no-repeat left top;height:194px;}
+.headTopic{background:url(http://i03.c.aliimg.com/images/app/winport/layout/diybackground/style/temp61/head_topic.jpg) no-repeat left top;height:400px;}
 .ContentMiddle{overflow:auto;zoom:1;width:952px;float:left;}
 .MiddleLeft{width:200px;float:left;}
 .UserInfo li{width:200px;float:left;}
@@ -74,6 +74,7 @@
 .MiddleLeft div.AHLeft,.SearchBody{width:198px;}
 .ulCategory{width:172px; overflow:auto;zoom:1;}
 .LeftModleBody{width:198px;overflow:auto;zoom:1;}
+.SearchBody,.LeftModleBody,.AboutBody,.TzBody,.NewBody,.ContactBody,.ContactBody{background-color:White;}
 .LeftModleBody ul li{text-indent:20px;border-bottom:dotted 1px #bfbfbf;width:198px;line-height:22px;height:22px;background-position:-286px 7px;}
 .ContactBody{overflow:auto;zoom:1;}
 .ContactBody ul li{height:20px;line-height:20px; text-indent:10px;width:198px;}

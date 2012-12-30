@@ -117,6 +117,10 @@ namespace Com.DianShi.BusinessRules.ShopConfig
             return new DS_ShopConfig();
         }
 
-        
+        public enum AdType : byte
+        {
+            单图广告,
+            多图广告
+        }
     }
 }
