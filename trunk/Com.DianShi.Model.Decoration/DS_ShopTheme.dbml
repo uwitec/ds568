@@ -20,7 +20,6 @@
       <Column Name="AdMutiTxt2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="AdMutiTxt3" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="AdMutiTxt4" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="AdType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="InnerBg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="OuterBg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
     </Type>

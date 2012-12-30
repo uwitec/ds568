@@ -28,9 +28,6 @@
       <Column Name="NormalMenu" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="NmColor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="SelmColor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="RollImg1" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="RollImg2" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="RollImg3" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

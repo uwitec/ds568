@@ -16,17 +16,14 @@ using Com.DianShi.Model.Member;
 using Com.DianShi.BusinessRules.ShopConfig;
 public partial class MasterPage : System.Web.UI.MasterPage
 {
-    public View_Members vMember;
+    public ShopBasePage BasePage;
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-
         if (IsPostBack) return;
-        vMember =(this.Page as ShopBasePage)._vMember;
-
+        BasePage =this.Page as ShopBasePage;
         var bl = new DS_DiyProCategory_Br();
         int rc = 0;
-        Repeater1.DataSource = bl.Query("memberid=@0", "px", 0, 10, ref rc, vMember.ID);
+        Repeater1.DataSource = bl.Query("memberid=@0", "px", 0, 10, ref rc, BasePage._vMember.ID);
         Repeater1.DataBind();
     }
 

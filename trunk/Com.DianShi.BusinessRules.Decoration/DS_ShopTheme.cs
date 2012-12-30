@@ -24,7 +24,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
         }
 
         /// <summary>
-        /// 保存主题图片
+        /// 保存图片
         /// </summary>
         /// <param name="file">图片文件流</param>
         /// <param name="thumeid">主题ID</param>
@@ -100,7 +100,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         }
                     }
                     ct.SubmitChanges();
-                    return new { Succ = true,md.SignImg,md.ID };
+                    return new { Succ = true, imgUrl = ThemePath(md.ID) + md.SignImg, md.ID };
                 //}
                 //catch (Exception ex) { return new ApiRunInfo { Succ = false, Msg = ex.Message }; }
             }
@@ -118,7 +118,6 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                 //try
                 //{
                     var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
-                    md.AdType = (byte)AdType.单图广告;
                     var list=new List<object>();
                     list.Add(new { title = request["adsigletxt1"], fontWeight = request["fb1"], fontType = request["ft1"], fontColor = request["fc1"] });
                     list.Add(new { title = request["adsigletxt2"], fontWeight = request["fb2"], fontType = request["ft2"], fontColor = request["fc2"] });
@@ -136,7 +135,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         }
                     }
                     ct.SubmitChanges();
-                    return new { Succ = true, md.AdSigleImg, md.ID };
+                    return new { Succ = true, imgUrl = ThemePath(md.ID) + md.AdSigleImg, md.ID };
                 //}
                 //catch (Exception ex) { return new { Succ = false, Msg = ex.Message }; }
             }
@@ -154,7 +153,6 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                 //try
                 //{
                 var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
-                md.AdType = (byte)AdType.多图广告;
                 var list = new List<object>();
                 list.Add(new { title = request["admutitext1"], fontWeight = request["admtfb1"], fontType = request["admtft1"], fontColor = request["admtfc1"] });
                 list.Add(new { title = request["admutitext2"], fontWeight = request["admtfb2"], fontType = request["admtft2"], fontColor = request["admtfc2"] });
@@ -177,7 +175,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                     }
                 }
                 ct.SubmitChanges();
-                return new { Succ = true, imgUrl=prtimg.GetValue(md,null) as string, md.ID };
+                return new { Succ = true, imgUrl = ThemePath(md.ID) + prtimg.GetValue(md, null) as string, md.ID };
                 //}
                 //catch (Exception ex) { return new { Succ = false, Msg = ex.Message }; }
             }
@@ -207,7 +205,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                     }
                 }
                 ct.SubmitChanges();
-                return new { Succ = true, imgUrl=prt.GetValue(md,null) as string, md.ID };
+                return new { Succ = true, imgUrl = ThemePath(md.ID) + prt.GetValue(md, null) as string, md.ID };
             }
         }
 
@@ -240,7 +238,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                  
                
                 ct.SubmitChanges();
-                return new { Succ = true, md.Thume, md.ID };
+                return new { Succ = true, imgUrl = ThemePath(md.ID) + md.Thume, md.ID };
                 //}
                 //catch (Exception ex) { return new { Succ = false, Msg = ex.Message }; }
             }
@@ -332,12 +330,6 @@ namespace Com.DianShi.BusinessRules.ShopConfig
         public enum SignType : byte { 
             背景图,
             背景色
-        }
-
-        public enum AdType : byte
-        {
-            单图广告,
-            多图广告
         }
 
         /// <summary>
