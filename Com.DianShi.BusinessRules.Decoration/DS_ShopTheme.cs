@@ -92,7 +92,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         var rtobj = SaveImg(request.Files[0], md.ID, "sign_", md.SignImg,300);
                         if (rtobj.Succ)
                         {
-                            md.AdSigleImg = rtobj.ReturnValue;
+                            md.SignImg = rtobj.ReturnValue;
                         }
                         else
                         {
@@ -101,6 +101,40 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                     }
                     ct.SubmitChanges();
                     return new { Succ = true, imgUrl = ThemePath(md.ID) + md.SignImg, md.ID };
+                //}
+                //catch (Exception ex) { return new ApiRunInfo { Succ = false, Msg = ex.Message }; }
+            }
+        }
+
+        /// <summary>
+        /// 保存导航
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public Object NavSave(HttpRequest request)
+        {
+            using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
+            {
+                //try
+                //{
+                var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
+                string navtype = request["navtype"];
+                var prt = md.GetType().GetProperty(navtype);
+                if (request.Files.Count > 0 && request.Files[0].ContentLength > 0)
+                {
+
+                    var rtobj = SaveImg(request.Files[0], md.ID, navtype + "_", prt.GetValue(md, null) as string, 100);
+                    if (rtobj.Succ)
+                    {
+                        prt.SetValue(md,rtobj.ReturnValue,null);
+                    }
+                    else
+                    {
+                        return new { Succ = false, Msg = rtobj.Msg };
+                    }
+                }
+                ct.SubmitChanges();
+                return new { Succ = true, imgUrl = ThemePath(md.ID) + prt.GetValue(md, null) as string, md.ID };
                 //}
                 //catch (Exception ex) { return new ApiRunInfo { Succ = false, Msg = ex.Message }; }
             }
