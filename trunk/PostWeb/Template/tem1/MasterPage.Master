@@ -17,8 +17,52 @@
             body{behavior:url('/css/csshover.htc');}
          </style>
     <![endif]-->
+    
+    <style type="text/css">
+       <%if(!string.IsNullOrEmpty(BasePage._ShopConfig.OuterBg)){//外背景
+            Response.Write("body{background:url("+BasePage._ShopConfig.OuterBg +") repeat-y center top;}");
+         }
+           
+         if (!string.IsNullOrEmpty(BasePage._ShopConfig.InnerBg)) {//内背景
+            Response.Write(".Content{background:url(" + BasePage._ShopConfig.InnerBg + ");}");
+         }
+
+         //店招
+         if (BasePage._ShopConfig.SignType.HasValue)
+         {
+             if (BasePage._ShopConfig.SignType.Equals((byte)DS_ShopTheme_Br.SignType.背景图))
+             {
+                 Response.Write(".Head{background-image:url(" + BasePage._ShopConfig.SignImg + ");}");
+             }
+             else if (BasePage._ShopConfig.SignType.Equals((byte)DS_ShopTheme_Br.SignType.背景色))
+             {
+                 Response.Write(".Head{background-image:none;background-color:" + BasePage._ShopConfig.SignBgColor + ";}");
+             }
+         }
+
+         //是否显示公司名称
+         if (BasePage._ShopConfig.ComNameShow.HasValue && !BasePage._ShopConfig.ComNameShow.Value)
+         {
+             Response.Write(".Head h1{display:none;}");
+         }
+
+         //选中导航背景
+         if (!string.IsNullOrEmpty(BasePage._ShopConfig.NavBgSel)) {
+             Response.Write(".HeaderMenuBar ul li.Check,.HeaderMenuBar ul li:hover{background-image:url(" + BasePage._ShopConfig.NavBgSel + ")}");
+         }
+         //未选中导航背景
+         if (!string.IsNullOrEmpty(BasePage._ShopConfig.NavBgNormal)) {
+             Response.Write(".HeaderMenuBar ul li{background:url(" + BasePage._ShopConfig.NavBgNormal + ");}");
+         }
+         //导航背景
+         if (!string.IsNullOrEmpty(BasePage._ShopConfig.NavBg)) {
+             Response.Write(".HeaderMenuBar{background:url(" + BasePage._ShopConfig.NavBg + ");}");
+         }
+           
+      %>
+    </style>
 </head>
-<body <%if (!string.IsNullOrEmpty(BasePage._ShopConfig.OuterBg)) { Response.Write("style='background:url(" + BasePage._ShopConfig.OuterBg + ") repeat-y center top'"); } %>>
+<body>
     <input  type="hidden" name="member_id" value="<%=BasePage._vMember.ID %>"  />
     <div class="Main">
         <!--============顶部公共部分开始================-->
@@ -71,32 +115,14 @@
         </div>
         <!--============顶部公共部分结束================-->
         <!--==============内容部分开始===============-->
-        <div class="Content" <%if (!string.IsNullOrEmpty(BasePage._ShopConfig.InnerBg)) {
-              Response.Write("style='background:url("+BasePage._ShopConfig.InnerBg+")'");
-          } %>>
+        <div class="Content">
             <!--==============头部开始，放公司名称或个人名称===============-->
-            <div class="Head" <%if (BasePage._ShopConfig.SignType.HasValue)
-              {
-                  if (BasePage._ShopConfig.SignType.Equals((byte)DS_ShopTheme_Br.SignType.背景图))
-                  {
-                    Response.Write("style='background-image:url("+BasePage._ShopConfig.SignImg+");'");
-                  }
-                  else if (BasePage._ShopConfig.SignType.Equals((byte)DS_ShopTheme_Br.SignType.背景色))
-                  {
-                    Response.Write("style='background-image:none;background-color:"+BasePage._ShopConfig.SignBgColor+";'");
-                  }
-              }
-               %>>
-           
-                
-                <%if (BasePage._ShopConfig.ComNameShow.HasValue && BasePage._ShopConfig.ComNameShow.Value)
-                  { %>
+            <div class="Head">
                 <h1><%=BasePage._vMember.CompanyName%></h1>
-                <%} %>
             </div>
             <!--==============头部结束，放公司名称或个人名称===============-->
             <!--========菜单开始==============-->
-            <div class="HeaderMenuBar">
+            <div class="HeaderMenuBar" >
                 <ul>
                     <li><a surl="home" href="/template/tem1/home/index_home.aspx">首页</a></li>
                     <li><a surl="product" href="/template/tem1/product/index_product.aspx">供应产品</a></li>
