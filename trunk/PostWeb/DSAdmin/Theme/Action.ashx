@@ -23,6 +23,9 @@ public class Action : IHttpHandler, IRequiresSessionState
                 case "signSave":
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.SignSave(context.Request)));
                     break;
+                case "navSave":
+                    context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.NavSave(context.Request)));
+                    break;
                 case "thumeSave":
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.ThumeSave(context.Request)));
                     break;
@@ -38,6 +41,9 @@ public class Action : IHttpHandler, IRequiresSessionState
                     the.AdMutiImg4 = thepath + the.AdMutiImg4;
                     the.InnerBg = thepath + the.InnerBg;
                     the.OuterBg = thepath + the.OuterBg;
+                    the.NavBg = thepath + the.NavBg;
+                    the.NavBgNormal = thepath + the.NavBgNormal;
+                    the.NavBgSel = thepath + the.NavBgSel;
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(the));
                     break;
                 case "del":
