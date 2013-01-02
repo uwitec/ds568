@@ -125,50 +125,73 @@
                         <option value="5">分散</option>
                     </select>
             </div>
-            <ul id="Ul1" class="sub-model-menu">
+            <ul  class="sub-model-menu">
                 <li class="crt">选中状态的导航</li>
                 <li>未选中状态的导航</li>
                 <li>导航背景</li>
             </ul>
             <ul class="item-main-wrap" style="margin-top:10px;">
                 <li>
-                    <div class="itemL" style="text-align:left;"><input type="radio" checked class="valign" name="signType" value="0" id="Radio1"  /><label for="signType1">背景图</label></div>
-                    <div class="itemR"></div>
-                </li>
-                <li>
                     <div class="itemL" style="width:20px;">&nbsp;</div>
                     <div class="itemR">
-                        <input type="file"   name="signfile" id="File1" />
+                        <input type="file"   name="NavBgSelFile" id="NavBgSelFile" />
                     </div>
                 </li>
                 <li>
                     <div class="itemL" >&nbsp;</div>
                     <div class="itemR">
-                        <img alt="招牌背景" id="Img1" src="#" onerror="javascript:this.style.display='none'" style="width:80%;" />
+                        <img alt="菜单选中状态背景" id="NavBgSelImg"  src="#" onerror="javascript:this.style.display='none'"  />
                     </div>
                 </li>
+              
                 <li>
-                    <div class="itemL" style="text-align:left;"><input type="radio" class="valign" name="signType" value="1" id="Radio2"  /><label for="signType2">选择背景色</label></div>
-                    <div class="itemR"><input id="Text1" type="text" class="html_color fc" readonly /></div>
+                    <div class="itemL" style="width:20px;">&nbsp;</div>
+                    <div class="itemR">
+                        <a  class="commBtn navSave" navtype="NavBgSel" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
+                    </div>
                 </li>
           </ul>
           <ul class="item-main-wrap" style="display:none;margin-top:10px;" >
-            <li>
-                <div class="itemL" >显示状态：</div>
-                <div class="itemR"><input type="radio" checked class="valign" value="True" name="comns" id="Radio3"  /><label for="comns1">显示</label> <input type="radio" checked class="valign" value="False" name="comns" id="Radio4"  /><label for="comns2">不显示</label></div>
-            </li>
-            <li>
-                <div class="itemL" >文字样式：</div>
-                <div class="itemR">
-                    <table cellpadding=0 cellspacing=0>
-                        <tr>
-                            <td><select  name="comfontName"><option value="宋体">宋体</option><option value="仿宋">仿宋</option><option value="黑体">黑体</option><option value="楷体">楷体</option></select><select  name="comfontSize"><option value="12">12</option><option value="14">14</option><option value="16">16</option><option value="18">18</option><option value="20">20</option><option value="22">22</option><option value="24">24</option><option value="26">26</option><option value="28">28</option><option value="30">30</option></select></td>
-                            <td style="padding-left:12px;"><span class="fontselbold"><img   id="Img2" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal" class="ft" id="Img3"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="Img4" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span></td>
-                        </tr>
-                    </table>
-                </div>
-            </li>
-            
+                <li>
+                    <div class="itemL" style="width:20px;">&nbsp;</div>
+                    <div class="itemR">
+                        <input type="file"   name="NavBgNormalFile" id="NavBgNormalFile" />
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" >&nbsp;</div>
+                    <div class="itemR">
+                        <img alt="菜单未选中状态背景" id="NavBgNormalImg"  src="#" onerror="javascript:this.style.display='none'"  />
+                    </div>
+                </li>
+              
+                <li>
+                    <div class="itemL" style="width:20px;">&nbsp;</div>
+                    <div class="itemR">
+                        <a  class="commBtn navSave" navtype="NavBgNormal" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
+                    </div>
+                </li>
+          </ul>
+          <ul class="item-main-wrap" style="display:none;margin-top:10px;" >
+                <li>
+                    <div class="itemL" style="width:20px;">&nbsp;</div>
+                    <div class="itemR">
+                        <input type="file"   name="NavBgFile" id="NavBgFile" />
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" >&nbsp;</div>
+                    <div class="itemR">
+                        <img alt="菜单未选中状态背景" id="NavBgImg"  src="#" onerror="javascript:this.style.display='none'"  />
+                    </div>
+                </li>
+              
+                <li>
+                    <div class="itemL" style="width:20px;">&nbsp;</div>
+                    <div class="itemR">
+                        <a  class="commBtn navSave" navtype="NavBg" href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
+                    </div>
+                </li>
           </ul>
         </div>
         <!----------导航end-------------->
