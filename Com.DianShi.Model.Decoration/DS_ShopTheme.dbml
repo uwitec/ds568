@@ -22,6 +22,9 @@
       <Column Name="AdMutiTxt4" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="InnerBg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="OuterBg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="NavBg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="NavBgNormal" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="NavBgSel" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
