@@ -28,6 +28,9 @@
       <Column Name="NormalMenu" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="NmColor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="SelmColor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NavBg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="NavBgNormal" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="NavBgSel" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

@@ -132,6 +132,12 @@ namespace Com.DianShi.Model.ShopConfig
 		
 		private string _SelmColor;
 		
+		private string _NavBg;
+		
+		private string _NavBgNormal;
+		
+		private string _NavBgSel;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -188,6 +194,12 @@ namespace Com.DianShi.Model.ShopConfig
     partial void OnNmColorChanged();
     partial void OnSelmColorChanging(string value);
     partial void OnSelmColorChanged();
+    partial void OnNavBgChanging(string value);
+    partial void OnNavBgChanged();
+    partial void OnNavBgNormalChanging(string value);
+    partial void OnNavBgNormalChanged();
+    partial void OnNavBgSelChanging(string value);
+    partial void OnNavBgSelChanged();
     #endregion
 		
 		public DS_ShopConfig()
@@ -711,6 +723,66 @@ namespace Com.DianShi.Model.ShopConfig
 					this._SelmColor = value;
 					this.SendPropertyChanged("SelmColor");
 					this.OnSelmColorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NavBg", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string NavBg
+		{
+			get
+			{
+				return this._NavBg;
+			}
+			set
+			{
+				if ((this._NavBg != value))
+				{
+					this.OnNavBgChanging(value);
+					this.SendPropertyChanging();
+					this._NavBg = value;
+					this.SendPropertyChanged("NavBg");
+					this.OnNavBgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NavBgNormal", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string NavBgNormal
+		{
+			get
+			{
+				return this._NavBgNormal;
+			}
+			set
+			{
+				if ((this._NavBgNormal != value))
+				{
+					this.OnNavBgNormalChanging(value);
+					this.SendPropertyChanging();
+					this._NavBgNormal = value;
+					this.SendPropertyChanged("NavBgNormal");
+					this.OnNavBgNormalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NavBgSel", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string NavBgSel
+		{
+			get
+			{
+				return this._NavBgSel;
+			}
+			set
+			{
+				if ((this._NavBgSel != value))
+				{
+					this.OnNavBgSelChanging(value);
+					this.SendPropertyChanging();
+					this._NavBgSel = value;
+					this.SendPropertyChanged("NavBgSel");
+					this.OnNavBgSelChanged();
 				}
 			}
 		}
