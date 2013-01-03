@@ -119,6 +119,18 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                 //{
                 var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
                 string navtype = request["navtype"];
+                if (!string.IsNullOrEmpty(request["comfontName"]))
+                {
+                    string cssstr = Common.JSONHelper.ObjectToJSON(new { family = request["comfontName"], size = request["comfontSize"], weight = request["navfb"], style = request["navft"], color = request["navfc"] });
+                    if (navtype == "NavBgSel")
+                    {
+                        md.NavSelCss = cssstr;
+                    }
+                    else if (navtype == "NavBgNormal")
+                    {
+                        md.NavNormalCss = cssstr;
+                    }
+                }
                 var prt = md.GetType().GetProperty(navtype);
                 if (request.Files.Count > 0 && request.Files[0].ContentLength > 0)
                 {
