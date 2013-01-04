@@ -125,7 +125,7 @@
                 }
             });
         });
-        var postdata = strTojson($("." + navtype).find("input,select").serialize());
+        var postdata = strToJson($("." + navtype).find("input,select").serialize());
         $.each({ myaction: "navSave", navtype: navtype, img: $("#" + navtype + "Img"), btn: this, id: $("input[name=the_id]").val(), fileid: navtype + "File" }, function(key, val) {
             postdata[key] = val;
         });
