@@ -164,15 +164,15 @@
                     </div>
                 </li>
           </ul>
-          <ul class="item-main-wrap" style="display:none;margin-top:10px;" >
+          <ul class="item-main-wrap NavBgNormal" style="display:none;margin-top:10px;" >
                 <li>
                     <div class="itemL" >文字样式：</div>
                     <div class="itemR">
                         <table cellpadding=0 cellspacing=0>
                             <tr>
                                 <td><select  name="comfontName"><option value="宋体">宋体</option><option value="仿宋">仿宋</option><option value="黑体">黑体</option><option value="楷体">楷体</option></select><select  name="comfontSize"><option value="12">12</option><option value="14">14</option><option value="16">16</option><option value="18">18</option><option value="20">20</option><option value="22">22</option><option value="24">24</option><option value="26">26</option><option value="28">28</option><option value="30">30</option></select></td>
-                                <td style="padding-left:12px;"><span class="fontselbold"><img   id="Img4" class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal" class="ft" id="Img5"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img id="Img6" class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif"></span>
-                                <input type="hidden" name="navfb2" /><input type="hidden" name="navft2" /><input type="hidden" name="navfc2" />
+                                <td style="padding-left:12px;"><img  class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal" class="ft"   src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img  class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif">
+                                <input type="hidden" name="navfb" /><input type="hidden" name="navft" /><input type="hidden" name="navfc" />
                                 </td>
                             </tr>
                         </table>
