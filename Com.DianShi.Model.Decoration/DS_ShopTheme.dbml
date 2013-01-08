@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Database Name="hds0230549_db" Class="DS_ShopThemeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hds0230549_db" Class="DS_ShopThemeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=hds-023.hichina.com;Initial Catalog=hds0230549_db;Persist Security Info=True;User ID=hds0230549" SettingsObjectName="Com.DianShi.Model.ShopConfig.Properties.Settings" SettingsPropertyName="hds0230549_dbConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DS_ShopTheme" Member="DS_ShopTheme">
     <Type Name="DS_ShopTheme">
@@ -28,6 +27,7 @@
       <Column Name="NavNormalCss" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="NavBgSel" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="NavSelCss" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="NavMargin" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

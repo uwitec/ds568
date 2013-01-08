@@ -31,6 +31,9 @@
       <Column Name="NavBg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="NavBgNormal" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="NavBgSel" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="NavSelCss" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="NavNormalCss" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="NavMargin" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
