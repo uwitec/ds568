@@ -50,6 +50,33 @@
          if (!string.IsNullOrEmpty(BasePage._ShopConfig.NavBgSel)) {
              Response.Write(".HeaderMenuBar ul li.Check,.HeaderMenuBar ul li:hover{background-image:url(" + BasePage._ShopConfig.NavBgSel + ")}");
          }
+         
+         //未选中导航字体
+         if (!string.IsNullOrEmpty(BasePage._ShopConfig.NavNormalCss))
+         {
+             var navNormalCss = Common.JSONHelper.JSONToObject<IDictionary>(BasePage._ShopConfig.NavNormalCss);
+             Response.Write(" .HeaderMenuBar ul li a:link, .HeaderMenuBar ul li a:visited {" +
+                          "color: " + navNormalCss["color"] + ";" +
+                          "font-size: " + navNormalCss["size"] + "px;" +
+                          "font-weight: " + navNormalCss["weight"] + ";" +
+                          "font-family:"+navNormalCss["family"]+";"+
+                          "font-style:" + navNormalCss["style"] + ";" +
+                        "}"
+            );
+         }
+         //选中导航字体
+         if(!string.IsNullOrEmpty(BasePage._ShopConfig.NavSelCss))
+         {
+             var navSelCss = Common.JSONHelper.JSONToObject<IDictionary>(BasePage._ShopConfig.NavSelCss);
+             Response.Write(".HeaderMenuBar ul li a:hover, .HeaderMenuBar ul li.Check a:link, .HeaderMenuBar ul li.Check a:visited {" +
+                          "color: " + navSelCss["color"] + " !important;" +
+                          "font-size: " + navSelCss["size"] + "px;" +
+                          "font-weight: " + navSelCss["weight"] + ";" +
+                          "font-family:" + navSelCss["family"] + ";" +
+                          "font-style:" + navSelCss["style"] + ";" +
+                        "}"
+            ); 
+         }
          //未选中导航背景
          if (!string.IsNullOrEmpty(BasePage._ShopConfig.NavBgNormal)) {
              Response.Write(".HeaderMenuBar ul li{background:url(" + BasePage._ShopConfig.NavBgNormal + ");}");
@@ -58,6 +85,7 @@
          if (!string.IsNullOrEmpty(BasePage._ShopConfig.NavBg)) {
              Response.Write(".HeaderMenuBar{background:url(" + BasePage._ShopConfig.NavBg + ");}");
          }
+         
            
       %>
     </style>

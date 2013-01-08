@@ -10,8 +10,8 @@ public class Action : IHttpHandler, IRequiresSessionState
     
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/plain";
-       
 
+        
         //ajax事件
         string act = context.Request["myaction"];
         if (!string.IsNullOrEmpty(act))
