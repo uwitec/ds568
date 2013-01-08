@@ -138,6 +138,12 @@ namespace Com.DianShi.Model.ShopConfig
 		
 		private string _NavBgSel;
 		
+		private string _NavSelCss;
+		
+		private string _NavNormalCss;
+		
+		private string _NavMargin;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -200,6 +206,12 @@ namespace Com.DianShi.Model.ShopConfig
     partial void OnNavBgNormalChanged();
     partial void OnNavBgSelChanging(string value);
     partial void OnNavBgSelChanged();
+    partial void OnNavSelCssChanging(string value);
+    partial void OnNavSelCssChanged();
+    partial void OnNavNormalCssChanging(string value);
+    partial void OnNavNormalCssChanged();
+    partial void OnNavMarginChanging(string value);
+    partial void OnNavMarginChanged();
     #endregion
 		
 		public DS_ShopConfig()
@@ -783,6 +795,66 @@ namespace Com.DianShi.Model.ShopConfig
 					this._NavBgSel = value;
 					this.SendPropertyChanged("NavBgSel");
 					this.OnNavBgSelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NavSelCss", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string NavSelCss
+		{
+			get
+			{
+				return this._NavSelCss;
+			}
+			set
+			{
+				if ((this._NavSelCss != value))
+				{
+					this.OnNavSelCssChanging(value);
+					this.SendPropertyChanging();
+					this._NavSelCss = value;
+					this.SendPropertyChanged("NavSelCss");
+					this.OnNavSelCssChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NavNormalCss", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string NavNormalCss
+		{
+			get
+			{
+				return this._NavNormalCss;
+			}
+			set
+			{
+				if ((this._NavNormalCss != value))
+				{
+					this.OnNavNormalCssChanging(value);
+					this.SendPropertyChanging();
+					this._NavNormalCss = value;
+					this.SendPropertyChanged("NavNormalCss");
+					this.OnNavNormalCssChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NavMargin", DbType="NVarChar(10)", UpdateCheck=UpdateCheck.Never)]
+		public string NavMargin
+		{
+			get
+			{
+				return this._NavMargin;
+			}
+			set
+			{
+				if ((this._NavMargin != value))
+				{
+					this.OnNavMarginChanging(value);
+					this.SendPropertyChanging();
+					this._NavMargin = value;
+					this.SendPropertyChanged("NavMargin");
+					this.OnNavMarginChanged();
 				}
 			}
 		}

@@ -119,6 +119,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                 //{
                 var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
                 string navtype = request["navtype"];
+                md.NavMargin = request["navmargin"];
                 if (!string.IsNullOrEmpty(request["comfontName"]))
                 {
                     string cssstr = Common.JSONHelper.ObjectToJSON(new { family = request["comfontName"], size = request["comfontSize"], weight = request["navfb"], style = request["navft"], color = request["navfc"] });
