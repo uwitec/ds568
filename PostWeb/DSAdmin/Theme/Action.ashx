@@ -58,6 +58,9 @@ public class Action : IHttpHandler, IRequiresSessionState
                     break;
                 case "bgSave":
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.BgSave(context.Request)));
+                    break;
+                case "mdTlSave":
+                    context.Response.Write(Common.JSONHelper.ObjectToJSON(bl.MdTlSave(context.Request)));
                     break;  
                 case "savethename":
                     try

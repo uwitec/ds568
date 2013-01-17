@@ -132,6 +132,10 @@ namespace Com.DianShi.Model.ShopConfig
 		
 		private string _NavMargin;
 		
+		private string _MdHeadBg;
+		
+		private string _MdHeadCss;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -188,6 +192,10 @@ namespace Com.DianShi.Model.ShopConfig
     partial void OnNavSelCssChanged();
     partial void OnNavMarginChanging(string value);
     partial void OnNavMarginChanged();
+    partial void OnMdHeadBgChanging(string value);
+    partial void OnMdHeadBgChanged();
+    partial void OnMdHeadCssChanging(string value);
+    partial void OnMdHeadCssChanged();
     #endregion
 		
 		public DS_ShopTheme()
@@ -711,6 +719,46 @@ namespace Com.DianShi.Model.ShopConfig
 					this._NavMargin = value;
 					this.SendPropertyChanged("NavMargin");
 					this.OnNavMarginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MdHeadBg", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
+		public string MdHeadBg
+		{
+			get
+			{
+				return this._MdHeadBg;
+			}
+			set
+			{
+				if ((this._MdHeadBg != value))
+				{
+					this.OnMdHeadBgChanging(value);
+					this.SendPropertyChanging();
+					this._MdHeadBg = value;
+					this.SendPropertyChanged("MdHeadBg");
+					this.OnMdHeadBgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MdHeadCss", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string MdHeadCss
+		{
+			get
+			{
+				return this._MdHeadCss;
+			}
+			set
+			{
+				if ((this._MdHeadCss != value))
+				{
+					this.OnMdHeadCssChanging(value);
+					this.SendPropertyChanging();
+					this._MdHeadCss = value;
+					this.SendPropertyChanged("MdHeadCss");
+					this.OnMdHeadCssChanged();
 				}
 			}
 		}

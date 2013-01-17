@@ -18,7 +18,7 @@
          </style>
     <![endif]-->
     
-    <style type="text/css">
+    <%--<style type="text/css">--%>
        <%if(!string.IsNullOrEmpty(BasePage._ShopConfig.OuterBg)){//外背景
             Response.Write("body{background:url("+BasePage._ShopConfig.OuterBg +") repeat-y center top;}");
          }

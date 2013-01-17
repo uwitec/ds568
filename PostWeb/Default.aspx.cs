@@ -17,28 +17,16 @@ namespace Com.ItOnline.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            //int albumID = 12;
-            //var bl = new DS_Album_Br();
-            //string album = bl.GetDirByID(albumID);
-            //var pbl = new DS_AlbumImg_Br();
-            //var md = pbl.CreateModel();
-            //md.AlbumID = albumID;
-            //md.ImgUrl = album;
-            //md.ImgName = "";
-            //md.ImgDescript = "";
-            //md.Px = 0;
-            //pbl.Add(md);
-            //md.ImgName = album + "_" + DateTime.Now.ToString("yyyyMMddhhmmss") + "_" + md.ID;
-            //pbl.Update(md);
+
+            var anony = new { a = 1, b = "2",c=0.1,d=new[]{1,2,3} };
+            
+            var jsonserialize = new System.Web.Script.Serialization.JavaScriptSerializer();
+            
+            var obj=jsonserialize.DeserializeObject(jsonserialize.Serialize(anony));
+            
+            Response.Write((obj as IDictionary)["c"]);
         }
-        private void Button1_Click(object sender, EventArgs e) {
-            var emun = new Common.EmailUitility();
-            emun.Title = "测试验证码";
-            emun.Content = "123456";
-            emun.AddEmailAddress("416351551@qq.com");
-            emun.SendEmail();
-        }
+        
     }
 
 }
