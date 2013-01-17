@@ -28,6 +28,8 @@
       <Column Name="NavBgSel" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="NavSelCss" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="NavMargin" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="MdHeadBg" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MdHeadCss" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

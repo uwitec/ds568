@@ -132,6 +132,31 @@
         ajaxSave(postdata);
     });
 
+    //保存模块标题样式
+    $(".md-tl-save").click(function () {
+        if ($(this).hasClass("loading2")) return false;
+
+        $(".model-title table img").each(function (ind) {
+            if (ind < 2)
+                $(this).parent().find("input").eq(ind).val($(this).attr("val"));
+            else {
+                $(this).parent().find("input").eq(ind).val($(this).css("background-color"));
+            }
+        });
+
+        $("input[name=mdbdfc]").val(function () {
+            return $(this).prev().css("background-color");
+        });
+
+        var postdata = strToJson($(".model-title input,.model-title select").serialize());
+        postdata.myaction = "mdTlSave";
+        postdata.id = $("input[name=the_id]").val();
+        postdata.btn = this;
+        data.img = $("#mdTlBg");
+        data.fileid = "modelheadbg";
+        ajaxSave(postdata);
+    });
+
     //提交招牌
     $("#btn-sign-save").click(function () {
         if ($(this).hasClass("loading2")) return false;

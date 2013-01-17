@@ -43,6 +43,11 @@
             </li>
             <li>
                 <div class="mLeft"></div>
+                <div class="mMiddle">模块</div>
+                <div class="mRight"></div>
+            </li>
+            <li>
+                <div class="mLeft"></div>
                 <div class="mMiddle">广告</div>
                 <div class="mRight"></div>
             </li>
@@ -221,6 +226,85 @@
           </ul>
         </div>
         <!----------导航end-------------->
+
+        <!----------模块start------------>
+        <div class="th-model-wrap" style="display:none;">
+            <div>提示：网站所有页面都将应用您设定的模块风格</div>
+            <h3>航设置效果示例：</h3><br />
+            <div><img src="images/model.gif" /></div>
+            <ul  class="sub-model-menu">
+                <li class="crt">设定模块名称</li>
+                <li>设定模块内容</li>
+            </ul>
+            <ul class="item-main-wrap model-title" style="margin-top:10px;">
+                <li>
+                    <div class="itemL" >模块名称：</div>
+                    <div class="itemR">
+                        <table cellpadding=0 cellspacing=0>
+                            <tr>
+                                <td><select  name="mdfontName"><option value="宋体">宋体</option><option value="仿宋">仿宋</option><option value="黑体">黑体</option><option value="楷体">楷体</option></select><select  name="mdfontSize"><option value="12">12</option><option value="14">14</option><option value="16">16</option><option value="18">18</option><option value="20">20</option><option value="22">22</option><option value="24">24</option><option value="26">26</option><option value="28">28</option><option value="30">30</option></select></td>
+                                <td style="padding-left:12px;"><img  class="fb" val="normal" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/bold_1.gif"><img val="normal" class="ft"  src="http://style.org.hc360.com/images/detail/mysite/siteconfig/italic_1.gif"><img  class="fc" src="http://style.org.hc360.com/images/detail/mysite/siteconfig/font_1.gif">
+                                <input type="hidden" name="mdtlfb" /><input type="hidden" name="mdtlft" /><input type="hidden" name="mdtlfc" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" >边框颜色：</div>
+                    <div class="itemR">
+                        <img src="images/seLcolor.gif" class="fc" />
+                        <input type="hidden" name="mdbdfc" />
+                    </div>
+                    <div class="itemL" >边框样式：</div>
+                    <div class="itemR">
+                        <select name="border" class="border"><option value="none">无边框</option><option value="solid">实线</option><option value="dotted">点线</option></select>
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" >背景图片：</div>
+                    <div class="itemR">
+                        <input type="file"   name="modelheadbg" id="modelheadbg" />
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" >&nbsp;</div>
+                    <div class="itemR">
+                        <img alt="模块标题背景" id="mdTlBg"  src="#" onerror="javascript:this.style.display='none'"  />
+                    </div>
+                </li>
+              
+                <li>
+                    <div class="itemL" >&nbsp;</div>
+                    <div class="itemR">
+                        <a  class="commBtn md-tl-save"  href="javascript:void(0);"><span class="cb_l">&nbsp;</span><span class="cb_m">保存</span><span class="cb_r">&nbsp;</span></a>
+                    </div>
+                </li>
+          </ul>
+          <ul class="item-main-wrap" style="display:none;margin-top:10px;" >
+                <li>
+                    <div class="itemL" >边框颜色：</div>
+                    <div class="itemR">
+                        <img src="images/seLcolor.gif" class="fc" />
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" >边框样式：</div>
+                    <div class="itemR">
+                        <select name="border" class="border"><option>无边框</option><option>实线</option><option>点线</option></select>
+                    </div>
+                </li>
+                <li>
+                    <div class="itemL" >背景颜色：</div>
+                    <div class="itemR">
+                        <img src="images/seLcolor.gif" class="fc" />
+                    </div>
+                    
+                </li>
+          </ul>
+          
+        </div>
+        <!----------模块end-------------->
 
         <!----------广告START-------------->
         <div class="th-model-wrap" style="display:none;">
