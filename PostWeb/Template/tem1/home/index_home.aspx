@@ -64,13 +64,13 @@
     <div class="MiddleRight">
         <!--========关于我们开始=============-->
         <div class="About">
-            <div class="AboutHead">
+            <div class="box-hd AboutHead">
                 <div class="AHLeft">
                     关于我们</div>
                 <div class="AHRight">
                     <a href="/template/tem1/profile/index_profile.aspx">更多&gt;&gt;</a></div>
             </div>
-            <div class="AboutBody justify">
+            <div class="box-ctn AboutBody justify">
                 <img onerror="javascript:this.style.display='none'" class="AboutImg" src="<%=_vMember.ComImg.Split('|')[0] %>" />
                 <span id="about">&nbsp;&nbsp;&nbsp;&nbsp;<%=string.IsNullOrEmpty(_vMember.Profile) ? "" : (_vMember.Profile.Length > 500 ? _vMember.Profile.Substring(0, 500) + "…（<a href='../profile/index_profile.aspx'>未完</a>）。" : _vMember.Profile)%></span>
             </div>
@@ -80,13 +80,13 @@
         </div>
         <!--========精品推荐开始=============-->
         <div class="TzProduct">
-            <div class="TzHead">
+            <div class="box-hd TzHead">
                 <div class="TzHLeft">
                     精品推荐</div>
                 <div class="TzHRight">
                     <a href="../product/index_product.aspx">更多&gt;&gt;</a></div>
             </div>
-            <div class="TzBody" id="TzBody">
+            <div class="box-ctn TzBody" id="TzBody">
                 <div class="TzContent1">
                     <ul>
                         <asp:Repeater ID="Repeater2" runat="server">
@@ -121,13 +121,13 @@
         </div>
         <!--========最新产品开始=============-->
         <div class="NewProduct">
-            <div class="NewHead">
+            <div class="box-hd NewHead">
                 <div class="NewHLeft">
                     最新产品</div>
                 <div class="NewHRight">
                     <a href="../product/index_product.aspx">更多&gt;&gt;</a></div>
             </div>
-            <div class="NewBody" id="NewBody">
+            <div class="box-ctn NewBody" id="NewBody">
                 <div class="NewContent">
                     <ul>
                         <asp:Repeater ID="Repeater1" runat="server">
@@ -162,13 +162,13 @@
         </div>
         <!--========联系我们开始=============-->
         <div class="About">
-            <div class="AboutHead">
+            <div class="box-hd AboutHead">
                 <div class="AHLeft">
                    联系我们</div>
                 <div class="AHRight">
                     <a href="../profile/index_profile.aspx">更多&gt;&gt;</a></div>
             </div>
-            <div class="AboutBody">
+            <div class="box-ctn AboutBody">
                 <ul>
                 <li><%=_vMember.TrueName %> <%=_vMember.Gender %> （<%=_vMember.Position %>）
                     <a  href="http://wpa.qq.com/msgrd?v=3&uin=<%=_vMember.QQ %>&site=qq&menu=yes"><img onload="if(this.width>16) $(this).next().text('在线洽谈');"  src="http://wpa.qq.com/pa?p=2:<%=_vMember.QQ %>:4" alt="给我留言" /><span>给我留言</span></a></li>

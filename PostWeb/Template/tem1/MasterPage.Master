@@ -8,7 +8,7 @@
     <meta name="description" id="des" content="" />
     <meta name="keywords" id="kw" content="" />
     <title id="tl"><asp:ContentPlaceHolder ID="Title" runat="server"></asp:ContentPlaceHolder></title>
-    <link href="/css/merge.aspx?/css/Globle,/template/css/globle,/template/tem1/css/index,/js/wbox/wbox/wbox,shop-v1.css" rel="stylesheet" type="text/css" />
+    <link href="/css/merge.aspx?/css/Globle,/template/css/globle,/template/tem1/css/index,/js/wbox/wbox/wbox,shop-v2.css" rel="stylesheet" type="text/css" />
     <script src="/css/merge.aspx?/js/lib,/js/common,/js/wbox/wbox-min,/template/tem1/js/shopmaster,shop-v1.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -18,7 +18,7 @@
          </style>
     <![endif]-->
     
-    <%--<style type="text/css">--%>
+    <style type="text/css">
        <%if(!string.IsNullOrEmpty(BasePage._ShopConfig.OuterBg)){//外背景
             Response.Write("body{background:url("+BasePage._ShopConfig.OuterBg +") repeat-y center top;}");
          }
@@ -84,6 +84,11 @@
          //导航背景
          if (!string.IsNullOrEmpty(BasePage._ShopConfig.NavBg)) {
              Response.Write(".HeaderMenuBar{background:url(" + BasePage._ShopConfig.NavBg + ");}");
+         }
+         
+         //模块标题
+         if (!string.IsNullOrEmpty(BasePage._ShopConfig.MdHeadBg)) {
+             Response.Write(".box-hd{background:url(" + BasePage._ShopConfig.MdHeadBg + ") repeat;}");
          }
          
            
@@ -152,7 +157,7 @@
             <!--========菜单开始==============-->
             <div class="HeaderMenuBar" >
                 <ul>
-                    <li><a surl="home" href="/template/tem1/home/index_home.aspx">首页</a></li>
+                    <li><a surl="home"  href="/template/tem1/home/index_home.aspx">首页</a></li>
                     <li><a surl="product" href="/template/tem1/product/index_product.aspx">供应产品</a></li>
                     <%--<li><a surl="nourl" href="javascript:;alert('诚信档案尚未开放，请稍后访问。')">诚信档案</a></li>--%>
                     <li><a surl="profile" href="/template/tem1/profile/index_profile.aspx">公司介绍</a></li>
@@ -192,11 +197,11 @@
                     </div>
                     <!--========搜索开始=============-->
                     <div class="About">
-                        <div class="AboutHead">
+                        <div class="box-hd AboutHead">
                             <div class="AHLeft">
                                 站内搜索</div>
                         </div>
-                        <div class="SearchBody">
+                        <div class="box-ctn SearchBody">
                             <ul class="ulSearch">
                                 <li>产品名&nbsp;<input name="mst_pro_name" id="mst_pro_name" class="proNameInput" type="text" /></li>
                                 <li>价<span class="marginLeft1em"></span>格&nbsp;<input name="mst_low_price" id="mst_low_price" class="minPrice" type="text" /> 到 <input
@@ -210,11 +215,11 @@
                     </div>
                     <!--========产品分类开始=============-->
                     <div class="About">
-                        <div class="AboutHead">
+                        <div class="box-hd AboutHead">
                             <div class="AHLeft">
                                 供应产品分类</div>
                         </div>
-                        <div class="LeftModleBody">
+                        <div class="box-ctn LeftModleBody">
                             <div>
                                 <ul>
                                     <asp:Repeater ID="Repeater1"  runat="server">
@@ -232,11 +237,11 @@
                     </div>
                     <!--========友情连接开始=============-->
                     <div class="About">
-                        <div class="AboutHead">
+                        <div class="box-hd AboutHead">
                             <div class="AHLeft">
                                  友情连接</div>
                         </div>
-                        <div class="ContactBody">
+                        <div class="box-ctn ContactBody">
                             <div>
                                 <ul>
                                     <li><a href="#">阿里巴巴 </a></li>
@@ -253,11 +258,11 @@
                     </div>
                     <!--========联系方式开始=============-->
                     <div class="About">
-                        <div class="AboutHead">
+                        <div class="box-hd AboutHead">
                             <div class="AHLeft">
                                  联系方式</div>
                         </div>
-                        <div class="ContactBody">
+                        <div class="box-ctn ContactBody">
                             <div>
                                 <ul>
                                     <li><%=BasePage._vMember.TrueName%> <%=BasePage._vMember.Gender%> （<%=BasePage._vMember.Position%>）</li>
@@ -282,8 +287,7 @@
             <!--========内容中间部分结束=================-->
         </div>
         <!--==============内容部分结束===============-->
-        <div class="Split12px">
-        </div>
+       
         <div class="BottomSplitLine">
             &nbsp;</div>
         <!--==============底部开始===============-->

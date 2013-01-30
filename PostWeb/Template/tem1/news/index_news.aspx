@@ -12,8 +12,8 @@
 <input type="hidden" id="rc" value="<%=ViewState["rc"] %>" />
     <div class="MiddleRight">
         <!--========内容开始=============-->
-        <div class="About">
-            <div class="AboutHead">
+        <div class="box-ctn About">
+            <div class="box-hd AboutHead">
                 <div class="AHLeft">
                     公司新闻</div>
             </div>

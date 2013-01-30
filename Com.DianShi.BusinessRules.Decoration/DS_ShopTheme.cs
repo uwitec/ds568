@@ -163,7 +163,6 @@ namespace Com.DianShi.BusinessRules.ShopConfig
             using (var ct = new DS_ShopThemeDataContext(DbHelperSQL.Connection))
             {
                 var md = ct.DS_ShopTheme.Single(a => a.ID.Equals(int.Parse(request["id"])));
-                md.MdHeadCss = Common.JSONHelper.ObjectToJSON(new { fontFamily = request["mdfontName"], fontSize = request["mdfontSize"], fontWeight = request["mdtlfb"], fontStyle = request["mdtlft"], fontColor = request["mdtlfc"], borderColor = request["mdbdfc"], borderStyle = request["border"] });
                 if (request.Files.Count > 0 && request.Files[0].ContentLength > 0)
                 {
                     var rtobj = SaveImg(request.Files[0], md.ID, "mdhdbg_",md.MdHeadBg , 100);
@@ -176,6 +175,7 @@ namespace Com.DianShi.BusinessRules.ShopConfig
                         return new { Succ = false, Msg = rtobj.Msg };
                     }
                 }
+                md.MdHeadCss = Common.JSONHelper.ObjectToJSON(new { fontFamily = request["mdfontName"], fontSize = request["mdfontSize"], fontWeight = request["mdtlfb"], fontStyle = request["mdtlft"], fontColor = request["mdtlfc"], borderColor = request["mdbdfc"], borderStyle = request["border"] });
                 ct.SubmitChanges();
                 return new { Succ = true, imgUrl = ThemePath(md.ID) + md.MdHeadBg, md.ID };
             }

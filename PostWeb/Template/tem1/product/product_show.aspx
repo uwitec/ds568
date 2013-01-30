@@ -25,6 +25,7 @@
         .ri_3 a.pur_buy{ background-position:-414px 0;}
         span.loading2{padding-left:20px; background-position:left center;display:block; clear:both;margin-top:8px;display:none;}
         .ol_wp{display:none;}
+        .dt-in-wp{padding:0 8px;}
     </style>
     <script type="text/javascript" src="js/pro_show.js"></script>
 </asp:Content>
@@ -32,7 +33,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 <input type="hidden" id="priceRang" value="<%=Property1.Product.PriceRang %>" />
-    <div class="MiddleRight">
+    <div class="box-ctn MiddleRight">
         <!--========产品内容开始=============-->
         <div class="pTitle">
             <%=Property1.Product.Title%>
@@ -160,13 +161,14 @@
                     <uc1:Property ID="Property1" runat="server" />
                     
                     <div class="description-detail">
-                        <%=Property1.Product.Detail%>
-                        <script type="text/javascript">
-                            //产品描术图片自缩放
-                           $(".description-detail img").each(function(){
-                               changeImg(this,742,742)
-                           });
-                        </script>
+                        <div class="dt-in-wp justify"><%=Property1.Product.Detail%>
+                            <script type="text/javascript">
+                                //产品描术图片自缩放
+                               $(".description-detail img").each(function(){
+                                   changeImg(this,742,742)
+                               });
+                            </script>
+                        </div>
                     </div>
                 </div>
                 <div class="pContent2 oflAuto">

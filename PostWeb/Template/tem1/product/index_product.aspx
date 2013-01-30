@@ -11,13 +11,13 @@
     <div class="MiddleRight">
         <!--========产品内容开始=============-->
         <div class="About">
-            <div class="AboutHead">
+            <div class="box-hd AboutHead">
                 <div class="AHLeft">
                     产品列表</div>
                 <div class="div001">
                 </div>
             </div>
-            <div class="AlbumBody">
+            <div class="box-ctn AlbumBody">
                 <ul class="ul001">
                     <asp:Repeater ID="Repeater1" runat="server">
                         <ItemTemplate>

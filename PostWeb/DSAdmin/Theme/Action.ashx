@@ -44,6 +44,7 @@ public class Action : IHttpHandler, IRequiresSessionState
                     the.NavBg = thepath + the.NavBg;
                     the.NavBgNormal = thepath + the.NavBgNormal;
                     the.NavBgSel = thepath + the.NavBgSel;
+                    the.MdHeadBg = thepath + the.MdHeadBg;
                     context.Response.Write(Common.JSONHelper.ObjectToJSON(the));
                     break;
                 case "del":

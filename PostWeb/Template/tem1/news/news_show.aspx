@@ -26,11 +26,11 @@
     <div class="MiddleRight">
         <!--========内容开始=============-->
         <div class="About">
-            <div class="AboutHead">
+            <div class="box-hd AboutHead">
                 <div class="AHLeft">
                     公司新闻</div>
             </div>
-            <div class="newsBody">
+            <div class="box-ctn newsBody">
                 <asp:Repeater ID="Repeater1" runat="server" EnableViewState="false" >
                     <ItemTemplate> 
                         <h3>
@@ -58,11 +58,11 @@
             </div>
         </div>
         <div class="About marginTop8">
-            <div class="AboutHead">
+            <div class="box-hd AboutHead">
                 <div class="AHLeft">
                     文章评论</div>
             </div>
-            <div class="newsComent">
+            <div class="box-ctn newsComent">
                 <asp:Repeater ID="Repeater2" runat="server" EnableViewState="false">
                     <ItemTemplate>
                         <div class="comentBody">
@@ -100,7 +100,7 @@
             </div>
             <div class="nocoment">
                 当前还没有评论。</div>
-            <div class="comSelectAll" style="visibility:<%=ViewState["isLogin"].ToString()=="0"?"hidden":"visible" %>">
+            <div class="comSelectAll" style="display:<%=ViewState["isLogin"].ToString()=="0"?"none":"block" %>">
                 <div class="comContent">
                     <ul>
                         <li>
@@ -113,11 +113,11 @@
         </div>
         
         <div class="About marginTop8">
-            <div class="AboutHead">
+            <div class="box-hd AboutHead">
                 <div class="AHLeft">
                     发表评论</div><div class="comTips">请严格遵守相关法律，严禁恶意评论和垃圾评论</div>
             </div>
-            <div class="publishComent overFlowAuto">
+            <div class="box-ctn publishComent overFlowAuto">
                 <div class="publishComent-cont overFlowAuto"><ul><li>内容：</li><li>
                     <textarea  id="coment" cols="20" rows="2"></textarea></li></ul></div>
                 <div class="publishComent-btn"><span class="loading2">数据提交中…</span>
