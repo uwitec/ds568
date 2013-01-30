@@ -10,11 +10,11 @@
     <div class="MiddleRight">
         <!--========我的相册开始=============-->
         <div class="About">
-            <div class="AboutHead">
+            <div class="box-hd AboutHead">
                 <div class="AHLeft">
                     我的相册</div>
             </div>
-            <div class="AlbumBody">
+            <div class="box-ctn AlbumBody">
                 <div class="AlbumBodyContainer">
                     <ul class="AlbumBody_Head">
                         <li class="AlbumBody_Head_title">全部相册</li><li class="AlbumBody_Head_Remark">我公司的图片分布于以下相册中，请查看</li>

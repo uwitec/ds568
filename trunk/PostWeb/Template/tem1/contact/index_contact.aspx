@@ -13,11 +13,11 @@
     <div class="MiddleRight">
         <!--========内容开始=============-->
         <div class="About">
-            <div class="AboutHead">
+            <div class="box-hd AboutHead">
                 <div class="AHLeft">
                     联系方式</div>
             </div>
-            <div class="contactBody contacts">
+            <div class="box-ctn contactBody contacts">
                 <div>
                     <div class="companyName">
                         <%=_vMember.CompanyName %></div>

@@ -121,7 +121,7 @@
                 if (ind < 2)
                     $(this).parent().find("input").eq(ind).val($(this).attr("val"));
                 else {
-                    $(this).parent().find("input").eq(ind).val($(this).css("background-color"));
+                    $(this).parent().find("input").eq(ind).val($(this).css("background-color").replace(/\s/g,""));
                 }
             });
         });
@@ -152,8 +152,8 @@
         postdata.myaction = "mdTlSave";
         postdata.id = $("input[name=the_id]").val();
         postdata.btn = this;
-        data.img = $("#mdTlBg");
-        data.fileid = "modelheadbg";
+        postdata.img = $("#mdTlBg");
+        postdata.fileid = "modelheadbg";
         ajaxSave(postdata);
     });
 
@@ -364,7 +364,20 @@
                 $(".imginner").attr("src", data.InnerBg).show();
                 $(".imgouter").attr("src", data.OuterBg).show();
 
-                //
+                //模块标题样式和背景图
+                var mdtl=eval("("+data.MdHeadCss+")");
+                $("select[name=mdfontName]").val(mdtl.fontFamily);
+                $("select[name=mdfontSize]").val(mdtl.fontSize);
+                if (mdtl.fontWeight != $(".model-title img.fb").attr("val")) {
+                    $(".model-title img.fb").click();
+                }
+                if (mdtl.fontStyle != $(".model-title img.ft").attr("val")) {
+                    $(".model-title img.ft").click();
+                }
+                $(".model-title img.fc").eq(0).css("background-color", mdtl.fontColor);
+                $(".model-title img.fc").eq(1).css("background-color", mdtl.borderColor);
+                $(".model-title select[name=border]").val(mdtl.borderStyle);
+                $("#mdTlBg").attr("src", data.MdHeadBg).show();
 
             },
             error: function (req) {

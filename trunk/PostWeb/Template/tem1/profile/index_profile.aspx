@@ -13,22 +13,22 @@
     <div class="MiddleRight">
         <!--========内容开始=============-->
         <div class="About">
-            <div class="AboutHead">
+            <div class="box-hd AboutHead">
                 <div class="AHLeft">
                     公司介绍</div>
             </div>
-            <div class="profileBody">
+            <div class="box-ctn profileBody">
                 <div class="comimgCtn"></div>
                
                 &nbsp;<%=_vMember.Profile%>
             </div>
         </div>
-        <div class="About NoTopBorder">
-            <div class="AboutHead">
+        <div class="About NoTopBorder marginTop8">
+            <div class="box-hd AboutHead">
                 <div class="AHLeft">
                     详细信息</div>
             </div>
-            <div class="profileBody">
+            <div class="box-ctn profileBody">
                 <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>
                         <table width="98%" border="0" align="center"  cellpadding="0" cellspacing="1" bgcolor="#FFFFFF" style="line-height:30px;">

@@ -1,9 +1,9 @@
 .Main {width: 100%;overflow:auto;zoom:1;color:#333;}
-.Content{width:952px;margin:8px auto 0 auto;overflow:auto;zoom:1;}
+.Content{width:952px;margin:0 auto;overflow:auto;zoom:1;padding:0 0 8px;}
 .Head{height:90px;line-height:90px;background: url(/Template/tem1/images/topbaner.gif) no-repeat;}
 .Head h1{color:#333;text-indent:12px;}
-.HeaderMenuBar{background: url(/Template/tem1/images/header_menu.gif);height: 28px;}
-.HeaderMenuBar ul{margin-left:2em;}
+.HeaderMenuBar{background: url(/Template/tem1/images/header_menu.gif);}
+.HeaderMenuBar ul{margin-left:2em;height: 28px;overflow:hidden;}
 .HeaderMenuBar ul li a:link,.HeaderMenuBar ul li a:visited{font-size:14px;font-weight:bold;color:#555;}
 .HeaderMenuBar ul li{width:99px;height:28px;float:left;line-height:32px;_line-height:28px;text-align:center;}
 .HeaderMenuBar ul li:hover,.HeaderMenuBar ul li.Check{background: url(/Template/tem1/images/header_menu_check.gif);}
@@ -33,7 +33,8 @@
 .UserInfoBottom{background-position:0 -42px;height:4px;line-height:4px;overflow:hidden;}
 .About,.TzProduct,.NewProduct,.Modle{border:solid 1px #cbeae5;}
 .NoTopBorder{border-top:none 0;}
-.AboutHead,.TzHead,.NewHead,.ModleHead{height:28px;background:url(/Template/tem1/images/cefbfe.gif) repeat-x;}
+.box-hd{height:28px;background:url(/Template/tem1/images/cefbfe.gif) repeat-x;}
+.box-ctn{background-color:White;}
 .AHLeft,.AHRight,.TzHLeft,.TzHRight,.NewHLeft,.NewHRight,.MHLeft,.comTips{line-height:28px;color:#005b70;height:28px;}
 .comTips{ text-align:center;}
 .AHLeft,.TzHLeft,.NewHLeft,.MHLeft{float:left; width:85px;font-weight:bold;font-size:14px; text-indent:1em;}
@@ -57,7 +58,7 @@
 .Bottom{height:100px;width:952px;margin:0 auto; text-align:center;padding-top:16px;}
 .Bottom a:link{color:#05a;}
 .Bottom a:hover{color:#ff7300;}
-.ulSearch{margin:0 auto;margin-top:8px;width:172px;height:87px;}
+.ulSearch{margin:0 auto;width:172px;height:87px;}
 .liSearchBtn{padding-left:3.3em;}
 .marginLeft1em{margin-left:12px;}
 .proNameInput{width:124px; vertical-align:middle;}
@@ -71,9 +72,9 @@
 .MiddleLeft div{float:none;}
 .MiddleLeft div.Split12px{width:200px;}
 .MiddleLeft div.AHLeft,.SearchBody{width:198px;}
+.SearchBody{padding-top:8px;}
 .ulCategory{width:172px; overflow:auto;zoom:1;}
 .LeftModleBody{width:198px;overflow:auto;zoom:1;}
-.SearchBody,.LeftModleBody,.AboutBody,.TzBody,.NewBody,.ContactBody,.ContactBody{background-color:White;}
 .LeftModleBody ul li{text-indent:20px;border-bottom:dotted 1px #bfbfbf;width:198px;line-height:22px;height:22px;background-position:-286px 7px;}
 .ContactBody{overflow:auto;zoom:1;}
 .ContactBody ul li{height:20px;line-height:20px; text-indent:10px;width:198px;}
